@@ -33,6 +33,8 @@ Mash  (https://github.com/marbl/Mash)
 RaPDTool it is written in python and runs natively by calling the script:
   rapdtool.py
   
+  Also you will need the accompanying C scripts
+  
 # Usage: 
   rapdtool.py [-h] [-i INPUT] [-d DATABASE] [-r ROOT] [-c COMMENT]
 
