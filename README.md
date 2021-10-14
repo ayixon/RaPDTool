@@ -18,8 +18,11 @@ storage space and computing time.
 # Dependencies:
 
 FOCUS (https://github.com/metageni/FOCUS)
+
 Metabat2 (https://bitbucket.org/berkeleylab/metabat/src/master/)
+
 Binning_refiner (https://github.com/songweizhi/Binning_refiner)
+
 Mash  (https://github.com/marbl/Mash)
 
 # How to install:
