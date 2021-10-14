@@ -54,6 +54,8 @@ RaPDTool it is written in python and runs natively by calling the script:
     -c COMMENT, --comment COMMENT
                         "comment for this execution"
                         
+                        example : rapdtool.py -i INPUT.fasta -d DATABASE.msh -r OUTPUT_FOLDER
+                        
 # Output files:
 
 The RaPDTool output is stored in the $HOME directory. The -r option allows to assign a name to the output folder.
