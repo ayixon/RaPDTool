@@ -9,7 +9,7 @@ RaPDTool offer a simple and easy-to-use tool for community profiling, binning an
 RaPDTool use raw reads or metagenomic assemblies and call FOCUS profiler to report the organisms/abundance present in the metagenome.
 
 
-# 2. Deconvolve a metagenome into individual genomes or bins.
+# 2. Deconvolve a metagenome into individual genomes or bins, and refine the set of MAGs.
 
 If the input consist on a metagenome assembly, RaPDTool automatically call Metabat2  to aggregate individual genome bins. The bins are subsequently refined with Binning_refiner
 (https://github.com/songweizhi/Binning_refiner) to produce a non-redundant set.
