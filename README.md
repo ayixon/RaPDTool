@@ -1,6 +1,4 @@
-# RaPDTool
-
-# Rapid Profiling and Deconvolution Tool for metagenomes
+# RaPDTool: Rapid Profiling and Deconvolution Tool for metagenomes
 
 ![image](https://user-images.githubusercontent.com/42699236/138326365-ee9d2440-dc2c-48a9-9b13-ea2bccf0eea1.png)
 
