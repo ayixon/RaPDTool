@@ -1,11 +1,11 @@
 # RaPDTool
 
-Rapid Profiling and Deconvolution Tool for metagenomes
+# Rapid Profiling and Deconvolution Tool for metagenomes
 
 ![image](https://user-images.githubusercontent.com/42699236/138326365-ee9d2440-dc2c-48a9-9b13-ea2bccf0eea1.png)
 
 
-RaPDTool offer a simple and easy-to-use tool for community profiling, binning and "genome-distance" exploration by connecting a series of bioinformatics tools in a single workflow:
+# RaPDTool offer a simple and easy-to-use tool for community profiling, binning and "genome-distance" exploration by connecting a series of bioinformatics tools in a single workflow:
 
 # 1. Generate a taxonomic profile from massive sequencing data (fasta short reads, metagenome assemblies).
 
