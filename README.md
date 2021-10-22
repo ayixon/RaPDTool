@@ -58,7 +58,7 @@ RaPDTool it is written in python and runs natively by calling the script:
                         example : rapdtool.py -i INPUT.fasta -d DATABASE.msh -r OUTPUT_FOLDER
                         
                         Database currently available:
-                        NCBI Prokariotic type material genomes (https://figshare.com/ndownloader/files/30851626)
+                        NCBI Prokaryotic type material genomes (https://figshare.com/ndownloader/files/30851626)
                         Gtdb-r202 (https://figshare.com/ndownloader/files/30863182) 
                         
 # Output files:
@@ -76,7 +76,7 @@ result: Metabat and Binning_refiner result
 
 workf: Summary mash distance calculation
 
-RaPDTool produces individual mash comparisons for every genome bin obtained against the user database (If you select NCBI Type Material DB there will be near to 17,000 records, GTDB contains many more). For this reason, the subdirectory "allresults" contain the ten closest hits from the mash paired comparison for each genome. This simplifies the interpretation of the results by limiting the Mash comparison to the ten closest neighbors to the query, which can be useful in phylogenetics and taxonomy. The user can take this list as the basis for a finer comparison by estimating the Overall genome relatedness index (OGRI) like ANI.
+RaPDTool produces individual mash comparisons for every genome bin obtained against the user database (If you select prokaryotic NCBI Type Material DB there will be near to 17,000 records, GTDB contains many more). For this reason, the subdirectory "allresults" contain the ten closest hits from the mash paired comparison for each genome. This simplifies the interpretation of the results by limiting the Mash comparison to the ten closest neighbors to the query, which can be useful in phylogenetics and taxonomy. The user can take this list as the basis for a finer comparison by estimating the Overall genome relatedness index (OGRI) like ANI.
 
 # References:
 
