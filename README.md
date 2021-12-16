@@ -55,7 +55,7 @@ RaPDTool it is written in python and runs natively by calling the script:
     -c COMMENT, --comment COMMENT
                         "comment for this execution"
                         
-                        example : rapdtool.py -i INPUT.fasta -d DATABASE.msh -r OUTPUT_FOLDER
+                        example : ./rapdtool.py -i INPUT.fasta -d DATABASE.msh -r OUTPUT_FOLDER
                         
                         Database currently available:
                         NCBI Prokaryotic type material genomes (https://figshare.com/ndownloader/files/30851626)
