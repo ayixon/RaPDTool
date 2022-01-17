@@ -24,7 +24,7 @@ storage space and computing time.
 
 FOCUS (https://github.com/metageni/FOCUS)
 
-Metabat2 (https://bitbucket.org/berkeleylab/metabat/src/master/)
+Metabat2 (https://bitbucket.org/berkeleylab/metabat/src/master/) (version tested 2:2.15)
 
 Binning_refiner (https://github.com/songweizhi/Binning_refiner)
 
