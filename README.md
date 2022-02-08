@@ -90,3 +90,13 @@ Song WZ, Thomas T (2017) Binning_refiner: Improving genome bins through the comb
 
 Kang, D. D., Li, F., Kirton, E., Thomas, A., Egan, R., An, H., & Wang, Z. (2019). MetaBAT 2: an adaptive binning algorithm for robust and efficient genome reconstruction from metagenome assemblies. PeerJ, 7, e7359. https://doi.org/10.7717/peerj.7359.
 
+# Acknowledgments
+
+This work was developed in the group of Dr. Ayixon Sánchez-Reyes
+
+  "Researchers for Mexico" Program-(CONACYT)-Institute of Biotechnology-National Autonomous University of Mexico
+  
+We thank Ing. Roberto Paredo for his help in the development of this tool
+
+This work was funded in part by the project CF 2019 265222 (Fondo Institucional para el Desarrollo Científico, Tecnológico y de Innovación FORDECYT-PRONACES CONACYT- México)
+
