@@ -96,7 +96,7 @@ This work was developed in the group of Dr. Ayixon Sánchez-Reyes
 
   "Researchers for Mexico" Program-(CONACYT)-Institute of Biotechnology-National Autonomous University of Mexico
   
-We thank Ing. Roberto Paredo for his help in the development of this tool
+We thank Ing. Roberto Peredo for his help in the development of this tool
 
 This work was funded in part by the project CF 2019 265222 (Fondo Institucional para el Desarrollo Científico, Tecnológico y de Innovación FORDECYT-PRONACES CONACYT- México)
 
