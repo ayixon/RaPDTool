@@ -92,9 +92,13 @@ Kang, D. D., Li, F., Kirton, E., Thomas, A., Egan, R., An, H., & Wang, Z. (2019)
 
 # Acknowledgments
 
-This work was developed in the group of Dr. Ayixon Sánchez-Reyes
+This work was developed in the group of **Dr. Ayixon Sánchez-Reyes**
 
   "Researchers for Mexico" Program-(CONACYT)-Institute of Biotechnology-National Autonomous University of Mexico
+  
+  **Contact personal: ayixon@gmail.com         **Contact institutional: ayixon.sanchez@mail.ibt.unam.mx
+  
+  Teammates: **Dra. Luz Bretón Deval; Dr. Maikel G. Fernández-López**
   
 We thank Ing. Roberto Peredo for his help in the development of this tool
 
