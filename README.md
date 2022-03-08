@@ -7,7 +7,7 @@
 
 # 1. Generate a taxonomic profile from massive sequencing data (fasta short reads, metagenome assemblies).
 
-RaPDTool use raw reads or metagenomic assemblies and call FOCUS profiler to report the organisms/abundance present in the metagenome.
+RaPDTool use metagenomic assemblies and call FOCUS profiler to report the organisms/abundance present in the metagenome.
 
 
 # 2. Deconvolve a metagenome into individual genomes or bins, and refine the set of MAGs.
@@ -15,7 +15,11 @@ RaPDTool use raw reads or metagenomic assemblies and call FOCUS profiler to repo
 If the input consist on a metagenome assembly, RaPDTool automatically call Metabat2  to aggregate individual genome bins. The bins are subsequently refined with Binning_refiner
 (https://github.com/songweizhi/Binning_refiner) to produce a non-redundant set.
 
-# 3. Evaluate the probable "taxonomic neighborhoods" of each resulting genome bin.
+# 3. Estimate Completeness, Redundancy and MAG basic statistics with miComplete
+ 
+ In the version 2.0 of this pipeline, the refined set of bins are automatically processed with miComplete (https://github.com/EricHugo/miComplete), a much faster tool than CheckM for this purpose. 
+ 
+# 4. Evaluate the probable "taxonomic neighborhoods" of each resulting genome bin.
 
 RaPDTool compare each bin against curated taxonomic mash databases like type material genome database (https://figshare.com/ndownloader/files/30851626). Alternatively it can be compared against the database Gtdb-r202 (https://figshare.com/ndownloader/files/30863182). Both databases are offered as representations or sketches that reduce
 storage space and computing time.
@@ -28,13 +32,30 @@ Metabat2 (https://bitbucket.org/berkeleylab/metabat/src/master/) (version tested
 
 Binning_refiner (https://github.com/songweizhi/Binning_refiner)
 
+miComplete (https://github.com/EricHugo/miComplete)
+
 Mash  (https://github.com/marbl/Mash)
 
 # How to install:
 RaPDTool it is written in python and runs natively by calling the script:
   rapdtool.py
   
-  Also you will need the accompanying C scripts
+  Also you will need the accompanying C scripts and the depenencies installed in your system. 
+  
+  A simple way to get all the dependencies ready is through the conda package manager:
+
+    $ conda install focus metabat2 binning_refiner miComplete mash 
+    
+  If you prefer you can create an environment and set everything within it:
+
+    $ conda create -n rapdtool
+
+    $ conda activate rapdtool
+
+    $ conda install focus metabat2 binning_refiner miComplete mash
+  
+ After that, clone this repository in your prefered folder and excute the python script
+    
   
 # Usage: 
   rapdtool.py [-h] [-i INPUT] [-d DATABASE] [-r ROOT] [-c COMMENT]
@@ -89,6 +110,8 @@ Silva, G. G. Z., D. A. Cuevas, B. E. Dutilh, and R. A. Edwards, 2014: FOCUS: an 
 Song WZ, Thomas T (2017) Binning_refiner: Improving genome bins through the combination of different binning programs. Bioinformatics, 33(12), 1873-1875. 
 
 Kang, D. D., Li, F., Kirton, E., Thomas, A., Egan, R., An, H., & Wang, Z. (2019). MetaBAT 2: an adaptive binning algorithm for robust and efficient genome reconstruction from metagenome assemblies. PeerJ, 7, e7359. https://doi.org/10.7717/peerj.7359.
+
+Eric Hugoson, Wai Tin Lam, Lionel Guy, miComplete: weighted quality evaluation of assembled microbial genomes, Bioinformatics, Volume 36, Issue 3, 1 February 2020, Pages 936–937, https://doi.org/10.1093/bioinformatics/btz664
 
 # Acknowledgments
 
