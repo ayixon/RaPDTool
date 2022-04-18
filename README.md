@@ -1,6 +1,6 @@
 # RaPDTool: Rapid Profiling and Deconvolution Tool for metagenomes
 
-![image](https://user-images.githubusercontent.com/42699236/138326365-ee9d2440-dc2c-48a9-9b13-ea2bccf0eea1.png)
+![RaPDTool_pipeline_600ppi](https://user-images.githubusercontent.com/42699236/163838245-93c3d313-ca23-4d2b-9e53-41999bd89e8d.png)
 
 
 # RaPDTool offer a simple and easy-to-use tool for microbial communities profiling, contigs binning and "genomic-distance" exploration by connecting a series of bioinformatic tools in a single workflow:
