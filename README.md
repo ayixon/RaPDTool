@@ -5,10 +5,11 @@
 
 # RaPDTool offer a simple and easy-to-use tool for microbial communities profiling, contigs binning and "genomic-distance" exploration by connecting a series of bioinformatic tools in a single workflow:
 
-# 1. Generate a taxonomic profile from massive sequencing data (fasta short reads, metagenome assemblies).
+# 1. Generate a taxonomic profile from massive sequencing data (the input file shoul be a metagenome assembly).
 
 RaPDTool use metagenomic assemblies and call FOCUS profiler to report the organisms/abundance present in the metagenome.
 
+*Warning: Taxonomic profiles are usually inferred from raw reads; assembled-contigs profiling is an "special case" in order to explore what part of the community could be assembled into regular genomic composites. Use at your own risk :)
 
 # 2. Deconvolve a metagenome into individual genomes or bins, and refine the set of MAGs.
 
@@ -78,7 +79,7 @@ RaPDTool it is written in python and runs natively by calling the script:
                         
                         example : ./rapdtool.py -i INPUT.fasta -d DATABASE.msh -r OUTPUT_FOLDER
                         
-                        Database currently available:
+                        Databases currently available:
                         NCBI Prokaryotic type material genomes (https://figshare.com/ndownloader/files/30851626)
                         Gtdb-r202 (https://figshare.com/ndownloader/files/30863182) 
                         
@@ -121,7 +122,7 @@ This work was developed in the group of **Dr. Ayixon Sánchez-Reyes**
   
   **Contact personal: ayixon@gmail.com         **Contact institutional: ayixon.sanchez@mail.ibt.unam.mx
   
-  Teammates: **Dra. Luz Bretón Deval; Dr. Maikel G. Fernández-López**
+  Teammates: **Dra. Luz Bretón Deval; M.C. Karel Johan Estrada Guerra; Dr. Maikel G. Fernández-López**
   
 We thank Ing. Roberto Peredo for his help in the development of this tool
 
