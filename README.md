@@ -1,6 +1,6 @@
 # RaPDTool: Rapid Profiling and Deconvolution Tool for metagenomes
 
-**You are on version 1.0, we highly recommend the version 2.0 of this tool**
+
 
 ![RaPDTool_pipeline_600ppi](https://user-images.githubusercontent.com/42699236/163838245-93c3d313-ca23-4d2b-9e53-41999bd89e8d.png)
 
