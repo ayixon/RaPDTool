@@ -37,6 +37,12 @@ miComplete (https://github.com/EricHugo/miComplete)
 
 Mash  (https://github.com/marbl/Mash)
 
+RaPDTool also depends on a preconfigured database; for convenience the user can download and use any of the following:
+
+  Databases currently available:
+                        NCBI Prokaryotic type material genomes (https://figshare.com/ndownloader/files/30851626)
+                        Gtdb-r202 (https://figshare.com/ndownloader/files/30863182) 
+
 # How to install:
 RaPDTool it is written in python and runs natively by calling the script:
   rapdtool.py
@@ -79,9 +85,7 @@ RaPDTool it is written in python and runs natively by calling the script:
                         
                         example : ./rapdtool.py -i INPUT.fasta -d DATABASE.msh -r OUTPUT_FOLDER
                         
-                        Databases currently available:
-                        NCBI Prokaryotic type material genomes (https://figshare.com/ndownloader/files/30851626)
-                        Gtdb-r202 (https://figshare.com/ndownloader/files/30863182) 
+                      
                         
 # Output files:
 
