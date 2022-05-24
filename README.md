@@ -40,6 +40,7 @@ Mash  (https://github.com/marbl/Mash)
 RaPDTool also depends on a preconfigured database; for convenience the user can download and use any of the following:
 
   Databases currently available:
+  
                         NCBI Prokaryotic type material genomes (https://figshare.com/ndownloader/files/30851626)
                         
                         Gtdb-r202 (https://figshare.com/ndownloader/files/30863182) 
