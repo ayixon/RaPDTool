@@ -41,6 +41,7 @@ RaPDTool also depends on a preconfigured database; for convenience the user can 
 
   Databases currently available:
                         NCBI Prokaryotic type material genomes (https://figshare.com/ndownloader/files/30851626)
+                        
                         Gtdb-r202 (https://figshare.com/ndownloader/files/30863182) 
 
 # How to install:
