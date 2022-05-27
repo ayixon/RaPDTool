@@ -89,22 +89,84 @@ RaPDTool it is written in python and runs natively by calling the script:
                         
                       
                         
-# Output files:
+# Output directories and files
 
-The RaPDTool output is stored in the $HOME directory. The -r option allows to assign a name to the output folder.
-The pipeline results are stored in subdirectories easily identifiable by the user: 
+The output of RaPDTool produces 8 main directories:
 
-genomadb: user database 
+![image](https://user-images.githubusercontent.com/42699236/170735788-3aed46d1-d593-451a-bf35-cf16c29eaf18.png)
 
-input: input metagenome
+### The fmbm directory
 
-profiles: Focus profiling results 
+Contains the log file of the RaPDTool execution (logfmbm.txt).
 
-result: Metabat and Binning_refiner result
+**fmbm** is a kind of acronym that includes the main operations of the pipeline (Focus/Metabat/Binning_refiner/Mash).
 
-workf: Summary mash distance calculation
+### The genomadbfmbm directory
 
-RaPDTool produces individual mash comparisons for every genome bin obtained against the user database (If you select prokaryotic NCBI Type Material DB there will be near to 17,000 records, GTDB contains many more). For this reason, the subdirectory "allresults" contain the ten closest hits from the mash paired comparison for each genome. This simplifies the interpretation of the results by limiting the Mash comparison to the ten closest neighbors to the query, which can be useful in phylogenetics and taxonomy. The user can take this list as the basis for a finer comparison by estimating the Overall genome relatedness index (OGRI) like ANI.
+Contains the reference database used for running RaPDTool.
+
+### The processedfmbm directory
+
+Contains the assembly used for running RaPDTool.
+
+***
+## What about the results?
+
+### The directory _**profilesfmbm**_ 
+
+Store the FOCUS taxonomic profile inferred from the inputs (metagenome assembly). You should see 
+several files -in tabular format (csv)- reporting relative abundance from Kingdom to Species . FOCUS also ventures to infer Strains, but I would be cautious at that taxonomic level.
+
+
+### Some points to note with this result:
+
+1-We could assume that the short-reads contain a "genomic space" more representative of the community, than that contained in the assembly; the assembly _per se_ supposes a loss of taxonomic information. Assembled contigs profiling only represents an approximation of taxonomic composition at the genomic level, so be cautious with the interpretations.
+
+2-The native FOCUS database plays an important role in the accuracy of the profile. The initial launch of FOCUS considered 2,766 reference genomes to build a kmer frecuencies database ( _k_ = 6; _k_ = 7)  . For the implementation of RaPDTool, we have considered 14,551 genomes from the Type Material to give taxonomic certainty to the profiles, while enriching the initial database. The new  _k_ = 6; _k_ = 7 kmer archives for updating FOCUS database will be available soon.
+
+![image](https://user-images.githubusercontent.com/42699236/170603717-eb9f8047-6bfa-4a89-85b2-0fa34c6c7e7e.png)
+
+
+***
+ ### The directory _**workfmbm**_ 
+
+Contains several relevant subdirectories and files:
+
+**binmetabat**/  > Store Metabat2 binning results. The genome composites aggregated from the initial metagenomic assembly
+
+**outbinningref**/ > Binning_refiner results. All bins obtained with Metabat2 are "refined" with Binning_refiner to produce a set of probable MAGs
+
+**outmicomplete**/ > Hugoson et al, 2020 published a paper with a fairly "generous" alternative to estimate quality of assembled microbial genomes (https://doi.org/10.1093/bioinformatics/btz664). Although the gold standard is still CheckM, miComplete is more resource friendly and offers a weighted calculation. 
+
+The result of miComplete is a table with the quality assessment of the refined bins as shown in the image:
+![image](https://user-images.githubusercontent.com/42699236/170597855-29d5167f-0d58-44b9-8d90-dec24825c868.png) 
+***
+
+**outmash**/ > **Full** Mash dist comparison for each bin produced, against the input database. Remember that these databases contain a set of genomes curated as Mash representations or sketches. This indicates that _bin1_ is compared against the ~17,000 records in the database (that's extremely fast with Mash), and the result is a table with 5 columns representing the following:
+
+|Query_genome|  Match_in_database|   Genomic_Distance |  p_value| Shared_Hashes|
+|-------------|-------------------|-------------------|----------|---------------| 
+  |Bin1.fna | GCA_Reference.fna |      0.0327655 |         0   |    471/1000|
+
+The genomic distance in the third column refers to the Mash distance, also defined as mutational distance. You will find more information on the interpretation of these tables in: https://doi.org/10.1186/s13059-016-0997-x. A practical interpretation of this comparison suggests that if two genomic contexts share < 0.05 distance, they are likely to be genomically coherents, and that has implications for the prokaryotic species concept.
+This also means that those contexts with smaller genomic distances will potentially be the closest phylogenetic neighbors to your query; very useful if you want to explore the phylogenetic hypothesis.
+
+Other subdirectories contain the log files of each task
+***
+ 
+ ### The directory _**allresultsfmbm_**
+
+Contain the ten closest hits from the Mash paired comparison for each genome. This simplifies the interpretation of the results by limiting the Mash comparison to the ten closest neighbors to the query, which can be useful in phylogenetics and taxonomy. The user can take this list as the basis for a finer comparison by estimating the Overall genome relatedness index (OGRI) like ANI...
+
+![image](https://user-images.githubusercontent.com/42699236/170605001-ef960d28-ca11-48dd-8956-9af6e7f3f2d8.png)
+
+As you can see, they are conveniently sorted from smallest to largest, so that it is easy to establish or rule out probable genomic coherence; and use the elements of the reference in subsequent more refined analyzes.
+
+For example, in the previous image the bin *feces_assembly_1.fasta* shares a genomic distance of ~0.075 with the assembly GCF_003287895.1, that belongs to the species _Blautia argi_ (firmicutes); and ~0.095 with the ensemble GCF_002222595.2 that belongs to the species _Blautia hansenii_ . Other hits in this comparison also match elements of the _Blautia_ genus. It is not difficult to hypothesize that the bin *feces_assembly_1.fasta* is related with the clade _Blautia_ (probably at the genus level, although nothing can be said about the species yet). So, presumably *feces_assembly_1.fasta* can be clasified as _Blautia_ sp.
+
+Potential tests could be the estimation of the Average Nucleotide Identity against these close hits and reconstructing a phylogenomic tree in order to place the query in a finer taxonomic context.
+
+
 
 # References:
 
