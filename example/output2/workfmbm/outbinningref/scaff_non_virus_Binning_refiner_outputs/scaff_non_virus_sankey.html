@@ -1,0 +1,149 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "https://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="https://www.w3.org/1999/xhtml">
+<head>
+<title>SankeyID9e93b287f59a0</title>
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+<style type="text/css">
+body {
+  color: #444444;
+  font-family: Arial,Helvetica,sans-serif;
+  font-size: 75%;
+  }
+  a {
+  color: #4D87C7;
+  text-decoration: none;
+}
+</style>
+</head>
+<body>
+ <!-- Sankey generated in R 4.2.1 by googleVis 0.7.0 package -->
+<!-- Fri Jul 29 14:37:19 2022 -->
+
+
+<!-- jsHeader -->
+<script type="text/javascript">
+ 
+// jsData 
+function gvisDataSankeyID9e93b287f59a0 () {
+var data = new google.visualization.DataTable();
+var datajson =
+[
+ [
+"metabat.6.fa",
+"metabat.6.fa",
+6457.2
+],
+[
+"metabat.2.fa",
+"metabat.2.fa",
+5303.37
+],
+[
+"metabat.7.fa",
+"metabat.7.fa",
+2419.5
+],
+[
+"metabat.1.fa",
+"metabat.1.fa",
+1971.88
+],
+[
+"metabat.4.fa",
+"metabat.4.fa",
+1496.21
+],
+[
+"metabat.5.fa",
+"metabat.5.fa",
+872.11
+],
+[
+"metabat.3.fa",
+"metabat.3.fa",
+609.69
+] 
+];
+data.addColumn('string','C1');
+data.addColumn('string','C2');
+data.addColumn('number','Length_Kbp');
+data.addRows(datajson);
+return(data);
+}
+ 
+// jsDrawChart
+function drawChartSankeyID9e93b287f59a0() {
+var data = gvisDataSankeyID9e93b287f59a0();
+var options = {};
+options["width"] = 400;
+options["height"] = 84;
+options["sankey"] = {node:{colorMode:'unique', labelPadding: 20, nodePadding: 8},link:{colorMode:'source'}};
+
+
+    var chart = new google.visualization.Sankey(
+    document.getElementById('SankeyID9e93b287f59a0')
+    );
+    chart.draw(data,options);
+    
+
+}
+  
+ 
+// jsDisplayChart
+(function() {
+var pkgs = window.__gvisPackages = window.__gvisPackages || [];
+var callbacks = window.__gvisCallbacks = window.__gvisCallbacks || [];
+var chartid = "sankey";
+  
+// Manually see if chartid is in pkgs (not all browsers support Array.indexOf)
+var i, newPackage = true;
+for (i = 0; newPackage && i < pkgs.length; i++) {
+if (pkgs[i] === chartid)
+newPackage = false;
+}
+if (newPackage)
+  pkgs.push(chartid);
+  
+// Add the drawChart function to the global list of callbacks
+callbacks.push(drawChartSankeyID9e93b287f59a0);
+})();
+function displayChartSankeyID9e93b287f59a0() {
+  var pkgs = window.__gvisPackages = window.__gvisPackages || [];
+  var callbacks = window.__gvisCallbacks = window.__gvisCallbacks || [];
+  window.clearTimeout(window.__gvisLoad);
+  // The timeout is set to 100 because otherwise the container div we are
+  // targeting might not be part of the document yet
+  window.__gvisLoad = setTimeout(function() {
+  var pkgCount = pkgs.length;
+  google.load("visualization", "1", { packages:pkgs, callback: function() {
+  if (pkgCount != pkgs.length) {
+  // Race condition where another setTimeout call snuck in after us; if
+  // that call added a package, we must not shift its callback
+  return;
+}
+while (callbacks.length > 0)
+callbacks.shift()();
+} });
+}, 100);
+}
+ 
+// jsFooter
+</script>
+ 
+<!-- jsChart -->  
+<script type="text/javascript" src="https://www.google.com/jsapi?callback=displayChartSankeyID9e93b287f59a0"></script>
+ 
+<!-- divChart -->
+  
+<div id="SankeyID9e93b287f59a0" 
+  style="width: 400; height: 84;">
+</div>
+ <div><span>Data: my_data &#8226; Chart ID: <a href="Chart_SankeyID9e93b287f59a0.html">SankeyID9e93b287f59a0</a> &#8226; <a href="https://mages.github.io/googleVis/">googleVis-0.7.0</a></span><br /> 
+<!-- htmlFooter -->
+<span> 
+  R version 4.2.1 (2022-06-23) 
+  &#8226; <a href="https://developers.google.com/terms/">Google Terms of Use</a> &#8226; <a href="https://developers.google.com/chart/interactive/docs/gallery/sankey">Documentation and Data Policy</a>
+</span></div>
+</body>
+</html>

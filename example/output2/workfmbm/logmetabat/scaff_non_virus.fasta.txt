@@ -1,0 +1,2 @@
+MetaBAT 2 (GIT-NOTFOUND) using minContig 1500, minCV 1.0, minCVSum 1.0, maxP 95%, minS 60, maxEdges 200 and minClsSize 200000. with random seed=1659123437
+8 bins (19824888 bases in total) formed.

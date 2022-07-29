@@ -1,0 +1,16 @@
+[2022-07-29 14:37:15,437 - INFO] FOCUS: An Agile Profiler for Metagenomic Data - version 0.0.0
+[2022-07-29 14:37:15,437 - INFO] 1) Loading reference database
+[2022-07-29 14:37:16,190 - INFO] 2) Reference database was loaded with 2785 reference genomes
+[2022-07-29 14:37:16,190 - INFO] 3.1) Working on: /scratch2/ayixon_RaPDTools/RaPDTool/example/output2/inputfmbm/scaff_non_virus.fasta
+[2022-07-29 14:37:16,190 - INFO]    Counting k-mers
+[2022-07-29 14:37:16,982 - INFO]    Running FOCUS
+[2022-07-29 14:37:17,691 - INFO] 5) Writing results to /scratch2/ayixon_RaPDTools/RaPDTool/example/output2/profilesfmbm/scaff_non_virus
+[2022-07-29 14:37:17,693 - INFO]   5.1) Working on Kingdom
+[2022-07-29 14:37:17,694 - INFO]   5.2) Working on Phylum
+[2022-07-29 14:37:17,696 - INFO]   5.3) Working on Class
+[2022-07-29 14:37:17,697 - INFO]   5.4) Working on Order
+[2022-07-29 14:37:17,699 - INFO]   5.5) Working on Family
+[2022-07-29 14:37:17,701 - INFO]   5.6) Working on Genus
+[2022-07-29 14:37:17,706 - INFO]   5.7) Working on Species
+[2022-07-29 14:37:17,713 - INFO]   5.8) Working on Strain
+[2022-07-29 14:37:17,726 - INFO] Done
