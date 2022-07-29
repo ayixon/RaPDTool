@@ -1,8 +1,0 @@
-Refined_bin	Size(Kbp)	Source
-scaff_non_virus_1	6457.2	metabat.6.fa,metabat.6.fa
-scaff_non_virus_2	5303.37	metabat.2.fa,metabat.2.fa
-scaff_non_virus_3	2419.5	metabat.7.fa,metabat.7.fa
-scaff_non_virus_4	1971.88	metabat.1.fa,metabat.1.fa
-scaff_non_virus_5	1496.21	metabat.4.fa,metabat.4.fa
-scaff_non_virus_6	872.11	metabat.5.fa,metabat.5.fa
-scaff_non_virus_7	609.69	metabat.3.fa,metabat.3.fa

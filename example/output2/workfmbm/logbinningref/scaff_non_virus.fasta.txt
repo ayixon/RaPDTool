@@ -1,8 +1,0 @@
-[2022-07-29 14:37:19] Detected 2 input bin folders
-[2022-07-29 14:37:19] Read in 8 one bins
-[2022-07-29 14:37:19] Read in 8 two bins
-[2022-07-29 14:37:19] Refine input bins
-[2022-07-29 14:37:19] Got 7 refined bins with size larger than 512 Kbp
-[2022-07-29 14:37:19] Extract sequences for refined bins
-[2022-07-29 14:37:19] Prepare Sankey plot
-[2022-07-29 14:37:19] Done!
