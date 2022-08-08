@@ -168,7 +168,7 @@ Contain the ten closest hits from the Mash paired comparison for each genome. Th
 
 As you can see, they are conveniently sorted from smallest to largest, so that it is easy to establish or rule out probable genomic coherence; and use the elements of the reference in subsequent more refined analyzes.
 
-For example, in the previous image the bin *feces_assembly_1.fasta* shares a genomic distance of ~0.075 with the assembly GCF_003287895.1, that belongs to the species _Blautia argi_ (firmicutes); and ~0.095 with the ensemble GCF_002222595.2 that belongs to the species _Blautia hansenii_ . Other hits in this comparison also match elements of the _Blautia_ genus. It is not difficult to hypothesize that the bin *feces_assembly_1.fasta* is related with the clade _Blautia_ (probably at the genus level, although nothing can be said about the species yet). So, presumably *feces_assembly_1.fasta* can be clasified as _Blautia_ sp.
+For example, in the previous image the bin *feces_assembly_1.fasta* shares a genomic distance of ~0.075 with the assembly GCF_003287895.1, that belongs to the species _Blautia argi_ (firmicutes); and ~0.095 with the assembly GCF_002222595.2 that belongs to the species _Blautia hansenii_ . Other hits in this comparison also match elements of the _Blautia_ genus. It is not difficult to hypothesize that the bin *feces_assembly_1.fasta* is related with the clade _Blautia_ (probably at the genus level, although nothing can be said about the species yet). So, presumably *feces_assembly_1.fasta* can be clasified as _Blautia_ sp.
 
 Potential tests could be the estimation of the Average Nucleotide Identity against these close hits and reconstructing a phylogenomic tree in order to place the query in a finer taxonomic context.
 
