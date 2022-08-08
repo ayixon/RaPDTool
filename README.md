@@ -51,9 +51,11 @@ RaPDTool it is written in python and runs natively by calling the script:
   
   Also you will need the accompanying C scripts and the depenencies installed in your system. 
   
-  A simple way to get all the dependencies ready is through the conda package manager:
+  A simple way to get all the dependencies ready is through the conda and pypi package managers:
 
-    $ conda install focus metabat2 binning_refiner miComplete mash 
+    $ conda install focus metabat2 binning_refiner mash 
+    
+    $ pip install micomplete
     
   If you prefer you can create an environment and set everything within it:
 
@@ -61,7 +63,9 @@ RaPDTool it is written in python and runs natively by calling the script:
 
     $ conda activate rapdtool
 
-    $ conda install focus metabat2 binning_refiner miComplete mash
+    $ conda install focus metabat2 binning_refiner mash
+    
+    $ pip install micomplete
   
  After that, clone this repository in your prefered folder and excute the python script
     
