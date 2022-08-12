@@ -53,6 +53,8 @@ and download Singularity images (## figshare URL...).
   
   $ rapdtools --bind ../path_for_input_fasta <input.fasta> <DATABASE> [output_dir_name]
 
+note: you need to put "rapdtools" in your path, otherwise you must give the whole path so that it can be found.
+
   arguments:
     -h, --help            show this help message and exit
     
