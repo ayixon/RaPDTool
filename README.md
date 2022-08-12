@@ -22,8 +22,7 @@ If the input consist on a metagenome assembly, RaPDTool automatically call Metab
  
 # 4. Evaluate the probable "taxonomic neighborhoods" of each resulting genome bin.
 
-RaPDTool compare each bin against curated taxonomic mash databases like type material genome database (https://figshare.com/ndownloader/files/30851626). Alternatively it can be compared against the database Gtdb-r202 (https://figshare.com/ndownloader/files/30863182). Both databases are offered as representations or sketches that reduce
-storage space and computing time.
+RaPDTool compare each bin against curated taxonomic mash databases like type material genome database from NCBI (NCBI_type_material.msh), the Genome Taxonomy Database (GTDBr202.msh) and a database that we built to enrich the one that comes by default with the focus program, using almost entirely, the type material database. these databases are offered as representations or sketches that reduce storage space and computing time.
 
 # Dependencies:
 
@@ -37,67 +36,34 @@ miComplete (https://github.com/EricHugo/miComplete)
 
 Mash  (https://github.com/marbl/Mash)
 
-RaPDTool also depends on a preconfigured database; for convenience the user can download and use any of the following:
-
-  Databases currently available:
-  
-                        NCBI Prokaryotic type material genomes (https://figshare.com/ndownloader/files/30851626)
-                        
-                        Gtdb-r202 (https://figshare.com/ndownloader/files/30863182) 
-
+RaPDTool preconfigured database
 
 # How to install:
-RaPDTool it is written in python and runs natively by calling the script:
-  rapdtool.py
-  
-  Also you will need the accompanying C scripts and the depenencies installed in your system. 
-  
-  A simple way to get all the dependencies ready is through the conda package manager:
+RaPDTool pipeline it is written in python, it used several C scripts and the dependencies mentioned. 
+For greater convenience/ease of installing rapdtools, we use the Singularity container platform to build an image with the complete environment (Tools and databases) needed to run RapdTool.
 
-    $ conda install focus metabat2 binning_refiner miComplete mash 
-    
-  If you prefer you can create an environment and set everything within it:
+so, you need to install "Singularity"
 
-    $ conda create -n rapdtool
+  $ conda install -c conda-forge singularity 
 
-    $ conda activate rapdtool
-
-    $ conda install focus metabat2 binning_refiner miComplete mash
-  
- After that, clone this repository in your prefered folder and excute the python script
-    
-  
-# BUT.... 
-Don't worry about all the previous installation steps.. you only need to install "singularity"
-
-conda install -c conda-forge singularity 
-
-and download previously build Singularity images, containing the complete environment need to run RapdTool (tools and dependencies)
+and download Singularity images.
   
   
 # Usage: 
-  rapdtool.py [-h] [-i INPUT] [-d DATABASE] [-r ROOT] [-c COMMENT]
+  
+  $ rapdtools --bind ../path_for_input_fasta <input.fasta> <DATABASE> [output_dir_name]
 
-  Focus/Metabat/Binning_refiner/Mash (fmbm) script
-
-  optional arguments:
+  arguments:
     -h, --help            show this help message and exit
     
-    -i INPUT, --input INPUT
-                        process this file
+    INPUT == fasta file of sequences
                         
-    -d DATABASE, --database DATABASE
-                        use this database
-                        
-    -r ROOT, --root ROOT  fmbm root subdirectory (default: user home)
+    DATABASE == GTDBr202.msh or NCBI_type_material.msh
+  
+  optional:                        
+    output_dir_name (default: rapdtool_results)
+    .....
     
-    -c COMMENT, --comment COMMENT
-                        "comment for this execution"
-                        
-                    example : $ ./rapdtool.py -i INPUT.fasta -d DATABASE.msh -r OUTPUT_FOLDER
-                        
-                      
-                        
 # Output directories and files
 
 The output of RaPDTool produces 8 main directories:
