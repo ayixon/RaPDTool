@@ -68,7 +68,7 @@ RaPDTool it is written in python and runs natively by calling the script:
     
   
 # BUT.... 
-Don't worry about all the previous installation steps.. you only have to install "singularity"
+Don't worry about all the previous installation steps.. you only need to install "singularity"
 
 conda install -c conda-forge singularity 
 
