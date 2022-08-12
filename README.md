@@ -45,6 +45,7 @@ RaPDTool also depends on a preconfigured database; for convenience the user can 
                         
                         Gtdb-r202 (https://figshare.com/ndownloader/files/30863182) 
 
+
 # How to install:
 RaPDTool it is written in python and runs natively by calling the script:
   rapdtool.py
@@ -65,6 +66,14 @@ RaPDTool it is written in python and runs natively by calling the script:
   
  After that, clone this repository in your prefered folder and excute the python script
     
+  
+# BUT.... 
+Don't worry about all the previous installation steps.. you only have to install "singularity"
+
+conda install -c conda-forge singularity 
+
+and download previously build Singularity images, containing the complete environment need to run RapdTool (tools and dependencies)
+  
   
 # Usage: 
   rapdtool.py [-h] [-i INPUT] [-d DATABASE] [-r ROOT] [-c COMMENT]
