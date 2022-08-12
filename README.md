@@ -42,11 +42,11 @@ RaPDTool preconfigured database
 RaPDTool pipeline it is written in python, it used several C scripts and the dependencies mentioned. 
 For greater convenience/ease of installing rapdtools, we use the Singularity container platform to build an image with the complete environment (Tools and databases) needed to run RapdTool.
 
-so, you need to install "Singularity"
+so, you only need to install "Singularity"
 
   $ conda install -c conda-forge singularity 
 
-and download Singularity images.
+and download Singularity images (## figshare URL...).
   
   
 # Usage: 
