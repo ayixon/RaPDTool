@@ -51,16 +51,13 @@ and download Singularity images (## figshare URL...).
   
 # Usage: 
   
-  #### $ rapdtools --bind ../path_for_input_fasta  <input.fasta>  DATABASE  [output_dir_name]
+  #### $ rapdtools --bind ../path_for_input_fasta  <input.fasta> [optional]
 
 note: you need to put "rapdtools" in your path, otherwise you must give the whole path so that it can be found.
 
   arguments:
-    -h, --help            show this help message and exit
-    
+        
     INPUT == fasta file of sequences
-                        
-    DATABASE == GTDBr202.msh or NCBI_type_material.msh
   
   optional:                        
     
