@@ -11,47 +11,47 @@ RaPDTool use metagenomic assemblies and call FOCUS profiler to report the organi
 
 *Warning: Taxonomic profiles are usually inferred from raw reads; assembled-contigs profiling is an "special case" in order to explore what part of the community could be assembled into regular genomic composites. Use at your own risk :)
 
-# 2. Deconvolve a metagenome into individual genomes or bins, and refine the set of MAGs.
+### 2. Deconvolve a metagenome into individual genomes or bins, and refine the set of MAGs.
 
 If the input consist on a metagenome assembly, RaPDTool automatically call Metabat2  to aggregate individual genome bins. The bins are subsequently refined with Binning_refiner
 (https://github.com/songweizhi/Binning_refiner) to produce a non-redundant set.
 
-# 3. Estimate Completeness, Redundancy and MAG basic statistics with miComplete
+### 3. Estimate Completeness, Redundancy and MAG basic statistics with miComplete
  
  In the version 2.0 of this pipeline, the refined set of bins are automatically processed with miComplete (https://github.com/EricHugo/miComplete), a much faster tool than CheckM for this purpose. 
  
-# 4. Evaluate the probable "taxonomic neighborhoods" of each resulting genome bin.
+### 4. Evaluate the probable "taxonomic neighborhoods" of each resulting genome bin.
 
 RaPDTool compare each bin against curated taxonomic mash databases like type material genome database from NCBI (NCBI_type_material.msh), the Genome Taxonomy Database (GTDBr202.msh) and a database that we built to enrich the one that comes by default with the focus program, using almost entirely, the type material database. these databases are offered as representations or sketches that reduce storage space and computing time.
 
-# Dependencies:
+## Dependencies:
 
-FOCUS (https://github.com/metageni/FOCUS)
+>FOCUS (https://github.com/metageni/FOCUS)
 
-Metabat2 (https://bitbucket.org/berkeleylab/metabat/src/master/) (version tested 2:2.15)
+>Metabat2 (https://bitbucket.org/berkeleylab/metabat/src/master/) (version tested 2:2.15)
 
-Binning_refiner (https://github.com/songweizhi/Binning_refiner)
+>Binning_refiner (https://github.com/songweizhi/Binning_refiner)
 
-miComplete (https://github.com/EricHugo/miComplete)
+>miComplete (https://github.com/EricHugo/miComplete)
 
-Mash  (https://github.com/marbl/Mash)
+>Mash  (https://github.com/marbl/Mash)
 
-RaPDTool preconfigured database
+>RaPDTool preconfigured database
 
-# How to install:
+## How to install:
 RaPDTool pipeline it is written in python, it used several C scripts and the dependencies mentioned. 
 For greater convenience/ease of installing rapdtools, we use the Singularity container platform to build an image with the complete environment (Tools and databases) needed to run RapdTool.
 
 so, you only need to install "Singularity"
 
-  $ conda install -c conda-forge singularity 
+>  $ conda install -c conda-forge singularity 
 
 and download Singularity images (## figshare URL...).
   
   
-# Usage: 
+## Usage: 
   
-  #### $ rapdtools --bind ../path_for_input_fasta  <input.fasta> [optional]
+  #### $ rapdtools <input.fasta> <output_dir>
 
 note: you need to put "rapdtools" in your path, otherwise you must give the whole path so that it can be found.
 
@@ -64,7 +64,7 @@ note: you need to put "rapdtools" in your path, otherwise you must give the whol
     output_dir_name == (default: rapdtool_results)
     .....
     
-# Output directories and files
+## Output directories and files
 
 The output of RaPDTool produces 8 main directories:
 
@@ -105,7 +105,7 @@ The new  _k_ = 6; _k_ = 7 kmer archives for updating FOCUS database will be avai
 
 
 ***
- ### The directory _**workfmbm**_ 
+### The directory _**workfmbm**_ 
 
 Contains several relevant subdirectories and files:
 
@@ -145,7 +145,7 @@ Potential tests could be the estimation of the Average Nucleotide Identity again
 
 
 
-# References:
+## References:
 
 Sánchez-Reyes, A.; Fernández-López, M.G. Mash Sketched Reference Dataset for Genome-Based Taxonomy and Comparative Genomics. Preprints 2021, 2021060368 (doi: http://dx.doi.org/10.20944/preprints202106.0368.v1).
 
@@ -159,7 +159,7 @@ Kang, D. D., Li, F., Kirton, E., Thomas, A., Egan, R., An, H., & Wang, Z. (2019)
 
 Eric Hugoson, Wai Tin Lam, Lionel Guy, miComplete: weighted quality evaluation of assembled microbial genomes, Bioinformatics, Volume 36, Issue 3, 1 February 2020, Pages 936–937, https://doi.org/10.1093/bioinformatics/btz664
 
-# Acknowledgments
+## Acknowledgments
 
 This work was developed in the group of **Dr. Ayixon Sánchez-Reyes**
 
