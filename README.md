@@ -145,7 +145,7 @@ Potential tests could be the estimation of the Average Nucleotide Identity again
 
 
 
-## [^1]: References:
+[^1]: References:
 
 [^2]: Sánchez-Reyes, A.; Fernández-López, M.G. Mash Sketched Reference Dataset for Genome-Based Taxonomy and Comparative Genomics. Preprints 2021, 2021060368 (doi: http://dx.doi.org/10.20944/preprints202106.0368.v1).
 
