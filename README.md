@@ -22,6 +22,10 @@ If the input consist on a metagenome assembly, RaPDTool automatically call Metab
  
 ### 4. Evaluate the probable "taxonomic neighborhoods" of each resulting genome bin.
 
+<p align="justify">
+RaPDTool compare each bin against curated taxonomic mash databases like type material genome database from NCBI (NCBI_type_material.msh), the Genome Taxonomy Database (GTDBr202.msh) and a database that we built to enrich the one that comes by default with the focus program, using almost entirely, the type material database. these databases are offered as representations or sketches that reduce storage space and computing time.
+</p>
+
 <p class="text-justify"><!-- RaPDTool compare each bin against curated taxonomic mash databases like type material genome database from NCBI (NCBI_type_material.msh), the Genome Taxonomy Database (GTDBr202.msh) and a database that we built to enrich the one that comes by default with the focus program, using almost entirely, the type material database. these databases are offered as representations or sketches that reduce storage space and computing time. --></p>
 
 ## Dependencies:
