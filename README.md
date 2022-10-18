@@ -1,9 +1,12 @@
-# RaPDTool: Rapid Profiling and Deconvolution Tool for metagenomes
-
+<p align="center">
+# RaPDTool:
+# Rapid Profiling and Deconvolution Tool for metagenomes
+</p>
 ![RaPDTool_pipeline_600ppi](https://user-images.githubusercontent.com/42699236/163837963-9394db95-a232-4b6e-92d7-d5b6bc90cdd2.png)
 
-
+<p align="justify">
 ## RaPDTool offer a simple and easy-to-use tool for microbial communities profiling, contigs binning and "genomic-distance" exploration by connecting a series of bioinformatic tools in a single workflow:
+</p>
 
 ### 1. Generate a taxonomic profile from massive sequencing data (the input file shoul be a metagenome assembly).
 
@@ -11,6 +14,7 @@ RaPDTool use metagenomic assemblies and call FOCUS profiler to report the organi
 <p align="justify">
 *Warning: Taxonomic profiles are usually inferred from raw reads; assembled-contigs profiling is an "special case" in order to explore what part of the community could be assembled into regular genomic composites. Use at your own risk :)
 </p>
+
 ### 2. Deconvolve a metagenome into individual genomes or bins, and refine the set of MAGs.
 
 <p align="justify">
@@ -107,6 +111,7 @@ several files -in tabular format (csv)- reporting relative abundance from Kingdo
 <p align="justify">
 1-We could assume that the short-reads contain a "genomic space" more representative of the community, than that contained in the assembly; the assembly _per se_ supposes a loss of taxonomic information. Assembled contigs profiling only represents an approximation of taxonomic composition at the genomic level, so be cautious with the interpretations.
 </p>
+
 <p align="justify">
 2-The native FOCUS database plays an important role in the accuracy of the profile. The initial launch of FOCUS considered 2,766 reference genomes to build a kmer frecuencies database ( _k_ = 6; _k_ = 7)  . For the implementation of RaPDTool, we have considered 14,551 genomes from the Type Material to give taxonomic certainty to the profiles, while enriching the initial database. 
 </p>
@@ -122,14 +127,18 @@ The new  _k_ = 6; _k_ = 7 kmer archives for updating FOCUS database will be avai
 Contains several relevant subdirectories and files:
 
 **binmetabat**/  > Store Metabat2 binning results. The genome composites aggregated from the initial metagenomic assembly
-
+<p align="justify">
 **outbinningref**/ > Binning_refiner results. All bins obtained with Metabat2 are "refined" with Binning_refiner to produce a set of probable MAGs
+</p>
 
+<p align="justify">
 **outmicomplete**/ > Hugoson et al, 2020 published a paper with a fairly "generous" alternative to estimate quality of assembled microbial genomes (https://doi.org/10.1093/bioinformatics/btz664). Although the gold standard is still CheckM, miComplete is more resource friendly and offers a weighted calculation. 
+</p>
 
 The result of miComplete is a table with the quality assessment of the refined bins as shown in the image:
 ![image](https://user-images.githubusercontent.com/42699236/170597855-29d5167f-0d58-44b9-8d90-dec24825c868.png) 
 ***
+
 <p align="justify">
 **outmash**/ > **Full** Mash dist comparison for each bin produced, against the input database. Remember that these databases contain a set of genomes curated as Mash representations or sketches. This indicates that _bin1_ is compared against the ~17,000 records in the database (that's extremely fast with Mash), and the result is a table with 5 columns representing the following:
 </p>
@@ -141,19 +150,25 @@ The result of miComplete is a table with the quality assessment of the refined b
 <p align="justify">
 The genomic distance in the third column refers to the Mash distance, also defined as mutational distance. You will find more information on the interpretation of these tables in: https://doi.org/10.1186/s13059-016-0997-x. A practical interpretation of this comparison suggests that if two genomic contexts share < 0.05 distance, they are likely to be genomically coherents, and that has implications for the prokaryotic species concept.
 </p>
+
 <p align="justify">
 This also means that those contexts with smaller genomic distances will potentially be the closest phylogenetic neighbors to your query; very useful if you want to explore the phylogenetic hypothesis.
 </p>
+
 Other subdirectories contain the log files of each task
 ***
  
- ### The directory _**allresultsfmbm_**
+### The directory _**allresultsfmbm_**
 
+<p align="justify">
 Contain the ten closest hits from the Mash paired comparison for each genome. This simplifies the interpretation of the results by limiting the Mash comparison to the ten closest neighbors to the query, which can be useful in phylogenetics and taxonomy. The user can take this list as the basis for a finer comparison by estimating the Overall genome relatedness index (OGRI) like ANI...
+</p>
 
 ![image](https://user-images.githubusercontent.com/42699236/170605001-ef960d28-ca11-48dd-8956-9af6e7f3f2d8.png)
 
+<p align="justify">
 As you can see, they are conveniently sorted from smallest to largest, so that it is easy to establish or rule out probable genomic coherence; and use the elements of the reference in subsequent more refined analyzes.
+</p>
 
 <p align="justify">
 For example, in the previous image the bin *feces_assembly_1.fasta* shares a genomic distance of ~0.075 with the assembly GCF_003287895.1, that belongs to the species _Blautia argi_ (firmicutes); and ~0.095 with the ensemble GCF_002222595.2 that belongs to the species _Blautia hansenii_ . Other hits in this comparison also match elements of the _Blautia_ genus. It is not difficult to hypothesize that the bin *feces_assembly_1.fasta* is related with the clade _Blautia_ (probably at the genus level, although nothing can be said about the species yet). So, presumably *feces_assembly_1.fasta* can be clasified as _Blautia_ sp.
@@ -163,9 +178,9 @@ For example, in the previous image the bin *feces_assembly_1.fasta* shares a gen
 Potential tests could be the estimation of the Average Nucleotide Identity against these close hits and reconstructing a phylogenomic tree in order to place the query in a finer taxonomic context.
 </p>
 
-
 ## References:
 
+<p align="justify">
 Sánchez-Reyes, A.; Fernández-López, M.G. Mash Sketched Reference Dataset for Genome-Based Taxonomy and Comparative Genomics. Preprints 2021, 2021060368 (doi: http://dx.doi.org/10.20944/preprints202106.0368.v1).
 
 Mash: fast genome and metagenome distance estimation using MinHash. Ondov BD, Treangen TJ, Melsted P, Mallonee AB, Bergman NH, Koren S, Phillippy AM. Genome Biol. 2016 Jun 20;17(1):132. doi: 10.1186/s13059-016-0997-x.
@@ -177,6 +192,7 @@ Song WZ, Thomas T (2017) Binning_refiner: Improving genome bins through the comb
 Kang, D. D., Li, F., Kirton, E., Thomas, A., Egan, R., An, H., & Wang, Z. (2019). MetaBAT 2: an adaptive binning algorithm for robust and efficient genome reconstruction from metagenome assemblies. PeerJ, 7, e7359. https://doi.org/10.7717/peerj.7359.
 
 Eric Hugoson, Wai Tin Lam, Lionel Guy, miComplete: weighted quality evaluation of assembled microbial genomes, Bioinformatics, Volume 36, Issue 3, 1 February 2020, Pages 936–937, https://doi.org/10.1093/bioinformatics/btz664
+</p>
 
 ## Acknowledgments
 
@@ -190,5 +206,6 @@ This work was developed in the group of **Dr. Ayixon Sánchez-Reyes**
   
 We thank Ing. Roberto Peredo for his help in the development of this tool
 
+<p align="justify">
 This work was funded in part by the project CF 2019 265222 (Fondo Institucional para el Desarrollo Científico, Tecnológico y de Innovación FORDECYT-PRONACES CONACYT- México)
-
+</p>
