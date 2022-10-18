@@ -1,6 +1,7 @@
 <div align="center">
-  <h1>RaPDTool</h1>
-  <h2>$\textcolor{red}{Ra}$pid $\textcolor{red}{P}$rofiling and $\textcolor{red}{D}$econvolution $\textcolor{red}{Tool}$ for metagenomes</h2>
+  <h1>RaPDTool$</h1>
+  ${Rapid\ Profiling\ and\ {\color{red}D}}econvolution\ Tool\ for\ metagenomes$
+  <h2>Rapid Profiling and Deconvolution Tool for metagenomes</h2>
 </div>
 
 ![RaPDTool_pipeline_600ppi](https://user-images.githubusercontent.com/42699236/163837963-9394db95-a232-4b6e-92d7-d5b6bc90cdd2.png)
