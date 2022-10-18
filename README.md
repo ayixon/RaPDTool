@@ -8,25 +8,27 @@
 ### 1. Generate a taxonomic profile from massive sequencing data (the input file shoul be a metagenome assembly).
 
 RaPDTool use metagenomic assemblies and call FOCUS profiler to report the organisms/abundance present in the metagenome.
-
+<p align="justify">
 *Warning: Taxonomic profiles are usually inferred from raw reads; assembled-contigs profiling is an "special case" in order to explore what part of the community could be assembled into regular genomic composites. Use at your own risk :)
-
+</p>
 ### 2. Deconvolve a metagenome into individual genomes or bins, and refine the set of MAGs.
 
+<p align="justify">
 If the input consist on a metagenome assembly, RaPDTool automatically call Metabat2  to aggregate individual genome bins. The bins are subsequently refined with Binning_refiner
 (https://github.com/songweizhi/Binning_refiner) to produce a non-redundant set.
+</p>
 
 ### 3. Estimate Completeness, Redundancy and MAG basic statistics with miComplete
  
- In the version 2.0 of this pipeline, the refined set of bins are automatically processed with miComplete (https://github.com/EricHugo/miComplete), a much faster tool than CheckM for this purpose. 
- 
+<p align="justify">
+In the version 2.0 of this pipeline, the refined set of bins are automatically processed with miComplete (https://github.com/EricHugo/miComplete), a much faster tool than CheckM for this purpose. 
+</p>
+
 ### 4. Evaluate the probable "taxonomic neighborhoods" of each resulting genome bin.
 
 <p align="justify">
 RaPDTool compare each bin against curated taxonomic mash databases like type material genome database from NCBI (NCBI_type_material.msh), the Genome Taxonomy Database (GTDBr202.msh) and a database that we built to enrich the one that comes by default with the focus program, using almost entirely, the type material database. these databases are offered as representations or sketches that reduce storage space and computing time.
 </p>
-
-<p class="text-justify"><!-- RaPDTool compare each bin against curated taxonomic mash databases like type material genome database from NCBI (NCBI_type_material.msh), the Genome Taxonomy Database (GTDBr202.msh) and a database that we built to enrich the one that comes by default with the focus program, using almost entirely, the type material database. these databases are offered as representations or sketches that reduce storage space and computing time. --></p>
 
 ## Dependencies:
 
@@ -43,8 +45,10 @@ RaPDTool compare each bin against curated taxonomic mash databases like type mat
 >RaPDTool preconfigured database
 
 ## How to install:
+<p align="justify">
 RaPDTool pipeline it is written in python, it used several C scripts and the dependencies mentioned. 
 For greater convenience/ease of installing rapdtools, we use the Singularity container platform to build an image with the complete environment (Tools and databases) needed to run RapdTool.
+</p>
 
 so, you only need to install "Singularity"
 
@@ -93,15 +97,19 @@ Contains the assembly used for running RaPDTool.
 
 ### The directory _**profilesfmbm**_ 
 
+<p align="justify">
 Store the FOCUS taxonomic profile inferred from the inputs (metagenome assembly). You should see 
 several files -in tabular format (csv)- reporting relative abundance from Kingdom to Species . FOCUS also ventures to infer Strains, but I would be cautious at that taxonomic level.
-
+</p>
 
 ### Some points to note with this result:
 
+<p align="justify">
 1-We could assume that the short-reads contain a "genomic space" more representative of the community, than that contained in the assembly; the assembly _per se_ supposes a loss of taxonomic information. Assembled contigs profiling only represents an approximation of taxonomic composition at the genomic level, so be cautious with the interpretations.
-
+</p>
+<p align="justify">
 2-The native FOCUS database plays an important role in the accuracy of the profile. The initial launch of FOCUS considered 2,766 reference genomes to build a kmer frecuencies database ( _k_ = 6; _k_ = 7)  . For the implementation of RaPDTool, we have considered 14,551 genomes from the Type Material to give taxonomic certainty to the profiles, while enriching the initial database. 
+</p>
 
 The new  _k_ = 6; _k_ = 7 kmer archives for updating FOCUS database will be available on: https://drive.google.com/uc?export=download&id=1AOOwhmhg9Zn5iYrOs9j36cBZZTIupPbC
 
@@ -122,16 +130,20 @@ Contains several relevant subdirectories and files:
 The result of miComplete is a table with the quality assessment of the refined bins as shown in the image:
 ![image](https://user-images.githubusercontent.com/42699236/170597855-29d5167f-0d58-44b9-8d90-dec24825c868.png) 
 ***
-
+<p align="justify">
 **outmash**/ > **Full** Mash dist comparison for each bin produced, against the input database. Remember that these databases contain a set of genomes curated as Mash representations or sketches. This indicates that _bin1_ is compared against the ~17,000 records in the database (that's extremely fast with Mash), and the result is a table with 5 columns representing the following:
+</p>
 
 |Query_genome|  Match_in_database|   Genomic_Distance |  p_value| Shared_Hashes|
 |-------------|-------------------|-------------------|----------|---------------| 
   |Bin1.fna | GCA_Reference.fna |      0.0327655 |         0   |    471/1000|
 
+<p align="justify">
 The genomic distance in the third column refers to the Mash distance, also defined as mutational distance. You will find more information on the interpretation of these tables in: https://doi.org/10.1186/s13059-016-0997-x. A practical interpretation of this comparison suggests that if two genomic contexts share < 0.05 distance, they are likely to be genomically coherents, and that has implications for the prokaryotic species concept.
+</p>
+<p align="justify">
 This also means that those contexts with smaller genomic distances will potentially be the closest phylogenetic neighbors to your query; very useful if you want to explore the phylogenetic hypothesis.
-
+</p>
 Other subdirectories contain the log files of each task
 ***
  
@@ -143,10 +155,13 @@ Contain the ten closest hits from the Mash paired comparison for each genome. Th
 
 As you can see, they are conveniently sorted from smallest to largest, so that it is easy to establish or rule out probable genomic coherence; and use the elements of the reference in subsequent more refined analyzes.
 
+<p align="justify">
 For example, in the previous image the bin *feces_assembly_1.fasta* shares a genomic distance of ~0.075 with the assembly GCF_003287895.1, that belongs to the species _Blautia argi_ (firmicutes); and ~0.095 with the ensemble GCF_002222595.2 that belongs to the species _Blautia hansenii_ . Other hits in this comparison also match elements of the _Blautia_ genus. It is not difficult to hypothesize that the bin *feces_assembly_1.fasta* is related with the clade _Blautia_ (probably at the genus level, although nothing can be said about the species yet). So, presumably *feces_assembly_1.fasta* can be clasified as _Blautia_ sp.
+</p>
 
+<p align="justify">
 Potential tests could be the estimation of the Average Nucleotide Identity against these close hits and reconstructing a phylogenomic tree in order to place the query in a finer taxonomic context.
-
+</p>
 
 
 ## References:
