@@ -1,6 +1,5 @@
 <div align="center">
-  ## $\textcolor{yellow}{RaPDTool}$
-  <h1>RaPDTool</h1>
+  <h1>$\textcolor{yellow}{RaPDTool}$</h1>
   <h2>Rapid Profiling and Deconvolution Tool for metagenomes</h2>
 </div>
 
