@@ -1,9 +1,7 @@
-# <p align="center">
-RaPDTool:
-</p>
-# <p align="center">
-Rapid Profiling and Deconvolution Tool for metagenomes
-</p>
+<div align="center">
+  <center><h1>RaPDTool:</h1></center>
+  <center><h1>Rapid Profiling and Deconvolution Tool for metagenomes</h1></center>
+</div>
 
 ![RaPDTool_pipeline_600ppi](https://user-images.githubusercontent.com/42699236/163837963-9394db95-a232-4b6e-92d7-d5b6bc90cdd2.png)
 
