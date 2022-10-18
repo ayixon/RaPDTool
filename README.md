@@ -1,6 +1,6 @@
 <div align="center">
-  <h1>RaPDTool$</h1>
-  ${Rapid\ Profiling\ and\ {\color{red}D}}econvolution\ Tool\ for\ metagenomes$
+  <h1>RaPDTool</h1>
+  <h2>${{\color{red}Ra}}pid\ {\color{red}P}}rofiling\ and\ {\color{red}D}}econvolution\ {\color{red}Tool}}\ for\ metagenomes$</h2>
   <h2>Rapid Profiling and Deconvolution Tool for metagenomes</h2>
 </div>
 
