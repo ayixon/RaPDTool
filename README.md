@@ -5,9 +5,9 @@
 
 ![RaPDTool_pipeline_600ppi](https://user-images.githubusercontent.com/42699236/163837963-9394db95-a232-4b6e-92d7-d5b6bc90cdd2.png)
 
-<p align="justify">
-## RaPDTool offer a simple and easy-to-use tool for microbial communities profiling, contigs binning and "genomic-distance" exploration by connecting a series of bioinformatic tools in a single workflow:
-</p>
+<justify><h2>
+RaPDTool offer a simple and easy-to-use tool for microbial communities profiling, contigs binning and "genomic-distance" exploration by connecting a series of bioinformatic tools in a single workflow:
+</h2></justify>
 
 ### 1. Generate a taxonomic profile from massive sequencing data (the input file shoul be a metagenome assembly).
 
