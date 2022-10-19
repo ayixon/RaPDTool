@@ -9,11 +9,11 @@
 <h2>RaPDTool offer a simple and easy-to-use tool for microbial communities profiling, contigs binning and "genomic-distance" exploration by connecting a series of bioinformatic tools in a single workflow:</h2>
 </div>
 
-### 1. Generate a taxonomic profile from massive sequencing data (the input file shoul be a metagenome assembly).
+### 1. Generate a taxonomic profile from massive sequencing data (the input file should be a metagenome assembly).
 
 RaPDTool use metagenomic assemblies and call FOCUS profiler to report the organisms/abundance present in the metagenome.
 <p align="justify">
-*Warning: Taxonomic profiles are usually inferred from raw reads; assembled-contigs profiling is an "special case" in order to explore what part of the community could be assembled into regular genomic composites. Use at your own risk :)
+*Warning: Taxonomic profiles are usually inferred from raw reads; assembled-contigs profiling is an "special case" in order to explore what part of the community could be assembled into regular genomic composites. Use at your own risk == comentar el riesgo, por ejemplo el tema de que focus no sirva para detectar contaminacion en genoma eucarionte ??
 </p>
 
 ### 2. Deconvolve a metagenome into individual genomes or bins, and refine the set of MAGs.
@@ -32,70 +32,67 @@ In the version 2.0 of this pipeline, the refined set of bins are automatically p
 ### 4. Evaluate the probable "taxonomic neighborhoods" of each resulting genome bin.
 
 <p align="justify">
-RaPDTool compare each bin against curated taxonomic mash databases like type material genome database from NCBI (NCBI_type_material.msh), the Genome Taxonomy Database (GTDBr202.msh) and a database that we built to enrich the one that comes by default with the focus program, using almost entirely, the type material database. these databases are offered as representations or sketches that reduce storage space and computing time.
+RaPDTool compare each bin against curated taxonomic mash databases like type material genome database from NCBI (NCBI_type_material.msh), the Genome Taxonomy Database (GTDBr202.msh) and a database that we built to enrich the one that comes by default with Focus, using almost entirely, the type material database. these databases are offered as representations or sketches that reduce storage space and computing time.
 </p>
 
 ## Dependencies:
 
->FOCUS (https://github.com/metageni/FOCUS)
+> FOCUS (https://github.com/metageni/FOCUS)
 
->Metabat2 (https://bitbucket.org/berkeleylab/metabat/src/master/) (version tested 2:2.15)
+> Metabat2 (https://bitbucket.org/berkeleylab/metabat/src/master/) (version tested 2:2.15)
 
->Binning_refiner (https://github.com/songweizhi/Binning_refiner)
+> Binning_refiner (https://github.com/songweizhi/Binning_refiner)
 
->miComplete (https://github.com/EricHugo/miComplete)
+> Prodigal (https://github.com/hyattpd/Prodigal)
 
->Mash  (https://github.com/marbl/Mash)
+> HMMER (http://hmmer.org/)
 
->RaPDTool preconfigured database
+> miComplete (https://github.com/EricHugo/miComplete)
+
+> Mash  (https://github.com/marbl/Mash)
+
+> Krona (https://github.com/marbl/Krona/wiki)
+
+> RaPDTool preconfigured database
 
 ## How to install:
 <p align="justify">
-RaPDTool pipeline it is written in python, it used several C scripts and the dependencies mentioned. 
-For greater convenience/ease of installing rapdtools, we use the Singularity container platform to build an image with the complete environment (Tools and databases) needed to run RapdTool.
+RaPDTool pipeline it is written in Python and Perl, it used several C scripts and the dependencies mentioned. 
+For greater convenience/ease of installing rapdtools, we use the Singularity container platform and build an image with the complete environment (Tools and databases) needed to run RapdTool.
 </p>
 
-so, you only need to install "Singularity"
+You only need to install "Singularity"
 
 >  $ conda install -c conda-forge singularity 
 
-and download Singularity images (## figshare URL...).
+and download Singularity images (https://doi.org/10.6084/m9.figshare.21362784)
   
   
 ## Usage: 
   
-  #### $ rapdtools <input.fasta> <output_dir>
-
-note: you need to put "rapdtools" in your path, otherwise you must give the whole path so that it can be found.
-
-  arguments:
-        
-    INPUT == fasta file of sequences
-  
-  optional:                        
-    
-    output_dir_name == (default: rapdtool_results)
-    .....
+>  $ rapdtools <input.fasta> [output_dir]
+>    the input file should be a metagenome assembly
+>  
+>    optional:
+>    output_dir_name (default: rapdtool_results)
+>  
+>    notes: 1- you need to put "rapdtools" in your path, otherwise you must give the whole path so that it can be found.
+>           2- The input fasta must exist in your $HOME, otherwise you need to set the environment variable SINGULARITY_BIND
+>           to bind paths where your sequences are located
+>           ex: export SINGULARITY_BIND="../path/for/the/input/fasta"
     
 ## Output directories and files
 
-The output of RaPDTool produces 8 main directories:
+The output of RaPDTool produces 5 directories and 3 main files:
 
 ![image](https://user-images.githubusercontent.com/42699236/170735788-3aed46d1-d593-451a-bf35-cf16c29eaf18.png)
 
-### The fmbm directory
+### The log directory
 
 Contains the log file of the RaPDTool execution (logfmbm.txt).
 
 **fmbm** is a kind of acronym that includes the main operations of the pipeline (Focus/Metabat/Binning_refiner/Mash).
 
-### The genomadbfmbm directory
-
-Contains the reference database used for running RaPDTool.
-
-### The processedfmbm directory
-
-Contains the assembly used for running RaPDTool.
 
 ***
 ## What about the results?
