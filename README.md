@@ -37,49 +37,60 @@ RaPDTool compare each bin against curated taxonomic mash databases like type mat
 
 ## Dependencies:
 
-> FOCUS (https://github.com/metageni/FOCUS)
+> **FOCUS** (https://github.com/metageni/FOCUS)
 
-> Metabat2 (https://bitbucket.org/berkeleylab/metabat/src/master/) (version tested 2:2.15)
+> **Metabat2** (https://bitbucket.org/berkeleylab/metabat/src/master/) (version tested 2:2.15)
 
-> Binning_refiner (https://github.com/songweizhi/Binning_refiner)
+> **Binning_refiner** (https://github.com/songweizhi/Binning_refiner)
 
-> Prodigal (https://github.com/hyattpd/Prodigal)
+> **Prodigal** (https://github.com/hyattpd/Prodigal)
 
-> HMMER (http://hmmer.org/)
+> **HMMER** (http://hmmer.org/)
 
-> miComplete (https://github.com/EricHugo/miComplete)
+> **miComplete** (https://github.com/EricHugo/miComplete)
 
-> Mash  (https://github.com/marbl/Mash)
+> **Mash**  (https://github.com/marbl/Mash)
 
-> Krona (https://github.com/marbl/Krona/wiki)
+> **Krona** (https://github.com/marbl/Krona/wiki)
 
-> RaPDTool preconfigured database
+> RaPDTool **preconfigured** database
+
+**Perl Modules**
+
+>  Getopt::Std
+
+>  Text::SimpleTable::AutoWidth
 
 ## How to install:
 <p align="justify">
 RaPDTool pipeline it is written in Python and Perl, it used several C scripts and the dependencies mentioned. 
-For greater convenience/ease of installing rapdtools, we use the Singularity container platform and build an image with the complete environment (Tools and databases) needed to run RapdTool.
+For greater convenience/ease of installing rapdtools, we use the Singularity container platform and build an image with the complete environment (tools and databases) needed to run RapdTool.
 </p>
 
-You only need to install "Singularity"
+You just need to have "Singularity" or install it with:
 
->  $ conda install -c conda-forge singularity 
+    $ conda install -c conda-forge singularity 
 
-and download Singularity images (https://doi.org/10.6084/m9.figshare.21362784)
+and download Singularity images [rapdtool](https://doi.org/10.6084/m9.figshare.21362784)
   
   
 ## Usage: 
   
->  $ rapdtools <input.fasta> [output_dir]
->    the input file should be a metagenome assembly
->  
->    optional:
->    output_dir_name (default: rapdtool_results)
->  
->    notes: 1- you need to put "rapdtools" in your path, otherwise you must give the whole path so that it can be found.
->           2- The input fasta must exist in your $HOME, otherwise you need to set the environment variable SINGULARITY_BIND
->           to bind paths where your sequences are located
->           ex: export SINGULARITY_BIND="../path/for/the/input/fasta"
+$ rapdtool <input.fasta> [output_dir]
+
+  the input file should be a metagenome assembly
+  
+  optional:
+
+    output_dir_name (default: rapdtool_results)
+  
+  notes:
+ 
+    1- You need to put "rapdtool" in your path, otherwise you must give the whole path so that it can be found.
+
+    2- The input fasta must exist in your $HOME, otherwise you need to set the environment variable SINGULARITY_BIND
+    to bind paths where your sequences are located
+    ex: export SINGULARITY_BIND="../path/for/the/input/fasta"
     
 ## Output directories and files
 
