@@ -62,8 +62,8 @@ RaPDTool compare each bin against curated taxonomic mash databases like type mat
 
 ## How to install:
 <p align="justify">
-RaPDTool pipeline it is written in Python and Perl, it used several C scripts and the dependencies mentioned. 
-For greater convenience/ease of installing rapdtools, we use the Singularity container platform and build an image with the complete environment (tools and databases) needed to run RapdTool.
+RaPDTool pipeline it is written in Python and Perl and used several C scripts. 
+For greater convenience/ease of installing rapdtools, we use the Singularity container platform and build an image with the complete environment (scripts, dependencies and databases) needed to run RapdTool.
 </p>
 
 You just need to have "Singularity" or install it with:
