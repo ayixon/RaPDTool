@@ -71,15 +71,18 @@ and download Singularity images (https://doi.org/10.6084/m9.figshare.21362784)
 ## Usage: 
   
 >  $ rapdtools <input.fasta> [output_dir]
+>
 >    the input file should be a metagenome assembly
 >  
 >    optional:
+
 >    output_dir_name (default: rapdtool_results)
 >  
->    notes: 1- you need to put "rapdtools" in your path, otherwise you must give the whole path so that it can be found.
->           2- The input fasta must exist in your $HOME, otherwise you need to set the environment variable SINGULARITY_BIND
->           to bind paths where your sequences are located
->           ex: export SINGULARITY_BIND="../path/for/the/input/fasta"
+>    notes:
+>
+>    1- you need to put "rapdtools" in your path, otherwise you must give the whole path so that it can be found.
+>    2- The input fasta must exist in your $HOME, otherwise you need to set the environment variable SINGULARITY_BIND
+>    to bind paths where your sequences are located:  ex: export SINGULARITY_BIND="../path/for/the/input/fasta"
     
 ## Output directories and files
 
