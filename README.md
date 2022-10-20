@@ -93,7 +93,7 @@ $ rapdtool <input.fasta> [output_dir]
     
 ## Output directories and files
 
-The output of RaPDTool produces 5 directories and 3 main files:
+The output of RaPDTool produces 4 directories and 3 main files:
 
 ![rapdtool_output_files](https://user-images.githubusercontent.com/43998702/196969022-14821443-e378-4f0c-9f4b-e015058c2626.png)
 
