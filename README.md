@@ -116,6 +116,8 @@ Additionally it contains the results of the taxonomic classification with Focus,
 
 **rapdtools_confidence.tbl** contains the same data but with a prettier aesthetic
 
+![rapdtool_result](https://user-images.githubusercontent.com/43998702/197008164-ab28e5b6-e79f-435c-a2c8-84ae590ce1a1.png)
+
 ### File "rapdtool_krona.html"
 
 <p align="justify">
