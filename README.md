@@ -13,20 +13,19 @@
 
 RaPDTool use metagenomic assemblies and call FOCUS profiler to report the organisms/abundance present in the metagenome.
 <p align="justify">
-*Warning: Taxonomic profiles are usually inferred from raw reads; assembled-contigs profiling is an "special case" in order to explore what part of the community could be assembled into regular genomic composites. Use at your own risk == comentar el riesgo, por ejemplo el tema de que focus no sirva para detectar contaminacion en genoma eucarionte ??
+*Warning: Taxonomic profiles are usually inferred from raw reads; assembled-contigs profiling is an "special case" in order to explore what part of the community could be assembled into regular genomic composites. Use at your own risk. For example, we have observed that Focus is not good at detecting contamination in the eukaryote genome and can return false positives in this case.
 </p>
 
 ### 2. Deconvolve a metagenome into individual genomes or bins, and refine the set of MAGs.
 
 <p align="justify">
-If the input consist on a metagenome assembly, RaPDTool automatically call Metabat2  to aggregate individual genome bins. The bins are subsequently refined with Binning_refiner
-(https://github.com/songweizhi/Binning_refiner) to produce a non-redundant set.
+If the input consist on a metagenome assembly, RaPDTool automatically call Metabat2  to aggregate individual genome bins. The bins are subsequently refined with Binning_refiner to produce a non-redundant set.
 </p>
 
 ### 3. Estimate Completeness, Redundancy and MAG basic statistics with miComplete
  
 <p align="justify">
-In the version 2.0 of this pipeline, the refined set of bins are automatically processed with miComplete (https://github.com/EricHugo/miComplete), a much faster tool than CheckM for this purpose. 
+In the version 2.0 of this pipeline, the refined set of bins are automatically processed with miComplete, a much faster tool than CheckM for this purpose. 
 </p>
 
 ### 4. Evaluate the probable "taxonomic neighborhoods" of each resulting genome bin.
