@@ -183,7 +183,7 @@ Other subdirectories contain the log files of each task
 Contain the ten closest hits from the Mash paired comparison for each genome. This simplifies the interpretation of the results by limiting the Mash comparison to the ten closest neighbors to the query, which can be useful in phylogenetics and taxonomy. The user can take this list as the basis for a finer comparison by estimating the Overall genome relatedness index (OGRI) like ANI...
 </p>
 
-![rapdtool_mash](https://user-images.githubusercontent.com/43998702/196983737-08d3779a-3511-4a92-8770-fd510f80dd81.png)
+![rapdtool_mash](https://user-images.githubusercontent.com/43998702/197004045-d8feb2be-aae3-4924-8621-d3afea825a65.png)
 
 <p align="justify">
 As you can see, they are conveniently sorted from smallest to largest, so that it is easy to establish or rule out probable genomic coherence; and use the elements of the reference in subsequent more refined analyzes.
