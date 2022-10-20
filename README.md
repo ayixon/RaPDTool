@@ -37,39 +37,46 @@ RaPDTool compare each bin against curated taxonomic mash databases like type mat
 
 ## Dependencies:
 
-> FOCUS (https://github.com/metageni/FOCUS)
+> **FOCUS** (https://github.com/metageni/FOCUS)
 
-> Metabat2 (https://bitbucket.org/berkeleylab/metabat/src/master/) (version tested 2:2.15)
+> **Metabat2** (https://bitbucket.org/berkeleylab/metabat/src/master/) (version tested 2:2.15)
 
-> Binning_refiner (https://github.com/songweizhi/Binning_refiner)
+> **Binning_refiner** (https://github.com/songweizhi/Binning_refiner)
 
-> Prodigal (https://github.com/hyattpd/Prodigal)
+> **Prodigal** (https://github.com/hyattpd/Prodigal)
 
-> HMMER (http://hmmer.org/)
+> **HMMER** (http://hmmer.org/)
 
-> miComplete (https://github.com/EricHugo/miComplete)
+> **miComplete** (https://github.com/EricHugo/miComplete)
 
-> Mash  (https://github.com/marbl/Mash)
+> **Mash**  (https://github.com/marbl/Mash)
 
-> Krona (https://github.com/marbl/Krona/wiki)
+> **Krona** (https://github.com/marbl/Krona/wiki)
 
-> RaPDTool preconfigured database
+> RaPDTool **preconfigured** database
+
+**Perl Modules**
+
+>  Getopt::Std
+
+>  Text::SimpleTable::AutoWidth
 
 ## How to install:
 <p align="justify">
 RaPDTool pipeline it is written in Python and Perl, it used several C scripts and the dependencies mentioned. 
-For greater convenience/ease of installing rapdtools, we use the Singularity container platform and build an image with the complete environment (Tools and databases) needed to run RapdTool.
+For greater convenience/ease of installing rapdtools, we use the Singularity container platform and build an image with the complete environment (tools and databases) needed to run RapdTool.
 </p>
 
-You only need to install "Singularity"
+You just need to have "Singularity" or install it with:
 
->  $ conda install -c conda-forge singularity 
+    $ conda install -c conda-forge singularity 
 
-and download Singularity images (https://doi.org/10.6084/m9.figshare.21362784)
+and download Singularity images [rapdtool](https://doi.org/10.6084/m9.figshare.21362784)
   
   
 ## Usage: 
   
+<<<<<<< HEAD
 >  $ rapdtools <input.fasta> [output_dir]
 >
 >    the input file should be a metagenome assembly
@@ -83,31 +90,63 @@ and download Singularity images (https://doi.org/10.6084/m9.figshare.21362784)
 >    1- you need to put "rapdtools" in your path, otherwise you must give the whole path so that it can be found.
 >    2- The input fasta must exist in your $HOME, otherwise you need to set the environment variable SINGULARITY_BIND
 >    to bind paths where your sequences are located:  ex: export SINGULARITY_BIND="../path/for/the/input/fasta"
+=======
+$ rapdtool <input.fasta> [output_dir]
+
+  the input file should be a metagenome assembly
+  
+  optional:
+
+    output_dir_name (default: rapdtool_results)
+  
+  notes:
+ 
+    1- You need to put "rapdtool" in your path, otherwise you must give the whole path so that it can be found.
+
+    2- The input fasta must exist in your $HOME, otherwise you need to set the environment variable SINGULARITY_BIND
+    to bind paths where your sequences are located
+    ex: export SINGULARITY_BIND="../path/for/the/input/fasta"
+>>>>>>> 0466603db17a6dff60e56a422defa177da2b35dc
     
 ## Output directories and files
 
 The output of RaPDTool produces 5 directories and 3 main files:
 
-![image](https://user-images.githubusercontent.com/42699236/170735788-3aed46d1-d593-451a-bf35-cf16c29eaf18.png)
+![rapdtool_output_files](https://user-images.githubusercontent.com/43998702/196969022-14821443-e378-4f0c-9f4b-e015058c2626.png)
 
-### The log directory
+### Directory "log"
 
 Contains the log file of the RaPDTool execution (logfmbm.txt).
 
 **fmbm** is a kind of acronym that includes the main operations of the pipeline (Focus/Metabat/Binning_refiner/Mash).
 
-
 ***
+
 ## What about the results?
 
-### The directory _**profilesfmbm**_ 
+### File "rapdtools_confidence.txt"
+
+<p align="justify">
+Summarizes the best/most reliable **Mash** hits to be able to classify at the genus or species level. For the gender level it is considered a cut-off value <= 0.08 and <= 0.05 for species level.
+Additionally it contains the results of the taxonomic classification with Focus, leaving only the species with a relative abundance greater than 1.
+</p>
+
+**rapdtools_confidence.tbl** contains the same data but with a prettier aesthetic
+
+### File "rapdtool_krona.html"
+
+<p align="justify">
+Krona charts through which you can navigate/explore the taxonomic annotation made up to the species level. Krona charts can be viewed with any modern web browser.
+</p>
+
+### Directory "profilesfmbm" 
 
 <p align="justify">
 Store the FOCUS taxonomic profile inferred from the inputs (metagenome assembly). You should see 
 several files -in tabular format (csv)- reporting relative abundance from Kingdom to Species . FOCUS also ventures to infer Strains, but I would be cautious at that taxonomic level.
 </p>
 
-### Some points to note with this result:
+**Some points to note with this result:**
 
 <p align="justify">
 1-We could assume that the short-reads contain a "genomic space" more representative of the community, than that contained in the assembly; the assembly _per se_ supposes a loss of taxonomic information. Assembled contigs profiling only represents an approximation of taxonomic composition at the genomic level, so be cautious with the interpretations.
@@ -121,32 +160,28 @@ The new  _k_ = 6; _k_ = 7 kmer archives for updating FOCUS database will be avai
 
 ![image](https://user-images.githubusercontent.com/42699236/170603717-eb9f8047-6bfa-4a89-85b2-0fa34c6c7e7e.png)
 
-
 ***
-### The directory _**workfmbm**_ 
+
+### Directory "workfmbm" 
 
 Contains several relevant subdirectories and files:
 
-**binmetabat**/  > Store Metabat2 binning results. The genome composites aggregated from the initial metagenomic assembly
-<p align="justify">
-**outbinningref**/ > Binning_refiner results. All bins obtained with Metabat2 are "refined" with Binning_refiner to produce a set of probable MAGs
-</p>
+**binmetabat** > Store Metabat2 binning results. The genome composites aggregated from the initial metagenomic assembly
 
-<p align="justify">
-**outmicomplete**/ > Hugoson et al, 2020 published a paper with a fairly "generous" alternative to estimate quality of assembled microbial genomes (https://doi.org/10.1093/bioinformatics/btz664). Although the gold standard is still CheckM, miComplete is more resource friendly and offers a weighted calculation. 
-</p>
+**outbinningref**  > Binning_refiner results. All bins obtained with Metabat2 are "refined" with Binning_refiner to produce a set of probable MAGs
+
+**outmicomplete** > Hugoson et al, 2020 published a paper with a fairly "generous" alternative to estimate quality of assembled microbial genomes (https://doi.org/10.1093/bioinformatics/btz664). Although the gold standard is still CheckM, miComplete is more resource friendly and offers a weighted calculation. 
 
 The result of miComplete is a table with the quality assessment of the refined bins as shown in the image:
-![image](https://user-images.githubusercontent.com/42699236/170597855-29d5167f-0d58-44b9-8d90-dec24825c868.png) 
-***
 
-<p align="justify">
-**outmash**/ > **Full** Mash dist comparison for each bin produced, against the input database. Remember that these databases contain a set of genomes curated as Mash representations or sketches. This indicates that _bin1_ is compared against the ~17,000 records in the database (that's extremely fast with Mash), and the result is a table with 5 columns representing the following:
-</p>
+![rapdtool_micomplete](https://user-images.githubusercontent.com/43998702/196972846-0d9cbf2c-d5eb-4605-9c93-dee965fc0699.png)
 
-|Query_genome|  Match_in_database|   Genomic_Distance |  p_value| Shared_Hashes|
-|-------------|-------------------|-------------------|----------|---------------| 
-  |Bin1.fna | GCA_Reference.fna |      0.0327655 |         0   |    471/1000|
+**outmash** > **Full** Mash dist comparison for each bin produced, against the input database. Remember that these databases contain a set of genomes curated as Mash representations or sketches. This indicates that _bin1_ is compared against the ~65,336 records in the database (that's extremely fast with Mash), and the result is a table with 5 columns representing the following:
+
+
+|Query_genome |  Match_in_database|   Genomic_Distance |  p_value | Shared_Hashes |
+|-------------|-------------------|--------------------|----------|---------------| 
+|  Bin1.fna   | GCA_Reference.fna |      0.0327655     |     0    |    471/1000   |
 
 <p align="justify">
 The genomic distance in the third column refers to the Mash distance, also defined as mutational distance. You will find more information on the interpretation of these tables in: https://doi.org/10.1186/s13059-016-0997-x. A practical interpretation of this comparison suggests that if two genomic contexts share < 0.05 distance, they are likely to be genomically coherents, and that has implications for the prokaryotic species concept.
@@ -159,20 +194,20 @@ This also means that those contexts with smaller genomic distances will potentia
 Other subdirectories contain the log files of each task
 ***
  
-### The directory _**allresultsfmbm_**
+### Directory "allresultsfmbm"
 
 <p align="justify">
 Contain the ten closest hits from the Mash paired comparison for each genome. This simplifies the interpretation of the results by limiting the Mash comparison to the ten closest neighbors to the query, which can be useful in phylogenetics and taxonomy. The user can take this list as the basis for a finer comparison by estimating the Overall genome relatedness index (OGRI) like ANI...
 </p>
 
-![image](https://user-images.githubusercontent.com/42699236/170605001-ef960d28-ca11-48dd-8956-9af6e7f3f2d8.png)
+![rapdtool_mash](https://user-images.githubusercontent.com/43998702/196983737-08d3779a-3511-4a92-8770-fd510f80dd81.png)
 
 <p align="justify">
 As you can see, they are conveniently sorted from smallest to largest, so that it is easy to establish or rule out probable genomic coherence; and use the elements of the reference in subsequent more refined analyzes.
 </p>
 
 <p align="justify">
-For example, in the previous image the bin *feces_assembly_1.fasta* shares a genomic distance of ~0.075 with the assembly GCF_003287895.1, that belongs to the species _Blautia argi_ (firmicutes); and ~0.095 with the ensemble GCF_002222595.2 that belongs to the species _Blautia hansenii_ . Other hits in this comparison also match elements of the _Blautia_ genus. It is not difficult to hypothesize that the bin *feces_assembly_1.fasta* is related with the clade _Blautia_ (probably at the genus level, although nothing can be said about the species yet). So, presumably *feces_assembly_1.fasta* can be clasified as _Blautia_ sp.
+For example, in the previous image the bin **meta-assembly_bin_1.fna** shares a genomic distance of ~0.062 with the assembly GCF_002165255.2, that belongs to the species Acinetobacter sp. WCHA45 (proteobacteria); and ~0.07 with the assembly GCA_000430225.1 that belongs to the species _Acinetobacter_junii_. Other hits in this comparison also match elements of the _Acinetobacter_ genus. It is not difficult to hypothesize that the bin **meta-assembly_bin_1.fna** is related with the clade _Acinetobacter_ (probably at the genus level, although nothing can be said about the species yet). So, presumably **meta-assembly_bin_1.fna** can be clasified as _Acinetobacter_sp.
 </p>
 
 <p align="justify">
