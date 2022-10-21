@@ -101,25 +101,22 @@ and **download** the Singularity image [rapdtool](https://figshare.com/ndownload
     $ pip install micomplete
     
   If you prefer you can create an environment and set everything within it:
->>>>>>> 2.0
+
 
 ### Option 2
 
 Make sure you have all **dependencies** installed and the **DATABASE** downloaded.
 You also need to download and have in your path all the "bin" scripts.
 
-<<<<<<< 2.1.0
-RaPDTool runs natively by calling the script:
-  rapdtool_local.py
-=======
+RaPDTool runs natively by calling the script: rapdtool_local.py
+
     $ conda install focus metabat2 binning_refiner mash
     
     $ pip install micomplete
   
  After that, clone this repository in your prefered folder and excute the python script
     
->>>>>>> 2.0
-  
+
 ## Usage: 
 
 > $ rapdtool_local.py -i <input.fasta> -d database.msh [-r output_dir]
