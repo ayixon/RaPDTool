@@ -70,7 +70,8 @@ You just need to have "Singularity" or install it with:
 
     $ conda install -c conda-forge singularity 
 
-and **download** the Singularity image [rapdtool](https://figshare.com/ndownloader/files/37932285)
+and **download** the Singularity image [rapdtool](https://figshare.com/ndownloader/files/37939014)
+
   
   
 ## Usage: 
