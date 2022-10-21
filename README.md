@@ -119,7 +119,7 @@ RaPDTool runs natively by calling the script:
 
 The output of RaPDTool produces 4 directories and 3 main files:
 
-![rapdtool_output_files](https://user-images.githubusercontent.com/43998702/196969022-14821443-e378-4f0c-9f4b-e015058c2626.png)
+![rapdtool_output](https://user-images.githubusercontent.com/43998702/197233431-b97a7c1e-a94e-4b4d-812a-df6bc9305b54.png)
 
 ### Directory "log"
 
