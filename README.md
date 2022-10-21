@@ -77,9 +77,9 @@ and **download** the Singularity image [rapdtool](https://figshare.com/ndownload
 
 ## Usage: 
   
-$ rapdtool <input.fasta> [output_dir]
+> $ rapdtool <input.fasta> [output_dir]
 
-  the input file should be a metagenome assembly
+    the input file should be a metagenome assembly
   
   optional:
 
@@ -101,15 +101,15 @@ You also need to download and have in your path all the "bin" scripts.
 RaPDTool runs natively by calling the script:
   rapdtool_local.py
   
-# Usage: 
+## Usage: 
 
-    $ rapdtool_local.py -i <input.fasta> -d database.msh [-r output_dir]
+> $ rapdtool_local.py -i <input.fasta> -d database.msh [-r output_dir]
     
     *no argument for this help
     
-    the input file should be a metagenome assembly
+  the input file should be a metagenome assembly
 
-    optional:
+  optional:
     
     output_dir_name (default: rapdtool_results)
 
