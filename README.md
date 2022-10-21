@@ -85,7 +85,7 @@ and **download** the Singularity image [rapdtool](https://figshare.com/ndownload
 
     output_dir_name (default: rapdtool_results)
   
-<<<<<< 2.1.0
+<<<<<<< 2.1.0
   notes:
  
     1- You need to put "rapdtool" in your path, otherwise you must give the whole path so that it can be found.
@@ -93,7 +93,7 @@ and **download** the Singularity image [rapdtool](https://figshare.com/ndownload
     2- The input fasta must exist in your $HOME, otherwise you need to set the environment variable SINGULARITY_BIND
     to bind paths where your sequences are located
     ex: export SINGULARITY_BIND="../path/for/the/input/fasta"
-======
+=======
   A simple way to get all the dependencies ready is through the conda and pypi package managers:
 
     $ conda install focus metabat2 binning_refiner mash 
@@ -101,7 +101,7 @@ and **download** the Singularity image [rapdtool](https://figshare.com/ndownload
     $ pip install micomplete
     
   If you prefer you can create an environment and set everything within it:
->>>>>> 2.0
+>>>>>>> 2.0
 
 ### Option 2
 
