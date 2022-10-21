@@ -53,8 +53,8 @@ def pickoptions():
                         help='use this database')
     parser.add_argument('-r', '--root', dest='root',
                         help='fmbm root subdirectory (default: user home)')
-    parser.add_argument('-c', '--comment', dest='comment',
-                        help='"comment for this execution"')
+    # ~ parser.add_argument('-c', '--comment', dest='comment',
+                        # ~ help='"comment for this execution"')
     args = parser.parse_args()
     return args # returns Namespace of options found
 
@@ -426,7 +426,7 @@ def moveToProcessed():
 
 # main
 options = pickoptions()
-printableComment = '' if options.comment is None else '\nComment: ' + options.comment
+# ~ printableComment = '' if options.comment is None else '\nComment: ' + options.comment
 if options.input is None:
     print('RaPDTool v2.1.0\nusage:\n  $ rapdtool.py -i <input.fasta> -d database.msh [-r output_dir]\n  the input file should be a metagenome assembly\n\n  optional:\n  output_dir_name (default: rapdtool_results)\n\n  notes: 1- you need to put "rapdtool.py" in your path, otherwise you must give the whole path so that it can be found.\n')
     exit()
@@ -443,7 +443,7 @@ if not pathFlag:
     print('Error: ' + message)
     exit()
 
-appendLog('\n* Starting execution ' + time.strftime('%Y-%m-%d %H:%M:%S') + printableComment)
+appendLog('\n* Starting execution ' + time.strftime('%Y-%m-%d %H:%M:%S') ) #+ printableComment)
 appendLog(rootmessage)
 appendLog(pathmessage)
 

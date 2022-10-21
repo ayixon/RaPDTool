@@ -52,7 +52,7 @@ RaPDTool compare each bin against curated taxonomic mash databases like type mat
 
 > **Krona** (https://github.com/marbl/Krona/wiki)
 
-> RaPDTool **preconfigured** database
+> RaPDTool **preconfigured** database [DB Mash format](https://figshare.com/ndownloader/files/37939296)
 
 **Perl Modules**
 
@@ -61,6 +61,9 @@ RaPDTool compare each bin against curated taxonomic mash databases like type mat
 >  Text::SimpleTable::AutoWidth
 
 ## How to install:
+
+### Option 1 (recommended)
+
 <p align="justify">
 RaPDTool pipeline it is written in Python and Perl and used several C scripts. 
 For greater convenience/ease of installing rapdtools, we use the Singularity container platform and build an image with the complete environment (scripts, dependencies and databases) needed to run RapdTool.
@@ -72,8 +75,6 @@ You just need to have "Singularity" or install it with:
 
 and **download** the Singularity image [rapdtool](https://figshare.com/ndownloader/files/37939014)
 
-  
-  
 ## Usage: 
   
 $ rapdtool <input.fasta> [output_dir]
@@ -91,7 +92,29 @@ $ rapdtool <input.fasta> [output_dir]
     2- The input fasta must exist in your $HOME, otherwise you need to set the environment variable SINGULARITY_BIND
     to bind paths where your sequences are located
     ex: export SINGULARITY_BIND="../path/for/the/input/fasta"
+
+### Option 2
+
+Make sure you have all **dependencies** installed and the **DATABASE** downloaded.
+You also need to download and have in your path all the "bin" scripts.
+
+RaPDTool runs natively by calling the script:
+  rapdtool_local.py
+  
+# Usage: 
+
+    $ rapdtool_local.py -i <input.fasta> -d database.msh [-r output_dir]
     
+    *no argument for this help
+    
+    the input file should be a metagenome assembly
+
+    optional:
+    
+    output_dir_name (default: rapdtool_results)
+
+    example : ./rapdtool.py -i INPUT.fasta -d DATABASE.msh -r OUTPUT_FOLDER
+
 ## Output directories and files
 
 The output of RaPDTool produces 4 directories and 3 main files:
