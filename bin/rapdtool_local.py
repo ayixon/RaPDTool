@@ -1,8 +1,10 @@
-#! /usr/bin/python3
+#! /usr/bin/env python
 
 import os
 import time
 import argparse
+import subprocess
+import shutil
 
 # script level paths, independent of processed file
 scriptHomePath = ''
@@ -45,22 +47,23 @@ resultPath = ''
 # look for command string options
 def pickoptions():
     parser = argparse.ArgumentParser(description='Focus/Metabat/Binning_refiner/Mash (fmbm) script')
-    parser.add_argument('-i', '--input', dest='input', 
+    parser.add_argument('-i', '--input', dest='input',
                         help='process this file')
-    parser.add_argument('-d', '--database', dest='database', 
+    parser.add_argument('-d', '--database', dest='database',
                         help='use this database')
-    parser.add_argument('-r', '--root', dest='root', 
+    parser.add_argument('-r', '--root', dest='root',
                         help='fmbm root subdirectory (default: user home)')
-    parser.add_argument('-c', '--comment', dest='comment',
-                        help='"comment for this execution"')
+    # ~ parser.add_argument('-c', '--comment', dest='comment',
+                        # ~ help='"comment for this execution"')
     args = parser.parse_args()
     return args # returns Namespace of options found
 
 # set the fmbm root subdirectory
 def setRootPath(rootOption):
-    userHomePath = os.path.expanduser('~') + '/'
+    userHomePath = subprocess.check_output("pwd", shell = True).rstrip().decode('utf-8') + '/'
     if rootOption is None:
-        rootPath = userHomePath + 'fmbmroot/'
+        rootPath = userHomePath + 'rapdtool_results/'
+        print('Creating path and commands for Focus/Metabat/Binning_refiner/Mash (fmbm) pipeline..')
         if os.path.isdir(rootPath):
             message = 'Using the existing root path ' + rootPath
         else:
@@ -68,13 +71,13 @@ def setRootPath(rootOption):
                 if os.path.isdir(userHomePath + usub) ]
             candidate = {'subdir': None, 'tstamp': 0}
             for usub in userSubDirectories:
-                maybelog = userHomePath + usub + '/fmbm/logfmbm.txt'
+                maybelog = userHomePath + usub + '/log/logfmbm.txt'
                 if os.path.isfile(maybelog):
                     info = os.stat(maybelog)
                     if info.st_mtime > candidate['tstamp']:
                         candidate = {'subdir': usub, 'tstamp': info.st_mtime}
             if candidate['subdir'] is None:
-                rootPath = userHomePath + 'fmbmroot/'
+                rootPath = userHomePath + 'rapdtool_results/'
                 os.system('mkdir ' + rootPath)
                 if os.path.isdir(rootPath):
                     message = 'Using the newly created root path ' + rootPath
@@ -85,20 +88,15 @@ def setRootPath(rootOption):
                 rootPath = userHomePath + candidate['subdir'] + '/'
                 message = 'The root path ' + rootPath + ' contains the most recently used logfmbm.txt'
     else:
-        if '/' in rootOption or rootOption[0] == '.':
-            rootPath = None
-            message = 'Invalid root path ' + rootOption + ', cannot include "/" or start with "."'
-        else:
-            rootPath = userHomePath + rootOption + '/'
-            if os.path.isdir(rootPath):
-                message = 'Using the appointed existent root path ' + rootPath
-            else:
-                os.system('mkdir ' + rootPath)
-                if os.path.exists(rootPath):
-                    message = 'Using the newly created root path ' + rootPath
-                else:
-                    rootPath = None
-                    message = 'The provided root option ' + rootOption + ' does not exist and could not be created'
+        rootPath = rootOption + '/'
+        isExist = os.path.exists(rootPath)
+        if not isExist:
+          # Create a new directory because it does not exist
+          os.makedirs(rootPath)
+        fullpath = 'readlink -f ' + rootPath
+        rootPath = subprocess.check_output(fullpath, shell = True).rstrip().decode('utf-8') + '/'
+        print('Creating path and commands for Focus/Metabat/Binning_refiner/Mash (fmbm) pipeline..')
+        message = 'Using the appointed existent root path ' + rootPath # karel
     return (rootPath, message) # returns the slash terminated rootPath and explanation
 
 # set the value of the paths used by the script, all of them are globals
@@ -107,7 +105,7 @@ def setAbsPaths(rootPath):
         workBinMetabatPath, workLogMetabatPath, workInBinningrefPath, workOutBinningrefPath, \
         workLogBinningrefPath, workInMiCompletePath, workOutMiCompletePath, workOutMashPath, \
         miCompleteResPath, allResultsPath, processedPath
-    scriptHomePath = rootPath + 'fmbm/'
+    scriptHomePath = rootPath + 'log/'
     inputPath = rootPath + 'inputfmbm/'
     profilesPath = rootPath + 'profilesfmbm/'
     genomadbPath = rootPath + 'genomadbfmbm/'
@@ -155,53 +153,37 @@ def appendLog(message):
 # if a database was given in options, verify it exists and copy to databases folder
 # otherwise find the most recent in the databases folder
 def pickDatabase(dbOption):
-    if dbOption is None:
-        filesindb = os.listdir(genomadbPath)
-        if len(filesindb) == 0:
-            return (None, 'No databases found in ' + genomadbPath)
-        tsrecent = 0
-        database = ''
-        particulars = ''
-        for fname in filesindb:
-            info = os.stat(genomadbPath + fname)
-            if tsrecent < info.st_mtime:
-                tsrecent = info.st_mtime
-                database = genomadbPath + fname
-                particulars = ' size: ' + str(info.st_size) + ' tstamp: ' + \
-                    time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(info.st_mtime))
-        message = 'Using the most recent database: ' + database + ' in ' + genomadbPath + particulars
-    else:
-        fullPathDbOption = os.path.abspath(dbOption)
-        dbOpIsFile = os.path.isfile(fullPathDbOption)
-        if dbOpIsFile:
-            copyTarget = genomadbPath + os.path.basename(dbOption)
-            if copyTarget != fullPathDbOption:
-                if os.path.exists(copyTarget):
-                    database = None
-                    message = 'Database conflict: ' + dbOption + ' already exists in ' + genomadbPath
-                else:
-                    os.system('cp -p ' + dbOption + ' ' + genomadbPath)
-                    if not os.path.isfile(copyTarget):
-                        database = None
-                        message = 'The appointed database ' + dbOption + ' could not be copied to ' + genomadbPath
-                    else:
-                        database = copyTarget
-                        message = 'Using appointed database: ' + dbOption + ', copied to ' + genomadbPath
-            else:
-                database = dbOption
-                message = 'Using appointed database: ' + dbOption + ', existing in ' + genomadbPath
-        else:
-            database = genomadbPath + dbOption
-            if not os.path.exists(database):
+    fullPathDbOption = os.path.abspath(dbOption)
+    dbOpIsFile = os.path.isfile(fullPathDbOption)
+    if dbOpIsFile:
+        copyTarget = genomadbPath + os.path.basename(dbOption)
+        if copyTarget != fullPathDbOption:
+            if os.path.exists(copyTarget):
                 database = None
-                message = 'Appointed database ' + dbOption + ' does not exist'
+                message = 'Database conflict: ' + dbOption + ' already exists in ' + genomadbPath
             else:
-                message = 'Using option database: ' + database + ', found in ' + genomadbPath
-    # returns absolute path to database and comment for logging
-    # if database was provided as option, a copy was made to genomadbPath (if it dindn't exist there)
+                os.system('cp -p ' + dbOption + ' ' + genomadbPath)
+                if not os.path.isfile(copyTarget):
+                    database = None
+                    message = 'The appointed database ' + dbOption + ' could not be copied to ' + genomadbPath
+                else:
+                    database = copyTarget
+                    message = 'Using appointed database: ' + dbOption + ', copied to ' + genomadbPath
+        else:
+            database = dbOption
+            message = 'Using appointed database: ' + dbOption + ', existing in ' + genomadbPath
+    else:
+        database = genomadbPath + dbOption
+        if not os.path.exists(database):
+            database = None
+            message = 'Appointed database ' + dbOption + ' does not exist'
+        else:
+            message = 'Using option database: ' + database + ', found in ' + genomadbPath
+# returns absolute path to database and comment for logging
+# if database was provided as option, a copy was made to genomadbPath (if it dindn't exist there)
     return (database, message)
 
-# if a fasta type file was given in options, verify it exists and move it to inputPath
+# if a fasta type file was given in options, verify it exists and copy it to inputPath
 # otherwise assert we have one file in inputPath and take it for process
 def pickFastaFile(inputOption):
     if inputOption is None:
@@ -220,10 +202,10 @@ def pickFastaFile(inputOption):
             pathtopf = inputPath + filename
             # if inputOption is not in our inputPath
             if os.path.abspath(inputOption) != pathtopf:
-                os.system('mv ' + inputOption + ' ' + inputPath)
+                os.system('cp ' + inputOption + ' ' + inputPath)
                 if not os.path.isfile(pathtopf):
                     return(None, None, None, 'The appointed input file ' + inputOption +
-                        ' could not be moved to ' + inputPath)
+                        ' could not be copied to ' + inputPath)
     info = os.stat(pathtopf)
     rmp = filename.rfind('.')
     bluntname = filename[:rmp].replace('.','_') if rmp >= 0 else filename
@@ -303,7 +285,7 @@ def focusResultsPeek():
     return ', '.join(msgList)
 
 def buildMetabatCmd(pathtopf):
-    metabatCmd = 'metabat2 -m 1500 -i ' + pathtopf + ' -o ' + metabatBinPath + 'metabat > ' + metabatLogFile 
+    metabatCmd = 'metabat2 -m 1500 -i ' + pathtopf + ' -o ' + metabatBinPath + 'metabat > ' + metabatLogFile
     return metabatCmd
 
 def metabatResultsToBinningref():
@@ -318,8 +300,8 @@ def metabatResultsToBinningref():
 
 def buildBinningrefCmd(bluntname):
     binningrefCmd = 'cd ' + workOutBinningrefPath + '; ' + \
-        'Binning_refiner -i ' + binningrefInPath + ' -p ' + bluntname + ' -plot > ' + binningrefLogFile 
-    return binningrefCmd 
+        'Binning_refiner -i ' + binningrefInPath + ' -p ' + bluntname + ' -plot > ' + binningrefLogFile
+    return binningrefCmd
 
 def binningrefResultsPeek():
     if os.path.isdir(binningrefOutPath):
@@ -360,7 +342,7 @@ def miCompletelistResultPeek():
     return message
 
 def buildMiCompleteCmd():
-    miCompleteCmd = 'miComplete ' + miCompleteInputFile + ' --hmms Bact105 --threads 4 > ' + \
+    miCompleteCmd = 'miComplete ' + miCompleteInputFile + ' --hmms Bact105 --threads 8 > ' + \
         miCompleteOutputFile
     return miCompleteCmd
 
@@ -373,7 +355,7 @@ def miCompleteResultPeek():
 
 def buildMashCmd(refinedBin, database):
     mashCmd = 'mash dist ' + binningrefResultRefBinsPath + refinedBin + ' ' + database + \
-        ' > ' + mashOutPath + refinedBin + '.txt'
+        ' > ' + mashOutPath + refinedBin + '.txt' + ' 2> /dev/null'
     return mashCmd
 
 def mashResultsPeek():
@@ -414,15 +396,23 @@ def extractMinDistRows(mashTaxoMatchList, printableComment):
         fobj.write(printableComment + '\n')
         fobj.close()
     message = 'All ' + str(len(mashTaxoMatchList)) + ' files were extracted for the best ' + str(want) + ' distances'
-    return (message) 
+    return (message)
+
+def buildmergeCmd():
+    mergeCmd = 'rapdtool_results_local.pl'
+    return mergeCmd
+
+def buildkronaCmd():
+    kronaCmd = 'ktImportText forkrona.txt'
+    return kronaCmd
 
 def linkBinrefResults():
-    os.system('cp -p -s ' + binningrefResultSandLFile   + ' ' + resultPath) 
+    os.system('cp -p -s ' + binningrefResultSandLFile   + ' ' + resultPath)
     os.system('cp -p -s ' + binningrefResultContigsFile + ' ' + resultPath)
     os.system('cp -p -s ' + binningrefResultSkeyCsvFile + ' ' + resultPath)
     if os.path.isfile(binningrefResultSkeyHtmFile):
         os.system('cp -p -s ' + binningrefResultSkeyHtmFile + ' ' + resultPath)
-    message = 'Binning_refiner output files were linked in the results subdirectory ' + resultPath
+        message = 'Binning_refiner output files were linked in the results subdirectory ' + resultPath
     return message
 
 def copyMiCompleteResults():
@@ -435,9 +425,12 @@ def moveToProcessed():
 
 
 # main
-print('fmbm process script')
 options = pickoptions()
-printableComment = '' if options.comment is None else '\nComment: ' + options.comment
+# ~ printableComment = '' if options.comment is None else '\nComment: ' + options.comment
+if options.input is None:
+    print('RaPDTool v2.1.0\nusage:\n  $ rapdtool.py -i <input.fasta> -d database.msh [-r output_dir]\n  the input file should be a metagenome assembly\n\n  optional:\n  output_dir_name (default: rapdtool_results)\n\n  notes: 1- you need to put "rapdtool.py" in your path, otherwise you must give the whole path so that it can be found.\n')
+    exit()
+
 launchedFrom = os.getcwd()
 
 (rootPath, rootmessage) = setRootPath(options.root)
@@ -450,12 +443,13 @@ if not pathFlag:
     print('Error: ' + message)
     exit()
 
-appendLog('\n* Starting execution ' + time.strftime('%Y-%m-%d %H:%M:%S') + printableComment)
+appendLog('\n* Starting execution ' + time.strftime('%Y-%m-%d %H:%M:%S') ) #+ printableComment)
 appendLog(rootmessage)
 appendLog(pathmessage)
 
 (database, message) = pickDatabase(options.database)
 appendLog(message)
+
 if database is None:
     print('Error: Database')
     exit()
@@ -475,18 +469,21 @@ if not fdpFlag:
 appendLog('FOCUS command')
 focusCmd = buildFocusCmd()
 appendLog(focusCmd)
+print('Running Focus.. [1/7]')
 os.system(focusCmd)
 appendLog( focusResultsPeek() )
 
 appendLog('METABAT command')
 metabatCmd = buildMetabatCmd(pathtopf)
 appendLog(metabatCmd)
+print('Running Metabat.. [2/7]')
 os.system(metabatCmd)
 appendLog( metabatResultsToBinningref() )
 
 appendLog('Binning_refiner command')
 binningrefCmd = buildBinningrefCmd(bluntname)
 appendLog(binningrefCmd)
+print('Running Binning_refiner.. [3/7]')
 os.system(binningrefCmd)
 (refinedBinsList, message) = binningrefResultsPeek()
 appendLog(message)
@@ -499,6 +496,7 @@ for message in messagelist:
 appendLog('miCompletelist command')
 miCompletelistCmd = buildMiCompletelistCmd()
 appendLog(miCompletelistCmd)
+print('Running miComplete.. [4/7]')
 os.system(miCompletelistCmd)
 message = miCompletelistResultPeek()
 appendLog(message)
@@ -511,6 +509,7 @@ message = miCompleteResultPeek()
 appendLog(message)
 
 appendLog('MASH - start cycling')
+print('Running Mash.. [5/7]')
 for refinedBin in renamedRefinedBinsList:
     mashCmd = buildMashCmd(refinedBin, database)
     appendLog(mashCmd)
@@ -524,19 +523,35 @@ appendLog(message)
 
 appendLog('Linking Binning_refiner results to results subdirectory')
 linkBinrefResults()
-
 appendLog('Copying miComplete results to results subdirectory')
 copyMiCompleteResults()
 
 appendLog('Moving input file to processed subdirectory')
 moveToProcessed()
 
-appendLog('Done - results are in ' + resultPath)
-print('Done - your results are in ' + resultPath)
-resultLink = launchedFrom + '/results'
-if os.path.exists(resultLink):
-    os.system('rm -f ' + resultLink)
-os.system('ln -s ' + resultPath + ' ' + resultLink)
-os.system('ln -s ' + launchedFrom + ' ' + resultPath + 'runfrom')
-print('You can go to a linked results directory with   cd results   or go there with   cd -P results\n' + \
-    'Once there yo can return here with   cd -P runfrom\n')
+mergeCmd = buildmergeCmd()
+print('Copying and merging results.. [6/7]')
+print('Writing rapdtools results files (tbl and txt)...')
+appendLog('Copying and merging results..')
+os.chdir(rootPath)
+os.system(mergeCmd)
+
+kronaCmd = buildkronaCmd()
+print('Generating interactive metagenomic visualization tool (Krona).. [7/7]')
+print('Writing rapdtool_krona.html...')
+appendLog('Generating interactive metagenomic visualization tool (Krona)..')
+os.chdir(rootPath)
+os.system(kronaCmd)
+os.system('rm -f profilesfmbm.txt forkrona.txt')
+
+# cleanning directories
+appendLog('Removing tmp directories..')
+os.system('mv ../miComplete.log assemblyID_annot.txt log/')
+os.system('rm -rf ../*.tblout ../*_prodigal.faa miCompleteRes')
+shutil.rmtree(inputPath)
+shutil.rmtree(processedPath)
+shutil.rmtree(genomadbPath)
+
+appendLog('Done - results are in ' + rootPath)
+print('Done - your results are in ' + rootPath)
+
