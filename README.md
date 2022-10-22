@@ -85,7 +85,6 @@ and **download** the Singularity image [rapdtool](https://figshare.com/ndownload
 
     output_dir_name (default: rapdtool_results)
   
-<<<<<<< 2.1.0
   notes:
  
     1- You need to put "rapdtool" in your path, otherwise you must give the whole path so that it can be found.
@@ -93,30 +92,15 @@ and **download** the Singularity image [rapdtool](https://figshare.com/ndownload
     2- The input fasta must exist in your $HOME, otherwise you need to set the environment variable SINGULARITY_BIND
     to bind paths where your sequences are located
     ex: export SINGULARITY_BIND="../path/for/the/input/fasta"
-=======
-  A simple way to get all the dependencies ready is through the conda and pypi package managers:
-
-    $ conda install focus metabat2 binning_refiner mash 
-    
-    $ pip install micomplete
-    
-  If you prefer you can create an environment and set everything within it:
-
 
 ### Option 2
 
 Make sure you have all **dependencies** installed and the **DATABASE** downloaded.
 You also need to download and have in your path all the "bin" scripts.
 
-RaPDTool runs natively by calling the script: rapdtool_local.py
-
-    $ conda install focus metabat2 binning_refiner mash
-    
-    $ pip install micomplete
+RaPDTool runs natively by calling the script:
+  rapdtool_local.py
   
- After that, clone this repository in your prefered folder and excute the python script
-    
-
 ## Usage: 
 
 > $ rapdtool_local.py -i <input.fasta> -d database.msh [-r output_dir]
@@ -231,13 +215,9 @@ Contain the ten closest hits from the Mash paired comparison for each genome. Th
 As you can see, they are conveniently sorted from smallest to largest, so that it is easy to establish or rule out probable genomic coherence; and use the elements of the reference in subsequent more refined analyzes.
 </p>
 
-<<<<<< 2.1.0
 <p align="justify">
 For example, in the previous image the bin **meta-assembly_bin_1.fna** shares a genomic distance of ~0.062 with the assembly GCF_002165255.2, that belongs to the species Acinetobacter sp. WCHA45 (proteobacteria); and ~0.07 with the assembly GCA_000430225.1 that belongs to the species _Acinetobacter_junii_. Other hits in this comparison also match elements of the _Acinetobacter_ genus. It is not difficult to hypothesize that the bin **meta-assembly_bin_1.fna** is related with the clade _Acinetobacter_ (probably at the genus level, although nothing can be said about the species yet). So, presumably **meta-assembly_bin_1.fna** can be clasified as _Acinetobacter_sp.
 </p>
-======
-For example, in the previous image the bin *feces_assembly_1.fasta* shares a genomic distance of ~0.075 with the assembly GCF_003287895.1, that belongs to the species _Blautia argi_ (firmicutes); and ~0.095 with the assembly GCF_002222595.2 that belongs to the species _Blautia hansenii_ . Other hits in this comparison also match elements of the _Blautia_ genus. It is not difficult to hypothesize that the bin *feces_assembly_1.fasta* is related with the clade _Blautia_ (probably at the genus level, although nothing can be said about the species yet). So, presumably *feces_assembly_1.fasta* can be clasified as _Blautia_ sp.
->>>>>> 2.0
 
 <p align="justify">
 Potential tests could be the estimation of the Average Nucleotide Identity against these close hits and reconstructing a phylogenomic tree in order to place the query in a finer taxonomic context.
