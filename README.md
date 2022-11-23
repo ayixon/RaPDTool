@@ -226,7 +226,8 @@ Potential tests could be the estimation of the Average Nucleotide Identity again
 ## References:
 
 <p align="justify">
-Sánchez-Reyes, A.; Fernández-López, M.G. Mash Sketched Reference Dataset for Genome-Based Taxonomy and Comparative Genomics. Preprints 2021, 2021060368 (doi: http://dx.doi.org/10.20944/preprints202106.0368.v1).
+Sánchez-Reyes, A.; Fernández-López, M.G. Sketched reference databases for genome-based taxonomy and
+comparative genomics. https://doi.org/10.1590/1519-6984.256673
 </p>
 <p align="justify">
 Mash: fast genome and metagenome distance estimation using MinHash. Ondov BD, Treangen TJ, Melsted P, Mallonee AB, Bergman NH, Koren S, Phillippy AM. Genome Biol. 2016 Jun 20;17(1):132. doi: 10.1186/s13059-016-0997-x.
