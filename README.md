@@ -165,7 +165,7 @@ several files -in tabular format (csv)- reporting relative abundance from Kingdo
 2-The native FOCUS database plays an important role in the accuracy of the profile. The initial launch of FOCUS considered 2,766 reference genomes to build a kmer frecuencies database ( _k_ = 6; _k_ = 7)  . For the implementation of RaPDTool, we have considered 14,551 genomes from the Type Material to give taxonomic certainty to the profiles, while enriching the initial database. 
 </p>
 
-The new  _k_ = 6; _k_ = 7 kmer archives for updating FOCUS database will be available on: https://drive.google.com/uc?export=download&id=1AOOwhmhg9Zn5iYrOs9j36cBZZTIupPbC
+> The new  _k_ = 6; _k_ = 7 kmer archives for [Update FOCUS Database will be available here](https://drive.google.com/uc?export=download&id=1AOOwhmhg9Zn5iYrOs9j36cBZZTIupPbC)
 
 ![image](https://user-images.githubusercontent.com/42699236/170603717-eb9f8047-6bfa-4a89-85b2-0fa34c6c7e7e.png)
 
