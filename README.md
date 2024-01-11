@@ -3,6 +3,8 @@
   <h1>${{\color{red}Ra}pid\ {\color{red}P}rofiling\ and\ {\color{red}D}econvolution\ {\color{red}Tool}}\ for\ metagenomes$</h1>
 </div>
 
+  ### RaPDTool up-to-date version continues in https://github.com/kjestradag/RaPDTool
+
 ![RaPDTool_pipeline_600ppi](https://user-images.githubusercontent.com/42699236/163837963-9394db95-a232-4b6e-92d7-d5b6bc90cdd2.png)
 
 <div align="justify">
