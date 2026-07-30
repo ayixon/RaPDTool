@@ -502,7 +502,8 @@ class Pipeline:
         self.log('Generating Krona visualization..')
         self.run('krona', ['ktImportText', 'forkrona.txt', '-o', 'rapdtool_krona.html'],
                  cwd=self.root, allow_fail=True)
-        for junk in ('profilesfmbm.txt', 'forkrona.txt', 'mashscreen_hits.txt'):
+        for junk in ('profilesfmbm.txt', 'forkrona.txt', 'mashscreen_hits.txt',
+                     'mashscreen_genus_hits.txt'):
             jp = self.root + junk
             if os.path.isfile(jp):
                 os.remove(jp)

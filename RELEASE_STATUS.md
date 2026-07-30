@@ -64,6 +64,50 @@ Reference data (mash DB, FOCUS DB) and the benchmark inputs are **not** copied; 
 read in place. A full copy of the stable tree was not possible anyway — 74 GB against
 41 GB free — and not useful: only 18 MB of it is the repository.
 
+## Audit, 2026-07-30
+
+Everything in this tree was re-checked after the fact. Two defects were found and fixed;
+both were introduced by this release and neither is present in v2.3.1.
+
+**Fixed — the launcher could silently run the wrong image.** The cached image is named
+after `$RAPDTOOL_VERSION`, but the download source is a fixed figshare article that
+serves whatever is current there. With the version bumped to 2.3.2 and no 2.3.2 image
+published, a run without `$RAPDTOOL_SIF` would have fetched the **2.3.1** image, stored
+it as `rapdtool_2.3.2.sif`, reported "rapdtool 2.3.2" and executed 2.3.1 — no genus
+tier, no warning. Every test here set `$RAPDTOOL_SIF` explicitly, so this was never hit
+in practice. `check_sif_version()` now compares the image's own `Version:` label against
+the launcher and refuses on mismatch. Worth keeping for the real release: the same trap
+exists whenever a version is bumped before the image is uploaded.
+
+**Fixed — the new intermediate file was left behind.** The post-merge cleanup removed
+`mashscreen_hits.txt` but not `mashscreen_genus_hits.txt`, so every screen run littered
+its output directory with a stray file. The species intermediate was cleaned and the
+genus one was not, which is exactly the asymmetry an audit is for.
+
+**Verified, no action needed:**
+
+- Species results are unchanged. The species lists — not merely the counts — are
+  identical between v2.3.1 and v2.3.2 across all six datasets, compared by checksum:
+  19/20/20/20/5/8.
+- The *Corallococcus* result holds. It is in the gold standard (species taxid 2316724),
+  appears **nowhere** in the v2.3.1 table, and in v2.3.2 is placed at genus rank with
+  *Corallococcus praedator* — the exact gold species — as its closest hit at 0.9434.
+- No regression in `profile` mode: byte-identical genus rows before and after the Perl
+  change.
+- The image contains the final code (`md5` of `rapdtool.py` and `rapdtool_results.pl`
+  matches repo → sandbox → SIF).
+- Inverted cutoffs (`--screen-genus-identity` above `--screen-identity`) warn and
+  produce no genus band, rather than failing.
+- Both hit files are written on every run even when empty, so a stale file from an
+  earlier run cannot resurrect a genus table.
+- No `2.3.1` string remains in the code, launcher, recipe or definition file.
+- `validation/` is git-ignored and absent from the commit.
+
+**Known and accepted:** in the genus table the `taxID` column carries the taxid of the
+closest *species*, not of the genus. That is what full mode has always done and changing
+one without the other would be worse; the `.txt` output names the columns explicitly
+(`Genus  Closest-species  taxID  …`).
+
 ## Before releasing
 
 - [ ] Build from `Singularity.def` and confirm it matches the sandbox build. Only the

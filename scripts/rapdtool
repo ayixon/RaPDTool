@@ -88,12 +88,33 @@ plan_fetch() {  # plan_fetch DEST SIDECAR OVERRIDE_URL ARTICLE
     return 0
 }
 
+# The cached image is named after $RAPDTOOL_VERSION, but the download source is a
+# fixed figshare article that serves whatever image is current there. If this launcher
+# is newer than the published image -- an unreleased build, or a version bump made
+# before upload -- the fetch would store the OLD image under the NEW name and every run
+# would report a version it is not executing. Compare the image's own label and refuse
+# rather than run something mislabelled.
+check_sif_version() {
+    command -v apptainer >/dev/null 2>&1 || return 0
+    _got=$(apptainer inspect "$SIF" 2>/dev/null \
+           | sed -n 's/^Version:[[:space:]]*//p' | head -n1)
+    [ -n "$_got" ] || return 0                      # unlabelled image, nothing to check
+    [ "$_got" = "$RAPDTOOL_VERSION" ] && return 0
+    die "image version mismatch: $SIF reports $_got but this launcher is $RAPDTOOL_VERSION.
+       The download source (figshare $SIF_ARTICLE) may not carry $RAPDTOOL_VERSION yet.
+       Point \$RAPDTOOL_SIF at the matching image, or remove $SIF to re-fetch."
+}
+
 ensure_sif() {
-    [ -n "${RAPDTOOL_SIF:-}" ] && [ -f "$SIF" ] && return 0   # user-provided image, don't manage
+    if [ -n "${RAPDTOOL_SIF:-}" ] && [ -f "$SIF" ]; then   # user-provided image
+        check_sif_version
+        return 0
+    fi
     if plan_fetch "$SIF" "$SIF.src" "$SIF_URL" "$SIF_ARTICLE"; then
         fetch "$SRC" "$SIF"
         printf '%s' "$SRC" > "$SIF.src"
     fi
+    check_sif_version
 }
 
 ensure_mashdb() {
