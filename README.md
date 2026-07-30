@@ -139,7 +139,7 @@ automatically):
 
 ```
 rapdtool -i INPUT [-o OUTPUT] [-m {full,profile,screen}] [-t THREADS] [-a COVERAGE]
-         [--screen-identity F] [--no-split-bins] [--force] [-c COMMENT]
+         [--screen-identity F] [--screen-genus-identity F] [--no-split-bins] [--force] [-c COMMENT]
 
   -i, --input      input FASTA assembly (.fasta/.fa/.fna/.fas, optionally .gz)   [required]
                    (screen mode also accepts FASTQ reads: .fastq/.fq[.gz];
@@ -151,7 +151,10 @@ rapdtool -i INPUT [-o OUTPUT] [-m {full,profile,screen}] [-t THREADS] [-a COVERA
                    are present in a metagenome (FASTA or raw FASTQ reads), no binning
   -t, --threads    threads for FOCUS/Metabat/miComplete/Mash (default: all cores)
   -a, --coverage   depth/coverage file passed to Metabat2 (-a)
-      --screen-identity  min mash-screen identity in screen mode (default: 0.95)
+      --screen-identity  min mash-screen identity for a SPECIES call in screen mode
+                         (default: 0.95 = Mash distance 0.05)
+      --screen-genus-identity  min identity for a GENUS call in screen mode
+                         (default: 0.92 = distance 0.08; the same band full mode uses)
       --no-split-bins   disable per-species FASTA output
       --force      overwrite existing results for the same input
   -c, --comment    comment recorded in the log
@@ -198,6 +201,40 @@ Results are written under the `-o` directory (default `rapdtool_results`):
 
 For each bin, RaPDTool reports the ten closest neighbors from the Mash comparison,
 simplifying interpretation and providing a basis for finer OGRI/ANI analysis.
+
+### Reading the Genus table
+
+Genus and species are reported in **separate tables**, because they answer different
+questions. A row in the species table is a genome close enough to a reference to be
+named (Mash distance < 0.05, identity > 95 %). A row in the genus table is one that is
+*not*: it sits at 0.05–0.08 (92–95 %), close enough to place in a genus and no closer.
+Reading the genus table as a weaker species list is the one way to misuse it.
+
+**Read the genus table against the species table.** A genus there is worth trusting when
+it stands on its own, and worth doubting when the species table already holds a genus
+known to be genomically near-inseparable from it. The clearest case is *Escherichia* and
+*Shigella*: *Shigella* is nested inside *E. coli* rather than forming a distinct lineage,
+and in this reference set the two sit **0.023 apart — closer than the species threshold
+itself**. Any sample containing *E. coli* therefore tends to raise a *Shigella* genus
+call that reflects shared ancestry, not a second organism. Measured across the benchmark
+communities, a spurious *Shigella* appears in every dataset containing *E. coli* and in
+none of the dataset that does not.
+
+The same caution applies wherever a genus boundary is narrower than the genomic distance
+between its members — recently split genera (*Clostridium* sensu lato, *Bacillus* with
+its *Priestia* and *Peribacillus* segregates, *Mycobacterium* and *Mycolicibacterium*)
+and the closely related Enterobacteriaceae (*Klebsiella*, *Raoultella*, *Enterobacter*)
+are the usual suspects. The check itself needs no literature: a genus whose nearest
+relative is already named in the species table deserves scrutiny, one with no such
+neighbour usually does not. Across the twenty benchmark genomes only two had *any*
+out-of-genus neighbour within 0.15 in this database, so the situation is uncommon and
+identifiable rather than pervasive.
+
+Conversely, the genus table is where a genuinely present organism surfaces when the
+evidence will not support a species call — one absent from the database, or a real
+community member whose coverage is too low to clear the species threshold. At 3 M reads
+the benchmark's *Corallococcus* is reported at genus rank while it is missed entirely at
+species rank: backing off a rank rather than falling silent is the intended behaviour.
 
 ---
 

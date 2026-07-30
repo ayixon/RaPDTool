@@ -2,6 +2,30 @@
 
 All notable changes to RaPDTool are documented here.
 
+## [2.3.2] — 2026-07-30
+
+### Changed
+- **Screen mode now reports genus, with the cutoffs full mode already used.** `full` and
+  `profile` tier a bin by its Mash distance to the nearest reference — below 0.05 into
+  *Species with high confidence*, 0.05–0.08 into *Genus with high confidence* — while
+  `screen` applied a single `--screen-identity` cutoff (0.95) and had no genus tier at
+  all. The same organism therefore got a genus call from one mode and silence from the
+  other: on a genome 94.5 % identical to its nearest reference, `profile` reported
+  *Hymenobacter baengnokdamensis* and `screen` reported nothing at all. Screen now
+  applies both tiers, so the rank follows the evidence rather than the mode that
+  produced it.
+
+  The new `--screen-genus-identity` (default 0.92, the identity equivalent of Mash
+  distance 0.08) sets the lower edge; `--screen-identity` (0.95) still sets the species
+  edge and is unchanged. Genus hits are written to `mashscreen_genus_hits.txt` and
+  reported in a *Genus detected (mash screen…)* table.
+
+  **The genus table is printed before the species table**, mirroring full mode's order.
+  A consumer that scopes the species block as everything between
+  `Reference genomes detected` and the FOCUS heading — as the benchmark kit's
+  `mash_detection.py` does — therefore still sees species rows only, and species-level
+  counts are unchanged by this release.
+
 ## [2.3.1] — 2026-07-28
 
 ### Fixed

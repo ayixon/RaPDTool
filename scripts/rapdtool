@@ -16,7 +16,7 @@
 
 set -eu
 
-RAPDTOOL_VERSION=2.3.1
+RAPDTOOL_VERSION=2.3.2
 
 CACHE="${RAPDTOOL_CACHE:-${XDG_CACHE_HOME:-$HOME/.cache}/rapdtool}"
 
@@ -141,7 +141,7 @@ usage() {
 
 Usage:
   rapdtool -i INPUT [-o OUTPUT] [-m {full,profile,screen}] [-t THREADS] [-a COVERAGE]
-           [--screen-identity F] [--no-split-bins] [--force] [-c COMMENT]
+           [--screen-identity F] [--screen-genus-identity F] [--no-split-bins] [--force] [-c COMMENT]
 
   -i, --input      input FASTA assembly (.fasta/.fa/.fna/.fas, optionally .gz)   [required]
                    (screen mode also accepts FASTQ reads: .fastq/.fq[.gz];
@@ -152,7 +152,10 @@ Usage:
                    screen: FOCUS + mash-screen containment (what's there, no binning)
   -t, --threads    threads for FOCUS/Metabat/miComplete/Mash (default: all cores)
   -a, --coverage   depth/coverage file passed to Metabat2 (-a)
-      --screen-identity   min mash-screen identity in screen mode (default: 0.95)
+      --screen-identity   min mash-screen identity for a SPECIES call in screen mode
+                          (default: 0.95 = Mash distance 0.05)
+      --screen-genus-identity   min identity for a GENUS call in screen mode
+                          (default: 0.92 = distance 0.08; same band as full mode)
       --no-split-bins   disable per-species FASTA output
       --force      overwrite existing results for the same input
   -c, --comment    comment recorded in the log

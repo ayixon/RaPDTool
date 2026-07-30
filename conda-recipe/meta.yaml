@@ -1,10 +1,10 @@
 package:
   name: rapdtool
-  version: "2.3.1"
+  version: "2.3.2"
 
 source:
   git_url: https://github.com/BioTools-Dev/RaPDTool.git
-  git_rev: RaPDTool-v2.3.1 # release tag: immutable, so the build is reproducible
+  git_rev: RaPDTool-v2.3.2 # release tag: immutable, so the build is reproducible
 
 build:
   number: 0

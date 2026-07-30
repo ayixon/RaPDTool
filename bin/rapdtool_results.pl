@@ -153,7 +153,32 @@ if( %species ){
 }
 print OUT draw_table(\@scap, \@srows) if $species;
 
-# mash screen section (screen mode) - reads mashscreen_hits.txt if present
+# mash screen sections (screen mode). The GENUS table is printed BEFORE the species
+# one, mirroring full mode's Genus-then-Species order. That order is load-bearing:
+# a consumer scoping the species block as everything between "Reference genomes
+# detected" and the FOCUS heading still sees species rows only, so adding the genus
+# tier in 2.3.2 does not silently inflate anyone's species counts.
+if( -s "mashscreen_genus_hits.txt" ){
+	open SG, "mashscreen_genus_hits.txt";
+	my @gscap= qw/ Genus Closest-species taxID Identity Shared-hashes /;
+	my @gsrows;
+	print OUT"\nGenus detected (mash screen, identity below the species cutoff):\n\n";
+	print OUT3"\n# Genus detected (mash screen, identity below the species cutoff):\n\n";
+	print OUT3"Genus\tClosest-species\ttaxID\tIdentity\tShared-hashes\n";
+	while(<SG>){
+		chomp;
+		my($ident,$shared,$ref)= split("\t");
+		my $acc= ($ref =~ /(GC[AF]_\d+\.\d+)/) ? $1 : $ref;
+		my($org,$taxid)= getseq($acc);
+		my($genus)= split(/[\s_]+/, $org);
+		print OUT2"$acc\t$org\n";
+		print OUT3"$genus\t$org\t$taxid\t$ident\t$shared\n";
+		push @gsrows, [$genus,$org,$taxid,$ident,$shared];
+	}
+	close SG;
+	print OUT draw_table(\@gscap, \@gsrows);
+}
+
 if( -s "mashscreen_hits.txt" ){
 	open SC, "mashscreen_hits.txt";
 	my @sccap= qw/ Species taxID Identity Shared-hashes /;

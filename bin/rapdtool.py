@@ -19,7 +19,7 @@ import subprocess
 import sys
 import time
 
-VERSION = '2.3.1'
+VERSION = '2.3.2'
 
 # accepted input extensions (optionally followed by .gz)
 FASTA_EXTS = ('.fasta', '.fa', '.fna', '.fas', '.ffn', '.frn')
@@ -406,8 +406,17 @@ class Pipeline:
 
     def step_mash_screen(self, index, total):
         """Screen mode: identify reference genomes contained in the whole assembly
-        with 'mash screen' (containment) -- no binning. Hits with identity >=
-        --screen-identity are written to mashscreen_hits.txt for the report merger."""
+        with 'mash screen' (containment) -- no binning.
+
+        Hits are tiered exactly as full/profile mode tiers its Mash distances, so the
+        same evidence yields the same rank whichever mode produced it: identity
+        >= --screen-identity (0.95, i.e. distance < 0.05) is reported as a species and
+        >= --screen-genus-identity (0.92, distance 0.05-0.08) as a genus. Before 2.3.2
+        screen applied the species cutoff alone and stayed silent across the genus
+        band, so an organism full mode placed to genus was not reported at all.
+
+        Written to mashscreen_hits.txt (species) and mashscreen_genus_hits.txt (genus)
+        for the report merger."""
         print('Running Mash screen.. [%d/%d]' % (index, total))
         self.log('MASH screen (reference-genome containment)')
         os.makedirs(self.mash_out, exist_ok=True)
@@ -416,7 +425,11 @@ class Pipeline:
                  ['mash', 'screen', '-w', '-p', self.threads, self.database, self.input_file],
                  stdout_path=raw, allow_fail=True)
         cutoff = self.opts.screen_identity
-        hits = []
+        gcutoff = self.opts.screen_genus_identity
+        if gcutoff > cutoff:
+            self.log('WARNING: --screen-genus-identity (%.2f) is above --screen-identity '
+                     '(%.2f), so no genus band exists' % (gcutoff, cutoff))
+        hits, ghits = [], []
         if os.path.isfile(raw):
             for line in open(raw):
                 f = line.rstrip('\n').split('\t')
@@ -426,13 +439,21 @@ class Pipeline:
                     ident = float(f[0])
                 except ValueError:
                     continue
+                row = (ident, f[1], f[4])            # identity, shared-hashes, ref name
                 if ident >= cutoff:
-                    hits.append((ident, f[1], f[4]))   # identity, shared-hashes, ref name
+                    hits.append(row)
+                elif ident >= gcutoff:
+                    ghits.append(row)
             hits.sort(reverse=True)
-        with open(self.root + 'mashscreen_hits.txt', 'w') as fh:
-            for ident, shared, ref in hits:
-                fh.write('%.4f\t%s\t%s\n' % (ident, shared, ref))
-        self.log('mash screen - %d reference genome(s) >= %.2f identity' % (len(hits), cutoff))
+            ghits.sort(reverse=True)
+        for name, rows in (('mashscreen_hits.txt', hits),
+                           ('mashscreen_genus_hits.txt', ghits)):
+            with open(self.root + name, 'w') as fh:
+                for ident, shared, ref in rows:
+                    fh.write('%.4f\t%s\t%s\n' % (ident, shared, ref))
+        self.log('mash screen - %d genome(s) >= %.2f identity (species tier), '
+                 '%d in %.2f-%.2f (genus tier)'
+                 % (len(hits), cutoff, len(ghits), gcutoff, cutoff))
 
     def _extract_min_dist(self, reports, want=10):
         for mtm in reports:
@@ -580,7 +601,13 @@ def pick_options(argv=None):
                         help='full pipeline, profile (single genome), or screen '
                              '(FOCUS + mash-screen containment, no binning) (default: full)')
     parser.add_argument('--screen-identity', dest='screen_identity', type=float, default=0.95,
-                        help='min mash-screen identity to report a genome in screen mode (default: 0.95)')
+                        help='min mash-screen identity to report a genome as a SPECIES in '
+                             'screen mode (default: 0.95, i.e. Mash distance < 0.05)')
+    parser.add_argument('--screen-genus-identity', dest='screen_genus_identity',
+                        type=float, default=0.92,
+                        help='min mash-screen identity to report a genome as a GENUS in '
+                             'screen mode, below --screen-identity (default: 0.92, i.e. '
+                             'Mash distance 0.05-0.08 -- the same band full mode uses)')
     parser.add_argument('-t', '--threads', type=int, default=(os.cpu_count() or 4),
                         help='threads for FOCUS/Metabat/miComplete/Mash (default: all cores)')
     parser.add_argument('-a', '--coverage', help='depth/coverage file passed to Metabat2 (-a)')

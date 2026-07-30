@@ -23,3 +23,6 @@ __pycache__/
 *.swp
 *~
 .DS_Store
+
+# Local validation artifacts for the held 2.3.2 release (not part of the distribution)
+validation/
