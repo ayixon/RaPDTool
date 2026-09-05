@@ -13,7 +13,7 @@ print STDERR "Usage: $0 [opts] \n\n";
 die <<'ayuda';
 -h       This help
 
--This program summarizes the best Focus and Mash hits in two files (rapdtool_confidence.tbl|txt). Uses a cutoff of 0.5 for the relative abundance of Focus results and a cutoff of 0.05 and 0.08 for species and genus taxas respectively of Mash results.
+-This program summarizes the best Focus and Mash hits in two files (rapdtool_confidence.tbl|txt). Uses a cutoff of 0.5 for the relative abundance of Focus results, and Mash distance cutoffs of 0.043 (species) and 0.13 (genus), measured over all 4.56e8 pairs of the type material at sketch size 1000 -- the configuration this tool ships.
 
 Use output_Species_tabular.csv, found in "profilesfmbm" (Rapdtool output directory) and all '*.txt.out' from "allresultsfmbm" (Rapdtool output directory)
 
@@ -27,6 +27,23 @@ my ($genus, $species)= (0,0);
 # point: at 0.5 the profile keeps every species of the benchmark communities with
 # no false positives at 10-30 M reads; at 1.0 species between 0.5 and 1 % are lost.
 my $FOCUS_MIN_ABUNDANCE = 0.5;
+
+# Mash distance boundaries, measured over every pair of the prokaryotic type material
+# (30,209 genomes, 4.56e8 pairs) at sketch size 1000 with a whole genome as the query --
+# the configuration this tool ships. Species sits where 95 % ANI actually falls, not at
+# the customary 0.05, which admits pairs down to 94.2 % ANI. Genus sits at the wide edge
+# of the precision plateau, which holds ~96 % from 0.07 to 0.130 under both NCBI and GTDB
+# and breaks at 0.135; the previous 0.08 stopped well inside it and cost genus calls for
+# nothing. Beyond the genus bound the pipeline abstains rather than name a rank.
+my $SPECIES_MAX_DIST = 0.043;
+my $GENUS_MAX_DIST   = 0.13;
+
+# Mash's own distance-to-identity conversion (1 - d) overstates ANI by 12 d points,
+# measured over the same 4.56e8 pairs: d = 0.043 is 95.2 % ANI and not 95.7 %, d = 0.13
+# is 85.4 % and not 87 %. Every identity this report prints uses the correction, so no
+# column carries the uncorrected value.
+my $ANI_SLOPE = 1.12;
+sub ani { my $d = shift; return sprintf("%.4f", 1 - $ANI_SLOPE * $d); }
 
 # Overall width budget for the report tables, and the column that may absorb it.
 my $TABLE_MAX_WIDTH = 5000;
@@ -76,15 +93,15 @@ while(<IN>){
 	my $best= shift @lines;
 	if( $best =~ m/\S+\/([^\/]+)\.fna\s+(G.._[^_]+)_.*genomic.f[an][as][t]?[a]?\s+(\S+)\s+\S+\s+(\S+)/ ){
 		my ($bin, $specie, $dist, $frag)= ($1, $2, $3, $4);
-		if( $dist < 0.05 ){
+		if( $dist <= $SPECIES_MAX_DIST ){
 			$species{$specie}{dist}= sprintf("%.3f", $dist);
-			$species{$specie}{ident}= sprintf("%.4f", 1 - $dist);
+			$species{$specie}{ident}= ani($dist);
 			$species{$specie}{frag}= $frag;
 			$species{$specie}{bin}= $bin;
 			next;
-        }elsif($dist < 0.08){
+        }elsif($dist <= $GENUS_MAX_DIST){
 			$genus{$specie}{dist}= sprintf("%.3f", $dist);
-			$genus{$specie}{ident}= sprintf("%.4f", 1 - $dist);
+			$genus{$specie}{ident}= ani($dist);
 			$genus{$specie}{frag}= $frag;
 			$genus{$specie}{bin}= $bin;
 			next;
@@ -108,7 +125,7 @@ open OUT, ">rapdtool_confidence.tbl";
 open OUT2, ">assemblyID_annot.txt";
 open OUT3, ">rapdtool_confidence.txt";
 
-my $distcap = $profile ? 'Identity' : 'Genomic-distance';   # profile: identity (1-dist), like screen
+my $distcap = $profile ? 'ANI-est' : 'Genomic-distance';   # profile: corrected ANI, like screen
 my @gcap = ('Genus-closest-hit','Species-closest-hit','taxID',$distcap,'Shared-hashes');
 push @gcap, qw/ Completeness Redundancy Bin Scaffolds_in_Bin / unless $profile;
 my @grows;
@@ -158,42 +175,69 @@ print OUT draw_table(\@scap, \@srows) if $species;
 # a consumer scoping the species block as everything between "Reference genomes
 # detected" and the FOCUS heading still sees species rows only, so adding the genus
 # tier in 2.3.2 does not silently inflate anyone's species counts.
+# Screen has no binning, so every reference genome inside the genus band produces a
+# row: the same genus appears several times at increasing distance, and a genus whose
+# species is already named above is repeated for nothing. Widening the band to 0.13 made
+# that dominate the table. Keep the nearest hit per genus, and drop any genus already
+# reported at species rank -- the species call is the stronger statement about the same
+# organism. Both files arrive sorted by distance, so the first hit seen is the nearest.
+my %screen_species_genus;
+if( -s "mashscreen_hits.txt" ){
+	open SPRE, "mashscreen_hits.txt";
+	while(<SPRE>){
+		chomp;
+		my(undef,undef,$ref)= split("\t");
+		my $acc= ($ref =~ /(GC[AF]_\d+\.\d+)/) ? $1 : $ref;
+		my($org)= getseq($acc);
+		my($g)= split(/[\s_]+/, $org);
+		$screen_species_genus{$g}= 1 if $g;
+	}
+	close SPRE;
+}
+
 if( -s "mashscreen_genus_hits.txt" ){
 	open SG, "mashscreen_genus_hits.txt";
-	my @gscap= qw/ Genus Closest-species taxID Identity Shared-hashes /;
+	my @gscap= qw/ Genus Closest-species taxID Mash-distance ANI-est Shared-hashes /;
 	my @gsrows;
-	print OUT"\nGenus detected (mash screen, identity below the species cutoff):\n\n";
-	print OUT3"\n# Genus detected (mash screen, identity below the species cutoff):\n\n";
-	print OUT3"Genus\tClosest-species\ttaxID\tIdentity\tShared-hashes\n";
+	my %seen_genus;
 	while(<SG>){
 		chomp;
-		my($ident,$shared,$ref)= split("\t");
+		my($dist,$shared,$ref)= split("\t");
 		my $acc= ($ref =~ /(GC[AF]_\d+\.\d+)/) ? $1 : $ref;
 		my($org,$taxid)= getseq($acc);
 		my($genus)= split(/[\s_]+/, $org);
+		next if $screen_species_genus{$genus};   # already named at species rank
+		next if $seen_genus{$genus}++;           # a nearer hit for this genus was kept
 		print OUT2"$acc\t$org\n";
-		print OUT3"$genus\t$org\t$taxid\t$ident\t$shared\n";
-		push @gsrows, [$genus,$org,$taxid,$ident,$shared];
+		push @gsrows, [$genus,$org,$taxid,$dist,ani($dist),$shared];
 	}
 	close SG;
-	print OUT draw_table(\@gscap, \@gsrows);
+	# Deduplication can empty the table; only then is there nothing to announce.
+	if( @gsrows ){
+		print OUT"\nGenus detected (mash screen, beyond the species distance cutoff):\n\n";
+		print OUT3"\n# Genus detected (mash screen, beyond the species distance cutoff):\n\n";
+		print OUT3 join("\t", @gscap)."\n";
+		print OUT3 join("\t", @$_)."\n" foreach @gsrows;
+		print OUT draw_table(\@gscap, \@gsrows);
+	}
 }
 
 if( -s "mashscreen_hits.txt" ){
 	open SC, "mashscreen_hits.txt";
-	my @sccap= qw/ Species taxID Identity Shared-hashes /;
+	my @sccap= qw/ Species taxID Mash-distance ANI-est Shared-hashes /;
 	my @scrows;
 	print OUT"\nReference genomes detected (mash screen):\n\n";
 	print OUT3"\n# Reference genomes detected (mash screen):\n\n";
-	print OUT3"Species\ttaxID\tIdentity\tShared-hashes\n";
+	print OUT3"Species\ttaxID\tMash-distance\tANI-est\tShared-hashes\n";
 	while(<SC>){
 		chomp;
-		my($ident,$shared,$ref)= split("\t");
+		my($dist,$shared,$ref)= split("\t");
 		my $acc= ($ref =~ /(GC[AF]_\d+\.\d+)/) ? $1 : $ref;
 		my($org,$taxid)= getseq($acc);
+		my $a= ani($dist);
 		print OUT2"$acc\t$org\n";
-		print OUT3"$org\t$taxid\t$ident\t$shared\n";
-		push @scrows, [$org,$taxid,$ident,$shared];
+		print OUT3"$org\t$taxid\t$dist\t$a\t$shared\n";
+		push @scrows, [$org,$taxid,$dist,$a,$shared];
 	}
 	close SC;
 	print OUT draw_table(\@sccap, \@scrows);

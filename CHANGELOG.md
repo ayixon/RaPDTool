@@ -5,20 +5,54 @@ All notable changes to RaPDTool are documented here.
 ## [2.3.2] — 2026-07-30
 
 ### Changed
-- **Screen mode now reports genus, with the cutoffs full mode already used.** `full` and
-  `profile` tier a bin by its Mash distance to the nearest reference — below 0.05 into
-  *Species with high confidence*, 0.05–0.08 into *Genus with high confidence* — while
-  `screen` applied a single `--screen-identity` cutoff (0.95) and had no genus tier at
-  all. The same organism therefore got a genus call from one mode and silence from the
-  other: on a genome 94.5 % identical to its nearest reference, `profile` reported
-  *Hymenobacter baengnokdamensis* and `screen` reported nothing at all. Screen now
-  applies both tiers, so the rank follows the evidence rather than the mode that
-  produced it.
+- **Recalibrated the Mash distance boundaries against a measurement.** The species and
+  genus cutoffs were inherited conventions (0.05 and 0.08); they are now the boundaries
+  measured over every pair of the prokaryotic type material — 30,209 genomes,
+  4.56 × 10⁸ pairs — at sketch size 1000 with a whole genome as the query, which is the
+  configuration this tool ships.
 
-  The new `--screen-genus-identity` (default 0.92, the identity equivalent of Mash
-  distance 0.08) sets the lower edge; `--screen-identity` (0.95) still sets the species
-  edge and is unchanged. Genus hits are written to `mashscreen_genus_hits.txt` and
-  reported in a *Genus detected (mash screen…)* table.
+  | Rank | Was | Now | Why |
+  |---|---|---|---|
+  | species | `d < 0.05` | **`d ≤ 0.043`** | 95 % ANI actually falls at 0.0426. The customary 0.05 admits pairs down to 94.2 % ANI, so it never delivered the species standard it was taken to apply. Widening buys nothing: 0.043 → 0.05 raises coverage 0.2 points and drops precision 3.3. |
+  | genus | `0.05–0.08` | **`0.043 < d ≤ 0.13`** | Precision holds a ~96 % plateau from 0.07 to 0.130 under both NCBI and GTDB and breaks at 0.135. The old 0.08 stopped well inside the plateau; moving to the wide edge yields substantially more genus calls at no cost in precision. |
+  | abstain | `d ≥ 0.08` | **`d > 0.13`** | |
+
+  **Cutoffs are now declared as distance, not identity.** `--screen-max-dist` (0.043) and
+  `--screen-genus-max-dist` (0.13) replace `--screen-identity` / `--screen-genus-identity`,
+  which remain as deprecated aliases (distance = 1 − identity). mash screen reports Mash's
+  own identity, which is 1 − d and not ANI, so a cutoff phrased as identity invited reading
+  0.957 as "95.7 % ANI" when the corrected value is 95.2 %. Every mode now tiers on the
+  same scale and the same two numbers.
+
+- **The reported identity column is no longer the biased one.** `1 − d` overstates ANI by
+  12 d points, so the report now prints `ANI-est = 1 − 1.12 d` alongside the untranslated
+  `Mash-distance`. At the new boundaries that is 95.2 % rather than 95.7 % at `d = 0.043`,
+  and 85.4 % rather than 87 % at `d = 0.13`.
+
+- **Screen's genus table keeps one row per genus.** With no binning, every reference inside
+  the band produced a row, so the same genus appeared repeatedly at increasing distance and
+  a genus already named at species rank was repeated for nothing — which the wider band made
+  dominant. Only the nearest hit per genus is kept, and a genus already reported at species
+  rank is dropped. On the mirror community this takes the table from 11 rows to 7 without
+  losing a single correct call.
+
+  A distance threshold is only meaningful together with the sketch size that produced it.
+  These are for **s = 1000, k = 21**, matching the distributed database. They should not
+  be carried over to a database sketched differently without re-deriving them.
+
+- **Screen mode now reports genus, with the cutoffs full mode already used.** `full` and
+  `profile` have always tiered a bin by its Mash distance to the nearest reference, one
+  band for species and one for genus, while `screen` applied a single
+  `--screen-identity` cutoff and had no genus tier at all. The same organism therefore
+  got a genus call from one mode and silence from the other: on a genome 94.5 % identical
+  to its nearest reference, `profile` reported *Hymenobacter baengnokdamensis* and
+  `screen` reported nothing. Screen now applies both tiers, so the rank follows the
+  evidence rather than the mode that produced it.
+
+  The new `--screen-genus-identity` sets the lower edge and `--screen-identity` the
+  species edge; both are the complement of the distance boundaries above. Genus hits are
+  written to `mashscreen_genus_hits.txt` and reported in a
+  *Genus detected (mash screen…)* table.
 
   **The genus table is printed before the species table**, mirroring full mode's order.
   A consumer that scopes the species block as everything between

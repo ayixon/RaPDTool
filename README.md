@@ -139,7 +139,7 @@ automatically):
 
 ```
 rapdtool -i INPUT [-o OUTPUT] [-m {full,profile,screen}] [-t THREADS] [-a COVERAGE]
-         [--screen-identity F] [--screen-genus-identity F] [--no-split-bins] [--force] [-c COMMENT]
+         [--screen-max-dist D] [--screen-genus-max-dist D] [--no-split-bins] [--force] [-c COMMENT]
 
   -i, --input      input FASTA assembly (.fasta/.fa/.fna/.fas, optionally .gz)   [required]
                    (screen mode also accepts FASTQ reads: .fastq/.fq[.gz];
@@ -151,10 +151,12 @@ rapdtool -i INPUT [-o OUTPUT] [-m {full,profile,screen}] [-t THREADS] [-a COVERA
                    are present in a metagenome (FASTA or raw FASTQ reads), no binning
   -t, --threads    threads for FOCUS/Metabat/miComplete/Mash (default: all cores)
   -a, --coverage   depth/coverage file passed to Metabat2 (-a)
-      --screen-identity  min mash-screen identity for a SPECIES call in screen mode
-                         (default: 0.95 = Mash distance 0.05)
-      --screen-genus-identity  min identity for a GENUS call in screen mode
-                         (default: 0.92 = distance 0.08; the same band full mode uses)
+      --screen-max-dist  max Mash distance for a SPECIES call in screen mode
+                         (default: 0.043, where 95.2 % ANI falls)
+      --screen-genus-max-dist  max Mash distance for a GENUS call in screen mode
+                         (default: 0.13; the same band full mode uses)
+                         (--screen-identity/--screen-genus-identity remain as
+                          deprecated aliases: distance = 1 - identity)
       --no-split-bins   disable per-species FASTA output
       --force      overwrite existing results for the same input
   -c, --comment    comment recorded in the log
@@ -206,13 +208,22 @@ simplifying interpretation and providing a basis for finer OGRI/ANI analysis.
 
 Genus and species are reported in **separate tables**, because they answer different
 questions. A row in the species table is a genome close enough to a reference to be
-named (Mash distance < 0.05, identity > 95 %). A row in the genus table is one that is
-*not*: it sits at 0.05–0.08 (92–95 %), close enough to place in a genus and no closer.
+named (Mash distance ≤ 0.043, where 95 % ANI actually falls). A row in the genus table is
+one that is *not*: it sits at 0.043–0.13, close enough to place in a genus and no closer.
+
+The `ANI-est` column is **not** `1 − d`. That conversion, which Mash itself uses, overstates
+identity by 12 d points; the reported value applies the measured correction
+**ANI = 1 − 1.12 d**, so `d = 0.043` reads as 95.2 % and not 95.7 %. The `Mash-distance`
+column is printed beside it, untranslated.
 Reading the genus table as a weaker species list is the one way to misuse it.
 
-**Read the genus table against the species table.** A genus there is worth trusting when
-it stands on its own, and worth doubting when the species table already holds a genus
-known to be genomically near-inseparable from it. The clearest case is *Escherichia* and
+A genus already named in the species table is **not** repeated here, and only the nearest
+reference per genus is kept — without that, widening the band fills the table with the
+same genus at increasing distance.
+
+**Read the genus table against the rest of it.** A genus there is worth trusting when it
+stands on its own, and worth doubting when a genus known to be genomically
+near-inseparable from it is already reported. The clearest case is *Escherichia* and
 *Shigella*: *Shigella* is nested inside *E. coli* rather than forming a distinct lineage,
 and in this reference set the two sit **0.023 apart — closer than the species threshold
 itself**. Any sample containing *E. coli* therefore tends to raise a *Shigella* genus

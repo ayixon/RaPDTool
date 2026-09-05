@@ -32,6 +32,24 @@ INPUT_EXTS = FASTA_EXTS + FASTQ_EXTS
 # .fas, .fq, or anything .gz -- is silently ignored by FOCUS.
 FOCUS_EXTS = ('.fna', '.fasta', '.fastq')
 
+# Mash distance boundaries, measured over every pair of the prokaryotic type material
+# (30,209 genomes, 4.56e8 pairs) at sketch size 1000 with a whole genome as the query.
+# rapdtool_results.pl applies the same two numbers to full and profile mode; screen
+# converts its containment identity to a distance and applies them here, so a rank does
+# not depend on which mode produced it. A distance threshold is only meaningful with the
+# sketch size it was derived at: these are for s=1000, k=21, the distributed database.
+SPECIES_MAX_DIST = 0.043
+GENUS_MAX_DIST = 0.13
+
+# Mash's distance-to-identity conversion (1 - d) overstates ANI by 12 d points. Reported
+# identity columns use the measured correction instead.
+ANI_SLOPE = 1.12
+
+
+def mash_ani(dist):
+    """Estimated ANI from a Mash distance, corrected: ANI = 1 - 1.12 d."""
+    return 1.0 - ANI_SLOPE * dist
+
 
 def eprint(*args):
     print(*args, file=sys.stderr)
@@ -408,12 +426,13 @@ class Pipeline:
         """Screen mode: identify reference genomes contained in the whole assembly
         with 'mash screen' (containment) -- no binning.
 
-        Hits are tiered exactly as full/profile mode tiers its Mash distances, so the
-        same evidence yields the same rank whichever mode produced it: identity
-        >= --screen-identity (0.95, i.e. distance < 0.05) is reported as a species and
-        >= --screen-genus-identity (0.92, distance 0.05-0.08) as a genus. Before 2.3.2
-        screen applied the species cutoff alone and stayed silent across the genus
-        band, so an organism full mode placed to genus was not reported at all.
+        mash screen reports containment as an identity, which is Mash's own 1 - d and
+        not ANI. It is converted back to a distance here and tiered with the very
+        numbers rapdtool_results.pl applies to full and profile mode -- species within
+        SPECIES_MAX_DIST, genus out to GENUS_MAX_DIST -- so the same evidence yields the
+        same rank whichever mode produced it. Before 2.3.2 screen applied the species
+        cutoff alone and stayed silent across the genus band, so an organism full mode
+        placed to genus was not reported at all.
 
         Written to mashscreen_hits.txt (species) and mashscreen_genus_hits.txt (genus)
         for the report merger."""
@@ -424,11 +443,11 @@ class Pipeline:
         self.run('mash-screen',
                  ['mash', 'screen', '-w', '-p', self.threads, self.database, self.input_file],
                  stdout_path=raw, allow_fail=True)
-        cutoff = self.opts.screen_identity
-        gcutoff = self.opts.screen_genus_identity
-        if gcutoff > cutoff:
-            self.log('WARNING: --screen-genus-identity (%.2f) is above --screen-identity '
-                     '(%.2f), so no genus band exists' % (gcutoff, cutoff))
+        smax = self.opts.screen_max_dist
+        gmax = self.opts.screen_genus_max_dist
+        if gmax < smax:
+            self.log('WARNING: --screen-genus-max-dist (%.3f) is below --screen-max-dist '
+                     '(%.3f), so no genus band exists' % (gmax, smax))
         hits, ghits = [], []
         if os.path.isfile(raw):
             for line in open(raw):
@@ -439,21 +458,24 @@ class Pipeline:
                     ident = float(f[0])
                 except ValueError:
                     continue
-                row = (ident, f[1], f[4])            # identity, shared-hashes, ref name
-                if ident >= cutoff:
+                # mash screen reports Mash's own identity, which is 1 - d. Convert back
+                # to the distance so the tiers here are the ones full mode applies.
+                dist = 1.0 - ident
+                row = (dist, f[1], f[4])             # distance, shared-hashes, ref name
+                if dist <= smax:
                     hits.append(row)
-                elif ident >= gcutoff:
+                elif dist <= gmax:
                     ghits.append(row)
-            hits.sort(reverse=True)
-            ghits.sort(reverse=True)
+            hits.sort()                              # nearest first
+            ghits.sort()
         for name, rows in (('mashscreen_hits.txt', hits),
                            ('mashscreen_genus_hits.txt', ghits)):
             with open(self.root + name, 'w') as fh:
-                for ident, shared, ref in rows:
-                    fh.write('%.4f\t%s\t%s\n' % (ident, shared, ref))
-        self.log('mash screen - %d genome(s) >= %.2f identity (species tier), '
-                 '%d in %.2f-%.2f (genus tier)'
-                 % (len(hits), cutoff, len(ghits), gcutoff, cutoff))
+                for dist, shared, ref in rows:
+                    fh.write('%.4f\t%s\t%s\n' % (dist, shared, ref))
+        self.log('mash screen - %d genome(s) within %.3f distance (species tier), '
+                 '%d in %.3f-%.3f (genus tier); ANI = 1 - %.2f d'
+                 % (len(hits), smax, len(ghits), smax, gmax, ANI_SLOPE))
 
     def _extract_min_dist(self, reports, want=10):
         for mtm in reports:
@@ -601,14 +623,23 @@ def pick_options(argv=None):
     parser.add_argument('-m', '--mode', choices=('full', 'profile', 'screen'), default='full',
                         help='full pipeline, profile (single genome), or screen '
                              '(FOCUS + mash-screen containment, no binning) (default: full)')
-    parser.add_argument('--screen-identity', dest='screen_identity', type=float, default=0.95,
-                        help='min mash-screen identity to report a genome as a SPECIES in '
-                             'screen mode (default: 0.95, i.e. Mash distance < 0.05)')
+    # Cutoffs are declared as Mash DISTANCE, the same quantity full mode tiers on, so
+    # every mode shares one scale and one pair of numbers. They used to be declared as
+    # identity, which invited reading e.g. 0.957 as "95.7 % ANI" when the corrected
+    # value is 95.2 % -- mash screen's identity column is Mash's own 1-d estimator, not
+    # ANI. The identity flags are kept as deprecated aliases and converted here.
+    parser.add_argument('--screen-max-dist', dest='screen_max_dist', type=float, default=None,
+                        help='max Mash distance to report a genome as a SPECIES in screen '
+                             'mode (default: %.3f)' % SPECIES_MAX_DIST)
+    parser.add_argument('--screen-genus-max-dist', dest='screen_genus_max_dist',
+                        type=float, default=None,
+                        help='max Mash distance to report a genome as a GENUS in screen '
+                             'mode, beyond --screen-max-dist (default: %.2f)' % GENUS_MAX_DIST)
+    parser.add_argument('--screen-identity', dest='screen_identity', type=float, default=None,
+                        help=argparse.SUPPRESS)          # deprecated: 1 - --screen-max-dist
     parser.add_argument('--screen-genus-identity', dest='screen_genus_identity',
-                        type=float, default=0.92,
-                        help='min mash-screen identity to report a genome as a GENUS in '
-                             'screen mode, below --screen-identity (default: 0.92, i.e. '
-                             'Mash distance 0.05-0.08 -- the same band full mode uses)')
+                        type=float, default=None,
+                        help=argparse.SUPPRESS)          # deprecated: 1 - --screen-genus-max-dist
     parser.add_argument('-t', '--threads', type=int, default=(os.cpu_count() or 4),
                         help='threads for FOCUS/Metabat/miComplete/Mash (default: all cores)')
     parser.add_argument('-a', '--coverage', help='depth/coverage file passed to Metabat2 (-a)')
@@ -619,7 +650,18 @@ def pick_options(argv=None):
     parser.add_argument('--force', action='store_true',
                         help='overwrite existing results for the same input')
     parser.add_argument('-v', '--version', action='version', version='RaPDTool ' + VERSION)
-    return parser.parse_args(argv)
+    opts = parser.parse_args(argv)
+
+    # Resolve the deprecated identity flags onto the distance scale. mash screen reports
+    # Mash's own identity, which is 1 - d, so the complement is the exact conversion --
+    # it is the reading of that number as ANI that is wrong, not the arithmetic.
+    for dist_attr, ident_attr, default in (
+            ('screen_max_dist', 'screen_identity', SPECIES_MAX_DIST),
+            ('screen_genus_max_dist', 'screen_genus_identity', GENUS_MAX_DIST)):
+        if getattr(opts, dist_attr) is None:
+            ident = getattr(opts, ident_attr)
+            setattr(opts, dist_attr, default if ident is None else 1.0 - ident)
+    return opts
 
 
 def main():

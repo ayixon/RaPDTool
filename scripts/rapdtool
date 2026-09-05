@@ -162,7 +162,7 @@ usage() {
 
 Usage:
   rapdtool -i INPUT [-o OUTPUT] [-m {full,profile,screen}] [-t THREADS] [-a COVERAGE]
-           [--screen-identity F] [--screen-genus-identity F] [--no-split-bins] [--force] [-c COMMENT]
+           [--screen-max-dist D] [--screen-genus-max-dist D] [--no-split-bins] [--force] [-c COMMENT]
 
   -i, --input      input FASTA assembly (.fasta/.fa/.fna/.fas, optionally .gz)   [required]
                    (screen mode also accepts FASTQ reads: .fastq/.fq[.gz];
@@ -173,10 +173,12 @@ Usage:
                    screen: FOCUS + mash-screen containment (what's there, no binning)
   -t, --threads    threads for FOCUS/Metabat/miComplete/Mash (default: all cores)
   -a, --coverage   depth/coverage file passed to Metabat2 (-a)
-      --screen-identity   min mash-screen identity for a SPECIES call in screen mode
-                          (default: 0.95 = Mash distance 0.05)
-      --screen-genus-identity   min identity for a GENUS call in screen mode
-                          (default: 0.92 = distance 0.08; same band as full mode)
+      --screen-max-dist   max Mash distance for a SPECIES call in screen mode
+                          (default: 0.043, where 95.2 % ANI falls)
+      --screen-genus-max-dist   max Mash distance for a GENUS call in screen mode
+                          (default: 0.13; the same band full mode uses)
+                          (--screen-identity/--screen-genus-identity still work as
+                           deprecated aliases: distance = 1 - identity)
       --no-split-bins   disable per-species FASTA output
       --force      overwrite existing results for the same input
   -c, --comment    comment recorded in the log
