@@ -1,0 +1,7 @@
+{
+  "CONDA_BUILD_SYSROOT": "",
+  "cxx_compiler": "gxx",
+  "cxx_compiler_version": "9",
+  "target_platform": "linux-64",
+  "channel_targets": "bioconda main"
+}

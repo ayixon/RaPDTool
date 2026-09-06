@@ -1,0 +1,72 @@
+#!/bin/bash
+
+# Public domain notice for all NCBI EDirect scripts is located at:
+# https://www.ncbi.nlm.nih.gov/books/NBK179288/#chapter6.Public_Domain_Notice
+
+# efetch -db snp -id 11549407 -format docsum |
+# snp2hgvs | hgvs2spdi | spdi2tbl | tbl2prod
+
+while IFS=$'\t' read rsid accn ofs del ins cls typ gene
+do
+  if [ "$cls" = "Genomic" ]
+  then
+    continue
+  fi
+  if [ "$accn" != "$last" ]
+  then
+    db="nuccore"
+    if [ "$cls" = "Protein" ]
+    then
+      db="protein"
+    fi
+    pid=""
+    rec=$( efetch -db "$db" -id "$accn" -format gpc < /dev/null )
+    seq=$(
+      echo "$rec" |
+      xtract -pattern INSDSeq -lower INSDSeq_sequence
+    )
+    loc=$(
+      echo "$rec" |
+      xtract -insd CDS feat_location |
+      cut -f 2
+    )
+    pid=$(
+      echo "$rec" |
+      xtract -insd CDS protein_id |
+      cut -f 2
+    )
+    if [ -z "$pid" ] || [ "$pid" = "-" ]
+    then
+      pid="$accn"
+    fi
+    last="$accn"
+    if [ "$cls" = "Protein" ]
+    then
+      upr=$( echo "$seq" | tr 'a-z' 'A-Z' )
+      echo -e "${rsid}\t${accn}:${ofs}:${del}:+\t${pid}\t${upr}"
+    else
+      upr=$( echo "$seq" | transmute -extract "$loc" | transmute -cds2prot -every -trim )
+      echo -e "${rsid}\t${accn}:${ofs}:${del}:+\t${pid}\t${upr}"
+    fi
+  fi
+  def=$(
+    echo "$accn:$ofs:$del:$ins"
+  )
+  if [ "$cls" = "Protein" ]
+  then
+    prd=$(
+      echo "$seq" |
+      transmute -replace -offset "$ofs" -delete "$del" -insert "$ins"
+    )
+  else
+    prd=$(
+      echo "$seq" |
+      transmute -replace -offset "$ofs" -delete "$del" -insert "$ins" |
+      transmute -extract "$loc" |
+      transmute -cds2prot -every -trim
+    )
+  fi
+  echo -e "${rsid}\t${def}\t${pid}\t${prd}"
+done |
+sort-table -k 1.3n -k 3f -k 4f -k 2f |
+cut -f 1-2,4

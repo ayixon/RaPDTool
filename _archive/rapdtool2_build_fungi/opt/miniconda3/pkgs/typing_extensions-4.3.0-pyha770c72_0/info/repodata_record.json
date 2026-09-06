@@ -1,0 +1,24 @@
+{
+  "build": "pyha770c72_0",
+  "build_number": 0,
+  "channel": "https://conda.anaconda.org/conda-forge/noarch",
+  "constrains": [],
+  "depends": [
+    "python >=3.7"
+  ],
+  "features": "",
+  "fn": "typing_extensions-4.3.0-pyha770c72_0.tar.bz2",
+  "license": "PSF-2.0",
+  "license_family": "PSF",
+  "md5": "a9d85960bc62d53cc4ea0d1d27f73c98",
+  "name": "typing_extensions",
+  "noarch": "python",
+  "package_type": "noarch_python",
+  "sha256": "1fe5b48aa997616a7537de4d05c0b7fd11b712895e35493cac7604e8d5f97ad7",
+  "size": 29167,
+  "subdir": "noarch",
+  "timestamp": 1656706158624,
+  "track_features": "",
+  "url": "https://conda.anaconda.org/conda-forge/noarch/typing_extensions-4.3.0-pyha770c72_0.tar.bz2",
+  "version": "4.3.0"
+}

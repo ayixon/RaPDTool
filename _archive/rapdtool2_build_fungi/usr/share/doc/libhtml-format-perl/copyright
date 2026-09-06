@@ -1,0 +1,38 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Source: https://metacpan.org/release/HTML-Format
+Upstream-Contact: Nigel Metheringham <nigelm@cpan.org>
+Upstream-Name: HTML-Format
+
+Files: *
+Copyright: 2011-2013, Nigel Metheringham <nigelm@cpan.org>
+ 2002-2005, Sean M Burke <sburke@cpan.org>
+ 1999-2002, Gisle Aas <gisle@ActiveState.com>
+License: Artistic or GPL-1+
+
+Files: debian/*
+Copyright: 2000, Michael Alan Dorman <mdorman@debian.org>
+ 2003, Hans Freitag <hafre@debian.org>
+ 2004, Jay Bonci <jaybonci@debian.org>
+ 2008, Martín Ferrari <tincho@debian.org>
+ 2011, Ansgar Burchardt <ansgar@debian.org>
+ 2011, Fabrizio Regalli <fabreg@fabreg.it>
+ 2011, Jonathan Yu <jawnsy@cpan.org>
+ 2011-2013, 2016, Angel Abad <angel@debian.org>
+ 2015, gregor herrmann <gregoa@debian.org>
+License: Artistic or GPL-1+
+
+License: Artistic
+ This program is free software; you can redistribute it and/or modify
+ it under the terms of the Artistic License, which comes with Perl.
+ .
+ On Debian systems, the complete text of the Artistic License can be
+ found in `/usr/share/common-licenses/Artistic'.
+
+License: GPL-1+
+ This program is free software; you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation; either version 1, or (at your option)
+ any later version.
+ .
+ On Debian systems, the complete text of version 1 of the GNU General
+ Public License can be found in `/usr/share/common-licenses/GPL-1'.

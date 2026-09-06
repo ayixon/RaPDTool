@@ -1,0 +1,15 @@
+{
+  "libblas": "3.8 *netlib",
+  "cxx_compiler": "gxx",
+  "fortran_compiler": "gfortran",
+  "c_compiler_version": "9",
+  "c_compiler": "gcc",
+  "channel_targets": "conda-forge main",
+  "numpy": "1.19",
+  "liblapack": "3.8 *netlib",
+  "cxx_compiler_version": "9",
+  "fortran_compiler_version": "9",
+  "target_platform": "linux-64",
+  "libcblas": "3.8 *netlib",
+  "python": "3.9.* *_cpython"
+}

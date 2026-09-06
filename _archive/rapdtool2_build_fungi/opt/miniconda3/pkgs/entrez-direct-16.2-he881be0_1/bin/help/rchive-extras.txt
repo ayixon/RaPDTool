@@ -1,0 +1,83 @@
+Maintenance Commands
+
+  -prepare    [release|report] Compare daily update to archive
+  -ignore     Ignore contents of object in -prepare comparisons
+  -damaged    Report UIDs containing damaged embedded HTML tags
+  -missing    Print list of missing identifiers
+  -unique     File of UIDs for skipping all but last version
+
+Miscellaneous
+
+  -head       Print before everything else
+  -tail       Print after everything else
+  -hd         Print before each record
+  -tl         Print after each record
+
+Update Candidate Report
+
+  cd "$MASTER/Pubmed"
+  gunzip -c *.xml.gz | xtract -strict -compress -format flush |
+  rchive -prepare report -ignore DateRevised -archive "$MASTER/Archive" \
+    -index MedlineCitation/PMID -pattern PubmedArticle
+
+Unnecessary Update Removal
+
+  cd "$MASTER/Pubmed"
+  gunzip -c *.xml.gz | xtract -strict -compress -format flush |
+  rchive -prepare release -ignore DateRevised -archive "$MASTER/Archive" -index MedlineCitation/PMID \
+    -head "<PubmedArticleSet>" -tail "</PubmedArticleSet>" -pattern PubmedArticle |
+  xtract -format indent -xml '<?xml version="1.0" encoding="UTF-8" ?>' \
+    -doctype '<!DOCTYPE PubmedArticleSet SYSTEM "http://dtd.nlm.nih.gov/ncbi/pubmed/out/pubmed_180101.dtd">' |
+  gzip > newupdate.xml.gz
+
+Get Archive UID List
+
+  pm-uids "$MASTER/Archive" > complete.uid
+
+Reconstruct List of Versioned PMIDs
+
+  cd "$MASTER/Pubmed"
+  rm -f "$MASTER/Archive/versioned.uid"
+  gunzip -c *.xml.gz |
+  xtract -strict -pattern PubmedArticle -if MedlineCitation/PMID@Version -gt 1 \
+    -element MedlineCitation/PMID > "$MASTER/Archive/versioned.uid"
+
+Reconstruct Release Files
+
+  split -a 3 -l 30000 release.uid uids-
+  n=1
+  for x in uids-???
+  do
+    xmlfile=$(printf "pubmed18n%04d.xml.gz" "$n")
+    n=$((n+1))
+    echo "$xmlfile"
+    cat "$x" |
+    rchive -fetch "$MASTER/Archive" -head "<PubmedArticleSet>" -tail "</PubmedArticleSet>" |
+    xtract -strict -format indent -xml '<?xml version="1.0" encoding="UTF-8" ?>' \
+      -doctype '<!DOCTYPE PubmedArticleSet SYSTEM "http://dtd.nlm.nih.gov/ncbi/pubmed/out/pubmed_180101.dtd">' |
+    gzip > "$xmlfile"
+  done
+  rm -rf uids-???
+
+Damaged Embedded HTML Tag Search
+
+  for fl in *.xml.gz
+  do
+    echo "$fl"
+    gunzip -c "$fl" | rchive -mixed -damaged -index MedlineCitation/PMID^Version -pattern PubmedArticle
+  done
+
+  grep -v pubmed18n | grep AMPER | cut -f 1,6
+
+Reconstruct Term List Keys
+
+  rm -f "$MASTER/Postings/sections.txt"
+  find "$MASTER/Postings" -name "*.mst" |
+  sed -e 's,.*/\(.*\)\.mst,\1,' |
+  sort | uniq > "$MASTER/Postings/sections.txt"
+
+Generate Term List Paths
+
+  find "$MASTER/Postings" -name "*.trm" |
+  sed -e 's,\(.*/\)\(.*\.trm\),\1 \2,' |
+  sort -k 2 | uniq | tr -d ' '

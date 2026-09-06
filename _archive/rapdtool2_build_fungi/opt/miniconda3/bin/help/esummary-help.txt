@@ -1,0 +1,49 @@
+Direct Record Selection
+
+  -db            Database name
+  -id            Unique identifier or accession number
+  -input         Read identifier(s) from file instead of stdin
+
+Miscellaneous
+
+  -raw           Skip database-specific XML modifications
+
+Accession Mapping Examples
+
+  esummary -db annotinfo -id GCF_000001405.31
+
+  esummary -db assembly -id 202921,GCF_000001405.38
+
+  esummary -db bioproject -id PRJNA257197
+
+  esummary -db biosample -id SAMN03737421
+
+  esummary -db books -id NBK2261
+
+  esummary -db cdd -id TIGR03462
+
+  esummary -db clinvar -id VCV000010510
+
+  esummary -db dbvar -id esv1921070
+
+  esummary -db gds -id GSE22309
+
+  esummary -db genome -id PRJNA9559
+
+  esummary -db geoprofiles -id AW295812
+
+  esummary -db gtr -id GTR000559277
+
+  esummary -db ipg -id NP_001234226.1
+
+  esummary -db medgen -id C0000744
+
+  esummary -db mesh -id D007328
+
+  esummary -db pcsubstance -id D061267
+
+  esummary -db proteinclusters -id PLN03776
+
+  esummary -db seqannot -id NA000008723.1
+
+  esummary -db sra -id SRR5437876

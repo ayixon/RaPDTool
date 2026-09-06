@@ -1,0 +1,1185 @@
+{
+  "build": "h4ff587b_0",
+  "build_number": 0,
+  "channel": "https://repo.anaconda.com/pkgs/main/linux-64",
+  "constrains": [],
+  "depends": [
+    "libgcc-ng >=7.5.0",
+    "libstdcxx-ng >=7.5.0",
+    "openssl >=1.1.1m,<1.1.2a",
+    "zlib >=1.2.11,<1.3.0a0"
+  ],
+  "extracted_package_dir": "/opt/miniconda3/pkgs/capnproto-0.9.1-h4ff587b_0",
+  "features": "",
+  "files": [
+    "bin/capnp",
+    "bin/capnpc",
+    "bin/capnpc-c++",
+    "bin/capnpc-capnp",
+    "include/capnp/any.h",
+    "include/capnp/blob.h",
+    "include/capnp/c++.capnp",
+    "include/capnp/c++.capnp.h",
+    "include/capnp/capability.h",
+    "include/capnp/common.h",
+    "include/capnp/compat/json.capnp",
+    "include/capnp/compat/json.capnp.h",
+    "include/capnp/compat/json.h",
+    "include/capnp/compat/std-iterator.h",
+    "include/capnp/compat/websocket-rpc.h",
+    "include/capnp/dynamic.h",
+    "include/capnp/endian.h",
+    "include/capnp/ez-rpc.h",
+    "include/capnp/generated-header-support.h",
+    "include/capnp/layout.h",
+    "include/capnp/list.h",
+    "include/capnp/membrane.h",
+    "include/capnp/message.h",
+    "include/capnp/orphan.h",
+    "include/capnp/persistent.capnp",
+    "include/capnp/persistent.capnp.h",
+    "include/capnp/pointer-helpers.h",
+    "include/capnp/pretty-print.h",
+    "include/capnp/raw-schema.h",
+    "include/capnp/rpc-prelude.h",
+    "include/capnp/rpc-twoparty.capnp",
+    "include/capnp/rpc-twoparty.capnp.h",
+    "include/capnp/rpc-twoparty.h",
+    "include/capnp/rpc.capnp",
+    "include/capnp/rpc.capnp.h",
+    "include/capnp/rpc.h",
+    "include/capnp/schema-lite.h",
+    "include/capnp/schema-loader.h",
+    "include/capnp/schema-parser.h",
+    "include/capnp/schema.capnp",
+    "include/capnp/schema.capnp.h",
+    "include/capnp/schema.h",
+    "include/capnp/serialize-async.h",
+    "include/capnp/serialize-packed.h",
+    "include/capnp/serialize-text.h",
+    "include/capnp/serialize.h",
+    "include/capnp/stream.capnp",
+    "include/capnp/stream.capnp.h",
+    "include/kj/arena.h",
+    "include/kj/array.h",
+    "include/kj/async-inl.h",
+    "include/kj/async-io.h",
+    "include/kj/async-prelude.h",
+    "include/kj/async-queue.h",
+    "include/kj/async-unix.h",
+    "include/kj/async-win32.h",
+    "include/kj/async.h",
+    "include/kj/common.h",
+    "include/kj/compat/gtest.h",
+    "include/kj/compat/gzip.h",
+    "include/kj/compat/http.h",
+    "include/kj/compat/readiness-io.h",
+    "include/kj/compat/tls.h",
+    "include/kj/compat/url.h",
+    "include/kj/debug.h",
+    "include/kj/encoding.h",
+    "include/kj/exception.h",
+    "include/kj/filesystem.h",
+    "include/kj/function.h",
+    "include/kj/hash.h",
+    "include/kj/io.h",
+    "include/kj/list.h",
+    "include/kj/main.h",
+    "include/kj/map.h",
+    "include/kj/memory.h",
+    "include/kj/mutex.h",
+    "include/kj/one-of.h",
+    "include/kj/parse/char.h",
+    "include/kj/parse/common.h",
+    "include/kj/refcount.h",
+    "include/kj/source-location.h",
+    "include/kj/std/iostream.h",
+    "include/kj/string-tree.h",
+    "include/kj/string.h",
+    "include/kj/table.h",
+    "include/kj/test.h",
+    "include/kj/thread.h",
+    "include/kj/threadlocal.h",
+    "include/kj/time.h",
+    "include/kj/timer.h",
+    "include/kj/tuple.h",
+    "include/kj/units.h",
+    "include/kj/vector.h",
+    "include/kj/windows-sanity.h",
+    "lib/cmake/CapnProto/CapnProtoConfig.cmake",
+    "lib/cmake/CapnProto/CapnProtoConfigVersion.cmake",
+    "lib/cmake/CapnProto/CapnProtoMacros.cmake",
+    "lib/cmake/CapnProto/CapnProtoTargets.cmake",
+    "lib/libcapnp-0.9.1.so",
+    "lib/libcapnp-json-0.9.1.so",
+    "lib/libcapnp-json.a",
+    "lib/libcapnp-json.so",
+    "lib/libcapnp-rpc-0.9.1.so",
+    "lib/libcapnp-rpc.a",
+    "lib/libcapnp-rpc.so",
+    "lib/libcapnp-websocket-0.9.1.so",
+    "lib/libcapnp-websocket.a",
+    "lib/libcapnp-websocket.so",
+    "lib/libcapnp.a",
+    "lib/libcapnp.so",
+    "lib/libcapnpc-0.9.1.so",
+    "lib/libcapnpc.a",
+    "lib/libcapnpc.so",
+    "lib/libkj-0.9.1.so",
+    "lib/libkj-async-0.9.1.so",
+    "lib/libkj-async.a",
+    "lib/libkj-async.so",
+    "lib/libkj-gzip-0.9.1.so",
+    "lib/libkj-gzip.a",
+    "lib/libkj-gzip.so",
+    "lib/libkj-http-0.9.1.so",
+    "lib/libkj-http.a",
+    "lib/libkj-http.so",
+    "lib/libkj-test-0.9.1.so",
+    "lib/libkj-test.a",
+    "lib/libkj-test.so",
+    "lib/libkj-tls-0.9.1.so",
+    "lib/libkj-tls.a",
+    "lib/libkj-tls.so",
+    "lib/libkj.a",
+    "lib/libkj.so",
+    "lib/pkgconfig/capnp-json.pc",
+    "lib/pkgconfig/capnp-rpc.pc",
+    "lib/pkgconfig/capnp-websocket.pc",
+    "lib/pkgconfig/capnp.pc",
+    "lib/pkgconfig/capnpc.pc",
+    "lib/pkgconfig/kj-async.pc",
+    "lib/pkgconfig/kj-gzip.pc",
+    "lib/pkgconfig/kj-http.pc",
+    "lib/pkgconfig/kj-test.pc",
+    "lib/pkgconfig/kj-tls.pc",
+    "lib/pkgconfig/kj.pc"
+  ],
+  "fn": "capnproto-0.9.1-h4ff587b_0.conda",
+  "legacy_bz2_md5": "9b1d928e96847ecdc64550e7375228bc",
+  "license": "MIT",
+  "link": {
+    "source": "/opt/miniconda3/pkgs/capnproto-0.9.1-h4ff587b_0",
+    "type": 1
+  },
+  "md5": "2f62547e88eada7d2a1685e386afb603",
+  "name": "capnproto",
+  "package_tarball_full_path": "/opt/miniconda3/pkgs/capnproto-0.9.1-h4ff587b_0.conda",
+  "paths_data": {
+    "paths": [
+      {
+        "_path": "bin/capnp",
+        "path_type": "hardlink",
+        "sha256": "969025213168ff7c5abb83eef6fbee5173b0b654616c79bb6eba39bdfe158a66",
+        "sha256_in_prefix": "969025213168ff7c5abb83eef6fbee5173b0b654616c79bb6eba39bdfe158a66",
+        "size_in_bytes": 336712
+      },
+      {
+        "_path": "bin/capnpc",
+        "path_type": "softlink",
+        "sha256": "969025213168ff7c5abb83eef6fbee5173b0b654616c79bb6eba39bdfe158a66",
+        "size_in_bytes": 336712
+      },
+      {
+        "_path": "bin/capnpc-c++",
+        "path_type": "hardlink",
+        "sha256": "2ace12c5db949272600af7b1433ea702c2f3a8677470bd4386137378d5235c05",
+        "sha256_in_prefix": "2ace12c5db949272600af7b1433ea702c2f3a8677470bd4386137378d5235c05",
+        "size_in_bytes": 661120
+      },
+      {
+        "_path": "bin/capnpc-capnp",
+        "path_type": "hardlink",
+        "sha256": "d176a4b955144ecf511b0d54bc8fbd64180b7f7324e5b4c78a4b78139abced4e",
+        "sha256_in_prefix": "d176a4b955144ecf511b0d54bc8fbd64180b7f7324e5b4c78a4b78139abced4e",
+        "size_in_bytes": 166696
+      },
+      {
+        "_path": "include/capnp/any.h",
+        "path_type": "hardlink",
+        "sha256": "10f1961bc01936cc2c10ca8d8e58d7ed18313bec5c36575c0e32063326d00efe",
+        "sha256_in_prefix": "10f1961bc01936cc2c10ca8d8e58d7ed18313bec5c36575c0e32063326d00efe",
+        "size_in_bytes": 36732
+      },
+      {
+        "_path": "include/capnp/blob.h",
+        "path_type": "hardlink",
+        "sha256": "d97f6a7041d37dc57cde048d12d87910879b90a996804d8ac0adedfe69116e3f",
+        "sha256_in_prefix": "d97f6a7041d37dc57cde048d12d87910879b90a996804d8ac0adedfe69116e3f",
+        "size_in_bytes": 8454
+      },
+      {
+        "_path": "include/capnp/c++.capnp",
+        "path_type": "hardlink",
+        "sha256": "fb306076cd38c27af1aed20fac6395e9a46fbe5b5df6a248b5f1b6845a079c44",
+        "sha256_in_prefix": "fb306076cd38c27af1aed20fac6395e9a46fbe5b5df6a248b5f1b6845a079c44",
+        "size_in_bytes": 1354
+      },
+      {
+        "_path": "include/capnp/c++.capnp.h",
+        "path_type": "hardlink",
+        "sha256": "6e8a165a31afe26103ac7314cab4d69ad69a11adccf2513a4d098a2763680d89",
+        "sha256_in_prefix": "6e8a165a31afe26103ac7314cab4d69ad69a11adccf2513a4d098a2763680d89",
+        "size_in_bytes": 804
+      },
+      {
+        "_path": "include/capnp/capability.h",
+        "path_type": "hardlink",
+        "sha256": "1f8c9fbcff85c284bdf0251f3610dc224d8655ea884c9abeb9257c08c8313dc2",
+        "sha256_in_prefix": "1f8c9fbcff85c284bdf0251f3610dc224d8655ea884c9abeb9257c08c8313dc2",
+        "size_in_bytes": 49957
+      },
+      {
+        "_path": "include/capnp/common.h",
+        "path_type": "hardlink",
+        "sha256": "8803f375a14256b3493d10a9a127fcac05abeadf1e653ca13039e3a3f024cf71",
+        "sha256_in_prefix": "8803f375a14256b3493d10a9a127fcac05abeadf1e653ca13039e3a3f024cf71",
+        "size_in_bytes": 27880
+      },
+      {
+        "_path": "include/capnp/compat/json.capnp",
+        "path_type": "hardlink",
+        "sha256": "3355b46429fb1473534f624fad42093fd4ab70d7c79979b9c1ec9e4dd2558685",
+        "sha256_in_prefix": "3355b46429fb1473534f624fad42093fd4ab70d7c79979b9c1ec9e4dd2558685",
+        "size_in_bytes": 4809
+      },
+      {
+        "_path": "include/capnp/compat/json.capnp.h",
+        "path_type": "hardlink",
+        "sha256": "f9dfd49bf0d49138b63d6a5068ea220cd3be43ca9442f0c37a9fd6140b6c01b0",
+        "sha256_in_prefix": "f9dfd49bf0d49138b63d6a5068ea220cd3be43ca9442f0c37a9fd6140b6c01b0",
+        "size_in_bytes": 46294
+      },
+      {
+        "_path": "include/capnp/compat/json.h",
+        "path_type": "hardlink",
+        "sha256": "5ae4ada18db6a8fb7a95b2988f2afdb60fd80a6c55bcef072cd6ff7a8f7b1c23",
+        "sha256_in_prefix": "5ae4ada18db6a8fb7a95b2988f2afdb60fd80a6c55bcef072cd6ff7a8f7b1c23",
+        "size_in_bytes": 24171
+      },
+      {
+        "_path": "include/capnp/compat/std-iterator.h",
+        "path_type": "hardlink",
+        "sha256": "e4c5afbf7e63fe3c7f9c7888815b759f511e05c88c26d2e3cc7b50fc9336b5a8",
+        "sha256_in_prefix": "e4c5afbf7e63fe3c7f9c7888815b759f511e05c88c26d2e3cc7b50fc9336b5a8",
+        "size_in_bytes": 1773
+      },
+      {
+        "_path": "include/capnp/compat/websocket-rpc.h",
+        "path_type": "hardlink",
+        "sha256": "aefc720496a719496f066a511e8bb45840a03ff6e26d4f599ae39f420522afb3",
+        "sha256_in_prefix": "aefc720496a719496f066a511e8bb45840a03ff6e26d4f599ae39f420522afb3",
+        "size_in_bytes": 2225
+      },
+      {
+        "_path": "include/capnp/dynamic.h",
+        "path_type": "hardlink",
+        "sha256": "21d73df41941b7b1d27932a213c45e318dc6dc8ca66689720c6fc8264c7e1f50",
+        "sha256_in_prefix": "21d73df41941b7b1d27932a213c45e318dc6dc8ca66689720c6fc8264c7e1f50",
+        "size_in_bytes": 61638
+      },
+      {
+        "_path": "include/capnp/endian.h",
+        "path_type": "hardlink",
+        "sha256": "a0af5284aaff0e72a07e6adb795278791c83422886625fff76da1da1d640d34a",
+        "sha256_in_prefix": "a0af5284aaff0e72a07e6adb795278791c83422886625fff76da1da1d640d34a",
+        "size_in_bytes": 9278
+      },
+      {
+        "_path": "include/capnp/ez-rpc.h",
+        "path_type": "hardlink",
+        "sha256": "2043e1d621614d3dfa059e7fd0414b19c1ffc3a2ff89effd38a88713bd141044",
+        "sha256_in_prefix": "2043e1d621614d3dfa059e7fd0414b19c1ffc3a2ff89effd38a88713bd141044",
+        "size_in_bytes": 11756
+      },
+      {
+        "_path": "include/capnp/generated-header-support.h",
+        "path_type": "hardlink",
+        "sha256": "00320979244c1116c0c60e5a868326abbfd2f11c9db1ade50e5f64d114632f97",
+        "sha256_in_prefix": "00320979244c1116c0c60e5a868326abbfd2f11c9db1ade50e5f64d114632f97",
+        "size_in_bytes": 13682
+      },
+      {
+        "_path": "include/capnp/layout.h",
+        "path_type": "hardlink",
+        "sha256": "20fa0c00f7f0a0155b73eae4c7cb89595bb6168985f44a672806c20db978edb9",
+        "sha256_in_prefix": "20fa0c00f7f0a0155b73eae4c7cb89595bb6168985f44a672806c20db978edb9",
+        "size_in_bytes": 51857
+      },
+      {
+        "_path": "include/capnp/list.h",
+        "path_type": "hardlink",
+        "sha256": "defb1b47c3719b5be6f0f8b977e1f7c7df743aa726a4006a43fc8204102f994b",
+        "sha256_in_prefix": "defb1b47c3719b5be6f0f8b977e1f7c7df743aa726a4006a43fc8204102f994b",
+        "size_in_bytes": 21180
+      },
+      {
+        "_path": "include/capnp/membrane.h",
+        "path_type": "hardlink",
+        "sha256": "7d945d0d7ad294c9a95c39d5de6578efed0e855390fae917844f2602fde1ddc5",
+        "sha256_in_prefix": "7d945d0d7ad294c9a95c39d5de6578efed0e855390fae917844f2602fde1ddc5",
+        "size_in_bytes": 15500
+      },
+      {
+        "_path": "include/capnp/message.h",
+        "path_type": "hardlink",
+        "sha256": "275b4c8d618f6f57e0e6fa309f62668cf226c21dd069a7053dac8a12e6a97433",
+        "sha256_in_prefix": "275b4c8d618f6f57e0e6fa309f62668cf226c21dd069a7053dac8a12e6a97433",
+        "size_in_bytes": 25615
+      },
+      {
+        "_path": "include/capnp/orphan.h",
+        "path_type": "hardlink",
+        "sha256": "af3822ec9cec5940515d20a63b8c7732a8734aedf24521023699df1dbc23bdd2",
+        "sha256_in_prefix": "af3822ec9cec5940515d20a63b8c7732a8734aedf24521023699df1dbc23bdd2",
+        "size_in_bytes": 17758
+      },
+      {
+        "_path": "include/capnp/persistent.capnp",
+        "path_type": "hardlink",
+        "sha256": "d77d4d2e2c1e9c42ded13de54ed11b535b076ac210945b53ecf76fd7648a867a",
+        "sha256_in_prefix": "d77d4d2e2c1e9c42ded13de54ed11b535b076ac210945b53ecf76fd7648a867a",
+        "size_in_bytes": 7288
+      },
+      {
+        "_path": "include/capnp/persistent.capnp.h",
+        "path_type": "hardlink",
+        "sha256": "516924ed6b20a5939324b860da2b702e5e8789c8c89b4e5e3dd9d16ae4875bbe",
+        "sha256_in_prefix": "516924ed6b20a5939324b860da2b702e5e8789c8c89b4e5e3dd9d16ae4875bbe",
+        "size_in_bytes": 25170
+      },
+      {
+        "_path": "include/capnp/pointer-helpers.h",
+        "path_type": "hardlink",
+        "sha256": "65984141eed82cdb0194cf89efdcdbb0efdde6becd80fe985cf8b99d6e7bc3be",
+        "sha256_in_prefix": "65984141eed82cdb0194cf89efdcdbb0efdde6becd80fe985cf8b99d6e7bc3be",
+        "size_in_bytes": 6369
+      },
+      {
+        "_path": "include/capnp/pretty-print.h",
+        "path_type": "hardlink",
+        "sha256": "bf7aff99c2cac37c8c6bfde6d3484d9669488452f918b7ccd73798cfcff874ae",
+        "sha256_in_prefix": "bf7aff99c2cac37c8c6bfde6d3484d9669488452f918b7ccd73798cfcff874ae",
+        "size_in_bytes": 1923
+      },
+      {
+        "_path": "include/capnp/raw-schema.h",
+        "path_type": "hardlink",
+        "sha256": "261448bfbb0493dc393b283c0386a40564ed823b68f96210cbba27f2d398a893",
+        "sha256_in_prefix": "261448bfbb0493dc393b283c0386a40564ed823b68f96210cbba27f2d398a893",
+        "size_in_bytes": 8851
+      },
+      {
+        "_path": "include/capnp/rpc-prelude.h",
+        "path_type": "hardlink",
+        "sha256": "8d6c24ae3f00aa71ac138ad36be9d6cf6f85f5a1ebc8911efafa3044541e65f8",
+        "sha256_in_prefix": "8d6c24ae3f00aa71ac138ad36be9d6cf6f85f5a1ebc8911efafa3044541e65f8",
+        "size_in_bytes": 3705
+      },
+      {
+        "_path": "include/capnp/rpc-twoparty.capnp",
+        "path_type": "hardlink",
+        "sha256": "e0401c91f90ae1283ce040537c88554a34f03491114c1393b535ffbbbe70741e",
+        "sha256_in_prefix": "e0401c91f90ae1283ce040537c88554a34f03491114c1393b535ffbbbe70741e",
+        "size_in_bytes": 9716
+      },
+      {
+        "_path": "include/capnp/rpc-twoparty.capnp.h",
+        "path_type": "hardlink",
+        "sha256": "28f541014775e0412339b5be70ed2b91f75453e006a12fdeb3bc0cf39ab195dd",
+        "sha256_in_prefix": "28f541014775e0412339b5be70ed2b91f75453e006a12fdeb3bc0cf39ab195dd",
+        "size_in_bytes": 21188
+      },
+      {
+        "_path": "include/capnp/rpc-twoparty.h",
+        "path_type": "hardlink",
+        "sha256": "dda7edd8a7f64148a9fa56bff7e0fd7e3dd9ff5f90585e636e99afc27aa2b93e",
+        "sha256_in_prefix": "dda7edd8a7f64148a9fa56bff7e0fd7e3dd9ff5f90585e636e99afc27aa2b93e",
+        "size_in_bytes": 11711
+      },
+      {
+        "_path": "include/capnp/rpc.capnp",
+        "path_type": "hardlink",
+        "sha256": "285be689581867ff169d58a46efd0cb41953cafecf454a3d72e019c18ef640cf",
+        "sha256_in_prefix": "285be689581867ff169d58a46efd0cb41953cafecf454a3d72e019c18ef640cf",
+        "size_in_bytes": 82501
+      },
+      {
+        "_path": "include/capnp/rpc.capnp.h",
+        "path_type": "hardlink",
+        "sha256": "1cb81ce0e67dc83390cbcecdeeda992c62bb3c09eaa27dc50d4a0de53dffc654",
+        "sha256_in_prefix": "1cb81ce0e67dc83390cbcecdeeda992c62bb3c09eaa27dc50d4a0de53dffc654",
+        "size_in_bytes": 188569
+      },
+      {
+        "_path": "include/capnp/rpc.h",
+        "path_type": "hardlink",
+        "sha256": "520aac9906d649374443304ccb3e57f4db5a1d65229b79cc4c3e15375f766c4d",
+        "sha256_in_prefix": "520aac9906d649374443304ccb3e57f4db5a1d65229b79cc4c3e15375f766c4d",
+        "size_in_bytes": 29585
+      },
+      {
+        "_path": "include/capnp/schema-lite.h",
+        "path_type": "hardlink",
+        "sha256": "5fec4460e8d4e34964584316bd8eddb18cf00ce438c5abfa597f810764d1db8d",
+        "sha256_in_prefix": "5fec4460e8d4e34964584316bd8eddb18cf00ce438c5abfa597f810764d1db8d",
+        "size_in_bytes": 1907
+      },
+      {
+        "_path": "include/capnp/schema-loader.h",
+        "path_type": "hardlink",
+        "sha256": "0b6bb9b497091856b7354623cc603922c023d0b947a3a95a18d42bbc267c35ac",
+        "sha256_in_prefix": "0b6bb9b497091856b7354623cc603922c023d0b947a3a95a18d42bbc267c35ac",
+        "size_in_bytes": 8544
+      },
+      {
+        "_path": "include/capnp/schema-parser.h",
+        "path_type": "hardlink",
+        "sha256": "6d6be170f0ec65a8b9384e28959cb032bebb8b591e83ddceb56c8f5d6b857e61",
+        "sha256_in_prefix": "6d6be170f0ec65a8b9384e28959cb032bebb8b591e83ddceb56c8f5d6b857e61",
+        "size_in_bytes": 12142
+      },
+      {
+        "_path": "include/capnp/schema.capnp",
+        "path_type": "hardlink",
+        "sha256": "3cd91a6ee4f22684cf378d295b4d7616d321446bf2fd6bd87c84aac1b8ebc677",
+        "sha256_in_prefix": "3cd91a6ee4f22684cf378d295b4d7616d321446bf2fd6bd87c84aac1b8ebc677",
+        "size_in_bytes": 18724
+      },
+      {
+        "_path": "include/capnp/schema.capnp.h",
+        "path_type": "hardlink",
+        "sha256": "bf6bc1a7a197a42720ce64f9aa9ee2913c6e750a528d6a59e886552603593cc8",
+        "sha256_in_prefix": "bf6bc1a7a197a42720ce64f9aa9ee2913c6e750a528d6a59e886552603593cc8",
+        "size_in_bytes": 314959
+      },
+      {
+        "_path": "include/capnp/schema.h",
+        "path_type": "hardlink",
+        "sha256": "a325829e5eb5ed8cb1758842f8a8b652eafc2a863c7ae5234bc653a30c697c1d",
+        "sha256_in_prefix": "a325829e5eb5ed8cb1758842f8a8b652eafc2a863c7ae5234bc653a30c697c1d",
+        "size_in_bytes": 38332
+      },
+      {
+        "_path": "include/capnp/serialize-async.h",
+        "path_type": "hardlink",
+        "sha256": "41d281275ee8b2f9a4abe7f215836518621fa0c200a340885c130ca60bf321f7",
+        "sha256_in_prefix": "41d281275ee8b2f9a4abe7f215836518621fa0c200a340885c130ca60bf321f7",
+        "size_in_bytes": 9526
+      },
+      {
+        "_path": "include/capnp/serialize-packed.h",
+        "path_type": "hardlink",
+        "sha256": "898da30d28d3c57389ad33e34a3f3c3e30e21624bee8fb120beddc8fe217a3a6",
+        "sha256_in_prefix": "898da30d28d3c57389ad33e34a3f3c3e30e21624bee8fb120beddc8fe217a3a6",
+        "size_in_bytes": 5347
+      },
+      {
+        "_path": "include/capnp/serialize-text.h",
+        "path_type": "hardlink",
+        "sha256": "09d6f004cc1f6b81b15db0bc49b093ee567bc2254505445661e7000df441bef4",
+        "sha256_in_prefix": "09d6f004cc1f6b81b15db0bc49b093ee567bc2254505445661e7000df441bef4",
+        "size_in_bytes": 3613
+      },
+      {
+        "_path": "include/capnp/serialize.h",
+        "path_type": "hardlink",
+        "sha256": "7298d6c77ef62a17c85639d401d784e38988da5ef180c24b2259fc699ee63f1b",
+        "sha256_in_prefix": "7298d6c77ef62a17c85639d401d784e38988da5ef180c24b2259fc699ee63f1b",
+        "size_in_bytes": 11551
+      },
+      {
+        "_path": "include/capnp/stream.capnp",
+        "path_type": "hardlink",
+        "sha256": "5b0656ca3daca9ef28740c14813d5dd474fd0f9991ce99f652838f4cccf6fb30",
+        "sha256_in_prefix": "5b0656ca3daca9ef28740c14813d5dd474fd0f9991ce99f652838f4cccf6fb30",
+        "size_in_bytes": 2545
+      },
+      {
+        "_path": "include/capnp/stream.capnp.h",
+        "path_type": "hardlink",
+        "sha256": "16db22af2c11ecb297ad8d771f4436d9ccf1ae67b9c44c8c52622168d84ffeb9",
+        "sha256_in_prefix": "16db22af2c11ecb297ad8d771f4436d9ccf1ae67b9c44c8c52622168d84ffeb9",
+        "size_in_bytes": 3178
+      },
+      {
+        "_path": "include/kj/arena.h",
+        "path_type": "hardlink",
+        "sha256": "54ff63b983b6631e789f93b726cca33432ac0e52d40117788324a2d4b4421b42",
+        "sha256_in_prefix": "54ff63b983b6631e789f93b726cca33432ac0e52d40117788324a2d4b4421b42",
+        "size_in_bytes": 8202
+      },
+      {
+        "_path": "include/kj/array.h",
+        "path_type": "hardlink",
+        "sha256": "8e1e3289efabc4145a16d5c88382efca66c01b85febc1d0a2279e96259557d51",
+        "sha256_in_prefix": "8e1e3289efabc4145a16d5c88382efca66c01b85febc1d0a2279e96259557d51",
+        "size_in_bytes": 31745
+      },
+      {
+        "_path": "include/kj/async-inl.h",
+        "path_type": "hardlink",
+        "sha256": "bf4e29a640e0f034ab82f75b922914682d7e8e1a9a44b1f79123da112647a93f",
+        "sha256_in_prefix": "bf4e29a640e0f034ab82f75b922914682d7e8e1a9a44b1f79123da112647a93f",
+        "size_in_bytes": 60789
+      },
+      {
+        "_path": "include/kj/async-io.h",
+        "path_type": "hardlink",
+        "sha256": "61961c10db2a495d9248fd150109a3daac32358ddae4dbd610ddc94970dd80a1",
+        "sha256_in_prefix": "61961c10db2a495d9248fd150109a3daac32358ddae4dbd610ddc94970dd80a1",
+        "size_in_bytes": 47105
+      },
+      {
+        "_path": "include/kj/async-prelude.h",
+        "path_type": "hardlink",
+        "sha256": "c9f0e4aba6ac864c18066da98a1197fb233d944956e41657e6a766e98738913f",
+        "sha256_in_prefix": "c9f0e4aba6ac864c18066da98a1197fb233d944956e41657e6a766e98738913f",
+        "size_in_bytes": 7094
+      },
+      {
+        "_path": "include/kj/async-queue.h",
+        "path_type": "hardlink",
+        "sha256": "0ddcc4d50fa45ec2beec2637ccc1a5565d981baecca2eab393c3a246d4ad118f",
+        "sha256_in_prefix": "0ddcc4d50fa45ec2beec2637ccc1a5565d981baecca2eab393c3a246d4ad118f",
+        "size_in_bytes": 4166
+      },
+      {
+        "_path": "include/kj/async-unix.h",
+        "path_type": "hardlink",
+        "sha256": "7da1bc1a1e534867dce131a67c364e94a76be13c7e3ba2d0a9231acd7d03a3ff",
+        "sha256_in_prefix": "7da1bc1a1e534867dce131a67c364e94a76be13c7e3ba2d0a9231acd7d03a3ff",
+        "size_in_bytes": 15007
+      },
+      {
+        "_path": "include/kj/async-win32.h",
+        "path_type": "hardlink",
+        "sha256": "32d599e273f170e2d5e4c2fcb2a87472dc05b50e21fb83e4d0a450d2cc080a8f",
+        "sha256_in_prefix": "32d599e273f170e2d5e4c2fcb2a87472dc05b50e21fb83e4d0a450d2cc080a8f",
+        "size_in_bytes": 9992
+      },
+      {
+        "_path": "include/kj/async.h",
+        "path_type": "hardlink",
+        "sha256": "a50deaa9c1b278e32fc022661e6cd2aec6be7f91e0b1e38510ae1f30f7feb56d",
+        "sha256_in_prefix": "a50deaa9c1b278e32fc022661e6cd2aec6be7f91e0b1e38510ae1f30f7feb56d",
+        "size_in_bytes": 57525
+      },
+      {
+        "_path": "include/kj/common.h",
+        "path_type": "hardlink",
+        "sha256": "6993f53aeb86aadc0e71e6fccfbcc246fd1e0309b7584aa95945022301455682",
+        "sha256_in_prefix": "6993f53aeb86aadc0e71e6fccfbcc246fd1e0309b7584aa95945022301455682",
+        "size_in_bytes": 68677
+      },
+      {
+        "_path": "include/kj/compat/gtest.h",
+        "path_type": "hardlink",
+        "sha256": "b7cc3c4ed261911f0b117d35069c695b4ddf892d0965d0481a2a2c8621a3b38a",
+        "sha256_in_prefix": "b7cc3c4ed261911f0b117d35069c695b4ddf892d0965d0481a2a2c8621a3b38a",
+        "size_in_bytes": 4585
+      },
+      {
+        "_path": "include/kj/compat/gzip.h",
+        "path_type": "hardlink",
+        "sha256": "ed6a9be39d52dd6c35069b0cec13733d881625ca51934047f0a707bb0e2a8522",
+        "sha256_in_prefix": "ed6a9be39d52dd6c35069b0cec13733d881625ca51934047f0a707bb0e2a8522",
+        "size_in_bytes": 4224
+      },
+      {
+        "_path": "include/kj/compat/http.h",
+        "path_type": "hardlink",
+        "sha256": "d721b736383ba1c8bfcc615e976df18388ad6cee9e68211b5a9c292e852650ef",
+        "sha256_in_prefix": "d721b736383ba1c8bfcc615e976df18388ad6cee9e68211b5a9c292e852650ef",
+        "size_in_bytes": 46752
+      },
+      {
+        "_path": "include/kj/compat/readiness-io.h",
+        "path_type": "hardlink",
+        "sha256": "d358acd431f5e98f3a840131fa085f768a70178fff67e73840a7ee6e57ba0b57",
+        "sha256_in_prefix": "d358acd431f5e98f3a840131fa085f768a70178fff67e73840a7ee6e57ba0b57",
+        "size_in_bytes": 4555
+      },
+      {
+        "_path": "include/kj/compat/tls.h",
+        "path_type": "hardlink",
+        "sha256": "eba95d3a493e75a5fb76faaaa1a8d31fc4fc197004bcd5a2b31e9bf670ae176b",
+        "sha256_in_prefix": "eba95d3a493e75a5fb76faaaa1a8d31fc4fc197004bcd5a2b31e9bf670ae176b",
+        "size_in_bytes": 12070
+      },
+      {
+        "_path": "include/kj/compat/url.h",
+        "path_type": "hardlink",
+        "sha256": "01c97145d4a52cc37f33a8d6e0dc54076c9d32eac56653c0909f6f108abc5fa0",
+        "sha256_in_prefix": "01c97145d4a52cc37f33a8d6e0dc54076c9d32eac56653c0909f6f108abc5fa0",
+        "size_in_bytes": 6066
+      },
+      {
+        "_path": "include/kj/debug.h",
+        "path_type": "hardlink",
+        "sha256": "c8fe1a455ddf236609c8d0301f8ab38bc57bcb6afc690593825ceb2239b72691",
+        "sha256_in_prefix": "c8fe1a455ddf236609c8d0301f8ab38bc57bcb6afc690593825ceb2239b72691",
+        "size_in_bytes": 29767
+      },
+      {
+        "_path": "include/kj/encoding.h",
+        "path_type": "hardlink",
+        "sha256": "dbd15b023ba6cee8b8a5911ca96c0f39812cb9bec07ba7a1d09849b1dd2d666f",
+        "sha256_in_prefix": "dbd15b023ba6cee8b8a5911ca96c0f39812cb9bec07ba7a1d09849b1dd2d666f",
+        "size_in_bytes": 19635
+      },
+      {
+        "_path": "include/kj/exception.h",
+        "path_type": "hardlink",
+        "sha256": "d28970cffd25f133a801217bd67b50b4f8ce18a39a9fcfafb47ae9a798171c62",
+        "sha256_in_prefix": "d28970cffd25f133a801217bd67b50b4f8ce18a39a9fcfafb47ae9a798171c62",
+        "size_in_bytes": 19248
+      },
+      {
+        "_path": "include/kj/filesystem.h",
+        "path_type": "hardlink",
+        "sha256": "4acf79fa2da6cfe49cc8043b22655fd76b1c4a843f99316f4b62a60fe3175b7c",
+        "sha256_in_prefix": "4acf79fa2da6cfe49cc8043b22655fd76b1c4a843f99316f4b62a60fe3175b7c",
+        "size_in_bytes": 53349
+      },
+      {
+        "_path": "include/kj/function.h",
+        "path_type": "hardlink",
+        "sha256": "f07c386af48f8f0fc09006bf6834c6d37c1a9dee375db54f64026d4824a899c0",
+        "sha256_in_prefix": "f07c386af48f8f0fc09006bf6834c6d37c1a9dee375db54f64026d4824a899c0",
+        "size_in_bytes": 10059
+      },
+      {
+        "_path": "include/kj/hash.h",
+        "path_type": "hardlink",
+        "sha256": "573c43644f111ee85e749483a8354f57391d75bb24d3b4d234d09d838a28f79a",
+        "sha256_in_prefix": "573c43644f111ee85e749483a8354f57391d75bb24d3b4d234d09d838a28f79a",
+        "size_in_bytes": 7478
+      },
+      {
+        "_path": "include/kj/io.h",
+        "path_type": "hardlink",
+        "sha256": "d85fcd016c3d4d72f06d9684a741b16c2ce40be81f097a64f6ee30eb2418b5c1",
+        "sha256_in_prefix": "d85fcd016c3d4d72f06d9684a741b16c2ce40be81f097a64f6ee30eb2418b5c1",
+        "size_in_bytes": 16161
+      },
+      {
+        "_path": "include/kj/list.h",
+        "path_type": "hardlink",
+        "sha256": "a23ed0d4427c424afb067e305695c2b38682497bbb567e083c2457e6b35b0b5d",
+        "sha256_in_prefix": "a23ed0d4427c424afb067e305695c2b38682497bbb567e083c2457e6b35b0b5d",
+        "size_in_bytes": 7053
+      },
+      {
+        "_path": "include/kj/main.h",
+        "path_type": "hardlink",
+        "sha256": "a3f61970b819bd8af9ed9d5bdca0ac82103a0811492875c71980e83e8a520708",
+        "sha256_in_prefix": "a3f61970b819bd8af9ed9d5bdca0ac82103a0811492875c71980e83e8a520708",
+        "size_in_bytes": 19672
+      },
+      {
+        "_path": "include/kj/map.h",
+        "path_type": "hardlink",
+        "sha256": "7ee9a8fd03b0f8114f1aab32fcd6fe3153f836b59a767c1753c2fcc2cb84f3b1",
+        "sha256_in_prefix": "7ee9a8fd03b0f8114f1aab32fcd6fe3153f836b59a767c1753c2fcc2cb84f3b1",
+        "size_in_bytes": 18273
+      },
+      {
+        "_path": "include/kj/memory.h",
+        "path_type": "hardlink",
+        "sha256": "34ec979a116d2bb3aed8f0c155cb29b816732d3970224db9393697dfe1051641",
+        "sha256_in_prefix": "34ec979a116d2bb3aed8f0c155cb29b816732d3970224db9393697dfe1051641",
+        "size_in_bytes": 20927
+      },
+      {
+        "_path": "include/kj/mutex.h",
+        "path_type": "hardlink",
+        "sha256": "df773b0f9db14c14224660391f4406ee9acc91013add2ae248fd28c86d6cfb5a",
+        "sha256_in_prefix": "df773b0f9db14c14224660391f4406ee9acc91013add2ae248fd28c86d6cfb5a",
+        "size_in_bytes": 28240
+      },
+      {
+        "_path": "include/kj/one-of.h",
+        "path_type": "hardlink",
+        "sha256": "10227249998d93f40dca08a6291023fbfcd02eca53aefb1e8f48288c455974b8",
+        "sha256_in_prefix": "10227249998d93f40dca08a6291023fbfcd02eca53aefb1e8f48288c455974b8",
+        "size_in_bytes": 18467
+      },
+      {
+        "_path": "include/kj/parse/char.h",
+        "path_type": "hardlink",
+        "sha256": "fe67742b082882b4dc12cb4074b0f00a548fddc84c2cb03baf68a6272b2fcf1e",
+        "sha256_in_prefix": "fe67742b082882b4dc12cb4074b0f00a548fddc84c2cb03baf68a6272b2fcf1e",
+        "size_in_bytes": 12244
+      },
+      {
+        "_path": "include/kj/parse/common.h",
+        "path_type": "hardlink",
+        "sha256": "116b752dcb236bfea3c5d3c0b8671a18fd3121cf6259bc02b7a67b12dc4677c9",
+        "sha256_in_prefix": "116b752dcb236bfea3c5d3c0b8671a18fd3121cf6259bc02b7a67b12dc4677c9",
+        "size_in_bytes": 26555
+      },
+      {
+        "_path": "include/kj/refcount.h",
+        "path_type": "hardlink",
+        "sha256": "dae1c31a116e5f5d82e6dd44b4227415ae8e6b049c66bb4df991ef6828a30d7a",
+        "sha256_in_prefix": "dae1c31a116e5f5d82e6dd44b4227415ae8e6b049c66bb4df991ef6828a30d7a",
+        "size_in_bytes": 8390
+      },
+      {
+        "_path": "include/kj/source-location.h",
+        "path_type": "hardlink",
+        "sha256": "7e15aa8a9c5cd3126a9d48919f4342999b8db7b523184f9e3bfe7c34cbe8975e",
+        "sha256_in_prefix": "7e15aa8a9c5cd3126a9d48919f4342999b8db7b523184f9e3bfe7c34cbe8975e",
+        "size_in_bytes": 4830
+      },
+      {
+        "_path": "include/kj/std/iostream.h",
+        "path_type": "hardlink",
+        "sha256": "3bb219dbb54944ba2e89d8eb43c18e1157db12471068c0fc879a9ea48ea69140",
+        "sha256_in_prefix": "3bb219dbb54944ba2e89d8eb43c18e1157db12471068c0fc879a9ea48ea69140",
+        "size_in_bytes": 2566
+      },
+      {
+        "_path": "include/kj/string-tree.h",
+        "path_type": "hardlink",
+        "sha256": "2c779f8c4edd6a96bbb3149c9869896d6aa02aa931a800d5cfa97a589d315ece",
+        "sha256_in_prefix": "2c779f8c4edd6a96bbb3149c9869896d6aa02aa931a800d5cfa97a589d315ece",
+        "size_in_bytes": 8502
+      },
+      {
+        "_path": "include/kj/string.h",
+        "path_type": "hardlink",
+        "sha256": "af8aa028b2940abea64d624fb45f56639528fc164b4d67c5250ee69f822a143a",
+        "sha256_in_prefix": "af8aa028b2940abea64d624fb45f56639528fc164b4d67c5250ee69f822a143a",
+        "size_in_bytes": 31545
+      },
+      {
+        "_path": "include/kj/table.h",
+        "path_type": "hardlink",
+        "sha256": "0d5372a21034e4df29228f7f4271ed3ddb36bccc89a457bc0c87f1397725cd15",
+        "sha256_in_prefix": "0d5372a21034e4df29228f7f4271ed3ddb36bccc89a457bc0c87f1397725cd15",
+        "size_in_bytes": 57843
+      },
+      {
+        "_path": "include/kj/test.h",
+        "path_type": "hardlink",
+        "sha256": "39020a79a88c6777c464ca93047fe3eaffc7e1bff16b588a5d8bf52cf2f96f2c",
+        "sha256_in_prefix": "39020a79a88c6777c464ca93047fe3eaffc7e1bff16b588a5d8bf52cf2f96f2c",
+        "size_in_bytes": 5655
+      },
+      {
+        "_path": "include/kj/thread.h",
+        "path_type": "hardlink",
+        "sha256": "565e04a0e3aa0ba52bd20b0722225d3f49bad84501c107cf1a40652fd7cee1a9",
+        "sha256_in_prefix": "565e04a0e3aa0ba52bd20b0722225d3f49bad84501c107cf1a40652fd7cee1a9",
+        "size_in_bytes": 2465
+      },
+      {
+        "_path": "include/kj/threadlocal.h",
+        "path_type": "hardlink",
+        "sha256": "277a41c338a54ad92dd4a77f70fe6648628f3fb9572cbcdbbbe9bfbd5bcc8bed",
+        "sha256_in_prefix": "277a41c338a54ad92dd4a77f70fe6648628f3fb9572cbcdbbbe9bfbd5bcc8bed",
+        "size_in_bytes": 2863
+      },
+      {
+        "_path": "include/kj/time.h",
+        "path_type": "hardlink",
+        "sha256": "39dbd9b212d8329aefc819ec969669a4359260e0d3b83931856d4b4ce50fdbef",
+        "sha256_in_prefix": "39dbd9b212d8329aefc819ec969669a4359260e0d3b83931856d4b4ce50fdbef",
+        "size_in_bytes": 4893
+      },
+      {
+        "_path": "include/kj/timer.h",
+        "path_type": "hardlink",
+        "sha256": "0c332624c1564a83014fdc7062ec10b6324c830ae41c9d95cf5e38ae2ba68a3b",
+        "sha256_in_prefix": "0c332624c1564a83014fdc7062ec10b6324c830ae41c9d95cf5e38ae2ba68a3b",
+        "size_in_bytes": 6075
+      },
+      {
+        "_path": "include/kj/tuple.h",
+        "path_type": "hardlink",
+        "sha256": "26ed1bd477e908bbb6dae500643585ebecf919c34d6f07770279952aa341b8ab",
+        "sha256_in_prefix": "26ed1bd477e908bbb6dae500643585ebecf919c34d6f07770279952aa341b8ab",
+        "size_in_bytes": 17817
+      },
+      {
+        "_path": "include/kj/units.h",
+        "path_type": "hardlink",
+        "sha256": "a3423961b21a9e1c352443ede78766340e8914572586c2356c9fc5420c2f6f08",
+        "sha256_in_prefix": "a3423961b21a9e1c352443ede78766340e8914572586c2356c9fc5420c2f6f08",
+        "size_in_bytes": 46198
+      },
+      {
+        "_path": "include/kj/vector.h",
+        "path_type": "hardlink",
+        "sha256": "51b8a6840a88c794a2e4b3a92dcfbf7fab8b28bda06992e01def1cf8e41a831e",
+        "sha256_in_prefix": "51b8a6840a88c794a2e4b3a92dcfbf7fab8b28bda06992e01def1cf8e41a831e",
+        "size_in_bytes": 5369
+      },
+      {
+        "_path": "include/kj/windows-sanity.h",
+        "path_type": "hardlink",
+        "sha256": "227a506722b719dc3221eee3ab076945d6f27f5f89064a775b33d26e1aa8b713",
+        "sha256_in_prefix": "227a506722b719dc3221eee3ab076945d6f27f5f89064a775b33d26e1aa8b713",
+        "size_in_bytes": 3142
+      },
+      {
+        "_path": "lib/cmake/CapnProto/CapnProtoConfig.cmake",
+        "path_type": "hardlink",
+        "sha256": "3204b702ca2b6076b00a055d6adcdd944167d2eec805efbce507b300b42454b2",
+        "sha256_in_prefix": "3204b702ca2b6076b00a055d6adcdd944167d2eec805efbce507b300b42454b2",
+        "size_in_bytes": 3691
+      },
+      {
+        "_path": "lib/cmake/CapnProto/CapnProtoConfigVersion.cmake",
+        "path_type": "hardlink",
+        "sha256": "6b0f42d7c25104640ed456d584708e143c2db8117ccaa33040f2c0071f83515c",
+        "sha256_in_prefix": "6b0f42d7c25104640ed456d584708e143c2db8117ccaa33040f2c0071f83515c",
+        "size_in_bytes": 1540
+      },
+      {
+        "_path": "lib/cmake/CapnProto/CapnProtoMacros.cmake",
+        "path_type": "hardlink",
+        "sha256": "020705ba7638a27607b1ff8fa1ea85a81401a0cf4d2b0b0e6795e8cec5941836",
+        "sha256_in_prefix": "020705ba7638a27607b1ff8fa1ea85a81401a0cf4d2b0b0e6795e8cec5941836",
+        "size_in_bytes": 5121
+      },
+      {
+        "_path": "lib/cmake/CapnProto/CapnProtoTargets.cmake",
+        "path_type": "hardlink",
+        "sha256": "ea71b75db6dc268b0546ed4a7d0c2c03f0618735c18383707b87b0f867696843",
+        "sha256_in_prefix": "ea71b75db6dc268b0546ed4a7d0c2c03f0618735c18383707b87b0f867696843",
+        "size_in_bytes": 9328
+      },
+      {
+        "_path": "lib/libcapnp-0.9.1.so",
+        "path_type": "hardlink",
+        "sha256": "3d06071d203db4048c3f8fc7bf1c9754c723b3632593cbdb4a7a36f5764b3270",
+        "sha256_in_prefix": "3d06071d203db4048c3f8fc7bf1c9754c723b3632593cbdb4a7a36f5764b3270",
+        "size_in_bytes": 944488
+      },
+      {
+        "_path": "lib/libcapnp-json-0.9.1.so",
+        "path_type": "hardlink",
+        "sha256": "9f2095d7b13d6bee9c1e41b023c3e35653e4322cf655217d12202f9835085da8",
+        "sha256_in_prefix": "9f2095d7b13d6bee9c1e41b023c3e35653e4322cf655217d12202f9835085da8",
+        "size_in_bytes": 245040
+      },
+      {
+        "_path": "lib/libcapnp-json.a",
+        "path_type": "hardlink",
+        "sha256": "559e617aa3a9e5723fa260bf64ae64327cd995e17903ca17b500910b5ec07364",
+        "sha256_in_prefix": "559e617aa3a9e5723fa260bf64ae64327cd995e17903ca17b500910b5ec07364",
+        "size_in_bytes": 376620
+      },
+      {
+        "_path": "lib/libcapnp-json.so",
+        "path_type": "softlink",
+        "sha256": "9f2095d7b13d6bee9c1e41b023c3e35653e4322cf655217d12202f9835085da8",
+        "size_in_bytes": 245040
+      },
+      {
+        "_path": "lib/libcapnp-rpc-0.9.1.so",
+        "path_type": "hardlink",
+        "sha256": "1481cad9a7ca9752afa2d1dd4fcc34501db588686b13a2a9212e67ae8dde46d0",
+        "sha256_in_prefix": "1481cad9a7ca9752afa2d1dd4fcc34501db588686b13a2a9212e67ae8dde46d0",
+        "size_in_bytes": 1523744
+      },
+      {
+        "_path": "lib/libcapnp-rpc.a",
+        "path_type": "hardlink",
+        "sha256": "f0a39d10295b90cbad25f3c60138b5a1fb726d78a20276e83c72dd82bdccd184",
+        "sha256_in_prefix": "f0a39d10295b90cbad25f3c60138b5a1fb726d78a20276e83c72dd82bdccd184",
+        "size_in_bytes": 2944024
+      },
+      {
+        "_path": "lib/libcapnp-rpc.so",
+        "path_type": "softlink",
+        "sha256": "1481cad9a7ca9752afa2d1dd4fcc34501db588686b13a2a9212e67ae8dde46d0",
+        "size_in_bytes": 1523744
+      },
+      {
+        "_path": "lib/libcapnp-websocket-0.9.1.so",
+        "path_type": "hardlink",
+        "sha256": "a13c1fb68b7e93ad52876f22bcf05302b514184026fb57b03165299886ee5ce4",
+        "sha256_in_prefix": "a13c1fb68b7e93ad52876f22bcf05302b514184026fb57b03165299886ee5ce4",
+        "size_in_bytes": 71136
+      },
+      {
+        "_path": "lib/libcapnp-websocket.a",
+        "path_type": "hardlink",
+        "sha256": "58145b28db106e9e7897224ac532a3e1d887d0b3cd033a7be84969d5d274b598",
+        "sha256_in_prefix": "58145b28db106e9e7897224ac532a3e1d887d0b3cd033a7be84969d5d274b598",
+        "size_in_bytes": 99288
+      },
+      {
+        "_path": "lib/libcapnp-websocket.so",
+        "path_type": "softlink",
+        "sha256": "a13c1fb68b7e93ad52876f22bcf05302b514184026fb57b03165299886ee5ce4",
+        "size_in_bytes": 71136
+      },
+      {
+        "_path": "lib/libcapnp.a",
+        "path_type": "hardlink",
+        "sha256": "19caad4dab3791a8c544028a27cd3213835003de000ed713f8f71834e7aa9916",
+        "sha256_in_prefix": "19caad4dab3791a8c544028a27cd3213835003de000ed713f8f71834e7aa9916",
+        "size_in_bytes": 1643140
+      },
+      {
+        "_path": "lib/libcapnp.so",
+        "path_type": "softlink",
+        "sha256": "3d06071d203db4048c3f8fc7bf1c9754c723b3632593cbdb4a7a36f5764b3270",
+        "size_in_bytes": 944488
+      },
+      {
+        "_path": "lib/libcapnpc-0.9.1.so",
+        "path_type": "hardlink",
+        "sha256": "5ba55040ec4e21d5ecd37bda9cf875138c32e0a17e00982efd8707574bc6aa30",
+        "sha256_in_prefix": "5ba55040ec4e21d5ecd37bda9cf875138c32e0a17e00982efd8707574bc6aa30",
+        "size_in_bytes": 977936
+      },
+      {
+        "_path": "lib/libcapnpc.a",
+        "path_type": "hardlink",
+        "sha256": "50b9c25b015af4d658948299e3993c41d6005bb3cf9c88cd0c7fed4a390ad8ad",
+        "sha256_in_prefix": "50b9c25b015af4d658948299e3993c41d6005bb3cf9c88cd0c7fed4a390ad8ad",
+        "size_in_bytes": 1598830
+      },
+      {
+        "_path": "lib/libcapnpc.so",
+        "path_type": "softlink",
+        "sha256": "5ba55040ec4e21d5ecd37bda9cf875138c32e0a17e00982efd8707574bc6aa30",
+        "size_in_bytes": 977936
+      },
+      {
+        "_path": "lib/libkj-0.9.1.so",
+        "path_type": "hardlink",
+        "sha256": "731aba9a118f0876e84130a2f39a356c94c1692994346c7774c97dca3b225511",
+        "sha256_in_prefix": "731aba9a118f0876e84130a2f39a356c94c1692994346c7774c97dca3b225511",
+        "size_in_bytes": 772696
+      },
+      {
+        "_path": "lib/libkj-async-0.9.1.so",
+        "path_type": "hardlink",
+        "sha256": "a2b972edffd3b46e7d939ee208374d1001f16a6fb47e21ffba0ab9566ffef719",
+        "sha256_in_prefix": "a2b972edffd3b46e7d939ee208374d1001f16a6fb47e21ffba0ab9566ffef719",
+        "size_in_bytes": 1312144
+      },
+      {
+        "_path": "lib/libkj-async.a",
+        "path_type": "hardlink",
+        "sha256": "cfb75891165c8d6da17b986754bfc6051726160a5ee33962595e68381558aa60",
+        "sha256_in_prefix": "cfb75891165c8d6da17b986754bfc6051726160a5ee33962595e68381558aa60",
+        "size_in_bytes": 2408766
+      },
+      {
+        "_path": "lib/libkj-async.so",
+        "path_type": "softlink",
+        "sha256": "a2b972edffd3b46e7d939ee208374d1001f16a6fb47e21ffba0ab9566ffef719",
+        "size_in_bytes": 1312144
+      },
+      {
+        "_path": "lib/libkj-gzip-0.9.1.so",
+        "path_type": "hardlink",
+        "sha256": "7d59507f051e47c6e281c5725ef1c26e571f7f97e90148aaff9983eb817dcafd",
+        "sha256_in_prefix": "7d59507f051e47c6e281c5725ef1c26e571f7f97e90148aaff9983eb817dcafd",
+        "size_in_bytes": 78200
+      },
+      {
+        "_path": "lib/libkj-gzip.a",
+        "path_type": "hardlink",
+        "sha256": "a36c1b3078f8f068fde6aef22d30148b593bdfb9d22df7f9d3c86f2b164c38e6",
+        "sha256_in_prefix": "a36c1b3078f8f068fde6aef22d30148b593bdfb9d22df7f9d3c86f2b164c38e6",
+        "size_in_bytes": 106744
+      },
+      {
+        "_path": "lib/libkj-gzip.so",
+        "path_type": "softlink",
+        "sha256": "7d59507f051e47c6e281c5725ef1c26e571f7f97e90148aaff9983eb817dcafd",
+        "size_in_bytes": 78200
+      },
+      {
+        "_path": "lib/libkj-http-0.9.1.so",
+        "path_type": "hardlink",
+        "sha256": "6650b742b5b91fc493dc4e9f2c5a1ce55a58f0922dcb56592b273080d33b7963",
+        "sha256_in_prefix": "6650b742b5b91fc493dc4e9f2c5a1ce55a58f0922dcb56592b273080d33b7963",
+        "size_in_bytes": 1340224
+      },
+      {
+        "_path": "lib/libkj-http.a",
+        "path_type": "hardlink",
+        "sha256": "6d2a77d1b7aedbc89eaab524e2e97c61db934affedda67ade0a16cf2b91179bc",
+        "sha256_in_prefix": "6d2a77d1b7aedbc89eaab524e2e97c61db934affedda67ade0a16cf2b91179bc",
+        "size_in_bytes": 2281276
+      },
+      {
+        "_path": "lib/libkj-http.so",
+        "path_type": "softlink",
+        "sha256": "6650b742b5b91fc493dc4e9f2c5a1ce55a58f0922dcb56592b273080d33b7963",
+        "size_in_bytes": 1340224
+      },
+      {
+        "_path": "lib/libkj-test-0.9.1.so",
+        "path_type": "hardlink",
+        "sha256": "2c80a5c0fd244faf803b2174b80bf03c77cd173b41be8880d5a224e6b45bf753",
+        "sha256_in_prefix": "2c80a5c0fd244faf803b2174b80bf03c77cd173b41be8880d5a224e6b45bf753",
+        "size_in_bytes": 60216
+      },
+      {
+        "_path": "lib/libkj-test.a",
+        "path_type": "hardlink",
+        "sha256": "a207af97f48ee9f78418700996fc553dc0c98068e222040ba1a4d15f6171aee4",
+        "sha256_in_prefix": "a207af97f48ee9f78418700996fc553dc0c98068e222040ba1a4d15f6171aee4",
+        "size_in_bytes": 74970
+      },
+      {
+        "_path": "lib/libkj-test.so",
+        "path_type": "softlink",
+        "sha256": "2c80a5c0fd244faf803b2174b80bf03c77cd173b41be8880d5a224e6b45bf753",
+        "size_in_bytes": 60216
+      },
+      {
+        "_path": "lib/libkj-tls-0.9.1.so",
+        "path_type": "hardlink",
+        "sha256": "038820060c2935c6e85954961a55a32b2be2c98f4db02b37739fc5d04bb84a94",
+        "sha256_in_prefix": "038820060c2935c6e85954961a55a32b2be2c98f4db02b37739fc5d04bb84a94",
+        "size_in_bytes": 391776
+      },
+      {
+        "_path": "lib/libkj-tls.a",
+        "path_type": "hardlink",
+        "sha256": "6a886e8d8c639c1725a0300bad1a163ebdb778f45cf5815a223d3264db108bc2",
+        "sha256_in_prefix": "6a886e8d8c639c1725a0300bad1a163ebdb778f45cf5815a223d3264db108bc2",
+        "size_in_bytes": 718720
+      },
+      {
+        "_path": "lib/libkj-tls.so",
+        "path_type": "softlink",
+        "sha256": "038820060c2935c6e85954961a55a32b2be2c98f4db02b37739fc5d04bb84a94",
+        "size_in_bytes": 391776
+      },
+      {
+        "_path": "lib/libkj.a",
+        "path_type": "hardlink",
+        "sha256": "01d525df627b3bde909512d2408120d9620a3837a0eabded3abe6f78a7b6a4fb",
+        "sha256_in_prefix": "01d525df627b3bde909512d2408120d9620a3837a0eabded3abe6f78a7b6a4fb",
+        "size_in_bytes": 1419126
+      },
+      {
+        "_path": "lib/libkj.so",
+        "path_type": "softlink",
+        "sha256": "731aba9a118f0876e84130a2f39a356c94c1692994346c7774c97dca3b225511",
+        "size_in_bytes": 772696
+      },
+      {
+        "_path": "lib/pkgconfig/capnp-json.pc",
+        "file_mode": "text",
+        "path_type": "hardlink",
+        "prefix_placeholder": "/opt/conda/conda-bld/capnproto_1643906043325/_h_env_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_pla",
+        "sha256": "fd9b8dc542c1c049425f58f8f66fa8540db3215cee44656ac7d6853e818b9e30",
+        "sha256_in_prefix": "4586e072617babbb84c71c30dbe874732a49a8fffd4cb3516088d036d2c9cf00",
+        "size_in_bytes": 531
+      },
+      {
+        "_path": "lib/pkgconfig/capnp-rpc.pc",
+        "file_mode": "text",
+        "path_type": "hardlink",
+        "prefix_placeholder": "/opt/conda/conda-bld/capnproto_1643906043325/_h_env_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_pla",
+        "sha256": "c19005fd793b592a0c93043c2096c55e69e6085ec852c531c6978b27725da657",
+        "sha256_in_prefix": "8079fb6ff59d7315a7dfcab361e7a5633c47de47237a0067415aceeab2a480bb",
+        "size_in_bytes": 518
+      },
+      {
+        "_path": "lib/pkgconfig/capnp-websocket.pc",
+        "file_mode": "text",
+        "path_type": "hardlink",
+        "prefix_placeholder": "/opt/conda/conda-bld/capnproto_1643906043325/_h_env_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_pla",
+        "sha256": "e7707bf6ad3cef759a1011f5e7cb4d241a4ca5feccf5c782165a34f09593b848",
+        "sha256_in_prefix": "12e74c1833be2f557e6090c0d109003179855e26b639e9a1d5396bf3cf3e9ade",
+        "size_in_bytes": 587
+      },
+      {
+        "_path": "lib/pkgconfig/capnp.pc",
+        "file_mode": "text",
+        "path_type": "hardlink",
+        "prefix_placeholder": "/opt/conda/conda-bld/capnproto_1643906043325/_h_env_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_pla",
+        "sha256": "391204cd0a82ff1df9e48803089b0c2639f2f274bbe24ba61e6ba65bef2474c9",
+        "sha256_in_prefix": "af696bb1212f175a32b600835b663c186cb125874cab80334f5da4bb97981fe6",
+        "size_in_bytes": 536
+      },
+      {
+        "_path": "lib/pkgconfig/capnpc.pc",
+        "file_mode": "text",
+        "path_type": "hardlink",
+        "prefix_placeholder": "/opt/conda/conda-bld/capnproto_1643906043325/_h_env_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_pla",
+        "sha256": "b134afc81d2eb5eb7dfa6aced454f3c421aeb9ebabe6ebddf3cba86c635e82b7",
+        "sha256_in_prefix": "b187960e0fc9e8c68a6f03cdeac75f5a32c35ae362c93b7c49477aaf163bd5f6",
+        "size_in_bytes": 554
+      },
+      {
+        "_path": "lib/pkgconfig/kj-async.pc",
+        "file_mode": "text",
+        "path_type": "hardlink",
+        "prefix_placeholder": "/opt/conda/conda-bld/capnproto_1643906043325/_h_env_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_pla",
+        "sha256": "b6ecaefbc4be8da59b3a2cc44337c2091ecf81b4cc34f9f17b2b6dfba88aeca4",
+        "sha256_in_prefix": "33501124a5b89db308f5b3490a230c76ea9800bdbfb3f94622ab5795199e24ec",
+        "size_in_bytes": 545
+      },
+      {
+        "_path": "lib/pkgconfig/kj-gzip.pc",
+        "file_mode": "text",
+        "path_type": "hardlink",
+        "prefix_placeholder": "/opt/conda/conda-bld/capnproto_1643906043325/_h_env_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_pla",
+        "sha256": "78441bccada7145ae10af5045e4116678025c8d4d2eda264c149299d04abf023",
+        "sha256_in_prefix": "b887f0e1698e20b5fb32d57ef46f05eeaa0db0ece2586249e0875ac984f51ad3",
+        "size_in_bytes": 537
+      },
+      {
+        "_path": "lib/pkgconfig/kj-http.pc",
+        "file_mode": "text",
+        "path_type": "hardlink",
+        "prefix_placeholder": "/opt/conda/conda-bld/capnproto_1643906043325/_h_env_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_pla",
+        "sha256": "5ef8001a254928d02038ea270f7cd940214cdeb68d6bebf2fa13dd835bfb29e7",
+        "sha256_in_prefix": "23667079d2eee99c9a8dfea40a69bd817ed7bacc5812bfb8008489cc08907adc",
+        "size_in_bytes": 536
+      },
+      {
+        "_path": "lib/pkgconfig/kj-test.pc",
+        "file_mode": "text",
+        "path_type": "hardlink",
+        "prefix_placeholder": "/opt/conda/conda-bld/capnproto_1643906043325/_h_env_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_pla",
+        "sha256": "c864d6b64cdd11c9fdd6864a56f2ff521cb2a825376144d6d367316efe4c7fb2",
+        "sha256_in_prefix": "68c835d9c68c6f1265a797bc7f740a252f9a5137ec7f8c17ad5de44d9a7332dc",
+        "size_in_bytes": 532
+      },
+      {
+        "_path": "lib/pkgconfig/kj-tls.pc",
+        "file_mode": "text",
+        "path_type": "hardlink",
+        "prefix_placeholder": "/opt/conda/conda-bld/capnproto_1643906043325/_h_env_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_pla",
+        "sha256": "71ee9edb7adc06a5aad7e32ab6df6258f0355fe5e163fd194585ee43c078c823",
+        "sha256_in_prefix": "941d260891114a7a8bd0352b92c14a34b300a7e088789f4e4f96755071231ef0",
+        "size_in_bytes": 534
+      },
+      {
+        "_path": "lib/pkgconfig/kj.pc",
+        "file_mode": "text",
+        "path_type": "hardlink",
+        "prefix_placeholder": "/opt/conda/conda-bld/capnproto_1643906043325/_h_env_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_pla",
+        "sha256": "6d241e9e7150c262388aedfb7012491324b7a4b150d17e53ae38f6b15b5e6661",
+        "sha256_in_prefix": "3595e012b57d985c87a64e058e51cbc0e57e2eeb7d1a7da53a9015f6f39c75e9",
+        "size_in_bytes": 497
+      }
+    ],
+    "paths_version": 1
+  },
+  "requested_spec": "None",
+  "sha256": "469f43ad78477bf1cbde25a56bf82c7e0d7584503b29d761a3764e80c5ac4c19",
+  "size": 2964751,
+  "subdir": "linux-64",
+  "timestamp": 1643906202839,
+  "track_features": "",
+  "url": "https://repo.anaconda.com/pkgs/main/linux-64/capnproto-0.9.1-h4ff587b_0.conda",
+  "version": "0.9.1"
+}

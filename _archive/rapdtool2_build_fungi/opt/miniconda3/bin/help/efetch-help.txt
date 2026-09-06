@@ -1,0 +1,180 @@
+Format Selection
+
+  -format        Format of record or report
+  -mode          text, xml, asn.1, json
+  -style         master, conwithfeat
+
+Direct Record Selection
+
+  -db            Database name
+  -id            Unique identifier or accession number
+  -input         Read identifier(s) from file instead of stdin
+
+Sequence Range
+
+  -seq_start     First sequence position to retrieve
+  -seq_stop      Last sequence position to retrieve
+  -strand        1 = forward DNA strand, 2 = reverse complement
+                   (otherwise strand minus is set if start > stop)
+  -forward       Force strand 1
+  -revcomp       Force strand 2
+
+Gene Range
+
+  -chr_start     Sequence range from 0-based coordinates
+  -chr_stop        in gene docsum GenomicInfoType object
+
+Sequence Flags
+
+  -complexity    0 = default, 1 = bioseq, 3 = nuc-prot set
+  -extend        Extend sequence retrieval in both directions
+  -extrafeat     Bit flag specifying extra features
+  -showgaps      Propagate component gaps
+
+Subset Retrieval
+
+  -start         First record to fetch
+  -stop          Last record to fetch
+
+Miscellaneous
+
+  -raw           Skip database-specific XML modifications
+  -express       Direct sequence retrieval in groups of 5 
+  -immediate     Express mode on a single record at a time 
+
+Format Examples
+
+  -db            -format            -mode    Report Type
+  ___            _______            _____    ___________
+
+  (all)
+                 docsum                      DocumentSummarySet XML
+                 docsum             json     DocumentSummarySet JSON
+                 full                        Same as native except for mesh
+                 uid                         Unique Identifier List
+                 url                         Entrez URL
+                 xml                         Same as -format full -mode xml
+
+  bioproject
+                 native                      BioProject Report
+                 native             xml      RecordSet XML
+
+  biosample
+                 native                      BioSample Report
+                 native             xml      BioSampleSet XML
+
+  biosystems
+                 native             xml      Sys-set XML
+
+  clinvar
+                 variation                   Older Format
+                 variationid                 Transition Format
+                 vcv                         VCV Report
+                 clinvarset                  RCV Report
+
+  gds
+                 native             xml      RecordSet XML
+                 summary                     Summary
+
+  gene
+                 full_report                 Detailed Report
+                 gene_table                  Gene Table
+                 native                      Gene Report
+                 native             asn.1    Entrezgene ASN.1
+                 native             xml      Entrezgene-Set XML
+                 tabular                     Tabular Report
+
+  homologene
+                 alignmentscores             Alignment Scores
+                 fasta                       FASTA
+                 homologene                  Homologene Report
+                 native                      Homologene List
+                 native             asn.1    HG-Entry ASN.1
+                 native             xml      Entrez-Homologene-Set XML
+
+  mesh
+                 full                        Full Record
+                 native                      MeSH Report
+                 native             xml      RecordSet XML
+
+  nlmcatalog
+                 native                      Full Record
+                 native             xml      NLMCatalogRecordSet XML
+
+  pmc
+                 bioc                        PubTator Central BioC XML
+                 medline                     MEDLINE
+                 native             xml      pmc-articleset XML
+
+  pubmed
+                 abstract                    Abstract
+                 bioc                        PubTator Central BioC XML
+                 medline                     MEDLINE
+                 native             asn.1    Pubmed-entry ASN.1
+                 native             xml      PubmedArticleSet XML
+
+  (sequences)
+                 acc                         Accession Number
+                 est                         EST Report
+                 fasta                       FASTA
+                 fasta              xml      TinySeq XML
+                 fasta_cds_aa                FASTA of CDS Products
+                 fasta_cds_na                FASTA of Coding Regions
+                 ft                          Feature Table
+                 gb                          GenBank Flatfile
+                 gb                 xml      GBSet XML
+                 gbc                xml      INSDSet XML
+                 gene_fasta                  FASTA of Gene
+                 gp                          GenPept Flatfile
+                 gp                 xml      GBSet XML
+                 gpc                xml      INSDSet XML
+                 gss                         GSS Report
+                 ipg                         Identical Protein Report
+                 ipg                xml      IPGReportSet XML
+                 native             text     Seq-entry ASN.1
+                 native             xml      Bioseq-set XML
+                 seqid                       Seq-id ASN.1
+
+  snp
+                 json                        Reference SNP Report
+
+  sra
+                 native             xml      EXPERIMENT_PACKAGE_SET XML
+                 runinfo            xml      SraRunInfo XML
+
+  structure
+                 mmdb                        Ncbi-mime-asn1 strucseq ASN.1
+                 native                      MMDB Report
+                 native             xml      RecordSet XML
+
+  taxonomy
+                 native                      Taxonomy List
+                 native             xml      TaxaSet XML
+
+Examples
+
+  efetch -db pubmed -id 6271474,5685784,4882854,6243420 -format xml |
+  xtract -pattern PubmedArticle -element MedlineCitation/PMID "#Author" \
+    -block Author -position first -sep " " -element Initials,LastName \
+    -block Article -element ArticleTitle
+
+  efetch -db nuccore -id CM000177.6 -format gb -style conwithfeat -showgaps
+
+  efetch -db nuccore -id 1121073309 -format gbc -style master
+
+  efetch -db nuccore -id JABRPF010000000 -format gb
+
+  efetch -db nuccore -id JABRPF010000001 -format gb
+
+  efetch -db protein -id 3OQZ_a -format fasta
+
+  esearch -db protein -query "conotoxin AND mat_peptide [FKEY]" |
+  efetch -format gpc |
+  xtract -insd complete mat_peptide "%peptide" product mol_wt peptide |
+  grep -i conotoxin | sort -t $'\t' -u -k 2,2n | head -n 8
+
+  esearch -db gene -query "DDT [GENE] AND mouse [ORGN]" |
+  efetch -format docsum |
+  xtract -pattern GenomicInfoType -element ChrAccVer ChrStart ChrStop |
+  xargs -n 3 sh -c 'efetch -db nuccore -format gb \
+    -id "$0" -chr_start "$1" -chr_stop "$2"'

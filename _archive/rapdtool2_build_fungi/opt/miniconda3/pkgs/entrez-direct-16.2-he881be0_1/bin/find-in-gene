@@ -1,0 +1,26 @@
+#!/bin/bash -norc
+
+# Public domain notice for all NCBI EDirect scripts is located at:
+# https://www.ncbi.nlm.nih.gov/books/NBK179288/#chapter6.Public_Domain_Notice
+
+if [ $# -lt 2 ]
+then
+  echo "Insufficient arguments - must have start and stop position" >&2
+  exit 1
+fi
+
+std="$1"
+min="$2"
+max="$3"
+len="$4"
+
+if [ "$min" -gt "$max" ]
+then
+  swp="$min"
+  min="$max"
+  max="$swp"
+fi
+
+xtract -pattern GENE \
+  -if Strand -equals "$std" -and Min -lt "$max" -and Max -gt "$min" \
+    -element Name

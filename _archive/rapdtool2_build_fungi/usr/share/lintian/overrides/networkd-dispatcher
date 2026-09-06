@@ -1,0 +1,7 @@
+package-contains-empty-directory usr/lib/networkd-dispatcher/carrier.d/
+package-contains-empty-directory usr/lib/networkd-dispatcher/degraded.d/
+package-contains-empty-directory usr/lib/networkd-dispatcher/dormant.d/
+package-contains-empty-directory usr/lib/networkd-dispatcher/no-carrier.d/
+package-contains-empty-directory usr/lib/networkd-dispatcher/off.d/
+package-contains-empty-directory usr/lib/networkd-dispatcher/routable.d/
+package-supports-alternative-init-but-no-init.d-script lib/systemd/system/networkd-dispatcher.service

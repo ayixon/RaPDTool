@@ -1,0 +1,18 @@
+{
+  "arch": "x86_64",
+  "build": "py39hd667e15_1",
+  "build_number": 1,
+  "depends": [
+    "libffi >=3.3",
+    "libgcc-ng >=7.5.0",
+    "pycparser",
+    "python >=3.9,<3.10.0a0"
+  ],
+  "license": "MIT",
+  "license_family": "MIT",
+  "name": "cffi",
+  "platform": "linux",
+  "subdir": "linux-64",
+  "timestamp": 1642701209740,
+  "version": "1.15.0"
+}

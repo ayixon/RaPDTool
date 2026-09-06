@@ -1,0 +1,229 @@
+#!/bin/bash
+
+# Public domain notice for all NCBI EDirect scripts is located at:
+# https://www.ncbi.nlm.nih.gov/books/NBK179288/#chapter6.Public_Domain_Notice
+
+cmd="$1"
+shift
+
+do_download() {
+  dir="$1"
+  msk="$2"
+  nquire -lst ftp.ncbi.nlm.nih.gov "$dir" |
+  grep "$msk" |
+  skip-if-file-exists | tee /dev/stderr |
+  nquire -asp ftp.ncbi.nlm.nih.gov "$dir"
+}
+
+prepare_book_list() {
+  echo "<OpenAccessSubset>"
+  while IFS=$'\t' read pth titl pblshr dt accn upd
+  do
+    if [ -n "$accn" ]
+    then
+      echo "  <Book>"
+      echo "    <Accn>$accn</Accn>"
+      echo "    <Path>$pth</Path>"
+      echo "    <Title>$titl</Title>"
+      echo "  </Book>"
+    fi
+  done
+  echo "</OpenAccessSubset>"
+}
+
+case "$cmd" in
+  -h | -help | --help | help )
+  cat <<EOF
+USAGE: $0
+       pmc-oa | pmc-bioc | bioconcepts | generif | meshtree | oa-list | oa-book | carotene
+EOF
+    exit 0
+    ;;
+  pmc-oa | -pmc-oa )
+    do_download "pub/pmc/oa_bulk" "xml.tar.gz"
+    exit 0
+    ;;
+  pmc-bioc | -pmc-bioc )
+    do_download "pub/wilbur/BioC-PMC" "xml_unicode.tar.gz"
+    exit 0
+    ;;
+  bioconcepts | -bioconcepts )
+    do_download "pub/lu/PubTatorCentral" "chemical2pubtatorcentral.gz"
+    do_download "pub/lu/PubTatorCentral" "disease2pubtatorcentral.gz"
+    do_download "pub/lu/PubTatorCentral" "gene2pubtatorcentral.gz"
+    exit 0
+    ;;
+  generif | -generif | generifs | -generifs )
+    do_download "gene/GeneRIF" "generifs_basic.gz"
+    do_download "gene/DATA" "gene_info.gz"
+    if [ ! -f "geneconv.xml" ]
+    then
+      gunzip -c gene_info.gz |
+      grep -v NEWENTRY |
+      grep -v GeneID |
+      cut -f 2,3,9 |
+      transmute -t2x -set Set -rec Rec Code Name Desc |
+      transmute -format indent > geneconv.xml
+    fi
+    if [ ! -f "genename.txt" ]
+    then
+      cat geneconv.xml |
+      xtract -pattern Rec -element Code Name > genename.txt
+    fi
+    exit 0
+    ;;
+  meshtree | -meshtree )
+    if [ ! -f "desc2021.xml" ]
+    then
+      echo "desc2021.xml"
+      nquire -dwn "ftp://nlmpubs.nlm.nih.gov" "online/mesh/MESH_FILES/xmlmesh" "desc2021.zip"
+      unzip -qq desc2021.zip
+      rm desc2021.zip
+      chmod og-wx desc2021.xml
+      chmod u-x desc2021.xml
+    fi
+    if [ ! -f "pa2021.xml" ]
+    then
+      echo "pa2021.xml"
+      nquire -dwn "ftp://nlmpubs.nlm.nih.gov" "online/mesh/MESH_FILES/xmlmesh" "pa2021.xml"
+    fi
+    if [ ! -f "qual2021.xml" ]
+    then
+      echo "qual2021.xml"
+      nquire -dwn "ftp://nlmpubs.nlm.nih.gov" "online/mesh/MESH_FILES/xmlmesh" "qual2021.xml"
+    fi
+    if [ ! -f "supp2021.xml" ]
+    then
+      echo "supp2021.xml"
+      nquire -dwn "ftp://nlmpubs.nlm.nih.gov" "online/mesh/MESH_FILES/xmlmesh" "supp2021.zip"
+      unzip -qq supp2021.zip
+      rm supp2021.zip
+      chmod og-wx supp2021.xml
+      chmod u-x supp2021.xml
+    fi
+
+    if [ ! -f "meshconv.xml" ]
+    then
+      cat supp2021.xml |
+      xtract -wrp "Set,Rec" -pattern SupplementalRecord \
+        -if "SupplementalRecord@SCRClass" -eq 1 \
+        -or "SupplementalRecord@SCRClass" -eq 3 \
+          -wrp "Code" -element "SupplementalRecord/SupplementalRecordUI" \
+          -wrp "Name" -encode "SupplementalRecordName/String" \
+          -wrp "Term" -encode "Term/String" > meshtemp.xml
+      cat desc2021.xml |
+      xtract -wrp "Set,Rec" -pattern DescriptorRecord \
+        -wrp "Code" -element "DescriptorRecord/DescriptorUI" \
+        -wrp "Name" -first "DescriptorName/String" \
+        -wrp "Term" -encode "Term/String" \
+        -wrp "Tree" -element "TreeNumberList/TreeNumber" >> meshtemp.xml
+      cat meshtemp.xml | xtract -wrp Set -pattern Rec -sort Code |
+      transmute -format indent > meshconv.xml
+      rm meshtemp.xml
+    fi
+
+    if [ ! -f "meshtree.txt" ]
+    then
+      cat meshconv.xml |
+      xtract -pattern Rec -if Tree -element Code -sep "," -element Tree > meshtree.txt
+    fi
+
+    if [ ! -f "meshname.txt" ]
+    then
+      cat meshconv.xml |
+      xtract -pattern Rec -if Name -element Code -sep "," -element Name > meshname.txt
+    fi
+
+    if [ ! -f "chemconv.xml" ]
+    then
+      cat supp2021.xml |
+      xtract -wrp "Set,Rec" -pattern SupplementalRecord \
+        -if "SupplementalRecord@SCRClass" -eq 1 \
+          -wrp "Code" -element "SupplementalRecord/SupplementalRecordUI" \
+          -wrp "Name" -encode "SupplementalRecordName/String" \
+          -wrp "Term" -encode "Term/String" > chemtemp.xml
+      cat desc2021.xml |
+      xtract -wrp "Set,Rec" -pattern DescriptorRecord \
+        -if TreeNumber -starts-with D \
+          -wrp "Code" -element "DescriptorRecord/DescriptorUI" \
+          -wrp "Name" -first "DescriptorName/String" \
+          -wrp "Term" -encode "Term/String" \
+          -wrp "Tree" -element "TreeNumberList/TreeNumber" >> chemtemp.xml
+      cat chemtemp.xml | xtract -wrp Set -pattern Rec -sort Code |
+      transmute -format indent > chemconv.xml
+      rm chemtemp.xml
+    fi
+
+    if [ ! -f "diszconv.xml" ]
+    then
+      cat supp2021.xml |
+      xtract -wrp "Set,Rec" -pattern SupplementalRecord \
+        -if "SupplementalRecord@SCRClass" -eq 3 \
+          -wrp "Code" -element "SupplementalRecord/SupplementalRecordUI" \
+          -wrp "Name" -encode "SupplementalRecordName/String" \
+          -wrp "Term" -encode "Term/String" > disztemp.xml
+      cat desc2021.xml |
+      xtract -wrp "Set,Rec" -pattern DescriptorRecord \
+        -if TreeNumber -starts-with C \
+          -wrp "Code" -element "DescriptorRecord/DescriptorUI" \
+          -wrp "Name" -first "DescriptorName/String" \
+          -wrp "Term" -encode "Term/String" \
+          -wrp "Tree" -element "TreeNumberList/TreeNumber" >> disztemp.xml
+      cat disztemp.xml | xtract -wrp Set -pattern Rec -sort Code |
+      transmute -format indent > diszconv.xml
+      rm disztemp.xml
+    fi
+
+    exit 0
+    ;;
+  oa-list | -oa-list )
+    if [ ! -f "books.xml" ]
+    then
+      nquire -ftp ftp.ncbi.nlm.nih.gov pub/litarch file_list.txt |
+      prepare_book_list > books.xml
+    fi
+    exit 0
+    ;;
+  oa-book | -oa-book )
+    accn="$1"
+    shift
+    if [ ! -f "books.xml" ]
+    then
+      nquire -ftp ftp.ncbi.nlm.nih.gov pub/litarch file_list.txt |
+      prepare_book_list > books.xml
+    fi
+    cat books.xml |
+    xtract -pattern Book -if Accn -equals "$accn" -element Path |
+    while read pth
+    do
+      if [ ! -f "$pth" ]
+      then
+        nquire -dwn ftp.ncbi.nlm.nih.gov "pub/litarch" "$pth"
+      fi
+    done
+    exit 0
+    ;;
+  carotene | -carotene )
+    if [ ! -f "carotene.xml" ]
+    then
+      nquire -asp ftp.ncbi.nlm.nih.gov "entrez/entrezdirect/samples" "carotene.xml.zip"
+      unzip -qq carotene.xml.zip
+      rm carotene.xml.zip
+    fi
+    exit 0
+    ;;
+  -natural-earth )
+    curl -Ls -O "https://www.naturalearthdata.com/http//www.naturalearthdata.com/download/10m/cultural/ne_10m_admin_0_countries.zip"
+    curl -Ls -O "https://www.naturalearthdata.com/http//www.naturalearthdata.com/download/10m/cultural/ne_10m_admin_0_disputed_areas.zip"
+    curl -Ls -O "https://www.naturalearthdata.com/http//www.naturalearthdata.com/download/10m/cultural/ne_10m_admin_1_states_provinces.zip"
+    curl -Ls -O "https://www.naturalearthdata.com/http//www.naturalearthdata.com/download/10m/physical/ne_10m_geography_marine_polys.zip"
+    curl -Ls -O "https://www.naturalearthdata.com/http//www.naturalearthdata.com/download/10m/physical/ne_10m_lakes.zip"
+    curl -Ls -O "https://www.naturalearthdata.com/http//www.naturalearthdata.com/download/10m/physical/ne_10m_minor_islands.zip"
+    curl -Ls -O "https://www.naturalearthdata.com/http//www.naturalearthdata.com/download/10m/physical/ne_10m_reefs.zip"
+    curl -Ls -O "https://www.naturalearthdata.com/http//www.naturalearthdata.com/download/10m/physical/ne_10m_rivers_lake_centerlines.zip"
+    exit 0
+    ;;
+  * )
+    break
+    ;;
+esac

@@ -1,0 +1,284 @@
+commit 9bca1f1757f7b845153f95bad581e145bdcb6799
+Merge: a4de599 981d71a
+Author: Anthony DiPietro <51377278+adipietro18@users.noreply.github.com>
+Date:   Fri Aug 27 09:54:08 2021 -0400
+
+    Merge pull request #2 from AnacondaRecipes/release-3.1.20210714
+    
+    Release 3.1.20210714
+
+commit 981d71a031833cf6ff763bd3d90cc6c4e4e6b200
+Author: Anthony DiPietro <adipietro@anaconda.com>
+Date:   Fri Aug 27 09:37:31 2021 -0400
+
+    Adding patch requirement for build.
+
+commit 95f7e4430b77d3d3f01d7f8e81dda6dda5adc3db
+Author: Anthony DiPietro <adipietro@anaconda.com>
+Date:   Fri Aug 27 09:36:45 2021 -0400
+
+    Updating version, sha, & build for 3.1.20210714
+
+commit a4de599d7a7215401eae5e80202c484f82a8fd65
+Author: Serhii Kupriienko <skupriienko@anaconda.com>
+Date:   Mon Mar 15 19:39:40 2021 +0200
+
+    update ref
+
+commit b0ac3a71be27c2b755851c9ce67e759e49cebc48
+Author: Jonathan Helmus <jjhelmus@gmail.com>
+Date:   Thu Jun 18 15:28:57 2020 -0500
+
+    add patch to prefer tinfo over curses
+
+commit 6f3cdcaaee3368fdfdfefa81d925c4dedaaa9c76
+Author: Jonathan Helmus <jjhelmus@gmail.com>
+Date:   Thu Jun 18 14:35:30 2020 -0500
+
+    move m4 to the build requirements
+
+commit d53736f824d057e43b590797fef64f5ce79f4573
+Author: Jonathan Helmus <jjhelmus@gmail.com>
+Date:   Thu Jun 18 14:34:45 2020 -0500
+
+    remove patch
+    
+    support for -ltinfo was added in the 2019-12-31 release:
+       * configure.ac: Support -ltinfo as split in newer ncurses
+            The newer versions of ncurses support building terminfo routines as a split -ltinfo library.
+            Patch by Michał Górny
+
+commit b7386011701463c059e258f348891ab3cc803c06
+Author: Jonathan Helmus <jjhelmus@gmail.com>
+Date:   Thu Jun 18 14:34:33 2020 -0500
+
+    use source mirrored in AnacondaRecipes feedstock
+
+commit 4e3a9bb9424131c73ae1505d27cc84ecf5de7bb7
+Merge: 6596ec3 3cf5595
+Author: Anthony Scopatz <scopatz@gmail.com>
+Date:   Tue Jun 2 10:11:55 2020 -0500
+
+    Merge pull request #6 from mariusvniekerk/update
+    
+    Update to latest version
+
+commit 3cf5595a29330088eb9ebbfeaff9cba435f5eb9e
+Author: Marius van Niekerk <marius.v.niekerk@gmail.com>
+Date:   Mon Jun 1 12:20:17 2020 -0400
+
+    spdx
+
+commit afb7cd0aecb8298d8ce72f14da674a423e65cc29
+Author: Marius van Niekerk <marius.v.niekerk@gmail.com>
+Date:   Mon Jun 1 12:17:15 2020 -0400
+
+    Don't patch anymore, seems to no longer be needed
+
+commit 1a84434a93dcda589f75b6e5ffcc969b5f42b5e5
+Merge: 69564dd a881bb8
+Author: Marius van Niekerk <marius.v.niekerk@gmail.com>
+Date:   Mon Jun 1 12:07:45 2020 -0400
+
+    Merge remote-tracking branch 'AnacondaRecipes/master'
+
+commit 69564dd5e9b1f66c97bf9d1e49fb8cd7109b57b7
+Author: Marius van Niekerk <marius.v.niekerk@gmail.com>
+Date:   Mon Jun 1 12:04:19 2020 -0400
+
+    Update to 20191231
+
+commit 6596ec3161fa79885af1cf361451a07b6de8a477
+Author: Matthew R Becker <becker.mr@gmail.com>
+Date:   Mon May 18 07:46:14 2020 -0500
+
+    [ci skip] [skip ci] [cf admin skip] ***NO_CI*** admin migration CondaForgeAutomerge
+
+commit 35f785ca2e84c6f5030ead9e04052e65c1135c1f
+Author: conda-forge-admin <conda-forge-admin@email.com>
+Date:   Sat May 16 17:15:19 2020 +0000
+
+    [ci skip] [skip ci] [cf admin skip] ***NO_CI*** admin migration CFEP13TokensAndConfig
+
+commit 1b25122cbd5f7616ca71deacfa86ba81605e6ab9
+Author: D.J. Sutherland <djs@djsutherland.ml>
+Date:   Sat May 2 20:17:55 2020 -0500
+
+    MNT: Re-rendered with conda-build 3.19.2, conda-smithy 3.7.0, and conda-forge-pinning 2020.05.02.14.58.15 [ci skip] [skip ci]
+
+commit aa7defc3c38e8a848e72eff0dedb1c6120a19989
+Author: D.J. Sutherland <djs@djsutherland.ml>
+Date:   Sat May 2 20:10:04 2020 -0500
+
+    new username [skip ci] [ci skip]
+
+commit bf32f4676a50406d56409d32aa3582854571f97d
+Author: conda-forge-admin <conda-forge-admin@email.com>
+Date:   Mon Mar 2 21:28:24 2020 +0000
+
+    [ci skip] [skip ci] [cf admin skip] ***NO_CI*** admin migration AutomergeAndRerender
+
+commit 3352622445fb1b1a47706050fd10e7946c294e0d
+Author: Marius van Niekerk <marius.v.niekerk@gmail.com>
+Date:   Fri Feb 1 21:58:40 2019 -0500
+
+    MNT: Re-rendered with conda-build 3.17.8, conda-smithy 3.2.12, and conda-forge-pinning 2019.01.29
+
+commit c3e1a47a79c7cb3e48bdfd9326102588b1143d40
+Merge: 919ba98 4e33626
+Author: Anthony Scopatz <scopatz@gmail.com>
+Date:   Tue Jan 29 07:09:25 2019 -0500
+
+    Merge pull request #5 from regro-cf-autotick-bot/rebuild_arch
+    
+    Arch Migrator
+
+commit 4e33626443d93a5b00359bd3d150645aee4f69e5
+Author: regro-cf-autotick-bot <circleci@cf-graph.regro.github.com>
+Date:   Tue Jan 29 06:55:21 2019 +0000
+
+    MNT: Re-rendered with conda-build 3.17.8, conda-smithy 3.2.10, and conda-forge-pinning 2019.01.21
+
+commit 9943d76d9d3106bc0fd0de860e8f618d21b02007
+Author: regro-cf-autotick-bot <circleci@cf-graph.regro.github.com>
+Date:   Tue Jan 29 06:55:09 2019 +0000
+
+    bump build number
+
+commit a881bb8d21c6f7cd71df180564d4a6f198f05250
+Author: Nehal J Wani <nehaljw.kkd1@gmail.com>
+Date:   Mon Jan 28 08:37:56 2019 -0600
+
+    Bump version to 3.1.20181209
+
+commit 919ba981e4eb41511c4288d7ee2d0fb0d075b061
+Merge: 02b1d78 66d5643
+Author: Björn Grüning <bjoern@gruenings.eu>
+Date:   Fri Sep 14 09:16:21 2018 +0200
+
+    Merge pull request #4 from regro-cf-autotick-bot/rebuild
+    
+    Rebuild for Python 3.7, GCC 7, R 3.5.1, openBLAS 0.3.2
+
+commit 66d5643f29a93d67e3cece4c673b0593abbfcc03
+Author: regro-cf-autotick-bot <circleci@cf-graph.regro.github.com>
+Date:   Thu Sep 13 21:11:18 2018 +0000
+
+    MNT: Re-rendered with conda-smithy 3.1.12 and pinning 2018.09.11
+
+commit afd32bf9f90318ecedf532d8f82700ba8525bfee
+Author: regro-cf-autotick-bot <circleci@cf-graph.regro.github.com>
+Date:   Thu Sep 13 21:11:11 2018 +0000
+
+    bump build number
+
+commit 02b1d78d958a75d3a2128da589d19c09af1fa421
+Author: Travis CI User <travis@example.org>
+Date:   Sat Aug 4 19:19:43 2018 +0000
+
+    [ci skip] [skip ci] Update anaconda token
+
+commit cc4a5c4ed3d67711cb03a8f35450720bb9d0ea6e
+Merge: 806873d 696e0fa
+Author: Anthony Scopatz <scopatz@gmail.com>
+Date:   Thu Jul 26 20:11:28 2018 -0400
+
+    Merge pull request #3 from regro-cf-autotick-bot/pinning
+    
+    Suggestion: remove version pinnings
+
+commit 696e0fa3ab6a5a2044e484af8578a620b1327198
+Author: regro-cf-autotick-bot <circleci@cf-graph.regro.github.com>
+Date:   Thu Jul 26 20:17:01 2018 +0000
+
+    MNT: Re-rendered with conda-smithy 3.1.8 and pinning 2018.07.24
+
+commit 47cd08e2f87836cd34b81ad4fb29928eeb462d8d
+Author: regro-cf-autotick-bot <circleci@cf-graph.regro.github.com>
+Date:   Thu Jul 26 20:16:54 2018 +0000
+
+    remove version pinnings
+
+commit 806873d4fb1b2d6f3e6cf11aa93ecb39c6abb467
+Merge: 6c310d5 19429eb
+Author: Anthony Scopatz <scopatz@gmail.com>
+Date:   Sun Jun 24 14:24:21 2018 -0400
+
+    Merge pull request #2 from regro-cf-autotick-bot/compiler_migration2
+    
+    Migrate to Jinja2 compiler syntax
+
+commit 19429eb09a986b9772be429205f5ea431884a539
+Author: Travis CI User <travis@example.org>
+Date:   Sun Jun 24 05:09:30 2018 +0000
+
+    MNT: Re-rendered with conda-smithy 3.1.6 and pinning 2018.06.19
+
+commit 3ddec5a320689241ca8a5b6951e948ea341170c6
+Author: Travis CI User <travis@example.org>
+Date:   Sun Jun 24 05:09:25 2018 +0000
+
+    migrated to Jinja2 compiler syntax build
+
+commit 74c6f52b89c2b67319b3612b098003148080a821
+Author: Ray Donnelly <mingw.android@gmail.com>
+Date:   Thu May 10 01:49:25 2018 +0100
+
+    Move host down
+
+commit f3c27b4d6d6f780bdc3c470cdaa5e7778b66ed77
+Author: Michael Sarahan <msarahan@gmail.com>
+Date:   Wed May 2 14:37:04 2018 -0500
+
+    find libtinfo before libcurses; remove GPL_ok selector
+
+commit a11a8cfed924b41800e4303887874dc92eb153a1
+Author: Nehal J Wani <nehaljw.kkd1@gmail.com>
+Date:   Sat Jan 13 06:56:26 2018 -0500
+
+    Move ncurses under 'host' section
+
+commit 311732057812141bcf8cd7e991f526d969e6c95d
+Author: Ray Donnelly <mingw.android@gmail.com>
+Date:   Thu Nov 9 12:14:16 2017 +0000
+
+    Add cross-compilation and conda-build 3 support
+
+commit 6c310d5f28878c918142d9a664937ff38b684ce1
+Merge: 8dc625b b90474f
+Author: Anthony Scopatz <scopatz@gmail.com>
+Date:   Sun Nov 5 13:01:18 2017 -0500
+
+    Merge pull request #1 from dougalsutherland/add-date
+    
+    tag date in version
+
+commit b90474f37c415b169896659307e49147954501ff
+Author: Dougal J. Sutherland <dougal@gmail.com>
+Date:   Sat Nov 4 15:02:33 2017 +0000
+
+    add myself as maintainer
+
+commit 2f2720e27c350f03c01ebbd184cdb5d5c6fcbe30
+Author: Dougal J. Sutherland <dougal@gmail.com>
+Date:   Fri Nov 3 17:23:28 2017 +0000
+
+    tag date in version
+
+commit 8dc625b98e95ce0142220de8c8728f60d4508c27
+Author: Travis-CI on github.com/conda-forge/staged-recipes <conda-forge@googlegroups.com>
+Date:   Sat Oct 28 03:16:08 2017 +0000
+
+    Re-render the feedstock after CI registration.
+
+commit 35ee3240eb4812cd556b87c3c64154da1b430200
+Author: Travis-CI on github.com/conda-forge/staged-recipes <conda-forge@googlegroups.com>
+Date:   Sat Oct 28 03:14:23 2017 +0000
+
+    Re-render the feedstock after CI registration.
+
+commit e8a9f6c2c8c8912440ee0da4fde680c5f80b45dd
+Author: Travis-CI on github.com/conda-forge/staged-recipes <conda-forge@googlegroups.com>
+Date:   Sat Oct 28 03:11:36 2017 +0000
+
+    Initial feedstock commit with conda-smithy 2.4.2.

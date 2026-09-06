@@ -1,0 +1,14 @@
+df62826f5f6956608668b0eb60d960b0  usr/bin/pydoc3.10
+c4d46f9471acfa44a978dc2c02c7f282  usr/bin/pygettext3.10
+57c10a7fd438a7fd177c4f8bd1f9a1d8  usr/share/applications/python3.10.desktop
+1d49b166c1a6a4bd5f6296e94079f9cb  usr/share/doc/python3.10/ACKS.gz
+69ddc5d3154fbd5e082ba9b8a0f45e62  usr/share/doc/python3.10/NEWS.gz
+e9c55fece8293a1fa9379745b0f8f821  usr/share/doc/python3.10/README.Debian
+33451c82096188aedf69cbbafd661d0a  usr/share/doc/python3.10/README.rst.gz
+d8c47e21fcd8f5a22f90828d568b0084  usr/share/doc/python3.10/copyright
+d55805969e6bca4a96ec57c32587fc59  usr/share/lintian/overrides/python3.10
+38c342be100d548af3cc2e2271d37d74  usr/share/man/man1/pdb3.10.1.gz
+d0d5ea08345f3557d865f08067634a1c  usr/share/man/man1/pydoc3.10.1.gz
+90cf8dfcb6b3c2741f64c36c6842a256  usr/share/man/man1/pygettext3.10.1.gz
+9f9c85f23667a9a942aa0de9588e5918  usr/share/man/man1/pysetup3.10.1.gz
+d183cb64badc9865b14c18fb0059b39f  usr/share/pixmaps/python3.10.xpm

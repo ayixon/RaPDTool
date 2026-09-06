@@ -1,0 +1,10 @@
+Package: datasets
+Version: 4.2.1
+Priority: base
+Title: The R Datasets Package
+Author: R Core Team and contributors worldwide
+Maintainer: R Core Team <do-use-Contact-address@r-project.org>
+Contact: R-help mailing list <r-help@r-project.org>
+Description: Base R datasets.
+License: Part of R 4.2.1
+Built: R 4.2.1; ; 2022-06-26 20:26:42 UTC; unix

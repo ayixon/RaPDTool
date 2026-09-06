@@ -1,0 +1,93 @@
+# bash completion for add-apt-repository                             -*- shell-script -*-
+
+_add-apt-repository_components()
+{
+    if test -r /etc/lsb-release && grep -q Ubuntu /etc/lsb-release; then
+        COMPREPLY=( $(compgen -W 'main restricted universe multiverse main/debug' -- "$cur") )
+    elif test -r /etc/debian_version; then
+        COMPREPLY=( $(compgen -W 'main contrib free non-free' -- "$cur") )
+    fi
+}
+
+_add-apt-repository_ppa()
+{
+    : # nothing to do currently
+}
+
+_add-apt-repository_uca()
+{
+    : # add param to list valid UCAs for current release
+}
+
+_add-apt-repository_uri()
+{
+    COMPREPLY=( $(compgen -W 'http:// https:// mirror:// ftp:// file:/ copy:/ rsh:// ssh://' -- "$cur") )
+}
+
+_add-apt-repository_sourceslist()
+{
+    : # maybe add help to autofill full sources.list line
+}
+
+_add-apt-repository_help()
+{
+    "$1" --help | grep '^\s*-' | tr ',' '\n' | _parse_help -
+}
+
+_add-apt-repository()
+{
+    local cur prev words cword
+    _init_completion || return
+
+    if [[ $cur == -* ]]; then
+        COMPREPLY=( $(compgen -W "$(_add-apt-repository_help $1)" -- "$cur") )
+        return
+    fi
+
+    case $prev in
+        -p|--pocket)
+            COMPREPLY=( $(compgen -W 'release security updates proposed backports' -- "$cur") )
+            return
+            ;;
+        -c|--component)
+            _add-apt-repository_components
+            return
+            ;;
+        -P|--ppa)
+            _add-apt-repository_ppa
+            return
+            ;;
+        -C|--cloud)
+            _add-apt-repository_uca
+            return
+            ;;
+        -U|--uri)
+            _add-apt-repository_uri
+            return
+            ;;
+        -S|--sourceslist)
+            _add-apt-repository_sourceslist
+            return
+            ;;
+    esac
+
+    # check if last param was -S/--sourceslist,
+    # as it can accept multiple words
+    local i=$cword
+    while [[ $i -ge 0 ]]; do
+        case $words[$i] in
+            -S|--sourceslist)
+                _add-apt-repository_sourceslist
+                return
+                ;;
+        esac
+        i=$(( $i - 1 ))
+    done
+}
+
+complete -F _add-apt-repository add-apt-repository
+
+# also complete the alias
+complete -F _add-apt-repository apt-add-repository
+
+# ex: filetype=sh

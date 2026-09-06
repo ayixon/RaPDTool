@@ -1,0 +1,38 @@
+{% set name = "ncbi-datasets-cli" %}
+{% set version = "16.22.0" %}
+
+package:
+  name: {{ name|lower }}
+  version: {{ version }}
+
+source:
+  url: https://github.com/ncbi/datasets/archive/refs/tags/v{{ version }}.tar.gz
+  sha256: 6ce886d634199eb4a76c0d81bd34cd530462f5b6e58bdfb566519787b7b4dece
+
+build:
+  number: 0
+  script: python {{ RECIPE_DIR }}/build.py {{ version }}
+
+requirements:
+  run:
+    - ca-certificates
+
+test:
+  commands:
+    - datasets version
+    - dataformat version
+
+about:
+  home: https://www.ncbi.nlm.nih.gov/datasets
+  license: Public Domain
+  license_file: LICENSE.md
+  summary: NCBI Datasets command-line clients
+  doc_url: https://www.ncbi.nlm.nih.gov/datasets/docs/
+  description: |
+    NCBI Datasets is a resource that lets you easily gather data from across NCBI databases.
+
+extra:
+  recipe-maintainers:
+    - corneliusroemer
+    - BradHolmes
+    - wra3

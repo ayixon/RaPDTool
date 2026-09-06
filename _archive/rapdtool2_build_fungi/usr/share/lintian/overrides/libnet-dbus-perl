@@ -1,0 +1,3 @@
+# The following term can not be wrapped (inside a =over):
+# C<unix:abstract=/tmp/dbus-PBFyyuUiVb,guid=191e0a43c3efc222e0818be556d67500>,
+libnet-dbus-perl: manpage-has-errors-from-man usr/share/man/man3/Net::DBus.3pm.gz 211: warning [p 2, 8.7i]: can't break line

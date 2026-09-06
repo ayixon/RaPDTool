@@ -1,0 +1,10 @@
+#!/bin/sh
+
+# Copy a11y bus address from the DBus session bus to the X11 root property.
+# This is useful when Xwayland is started on demand and if the user has an
+# application with X11 access that does not have access to the session bus.
+
+ADDR="$( busctl call --user org.a11y.Bus /org/a11y/bus org.a11y.Bus GetAddress )" || exit 0
+ADDR="$( echo $ADDR | sed 's/s "\(.*\)"/\1/' )" || exit 0
+
+exec xprop -root -format AT_SPI_BUS 8s -set AT_SPI_BUS "$ADDR"

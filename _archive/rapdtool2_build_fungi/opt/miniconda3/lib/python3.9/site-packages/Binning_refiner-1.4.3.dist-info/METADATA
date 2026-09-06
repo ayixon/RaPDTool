@@ -1,0 +1,23 @@
+Metadata-Version: 2.1
+Name: Binning-refiner
+Version: 1.4.3
+Summary: Binning_refiner
+Home-page: https://github.com/songweizhi/Binning_refiner
+Author: Weizhi Song, Torsten Thomas
+Author-email: songwz03@gmail.com
+License: GPL3+
+Keywords: Bioinformatics Metagenomics Binning Refinement
+Platform: UNKNOWN
+Requires-Dist: biopython
+
+
+
+Binning_refiner: Improving genome bins through the combination of different binning programs
+
+Weizhi Song (songwz03@gmail.com)
+
+The Centre for Marine Bio-Innovation (CMB), 
+University of New South Wales, Sydney, Australia
+
+
+

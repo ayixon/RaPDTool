@@ -1,0 +1,17 @@
+/.
+/usr
+/usr/lib
+/usr/lib/x86_64-linux-gnu
+/usr/lib/x86_64-linux-gnu/libstemmer.so.0d.0.0
+/usr/share
+/usr/share/doc
+/usr/share/doc/libstemmer0d
+/usr/share/doc/libstemmer0d/AUTHORS
+/usr/share/doc/libstemmer0d/README.Debian
+/usr/share/doc/libstemmer0d/TODO
+/usr/share/doc/libstemmer0d/changelog.Debian.gz
+/usr/share/doc/libstemmer0d/copyright
+/usr/share/doc/libstemmer0d/examples
+/usr/share/doc/libstemmer0d/examples/stemwords.c
+/usr/share/doc/libstemmer0d/libstemmer_c_README.gz
+/usr/lib/x86_64-linux-gnu/libstemmer.so.0d

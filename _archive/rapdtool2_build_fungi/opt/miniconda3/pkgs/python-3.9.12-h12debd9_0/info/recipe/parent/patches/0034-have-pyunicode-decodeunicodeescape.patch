@@ -1,0 +1,68 @@
+diff -urN a/Include/cpython/unicodeobject.h b/Include/cpython/unicodeobject.h
+--- a/Include/cpython/unicodeobject.h	2022-03-16 16:03:13.000000000 +0300
++++ b/Include/cpython/unicodeobject.h	2022-03-29 17:11:43.669283292 +0300
+@@ -876,6 +876,23 @@
+                                               string. */
+ );
+ 
++/*
++ * START Anaconda (tkoch):
++ *
++ * For compatibility with packages like typed_ast and mypy compiled against
++ * Python 3.9.7.
++ */
++PyAPI_FUNC(PyObject*) _PyUnicode_DecodeUnicodeEscape(
++        const char *string,     /* Unicode-Escape encoded string */
++        Py_ssize_t length,      /* size of string */
++        const char *errors,     /* error handling */
++        const char **first_invalid_escape  /* on return, points to first
++                                              invalid escaped char in
++                                              string. */
++);
++
++/* Anaconda END */
++
+ Py_DEPRECATED(3.3) PyAPI_FUNC(PyObject*) PyUnicode_EncodeUnicodeEscape(
+     const Py_UNICODE *data,     /* Unicode char buffer */
+     Py_ssize_t length           /* Number of Py_UNICODE chars to encode */
+diff -urN a/Objects/unicodeobject.c b/Objects/unicodeobject.c
+--- a/Objects/unicodeobject.c	2022-03-16 16:03:13.000000000 +0300
++++ b/Objects/unicodeobject.c	2022-03-29 16:53:44.755537475 +0300
+@@ -6539,6 +6539,37 @@
+     return _PyUnicode_DecodeUnicodeEscapeStateful(s, size, errors, NULL);
+ }
+ 
++/*
++ * START Anaconda (tkoch):
++ *
++ * For compatibility with packages like typed_ast and mypy compiled against
++ * Python 3.9.7.
++ */
++PyObject *
++_PyUnicode_DecodeUnicodeEscape(const char *s,
++                               Py_ssize_t size,
++                               const char *errors,
++                               const char **first_invalid_escape)
++{
++    Py_ssize_t consumed;
++    PyObject *result = _PyUnicode_DecodeUnicodeEscapeInternal(s, size, errors,
++                                                      &consumed,
++                                                      first_invalid_escape);
++    if (result == NULL)
++        return NULL;
++    if (*first_invalid_escape != NULL) {
++        if (PyErr_WarnFormat(PyExc_DeprecationWarning, 1,
++                             "invalid escape sequence '\\%c'",
++                             (unsigned char)**first_invalid_escape) < 0) {
++            Py_DECREF(result);
++            return NULL;
++        }
++    }
++    return result;
++}
++
++/* Anaconda END */
++
+ /* Return a Unicode-Escape string version of the Unicode object. */
+ 
+ PyObject *

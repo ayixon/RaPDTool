@@ -1,0 +1,36 @@
+This is the Debian GNU/Linux r-cran-survival package of survival, a
+collection of functions and datasets for survival analysis. Survival
+was written by Terry Therneau, and ported to by Thomas Lumley.
+
+This package was created by Dirk Eddelbuettel <edd@debian.org>.
+The sources were downloaded from 
+	http://cran.us.r-project.org/src/contrib/
+and are also included in the (large) source tar archive of R itself at
+	http://cran.us.r-project.org/src/base/
+
+The package was renamed from its upstream name 'survival' to 'r-cran-survival'
+to fit the pattern of CRAN (and non-CRAN) packages for R.
+
+Copyright (C) 1998-2008 Terry Therneau and Thomas Lumley
+
+License: GPL-2
+
+On a Debian GNU/Linux system, the GPL-2 license is included in the file
+/usr/share/common-licenses/GPL-2.
+
+For reference, the upstream DESCRIPTION [with lines broken to 80 cols]
+file is included below:
+
+    Title: Survival analysis, including penalised likelihood.
+    Maintainer: Thomas Lumley <tlumley@u.washington.edu>
+    Priority: recommended
+    Package: survival
+    Version: 2.11
+    Depends: R (>= 1.7.0)
+    Author: S original by Terry Therneau, ported by Thomas Lumley
+    Description: survival analysis: descriptive statistics, two-sample
+      tests, parametric accelerated failure models, Cox model. Delayed entry
+      (truncation) allowed for all models; interval censoring for parametric
+      models.
+    License: GPL2
+    Packaged: Sat Dec 27 11:41:51 2003; thomas

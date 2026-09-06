@@ -1,0 +1,16 @@
+/.
+/usr
+/usr/share
+/usr/share/doc
+/usr/share/doc/libwww-robotrules-perl
+/usr/share/doc/libwww-robotrules-perl/changelog.Debian.gz
+/usr/share/doc/libwww-robotrules-perl/copyright
+/usr/share/man
+/usr/share/man/man3
+/usr/share/man/man3/WWW::RobotRules.3pm.gz
+/usr/share/man/man3/WWW::RobotRules::AnyDBM_File.3pm.gz
+/usr/share/perl5
+/usr/share/perl5/WWW
+/usr/share/perl5/WWW/RobotRules
+/usr/share/perl5/WWW/RobotRules/AnyDBM_File.pm
+/usr/share/perl5/WWW/RobotRules.pm

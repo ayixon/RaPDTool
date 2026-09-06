@@ -1,0 +1,54 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: IO::HTML
+Upstream-Contact: Christopher J. Madsen <perl@cjmweb.net>
+Source: https://metacpan.org/release/IO-HTML
+ https://github.com/madsen/io-html.git
+
+Files: *
+Copyright: 2020, Christopher J. Madsen <perl@cjmweb.net>
+License: Artistic or GPL-1+
+Comment:
+ License:
+ .
+ This is free software; you can redistribute it and/or modify it under
+ the same terms as the Perl 5 programming language system itself.
+ .
+ Comment:
+ .
+ Perl 5 is licensed under either the 'Artistic license' or the 'GNU
+ General Public License' version 1 or later.
+
+Files: debian/*
+Copyright: 2012-2014,2020, Jonas Smedegaard <dr@jones.dk>
+License: GPL-3+
+
+License: Artistic
+ Comment:
+ .
+ On Debian systems the 'Artistic License' is located in
+ '/usr/share/common-licenses/Artistic'.
+
+License: GPL-1+
+ Comment:
+ .
+ On Debian systems the 'GNU General Public License' version 1 is located
+ in '/usr/share/common-licenses/GPL-1'.
+
+License: GPL-3+
+ This program is free software; you can redistribute it and/or modify it
+ under the terms of the GNU General Public License as published by the
+ Free Software Foundation; either version 2, or (at your option) any
+ later version.
+ .
+ This program is distributed in the hope that it will be useful, but
+ WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ General Public License for more details.
+ .
+ Comment:
+ .
+ On Debian systems the 'GNU General Public License' version 3 is located
+ in '/usr/share/common-licenses/GPL-3'.
+ .
+ You should have received a copy of the 'GNU General Public License'
+ along with this program.  If not, see <http://www.gnu.org/licenses/>.

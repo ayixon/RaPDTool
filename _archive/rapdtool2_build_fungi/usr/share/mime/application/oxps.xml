@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mime-type xmlns="http://www.freedesktop.org/standards/shared-mime-info" type="application/oxps">
+  <!--Created automatically by update-mime-database. DO NOT EDIT!-->
+  <comment>OpenXPS document</comment>
+  <acronym>OpenXPS</acronym>
+  <expanded-acronym>Open XML Paper Specification</expanded-acronym>
+  <sub-class-of type="application/zip"/>
+  <generic-icon name="x-office-document"/>
+  <glob pattern="*.oxps"/>
+</mime-type>

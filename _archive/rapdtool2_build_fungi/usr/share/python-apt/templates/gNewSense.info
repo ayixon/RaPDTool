@@ -1,0 +1,55 @@
+ChangelogURI: http://packages.debian.org/changelogs/pool/%s/%s/%s/%s_%s/changelog
+
+# gNS 3, to be based on Squeeze.
+Suite: parkes
+RepositoryType: deb
+BaseURI: http://archive.gnewsense.org/gnewsense/
+MatchURI: archive.gnewsense.org/gnewsense
+MirrorsFile: gNewSense.mirrors
+Description: gNewSense 3 - "parkes"
+Component: main
+CompDescription: Main supported software
+CompDescriptionLong: Core software
+
+Suite: parkes/updates
+RepositoryType: deb
+BaseURI: http://security.gnewsense.org/gnewsense
+MatchURI: security.gnewsense.org/security
+ParentSuite: parkes
+Description: Security updates
+
+# gNS 2.x, based on hardy
+Suite: deltah
+RepositoryType: deb
+BaseURI: http://archive.gnewsense.org/gnewsense/
+MatchURI: archive.gnewsense.org/gnewsense
+MirrorsFile: gNewSense.mirrors
+Description: gNewSense "deltah"
+Component: main
+CompDescription: Main supported software
+CompDescriptionLong: Core software
+Component: universe
+CompDescription: Other useful software
+CompDescriptionLong: Non-core useful software
+
+Suite: deltah-security
+ParentSuite: deltah
+RepositoryType: deb
+BaseURI: http://security.gnewsense.org/gnewsense/
+MatchURI: archive.gnewsense.org/gnewsense|security.gnewsense.org
+Description: Important security updates
+
+Suite: deltah-updates
+ParentSuite: deltah
+RepositoryType: deb
+BaseURI: http://archive.gnewsense.org/gnewsense/
+MatchURI: archive.gnewsense.org/gnewsense
+Description: Unsupported updates
+
+Suite: deltah-backports
+ParentSuite: deltah
+RepositoryType: deb
+BaseURI: http://archive.gnewsense.org/gnewsense/
+MatchURI: archive.gnewsense.org/gnewsense
+Description: Package Backports
+

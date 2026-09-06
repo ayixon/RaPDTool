@@ -1,0 +1,25 @@
+{
+  "build": "pyhd3eb1b0_0",
+  "build_number": 0,
+  "channel": "https://repo.anaconda.com/pkgs/main/noarch",
+  "constrains": [],
+  "depends": [
+    "python >=3.5"
+  ],
+  "features": "",
+  "fn": "charset-normalizer-2.0.4-pyhd3eb1b0_0.conda",
+  "legacy_bz2_md5": "544adf2677c47c9b9c891aea720678f1",
+  "legacy_bz2_size": 33999,
+  "license": "MIT",
+  "md5": "e7a441d94234b2b5fafee06e25dbf076",
+  "name": "charset-normalizer",
+  "noarch": "python",
+  "package_type": "noarch_python",
+  "sha256": "b39aea12bf02654cdd0094c79bfa6edbc8d054787f6e2d0b96d403cd4ba4cc0d",
+  "size": 35372,
+  "subdir": "noarch",
+  "timestamp": 1630003259346,
+  "track_features": "",
+  "url": "https://repo.anaconda.com/pkgs/main/noarch/charset-normalizer-2.0.4-pyhd3eb1b0_0.conda",
+  "version": "2.0.4"
+}

@@ -1,0 +1,28 @@
+
+* Starting execution 2026-07-28 02:34:19 (mode: screen)
+Using root path /free/programs/RaPDTool/examples/rapdtool_scaff_non_virus_screen/
+All paths were verified
+Using database: /home/karel/.cache/rapdtool/mash_db.msh
+Using FOCUS database dir: /home/karel/.cache/rapdtool/focus
+Input file: /free/programs/RaPDTool/examples/rapdtool_scaff_non_virus_screen/inputfmbm/scaff_non_virus.fasta, size: 46996046, tstamp: 2026-07-28 02:34:19
+Filenames and paths were initialized
+FOCUS command
+$ focus -q /free/programs/RaPDTool/examples/rapdtool_scaff_non_virus_screen/inputfmbm/ -o /free/programs/RaPDTool/examples/rapdtool_scaff_non_virus_screen/profilesfmbm/scaff_non_virus/ -l /free/programs/RaPDTool/examples/rapdtool_scaff_non_virus_screen/workfmbm/logfocus/scaff_non_virus.fasta.txt -t 32 -b /home/karel/.cache/rapdtool/focus
+focus - profile created (/free/programs/RaPDTool/examples/rapdtool_scaff_non_virus_screen/profilesfmbm/scaff_non_virus/output_All_levels.csv)
+MASH screen (reference-genome containment)
+$ mash screen -w -p 32 /home/karel/.cache/rapdtool/mash_db.msh /free/programs/RaPDTool/examples/rapdtool_scaff_non_virus_screen/inputfmbm/scaff_non_virus.fasta > /free/programs/RaPDTool/examples/rapdtool_scaff_non_virus_screen/workfmbm/outmash/scaff_non_virus/scaff_non_virus.screen.tab
+[mash-screen] stderr: Loading /home/karel/.cache/rapdtool/mash_db.msh...
+   15778766 distinct hashes.
+Streaming from /free/programs/RaPDTool/examples/rapdtool_scaff_non_virus_screen/inputfmbm/scaff_non_virus.fasta...
+   Estimated distinct k-mers in mixture: 39186022
+Summing shared...
+Reallocating to winners...
+Computing coverage medians...
+Writing output...
+mash screen - 6 reference genome(s) >= 0.95 identity
+Copying and merging results..
+$ rapdtool_results.pl
+Generating Krona visualization..
+$ ktImportText forkrona.txt -o rapdtool_krona.html
+Removing tmp directories..
+Done - results are in /free/programs/RaPDTool/examples/rapdtool_scaff_non_virus_screen/

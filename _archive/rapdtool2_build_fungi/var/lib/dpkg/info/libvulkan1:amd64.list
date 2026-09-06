@@ -1,0 +1,16 @@
+/.
+/etc
+/etc/vulkan
+/etc/vulkan/explicit_layer.d
+/etc/vulkan/icd.d
+/etc/vulkan/implicit_layer.d
+/usr
+/usr/lib
+/usr/lib/x86_64-linux-gnu
+/usr/lib/x86_64-linux-gnu/libvulkan.so.1.3.204
+/usr/share
+/usr/share/doc
+/usr/share/doc/libvulkan1
+/usr/share/doc/libvulkan1/changelog.Debian.gz
+/usr/share/doc/libvulkan1/copyright
+/usr/lib/x86_64-linux-gnu/libvulkan.so.1

@@ -1,0 +1,14 @@
+/.
+/usr
+/usr/lib
+/usr/lib/x86_64-linux-gnu
+/usr/lib/x86_64-linux-gnu/libGL.so.1.7.0
+/usr/share
+/usr/share/bug
+/usr/share/bug/libgl1
+/usr/share/bug/libgl1/control
+/usr/share/doc
+/usr/share/doc/libgl1
+/usr/share/doc/libgl1/copyright
+/usr/lib/x86_64-linux-gnu/libGL.so.1
+/usr/share/doc/libgl1/changelog.Debian.gz

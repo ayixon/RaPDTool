@@ -1,0 +1,11 @@
+prefix=/opt/conda/conda-bld/capnproto_1643906043325/_h_env_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_pla
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include
+
+Name: Cap'n Proto JSON
+Description: JSON encoder and decoder for Cap'n Proto objects
+Version: 0.9.1
+Libs: -L${libdir} -lcapnp-json
+Requires: capnp = 0.9.1 kj = 0.9.1
+Cflags: -I${includedir}

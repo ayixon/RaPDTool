@@ -1,0 +1,22 @@
+{
+  "arch": "x86_64",
+  "build": "hce63b2e_0",
+  "build_number": 0,
+  "depends": [
+    "c-ares >=1.17.1,<2.0a0",
+    "c-ares >=1.7.5",
+    "libev >=4.11",
+    "libev >=4.33,<4.34.0a0",
+    "libgcc-ng >=7.5.0",
+    "libstdcxx-ng >=7.5.0",
+    "openssl >=1.1.1l,<1.1.2a",
+    "zlib >=1.2.11,<1.3.0a0"
+  ],
+  "license": "MIT",
+  "license_family": "MIT",
+  "name": "libnghttp2",
+  "platform": "linux",
+  "subdir": "linux-64",
+  "timestamp": 1637149827126,
+  "version": "1.46.0"
+}

@@ -1,0 +1,16 @@
+/.
+/usr
+/usr/share
+/usr/share/doc
+/usr/share/doc/libfile-desktopentry-perl
+/usr/share/doc/libfile-desktopentry-perl/changelog.Debian.gz
+/usr/share/doc/libfile-desktopentry-perl/copyright
+/usr/share/lintian
+/usr/share/lintian/overrides
+/usr/share/lintian/overrides/libfile-desktopentry-perl
+/usr/share/man
+/usr/share/man/man3
+/usr/share/man/man3/File::DesktopEntry.3pm.gz
+/usr/share/perl5
+/usr/share/perl5/File
+/usr/share/perl5/File/DesktopEntry.pm

@@ -1,0 +1,203 @@
+{
+  "paths": [
+    {
+      "_path": "site-packages/setuptools_scm-7.0.5.dist-info/INSTALLER",
+      "path_type": "hardlink",
+      "sha256": "d0edee15f91b406f3f99726e44eb990be6e34fd0345b52b910c568e0eef6a2a8",
+      "size_in_bytes": 5
+    },
+    {
+      "_path": "site-packages/setuptools_scm-7.0.5.dist-info/LICENSE",
+      "path_type": "hardlink",
+      "sha256": "89807acf2309bd285f033404ee78581602f3cd9b819a16ac2f0e5f60ff4a473e",
+      "size_in_bytes": 1023
+    },
+    {
+      "_path": "site-packages/setuptools_scm-7.0.5.dist-info/METADATA",
+      "path_type": "hardlink",
+      "sha256": "15c5e8d80a48803c18e72cd274532d608b8026dcbc192afc490fe1c289ec6ff1",
+      "size_in_bytes": 24354
+    },
+    {
+      "_path": "site-packages/setuptools_scm-7.0.5.dist-info/RECORD",
+      "path_type": "hardlink",
+      "sha256": "70239d1cf67335665f17dd350d36b4a4f9b4f22f2549b6ccf80b7c6631e2a914",
+      "size_in_bytes": 4217
+    },
+    {
+      "_path": "site-packages/setuptools_scm-7.0.5.dist-info/REQUESTED",
+      "path_type": "hardlink",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size_in_bytes": 0
+    },
+    {
+      "_path": "site-packages/setuptools_scm-7.0.5.dist-info/WHEEL",
+      "path_type": "hardlink",
+      "sha256": "1b5e87e00dc87a84269cead8578b9e6462928e18a95f1f3373c9eef451a5bcc0",
+      "size_in_bytes": 92
+    },
+    {
+      "_path": "site-packages/setuptools_scm-7.0.5.dist-info/direct_url.json",
+      "path_type": "hardlink",
+      "sha256": "46837dac44a6602bb64e0d121a513daf7a564ce85fd15a24c516d3277ff90f22",
+      "size_in_bytes": 110
+    },
+    {
+      "_path": "site-packages/setuptools_scm-7.0.5.dist-info/entry_points.txt",
+      "path_type": "hardlink",
+      "sha256": "bc86dde14d51c5e8c05ea0f96afc0af72de7f6b2dcc32dcc16c40055dd3c3667",
+      "size_in_bytes": 1548
+    },
+    {
+      "_path": "site-packages/setuptools_scm-7.0.5.dist-info/top_level.txt",
+      "path_type": "hardlink",
+      "sha256": "922bbef75ab7feb24b528736c25f3f942e1c225a60b60743ff835a0a117884e0",
+      "size_in_bytes": 15
+    },
+    {
+      "_path": "site-packages/setuptools_scm-7.0.5.dist-info/zip-safe",
+      "path_type": "hardlink",
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+      "size_in_bytes": 1
+    },
+    {
+      "_path": "site-packages/setuptools_scm/__init__.py",
+      "path_type": "hardlink",
+      "sha256": "28e6f2cffae5d13cffe80a5d577550da389077d885b50139033dcdf273fb4c96",
+      "size_in_bytes": 5907
+    },
+    {
+      "_path": "site-packages/setuptools_scm/__main__.py",
+      "path_type": "hardlink",
+      "sha256": "3d492f23d5be87296fc6fe6c775b28b2a59712588dddddf4c7b04829510041a4",
+      "size_in_bytes": 98
+    },
+    {
+      "_path": "site-packages/setuptools_scm/_cli.py",
+      "path_type": "hardlink",
+      "sha256": "6b123a17f405eba560d0f7e9ffb9ef92d1f681d793886ff11b80fb5d75d4937f",
+      "size_in_bytes": 2845
+    },
+    {
+      "_path": "site-packages/setuptools_scm/_entrypoints.py",
+      "path_type": "hardlink",
+      "sha256": "94b7f8d2e0f49d68b89e32b71ecdc961665b870f70cc6209ce53e96dcdf04e21",
+      "size_in_bytes": 2696
+    },
+    {
+      "_path": "site-packages/setuptools_scm/_integration/__init__.py",
+      "path_type": "hardlink",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size_in_bytes": 0
+    },
+    {
+      "_path": "site-packages/setuptools_scm/_integration/pyproject_reading.py",
+      "path_type": "hardlink",
+      "sha256": "218c610a683801998c676ed6506bab392782ce1f26cfe0b81be438fa42f7cf1f",
+      "size_in_bytes": 2745
+    },
+    {
+      "_path": "site-packages/setuptools_scm/_integration/setuptools.py",
+      "path_type": "hardlink",
+      "sha256": "cfd7bbf4c6e91adcaada5ca8d7a5f0fe2e0af265d8220b309f5847a1024f5c9a",
+      "size_in_bytes": 512
+    },
+    {
+      "_path": "site-packages/setuptools_scm/_overrides.py",
+      "path_type": "hardlink",
+      "sha256": "cbbe643a3c0119d3aaa23cf4c1ee4d01fffe88c30907e4edea93e4b70535a5df",
+      "size_in_bytes": 1067
+    },
+    {
+      "_path": "site-packages/setuptools_scm/_types.py",
+      "path_type": "hardlink",
+      "sha256": "b21a3a4605aed9e535b9446d272991ffd3d98bfc2f19a0fde58e1237fd659cea",
+      "size_in_bytes": 845
+    },
+    {
+      "_path": "site-packages/setuptools_scm/_version_cls.py",
+      "path_type": "hardlink",
+      "sha256": "6e636298a18dfeb3d33bf1e82dbaf628e661f99a6a6b4603fc2afd2b20fbf905",
+      "size_in_bytes": 1575
+    },
+    {
+      "_path": "site-packages/setuptools_scm/config.py",
+      "path_type": "hardlink",
+      "sha256": "791c41aed0db7e1862040edb113e556437f4a8f0c6560ac000451116d583084a",
+      "size_in_bytes": 7237
+    },
+    {
+      "_path": "site-packages/setuptools_scm/discover.py",
+      "path_type": "hardlink",
+      "sha256": "5a5d26d280f9e2073fd0e6e710f292b8db15f39285f5994d2aef8b32cac84fc3",
+      "size_in_bytes": 1867
+    },
+    {
+      "_path": "site-packages/setuptools_scm/file_finder.py",
+      "path_type": "hardlink",
+      "sha256": "92daa0ce98be474c14c1fd9aac7bbdd736d04238f9189b3b609931fc126d2598",
+      "size_in_bytes": 2830
+    },
+    {
+      "_path": "site-packages/setuptools_scm/file_finder_git.py",
+      "path_type": "hardlink",
+      "sha256": "3cc4326fde10c70863d2058b7eac24c3602d99a7e69d1683e389981076fd9beb",
+      "size_in_bytes": 3619
+    },
+    {
+      "_path": "site-packages/setuptools_scm/file_finder_hg.py",
+      "path_type": "hardlink",
+      "sha256": "c338c444a7d3d27d5c8fb7833ff5817c9f49aa04c287e5a8e477510718eabec0",
+      "size_in_bytes": 1573
+    },
+    {
+      "_path": "site-packages/setuptools_scm/git.py",
+      "path_type": "hardlink",
+      "sha256": "8649cc3d63c9b1835bcb2e552ad6cf28fce3e6002c563ad2ed1bd319e3752865",
+      "size_in_bytes": 9277
+    },
+    {
+      "_path": "site-packages/setuptools_scm/hacks.py",
+      "path_type": "hardlink",
+      "sha256": "c0ce6cd9806e4e3d5499112dd3205af4fc678bae9df75aae801322778913a433",
+      "size_in_bytes": 1776
+    },
+    {
+      "_path": "site-packages/setuptools_scm/hg.py",
+      "path_type": "hardlink",
+      "sha256": "d8be820287c79be70d14595be55f551612a67d5bd1c00667a1ff9ff862dac969",
+      "size_in_bytes": 6128
+    },
+    {
+      "_path": "site-packages/setuptools_scm/hg_git.py",
+      "path_type": "hardlink",
+      "sha256": "b3f99b83abfe8e003d29f928663a948836b200f790ce4f13568413f6367b0fa4",
+      "size_in_bytes": 4166
+    },
+    {
+      "_path": "site-packages/setuptools_scm/integration.py",
+      "path_type": "hardlink",
+      "sha256": "91116a1dea1e52edf8f25322b50e2eb557a5f5fab2db38e2d52778c18cbf140b",
+      "size_in_bytes": 3503
+    },
+    {
+      "_path": "site-packages/setuptools_scm/scm_workdir.py",
+      "path_type": "hardlink",
+      "sha256": "3636b2e4e6fb77596f015dcc8c9378bdfcfb550693d241143e3efe9e57f84116",
+      "size_in_bytes": 585
+    },
+    {
+      "_path": "site-packages/setuptools_scm/utils.py",
+      "path_type": "hardlink",
+      "sha256": "d9fbc1486d4865385ed76709b0914eb034c8246c68cb7fbcbd826debb1b3888c",
+      "size_in_bytes": 5117
+    },
+    {
+      "_path": "site-packages/setuptools_scm/version.py",
+      "path_type": "hardlink",
+      "sha256": "c6ebdacc07376293a48e75b210d85e70df21b3acbeb0d56823edf928046c5a88",
+      "size_in_bytes": 17034
+    }
+  ],
+  "paths_version": 1
+}

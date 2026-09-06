@@ -1,0 +1,8 @@
+{
+  "c_compiler": "gcc",
+  "target_platform": "linux-64",
+  "c_compiler_version": "9",
+  "libcblas": "3.8 *netlib",
+  "libblas": "3.8 *netlib",
+  "channel_targets": "conda-forge main"
+}

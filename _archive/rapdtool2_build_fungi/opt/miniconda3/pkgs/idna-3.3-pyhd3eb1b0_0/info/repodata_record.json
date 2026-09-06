@@ -1,0 +1,26 @@
+{
+  "build": "pyhd3eb1b0_0",
+  "build_number": 0,
+  "channel": "https://repo.anaconda.com/pkgs/main/noarch",
+  "constrains": [],
+  "depends": [
+    "python >=3.5"
+  ],
+  "features": "",
+  "fn": "idna-3.3-pyhd3eb1b0_0.conda",
+  "legacy_bz2_md5": "f2d821eedf78bfe0e9f1d8faf9c8b23e",
+  "legacy_bz2_size": 55889,
+  "license": "BSD-3-Clause",
+  "license_family": "BSD",
+  "md5": "8f43a528cf83b43af38a4d142fa38b8a",
+  "name": "idna",
+  "noarch": "python",
+  "package_type": "noarch_python",
+  "sha256": "2214ad8a3c5f0afc3c13ced28dd1961b98ff780b4e8562357a85c243e7fe678e",
+  "size": 50318,
+  "subdir": "noarch",
+  "timestamp": 1637925913145,
+  "track_features": "",
+  "url": "https://repo.anaconda.com/pkgs/main/noarch/idna-3.3-pyhd3eb1b0_0.conda",
+  "version": "3.3"
+}

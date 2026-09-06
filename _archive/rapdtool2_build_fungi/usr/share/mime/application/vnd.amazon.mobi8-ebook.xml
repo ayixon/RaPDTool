@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mime-type xmlns="http://www.freedesktop.org/standards/shared-mime-info" type="application/vnd.amazon.mobi8-ebook">
+  <!--Created automatically by update-mime-database. DO NOT EDIT!-->
+  <comment>Kindle book document</comment>
+  <comment xml:lang="zh_TW">Kindle 書文件</comment>
+  <comment xml:lang="zh_CN">Kindle 电子书文档</comment>
+  <comment xml:lang="uk">документ книги Kindle</comment>
+  <comment xml:lang="tr">Kindle kitap belgesi</comment>
+  <comment xml:lang="sv">Kindle-bokdokument</comment>
+  <comment xml:lang="ru">Электронная книга Kindle</comment>
+  <comment xml:lang="pt_BR">Documento livro do Kindle</comment>
+  <comment xml:lang="pt">documento de livro eletrónico do Kindle</comment>
+  <comment xml:lang="pl">Dokument książki Kindle</comment>
+  <comment xml:lang="lt">Kindle knygos dokumentas</comment>
+  <comment xml:lang="ko">Kindle 책 문서</comment>
+  <comment xml:lang="kk">Kindle кітап құжаты</comment>
+  <comment xml:lang="it">Documento libro Kindle</comment>
+  <comment xml:lang="id">Dokumen buku Kindle</comment>
+  <comment xml:lang="hu">Kindle könyvdokumentum</comment>
+  <comment xml:lang="hr">Dokument Kindle knjige</comment>
+  <comment xml:lang="fr">document livre Kindle</comment>
+  <comment xml:lang="fi">Kindle book -asiakirja</comment>
+  <comment xml:lang="es">documento de libro de Kindle</comment>
+  <comment xml:lang="en_GB">Kindle book document</comment>
+  <comment xml:lang="de">Kindle-Buch-Dokument</comment>
+  <comment xml:lang="da">Kindle-bogdokument</comment>
+  <comment xml:lang="ca">document de llibre Kindle</comment>
+  <sub-class-of type="application/x-mobipocket-ebook"/>
+  <glob pattern="*.azw3"/>
+  <glob pattern="*.kfx"/>
+  <alias type="application/x-mobi8-ebook"/>
+</mime-type>

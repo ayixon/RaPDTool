@@ -1,0 +1,64 @@
+# This file created by conda-build 3.21.6
+# meta.yaml template originally from:
+# /home/conda/recipe_root, last modified Thu Nov 18 12:47:03 2021
+# ------------------------------------------------
+
+package:
+  name: packaging
+  version: '21.3'
+source:
+  sha256: dd47c42927d89ab911e606518907cc2d3a1f38bbd026385970643f9c5b8ecfeb
+  url: https://pypi.io/packages/source/p/packaging/packaging-21.3.tar.gz
+build:
+  noarch: python
+  number: '0'
+  script: /home/conda/feedstock_root/build_artifacts/packaging_1637239678211/_h_env_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_p/bin/python
+    -m pip install . --no-deps -vv
+  string: pyhd8ed1ab_0
+requirements:
+  host:
+    - _libgcc_mutex 0.1 conda_forge
+    - _openmp_mutex 4.5 1_gnu
+    - bzip2 1.0.8 h7f98852_4
+    - ca-certificates 2021.10.8 ha878542_0
+    - ld_impl_linux-64 2.36.1 hea4e1c9_2
+    - libffi 3.4.2 h7f98852_5
+    - libgcc-ng 11.2.0 h1d223b6_11
+    - libgomp 11.2.0 h1d223b6_11
+    - libnsl 2.0.0 h7f98852_0
+    - libuuid 2.32.1 h7f98852_1000
+    - libzlib 1.2.11 h36c2ea0_1013
+    - ncurses 6.2 h58526e2_4
+    - openssl 3.0.0 h7f98852_2
+    - pip 21.3.1 pyhd8ed1ab_0
+    - python 3.10.0 h543edf9_2_cpython
+    - python_abi 3.10 2_cp310
+    - readline 8.1 h46c0cb4_0
+    - setuptools 59.1.1 py310hff52083_0
+    - sqlite 3.36.0 h9cd32fc_2
+    - tk 8.6.11 h27826a3_1
+    - tzdata 2021e he74cb21_0
+    - wheel 0.37.0 pyhd8ed1ab_1
+    - xz 5.2.5 h516909a_1
+    - zlib 1.2.11 h36c2ea0_1013
+  run:
+    - pyparsing >=2.0.2,!=3.0.5
+    - python >=3.6
+test:
+  commands:
+    - pip check
+  imports:
+    - packaging
+  requires:
+    - pip
+about:
+  home: https://github.com/pypa/packaging
+  license: Apache-2.0
+  license_file: LICENSE
+  summary: Core utilities for Python packages
+extra:
+  copy_test_source_files: true
+  final: true
+  recipe-maintainers:
+    - jakirkham
+    - nicoddemus

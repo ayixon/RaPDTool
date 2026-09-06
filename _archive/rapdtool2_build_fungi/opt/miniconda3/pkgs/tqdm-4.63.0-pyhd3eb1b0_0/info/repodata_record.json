@@ -1,0 +1,27 @@
+{
+  "build": "pyhd3eb1b0_0",
+  "build_number": 0,
+  "channel": "https://repo.anaconda.com/pkgs/main/noarch",
+  "constrains": [],
+  "depends": [
+    "colorama",
+    "python >=2.7"
+  ],
+  "features": "",
+  "fn": "tqdm-4.63.0-pyhd3eb1b0_0.conda",
+  "legacy_bz2_md5": "f9f7f35856c7dae0236810a9315225f6",
+  "legacy_bz2_size": 81937,
+  "license": "MPL-2.0 AND MIT",
+  "license_family": "MOZILLA",
+  "md5": "a1f9b3029ce6142f03bbcbad14e04f0a",
+  "name": "tqdm",
+  "noarch": "python",
+  "package_type": "noarch_python",
+  "sha256": "6c5aeb62e0f401bdad300eaaf5e2f5499fbb32d3d8e1c7690730ac904eee103b",
+  "size": 85919,
+  "subdir": "noarch",
+  "timestamp": 1647339099123,
+  "track_features": "",
+  "url": "https://repo.anaconda.com/pkgs/main/noarch/tqdm-4.63.0-pyhd3eb1b0_0.conda",
+  "version": "4.63.0"
+}

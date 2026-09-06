@@ -1,0 +1,14 @@
+{
+  "arch": "x86_64",
+  "build": "h7f98852_2",
+  "build_number": 2,
+  "depends": [
+    "libgcc-ng >=9.3.0"
+  ],
+  "license": "LicenseRef-BSD-like",
+  "name": "unzip",
+  "platform": "linux",
+  "subdir": "linux-64",
+  "timestamp": 1611830224057,
+  "version": "6.0"
+}

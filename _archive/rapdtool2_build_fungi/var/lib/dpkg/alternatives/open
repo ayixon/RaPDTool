@@ -1,0 +1,9 @@
+auto
+/usr/bin/open
+open.1.gz
+/usr/share/man/man1/open.1.gz
+
+/usr/bin/xdg-open
+50
+/usr/share/man/man1/xdg-open.1.gz
+

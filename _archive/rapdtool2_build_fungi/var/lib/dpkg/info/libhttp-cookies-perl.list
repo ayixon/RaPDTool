@@ -1,0 +1,16 @@
+/.
+/usr
+/usr/share
+/usr/share/doc
+/usr/share/doc/libhttp-cookies-perl
+/usr/share/doc/libhttp-cookies-perl/changelog.Debian.gz
+/usr/share/doc/libhttp-cookies-perl/copyright
+/usr/share/man
+/usr/share/man/man3
+/usr/share/man/man3/HTTP::Cookies.3pm.gz
+/usr/share/man/man3/HTTP::Cookies::Netscape.3pm.gz
+/usr/share/perl5
+/usr/share/perl5/HTTP
+/usr/share/perl5/HTTP/Cookies
+/usr/share/perl5/HTTP/Cookies/Netscape.pm
+/usr/share/perl5/HTTP/Cookies.pm

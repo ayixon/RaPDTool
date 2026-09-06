@@ -1,0 +1,43 @@
+This is the Debian GNU/Linux r-cran-kernsmooth package of KernSmooth, a
+collection of functions for kernel smoothing and density estimation 
+written by M.P. Wand and M.C. Jones.
+
+This package was created by Dirk Eddelbuettel <edd@debian.org>.
+The sources were downloaded from 
+	http://cran.us.r-project.org/src/contrib/
+and are also included in the (large) source tar archive of R itself at
+	http://cran.us.r-project.org/src/base/
+
+The package was renamed from its upstream name 'KernSmooth to
+'r-cran-kernsmooth' to fit the pattern of CRAN (and non-CRAN) packages
+for R.
+
+Copyright (C) 1997 - 1998 M.P. Wand and M.C. Jones
+Portions Copyright (C) 1998 - 2009 Brian D. Ripley
+
+For reference, the upstream DESCRIPTION [with lines broken to 80 cols] file
+is included below:
+
+    Package: KernSmooth
+    Priority: recommended
+    Version: 2.22-12
+    Date: 2003-10-22
+    Title: Functions for kernel smoothing for Wand & Jones (1995)
+    Author: S original by Matt Wand.
+    	R port by  Brian Ripley <ripley@stats.ox.ac.uk>.
+    Maintainer: Brian Ripley <ripley@stats.ox.ac.uk>
+    Depends: R (>= 1.8.0), MASS
+    Description: functions for kernel smoothing (and density estimation)
+      corresponding to the book: 
+      Wand, M.P. and Jones, M.C. (1995) "Kernel Smoothing".
+    License: Unlimited use and distribution (see LICENCE).
+    URL: http://www.maths.unsw.edu.au/~wand
+
+as is the file LICENSE
+
+    By agreement with Dr Wand (1998-June-22), the R port can be used and
+    distributed freely, superseding the comments in orig/KernSmooth.tex.
+    
+    The original S code is copyright Matt Wand, the R port copyright
+    Brian Ripley
+

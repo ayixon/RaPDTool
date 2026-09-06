@@ -1,0 +1,11 @@
+/.
+/usr
+/usr/lib
+/usr/lib/x86_64-linux-gnu
+/usr/lib/x86_64-linux-gnu/libappstream.so.0.15.2
+/usr/share
+/usr/share/doc
+/usr/share/doc/libappstream4
+/usr/share/doc/libappstream4/changelog.Debian.gz
+/usr/share/doc/libappstream4/copyright
+/usr/lib/x86_64-linux-gnu/libappstream.so.4

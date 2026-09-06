@@ -1,0 +1,9 @@
+/.
+/usr
+/usr/share
+/usr/share/doc
+/usr/share/doc/libdrm-common
+/usr/share/doc/libdrm-common/changelog.Debian.gz
+/usr/share/doc/libdrm-common/copyright
+/usr/share/libdrm
+/usr/share/libdrm/amdgpu.ids

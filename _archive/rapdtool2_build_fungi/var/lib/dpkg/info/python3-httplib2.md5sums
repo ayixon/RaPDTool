@@ -1,0 +1,13 @@
+324139f2c8e0f749cf8cf98f4491dd5f  usr/lib/python3/dist-packages/httplib2-0.20.2.egg-info/PKG-INFO
+68b329da9893e34099c7d8ad5cb9c940  usr/lib/python3/dist-packages/httplib2-0.20.2.egg-info/dependency_links.txt
+18389c3835d266d3e4c6c999727b22e3  usr/lib/python3/dist-packages/httplib2-0.20.2.egg-info/requires.txt
+c6f0641b7192e78f085235f415ea577c  usr/lib/python3/dist-packages/httplib2-0.20.2.egg-info/top_level.txt
+27f52ae4dbf686330c9475a1a377229f  usr/lib/python3/dist-packages/httplib2/__init__.py
+48792c7f1f02a496bff90e1d2db1d4f1  usr/lib/python3/dist-packages/httplib2/auth.py
+63157768ac7451470e60f2a1bd80608f  usr/lib/python3/dist-packages/httplib2/certs.py
+f47409935ed72366d1f77ccb0c640836  usr/lib/python3/dist-packages/httplib2/error.py
+60127f95373becdaa41cef032652baf2  usr/lib/python3/dist-packages/httplib2/iri2uri.py
+36767e63e259914674a2628a1cc850aa  usr/lib/python3/dist-packages/httplib2/socks.py
+47cc82e553580e3403edda8e18146d27  usr/share/doc/python3-httplib2/README.md
+319b9af3754a37bdbdf9713acc4dc93c  usr/share/doc/python3-httplib2/changelog.Debian.gz
+46fc2c868c731e517ca70abef0da86e1  usr/share/doc/python3-httplib2/copyright

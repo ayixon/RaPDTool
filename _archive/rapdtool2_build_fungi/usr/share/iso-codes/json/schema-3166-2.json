@@ -1,0 +1,40 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+
+  "title": "ISO 3166-2",
+  "description": "ISO 3166-2 country and subdivision codes",
+  "type": "object",
+
+  "properties": {
+    "3166-2": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "description": "Code of the country subset item",
+            "type": "string",
+            "pattern": "^[A-Z]{2}-[A-Z0-9]+$"
+          },
+          "name": {
+            "description": "Name of the country subset item",
+            "type": "string",
+            "minLength": 1
+          },
+          "parent": {
+            "description": "Parent of the country subset item (optional)",
+            "type": "string",
+            "minLength": 1
+          },
+          "type": {
+            "description": "Type of subset of the country",
+            "type": "string"
+          }
+        }
+      },
+      "required": ["code", "name", "type"],
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

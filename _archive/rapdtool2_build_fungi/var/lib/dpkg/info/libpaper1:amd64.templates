@@ -1,0 +1,70 @@
+
+Template: libpaper/defaultpaper
+Type: select
+Choices: letter, a4, note, legal, executive, halfletter, halfexecutive, 11x17, statement, folio, quarto, 10x14, ledger, tabloid, a0, a1, a2, a3, a5, a6, a7, a8, a9, a10, b0, b1, b2, b3, b4, b5, c5, DL, Comm10, Monarch, archE, archD, archC, archB, archA, flsa, flse, csheet, dsheet, esheet
+Choices-ca.UTF-8: carta, A4, nota, legal, executiu, mitja carta, mig executiu, 11x17, declaració, foli, quarto, 10x14, llibre major, tabloide, A0, A1, A2, A3, A5, A6, A7, A8, A9, A10, B0, B1, B2, B3, B4, B5, C5, DL, Comm10, Monarch, archE, archD, archC, archB, archA, flsa, flse, csheet, dsheet, esheet
+Choices-cs.UTF-8: letter, a4, note, legal, executive, halfletter, halfexecutive, 11x17, statement, folio, quarto, 10x14, ledger, tabloid, a0, a1, a2, a3, a5, a6, a7, a8, a9, a10, b0, b1, b2, b3, b4, b5, c5, DL, Comm10, Monarch, archE, archD, archC, archB, archA, flsa, flse, csheet, dsheet, esheet
+Choices-da.UTF-8: letter, a4, note, legal, executive, halfletter, halfexecutive, 11x17, statement, folio, quarto, 10x14, ledger, tabloid, a0, a1, a2, a3, a5, a6, a7, a8, a9, a10, b0, b1, b2, b3, b4, b5, c5, DL, Comm10, Monarch, archE, archD, archC, archB, archA, flsa, flse, csheet, dsheet, esheet
+Choices-de.UTF-8: letter, A4, note, legal, executive, halfletter, halfexecutive, 11x17, statement, folio, quarto, 10x14, ledger, tabloid, A0, A1, A2, A3, A5, A6, A7, A8, A9, A10, B0, B1, B2, B3, B4, B5, C5, DL, Comm10, Monarch, archE, archD, archC, archB, archA, flsa, flse, csheet, dsheet, esheet
+Choices-es.UTF-8: carta, a4, nota, legal, ejecutivo, media carta, medio ejecutivo, 11x17, declaración, folio, quarto, 10x14, libro, tabloide, a0, a1, a2, a3, a5, a6, a7, a8, a9, a10, b0, b1, b2, b3, b4, b5, c5, DL, Comm10, Monarca, archE, archD, archC, archB, archA, flsa, flse, csheet, dsheet, esheet
+Choices-eu.UTF-8: gutuna, a4, oharra, legala, exekutiboa, gutun erdia, exekutibo erdia, 11x17, faktura, folioa, laurdena, 10x14, liburu nagusia, tabloidea, a0, a1, a2, a3, a5, a6, a7, a8, a9, a10, b0, b1, b2, b3, b4, b5, c5, DL, 10 komertziala, Monarka, archE, archD, archC, archB, archA, flsa, flse, csheet, dsheet, esheet
+Choices-fi.UTF-8: letter, a4, note, legal, executive, halfletter, halfexecutive, 11x17, statement, folio, quarto, 10x14, ledger, tabloid, a0, a1, a2, a3, a5, a6, a7, a8, a9, a10, b0, b1, b2, b3, b4, b5, c5, DL, Comm10, Monarch, archE, archD, archC, archB, archA, flsa, flse, csheet, dsheet, esheet
+Choices-fr.UTF-8: Lettre US, A4, Note, Légal, Exécutive, Demi-lettre, Demi-exécutive, 11x17, Statement, Folio, Quarto, 10x14, Ledger, Tabloïd, A0, A1, A2, A3, A5, A6, A7, A8, A9, A10, B0, B1, B2, B3, B4, B5, C5, DL, Comm10, Monarch, ArchE, ArchD, ArchC, ArchB, ArchA, FLSA, FLSE, Csheet, Dsheet, Esheet
+Choices-gl.UTF-8: carta, a4, nota, legal, executivo, media carta, medio executivo, 11x17, declaración, folio, quarto, 10x14, libro, tabloide, a0, a1, a2, a3, a5, a6, a7, a8, a9, a10, b0, b1, b2, b3, b4, b5, c5, CL, Comm10, Monarch, archE, archD, archC, archB, archA, flsa, flse, csheet, dsheet, esheet
+Choices-it.UTF-8: letter, a4, note, legal, executive, halfletter, halfexecutive, 11x17, statement, folio, quarto, 10x14, ledger, tabloid, a0, a1, a2, a3, a5, a6, a7, a8, a9, a10, b0, b1, b2, b3, b4, b5, c5, DL, Comm10, Monarch, archE, archD, archC, archB, archA, flsa, flse, csheet, dsheet, esheet
+Choices-ja.UTF-8: レター, A4, ノート, リーガル, エグゼクティブ, ハーフレター, ハーフエグゼクティブ, 11x17, ステートメント, フォリオ, 四折版, 10x14, 元帳, タブロイド, A0, A1, A2, A3, A5, A6, A7, A8, A9, A10, B0, B1, B2, B3, B4, B5, C5, DL, Comm10, モナーク, アークE, アークD, アークC, アークB, アークA, flsa, flse, cシート, dシート, eシート
+Choices-nl.UTF-8: letter (ANSI X3.151), a4 (ISO 216), note (ANSI X3.151), legal (ANSI X3.151), executive (ANSI X3.151), halfletter (ANSI X3.151), halfexecutive (ANSI X3.151), 11x17, statement (ANSI X3.151), folio, quarto, 10x14, ledger (ANSI X3.151), tabloid (ANSI X3.151), a0 (ISO 216), a1 (ISO 216), a2 (ISO 216), a3 (ISO 216), a5 (ISO 216), a6 (ISO 216), a7 (ISO 216), a8 (ISO 216), a9 (ISO 216), a10 (ISO 216), b0 (ISO 216), b1 (ISO 216), b2 (ISO 216), b3 (ISO 216), b4 (ISO 216), b5 (ISO 216), c5 (ISO 216), DL (ISO 269), Common 10 (ANSI X3.151), Monarch, archE (ANSI Y14.1), archD (ANSI Y14.1), archC (ANSI Y14.1), archB (ANSI Y14.1), archA (ANSI Y14.1), Foolscap-A, Foolscap-E, csheet (ANSI X3.151), dsheet (ANSI X3.151), esheet (ANSI X3.151)
+Choices-pl.UTF-8: letter, A4, note, legal, executive, halfletter, halfexecutive, 11x17, statement, folio, quarto, 10x14, ledger, tabloid, A0, A1, A2, A3, A5, A6, A7, A8, A9, A10, B0, B1, B2, B3, B4, B5, C5, DL, Comm10, Monarch, archE, archD, archC, archB, archA, flsa, flse, csheet, dsheet, esheet
+Choices-pt.UTF-8: carta, a4, nota, legal, executivo, meia-carta, meio-executivo, 11x17, indicação, fólio, quarto, 10x14, livro-razão, tablóide, a0, a1, a2, a3, a5, a6, a7, a8, a9, a10, b0, b1, b2, b3, b4, b5, c5, DL, Comm10, Monarch, archE, archD, archC, archB, archA, flsa, flse, folha c, folha d, folha e
+Choices-pt_BR.UTF-8: carta, A4, nota, legal, executivo, meia-carta, meio-executivo, 11x17, relatório, folio, quarto, 10x14, livro contábil, tablóide, A0, A1, A2, A3, A5, A6, A7, A8, A9, A10, B0, B1, B2, B3, B4, B5, C5, DL, Comm10, Monarca, ArchE, ArchD, ArchC, ArchB, ArchA, flsa, flse, csheet, dsheet, esheet
+Choices-ru.UTF-8: letter, A4, note, legal, executive, halfletter, halfexecutive, 11x17, statement, folio, quarto, 10x14, ledger, tabloid, A0, A1, A2, A3, A5, A6, A7, A8, A9, A10, B0, B1, B2, B3, B4, B5, C5, DL, Comm10, Monarch, archE, archD, archC, archB, archA, flsa, flse, csheet, dsheet, esheet
+Choices-sk.UTF-8: letter, a4, note, legal, executive, halfletter, halfexecutive, 11x17, statement, folio, quarto, 10x14, ledger, tabloid, a0, a1, a2, a3, a5, a6, a7, a8, a9, a10, b0, b1, b2, b3, b4, b5, c5, DL, Comm10, Monarch, archE, archD, archC, archB, archA, flsa, flse, csheet, dsheet, esheet
+Choices-sv.UTF-8: brev, A4, note, legal, executive, halfletter, halfexecutive, 11x17, statement, folio, quarto, 10x14, ledger, tabloid, A0, A1, A2, A3, A5, A6, A7, A8, A9, A10, B0, B1, B2, B3, B4, B5, C5, DL, Comm10, Monarch, archE, archD, archC, archB, archA, flsa, flse, csheet, dsheet, esheet
+Choices-tr.UTF-8: letter, a4, note, legal, executive, halfletter, halfexecutive, 11x17, statement, folio, quarto, 10x14, ledger, tabloid, a0, a1, a2, a3, a5, a6, a7, a8, a9, a10, b0, b1, b2, b3, b4, b5, c5, DL, Comm10, Monarch, archE, archD, archC, archB, archA, flsa, flse, csheet, dsheet, esheet
+Choices-vi.UTF-8: lá thư, a4, ghi chép, hành pháp, hành chính, nửa lá thư, nửa hành chính, 11x17, bản tuyên bố, số tờ, khổ bốn, 10x14, sổ cái, vắn tắt, a0, a1, a2, a3, a5, a6, a7, a8, a9, a10, b0, b1, b2, b3, b4, b5, c5, DL, Comm10, Monarch, archE, archD, archC, archB, archA, flsa, flse, csheet, dsheet, esheet
+Description: System's default paper size:
+ Please select the default paper size for the system.
+ Various programs on the system will use this configuration option to
+ determine how to print output.
+Description-ca.UTF-8: Mida de paper predeterminada del sistema:
+ Seleccioneu la mida de paper que s'hauria d'utilitzar com a predeterminada en aquest sistema. Alguns programes utilitzaran aquesta configuració per determinar com imprimir. L'opció per defecte és normalment correcta.
+Description-cs.UTF-8: Výchozí velikost papíru:
+ Vyberte prosím výchozí velikost papíru na tomto systému. Toto nastavení používají různé programy z distribuce, aby věděly, jak mají tisknout.
+Description-da.UTF-8: Systemets standardpapirstørrelse:
+ Vælg venligst papirstørrelsen, der skal være standardstørrelsen på dit system. Forskellige programmer på dit system vil bruge denne indstilling til at afgøre, hvordan udskrifter skal sættes op.
+Description-de.UTF-8: Standard-Papierformat für Ihr System:
+ Bitte wählen Sie das Standard-Papierformat für Ihr System. Verschiedene Programme werden diese Vorgabe verwenden, um zu bestimmen, in welchem Format etwas gedruckt werden soll. Normalerweise ist »A4« das richtige Format.
+Description-es.UTF-8: Tamaño de papel predeterminado del sistema:
+ Por favor, seleccione el tamaño de papel predeterminado del sistema. Algunos programas del sistema usarán esta opción de configuración para determinar qué tipo de papel utilizar al imprimir.
+Description-eu.UTF-8: Sisteman lehenetsiriko paper tamaina:
+ Mesedez hautatu sistemarako paper tamaina lehenetsia. Sistemako programa batzuek konfigurazio aukera hau erabiliko dute irteera nola inprimatu behar duten jakiteko.
+Description-fi.UTF-8: Järjestelmän oletuspaperikoko:
+ Valitse paperikoon oletusarvo järjestelmälle. Useat järjestelmän ohjelmat käyttävät tätä asetusta valitessaan kuinka tulostaa tuloste.
+Description-fr.UTF-8: Format de papier par défaut pour le système :
+ Veuillez choisir le format de papier par défaut pour le système. De nombreux programmes l'utiliseront pour configurer leur mode d'impression.
+Description-gl.UTF-8: Tamaño de papel por defecto do sistema:
+ Escolla o tamaño de papel por defecto para o sistema. Varios programas do sistema han empregar esta opción de configuración para determinar como imprimir.
+Description-hu.UTF-8: A rendszer alapértelmezett papírmérete:
+ Válaszd ki az alap papírméretet a rendszer számára. Az egyes programok ezt használják majd a nyomtatás kimenetének meghatározására.
+Description-it.UTF-8: Formato pagina predefinito per il sistema:
+ Selezionare il formato da impostare come predefinito per il sistema. Vari programmi usano questa impostazione per determinare come stampare.
+Description-ja.UTF-8: システムのデフォルトの紙サイズ:
+ システムのデフォルトの紙サイズを選択してください。 システムのさまざまなプログラムが、 どのように印刷出力するかを決める際に、この設定の選択肢を使います。
+Description-nl.UTF-8: Standaard papierformaat voor dit systeem:
+ Welk papierformaat wilt u standaard gebruiken op dit systeem? Verschillende programma's gebruiken deze keuze om te bepalen hoe de printuitvoer eruit moet zien.
+Description-pl.UTF-8: Domyślny systemowy rozmiar papieru:
+ Proszę wybrać domyślny rozmiar papieru w systemie. Różne programy będą używać tej opcji konfiguracyjnej, aby określić jaki format powinien zostać użyty do druku. W Polsce używa się zazwyczaj formatu A4.
+Description-pt.UTF-8: Dimensão por omissão da folha de papel no sistema:
+ Seleccione o tamanho de papel por omissão do seu sistema. Diversos programas do seu sistema usarão esta opção da configuração para determinar como irão imprimir. A opção por omissão está normalmente correcta.
+Description-pt_BR.UTF-8: Tamanho de papel padrão do sistema:
+ Por favor, selecione qual o tamanho padrão do papel para o sistema. Vários programas no sistema irão utilizar essa opção de configuração para determinar como será a saída das impressões.
+Description-ru.UTF-8: Размер бумаги по умолчанию:
+ Выберите размер бумаги. Многие (но, к сожалению, не все) программы будут использовать его, чтобы определить, как форматировать данные для печати.
+Description-sk.UTF-8: Predvolená veľkosť papiera na tomto systéme:
+ Prosím zvoľte predvolenú veľkosť papiera pre tento systém. Rozličné programy systému využijú túto konfiguračnú voľbu na určenie formátu tlačového výstupu.
+Description-sv.UTF-8: Systemets standardpappersstorlek:
+ Välj vilken papperstorlek som ska användas som standard för ditt system. Olika program på ditt system kommer att använda den här inställningen för att avgöra hur dokument ska skrivas ut.
+Description-tr.UTF-8: Sistemin öntanımlı kâğıt boyutu:
+ Lütfen sisteminizde kullanmak istediğiniz öntanımlı kâğıt boyutunu seçiniz. Sisteminizdeki çeşitli programlar, yazıcıdan çıktı alırken bu yapılandırma seçeneğini kullanacaktır.
+Description-vi.UTF-8: Kích cỡ giấy mặc định của hệ thống:
+ Hãy chọn kích cỡ giấy mặc định cho hệ thống này. Các chương trình khác nhau sẽ dùng tùy chọn cấu hình này để quyết định cách in ra kết xuất.

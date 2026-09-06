@@ -1,0 +1,11 @@
+2026-07-28 02:31:32,388 - main - INFO - miComplete has started
+2026-07-28 02:31:32,389 - main - INFO - Using 32 thread(s)
+2026-07-28 02:31:32,389 - main - INFO - List of given sequences:
+2026-07-28 02:31:32,389 - main - INFO - /free/programs/RaPDTool/examples/rapdtool_scaff_non_virus_full/workfmbm/outbinningref/scaff_non_virus_Binning_refiner_outputs/scaff_non_virus_refined_bins/scaff_non_virus_1.fna
+2026-07-28 02:31:32,390 - main - INFO - /free/programs/RaPDTool/examples/rapdtool_scaff_non_virus_full/workfmbm/outbinningref/scaff_non_virus_Binning_refiner_outputs/scaff_non_virus_refined_bins/scaff_non_virus_2.fna
+2026-07-28 02:31:32,390 - main - INFO - /free/programs/RaPDTool/examples/rapdtool_scaff_non_virus_full/workfmbm/outbinningref/scaff_non_virus_Binning_refiner_outputs/scaff_non_virus_refined_bins/scaff_non_virus_3.fna
+2026-07-28 02:31:32,390 - main - INFO - /free/programs/RaPDTool/examples/rapdtool_scaff_non_virus_full/workfmbm/outbinningref/scaff_non_virus_Binning_refiner_outputs/scaff_non_virus_refined_bins/scaff_non_virus_4.fna
+2026-07-28 02:31:32,390 - main - INFO - /free/programs/RaPDTool/examples/rapdtool_scaff_non_virus_full/workfmbm/outbinningref/scaff_non_virus_Binning_refiner_outputs/scaff_non_virus_refined_bins/scaff_non_virus_5.fna
+2026-07-28 02:31:32,390 - main - INFO - /free/programs/RaPDTool/examples/rapdtool_scaff_non_virus_full/workfmbm/outbinningref/scaff_non_virus_Binning_refiner_outputs/scaff_non_virus_refined_bins/scaff_non_virus_6.fna
+2026-07-28 02:31:32,390 - main - INFO - /free/programs/RaPDTool/examples/rapdtool_scaff_non_virus_full/workfmbm/outbinningref/scaff_non_virus_Binning_refiner_outputs/scaff_non_virus_refined_bins/scaff_non_virus_7.fna
+2026-07-28 02:31:37,361 - main - INFO - Finished work on all given sequences

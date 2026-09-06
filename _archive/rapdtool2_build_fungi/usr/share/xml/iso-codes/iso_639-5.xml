@@ -1,0 +1,389 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--
+
+WARNING: THIS FILE IS DEPRECATED.
+
+PLEASE USE THE JSON DATA INSTEAD.
+
+Usually, this data can be found in /usr/share/iso-codes/json.
+
+This file gives a list of all languages in the ISO 639-5
+standard, and is used to provide translations via gettext
+
+Copyright © 2014 Pander <pander@opentaal.org>
+
+    This file is free software; you can redistribute it and/or
+    modify it under the terms of the GNU Lesser General Public
+    License as published by the Free Software Foundation; either
+    version 2.1 of the License, or (at your option) any later version.
+
+    This file is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+    Lesser General Public License for more details.
+
+    You should have received a copy of the GNU Lesser General Public
+    License along with this file; if not, write to the Free Software
+    Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
+
+Source: <http://www.loc.gov/standards/iso639-5/>
+-->
+
+<!DOCTYPE iso_639_5_entries [
+	<!ELEMENT iso_639_5_entries (iso_639_5_entry+)>
+	<!ELEMENT iso_639_5_entry EMPTY>
+	<!ATTLIST iso_639_5_entry
+		id		CDATA	#REQUIRED
+		parents		CDATA	#IMPLIED
+		name		CDATA	#REQUIRED
+	>
+]>
+
+<iso_639_5_entries>
+	<iso_639_5_entry
+		id="aav"
+		name="Austro-Asiatic languages" />
+	<iso_639_5_entry
+		id="afa"
+		name="Afro-Asiatic languages" />
+	<iso_639_5_entry
+		id="alg"
+		name="Algonquian languages" />
+	<iso_639_5_entry
+		id="alv"
+		name="Atlantic-Congo languages" />
+	<iso_639_5_entry
+		id="apa"
+		name="Apache languages" />
+	<iso_639_5_entry
+		id="aqa"
+		name="Alacalufan languages" />
+	<iso_639_5_entry
+		id="aql"
+		name="Algic languages" />
+	<iso_639_5_entry
+		id="art"
+		name="Artificial languages" />
+	<iso_639_5_entry
+		id="ath"
+		name="Athapascan languages" />
+	<iso_639_5_entry
+		id="auf"
+		name="Arauan languages" />
+	<iso_639_5_entry
+		id="aus"
+		name="Australian languages" />
+	<iso_639_5_entry
+		id="awd"
+		name="Arawakan languages" />
+	<iso_639_5_entry
+		id="azc"
+		name="Uto-Aztecan languages" />
+	<iso_639_5_entry
+		id="bad"
+		name="Banda languages" />
+	<iso_639_5_entry
+		id="bai"
+		name="Bamileke languages" />
+	<iso_639_5_entry
+		id="bat"
+		name="Baltic languages" />
+	<iso_639_5_entry
+		id="ber"
+		name="Berber languages" />
+	<iso_639_5_entry
+		id="bih"
+		name="Bihari languages" />
+	<iso_639_5_entry
+		id="bnt"
+		name="Bantu languages" />
+	<iso_639_5_entry
+		id="btk"
+		name="Batak languages" />
+	<iso_639_5_entry
+		id="cai"
+		name="Central American Indian languages" />
+	<iso_639_5_entry
+		id="cau"
+		name="Caucasian languages" />
+	<iso_639_5_entry
+		id="cba"
+		name="Chibchan languages" />
+	<iso_639_5_entry
+		id="ccn"
+		name="North Caucasian languages" />
+	<iso_639_5_entry
+		id="ccs"
+		name="South Caucasian languages" />
+	<iso_639_5_entry
+		id="cdc"
+		name="Chadic languages" />
+	<iso_639_5_entry
+		id="cdd"
+		name="Caddoan languages" />
+	<iso_639_5_entry
+		id="cel"
+		name="Celtic languages" />
+	<iso_639_5_entry
+		id="cmc"
+		name="Chamic languages" />
+	<iso_639_5_entry
+		id="cpe"
+		name="Creoles and pidgins, English‑based" />
+	<iso_639_5_entry
+		id="cpf"
+		name="Creoles and pidgins, French‑based" />
+	<iso_639_5_entry
+		id="cpp"
+		name="Creoles and pidgins, Portuguese-based" />
+	<iso_639_5_entry
+		id="crp"
+		name="Creoles and pidgins" />
+	<iso_639_5_entry
+		id="csu"
+		name="Central Sudanic languages" />
+	<iso_639_5_entry
+		id="cus"
+		name="Cushitic languages" />
+	<iso_639_5_entry
+		id="day"
+		name="Land Dayak languages" />
+	<iso_639_5_entry
+		id="dmn"
+		name="Mande languages" />
+	<iso_639_5_entry
+		id="dra"
+		name="Dravidian languages" />
+	<iso_639_5_entry
+		id="egx"
+		name="Egyptian languages" />
+	<iso_639_5_entry
+		id="esx"
+		name="Eskimo-Aleut languages" />
+	<iso_639_5_entry
+		id="euq"
+		name="Basque (family)" />
+	<iso_639_5_entry
+		id="fiu"
+		name="Finno-Ugrian languages" />
+	<iso_639_5_entry
+		id="fox"
+		name="Formosan languages" />
+	<iso_639_5_entry
+		id="gem"
+		name="Germanic languages" />
+	<iso_639_5_entry
+		id="gme"
+		name="East Germanic languages" />
+	<iso_639_5_entry
+		id="gmq"
+		name="North Germanic languages" />
+	<iso_639_5_entry
+		id="gmw"
+		name="West Germanic languages" />
+	<iso_639_5_entry
+		id="grk"
+		name="Greek languages" />
+	<iso_639_5_entry
+		id="hmx"
+		name="Hmong-Mien languages" />
+	<iso_639_5_entry
+		id="hok"
+		name="Hokan languages" />
+	<iso_639_5_entry
+		id="hyx"
+		name="Armenian (family)" />
+	<iso_639_5_entry
+		id="iir"
+		name="Indo-Iranian languages" />
+	<iso_639_5_entry
+		id="ijo"
+		name="Ijo languages" />
+	<iso_639_5_entry
+		id="inc"
+		name="Indic languages" />
+	<iso_639_5_entry
+		id="ine"
+		name="Indo-European languages" />
+	<iso_639_5_entry
+		id="ira"
+		name="Iranian languages" />
+	<iso_639_5_entry
+		id="iro"
+		name="Iroquoian languages" />
+	<iso_639_5_entry
+		id="itc"
+		name="Italic languages" />
+	<iso_639_5_entry
+		id="jpx"
+		name="Japanese (family)" />
+	<iso_639_5_entry
+		id="kar"
+		name="Karen languages" />
+	<iso_639_5_entry
+		id="kdo"
+		name="Kordofanian languages" />
+	<iso_639_5_entry
+		id="khi"
+		name="Khoisan languages" />
+	<iso_639_5_entry
+		id="kro"
+		name="Kru languages" />
+	<iso_639_5_entry
+		id="map"
+		name="Austronesian languages" />
+	<iso_639_5_entry
+		id="mkh"
+		name="Mon-Khmer languages" />
+	<iso_639_5_entry
+		id="mno"
+		name="Manobo languages" />
+	<iso_639_5_entry
+		id="mun"
+		name="Munda languages" />
+	<iso_639_5_entry
+		id="myn"
+		name="Mayan languages" />
+	<iso_639_5_entry
+		id="nah"
+		name="Nahuatl languages" />
+	<iso_639_5_entry
+		id="nai"
+		name="North American Indian languages" />
+	<iso_639_5_entry
+		id="ngf"
+		name="Trans-New Guinea languages" />
+	<iso_639_5_entry
+		id="nic"
+		name="Niger-Kordofanian languages" />
+	<iso_639_5_entry
+		id="nub"
+		name="Nubian languages" />
+	<iso_639_5_entry
+		id="omq"
+		name="Oto-Manguean languages" />
+	<iso_639_5_entry
+		id="omv"
+		name="Omotic languages" />
+	<iso_639_5_entry
+		id="oto"
+		name="Otomian languages" />
+	<iso_639_5_entry
+		id="paa"
+		name="Papuan languages" />
+	<iso_639_5_entry
+		id="phi"
+		name="Philippine languages" />
+	<iso_639_5_entry
+		id="plf"
+		name="Central Malayo-Polynesian languages" />
+	<iso_639_5_entry
+		id="poz"
+		name="Malayo-Polynesian languages" />
+	<iso_639_5_entry
+		id="pqe"
+		name="Eastern Malayo-Polynesian languages" />
+	<iso_639_5_entry
+		id="pqw"
+		name="Western Malayo-Polynesian languages" />
+	<iso_639_5_entry
+		id="pra"
+		name="Prakrit languages" />
+	<iso_639_5_entry
+		id="qwe"
+		name="Quechuan (family)" />
+	<iso_639_5_entry
+		id="roa"
+		name="Romance languages" />
+	<iso_639_5_entry
+		id="sai"
+		name="South American Indian languages" />
+	<iso_639_5_entry
+		id="sal"
+		name="Salishan languages" />
+	<iso_639_5_entry
+		id="sdv"
+		name="Eastern Sudanic languages" />
+	<iso_639_5_entry
+		id="sem"
+		name="Semitic languages" />
+	<iso_639_5_entry
+		id="sgn"
+		name="sign languages" />
+	<iso_639_5_entry
+		id="sio"
+		name="Siouan languages" />
+	<iso_639_5_entry
+		id="sit"
+		name="Sino-Tibetan languages" />
+	<iso_639_5_entry
+		id="sla"
+		name="Slavic languages" />
+	<iso_639_5_entry
+		id="smi"
+		name="Sami languages" />
+	<iso_639_5_entry
+		id="son"
+		name="Songhai languages" />
+	<iso_639_5_entry
+		id="sqj"
+		name="Albanian languages" />
+	<iso_639_5_entry
+		id="ssa"
+		name="Nilo-Saharan languages" />
+	<iso_639_5_entry
+		id="syd"
+		name="Samoyedic languages" />
+	<iso_639_5_entry
+		id="tai"
+		name="Tai languages" />
+	<iso_639_5_entry
+		id="tbq"
+		name="Tibeto-Burman languages" />
+	<iso_639_5_entry
+		id="trk"
+		name="Turkic languages" />
+	<iso_639_5_entry
+		id="tup"
+		name="Tupi languages" />
+	<iso_639_5_entry
+		id="tut"
+		name="Altaic languages" />
+	<iso_639_5_entry
+		id="tuw"
+		name="Tungus languages" />
+	<iso_639_5_entry
+		id="urj"
+		name="Uralic languages" />
+	<iso_639_5_entry
+		id="wak"
+		name="Wakashan languages" />
+	<iso_639_5_entry
+		id="wen"
+		name="Sorbian languages" />
+	<iso_639_5_entry
+		id="xgn"
+		name="Mongolian languages" />
+	<iso_639_5_entry
+		id="xnd"
+		name="Na-Dene languages" />
+	<iso_639_5_entry
+		id="ypk"
+		name="Yupik languages" />
+	<iso_639_5_entry
+		id="zhx"
+		name="Chinese (family)" />
+	<iso_639_5_entry
+		id="zle"
+		name="East Slavic languages" />
+	<iso_639_5_entry
+		id="zls"
+		name="South Slavic languages" />
+	<iso_639_5_entry
+		id="zlw"
+		name="West Slavic languages" />
+	<iso_639_5_entry
+		id="znd"
+		name="Zande languages" />
+</iso_639_5_entries>

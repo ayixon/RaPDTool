@@ -1,0 +1,21 @@
+#! /bin/sh
+set -e
+
+UPDATE_CACHE=
+if which gtk-update-icon-cache-3.0 >/dev/null 2>&1 ; then
+    UPDATE_CACHE=gtk-update-icon-cache-3.0
+elif which gtk-update-icon-cache >/dev/null 2>&1 ; then
+    UPDATE_CACHE=gtk-update-icon-cache
+fi
+
+if [ -n "$UPDATE_CACHE" ]; then
+    if ! "$UPDATE_CACHE" --force --quiet /usr/share/icons/hicolor; then
+        echo "WARNING: icon cache generation failed"
+    fi
+fi
+
+if [ "$1" = "triggered" ]; then
+    exit 0
+fi
+
+

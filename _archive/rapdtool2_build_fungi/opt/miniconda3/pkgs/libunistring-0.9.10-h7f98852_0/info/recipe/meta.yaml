@@ -1,0 +1,58 @@
+# This file created by conda-build 3.21.4
+# meta.yaml template originally from:
+# /home/conda/recipe_root, last modified Thu Jul 22 11:47:24 2021
+# ------------------------------------------------
+
+package:
+  name: libunistring
+  version: 0.9.10
+source:
+  fn: libunistring-0.9.10.tar.xz
+  sha256: eb8fb2c3e4b6e2d336608377050892b54c3c983b646c561836550863003c05d7
+  url: http://ftpmirror.gnu.org/libunistring/libunistring-0.9.10.tar.xz
+build:
+  number: '0'
+  run_exports:
+    - libunistring >=0,<1.0a0
+  string: h7f98852_0
+requirements:
+  build:
+    - _libgcc_mutex 0.1 conda_forge
+    - _openmp_mutex 4.5 1_gnu
+    - binutils_impl_linux-64 2.36.1 h193b22a_1
+    - binutils_linux-64 2.36 hf3e587d_32
+    - gcc_impl_linux-64 9.3.0 h70c0ae5_19
+    - gcc_linux-64 9.3.0 hf25ea35_32
+    - gnuconfig 2020.11.07 hd8ed1ab_0
+    - kernel-headers_linux-64 2.6.32 he073ed8_14
+    - ld_impl_linux-64 2.36.1 hea4e1c9_1
+    - libgcc-devel_linux-64 9.3.0 h7864c58_19
+    - libgcc-ng 9.3.0 h2828fa1_19
+    - libgomp 9.3.0 h2828fa1_19
+    - libstdcxx-ng 9.3.0 h6de172a_19
+    - make 4.3 hd18ef5c_1
+    - sysroot_linux-64 2.12 he073ed8_14
+  host:
+    - _libgcc_mutex 0.1 conda_forge
+    - _openmp_mutex 4.5 1_gnu
+    - libgcc-ng 9.3.0 h2828fa1_19
+    - libgomp 9.3.0 h2828fa1_19
+  run:
+    - libgcc-ng >=9.3.0
+test:
+  commands:
+    - test -e $PREFIX/lib/libunistring.so
+about:
+  home: https://www.gnu.org/software/libunistring
+  license: GPL-3.0-only OR LGPL-3.0-only
+  license_file:
+    - COPYING
+    - COPYING.LIB
+  summary: This library provides functions for manipulating Unicode strings and for
+    manipulating C strings according to the Unicode standard.
+extra:
+  copy_test_source_files: true
+  final: true
+  recipe-maintainers:
+    - bgruening
+    - stefan-balke

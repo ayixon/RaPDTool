@@ -1,0 +1,43 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: HTML-Tree
+Upstream-Contact: Christopher J. Madsen
+Source: https://metacpan.org/release/HTML-Tree
+
+Files: *
+Copyright: 1995-1998, Gisle Aas
+ 1999-2004, Sean M. Burke
+ 2005, Andy Lester
+ 2006, Pete Krawczyk
+ 2010, Jeff Fearn
+ 2012, Christopher J. Madsen
+License: Artistic or GPL-1+
+
+Files: lib/HTML/Tree/*
+Copyright: 2000, The Perl Journal
+License: Artistic or GPL-1+
+
+Files: debian/*
+Copyright: 1998-2001, Michael Alan Dorman <mdorman@debian.org>
+ 2003, Kenneth J. Pronovici <pronovic@debian.org>
+ 2005-2007, Krzysztof Krzyzaniak (eloy) <eloy@debian.org>
+ 2005, Florian Ragwitz <rafl@debianforum.de>
+ 2010, Ansgar Burchardt <ansgar@debian.org>
+ 2011-2019, gregor herrmann <gregoa@debian.org>
+ 2012, Nathan Handler <nhandler@debian.org>
+License: Artistic or GPL-1+
+
+License: Artistic
+ This program is free software; you can redistribute it and/or modify
+ it under the terms of the Artistic License, which comes with Perl.
+ .
+ On Debian systems, the complete text of the Artistic License can be
+ found in `/usr/share/common-licenses/Artistic'.
+
+License: GPL-1+
+ This program is free software; you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation; either version 1, or (at your option)
+ any later version.
+ .
+ On Debian systems, the complete text of version 1 of the GNU General
+ Public License can be found in `/usr/share/common-licenses/GPL-1'.

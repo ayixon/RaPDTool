@@ -1,0 +1,8 @@
+#!/bin/bash -norc
+
+# Public domain notice for all NCBI EDirect scripts is located at:
+# https://www.ncbi.nlm.nih.gov/books/NBK179288/#chapter6.Public_Domain_Notice
+
+# Usage: intersect-uid-lists FILE1 FILE2
+
+comm -12 <(sort -f "$1") <(sort -f "$2") | sort -n

@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<application xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  xmlns="http://research.sun.com/wadl/2006/10"
+                  xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                  xsi:schemaLocation="http://research.sun.com/wadl/2006/10/wadl.xsd">
+  <resources base="http://www.example.com/">
+    <resource path="" type="#service-root"/>
+  </resources>
+
+  <resource_type id="service-root">
+    <method name="POST" id="service-root-operation">
+      <request>
+          <representation mediaType="multipart/form-data">
+            <param style="plain" name="text_field" required="true" />
+            <param style="plain" name="optional_field" />
+            <param style="plain" name="binary_field" type="binary"
+                   required="true" />
+          </representation>
+      </request>
+    </method>
+
+    <method name="POST" id="mystery-operation">
+      <request>
+          <representation mediaType="text/unknown">
+            <param style="plain" name="field" required="true" />
+          </representation>
+      </request>
+    </method>
+
+  </resource_type>
+</application>

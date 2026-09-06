@@ -1,0 +1,64 @@
+{% set version = "1.19.2" %}
+
+package:
+  name: krb5
+  version: {{ version }}
+
+source:
+  url: https://github.com/krb5/krb5/archive/krb5-{{ version }}-final.tar.gz
+  sha256: 84a1dc720e436926359808cc62543946897bf797aba3588b373165f127532cd8
+
+build:
+  number: 0
+  skip: True  # [win and vc<14]
+  run_exports:
+    # stable within minor revisions: https://abi-laboratory.pro/tracker/timeline/krb5/
+    - {{ pin_subpackage('krb5', max_pin='x.x') }}
+  ignore_run_exports:
+    # C++ and Tcl are only needed for performing built-in unit tests.
+    - libcxx          # [osx]
+    - libstdcxx-ng    # [linux]
+    - tk
+  missing_dso_whitelist:          # [osx]
+    - /usr/lib/libresolv.9.dylib  # [osx]
+
+requirements:
+  build:
+    - {{ compiler('c') }}
+    - {{ compiler('cxx') }}
+    - bison       # [not win]
+    - autoconf    # [not win]
+    - posix       # [win]
+    - perl        # [win]
+    - pkg-config  # [unix]
+    - make        # [unix]
+    - python 3.7  # [not win]
+    - python      # [win]
+  host:
+    - libedit     # [unix]
+    - openssl     # [unix]
+    - tk
+  run:
+    - {{ pin_compatible('libedit') }}  # [unix]
+
+test:
+  requires:
+    # without this the solver goes into a strange corner and returns python 2.0
+    - python 3.7.*  # [not win]
+    # Python 3.8 changed the default behavior of `ctypes.CDLL`, and it's more
+    # expedient to add this constraint rather than rewrite the test script.
+    - python <3.8   # [win]
+
+about:
+  home: http://web.mit.edu/kerberos/
+  license: MIT
+  license_file: doc/notice.rst
+  summary: 'A network authentication protocol.'
+
+extra:
+  recipe-maintainers:
+    - pelson
+    - ocefpaf
+    - mingwandroid
+    - mariusvniekerk
+    - chenghlee

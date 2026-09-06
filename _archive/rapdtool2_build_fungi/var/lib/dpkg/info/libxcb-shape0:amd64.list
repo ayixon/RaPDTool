@@ -1,0 +1,11 @@
+/.
+/usr
+/usr/lib
+/usr/lib/x86_64-linux-gnu
+/usr/lib/x86_64-linux-gnu/libxcb-shape.so.0.0.0
+/usr/share
+/usr/share/doc
+/usr/share/doc/libxcb-shape0
+/usr/share/doc/libxcb-shape0/copyright
+/usr/lib/x86_64-linux-gnu/libxcb-shape.so.0
+/usr/share/doc/libxcb-shape0/changelog.Debian.gz

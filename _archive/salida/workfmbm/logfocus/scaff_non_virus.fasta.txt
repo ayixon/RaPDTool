@@ -1,0 +1,16 @@
+[2023-01-11 11:50:36,127 - INFO] FOCUS: An Agile Profiler for Metagenomic Data - version 0.0.0
+[2023-01-11 11:50:36,127 - INFO] 1) Loading reference database
+[2023-01-11 11:50:36,895 - INFO] 2) Reference database was loaded with 2785 reference genomes
+[2023-01-11 11:50:36,896 - INFO] 3.1) Working on: /scratch2/free/programs/RaPDTool/local/salida/inputfmbm/scaff_non_virus.fasta
+[2023-01-11 11:50:36,896 - INFO]    Counting k-mers
+[2023-01-11 11:50:37,800 - INFO]    Running FOCUS
+[2023-01-11 11:50:38,514 - INFO] 5) Writing results to /scratch2/free/programs/RaPDTool/local/salida/profilesfmbm/scaff_non_virus
+[2023-01-11 11:50:38,516 - INFO]   5.1) Working on Kingdom
+[2023-01-11 11:50:38,517 - INFO]   5.2) Working on Phylum
+[2023-01-11 11:50:38,519 - INFO]   5.3) Working on Class
+[2023-01-11 11:50:38,520 - INFO]   5.4) Working on Order
+[2023-01-11 11:50:38,522 - INFO]   5.5) Working on Family
+[2023-01-11 11:50:38,524 - INFO]   5.6) Working on Genus
+[2023-01-11 11:50:38,529 - INFO]   5.7) Working on Species
+[2023-01-11 11:50:38,536 - INFO]   5.8) Working on Strain
+[2023-01-11 11:50:38,549 - INFO] Done

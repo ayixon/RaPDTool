@@ -1,0 +1,16 @@
+/.
+/usr
+/usr/share
+/usr/share/doc
+/usr/share/doc/libipc-system-simple-perl
+/usr/share/doc/libipc-system-simple-perl/changelog.Debian.gz
+/usr/share/doc/libipc-system-simple-perl/copyright
+/usr/share/doc/libipc-system-simple-perl/examples
+/usr/share/doc/libipc-system-simple-perl/examples/rsync-backup.pl
+/usr/share/man
+/usr/share/man/man3
+/usr/share/man/man3/IPC::System::Simple.3pm.gz
+/usr/share/perl5
+/usr/share/perl5/IPC
+/usr/share/perl5/IPC/System
+/usr/share/perl5/IPC/System/Simple.pm

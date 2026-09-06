@@ -1,0 +1,11 @@
+/.
+/etc
+/etc/sensors.d
+/etc/sensors.d/.placeholder
+/etc/sensors3.conf
+/usr
+/usr/share
+/usr/share/doc
+/usr/share/doc/libsensors-config
+/usr/share/doc/libsensors-config/changelog.Debian.gz
+/usr/share/doc/libsensors-config/copyright

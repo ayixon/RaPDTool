@@ -1,0 +1,8 @@
+#!/bin/sh
+
+# Public domain notice for all NCBI EDirect scripts is located at:
+# https://www.ncbi.nlm.nih.gov/books/NBK179288/#chapter6.Public_Domain_Notice
+
+# MUST be called with single quotes, e.g.:
+# filter-columns '10 <= $2 && $2 <= 30'
+awk -F '\t' -v 'OFS=\t' "( $* ) {print}"

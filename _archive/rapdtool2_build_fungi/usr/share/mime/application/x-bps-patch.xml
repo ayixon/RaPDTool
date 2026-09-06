@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mime-type xmlns="http://www.freedesktop.org/standards/shared-mime-info" type="application/x-bps-patch">
+  <!--Created automatically by update-mime-database. DO NOT EDIT!-->
+  <comment>BPS patch</comment>
+  <comment xml:lang="zh_TW">BPS 修補檔</comment>
+  <comment xml:lang="zh_CN">BPS 补丁</comment>
+  <comment xml:lang="uk">латка BPS</comment>
+  <comment xml:lang="tr">BPS yaması</comment>
+  <comment xml:lang="sv">BPS patch</comment>
+  <comment xml:lang="ru">Патч BPS</comment>
+  <comment xml:lang="pt_BR">Patch BPS</comment>
+  <comment xml:lang="pl">Łata BPS</comment>
+  <comment xml:lang="ko">BPS 패치</comment>
+  <comment xml:lang="kk">BPS өзгерісі</comment>
+  <comment xml:lang="it">Patch BPS</comment>
+  <comment xml:lang="id">Patch BPS</comment>
+  <comment xml:lang="hu">BPS javítócsomag</comment>
+  <comment xml:lang="hr">BPS zakrpa</comment>
+  <comment xml:lang="fr">correctif BPS</comment>
+  <comment xml:lang="fi">BPS-korjaus</comment>
+  <comment xml:lang="es">parche BPS</comment>
+  <comment xml:lang="en_GB">BPS patch</comment>
+  <comment xml:lang="de">BPS-Patch</comment>
+  <comment xml:lang="da">BPS-rettelse</comment>
+  <comment xml:lang="ca">pedaç de BPS</comment>
+  <acronym>BPS</acronym>
+  <expanded-acronym>Binary Patching System</expanded-acronym>
+  <glob pattern="*.bps"/>
+</mime-type>

@@ -1,0 +1,11 @@
+{
+  "target_platform": "linux-64",
+  "python": "3.9.* *_cpython",
+  "c_compiler_version": "9",
+  "channel_targets": "conda-forge main",
+  "libblas": "3.8 *netlib",
+  "libcblas": "3.8 *netlib",
+  "c_compiler": "gcc",
+  "numpy": "1.19",
+  "liblapack": "3.8 *netlib"
+}

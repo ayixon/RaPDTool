@@ -1,0 +1,1165 @@
+commit 1a54e154fa55fe53bd54a9522e362f0d88a68fc0
+Author: Serhii Kupriienko <skupriienko@anaconda.com>
+Date:   Tue Apr 12 07:33:34 2022 +0000
+
+    Enable unicode on win
+
+commit 9a908bf7586594a24426217220a7c737e99c26b5
+Author: Serhii Kupriienko <skupriienko@anaconda.com>
+Date:   Mon Mar 28 15:17:10 2022 +0000
+
+    Build 7.82.0
+
+commit a15182a5107f9723528f895406f1bba8183a228d
+Author: Serhii Kupriienko <skupriienko@anaconda.com>
+Date:   Mon Mar 28 07:05:11 2022 +0000
+
+    Fix urls with HTTPS
+
+commit d3c242ae6f53dbe93a184956c91e3500bd21e865
+Author: anaconda-pkg-build <anaconda-pkg-build@anaconda.com>
+Date:   Sat Mar 5 15:45:54 2022 +0000
+
+    DOR update to 7.82.0
+
+commit 2229c6597e3280ae70ad0d66dedd97b5da4abc6b
+Author: Serhii Kupriienko <79282962+skupr-anaconda@users.noreply.github.com>
+Date:   Fri Dec 10 19:34:42 2021 +0200
+
+    Update to 7.80.0 (#10)
+    
+    * Add ignore_run_exports for curl
+    
+    * Add comment about curl's ignore_run_exports
+    
+    * Remove zlib, krb5, libssh2 from host, run, and ignore_run_exports
+    
+    * Add zlib to run on osx
+    
+    * Add zlib in run on s390x
+    
+    * Remove manual from bin/curl
+    
+    Co-authored-by: Anthony DiPietro <adipietro@anaconda.com>
+
+commit dc9d03ba1c8df55d72ac78f9aa99233c505980ef
+Merge: 2d61ad8 a1e9bba
+Author: Connor Martin <connormartin7@gmail.com>
+Date:   Wed Aug 18 17:23:29 2021 -0500
+
+    Merge pull request #4 from AnacondaRecipes/pbs_7.78.0_20210722T051314
+    
+    curl 7.78.0
+
+commit 2d61ad8b57967fc968075a376ada857a11977f98
+Author: Kai Tietz <ktietz@anaconda.com>
+Date:   Tue Aug 17 17:49:23 2021 +0200
+
+    removed double 'zlib' specifiers
+
+commit 93e752d85980ea65d2f679d4a9473682e4f55f34
+Author: Kai Tietz <ktietz@anaconda.com>
+Date:   Thu Aug 12 20:36:22 2021 +0200
+
+    update curl 7.78.0
+
+commit f21f9fc380374e7ed3b5f1671b1930957dc5ff0a
+Merge: b045f4b 83b3f76
+Author: Anthony DiPietro <51377278+adipietro18@users.noreply.github.com>
+Date:   Fri Jul 23 17:06:31 2021 -0400
+
+    Merge pull request #5 from AnacondaRecipes/rebuild-for-krb5
+    
+    Rebuild for krb5
+
+commit a1e9bba86b36b51724725ba9448479185dc2bd36
+Author: anaconda-pkg-build <anaconda-pkg-build@anaconda.com>
+Date:   Thu Jul 22 05:13:16 2021 +0000
+
+    DOR update to 7.78.0
+
+commit 83b3f765d78da8955a6f90aa54af4c2a801d969b
+Author: Anthony DiPietro <adipietro@anaconda.com>
+Date:   Fri May 21 16:25:19 2021 -0400
+
+    Bump build number for krb5 rebuild and ignore_run_exports..
+
+commit b045f4b69e1658f59d7ebaea8a90284793f38c6f
+Merge: d792034 68c2a14
+Author: Filipe <ocefpaf@gmail.com>
+Date:   Fri Jul 10 09:33:53 2020 -0300
+
+    Merge pull request #75 from xhochy/cfep-18
+
+commit 68c2a141d2a3f8993e7946d677b5aceddc0ef7e9
+Author: Uwe L. Korn <uwe.korn@quantco.com>
+Date:   Thu Jul 9 13:44:28 2020 +0200
+
+    MNT: Re-rendered with conda-build 3.19.2, conda-smithy 3.7.4, and conda-forge-pinning 2020.07.07.19.27.52
+
+commit 82231a45ecff962ca52a7f67a7cb946b897cf9af
+Author: Uwe L. Korn <uwe.korn@quantco.com>
+Date:   Thu Jul 9 13:43:52 2020 +0200
+
+    CFEP-18: Remove static libraries from main build
+
+commit d7920349c20fc09d8390511dca746b403d8c95cc
+Merge: eb7b935 cd26f1b
+Author: Filipe <ocefpaf@gmail.com>
+Date:   Thu Jul 2 10:24:05 2020 -0300
+
+    Merge pull request #73 from regro-cf-autotick-bot/7.71.1_h696219
+    
+    curl v7.71.1
+
+commit cd26f1b178f1f0acc4327e59504848f1d67f5eec
+Author: regro-cf-autotick-bot <circleci@cf-graph.regro.github.com>
+Date:   Wed Jul 1 07:46:46 2020 +0000
+
+    updated v7.71.1
+
+commit eb7b935da0372931c4c9457822fd4ad37befe5b2
+Merge: c674de3 d2febde
+Author: Filipe <ocefpaf@gmail.com>
+Date:   Wed Jun 24 10:45:43 2020 -0300
+
+    Merge pull request #72 from regro-cf-autotick-bot/7.71.0_hc07871
+
+commit d2febdea1c5dee8b6d3843a2717ec33631cfdf90
+Author: regro-cf-autotick-bot <circleci@cf-graph.regro.github.com>
+Date:   Wed Jun 24 07:53:32 2020 +0000
+
+    MNT: Re-rendered with conda-build 3.19.2, conda-smithy 3.7.3, and conda-forge-pinning 2020.06.23.15.05.51
+
+commit a4524d5ae956c42801c51efad0d8cfb6f3c34678
+Author: regro-cf-autotick-bot <circleci@cf-graph.regro.github.com>
+Date:   Wed Jun 24 07:52:49 2020 +0000
+
+    updated v7.71.0
+
+commit c674de39976aeb7b1a65137eb4d053a5620466ca
+Author: Matthew R Becker <becker.mr@gmail.com>
+Date:   Mon May 18 06:58:33 2020 -0500
+
+    [ci skip] [skip ci] [cf admin skip] ***NO_CI*** admin migration CondaForgeAutomerge
+
+commit 5cdd283b25cb0a4f6b76d59c9faa479badb4c5ba
+Author: conda-forge-admin <conda-forge-admin@email.com>
+Date:   Sat May 16 00:09:53 2020 +0000
+
+    [ci skip] [skip ci] [cf admin skip] ***NO_CI*** admin migration CFEP13TokensAndConfig
+
+commit 93a40949f049a5bf041ab30bf4c1f190ba523d52
+Merge: 0de23fb 005ac5b
+Author: Filipe <ocefpaf@gmail.com>
+Date:   Wed Apr 8 19:40:00 2020 -0300
+
+    Merge pull request #67 from regro-cf-autotick-bot/7.69.1_hd848ad
+    
+    curl v7.69.1
+
+commit 005ac5bb8c8da2d39f18bd53570c0ea3b6b4816a
+Author: regro-cf-autotick-bot <circleci@cf-graph.regro.github.com>
+Date:   Wed Apr 8 20:34:14 2020 +0000
+
+    updated v7.69.1
+
+commit 0de23fb68d493b40c52d9d1e1b2132ef02caef80
+Merge: a5b39bb d5103f5
+Author: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
+Date:   Wed Apr 8 19:11:37 2020 +0000
+
+    Add xylar as a maintainer
+    
+    automerged PR by regro-cf-autotick-bot-action
+
+commit d5103f533bb18641842dd67a5320c6e900618d3b
+Author: conda-forge-linter <github-actions@email.com>
+Date:   Wed Apr 8 18:41:49 2020 +0000
+
+    MNT: Re-rendered with conda-build 3.19.2, conda-smithy 3.6.16, and conda-forge-pinning 2020.04.09
+
+commit e32d1358a23ff8a75db5fac0b3557931b7fa0cef
+Author: Xylar Asay-Davis <xylarstorm@gmail.com>
+Date:   Wed Apr 8 20:39:21 2020 +0200
+
+    Add xylar as a maintainer
+
+commit a5b39bb072a9bdc9f11ac3925806c0b02554fb10
+Merge: b39a62a a6ec832
+Author: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
+Date:   Wed Apr 8 15:20:51 2020 +0000
+
+    Rebuild for krb51171
+    
+    automerged PR by regro-cf-autotick-bot-action
+
+commit a6ec832e70863e5e0cf9d96740e3a9389b836443
+Author: regro-cf-autotick-bot <circleci@cf-graph.regro.github.com>
+Date:   Wed Apr 8 14:45:09 2020 +0000
+
+    MNT: Re-rendered with conda-build 3.19.2, conda-smithy 3.6.15, and conda-forge-pinning 2020.04.08
+
+commit 06b4b5b6268065bc03edd28ea59211144bb5cecf
+Author: regro-cf-autotick-bot <circleci@cf-graph.regro.github.com>
+Date:   Wed Apr 8 14:44:44 2020 +0000
+
+    Rebuild for krb51171
+
+commit b39a62a84ca5c0e85aa1a5d3513143d283fe9f2e
+Author: conda-forge-admin <conda-forge-admin@email.com>
+Date:   Mon Mar 2 18:34:29 2020 +0000
+
+    [ci skip] [skip ci] [cf admin skip] ***NO_CI*** admin migration AutomergeAndRerender
+
+commit 01e834cf590140d31cb49fd6720114fd55f18c22
+Merge: c0e52f3 f2f9158
+Author: Filipe <ocefpaf@gmail.com>
+Date:   Wed Feb 5 14:25:41 2020 -0300
+
+    Merge pull request #63 from regro-cf-autotick-bot/7.68.0
+    
+    curl v7.68.0
+
+commit f2f9158c660d0eb6619d1d9fb0485c47796c3fc3
+Author: Christopher J. Wright <cjwright4242@gmail.com>
+Date:   Thu Jan 16 10:44:39 2020 -0500
+
+    skip vs2008
+
+commit 0476eb9c50130fa58a4a5186c87a1f4d87e754e0
+Author: Christopher J. Wright <cjwright4242@gmail.com>
+Date:   Thu Jan 16 10:37:28 2020 -0500
+
+    manually remove vs2008 support
+
+commit 3f784d932212e362bf036699945d9bad45ef3a1c
+Author: Christopher J. Wright <cjwright4242@gmail.com>
+Date:   Thu Jan 16 10:24:34 2020 -0500
+
+    skip vs2008
+
+commit c83f81f20c042c3af6f6d0436f48d6b5f8082641
+Author: Christopher J. Wright <cjwright4242@gmail.com>
+Date:   Thu Jan 16 10:24:14 2020 -0500
+
+    MNT: Re-rendered with conda-build 3.18.11, conda-smithy 3.6.5, and conda-forge-pinning 2020.01.10
+
+commit 2f1230a68bca9d8e39314a7b929446f2e21a4cb2
+Author: Christopher J. Wright <cjwright4242@gmail.com>
+Date:   Thu Jan 16 10:10:51 2020 -0500
+
+    skip vs2008
+
+commit 1e0cec81a520fe5906139259202b5df4b42df414
+Author: regro-cf-autotick-bot <circleci@cf-graph.regro.github.com>
+Date:   Wed Jan 8 08:12:50 2020 +0000
+
+    MNT: Re-rendered with conda-build 3.18.11, conda-smithy 3.6.5, and conda-forge-pinning 2020.01.07
+
+commit 849c84b629aa8b54909ccd7156ef5db6a3460442
+Author: regro-cf-autotick-bot <circleci@cf-graph.regro.github.com>
+Date:   Wed Jan 8 08:12:14 2020 +0000
+
+    updated v7.68.0
+
+commit c0e52f36734963b8eeb74199d6fbbeabc3801bdf
+Author: conda-forge-admin <pelson.pub+conda-forge@gmail.com>
+Date:   Fri Sep 6 18:34:45 2019 -0500
+
+    [ci skip] ***NO_CI*** Move from appveyor to azure.
+    
+    See https://github.com/conda-forge/conda-forge.github.io/issues/857
+
+commit 5bb874ad9e82d28611d88a005d9b3fe70abc3e50
+Merge: 5d14e00 5c70ee2
+Author: Filipe <ocefpaf@gmail.com>
+Date:   Fri Jul 19 09:18:18 2019 -0300
+
+    curl v7.65.3 (#59)
+    
+    curl v7.65.3
+
+commit 5c70ee22bd98eb3935f237bce826b302ca71b292
+Author: regro-cf-autotick-bot <circleci@cf-graph.regro.github.com>
+Date:   Fri Jul 19 11:29:44 2019 +0000
+
+    updated v7.65.3
+
+commit 5d14e0036cec91267edbf15044708862c6b56891
+Merge: d78d701 2d2259a
+Author: Filipe <ocefpaf@gmail.com>
+Date:   Wed Jul 17 10:36:57 2019 -0300
+
+    curl v7.65.2 (#58)
+    
+    curl v7.65.2
+
+commit 2d2259a1464ee31e50aa729162ab6ec66854e439
+Author: regro-cf-autotick-bot <circleci@cf-graph.regro.github.com>
+Date:   Wed Jul 17 09:24:57 2019 +0000
+
+    MNT: Re-rendered with conda-build 3.18.7, conda-smithy 3.4.1, and conda-forge-pinning 2019.07.15
+
+commit 297801e4435acfc72ec8080100fc2553b2b4171a
+Author: regro-cf-autotick-bot <circleci@cf-graph.regro.github.com>
+Date:   Wed Jul 17 09:24:33 2019 +0000
+
+    updated v7.65.2
+
+commit d78d7018771184f52193b028be0f46475dc7d5f7
+Merge: 42fe0ea 199fc2c
+Author: Filipe <ocefpaf@gmail.com>
+Date:   Wed Jun 5 09:53:36 2019 -0300
+
+    curl v7.65.1 (#57)
+    
+    curl v7.65.1
+
+commit 199fc2ca762b0d0363308ba8cc76cdca4692b1f5
+Author: regro-cf-autotick-bot <circleci@cf-graph.regro.github.com>
+Date:   Wed Jun 5 07:34:58 2019 +0000
+
+    MNT: Re-rendered with conda-build 3.18.2, conda-smithy 3.3.4, and conda-forge-pinning 2019.05.31
+
+commit 8401061685b965337b72d5e4430e06812c27a235
+Author: regro-cf-autotick-bot <circleci@cf-graph.regro.github.com>
+Date:   Wed Jun 5 07:34:42 2019 +0000
+
+    updated v7.65.1
+
+commit 42fe0ea060227be76c21610acfd871204dc59c78
+Merge: bd55ac6 680d3ab
+Author: Filipe <ocefpaf@gmail.com>
+Date:   Wed Mar 27 08:46:36 2019 -0300
+
+    Merge pull request #53 from regro-cf-autotick-bot/7.64.1
+    
+    curl v7.64.1
+
+commit 680d3ab0f93744dcfa0c8a50b2326ebe15033cb2
+Author: Filipe Fernandes <ocefpaf@gmail.com>
+Date:   Wed Mar 27 08:09:52 2019 -0300
+
+    can we drop the patch?
+
+commit eb4641d50a58248262903f12d742866e2b9ab150
+Author: regro-cf-autotick-bot <circleci@cf-graph.regro.github.com>
+Date:   Wed Mar 27 08:29:09 2019 +0000
+
+    updated v7.64.1
+
+commit bd55ac6dd69bb8436733a050e43aa5997feb3254
+Merge: 2680686 8dc73ea
+Author: Filipe <ocefpaf@gmail.com>
+Date:   Tue Mar 26 20:31:23 2019 -0300
+
+    Merge pull request #52 from ocefpaf/bump
+    
+    bump
+
+commit 8dc73eacb6c1ed7ec2eb2b634e821e474cfb4a91
+Author: Filipe Fernandes <ocefpaf@gmail.com>
+Date:   Tue Mar 26 19:49:33 2019 -0300
+
+    bump
+
+commit 2680686e4438c31203492e7d5b4a73473887e010
+Merge: 57f8980 78db4ab
+Author: Filipe <ocefpaf@gmail.com>
+Date:   Tue Mar 26 12:33:12 2019 -0300
+
+    Merge pull request #51 from ocefpaf/re-render
+    
+    Re render
+
+commit 78db4ab3d0d9a9ce6bb9936b98dc4d20fba303a7
+Author: Filipe Fernandes <ocefpaf@gmail.com>
+Date:   Tue Mar 26 11:41:14 2019 -0300
+
+    MNT: Re-rendered with conda-build 3.17.8, conda-smithy 3.3.2, and conda-forge-pinning 2019.03.18
+
+commit acbcec2a9069d7c46827644892a1dbde52cca622
+Author: Filipe Fernandes <ocefpaf@gmail.com>
+Date:   Tue Mar 26 11:41:10 2019 -0300
+
+    bump
+
+commit 57f8980b294873f00d31f601b0dfde448550d0fd
+Merge: f9d8746 2ec1fe9
+Author: Marius van Niekerk <marius.v.niekerk@gmail.com>
+Date:   Tue Feb 26 09:43:27 2019 -0500
+
+    Merge pull request #50 from regro-cf-autotick-bot/rebuildopenssl
+    
+    Rebuild for OpenSSL
+
+commit 2ec1fe992a84a522a7f4241cc15a9dea3c101590
+Author: regro-cf-autotick-bot <circleci@cf-graph.regro.github.com>
+Date:   Tue Feb 26 13:50:27 2019 +0000
+
+    bump build number
+
+commit b839d7845568bfdae0b387ae0a86880eb9270756
+Author: regro-cf-autotick-bot <circleci@cf-graph.regro.github.com>
+Date:   Mon Feb 25 17:31:25 2019 +0000
+
+    MNT: Re-rendered with conda-build 3.15.1, conda-smithy 3.2.14, and conda-forge-pinning 2019.02.24
+
+commit a38a2e51a3ebaf673b6c0b5733540852b4292488
+Author: regro-cf-autotick-bot <circleci@cf-graph.regro.github.com>
+Date:   Mon Feb 25 17:31:13 2019 +0000
+
+    bump build number
+
+commit f9d874670a30ab4bae274cfbea63479f93e1a46d
+Merge: f87d322 2d0ed2e
+Author: Filipe <ocefpaf@gmail.com>
+Date:   Wed Feb 6 09:48:36 2019 -0200
+
+    Merge pull request #45 from regro-cf-autotick-bot/7.64.0
+    
+    curl v7.64.0
+
+commit 2d0ed2e1c3da8a1be3fefa47bc4ce2fab7045603
+Author: regro-cf-autotick-bot <circleci@cf-graph.regro.github.com>
+Date:   Wed Feb 6 08:13:19 2019 +0000
+
+    updated v7.64.0
+
+commit f87d322738d54cb36d679d50e0b923d7ec29e67e
+Merge: 275f24c 0cd0d6f
+Author: Marius van Niekerk <marius.v.niekerk@gmail.com>
+Date:   Sat Feb 2 11:37:16 2019 -0500
+
+    Merge pull request #44 from regro-cf-autotick-bot/rebuild_arch
+    
+    Arch Migrator
+
+commit 0cd0d6f2fb74c45b6c3d3b9ae897b1a14fcb0492
+Author: conda-forge-admin <pelson.pub+conda-forge@gmail.com>
+Date:   Thu Jan 31 15:42:48 2019 +0000
+
+    MNT: Re-rendered with conda-build 3.17.8, conda-smithy 3.2.12, and conda-forge-pinning 2019.01.29
+
+commit a73c6dfe3364ea21317cfb586184627bf1687e62
+Author: regro-cf-autotick-bot <circleci@cf-graph.regro.github.com>
+Date:   Tue Jan 29 07:53:19 2019 +0000
+
+    MNT: Re-rendered with conda-build 3.17.8, conda-smithy 3.2.10, and conda-forge-pinning 2019.01.21
+
+commit 20c45d9598b2b4571fbd2ce07d80695dc487d780
+Author: regro-cf-autotick-bot <circleci@cf-graph.regro.github.com>
+Date:   Tue Jan 29 07:53:07 2019 +0000
+
+    bump build number
+
+commit 275f24c289a02d033de6ba0136e082870061e462
+Merge: 455fae6 5e2c393
+Author: Filipe <ocefpaf@gmail.com>
+Date:   Wed Dec 12 09:49:52 2018 -0200
+
+    Merge pull request #43 from regro-cf-autotick-bot/7.63.0
+    
+    curl v7.63.0
+
+commit 5e2c393e78eb3aa2c9504eb5b6494340bc2c67a6
+Author: regro-cf-autotick-bot <circleci@cf-graph.regro.github.com>
+Date:   Wed Dec 12 08:14:40 2018 +0000
+
+    updated v7.63.0
+
+commit 455fae60362abbae71514c9baa058cfcae91cacc
+Merge: db8a60b 54ffa6c
+Author: Filipe <ocefpaf@gmail.com>
+Date:   Wed Oct 31 09:18:20 2018 -0300
+
+    Merge pull request #41 from regro-cf-autotick-bot/7.62.0
+    
+    curl v7.62.0
+
+commit 54ffa6c5fd6d404c584924c4c1a4005327c9a578
+Author: regro-cf-autotick-bot <circleci@cf-graph.regro.github.com>
+Date:   Wed Oct 31 08:14:51 2018 +0000
+
+    MNT: Re-rendered with conda-smithy 3.1.12 and pinning 2018.10.16
+
+commit ae25f4cb9a290d38ebb54c75794bed83e717bbfa
+Author: regro-cf-autotick-bot <circleci@cf-graph.regro.github.com>
+Date:   Wed Oct 31 08:14:46 2018 +0000
+
+    updated v7.62.0
+
+commit db8a60b0583a1450af08caaeed8273b3e225402e
+Merge: 1152159 f7282c1
+Author: Filipe <ocefpaf@gmail.com>
+Date:   Tue Oct 9 09:13:49 2018 -0300
+
+    Merge pull request #40 from regro-cf-autotick-bot/rebuild
+    
+    Rebuild for Python 3.7, GCC 7, R 3.5.1, openBLAS 0.3.2
+
+commit f7282c1922d99a3e994bdd01e4fae816dc1649b1
+Author: Marius van Niekerk <marius.v.niekerk@gmail.com>
+Date:   Tue Oct 9 00:28:31 2018 -0400
+
+    Update build.sh
+
+commit 1743b9c34c7b5b84ba6cb8640e20c81215df1906
+Author: Marius van Niekerk <marius.v.niekerk@gmail.com>
+Date:   Mon Oct 8 23:27:50 2018 -0400
+
+    Add libssh2 to run reqs
+
+commit 1e9e30951b40b08f0f6da8c968f832ae1b92edff
+Author: Marius van Niekerk <marius.v.niekerk@gmail.com>
+Date:   Mon Oct 8 14:28:23 2018 -0400
+
+    Update meta.yaml
+
+commit ca95073e452de1a0ef317805a3c2ab95be9c9698
+Author: Marius van Niekerk <marius.v.niekerk@gmail.com>
+Date:   Thu Oct 4 19:02:50 2018 -0400
+
+    Update meta.yaml
+
+commit 812ffde22d10f61b6176acc408edf82854d7806c
+Author: Marius van Niekerk <marius.v.niekerk@gmail.com>
+Date:   Thu Oct 4 18:48:32 2018 -0400
+
+    Update build.sh
+
+commit abf3076101a9bd1568d28c5a52b8e7cb5a4c8a0c
+Author: Marius van Niekerk <marius.v.niekerk@gmail.com>
+Date:   Tue Oct 2 22:22:13 2018 -0400
+
+    Fix build script
+
+commit cdddc9287e7dc23f47585e460c8bb6ab65eceae5
+Author: conda-forge-admin <pelson.pub+conda-forge@gmail.com>
+Date:   Wed Oct 3 02:15:10 2018 +0000
+
+    MNT: Re-rendered with conda-smithy 3.1.12 and pinning 2018.10.01
+
+commit a740368f6974d6586e3225ce7de1c821c98a2951
+Merge: c0852d7 5c9eb53
+Author: Marius van Niekerk <marius.v.niekerk@gmail.com>
+Date:   Tue Oct 2 22:13:38 2018 -0400
+
+    Merge remote-tracking branch 'AnacondaRecipes/master' into rebuild
+    
+    # Conflicts:
+    #       recipe/build.sh
+    #       recipe/meta.yaml
+
+commit 5c9eb5384721ddfdcaca8142c65bea934dc5a4a6
+Author: Jonathan Helmus <jjhelmus@gmail.com>
+Date:   Mon Oct 1 10:07:25 2018 -0500
+
+    curl 7.61.1
+
+commit c0852d747c6582cd67312c70006615070e451abe
+Author: regro-cf-autotick-bot <circleci@cf-graph.regro.github.com>
+Date:   Tue Sep 18 13:13:21 2018 +0000
+
+    MNT: Re-rendered with conda-smithy 3.1.12 and pinning 2018.09.17
+
+commit 6f252b3411b8761123dd0f51413be6d92ee2ef36
+Author: regro-cf-autotick-bot <circleci@cf-graph.regro.github.com>
+Date:   Tue Sep 18 13:12:58 2018 +0000
+
+    bump build number
+
+commit 1152159182532c4a5dca6c63468d3feea0e826b7
+Merge: a06d893 05287be
+Author: Filipe <ocefpaf@gmail.com>
+Date:   Tue Sep 4 08:18:43 2018 -0300
+
+    Merge pull request #37 from ocefpaf/remove_la
+    
+    Remove la
+
+commit 05287bed1545fc7e9c35229f66c43a022ddae59e
+Author: Filipe Fernandes <ocefpaf@gmail.com>
+Date:   Tue Sep 4 08:02:44 2018 -0300
+
+    MNT: Re-rendered with conda-smithy 3.1.12.post.dev2 and pinning 2018.08.31
+
+commit 5c0f82fa63d67a75978903c4b13259f48916aef9
+Author: Filipe Fernandes <ocefpaf@gmail.com>
+Date:   Tue Sep 4 08:02:42 2018 -0300
+
+    remove .la
+
+commit a06d893a52e96ecf9305279dc0e8a7a48f419809
+Author: Travis CI User <travis@example.org>
+Date:   Sat Aug 4 17:12:55 2018 +0000
+
+    [ci skip] [skip ci] Update anaconda token
+
+commit 7a4493b9bebe34e5532fa1697aef1ef169de6182
+Merge: ac4e793 daa62d1
+Author: Filipe <ocefpaf@gmail.com>
+Date:   Thu Jul 26 17:54:31 2018 -0300
+
+    Merge pull request #34 from regro-cf-autotick-bot/pinning
+    
+    Suggestion: remove version pinnings
+
+commit daa62d1bb87375cc44737912469634c12744952a
+Author: regro-cf-autotick-bot <circleci@cf-graph.regro.github.com>
+Date:   Thu Jul 26 16:15:50 2018 +0000
+
+    MNT: Re-rendered with conda-smithy 3.1.8 and pinning 2018.07.24
+
+commit 2d880bd1848991f17c0ea26e402ac3836415d546
+Author: regro-cf-autotick-bot <circleci@cf-graph.regro.github.com>
+Date:   Thu Jul 26 16:15:31 2018 +0000
+
+    remove version pinnings
+
+commit ac4e793729c4026cfe0469e73e7128237670e557
+Merge: 45e9393 91360ac
+Author: Filipe <ocefpaf@gmail.com>
+Date:   Wed Jul 25 15:03:07 2018 -0300
+
+    Merge pull request #33 from regro-cf-autotick-bot/7.61.0
+    
+    curl v7.61.0
+
+commit be8fde097f310787e74981c532e1b8b8578f6d57
+Author: Jonathan Helmus <jjhelmus@gmail.com>
+Date:   Wed Jul 25 09:33:11 2018 -0500
+
+    update to version 7.61.0
+
+commit 91360ac29daf7ee4e1752284ef4e109c51f7e2d2
+Author: regro-cf-autotick-bot <circleci@cf-graph.regro.github.com>
+Date:   Wed Jul 11 07:13:49 2018 +0000
+
+    updated v7.61.0
+
+commit 45e9393676d7182574e9e000d7cd73848a99e5ef
+Merge: d2d7833 22ada0d
+Author: Filipe <ocefpaf@gmail.com>
+Date:   Tue Jun 19 08:03:49 2018 -0300
+
+    Merge pull request #32 from regro-cf-autotick-bot/compiler_migration2
+    
+    Migrate to Jinja2 compiler syntax
+
+commit 22ada0d166c30e9170f50fd4ec45b8db3bdc5f87
+Author: Travis CI User <travis@example.org>
+Date:   Mon Jun 18 23:40:11 2018 +0000
+
+    MNT: Re-rendered with conda-smithy 3.1.6 and pinning 2018.05.22
+
+commit 090bc4c6c4cc88b9a2a2a5a5bfc059b3a8f854ee
+Author: Travis CI User <travis@example.org>
+Date:   Mon Jun 18 23:40:06 2018 +0000
+
+    migrated to Jinja2 compiler syntax build
+
+commit 0844fa256552ffc0928b5d39dd50ba9a3cbdf47e
+Author: Jonathan Helmus <jjhelmus@gmail.com>
+Date:   Thu May 24 10:39:31 2018 -0500
+
+    update to version 7.60.0
+
+commit d2d78337ea4be18a803821a855b0e64a6c615eef
+Merge: c867bc0 608dd76
+Author: Filipe <ocefpaf@gmail.com>
+Date:   Tue May 22 15:44:21 2018 -0300
+
+    Merge pull request #31 from ocefpaf/update_to_7.60.0
+    
+    update to 7.60.0
+
+commit 608dd76aeb91c7510350f7162ff10c83ab8763e6
+Author: Filipe Fernandes <ocefpaf@gmail.com>
+Date:   Tue May 22 14:40:34 2018 -0300
+
+    update to 7.60.0
+
+commit c867bc0fd8182fb8180304ca5bade6b9302ddf10
+Merge: db7c6d1 126bf60
+Author: Filipe <ocefpaf@gmail.com>
+Date:   Sun Apr 8 08:56:36 2018 -0300
+
+    Merge pull request #29 from nsoranzo/disable_dtags
+    
+    Disable dtags when linking on Linux
+
+commit 126bf60f61006417a87a94bcfa7d121cfaebac55
+Author: Nicola Soranzo <nicola.soranzo@earlham.ac.uk>
+Date:   Fri Apr 6 12:18:16 2018 +0100
+
+    Disable dtags when linking on Linux
+    
+    Without this, the `libcurl.so` library will have RUNPATH set instead
+    of RPATH, which means that LD_LIBRARY_PATH would have higher
+    precedence when the linker searches for libraries.
+    
+    Fix https://github.com/conda-forge/curl-feedstock/issues/24 ,
+    which I'm also experiencing in a cluster environment where
+    LD_LIBRARY_PATH is forcibly set.
+
+commit 48edd47a086807c66eda6e9f824b34aafed9f763
+Author: Jonathan Helmus <jjhelmus@gmail.com>
+Date:   Thu Mar 29 09:42:09 2018 -0500
+
+    update to version 7.59.0
+
+commit e70da44cba6fd170ce6bfa581e695b47c37cd7d0
+Author: Jonathan Helmus <jjhelmus@gmail.com>
+Date:   Thu Mar 29 09:41:54 2018 -0500
+
+    add make as build requirement
+
+commit db7c6d133296b41a66bec17d4b89542fb4db2272
+Merge: 4fdf6b6 dec9549
+Author: jakirkham <jakirkham@gmail.com>
+Date:   Sat Mar 17 15:50:32 2018 -0400
+
+    Merge pull request #27 from regro-cf-autotick-bot/7.59.0
+    
+    curl v7.59.0
+
+commit dec9549ad14f58128d078bc8e7a2217bf5d57089
+Merge: f3d28c7 4fdf6b6
+Author: John Kirkham <kirkhamj@janelia.hhmi.org>
+Date:   Fri Mar 16 23:02:28 2018 -0400
+
+    Merge 'conda-forge/master' into 'regro-cf-autotick-bot/7.59.0'
+
+commit 4fdf6b6b3a2f2419ea5d658a109f22c914198da2
+Merge: 5401189 8f56a0a
+Author: jakirkham <jakirkham@gmail.com>
+Date:   Fri Mar 16 23:00:25 2018 -0400
+
+    Merge pull request #28 from jakirkham-feedstocks/fixes_macos
+    
+    Fixes for macOS
+
+commit 8f56a0a22c00580368462a64418f109aa54140df
+Author: John Kirkham <kirkhamj@janelia.hhmi.org>
+Date:   Fri Mar 16 17:12:17 2018 -0400
+
+    Bump build number to 1
+    
+    Some compiler flags changed on Linux, but doubt that has any real
+    effect. Since macOS failed to deploy anyways there is no conflict with
+    build number 0. Still, to be cautious, bump the build number to 1.
+
+commit e116029df5c13ef816baf4d5745f01abc69fea20
+Author: John Kirkham <kirkhamj@janelia.hhmi.org>
+Date:   Fri Mar 16 17:12:14 2018 -0400
+
+    Add patch to skip failing tests on macOS
+    
+    The 2056 and 2057 tests fail on macOS and are known to fail upstream.
+    For now just patch them out so the build can proceed without them.
+
+commit 06732d2fe9656d72656af5bcd7e1a7cf0b90fb8d
+Author: John Kirkham <kirkhamj@janelia.hhmi.org>
+Date:   Fri Mar 16 17:09:49 2018 -0400
+
+    Fix recipe tests to work on macOS
+    
+    The new recipe tests included things like hard coding `.so` and using
+    `ldd` on macOS, which can't possibly work. This tidies those tests up to
+    work (or be skipped) on macOS as appropriate while still working on
+    Linux.
+
+commit 44d595f7c44056b5d7248083a223b2bce07d4351
+Author: John Kirkham <kirkhamj@janelia.hhmi.org>
+Date:   Fri Mar 16 17:09:42 2018 -0400
+
+    Require the toolchain
+    
+    Needed to actually get the linkages to libssh2 right. Otherwise it fails
+    when trying to load dependent libraries.
+
+commit f3d28c79284834972aa9d63df9a668c40776a1bb
+Merge: 9bad3ab 5401189
+Author: Filipe <ocefpaf@gmail.com>
+Date:   Fri Mar 16 16:11:01 2018 -0300
+
+    Merge branch 'master' into 7.59.0
+
+commit 5401189b6d0b4476f40a3240c9d47dcd80692526
+Merge: b913b5d e6aa966
+Author: Filipe <ocefpaf@gmail.com>
+Date:   Fri Mar 16 16:09:50 2018 -0300
+
+    Merge pull request #25 from ocefpaf/update_to_7.58.0
+    
+    Update to 7.58.0
+
+commit 9bad3abf29e2a06bdf8326dafd476380f86db63f
+Author: Travis CI User <travis@example.org>
+Date:   Fri Mar 16 19:08:13 2018 +0000
+
+    MNT: Re-rendered with conda-smithy 2.4.5
+
+commit 47c6ea7813113e0b316e879a2c8889500ba68fa1
+Author: Travis CI User <travis@example.org>
+Date:   Fri Mar 16 19:06:50 2018 +0000
+
+    updated v7.59.0
+
+commit e6aa9667263484d8a72958f429b04c4cb8951fb1
+Author: Filipe Fernandes <ocefpaf@gmail.com>
+Date:   Fri Mar 2 16:10:32 2018 -0300
+
+    update_to_0.7.58.0
+
+commit 2edc00695218af07d4d1d4afa61cb6152d4d2a00
+Author: Filipe Fernandes <ocefpaf@gmail.com>
+Date:   Fri Mar 2 16:09:58 2018 -0300
+
+    rerender
+
+commit c9fa18ff3ed82eac365cb96fdfc0813d07bd9108
+Author: Michael Sarahan <msarahan@gmail.com>
+Date:   Wed Feb 7 13:11:51 2018 -0600
+
+    bump to 7.58.0
+
+commit 03c36590e7827d18731daecc63a9709462a42538
+Author: Michael Sarahan <msarahan@gmail.com>
+Date:   Mon Jan 22 09:36:45 2018 -0600
+
+    split into libcurl and curl; 7.57.0 update
+
+commit 86accf985bfe3afddd5a100572a3755209319385
+Author: Michael Sarahan <msarahan@gmail.com>
+Date:   Wed Nov 8 22:16:52 2017 -0600
+
+    remove vc features (use run_exports vc pkg instead)
+
+commit b913b5dd9826f3a6571886a7b1bbeb7240fab6a1
+Merge: 3f0e8b5 9f5b725
+Author: Filipe <ocefpaf@gmail.com>
+Date:   Sat Nov 4 13:13:49 2017 -0200
+
+    Merge pull request #21 from ocefpaf/fix_win
+    
+    Update curl
+
+commit 9f5b725af4b23716d94d715a4a4104f3e91c2439
+Author: Filipe Fernandes <ocefpaf@gmail.com>
+Date:   Sat Nov 4 10:56:36 2017 -0200
+
+    I hate robocopy
+
+commit 533277ce57bbf4f4551f07569977f9819eed9587
+Author: Filipe Fernandes <ocefpaf@gmail.com>
+Date:   Fri Nov 3 13:46:27 2017 -0200
+
+    let's see of this crashes the build as expected
+
+commit 3bcb7f8175d8f5bc766846e58168e346b49dfd42
+Author: Filipe Fernandes <ocefpaf@gmail.com>
+Date:   Fri Jul 21 09:56:12 2017 -0300
+
+    update curl and pins
+
+commit 2082ca8217a0c922585ca82981283dbe3a613d62
+Author: Filipe Fernandes <ocefpaf@gmail.com>
+Date:   Fri Jul 21 09:55:59 2017 -0300
+
+    pin zlib
+
+commit dcc32dc8f97f7db91cb101221777e88118756bbc
+Author: Michael Sarahan <msarahan@gmail.com>
+Date:   Mon Sep 18 15:25:04 2017 -0500
+
+    curl needs vc matrix because of pycurl
+
+commit b2451ab903af7b4ec8ebb5993a793e50232c04fe
+Author: Michael Sarahan <msarahan@gmail.com>
+Date:   Mon Sep 18 13:06:39 2017 -0500
+
+    remove CC,CXX setting, simplify with cb3
+
+commit f26b3d08c441e3077a00400b645e1887b7d9a3a1
+Author: Ray Donnelly <mingw.android@gmail.com>
+Date:   Tue Sep 12 12:43:29 2017 +0100
+
+    Add libssh2 dependency
+
+commit ee5aae513ad63e6fa05f29319c3e7a4299b25a02
+Merge: 668e6a3 3531f74
+Author: Ray Donnelly <mingw.android@gmail.com>
+Date:   Thu Aug 31 01:32:29 2017 +0100
+
+    Merge pull request #1 from Maggie-M/patch-1
+    
+    Update meta.yaml
+
+commit 3531f7473106008544ff0b1cfc0b490fde1dbe2c
+Author: Maggie-M <maggie.mari@continuum.io>
+Date:   Wed Aug 30 15:56:33 2017 -0500
+
+    Update meta.yaml
+
+commit 668e6a343946923a647990ea04bdc914e1bc14d0
+Author: Ray Donnelly <mingw.android@gmail.com>
+Date:   Tue Aug 29 02:29:21 2017 -0700
+
+    Update to 7.55.1
+    
+    This addresses 5 CVEs
+
+commit 2e6c85872e106301445d7f4bbc9cc3cf22bf1c12
+Author: Ray Donnelly <mingw.android@gmail.com>
+Date:   Sun Aug 27 17:25:12 2017 +0100
+
+    Generalize logging
+
+commit 3f0e8b5b62494cc94ca27a2e0cf085a6a7bb0d61
+Author: Travis-CI on github.com/conda-forge/staged-recipes <conda-forge@googlegroups.com>
+Date:   Sat Aug 26 19:41:17 2017 +0000
+
+    [ci skip] [skip ci] Update anaconda token
+
+commit bcf87467dc829f9487f6a11b7956b0c622959736
+Author: Ray Donnelly <mingw.android@gmail.com>
+Date:   Fri Aug 25 20:48:12 2017 +0100
+
+    Generalized pinning
+
+commit 2aae63cab3d73b95581e00d96b54df06eca942a6
+Merge: 1eb7494 769d603
+Author: Filipe <ocefpaf@gmail.com>
+Date:   Thu Jul 20 15:09:14 2017 -0300
+
+    Merge pull request #20 from nehaljwani/curl-7.54.1
+    
+    curl: bump version; build with krb5, libssh2
+
+commit 769d60380df0d5906bd00374360aee65c9f68123
+Author: Nehal J Wani <nehaljw.kkd1@gmail.com>
+Date:   Tue Jul 18 20:12:44 2017 +0000
+
+    MNT: Re-rendered with conda-smithy 2.3.2
+
+commit b6c5c6af3e2916e67d185f9b024ab5a6697438d5
+Author: Nehal J Wani <nehaljw.kkd1@gmail.com>
+Date:   Tue Jul 18 19:30:37 2017 +0000
+
+    curl: fix pinning, features and skip on win+py35
+
+commit 3bdb23799e183ffc7984bc38320eaf4d1c581903
+Author: Nehal J Wani <nehaljw.kkd1@gmail.com>
+Date:   Tue Jul 18 19:24:58 2017 +0000
+
+    MNT: Re-rendered with conda-smithy 2.3.2
+
+commit 3c4d062c7d6a6559f8e1255504d95b12efc9180b
+Author: Nehal J Wani <nehaljw.kkd1@gmail.com>
+Date:   Tue Jul 18 18:18:10 2017 +0000
+
+    curl: bump version; build with krb5, libssh2
+
+commit 51f71a7678eb7b4ed7e8bd21736d92b9944383cd
+Author: Ray Donnelly <mingw.android@gmail.com>
+Date:   Thu Jul 6 15:43:41 2017 +0100
+
+    Add cross-compilation support (WIP)
+    
+    test 1119... exit FAILED
+
+commit 1eb74946d72b7b0c4e6947339d705fe74a783500
+Merge: d7e7a03 416e056
+Author: Filipe <ocefpaf@gmail.com>
+Date:   Tue Jan 17 07:19:52 2017 -0300
+
+    Merge pull request #16 from lexual/issue_015_v7.52.1
+    
+    update to version 7.52.1
+
+commit 416e056243b38503a2f14d227351e5aa92ca1848
+Author: lexual <lex@jbadigital.com>
+Date:   Tue Jan 17 08:31:38 2017 +1100
+
+    put build number back down to zero.
+
+commit b53eb7c2e39f550ae857cfb5c2c0676b0eb8bab8
+Author: lexual <lex@jbadigital.com>
+Date:   Mon Jan 16 12:21:15 2017 +1100
+
+    update to version 7.52.1
+
+commit d7e7a033098828ba0d58bb628ecb92ab66f4e98c
+Merge: 836e15f f2ab5e4
+Author: Filipe <ocefpaf@gmail.com>
+Date:   Tue Dec 6 19:38:54 2016 -0300
+
+    Merge pull request #13 from jjhelmus/long_prefix
+    
+    Build long prefix package using conda-build 2.x
+
+commit f2ab5e43a199040cb2be410af3d365f2b6b83fc4
+Author: Jonathan Helmus <jjhelmus@gmail.com>
+Date:   Tue Dec 6 10:04:22 2016 -0600
+
+    Build long prefix package using conda-build 2.x
+
+commit 09d48d5baf3a95488104f1c95a68ff1d0ca00082
+Author: Jonathan Helmus <jjhelmus@gmail.com>
+Date:   Tue Dec 6 09:55:29 2016 -0600
+
+    MNT: Re-rendered with conda-smithy 1.6.1
+
+commit 836e15f0b8075570b357da5b7533e19dd2c63a5a
+Merge: e1816d6 20b49bf
+Author: jakirkham <jakirkham@gmail.com>
+Date:   Sun Oct 23 14:22:31 2016 -0400
+
+    Merge pull request #12 from conda-forge-admin/feedstock_rerender_master
+    
+    MNT: Re-render the feedstock [ci skip]
+
+commit 20b49bf6be1b3eaea36972082460addad4555135
+Author: conda-forge-admin <pelson.pub+conda-forge@gmail.com>
+Date:   Sat Oct 22 06:39:17 2016 +0000
+
+    MNT: Updated the feedstock for conda-smithy version 1.3.3.
+
+commit e1816d6344e17cb657c1b38964807d3030e985ac
+Merge: 5d12bea 1090b37
+Author: jakirkham <jakirkham@gmail.com>
+Date:   Sat Aug 20 00:37:59 2016 -0400
+
+    Merge pull request #10 from jakirkham/feedstock_version_pin_master_2
+    
+    Fix-up pinned versions
+
+commit 1090b3777585b86aeab27a2829f3e70f01d00863
+Author: John Kirkham <kirkhamj@janelia.hhmi.org>
+Date:   Fri Aug 19 23:53:34 2016 -0400
+
+    recipe: Fix-up selector alignment.
+
+commit ac1c95ba520aa2536ab880c4c97337a78466ccf8
+Author: conda-forge-admin <conda-forge@googlegroups.com>
+Date:   Sat Aug 20 03:32:56 2016 +0000
+
+    MNT: Updated some of the pinned versions
+
+commit 5d12bea80da804161754aa6dfc4ba73d467bcae9
+Merge: 5f39b44 bac8d6b
+Author: jakirkham <jakirkham@gmail.com>
+Date:   Tue Jun 7 21:25:40 2016 -0400
+
+    Merge pull request #7 from jakirkham/bump_7_49_x
+    
+    Update to 7.49.x
+
+commit bac8d6b510492837ab9e251dd4f31d54a8c0d8c5
+Author: John Kirkham <kirkhamj@janelia.hhmi.org>
+Date:   Tue Jun 7 17:29:19 2016 -0400
+
+    recipe: Bump to version 7.49.0.
+
+commit 5f39b441657f00662cf121f0df9b58d7d51ba3a2
+Merge: 2beaba2 09772d2
+Author: jakirkham <jakirkham@gmail.com>
+Date:   Tue Jun 7 19:28:51 2016 -0400
+
+    Merge pull request #6 from jakirkham/add_perl_tests
+    
+    Add perl for tests on UNIX
+
+commit 09772d2924fa90aa8c457e8607025b3e57d1ae3f
+Author: John Kirkham <kirkhamj@janelia.hhmi.org>
+Date:   Tue Jun 7 17:44:10 2016 -0400
+
+    Re-render with conda-smithy for perl support (ignore appveyor changes).
+
+commit da1697a15d8d52b595bdf249161b1bfc46cf84e7
+Author: John Kirkham <kirkhamj@janelia.hhmi.org>
+Date:   Tue Jun 7 17:43:00 2016 -0400
+
+    recipe: Add perl as it is required to run the tests.
+
+commit 2beaba2a108daba184038078e0670d3cd1ba7a71
+Merge: 96e1fdb 4471bee
+Author: Mike Sarahan <msarahan@gmail.com>
+Date:   Thu May 19 18:31:07 2016 -0500
+
+    Merge pull request #3 from jakirkham/fix_cert_path
+    
+    Fix hardcoded cert path in `curl` libs
+
+commit 4471beedefa4a42f724dcd9a929cbd820d2cc066
+Author: John Kirkham <kirkhamj@janelia.hhmi.org>
+Date:   Thu May 19 16:19:39 2016 -0400
+
+    recipe: Fix hardcoded cert path in `curl` libs.
+
+commit d45255fe67e3d8a9043dea58e6b9207cdc5a38ca
+Author: John Kirkham <kirkhamj@janelia.hhmi.org>
+Date:   Thu May 19 17:42:54 2016 -0400
+
+    recipe: Add a test downloading something with HTTPS.
+
+commit 96e1fdba6f17d9cf24a947055608aaa8eb746d06
+Merge: 757544c d09382c
+Author: jakirkham <jakirkham@gmail.com>
+Date:   Thu May 19 17:20:44 2016 -0400
+
+    Merge pull request #2 from jakirkham/drop_certifi
+    
+    Drop `certifi`
+
+commit d09382cab5355f666e85a8814b75603f4581f117
+Author: John Kirkham <kirkhamj@janelia.hhmi.org>
+Date:   Thu May 19 15:47:21 2016 -0400
+
+    recipe: Drop `certifi` as it is not a required dependency.
+    
+    Originally, we had planned to use `certifi` to get certs. However,
+    `certifi` is a Python package and as such puts these in `site-packages`,
+    which is something we not only don't want or need, but it makes it more
+    difficult to properly configure things. Subsequently, we created
+    `ca-certificates`, which simply takes the certs included in `certifi`
+    and moves them to the right location. In the long term,
+    `ca-certificates` may be constructed in different ways, but will always
+    provide these certs. We decided to make this a run time dependency of
+    `openssl`. So, anything using `openssl` will automatically get certs. As
+    we did make the certs a separate package and we did not pin them in
+    `openssl`, updating the certs in `ca-certificates` will get picked up by
+    `conda update --all`.
+    
+    TL;DR: `curl` depends on `openssl`, which pulls in the certs we need
+           from `ca-certificates`. `certifi` is not used for this.
+
+commit 757544c2d3cb7f9d809d18ca1ec7e0b2193f26e5
+Merge: 8da8528 bd1c34f
+Author: jakirkham <jakirkham@gmail.com>
+Date:   Thu May 19 15:17:20 2016 -0400
+
+    Merge pull request #1 from jakirkham/remove_conda-build_pinnings
+    
+    Drop conda-build pinning on AppVeyor
+
+commit bd1c34ff7dd0d4c3e76c6bf1acebd5920e9f16ac
+Author: John Kirkham <kirkhamj@janelia.hhmi.org>
+Date:   Thu May 19 14:26:31 2016 -0400
+
+    appveyor: Drop conda-build pinning so that we can upgrade.
+
+commit 8da8528a1ec3fb73f24bd0a96de8989a26fa8c10
+Author: Travis-CI on github.com/conda-forge/staged-recipes <conda-forge@googlegroups.com>
+Date:   Thu May 19 18:21:39 2016 +0000
+
+    Re-render the feedstock after CI registration.
+
+commit 82defd153cbb9046782ae70415b06ef1133d12ee
+Author: Travis-CI on github.com/conda-forge/staged-recipes <conda-forge@googlegroups.com>
+Date:   Thu May 19 18:20:52 2016 +0000
+
+    Initial commit of the curl feedstock.

@@ -1,0 +1,14 @@
+wget
+m4
+help2man
+patch
+gcc-gfortran
+gcc-c++
+rsync
+sed
+findutils
+make
+file
+bison
+automake
+autoconf

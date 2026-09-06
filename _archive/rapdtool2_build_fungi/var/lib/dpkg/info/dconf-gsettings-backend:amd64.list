@@ -1,0 +1,12 @@
+/.
+/usr
+/usr/lib
+/usr/lib/x86_64-linux-gnu
+/usr/lib/x86_64-linux-gnu/gio
+/usr/lib/x86_64-linux-gnu/gio/modules
+/usr/lib/x86_64-linux-gnu/gio/modules/libdconfsettings.so
+/usr/share
+/usr/share/doc
+/usr/share/doc/dconf-gsettings-backend
+/usr/share/doc/dconf-gsettings-backend/copyright
+/usr/share/doc/dconf-gsettings-backend/changelog.Debian.gz

@@ -1,0 +1,26 @@
+{
+  "arch": "x86_64",
+  "build": "h8f2d780_0",
+  "build_number": 0,
+  "channel": "https://repo.anaconda.com/pkgs/main/linux-64",
+  "constrains": [],
+  "depends": [
+    "libgcc-ng >=7.5.0",
+    "openssl >=1.1.1n,<1.1.2a"
+  ],
+  "features": "",
+  "fn": "libssh2-1.10.0-h8f2d780_0.conda",
+  "legacy_bz2_md5": "f99f13daacf379a329e041ec148c4db7",
+  "license": "BSD-3-Clause",
+  "license_family": "BSD",
+  "md5": "dede0f0061d9891642f640c2c4ea442e",
+  "name": "libssh2",
+  "platform": "linux",
+  "sha256": "d462b8a03cfa2599b8d8711c63109997ee555b6db63a411d7632c1b087229f40",
+  "size": 280643,
+  "subdir": "linux-64",
+  "timestamp": 1651087263509,
+  "track_features": "",
+  "url": "https://repo.anaconda.com/pkgs/main/linux-64/libssh2-1.10.0-h8f2d780_0.conda",
+  "version": "1.10.0"
+}

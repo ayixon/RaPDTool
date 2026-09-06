@@ -1,0 +1,5 @@
+{
+  "go_compiler": "go-nocgo",
+  "target_platform": "linux-64",
+  "channel_targets": "bioconda main"
+}

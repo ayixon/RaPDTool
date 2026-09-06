@@ -1,0 +1,25 @@
+?package(x11-utils):\
+ needs="x11"\
+ section="Applications/System/Administration"\
+ longtitle="Editres: resource editor for X Toolkit applications"\
+ title="Editres"\
+ command="editres"
+?package(x11-utils):\
+ needs="x11"\
+ section="Applications/System/Monitoring"\
+ longtitle="Xev: display X events"\
+ title="Xev"\
+ command="x-terminal-emulator -e xev"
+?package(x11-utils):\
+ needs="x11"\
+ section="Applications/System/Administration"\
+ hints="Fonts"\
+ longtitle="Xfontsel: font viewer/selector for X"\
+ title="Xfontsel"\
+ command="xfontsel"
+?package(x11-utils):\
+ needs="x11"\
+ section="Applications/System/Administration"\
+ longtitle="Xkill: tool to kill X clients by clicking on their windows"\
+ title="Xkill"\
+ command="xkill"

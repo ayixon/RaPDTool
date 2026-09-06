@@ -1,0 +1,14 @@
+#!/bin/sh
+
+# Public domain notice for all NCBI EDirect scripts is located at:
+# https://www.ncbi.nlm.nih.gov/books/NBK179288/#chapter6.Public_Domain_Notice
+
+xtract -pattern INSDSeq -pfx ">Feature " \
+    -first INSDSeqid,INSDSeq_accession-version \
+  -group INSDFeature -FKEY INSDFeature_key \
+    -block INSDInterval -deq "\n" \
+      -element INSDInterval_from INSDInterval_to \
+        INSDInterval_point INSDInterval_point \
+        "&FKEY" -FKEY "()" \
+    -block INSDQualifier -deq "\n\t\t\t" \
+      -element INSDQualifier_name INSDQualifier_value

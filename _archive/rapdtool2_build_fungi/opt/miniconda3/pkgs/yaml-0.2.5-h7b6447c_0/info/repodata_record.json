@@ -1,0 +1,23 @@
+{
+  "build": "h7b6447c_0",
+  "build_number": 0,
+  "channel": "https://repo.anaconda.com/pkgs/main/linux-64",
+  "constrains": [],
+  "depends": [
+    "libgcc-ng >=7.3.0"
+  ],
+  "features": "",
+  "fn": "yaml-0.2.5-h7b6447c_0.conda",
+  "legacy_bz2_md5": "fcff4f33bb4e3fa91f8d5c3168807abb",
+  "legacy_bz2_size": 88839,
+  "license": "MIT",
+  "md5": "39fdbf4db769e494ffb06d95680c83d8",
+  "name": "yaml",
+  "sha256": "e22753e19432d606139f7a604757839d265dff93345226ba0732676526870e28",
+  "size": 76992,
+  "subdir": "linux-64",
+  "timestamp": 1593116114710,
+  "track_features": "",
+  "url": "https://repo.anaconda.com/pkgs/main/linux-64/yaml-0.2.5-h7b6447c_0.conda",
+  "version": "0.2.5"
+}

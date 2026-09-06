@@ -1,0 +1,4 @@
+/etc
+/etc/dpkg
+/etc/dpkg/shlibs.default
+/etc/dpkg/shlibs.override

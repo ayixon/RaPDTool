@@ -1,0 +1,6 @@
+e213894161092a82ed76223236ff4583  usr/bin/pkcon
+77381dbbd7dc3b314afcfbb93f83aa4d  usr/bin/pkmon
+8d636d7269f46584ea1fb74ac3fd52e1  usr/share/bash-completion/completions/pkcon
+425c52c2a8925e39a64c7e4178147984  usr/share/doc/packagekit-tools/copyright
+f15fc1d8869502106fce7b9498a1da60  usr/share/man/man1/pkcon.1.gz
+d97c69bcb07223d81c1af15eaacf31ca  usr/share/man/man1/pkmon.1.gz

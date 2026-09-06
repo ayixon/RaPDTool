@@ -1,0 +1,75 @@
+#!/bin/sh
+#
+# postinst script for the Debian GNU/Linux r-base-core package
+# This version originally written by Douglas Bates <bates@stat.wisc.edu>
+# and now written and maintained by Dirk Eddelbuettel <edd@debian.org>
+
+set -e
+
+# Automatically added by dh_installdeb/13.6ubuntu1
+dpkg-maintscript-helper mv_conffile /etc/bash_completion.d/R /usr/share/bash-completion/completions/R -- "$@"
+# End automatically added section
+
+    
+    
+case "$1" in
+  configure)
+    # edd 19 Jun 2004   deal with papersize 
+    # edd 22 Jun 2004   make that conditional on paperconf
+    # edd 25 Oct 2006   rewritten for R 2.4.0 and R_PAPERSIZE_USER
+    # edd 21 Jun 2008   rewritten for R 2.7.1 and ucf input 
+    # edd 23 Feb 2013   trying to avoid md5sum issues with help from Andy Beckman
+    # edd 26 Feb 2013   correct mode of temp. Renviron file with help from Don Armstrong
+    tmpRenviron=$(mktemp)
+    chmod 0644 "$tmpRenviron"
+    cat /usr/lib/R/etc/Renviron.ucf > "$tmpRenviron"
+    #if [ -x /usr/bin/paperconf ]; then
+        ## get the value we want from Debian's paperconf utility
+        papersize=`paperconf`
+	## have perl subst. second expression with $papersize for first
+	## uses the x mod. and curlies to denote the usual s|1st|2nd|
+	perl -p -i -e "s{^R_PAPERSIZE_USER=\\$\{R_PAPERSIZE\}}
+		{R_PAPERSIZE_USER=\\$\{R_PAPERSIZE-'$papersize'\}}x" "$tmpRenviron"
+    #fi
+    # edd 21 Jun 2008  whether or not Renviron was modified, ucf will handle it, 
+    #                  so tell ucf that file Renviron.ucf is the source for 
+    #                  conffile in /etc and register it
+    ucf "$tmpRenviron" /etc/R/Renviron
+    ucfr r-base-core /etc/R/Renviron
+    rm -f "$tmpRenviron"
+    #
+    #if [ -x /usr/bin/update-menus ]; then
+    #  update-menus 
+    #fi
+
+    # edd 03 Apr 2003  cf Section 10.1.2 of Debian Policy
+    # edd 06 Feb 2021  #982069, with a nod to Python's debian/PVER-minimal.postinst.in
+    if [ -e /etc/staff-group-for-usr-local ]; then
+        perm=2775
+        group=staff
+    else
+        perm=755
+        group=root
+    fi
+    if [ ! -e /usr/local/lib/R ]; then
+        mkdir -p /usr/local/lib/R 2> /dev/null || true
+        chmod $perm /usr/local/lib/R 2> /dev/null || true
+        chown root:$group /usr/local/lib/R 2> /dev/null || true
+    fi
+    localsitelibrary=/usr/local/lib/R/site-library
+    if [ ! -e $localsitelibrary ]; then
+        mkdir -p $localsitelibrary 2> /dev/null || true
+        chmod $perm $localsitelibrary 2> /dev/null || true
+        chown root:$group $localsitelibrary 2> /dev/null || true
+    fi
+
+    #if [ -x /usr/bin/mktexlsr ]; then
+    #  mktexlsr /usr/share/texmf
+    #fi
+    ;;
+  abort-upgrade|abort-remove|abort-deconfigure)
+    ;;
+  *)
+    echo "postinst called with unknown argument \`$1'" >&2
+    ;;
+esac

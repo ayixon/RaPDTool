@@ -1,0 +1,38 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+
+Files: *
+Copyright: 2016 Niko Tyni
+License: Artistic or GPL-1+
+Comment:
+    This program is free software; you can redistribute it and/or modify
+    it under the terms of either:
+ .
+    a) the GNU General Public License as published by the Free Software
+       Foundation; either version 1, or (at your option) any later
+       version, or
+ .
+    b) the "Artistic License" which comes with Perl.
+
+Files: debian/dh_perl_openssl debian/perl_openssl.pm
+Copyright: Copyright 2010, Ansgar Burchardt <ansgar@debian.org>
+           Copyright 2016, Niko Tyni
+License: Artistic or GPL-1+
+Comment:
+    This program is free software, you can redistribute it and/or modify it under
+    the same terms as Perl itself.
+
+License: Artistic
+ This program is free software; you can redistribute it and/or modify
+ it under the terms of the Artistic License, which comes with Perl.
+ .
+ On Debian systems, the complete text of the Artistic License can be
+ found in `/usr/share/common-licenses/Artistic'.
+
+License: GPL-1+
+ This program is free software; you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation; either version 1, or (at your option)
+ any later version.
+ .
+ On Debian systems, the complete text of version 1 of the GNU General
+ Public License can be found in `/usr/share/common-licenses/GPL-1'.

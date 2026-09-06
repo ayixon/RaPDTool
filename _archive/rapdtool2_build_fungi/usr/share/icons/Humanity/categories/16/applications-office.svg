@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+<svg id="svg11300" width="16" height="16" version="1.0" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+ <defs id="defs3">
+  <linearGradient id="linearGradient6782" x1="29" x2="29" y1="30" y2="48" gradientTransform="matrix(.4001 0 0 .41179 -5.1028 -4.0598)" gradientUnits="userSpaceOnUse">
+   <stop id="stop4105" style="stop-color:#edd563" offset="0"/>
+   <stop id="stop4107" style="stop-color:#e08223" offset="1"/>
+  </linearGradient>
+  <linearGradient id="linearGradient6784" x1="126" x2="126" y1="44" y2="52" gradientTransform="translate(-121,-36)" gradientUnits="userSpaceOnUse">
+   <stop id="stop6484" style="stop-color:#cd8033" offset="0"/>
+   <stop id="stop6486" style="stop-color:#bb5e12" offset="1"/>
+  </linearGradient>
+  <linearGradient id="linearGradient6787" x1="37" x2="37" y1="35" y2="48" gradientTransform="matrix(.40166 0 0 .41733 -4.3613 -4.3191)" gradientUnits="userSpaceOnUse">
+   <stop id="stop2266" style="stop-color:#d7e866" offset="0"/>
+   <stop id="stop2268" style="stop-color:#8cab2a" offset="1"/>
+  </linearGradient>
+  <linearGradient id="linearGradient6790" x1="45" x2="45" y1="25" y2="48" gradientTransform="matrix(.4015 0 0 .36396 -3.5674 -1.7847)" gradientUnits="userSpaceOnUse">
+   <stop id="stop139214" style="stop-color:#a7bce2" offset="0"/>
+   <stop id="stop139216" style="stop-color:#5077b1" offset="1"/>
+  </linearGradient>
+  <linearGradient id="linearGradient5565" x1="9.4142" x2="48.851" y1="9.4142" y2="34.939" gradientTransform="matrix(.34145 0 0 .44441 -2.402 -3.2771)" gradientUnits="userSpaceOnUse">
+   <stop id="stop6282" style="stop-color:#fff" offset="0"/>
+   <stop id="stop6284" style="stop-color:#dcdcdc" offset="1"/>
+  </linearGradient>
+  <linearGradient id="linearGradient5567" x1="48.851" x2="9.4142" y1="34.939" y2="9.4142" gradientTransform="matrix(.34145 0 0 .44441 -2.402 -3.2771)" gradientUnits="userSpaceOnUse">
+   <stop id="stop6290" style="stop-color:#969696" offset="0"/>
+   <stop id="stop6292" style="stop-color:#bebebe" offset="1"/>
+  </linearGradient>
+ </defs>
+ <g id="g6341">
+  <rect id="rect7057" x=".5002" y=".5002" width="14" height="12" style="enable-background:new;fill-rule:evenodd;fill:url(#linearGradient5565);stroke-linecap:round;stroke-linejoin:round;stroke-width:1.0004;stroke:url(#linearGradient5567)"/>
+  <rect id="rect7142" x="5" y="3" width="1" height="7" style="enable-background:new;fill-rule:evenodd;fill:#bebebe"/>
+  <rect id="rect7140" x="2" y="3" width="1" height="7" style="fill-rule:evenodd;fill:#bebebe"/>
+  <rect id="rect7144" x="12" y="3" width="1" height="8" style="enable-background:new;fill-rule:evenodd;fill:#bebebe"/>
+  <path id="path7108" d="m2 10v1h11v-1h-11z" style="enable-background:new;fill-rule:evenodd;fill:#fed995"/>
+  <path id="path7110" d="m2 9v1h11v-1h-11z" style="enable-background:new;fill-rule:evenodd;fill:#c7af64"/>
+  <path id="path7136" d="m2 7v1h11v-1h-11z" style="enable-background:new;fill-rule:evenodd;fill:#fed995"/>
+  <path id="path7073" d="m2 6v1h11v-1h-11z" style="enable-background:new;fill-rule:evenodd;fill:#c7af64"/>
+  <rect id="rect7128" x="2" y="3" width="11" height="1" style="enable-background:new;fill-rule:evenodd;fill:#deaa76"/>
+  <path id="path7138" d="m2 2v1h11v-1h-11z" style="enable-background:new;fill-rule:evenodd;fill:#cd8033"/>
+  <path id="path5569" d="m2 4v1h11v-1h-11z" style="enable-background:new;fill-rule:evenodd;fill:#cd8033"/>
+  <rect id="rect7154" x="12" y="2" width="1" height="9" style="enable-background:new;fill-rule:evenodd;opacity:.15"/>
+  <rect id="rect7146" x="2" y="2" width="1" height="9" style="enable-background:new;fill-rule:evenodd;opacity:.15"/>
+  <rect id="rect7152" x="5" y="2" width="1" height="9" style="enable-background:new;fill-rule:evenodd;opacity:.15"/>
+  <rect id="rect7114" x="13.498" y="7.4977" width="2.0046" height="8.0046" style="enable-background:new;fill-rule:evenodd;fill:url(#linearGradient6790);stroke-linecap:round;stroke-width:.99538;stroke:#0854a9"/>
+  <rect id="rect7118" x="9.4913" y="10.491" width="2.0173" height="5.0173" style="enable-background:new;fill-rule:evenodd;fill:url(#linearGradient6787);stroke-linecap:round;stroke-width:.98266;stroke:#42770c"/>
+  <rect id="rect7122" x="5.4986" y="8.4986" width="2.0028" height="7.0028" style="enable-background:new;fill-rule:evenodd;fill:url(#linearGradient6782);stroke-linecap:round;stroke-width:.99721;stroke:url(#linearGradient6784)"/>
+  <rect id="rect7112" x="5" y="15" width="11" height="1" style="fill-rule:evenodd;fill:#464646"/>
+ </g>
+</svg>

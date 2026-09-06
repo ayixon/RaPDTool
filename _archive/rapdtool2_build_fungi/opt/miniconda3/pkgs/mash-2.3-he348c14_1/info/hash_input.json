@@ -1,0 +1,10 @@
+{
+  "target_platform": "linux-64",
+  "cxx_compiler_version": "9",
+  "gsl": "2.6",
+  "libcblas": "3.8 *netlib",
+  "cxx_compiler": "gxx",
+  "CONDA_BUILD_SYSROOT": "",
+  "channel_targets": "bioconda main",
+  "zlib": "1.2"
+}

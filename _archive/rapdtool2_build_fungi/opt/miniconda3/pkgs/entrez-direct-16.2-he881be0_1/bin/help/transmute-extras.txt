@@ -1,0 +1,23 @@
+Mismatch Detection (RefSeq Proteins with 3 Residue Differences from RefSeq Genome)
+
+  esearch -db gene -query "DMD [GENE] AND human [ORGN]" |
+  efetch -format docsum |
+  xtract -pattern DocumentSummary -block GenomicInfoType \
+    -tab "\n" -element ChrAccVer,ChrStart,ChrStop |
+  xargs -n 3 sh -c 'efetch -db nuccore -format gbc \
+    -id "$0" -chr_start "$1" -chr_stop "$2"' > dystrophin.xml
+
+  cat dystrophin.xml |
+  xtract -insd CDS gene product translation sub_sequence > dystrophin.txt
+
+  cat dystrophin.txt |
+  while IFS=$'\t' read acc gene prod prot seq
+  do
+    trans=$( echo "$seq" | transmute -cds2prot )
+    if [ "$prot" != "$trans" ]
+    then
+      echo ">$acc $gene $prod"
+      transmute -diff <( echo "$prot" ) <( echo "$trans" )
+      echo ""
+    fi
+  done > failures.txt

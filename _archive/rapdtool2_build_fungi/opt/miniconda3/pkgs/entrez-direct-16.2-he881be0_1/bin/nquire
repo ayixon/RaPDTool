@@ -1,0 +1,725 @@
+#!/bin/sh
+
+# ===========================================================================
+#
+#                            PUBLIC DOMAIN NOTICE
+#            National Center for Biotechnology Information (NCBI)
+#
+#  This software/database is a "United States Government Work" under the
+#  terms of the United States Copyright Act.  It was written as part of
+#  the author's official duties as a United States Government employee and
+#  thus cannot be copyrighted.  This software/database is freely available
+#  to the public for use. The National Library of Medicine and the U.S.
+#  Government do not place any restriction on its use or reproduction.
+#  We would, however, appreciate having the NCBI and the author cited in
+#  any work or product based on this material.
+#
+#  Although all reasonable efforts have been taken to ensure the accuracy
+#  and reliability of the software and data, the NLM and the U.S.
+#  Government do not and cannot warrant the performance or results that
+#  may be obtained by using this software or data. The NLM and the U.S.
+#  Government disclaim all warranties, express or implied, including
+#  warranties of performance, merchantability or fitness for any particular
+#  purpose.
+#
+# ===========================================================================
+#
+# File Name:  nquire
+#
+# Author:  Jonathan Kans, Aaron Ucko
+#
+# Version Creation Date:   03/28/2020
+#
+# ==========================================================================
+
+# pth must contain cacert.pem certificate (previously within aux/lib/perl5/Mozilla/CA/ subdirectory)
+
+pth=$( dirname "$0" )
+
+case ":$PATH:" in
+  *:"$pth":* )
+    ;;
+  * )
+    PATH="$PATH:$pth"
+    export PATH
+    ;;
+esac
+
+# set up colors for error report
+
+ColorSetup() {
+
+  if [ -z "$TERM" ] || [ ! -t 2 ]
+  then
+    RED=""
+    BLUE=""
+    BOLD=""
+    FLIP=""
+    INIT=""
+  elif command -v tput >/dev/null
+  then
+    RED="$(tput setaf 1)"
+    BLUE="$(tput setaf 4)"
+    BOLD="$(tput bold)"
+    FLIP="$(tput rev)"
+    INIT="$(tput init)"
+  else
+    # assume ANSI
+    escape="$(printf '\033')"
+    RED="${escape}[31m"
+    BLUE="${escape}[34m"
+    BOLD="${escape}[1m"
+    FLIP="${escape}[7m"
+    INIT="${escape}[0m"
+  fi
+  LOUD="${INIT}${RED}${BOLD}"
+  INVT="${LOUD}${FLIP}"
+}
+
+ColorSetup
+
+# allow environment variable to set preference for curl or wget (undocumented)
+
+helper=""
+
+if [ -n "${NQUIRE_HELPER}" ]
+then
+  helper="${NQUIRE_HELPER}"
+fi
+
+# allow environment variable to set curl connection timeout (undocumented)
+
+timeout=20
+
+if [ -n "${NQUIRE_TIMEOUT}" ]
+then
+  timeout="${NQUIRE_TIMEOUT}"
+fi
+
+# allow environment variable to set IPv4 flag (undocumented)
+
+ip_ver_flag=""
+
+case "${NQUIRE_IPV4}" in
+  [TtYy]* | 1 | [Oo][Nn] )
+    # force IPv4
+    ip_ver_flag=-4
+    ;;
+  "" | * )
+    ;;
+esac
+
+# check for leading flags
+
+debug=false
+log=false
+raw=false
+
+while [ $# -gt 0 ]
+do
+  case "$1" in
+    -newmode | -oldmode )
+      shift
+      ;;
+    -version )
+      version=$( einfo -version )
+      echo "$version"
+      exit 0
+      ;;
+    -h | -help | --help | help )
+      version=$( einfo -version )
+      echo "nquire $version"
+      echo ""
+      cat "$pth/help/nquire-help.txt"
+      echo ""
+      exit 0
+      ;;
+    -examples )
+      version=$( einfo -version )
+      echo "nquire $version"
+      echo ""
+      cat "$pth/help/nquire-examples.txt"
+      echo ""
+      exit 0
+      ;;
+    -debug )
+      debug=true
+      shift
+      ;;
+    -log )
+      log=true
+      shift
+      ;;
+    -raw )
+      raw=true
+      shift
+      ;;
+    -curl )
+      # override setting from environment variable (undocumented)
+      helper="curl"
+      shift
+      ;;
+    -wget )
+      # override setting from environment variable (undocumented)
+      helper="wget"
+      shift
+      ;;
+    * )
+      # allows while loop to check for multiple flags
+      break
+      ;;
+  esac
+done
+
+# check for presence of curl or wget
+
+case "$helper" in
+  curl | CURL | CUrl | Curl | cUrl | cURL )
+    binary=$( command -v curl )
+    if [ ! -x "$binary" ]
+    then
+      echo "${INVT} ERROR: ${LOUD} nquire is unable to find curl executable${INIT}" >&2
+      exit 1
+    fi
+    ;;
+  wget | WGET | WGet | Wget | wGet | wGET )
+    binary=$( command -v wget )
+    if [ ! -x "$binary" ]
+    then
+      echo "${INVT} ERROR: ${LOUD} nquire is unable to find wget executable${INIT}" >&2
+      exit 1
+    fi
+    ;;
+  * )
+    binary=$( command -v curl )
+    if [ ! -x "$binary" ]
+    then
+      binary=$( command -v wget )
+    fi
+    if [ ! -x "$binary" ]
+    then
+      echo "${INVT} ERROR: ${LOUD} nquire is unable to find either curl or wget${INIT}" >&2
+      exit 1
+    fi
+    ;;
+esac
+
+# subset of perl -MURI::Escape -ne 'chomp;print uri_escape($_),"\n"'
+
+Escape() {
+
+  echo "$1" |
+  sed -e "s/%/%25/g" \
+      -e "s/!/%21/g" \
+      -e "s/#/%23/g" \
+      -e "s/&/%26/g" \
+      -e "s/'/%27/g" \
+      -e "s/*/%2A/g" \
+      -e "s/+/%2B/g" \
+      -e "s/,/%2C/g" \
+      -e "s|/|%2F|g" \
+      -e "s/:/%3A/g" \
+      -e "s/;/%3B/g" \
+      -e "s/=/%3D/g" \
+      -e "s/?/%3F/g" \
+      -e "s/@/%40/g" \
+      -e "s/|/%7C/g" \
+      -e "s/ /%20/g" |
+  sed -e 's/\$/%24/g' \
+      -e 's/(/%28/g' \
+      -e 's/)/%29/g' \
+      -e 's/</%3C/g' \
+      -e 's/>/%3E/g' \
+      -e 's/\[/%5B/g' \
+      -e 's/\]/%5D/g' \
+      -e 's/\^/%5E/g' \
+      -e 's/{/%7B/g' \
+      -e 's/}/%7D/g'
+}
+
+# initialize variables
+
+mode=""
+
+url=""
+sls=""
+
+arg=""
+amp=""
+cmd=""
+pfx=""
+
+# optionally include nextra.sh script, if present, for internal NCBI maintenance functions (undocumented)
+
+if [ -f "$pth"/nextra.sh ]
+then
+  # dot command is equivalent of "source"
+  . "$pth"/nextra.sh
+fi
+
+# get extraction method or shortcut
+
+if [ $# -gt 0 ]
+then
+  case "$1" in
+    -url | -get | -lst | -dir | -ftp | -dwn | -asp )
+      mode="$1"
+      shift
+      ;;
+    -ncbi )
+      # shortcut for NCBI base
+      shift
+      url="https://www.ncbi.nlm.nih.gov"
+      sls="/"
+      mode="-url"
+      ;;
+    -eutils )
+      # shortcut for EUtils base
+      shift
+      url="https://eutils.ncbi.nlm.nih.gov/entrez/eutils"
+      sls="/"
+      mode="-url"
+      ;;
+    -pubchem )
+      # shortcut for PubChem REST base
+      shift
+      url="https://pubchem.ncbi.nlm.nih.gov/rest/pug"
+      sls="/"
+      mode="-url"
+      ;;
+    -* )
+      exec >&2
+      echo "${INVT} ERROR: ${LOUD} '$1' is not a recognized nquire option${INIT}" >&2
+      exit 1
+      ;;
+    * )
+      echo "${INVT} ERROR: ${LOUD} '$1' is not a recognized nquire command${INIT}" >&2
+      exit 1
+      ;;
+  esac
+fi
+
+# collect URL directory components
+
+while [ $# -gt 0 ]
+do
+  case "$1" in
+    -* )
+      # otherwise leading dash indicates end of path, switch to arguments
+      break
+      ;;
+    * )
+      dir="$1"
+      # remove trailing slash directory delimiter
+      dir=${dir%/}
+      shift
+      url="$url$sls$dir"
+      sls="/"
+      ;;
+  esac
+done
+
+# collect argument tags paired with (escaped) values
+
+while [ $# -gt 0 ]
+do
+  case "$1" in
+    -* )
+      cmd="$1"
+      # remove leading dash from argument
+      cmd=${cmd#-}
+      # add argument and command
+      arg="$arg$amp$cmd"
+      # subsequent commands preceded by ampersand
+      amp="&"
+      # precede first value (if any) with equal sign
+      pfx="="
+      shift
+      ;;
+    * )
+      val="$1"
+      # remove initial backslash used to protect leading minus sign
+      val=${val#\\}
+      # URL encoding
+      if [ "$raw" = true ]
+      then
+        val=$( echo "$val" | sed -e "s/&/%26/g" -e "s/=/%3D/g" )
+      else
+        val=$( Escape "$val" )
+      fi
+      arg="$arg$pfx$val"
+      # concatenate run of values with commas
+      pfx=","
+      shift
+      ;;
+  esac
+done
+
+# reality checks
+
+if [ -z "$mode" ]
+then
+  echo "${INVT} ERROR: ${LOUD} nquire mode (-url, -get, -lst, -dir, -ftp, -dwn, -asp) is missing${INIT}" >&2
+  exit 1
+elif [ -z "$url" ]
+then
+  echo "${INVT} ERROR: ${LOUD} nquire is missing the URL${INIT}" >&2
+  exit 1
+fi
+
+# debugging output to stderr
+
+if [ "$debug" = true ]
+then
+  if [ -z "$arg" ]
+  then
+    echo "PTH $pth" >&2
+    echo "URL $url" >&2
+  elif [ "$mode" = "-url" ]
+  then
+    echo "curl -fsSL \"$url\" -d \"$arg\"" >&2
+  elif [ "$mode" = "-get" ]
+  then
+    echo "curl -fsSL \"$url?$arg\"" >&2
+  else
+    echo "PTH $pth" >&2
+    echo "URL $url" >&2
+    echo "ARG $arg" >&2
+  fi
+  exit 0
+fi
+
+# pause if Entrez Utilities server to avoid exceeding request frequency limit
+
+slow=false
+
+case "${SLOW_EDIRECT}" in
+  "" | [FfNn]* | 0 | [Oo][Ff][Ff] )
+    ;;
+  * )
+    slow=true
+    ;;
+esac
+
+hasperl=$( command -v perl )
+
+case $url in
+  *"dev.ncbi.nlm.nih.gov/entrez/eutils/"* | *"internal.ncbi.nlm.nih.gov/entrez/eutils/"* )
+    if [ "$slow" = true ]
+    then
+      sleep 1
+    elif [ -x "$hasperl" ]
+    then
+      perl -MTime::HiRes -e 'Time::HiRes::usleep(1000)'
+    fi
+    ;;
+  *"/entrez/eutils/"* )
+    if [ "$slow" = true ]
+    then
+      sleep 1
+    elif [ -x "$hasperl" ]
+    then
+      case $arg in
+        *"api_key="* )
+          perl -MTime::HiRes -e 'Time::HiRes::usleep(110000)'
+          ;;
+        * )
+          perl -MTime::HiRes -e 'Time::HiRes::usleep(350000)'
+          ;;
+      esac
+    else
+      sleep 1
+    fi
+    ;;
+  *"ftp.ncbi.nlm.nih.gov"* | *"nlmpubs.nlm.nih.gov"* )
+    sleep 1
+    ;;
+esac
+
+# accommodate CYGWIN using Windows version of curl that fails to recognize Cygwin paths
+
+fix_path="printf %s"
+case "$(uname -s)" in
+  CYGWIN_NT* )
+    if curl --version | grep -q Windows
+    then
+      fix_path="cygpath -w"
+    fi
+    ;;
+esac
+
+# common function to execute curl or wget command
+
+SendRequest() {
+
+  when=$( date )
+
+  case "$binary" in
+    */curl )
+      if [ "$log" = true ]
+      then
+        echo "${BLUE}$@${INIT}" >&2
+      fi
+
+      temp=$(mktemp /tmp/NQUIRE_HEADER.XXXXXXXXX)
+
+      if [ -f "$pth"/cacert.pem ]
+      then
+        curl --http1.0 --connect-timeout 20 -fsSL $ip_ver_flag \
+             --cacert "$($fix_path "$pth"/cacert.pem)" \
+             -D "$($fix_path "$temp")" "$@"
+      else
+        curl --http1.0 --connect-timeout 20 -fsSL $ip_ver_flag \
+             -D "$($fix_path "$temp")" "$@"
+      fi
+
+      # capture and check curl return value
+      res=$?
+      if [ "$res" -ne 0 ]
+      then
+        # report failure
+        echo "${INVT} ERROR: ${LOUD} curl command failed ( $when ) with: ${res}${INIT}" >&2
+        echo "${BLUE}$@${INIT}" >&2
+        # show return code in first line of header
+        head -n 1 "$temp" >&2
+      fi
+
+      rm "$temp"
+      ;;
+    */wget )
+      if [ "$log" = true ]
+      then
+        echo "${BLUE}$@${INIT}" >&2
+      fi
+
+      temp=$(mktemp /tmp/NQUIRE_HEADER.XXXXXXXXX)
+
+      # wget needs --no-remove-listing for ftp listing?
+
+      full_output=""
+      if [ -f "$pth"/cacert.pem ]
+      then
+        wget -qS -O - --ca-certificate="$pth"/cacert.pem "$@" 2> "$temp"
+      else
+        wget -qS -O - --no-check-certificate "$@" 2> "$temp"
+      fi
+
+      # capture and check wget return value
+      res=$?
+      if [ "$res" -ne 0 ]
+      then
+        # report failure
+        echo "${INVT} ERROR: ${LOUD} wget command failed ( $when ) with: ${res}${INIT}" >&2
+        echo "${BLUE}$@${INIT}" >&2
+        # show return code in first line of header
+        head -n 1 "$temp" >&2
+      fi
+
+      rm "$temp"
+      ;;
+  esac
+}
+
+# can use Aspera if installed
+
+APPPATH=""
+KEYPATH=""
+KEYNAME=asperaweb_id_dsa.openssh
+
+HasAspera() {
+
+  case "$( uname -s )" in
+    Darwin )
+      sysdir='/Applications/Aspera Connect.app/Contents/Resources'
+      sysdir2=/bin
+      userdir=$HOME$sysdir
+      ;;
+    CYGWIN_NT* )
+      sysdir='/cygdrive/c/Program Files/Aspera/Aspera Connect/bin'
+      sysdir2='/cygdrive/c/Program Files (x86)/Aspera/Aspera Connect/bin'
+      userdir="$( cygpath -H )/$USER/AppData/Local/Programs/Aspera/Aspera Connect/bin"
+      ;;
+    * )
+      sysdir=/opt/aspera/bin
+      sysdir2=/bin
+      userdir=$HOME/.aspera/connect/bin
+      ;;
+  esac
+  for d in "$sysdir" "$sysdir2" "$userdir"
+  do
+    if "$d/ascp" --version 2>&1 | grep '^Aspera' >/dev/null
+    then
+      APPPATH=$d
+      break
+    fi
+  done
+  if [ -z "$APPPATH" ]  &&  ascp --version 2>&1 | grep '^Aspera' >/dev/null
+  then
+    APPPATH=$( type -path ascp )
+    APPPATH=$( dirname "$APPPATH" )
+  fi
+  if [ -z "$APPPATH" ]
+  then
+    return 1
+  fi
+
+  for d in "$APPPATH" "$sysdir" "$sysdir2" "$userdir"
+  do
+    if [ -f "$d/../etc/$KEYNAME" ]
+    then
+      KEYPATH=$d/../etc
+      break
+    elif [ -f "$d/$KEYNAME" ]
+    then
+      KEYPATH=$d
+      break
+    fi
+  done
+  if [ -z "$KEYPATH" ]
+  then
+    return 1
+  fi
+
+  return 0
+}
+
+if [ "$mode" = "-asp" ]
+then
+  HasAspera
+  if [ "$?" = 1 ]
+  then
+    # Aspera not found, revert to download with FTP
+    mode="-dwn"
+  else
+    # add colon before first slash in URL for Aspera
+    url=$(echo "$url" | sed -e 's|/|:/|')
+  fi
+fi
+
+# common method for file download
+
+failed=0
+
+DownloadOneFile() {
+
+  urlfl="$1"
+  fl="$2"
+
+  if [ ! -f "$fl" ]
+  then
+    # only download if local file does not already exist
+    case "$mode" in
+      -dwn )
+        SendRequest "$urlfl" > "$fl"
+        ;;
+      -asp )
+        "$APPPATH/ascp" -T -q -k 1 -l 500m -i "$KEYPATH/$KEYNAME" \
+        "anonftp@$urlfl" "."
+        ;;
+    esac
+    if [ ! -f "$fl" ]
+    then
+      failed=$((failed + 1))
+      # report failure to download requested file
+      echo "" >&2
+      echo "${RED}${fl} FAILED${INIT}" >&2
+    fi
+  fi
+}
+
+# send request with method-specific arguments
+
+case "$mode" in
+  -url )
+    case "$binary" in
+      */curl )
+        if [ -n "$arg" ]
+        then
+          SendRequest "$url" -d "$arg"
+        else
+          SendRequest "$url"
+        fi
+        ;;
+      */wget )
+        if [ -n "$arg" ]
+        then
+          SendRequest --post-data="$arg" "$url"
+        else
+          SendRequest --post-data="" "$url"
+        fi
+        ;;
+    esac
+    ;;
+  -get )
+    if [ -n "$arg" ]
+    then
+      SendRequest "$url?$arg"
+    else
+      SendRequest "$url"
+    fi
+    ;;
+  -lst )
+    case "$binary" in
+      */curl )
+        SendRequest "$url/" |
+        tr -s ' ' | tr ' ' '\t' | cut -f 9 | grep '.'
+        ;;
+      */wget )
+        echo "${INVT} ERROR: ${LOUD} -lst not supported for wget${INIT}" >&2
+        exit 1
+        ;;
+    esac
+    ;;
+  -dir )
+    case "$binary" in
+      */curl )
+        SendRequest "$url/" |
+        tr -s ' ' | tr ' ' '\t' | cut -f 5,9 | grep '.'
+        ;;
+      */wget )
+        echo "${INVT} ERROR: ${LOUD} -dir not supported for wget${INIT}" >&2
+        exit 1
+    esac
+    ;;
+  -ftp )
+    if [ -t 0 ]
+    then
+      SendRequest "$url"
+    else
+      # read file names from stdin, URL contains base address of server
+      while IFS=$'\t' read fl
+      do
+        SendRequest "$url/$fl"
+      done
+    fi
+    ;;
+  -dwn | -asp )
+    if [ -t 0 ]
+    then
+      # file name is included in URL constructed from command line arguments
+      fl=$( basename "$url" )
+      DownloadOneFile "$url" "$fl"
+    else
+      # read file names from stdin, URL contains base address of server
+      while IFS=$'\t' read fl
+      do
+        DownloadOneFile "$url/$fl" "$fl"
+      done
+    fi
+    sfx=""
+    if [ "$failed" -gt 0 ]
+    then
+      if [ "$failed" -gt 1 ]
+      then
+        sfx="S"
+      fi
+      echo "" >&2
+      echo "${LOUD}FAILED TO DOWNLOAD $failed FILE${sfx}${INIT}" >&2
+      exit 1
+    fi
+    ;;
+  * )
+    echo "${INVT} ERROR: ${LOUD} '$1' is not a recognized nquire option${INIT}" >&2
+    exit 1
+    ;;
+esac

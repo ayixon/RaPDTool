@@ -1,0 +1,12 @@
+# -*- sh -*-
+# Xsession.d script to set the env variables to enable accessibility for Qt
+#
+# This file is sourced by Xsession(5), not executed.
+
+QT_ACCESSIBILITY=1
+
+export QT_ACCESSIBILITY
+
+if [ -x "/usr/bin/dbus-update-activation-environment" ]; then
+        dbus-update-activation-environment --verbose --systemd QT_ACCESSIBILITY
+fi

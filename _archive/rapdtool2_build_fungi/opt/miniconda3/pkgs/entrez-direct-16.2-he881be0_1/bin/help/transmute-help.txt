@@ -1,0 +1,342 @@
+Pretty-Printing
+
+ Reformat XML
+
+  -x2p
+
+ Reformat JSON
+
+  -j2p
+
+ Table column alignment
+
+  -align
+
+    -a    Column alignment codes:
+
+            l left
+            c center
+            r right
+            n numeric align on decimal point
+            N trailing zero-pad decimals
+            z leading zero-pad integers
+            m commas to group by 3 digits
+            M commas plus zero-pad decimals
+
+    -g    Spacing between columns
+    -h    Indent before columns
+    -w    Minimum column width
+
+Data Conversion
+
+ JSON stream to XML
+
+  -j2x
+
+    -set setWrapper
+    -rec recordWrapper
+    -nest [flat|recurse|plural|depth|element]
+
+ ASN.1 stream to XML
+
+  -a2x
+
+    -set setWrapper
+    -rec recordWrapper
+
+ Tab-delimited table to XML
+
+  -t2x
+
+    -set setWrapper
+    -rec recordWrapper
+    -skip linesToSkip
+    -header
+    -lower | -upper
+    -indent | -flush
+
+      XML object names per column
+
+ Comma-separated values file to XML
+
+  -c2x
+
+    -set setWrapper
+    -rec recordWrapper
+    -skip linesToSkip
+    -header
+    -lower | -upper
+    -indent | -flush
+
+      XML object names per column
+
+ GenBank/GenPept flatfile to INSDSeq XML
+
+  -g2x
+
+Sequence Editing
+
+  -revcomp     Reverse complement nucleotide sequence
+
+  -remove      Trim at ends of sequence
+
+    -first       Delete first N bases
+    -last        Delete last N bases
+
+  -retain      Save either end of sequence
+
+    -leading     Keep first N bases
+    -trailing    Keep last N bases
+
+  -replace     Apply base or residue substitution
+
+    -offset      Skip ahead by 0-based count (SPDI), or
+    -column      Move just before 1-based position (HGVS)
+
+    -delete      Delete N bases
+    -insert      Insert given sequence
+
+    -lower       Lower-case original sequence
+
+  -extract     Use xtract -insd feat_location instructions
+
+    -1-based     GenBank feat_location convention
+    -0-based     Alignment, or -insd feat_intervals
+    -lower       Lower-case extracted sequence
+
+Sequence Processing
+
+  -cds2prot    Translate coding region into protein
+
+    -code        Genetic code
+    -frame       Offset in sequence
+    -stop        Include stop residue
+    -trim        Remove trailing Xs and *s
+    -part5       CDS partial at 5' end
+    -part3       CDS extends past 3' end
+    -every       Translate all codons
+    -between     Optional string between residues
+
+  -molwt       Calculate molecular weight of peptide
+
+    -met         Do not cleave leading methionine
+
+Variation Processing
+
+  -hgvs        Convert HGVS variation format to XML
+
+Sequence Comparison
+
+  -counts      Print summary of base or residue counts
+
+  -diff        Compare two aligned files for point differences
+
+  -codons      Display nucleotide codons above amino acid residues
+
+    -nuc         Nucleotide sequence
+    -prt         Protein sequence
+    -frame       Offset in nucleotide sequence
+    -three       Use 3 letter residue abbreviations
+
+Sequence Searching
+
+  -search       Search for patterns in sequence, skips FASTA definition line,
+                  each pattern can have optional alias, e.g., "GGATCC:BamHI"
+
+    -protein      Do not expand nucleotide ambiguity characters
+    -circular     Match patterns spanning origin of circular molecule
+    -top          Do not search reverse-complement of non-palindromic patterns
+
+Text Searching
+
+  -find         Find one or more patterns in text, allows digits, spaces, punctuation,
+                  and phrases, e.g., "double, double toil and trouble"
+
+    -relaxed      Match on words with letters and digits, ignore spacing, punctuation
+    -sensitive    Case-sensitive match distinguishes upper-case and lower-case letters
+
+String Transformations
+
+ XML
+
+  -encodeXML
+  -decodeXML
+
+  -plainXML
+
+ URL
+
+  -encodeURL
+  -decodeURL
+
+ Base64
+
+  -encode64
+  -decode64
+
+ Case
+
+  -upper
+  -lower
+
+Protein
+
+  -aa1to3
+  -aa3to1
+
+Letters plus Digits
+
+  -relax
+
+Customized XML Reformatting
+
+  -format [compact|flush|indent|expand]
+
+    -xml
+    -doctype
+    -comment
+    -cdata
+    -combine
+    -self
+    -unicode [fuse|space|period|brackets|markdown|slash|tag]
+    -script [brackets|markdown]
+    -mathml [terse]
+
+XML Modification
+
+  -filter Object
+            [retain|remove|encode|decode|shrink|expand|accent]
+              [content|cdata|comment|object|attributes|container]
+
+EFetch XML Normalization
+
+  -normalize [database]
+
+Examples
+
+  -j2x -set - -rec GeneRec
+
+  -t2x -set Set -rec Rec -skip 1 Code Name
+
+  -filter ExpXml decode content
+
+  -filter LocationHist remove object
+
+  -normalize pubmed
+
+  -wrp PubmedArticleSet -pattern PubmedArticle -format
+
+Sequence Substitution
+
+  echo ATGAAACCCGGGTTTTAG |
+  transmute -replace -offset 5 -delete 1 -insert G
+
+Protein Translation
+
+  echo "CTAAAACCCGGGTTTCAT" |
+  transmute -revcomp |
+  transmute -cds2prot
+
+Variation Extraction
+
+  echo "NP_000504.1:p.Glu41Lys,NP_000504.1:p.P43Leu,NP_000504.1:p.Trp142Ter" |
+  transmute -hgvs | transmute -format
+
+Sequence Comparison
+
+  transmute -diff <( echo "MKPGSQPVIY" ) <( echo "-KPGFQ*VIY" )
+
+Translation of Coding Regions
+
+  efetch -db nuccore -id U54469 -format gb |
+  transmute -g2x |
+  xtract -insd CDS sub_sequence |
+  cut -f 2 |
+  while read seq
+  do
+    echo "$seq" |
+    transmute -cds2prot
+    echo ""
+  done
+
+Codon Translation Reports
+
+  efetch -db nuccore -id U54469 -format gb |
+  transmute -g2x |
+  xtract -insd CDS sub_sequence |
+  cut -f 2 |
+  while read nuc
+  do
+    prt=$( echo "$nuc" | transmute -cds2prot -every )
+    transmute -codons -nuc "$nuc" -prt "$prt" -three
+    echo ""
+  done
+
+Mitochondrial Mistranslation
+
+  efetch -db nuccore -id NC_012920 -format gb |
+  transmute -g2x |
+  xtract -insd CDS gene product protein_id translation sub_sequence |
+  while IFS=$'\t' read acc gene prod prid prot seq
+  do
+    mito=$( echo "$seq" | transmute -cds2prot -code 2 -stop )
+    norm=$( echo "$seq" | transmute -cds2prot -code 1 -stop )
+    if [ "$mito" != "$norm" ]
+    then
+      echo ">$acc $gene $prid $prod"
+      transmute -diff <( echo "$mito" ) <( echo "$norm" )
+      echo ""
+    fi
+  done
+
+Systematic Mutations
+
+  echo ATGAAACCCGGGTTTTAG |
+  while read seq
+  do
+    for (( i=0; i<${#seq}; i++ ))
+    do
+      ch="${seq:$i:1}"
+      for sub in A C G T
+      do
+        echo "$seq" |
+        transmute -replace -offset "$i" -delete "$ch" -insert "$sub"
+      done
+    done
+  done |
+  while read seq
+  do
+    tns=$( echo "$seq" | transmute -cds2prot )
+    mwt=$( echo "$tns" | transmute -molwt )
+    echo -e "${seq}\t${tns}\t${mwt}"
+  done
+
+Sequence Search
+
+  efetch -db nuccore -id J01749 -format fasta |
+  transmute -search -circular AAGCTT:HindIII CAGCTG CTGCAG GAATTC:EcoRI GGATCC:BamHI
+
+Nucleotide Expansion
+
+  expanded=$(
+    echo GTMKAC | disambiguate-nucleotides |
+    tr '\n' ':' | sed -e 's/:/:AccI /g'
+  )
+  efetch -db nuccore -id J01749 -format fasta |
+  transmute -search -circular "$expanded"
+
+Minus-Strand Pattern
+
+  efetch -db nuccore -id U00096 -format fasta |
+  transmute -search -circular ATGACCATGATTACGGATT
+
+SNP Table
+
+  efetch -db snp -id 11549407 -format docsum |
+  snp2tbl
+
+Matching CDS/Protein Pairs
+
+  efetch -db snp -id 11549407 -format docsum |
+  snp2hgvs | hgvs2spdi | spdi2prod |
+  align-columns -g 4 | cut -c 1-78

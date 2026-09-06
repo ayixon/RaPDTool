@@ -1,0 +1,5 @@
+include/libdeflate.h
+lib/libdeflate.a
+lib/libdeflate.h
+lib/libdeflate.so
+lib/libdeflate.so.0

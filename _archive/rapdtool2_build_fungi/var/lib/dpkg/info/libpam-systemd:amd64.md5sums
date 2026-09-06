@@ -1,0 +1,4 @@
+ef32907010e8056304de38a06c19736b  lib/x86_64-linux-gnu/security/pam_systemd.so
+5fd71804bb12490f8deac5dcd4d8a10d  usr/share/doc/libpam-systemd/copyright
+5cbb4165d3a7ac7766bdeb071db5c45c  usr/share/man/man8/pam_systemd.8.gz
+9dfe5c25c668641a5b9c776e22588ec9  usr/share/pam-configs/systemd

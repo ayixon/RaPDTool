@@ -1,0 +1,134 @@
+#!/bin/sh
+
+set -e
+
+_systemctl() {
+    if [ -d /run/systemd/system ]; then
+        systemctl "$@"
+    fi
+}
+
+_update_catalog() {
+    journalctl --update-catalog || true
+}
+
+# Update Message Catalogs database in response to dpkg trigger
+if [ "$1" = "triggered" ]; then
+    _update_catalog
+    exit 0
+fi
+
+# Enable getty and remote-fs.target by default on new installs
+if [ -z "$2" ]; then
+    systemctl enable getty@tty1.service || true
+    systemctl enable remote-fs.target || true
+fi
+
+# Enable resolved by default on new installs installs and upgrades
+if dpkg --compare-versions "$2" lt "234-1ubuntu2~"; then
+    systemctl enable systemd-resolved.service || true
+fi
+
+# Drop stock /etc/rc.local on upgrades
+if dpkg --compare-versions "$2" lt "234-2ubuntu11~"; then
+        if [ -f /etc/rc.local ]; then
+                if [ "10fd9f051accb6fd1f753f2d48371890" = "$(md5sum /etc/rc.local | cut -d\  -f1)" ]; then
+                        echo Removing empty /etc/rc.local
+                        rm -f /etc/rc.local || true
+                fi
+        fi
+fi
+
+# Use stub resolve.conf by default on new installs
+if [ -z "$2" ]; then
+    mkdir -p /run/systemd/resolve
+    if [ -e /etc/resolv.conf ]; then
+            cp /etc/resolv.conf /run/systemd/resolve/stub-resolv.conf
+    fi
+    # If /etc/resolv.conf is a bind-mount, moving or replacing
+    # /etc/resolv.conf may fail
+    ln -snf ../run/systemd/resolve/stub-resolv.conf /etc/resolv.conf || true
+fi
+
+# Enable systemd-pstore by default on new installs and upgrades, see #952767
+if dpkg --compare-versions "$2" lt "245.4-4~"; then
+    systemctl enable systemd-pstore.service || true
+fi
+
+# Create /etc/machine-id
+systemd-machine-id-setup
+
+# Setup system users and groups
+addgroup --quiet --system systemd-journal
+
+adduser --quiet --system --group --no-create-home --home /run/systemd \
+    --gecos "systemd Network Management" systemd-network
+adduser --quiet --system --group --no-create-home --home /run/systemd \
+    --gecos "systemd Resolver" systemd-resolve
+
+# Enable persistent journal, in auto-mode, by default on new installs installs and upgrades
+if dpkg --compare-versions "$2" lt "235-3ubuntu3~"; then
+    mkdir -p /var/log/journal
+    # create tmpfiles only when running systemd, otherwise %b substitution fails
+    if [ -d /run/systemd/system ]; then
+        systemd-tmpfiles --create --prefix /var/log/journal
+    fi
+fi
+
+# Initial update of the Message Catalogs database
+_update_catalog
+
+# Disable networkd when upgrading from broken versions 8..10. Turns out
+# enabling networkd unconditionally has long boot time side-effects
+if dpkg --compare-versions "$2" gt "234-2ubuntu8~" &&
+   dpkg --compare-versions "$2" lt "234-2ubuntu11~"; then
+    systemctl disable systemd-networkd-wait-online.service || true
+fi
+
+# skip daemon-reexec and try-restarts during shutdown to avoid hitting LP: #1803391
+if [ -n "$2" ] && [ "$(systemctl is-system-running)" != "stopping" ]; then
+    _systemctl daemon-reexec || true
+    # don't restart logind; this can be done again once this gets implemented:
+    # https://github.com/systemd/systemd/issues/1163
+    if dpkg --compare-versions "$2" lt-nl "246.2-2~"; then
+        # the socket configuration changed
+        _systemctl stop systemd-networkd.socket || true
+    fi
+    _systemctl try-restart systemd-networkd.service || true
+    _systemctl try-restart systemd-resolved.service || true
+    _systemctl try-restart systemd-journald.service || true
+fi
+
+# Process all tmpfiles that we ship, including any overrides in
+# runtime-dir/sysadmin-dir/other packages (e.g. rsyslog)
+#
+# Ignore if this fails, because e.g. %b will fail on WSL
+systemd-tmpfiles --create || :
+
+if dpkg --compare-versions "$2" lt-nl "245.4-4~"; then
+    # systemd-pstore.service is now enabled via sysinit.target
+    rm -f /etc/systemd/system/systemd-remount-fs.service.wants/systemd-pstore.service
+    rmdir --ignore-fail-on-non-empty /etc/systemd/system/systemd-remount-fs.service.wants 2> /dev/null || true
+fi
+
+if dpkg --compare-versions "$2" lt-nl "245.4-5~"; then
+    # Clean up removed ondemand service
+    rm -f /etc/systemd/system/multi-user.target.wants/ondemand.service
+fi
+
+# Automatically added by dh_installtmpfiles/13.6ubuntu1
+if [ "$1" = "configure" ] || [ "$1" = "abort-upgrade" ] || [ "$1" = "abort-deconfigure" ] || [ "$1" = "abort-remove" ] ; then
+	# In case this system is running systemd, we need to ensure that all
+	# necessary tmpfiles (if any) are created before starting.
+	if [ -z "${DPKG_ROOT:-}" ] && [ -d /run/systemd/system ] ; then
+		systemd-tmpfiles --create debian.conf home.conf journal-nocow.conf legacy.conf systemd-nologin.conf systemd-pstore.conf systemd-tmp.conf systemd.conf tmp.conf var.conf x11.conf >/dev/null || true
+	fi
+fi
+# End automatically added section
+# Automatically added by dh_installdeb/13.6ubuntu1
+dpkg-maintscript-helper rm_conffile /etc/dhcp/dhclient-exit-hooks.d/timesyncd 245.4-2\~ -- "$@"
+dpkg-maintscript-helper rm_conffile /etc/systemd/timesyncd.conf 245.4-2\~ -- "$@"
+dpkg-maintscript-helper rm_conffile /etc/dhcp/dhclient-enter-hooks.d/resolved 246-2ubuntu1\~ -- "$@"
+dpkg-maintscript-helper rm_conffile /etc/pam.d/systemd-user 246.6-3\~ -- "$@"
+# End automatically added section
+

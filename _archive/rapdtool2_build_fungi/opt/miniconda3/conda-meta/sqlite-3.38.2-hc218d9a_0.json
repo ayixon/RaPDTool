@@ -1,0 +1,56 @@
+{
+  "build": "hc218d9a_0",
+  "build_number": 0,
+  "channel": "https://repo.anaconda.com/pkgs/main/linux-64",
+  "constrains": [],
+  "depends": [
+    "libgcc-ng >=7.5.0",
+    "readline >=8.0,<9.0a0",
+    "zlib >=1.2.11,<1.3.0a0"
+  ],
+  "extracted_package_dir": "/opt/miniconda3/pkgs/sqlite-3.38.2-hc218d9a_0",
+  "features": "",
+  "files": [
+    "bin/sqlite3",
+    "include/sqlite3.h",
+    "include/sqlite3ext.h",
+    "lib/libsqlite3.so",
+    "lib/libsqlite3.so.0",
+    "lib/libsqlite3.so.0.8.6",
+    "lib/pkgconfig/sqlite3.pc",
+    "share/man/man1/sqlite3.1"
+  ],
+  "fn": "sqlite-3.38.2-hc218d9a_0.conda",
+  "legacy_bz2_md5": "68387ed148d6329ae609dfe0e8a894df",
+  "legacy_bz2_size": 1546837,
+  "license": "Unlicense",
+  "link": {
+    "source": "/opt/miniconda3/pkgs/sqlite-3.38.2-hc218d9a_0",
+    "type": 1
+  },
+  "md5": "eb9f2708fc1162d01855c12c8156aecf",
+  "name": "sqlite",
+  "package_tarball_full_path": "/opt/miniconda3/pkgs/sqlite-3.38.2-hc218d9a_0.conda",
+  "paths_data": {
+    "paths": [
+      {
+        "_path": "lib/pkgconfig/sqlite3.pc",
+        "file_mode": "text",
+        "path_type": "hardlink",
+        "prefix_placeholder": "/opt/conda/conda-bld/sqlite_1648718023853/_h_env_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placeh",
+        "sha256": "96938aebf175c04e2f2c5193831d90aff89ff873331b61022f1458c1e3faff26",
+        "sha256_in_prefix": "047463e87c0268b7d9e6903a81260e5179b7a339fb6e490da67def1f4193b2e0",
+        "size_in_bytes": 531
+      }
+    ],
+    "paths_version": 1
+  },
+  "requested_spec": "sqlite==3.38.2=hc218d9a_0",
+  "sha256": "74822a899fe4b46d8fdbdad19afaf614e4f172b5adeafb6260ed868fdd5c81bc",
+  "size": 1056400,
+  "subdir": "linux-64",
+  "timestamp": 1648718095207,
+  "track_features": "",
+  "url": "https://repo.anaconda.com/pkgs/main/linux-64/sqlite-3.38.2-hc218d9a_0.conda",
+  "version": "3.38.2"
+}

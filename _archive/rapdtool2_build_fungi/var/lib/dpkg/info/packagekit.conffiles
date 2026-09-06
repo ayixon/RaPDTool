@@ -1,0 +1,4 @@
+/etc/PackageKit/PackageKit.conf
+/etc/PackageKit/Vendor.conf
+/etc/apt/apt.conf.d/20packagekit
+/etc/dbus-1/system.d/org.freedesktop.PackageKit.conf

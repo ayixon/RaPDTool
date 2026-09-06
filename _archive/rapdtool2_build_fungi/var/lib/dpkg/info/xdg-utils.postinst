@@ -1,0 +1,8 @@
+#!/bin/sh
+set -e
+# Automatically added by dh_installalternatives/13.6ubuntu1
+if [ "$1" = "configure" ] || [ "$1" = "abort-upgrade" ] || [ "$1" = "abort-deconfigure" ] || [ "$1" = "abort-remove" ]; then
+        update-alternatives --install /usr/bin/open open /usr/bin/xdg-open 50 \
+            --slave /usr/share/man/man1/open.1.gz open.1.gz /usr/share/man/man1/xdg-open.1.gz
+fi
+# End automatically added section

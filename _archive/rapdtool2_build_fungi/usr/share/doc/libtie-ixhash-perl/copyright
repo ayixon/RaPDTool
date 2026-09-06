@@ -1,0 +1,29 @@
+Format: http://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: Tie-IxHash
+Source: https://metacpan.org/release/Tie-IxHash
+Upstream-Contact: Gurusamy Sarathy <gsar@umich.edu>
+
+Files: *
+Copyright: 1995, Gurusamy Sarathy <gsar@umich.edu>
+License: Artistic or GPL-1+
+
+Files: debian/*
+Copyright: 2001, 2002, Ivan Kohler <ivan-debian@420.am>
+ 2012, Xavier Guimard <x.guimard@free.fr>
+License: Artistic or GPL-1+
+
+License: Artistic
+ This program is free software; you can redistribute it and/or modify
+ it under the terms of the Artistic License, which comes with Perl.
+ .
+ On Debian systems, the complete text of the Artistic License can be
+ found in `/usr/share/common-licenses/Artistic'.
+
+License: GPL-1+
+ This program is free software; you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation; either version 1, or (at your option)
+ any later version.
+ .
+ On Debian systems, the complete text of version 1 of the GNU General
+ Public License can be found in `/usr/share/common-licenses/GPL-1'.

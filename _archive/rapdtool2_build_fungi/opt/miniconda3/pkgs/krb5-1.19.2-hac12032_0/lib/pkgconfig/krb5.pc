@@ -1,0 +1,14 @@
+prefix=/tmp/build/80754af9/krb5_1627388691675/_h_env_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include
+vendor=MIT
+
+defccname=FILE:/tmp/krb5cc_%{uid}
+defktname=FILE:/etc/krb5.keytab
+defcktname=FILE:/tmp/build/80754af9/krb5_1627388691675/_h_env_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold/var/krb5/user/%{euid}/client.keytab
+
+Name: krb5
+Description: An implementation of Kerberos network authentication
+Version: 1.19.2
+Requires: mit-krb5

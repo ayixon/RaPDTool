@@ -1,0 +1,4 @@
+GCA_016028755.1	Faucicola osloensis
+GCA_040068595.1	Acinetobacter yuyunsongii
+GCA_049472475.1	Sphingobium salicis
+GCA_014836885.1	Brevibacterium gallinarum

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mime-type xmlns="http://www.freedesktop.org/standards/shared-mime-info" type="text/x-common-lisp">
+  <!--Created automatically by update-mime-database. DO NOT EDIT!-->
+  <comment>Common Lisp source code</comment>
+  <comment xml:lang="zh_TW">Common Lisp 源碼</comment>
+  <comment xml:lang="zh_CN">Common Lisp 源代码</comment>
+  <comment xml:lang="uk">вихідний код мовою Common Lisp</comment>
+  <comment xml:lang="sv">Common Lisp-källkod</comment>
+  <comment xml:lang="pt_BR">Código-fonte Common Lisp</comment>
+  <comment xml:lang="pl">Kod źródłowy Common Lisp</comment>
+  <comment xml:lang="it">Codice sorgente Common Lisp</comment>
+  <comment xml:lang="hr">Common Lisp izvorni kôd</comment>
+  <comment xml:lang="fr">code source Common Lisp</comment>
+  <comment xml:lang="fi">Yleinen Lisp-lähdekoodi</comment>
+  <comment xml:lang="es">código fuente en Common Lisp</comment>
+  <comment xml:lang="en_GB">Common Lisp source code</comment>
+  <comment xml:lang="de">Common-Lisp-Quelltext</comment>
+  <comment xml:lang="da">Common Lisp-kildekode</comment>
+  <comment xml:lang="ca">codi font en Common Lisp</comment>
+  <sub-class-of type="text/plain"/>
+  <glob pattern="*.asd"/>
+  <glob pattern="*.fasl"/>
+  <glob pattern="*.lisp"/>
+  <glob pattern="*.ros"/>
+</mime-type>

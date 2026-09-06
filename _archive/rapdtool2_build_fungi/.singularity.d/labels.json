@@ -1,0 +1,9 @@
+{
+	"org.label-schema.build-arch": "amd64",
+	"org.label-schema.build-date": "Tuesday_9_April_2024_8:56:22_CST",
+	"org.label-schema.schema-version": "1.0",
+	"org.label-schema.usage.apptainer.version": "1.3.0",
+	"org.label-schema.usage.singularity.deffile.bootstrap": "localimage",
+	"org.label-schema.usage.singularity.deffile.from": "rapdtool2",
+	"org.label-schema.usage.singularity.version": "3.8.7"
+}

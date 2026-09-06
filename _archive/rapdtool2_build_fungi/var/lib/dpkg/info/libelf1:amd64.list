@@ -1,0 +1,11 @@
+/.
+/usr
+/usr/lib
+/usr/lib/x86_64-linux-gnu
+/usr/lib/x86_64-linux-gnu/libelf-0.186.so
+/usr/share
+/usr/share/doc
+/usr/share/doc/libelf1
+/usr/share/doc/libelf1/changelog.Debian.gz
+/usr/share/doc/libelf1/copyright
+/usr/lib/x86_64-linux-gnu/libelf.so.1

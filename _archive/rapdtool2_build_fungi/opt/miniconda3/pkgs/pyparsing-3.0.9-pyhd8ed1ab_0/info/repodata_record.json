@@ -1,0 +1,24 @@
+{
+  "build": "pyhd8ed1ab_0",
+  "build_number": 0,
+  "channel": "https://conda.anaconda.org/conda-forge/noarch",
+  "constrains": [],
+  "depends": [
+    "python >=3.6"
+  ],
+  "features": "",
+  "fn": "pyparsing-3.0.9-pyhd8ed1ab_0.tar.bz2",
+  "license": "MIT",
+  "license_family": "MIT",
+  "md5": "e8fbc1b54b25f4b08281467bc13b70cc",
+  "name": "pyparsing",
+  "noarch": "python",
+  "package_type": "noarch_python",
+  "sha256": "4acc7151cef5920d130f2e0a7615559cce8bfb037aeecb14d4d359ae3d9bc51b",
+  "size": 81321,
+  "subdir": "noarch",
+  "timestamp": 1652235496915,
+  "track_features": "",
+  "url": "https://conda.anaconda.org/conda-forge/noarch/pyparsing-3.0.9-pyhd8ed1ab_0.tar.bz2",
+  "version": "3.0.9"
+}

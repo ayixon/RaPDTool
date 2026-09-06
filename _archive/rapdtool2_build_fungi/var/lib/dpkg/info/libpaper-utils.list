@@ -1,0 +1,16 @@
+/.
+/usr
+/usr/bin
+/usr/bin/paperconf
+/usr/sbin
+/usr/sbin/paperconfig
+/usr/share
+/usr/share/doc
+/usr/share/doc/libpaper-utils
+/usr/share/doc/libpaper-utils/copyright
+/usr/share/man
+/usr/share/man/man1
+/usr/share/man/man1/paperconf.1.gz
+/usr/share/man/man8
+/usr/share/man/man8/paperconfig.8.gz
+/usr/share/doc/libpaper-utils/changelog.gz

@@ -1,0 +1,64 @@
+# This file created by conda-build 3.21.4
+# meta.yaml template originally from:
+# /tmp/build/80754af9/rsync-recipes/charset-normalizer-2.0.4-on-linux_64, last modified Thu Aug 26 18:15:00 2021
+# ------------------------------------------------
+
+package:
+  name: charset-normalizer
+  version: 2.0.4
+source:
+  sha256: f23667ebe1084be45f6ae0538e4a5a865206544097e4e8bbcacf42cd02a348f3
+  url: https://pypi.io/packages/source/c/charset-normalizer/charset-normalizer-2.0.4.tar.gz
+build:
+  entry_points:
+    - normalizer = charset_normalizer.cli.normalizer:cli_detect
+  noarch: python
+  number: '0'
+  script: /tmp/build/80754af9/charset-normalizer_1630003229654/_h_env_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_place/bin/python
+    -m pip install . -vv
+  string: pyhd3eb1b0_0
+requirements:
+  host:
+    - _libgcc_mutex 0.1 main
+    - _openmp_mutex 4.5 1_gnu
+    - ca-certificates 2021.7.5 h06a4308_1
+    - certifi 2021.5.30 py39h06a4308_0
+    - ld_impl_linux-64 2.35.1 h7274673_9
+    - libffi 3.3 he6710b0_2
+    - libgcc-ng 9.3.0 h5101ec6_17
+    - libgomp 9.3.0 h5101ec6_17
+    - libstdcxx-ng 9.3.0 hd4cf53a_17
+    - ncurses 6.2 he6710b0_1
+    - openssl 1.1.1k h27cfd23_0
+    - pip 21.2.4 py37h06a4308_0
+    - python 3.9.6 h12debd9_1
+    - readline 8.1 h27cfd23_0
+    - setuptools 52.0.0 py39h06a4308_0
+    - sqlite 3.36.0 hc218d9a_0
+    - tk 8.6.10 hbc83047_0
+    - tzdata 2021a h5d7bf9c_0
+    - wheel 0.37.0 pyhd3eb1b0_0
+    - xz 5.2.5 h7b6447c_0
+    - zlib 1.2.11 h7b6447c_3
+  run:
+    - python >=3.5
+test:
+  commands:
+    - pip check
+    - normalizer --help
+  imports:
+    - charset_normalizer
+    - charset_normalizer.assets
+  requires:
+    - pip
+about:
+  home: https://github.com/ousret/charset_normalizer
+  license: MIT
+  license_file: LICENSE
+  summary: The Real First Universal Charset Detector. Open, modern and actively maintained
+    alternative to Chardet.
+extra:
+  copy_test_source_files: true
+  final: true
+  recipe-maintainers:
+    - ocefpaf

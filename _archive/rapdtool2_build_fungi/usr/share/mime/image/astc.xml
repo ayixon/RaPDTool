@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mime-type xmlns="http://www.freedesktop.org/standards/shared-mime-info" type="image/astc">
+  <!--Created automatically by update-mime-database. DO NOT EDIT!-->
+  <comment>ASTC texture</comment>
+  <comment xml:lang="uk">текстура ASTC</comment>
+  <comment xml:lang="pt_BR">Textura ASTC</comment>
+  <comment xml:lang="pl">Tekstura ASTC</comment>
+  <comment xml:lang="it">Texture ASTC</comment>
+  <comment xml:lang="fi">ASTC tekstuuri</comment>
+  <comment xml:lang="ca">textura ASTC</comment>
+  <acronym>ASTC</acronym>
+  <expanded-acronym>Advanced Scalable Texture Compression</expanded-acronym>
+  <glob pattern="*.astc"/>
+</mime-type>

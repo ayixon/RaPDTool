@@ -1,0 +1,77 @@
+# This file created by conda-build 3.21.9
+# meta.yaml template originally from:
+# /home/conda/recipe_root, last modified Fri Jul  1 20:06:45 2022
+# ------------------------------------------------
+
+package:
+  name: typing_extensions
+  version: 4.3.0
+source:
+  sha256: e6d2677a32f47fc7eb2795db1dd15c1f34eff616bcaf2cfb5e997f854fa1c4a6
+  url: https://pypi.io/packages/source/t/typing_extensions/typing_extensions-4.3.0.tar.gz
+build:
+  noarch: python
+  number: '0'
+  script: python -m pip install --no-deps --ignore-installed .
+  string: pyha770c72_0
+requirements:
+  host:
+    - _libgcc_mutex 0.1 conda_forge
+    - _openmp_mutex 4.5 2_gnu
+    - bzip2 1.0.8 h7f98852_4
+    - ca-certificates 2022.6.15 ha878542_0
+    - ld_impl_linux-64 2.36.1 hea4e1c9_2
+    - libffi 3.4.2 h7f98852_5
+    - libgcc-ng 12.1.0 h8d9b700_16
+    - libgomp 12.1.0 h8d9b700_16
+    - libnsl 2.0.0 h7f98852_0
+    - libuuid 2.32.1 h7f98852_1000
+    - libzlib 1.2.12 h166bdaf_1
+    - ncurses 6.3 h27087fc_1
+    - openssl 3.0.4 h166bdaf_2
+    - pip 22.1.2 pyhd8ed1ab_0
+    - python 3.10.5 ha86cf86_0_cpython
+    - python_abi 3.10 2_cp310
+    - readline 8.1.2 h0f457ee_0
+    - setuptools 62.6.0 py310hff52083_0
+    - sqlite 3.39.0 h4ff8645_0
+    - tk 8.6.12 h27826a3_0
+    - tzdata 2022a h191b570_0
+    - wheel 0.37.1 pyhd8ed1ab_0
+    - xz 5.2.5 h516909a_1
+    - zlib 1.2.12 h166bdaf_1
+  run:
+    - python >=3.7
+about:
+  description: 'The typing module was added to the standard library in Python 3.5,
+    but
+
+    many new features have been added to the module since then.
+
+    This means users of older Python versions who are unable to upgrade will not be
+
+    able to take advantage of new types added to the ``typing`` module, such as
+
+    typing.Protocol or typing.TypedDict.
+
+
+    The typing_extensions module contains both backports of these changes
+
+    as well as experimental types that will eventually be added to the typing
+
+    module, such as Protocol.
+
+    '
+  dev_url: https://github.com/python/typing
+  doc_url: https://github.com/python/typing
+  home: https://github.com/python/typing/tree/master/typing_extensions
+  license: PSF-2.0
+  license_family: PSF
+  license_file: LICENSE
+  summary: Backported and Experimental Type Hints for Python
+extra:
+  copy_test_source_files: true
+  final: true
+  recipe-maintainers:
+    - djsutherland
+    - synapticarbors

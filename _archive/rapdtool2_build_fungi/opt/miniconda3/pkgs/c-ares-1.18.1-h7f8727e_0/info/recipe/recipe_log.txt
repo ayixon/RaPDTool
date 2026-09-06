@@ -1,0 +1,309 @@
+commit c54392ba477154e198f325c84eb560c528e21956
+Author: Anthony DiPietro <adipietro@anaconda.com>
+Date:   Tue Jan 11 11:21:49 2022 -0500
+
+    Update urls
+
+commit c705248580944055b054c2451527700395595529
+Author: Anthony DiPietro <adipietro@anaconda.com>
+Date:   Mon Jan 10 15:20:42 2022 -0500
+
+    Point CMake to archiver
+
+commit 3ea3d3a0c86ae4cc65a7c06373c5fc1f53201801
+Author: Anthony DiPietro <adipietro@anaconda.com>
+Date:   Mon Jan 10 15:09:03 2022 -0500
+
+    Updates for v1.18.1
+
+commit 5e40fae4c2b44046261fb897df080a1d9dfd5899
+Author: anaconda-pkg-build <anaconda-pkg-build@anaconda.com>
+Date:   Sat Nov 21 21:50:17 2020 +0000
+
+    DOR update to 1.17.1
+
+commit d3af9751a3f63710022300302b6be64aa16e87e7
+Author: Megan Yancy <myancy@anaconda.com>
+Date:   Fri Sep 18 23:06:29 2020 -0500
+
+    c-ares: 1.16.1
+
+commit 10c577c85d4bcf70020688a1c913162a1ebf1598
+Author: Uwe L. Korn <uwelk@xhochy.com>
+Date:   Tue Aug 25 10:23:43 2020 +0200
+
+    Use NMake on Windows
+
+commit 24d674849a6560e53176e68c9e4637858574ae79
+Author: Uwe L. Korn <uwelk@xhochy.com>
+Date:   Tue Aug 25 09:46:30 2020 +0200
+
+    Use correct compare op
+
+commit e25b344a2c211c5c6ecd1456e2fc9ea631712b70
+Author: Uwe L. Korn <xhochy@users.noreply.github.com>
+Date:   Mon Aug 24 20:51:18 2020 +0200
+
+    Update recipe/bld_output.bat
+    
+    Co-authored-by: Johan Mabille <johan.mabille@gmail.com>
+
+commit 5026c5f12a2c4a8a36aaf86ef0dbd6274594041d
+Author: Uwe L. Korn <uwelk@xhochy.com>
+Date:   Sun Aug 23 07:46:06 2020 +0200
+
+    Build static output separately
+
+commit bbb6e21604bec4c80297ef074893f9e6e142262a
+Author: Uwe L. Korn <uwelk@xhochy.com>
+Date:   Sun Aug 23 07:35:55 2020 +0200
+
+    Revert "Added static output (#10)"
+    
+    This reverts commit 15ebd6dd30c7e0ae0989ca60e3191204853cdc9f.
+
+commit 7ef29d5356673d1a3359e623a590c66664c7acb9
+Author: Johan Mabille <johan.mabille@gmail.com>
+Date:   Fri Aug 21 14:54:33 2020 +0200
+
+    Added static output (#10)
+    
+    * Added static output
+    
+    * MNT: Re-rendered with conda-build 3.19.2, conda-smithy 3.7.10, and conda-forge-pinning 2020.08.21.04.46.41
+    
+    Co-authored-by: conda-forge-linter <github-actions@email.com>
+
+commit 4a8acdb6e39bda4b6651529b786fecbfd031fe95
+Author: regro-cf-autotick-bot <36490558+regro-cf-autotick-bot@users.noreply.github.com>
+Date:   Sun Aug 16 15:49:20 2020 -0500
+
+    ARM OSX Migrator (#9)
+    
+    * migration: OSXArm
+    
+    * MNT: Re-rendered with conda-build 3.19.2, conda-smithy 3.7.10, and conda-forge-pinning 2020.08.15.14.59.48
+    
+    * Update meta.yaml
+    
+    * Update build.sh
+    
+    * Fix typo
+    
+    Co-authored-by: regro-cf-autotick-bot <circleci@cf-graph.regro.github.com>
+    Co-authored-by: Isuru Fernando <isuruf@gmail.com>
+
+commit 15b1da096cf6b81f41cb54bcb8b91056c983e366
+Author: conda-forge-admin <conda-forge-admin@email.com>
+Date:   Fri Aug 7 20:08:25 2020 +0000
+
+    [ci skip] [skip ci] [cf admin skip] ***NO_CI*** admin migration CFEP13TokenCleanup
+
+commit 2daafc5f425c04cb7b9c7fcaff007a7c9d630ef5
+Author: Uwe L. Korn <uwe.korn@quantco.com>
+Date:   Tue Jul 21 18:07:23 2020 +0200
+
+    CMAKE_INSTALL_LIBDIR=lib
+
+commit c0b213b35e2bdad73aa69f6db1554c543d3b7d42
+Author: Uwe L. Korn <uwe.korn@quantco.com>
+Date:   Tue Jul 21 16:59:37 2020 +0200
+
+    Disable static build completly
+
+commit de9172d79cb723d94bf4849e104522c565f1b0a6
+Author: Uwe L. Korn <uwe.korn@quantco.com>
+Date:   Tue Jul 21 16:55:58 2020 +0200
+
+    MNT: Re-rendered with conda-build 3.19.2, conda-smithy 3.7.4, and conda-forge-pinning 2020.07.21.08.49.43
+
+commit 3aa90f6cb11c4bf5968fcc5b54521c86425cc481
+Author: Uwe L. Korn <xhochy@users.noreply.github.com>
+Date:   Fri May 15 16:21:17 2020 +0200
+
+    Only build shared lib.
+
+commit 38a77649379019936039ce614584c647b4664523
+Author: regro-cf-autotick-bot <circleci@cf-graph.regro.github.com>
+Date:   Tue May 12 22:52:23 2020 +0000
+
+    MNT: Re-rendered with conda-build 3.19.2, conda-smithy 3.7.1, and conda-forge-pinning 2020.05.12.18.03.58
+
+commit 26357b68eceeda9b6320af3efdc59a79f2e33f4d
+Author: regro-cf-autotick-bot <circleci@cf-graph.regro.github.com>
+Date:   Tue May 12 22:51:58 2020 +0000
+
+    updated v1.16.1
+
+commit 26af340af48a377653d0139cebb4ea83c2d191a7
+Author: Matthew R Becker <becker.mr@gmail.com>
+Date:   Mon May 18 06:49:18 2020 -0500
+
+    [ci skip] [skip ci] [cf admin skip] ***NO_CI*** admin migration CondaForgeAutomerge
+
+commit ac05dfe4dd991637446abfe22a32a14cc6f73aeb
+Author: conda-forge-admin <conda-forge-admin@email.com>
+Date:   Fri May 15 21:05:01 2020 +0000
+
+    [ci skip] [skip ci] [cf admin skip] ***NO_CI*** admin migration CFEP13TokensAndConfig
+
+commit 252a46877766987a8d04395d01a28eeb970fb109
+Author: conda-forge-admin <conda-forge-admin@email.com>
+Date:   Mon Mar 2 17:24:17 2020 +0000
+
+    [ci skip] [skip ci] [cf admin skip] ***NO_CI*** admin migration AutomergeAndRerender
+
+commit e18526d649364fc660e48edfb234d48d19ad3aa1
+Author: conda-forge-admin <pelson.pub+conda-forge@gmail.com>
+Date:   Fri Sep 6 19:54:51 2019 -0500
+
+    [ci skip] ***NO_CI*** Move from appveyor to azure.
+    
+    See https://github.com/conda-forge/conda-forge.github.io/issues/857
+
+commit ed2985153cfa7b4aadac3070faacc31a2734cbbe
+Author: regro-cf-autotick-bot <circleci@cf-graph.regro.github.com>
+Date:   Thu Jul 4 15:30:25 2019 +0000
+
+    MNT: Re-rendered with conda-build 3.17.8, conda-smithy 3.4.0, and conda-forge-pinning 2019.07.01
+
+commit 838a8baf0246a971bf9b88378f86af6a98a42e10
+Author: regro-cf-autotick-bot <circleci@cf-graph.regro.github.com>
+Date:   Thu Jul 4 15:30:14 2019 +0000
+
+    bump build number
+
+commit 996755d3f821f1c13ccf84b10d7e3e57a1669d5c
+Author: Korn, Uwe <Uwe.Korn@blue-yonder.com>
+Date:   Fri Jan 11 11:23:36 2019 +0100
+
+    Add @xhochy as a maintainer
+
+commit a42ce07034c13240a394c5337cbce4504b46e9ff
+Author: Korn, Uwe <Uwe.Korn@blue-yonder.com>
+Date:   Fri Jan 11 11:23:07 2019 +0100
+
+    MNT: Re-rendered with conda-smithy 3.2.2 and pinning 2019.01.09
+
+commit d813aef9c4edcee1fe89be7056190b5f3ca2d84f
+Author: Jonathan Helmus <jjhelmus@gmail.com>
+Date:   Tue Nov 6 10:51:28 2018 -0600
+
+    add make as unix build requirement
+
+commit a73748f53287e726d3e07f02602f88f0c0e935e2
+Merge: b8b8ce6 6f88ac6
+Author: Filipe <ocefpaf@gmail.com>
+Date:   Mon Oct 29 11:02:12 2018 -0300
+
+    Merge pull request #3 from wesm/windows-support
+    
+    Add Windows build configuration
+
+commit 6f88ac69a09651bc008840fa79473979a0823721
+Author: conda-forge-admin <pelson.pub+conda-forge@gmail.com>
+Date:   Mon Oct 29 13:24:25 2018 +0000
+
+    MNT: Re-rendered with conda-smithy 3.1.12 and pinning 2018.10.16
+
+commit d155007a24302e36b0db8a50ada9cb9189fd8e37
+Author: Filipe <ocefpaf@gmail.com>
+Date:   Mon Oct 29 10:23:23 2018 -0300
+
+    third time is the charme...
+
+commit f9deb4cd8b46b636794eefb215f18906243bf37c
+Author: conda-forge-admin <pelson.pub+conda-forge@gmail.com>
+Date:   Mon Oct 29 13:21:46 2018 +0000
+
+    MNT: Re-rendered with conda-smithy 3.1.12 and pinning 2018.10.16
+
+commit ae05301272f2dfe240cb9e80fbb431ffb8922941
+Author: Filipe <ocefpaf@gmail.com>
+Date:   Mon Oct 29 10:20:20 2018 -0300
+
+    Update meta.yaml
+
+commit e61f48ccff82855b79e91ff568847d6ce876564f
+Author: Filipe <ocefpaf@gmail.com>
+Date:   Mon Oct 29 10:18:28 2018 -0300
+
+    Update meta.yaml
+
+commit 727e44117cbe275fed3b51bf858f61f7be75b454
+Author: Wes McKinney <wesm+git@apache.org>
+Date:   Sat Oct 27 11:20:29 2018 -0400
+
+    Fix test conditions
+
+commit 472501feb3323119732695c98ac8052ebc6d0222
+Author: Wes McKinney <wesm+git@apache.org>
+Date:   Sat Oct 27 11:10:56 2018 -0400
+
+    Use nmake directly
+
+commit 3af456afef4bd33807fa0976adba6be497994a47
+Author: conda-forge-admin <pelson.pub+conda-forge@gmail.com>
+Date:   Sat Oct 27 14:56:35 2018 +0000
+
+    MNT: Re-rendered with conda-smithy 3.1.12 and pinning 2018.10.16
+
+commit 53d68bfef6bf71d836b482a90c3020c20b3a0375
+Author: Wes McKinney <wesm+git@apache.org>
+Date:   Sat Oct 27 10:52:50 2018 -0400
+
+    Add Windows build configuration
+
+commit b8b8ce66083bea7972b4bd4c686869ee4f666c11
+Merge: fd123d5 ebda576
+Author: Filipe <ocefpaf@gmail.com>
+Date:   Tue Oct 23 19:55:50 2018 -0300
+
+    Merge pull request #2 from regro-cf-autotick-bot/1.15.0
+    
+    c-ares v1.15.0
+
+commit ebda5768a66e32f6acac1348b416c5baf06dc252
+Author: regro-cf-autotick-bot <circleci@cf-graph.regro.github.com>
+Date:   Tue Oct 23 21:20:01 2018 +0000
+
+    MNT: Re-rendered with conda-smithy 3.1.12 and pinning 2018.10.16
+
+commit d4c82992be52acff3b6a381fc3948b2b6b2428ca
+Author: regro-cf-autotick-bot <circleci@cf-graph.regro.github.com>
+Date:   Tue Oct 23 21:19:57 2018 +0000
+
+    updated v1.15.0
+
+commit fd123d56531e01dc38be8f94edc276cfe93131ce
+Merge: c85ecc5 386aa0b
+Author: Filipe <ocefpaf@gmail.com>
+Date:   Wed Aug 29 17:16:47 2018 -0300
+
+    Merge pull request #1 from regro-cf-autotick-bot/rebuild
+    
+    Rebuild for Python 3.7, GCC 7, R 3.5.1, openBLAS 0.3.2
+
+commit 386aa0b4961184f1b38c954fd135e5cf9673b143
+Author: regro-cf-autotick-bot <circleci@cf-graph.regro.github.com>
+Date:   Wed Aug 29 19:22:17 2018 +0000
+
+    MNT: Re-rendered with conda-smithy 3.1.12 and pinning 2018.08.28
+
+commit 87edba6c21ae4d9d914115d339c2c9d4fed8df7e
+Author: regro-cf-autotick-bot <circleci@cf-graph.regro.github.com>
+Date:   Wed Aug 29 19:22:10 2018 +0000
+
+    bump build number
+
+commit c85ecc5d935ecaec0dd8190c27205ec5bb195210
+Author: Travis-CI on github.com/conda-forge/staged-recipes <conda-forge@googlegroups.com>
+Date:   Thu Aug 16 18:01:42 2018 +0000
+
+    Re-render the feedstock after CI registration.
+
+commit c42368fbfd0f541f16e7f2fdfc42c7e9857dc9ab
+Author: Travis-CI on github.com/conda-forge/staged-recipes <conda-forge@googlegroups.com>
+Date:   Thu Aug 16 18:00:45 2018 +0000
+
+    Initial feedstock commit with conda-smithy 3.1.11.

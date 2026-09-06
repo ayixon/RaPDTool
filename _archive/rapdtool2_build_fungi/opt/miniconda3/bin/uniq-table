@@ -1,0 +1,41 @@
+#!/usr/bin/awk -f
+
+# Public domain notice for all NCBI EDirect scripts is located at:
+# https://www.ncbi.nlm.nih.gov/books/NBK179288/#chapter6.Public_Domain_Notice
+
+# Author: Aaron Ucko
+
+BEGIN {
+    FS = "\t"
+}
+(NR <= 2) {
+    for (c = 1;  c <= NF;  ++c) {
+        data[NR,c] = $c
+        # Subsequent rows will be populated lazily.
+    }
+}
+(NR > 2) {
+    for (c = 1;  c <= NF;  ++c) {
+        if ( !(c in interesting)  &&  $c != data[2,c] ) {
+            interesting[c] = 1
+            # Belatedly fill in data for this column in previous rows.
+            for (r = 3;  r < NR;  ++r) {
+                data[r,c] = data[2,c]
+            }
+        }
+        if (c in interesting) {
+            data[NR,c] = $c
+        }
+    }    
+}
+END {
+    for (r = 1;  r <= NR;  ++r) {
+        l = ""
+        for (c = 1;  c <= NF;  ++c) {
+            if (c in interesting) {
+                l = l "\t" data[r,c]
+            }
+        }
+        print substr(l, 2) # Leave off initial tab.
+    }
+}

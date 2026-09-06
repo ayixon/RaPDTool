@@ -1,0 +1,9 @@
+{
+  "cxx_compiler": "gxx",
+  "c_compiler_version": "7",
+  "zlib": "1.2",
+  "htslib": "1.9",
+  "cxx_compiler_version": "7",
+  "boost_cpp": "1.70.0",
+  "c_compiler": "gcc"
+}

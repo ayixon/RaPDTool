@@ -1,0 +1,64 @@
+# This file created by conda-build 3.20.5
+# meta.yaml template originally from:
+# /tmp/build/80754af9/rsync-recipes/colorama-0.4.4-on-linux_64, last modified Fri Dec 11 17:15:41 2020
+# ------------------------------------------------
+
+package:
+    name: colorama
+    version: 0.4.4
+source:
+    sha256: 5941b2b48a20143d2267e95b1c2a7603ce057ee39fd88e7329b0c292aa16869b
+    url: https://pypi.io/packages/source/c/colorama/colorama-0.4.4.tar.gz
+build:
+    noarch: python
+    number: '0'
+    script: /tmp/build/80754af9/colorama_1607707115595/_h_env_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_place/bin/python
+        -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv
+    string: pyhd3eb1b0_0
+requirements:
+    host:
+        - _libgcc_mutex 0.1 main
+        - ca-certificates 2020.12.8 h06a4308_0
+        - certifi 2020.12.5 py36h06a4308_0
+        - ld_impl_linux-64 2.33.1 h53a641e_7
+        - libedit 3.1.20191231 h14c3975_1
+        - libffi 3.3 he6710b0_2
+        - libgcc-ng 9.1.0 hdf63c60_0
+        - libstdcxx-ng 9.1.0 hdf63c60_0
+        - ncurses 6.2 he6710b0_1
+        - openssl 1.1.1i h27cfd23_0
+        - pip 20.3.1 py36h06a4308_0
+        - python 3.6.12 hcff3b4d_2
+        - readline 8.0 h7b6447c_0
+        - setuptools 51.0.0 py36h06a4308_2
+        - sqlite 3.33.0 h62c20be_0
+        - tk 8.6.10 hbc83047_0
+        - wheel 0.36.1 pyhd3eb1b0_0
+        - xz 5.2.5 h7b6447c_0
+        - zlib 1.2.11 h7b6447c_3
+    run:
+        - python
+test:
+    imports:
+        - colorama
+about:
+    description: 'colorama is a cross-platform colored terminal text.It makes
+
+        ANSI escape character sequences (for producing colored terminal text
+
+        and cursor positioning) work under MS Windows.
+
+        '
+    dev_url: https://github.com/tartley/colorama
+    doc_source_url: https://github.com/tartley/colorama/blob/master/README.rst
+    doc_url: http://pypi.python.org/pypi/colorama
+    home: https://github.com/tartley/colorama
+    license: BSD-3-Clause
+    license_file: LICENSE.txt
+    summary: Cross-platform colored terminal text
+extra:
+    copy_test_source_files: true
+    final: true
+    recipe-maintainers:
+        - kwilcox
+        - ocefpaf

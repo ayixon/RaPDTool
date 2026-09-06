@@ -1,0 +1,14 @@
+/.
+/usr
+/usr/share
+/usr/share/doc
+/usr/share/doc/libtry-tiny-perl
+/usr/share/doc/libtry-tiny-perl/CONTRIBUTING
+/usr/share/doc/libtry-tiny-perl/changelog.Debian.gz
+/usr/share/doc/libtry-tiny-perl/copyright
+/usr/share/man
+/usr/share/man/man3
+/usr/share/man/man3/Try::Tiny.3pm.gz
+/usr/share/perl5
+/usr/share/perl5/Try
+/usr/share/perl5/Try/Tiny.pm

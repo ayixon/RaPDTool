@@ -1,0 +1,17 @@
+commit e766d15a0f93bc8fa2987b5ac837fffc3300f607
+Author: Cheng H. Lee <clee@anaconda.com>
+Date:   Mon Mar 29 14:57:24 2021 -0500
+
+    conda-content-trust 0.1.1
+
+commit 0dc6af6d1be21ee29a22761d588fc1a40d20871e
+Author: Cheng H. Lee <clee@anaconda.com>
+Date:   Mon Mar 15 11:26:23 2021 -0500
+
+    Recipe for conda-content-trust 0.1.0
+
+commit e92b64322419b86d1e95605102d37b53260a9f3f
+Author: Cheng H. Lee <clee@anaconda.com>
+Date:   Mon Mar 15 10:24:07 2021 -0500
+
+    Initialize repository

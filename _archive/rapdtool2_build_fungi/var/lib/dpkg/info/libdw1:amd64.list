@@ -1,0 +1,11 @@
+/.
+/usr
+/usr/lib
+/usr/lib/x86_64-linux-gnu
+/usr/lib/x86_64-linux-gnu/libdw-0.186.so
+/usr/share
+/usr/share/doc
+/usr/share/doc/libdw1
+/usr/share/doc/libdw1/copyright
+/usr/lib/x86_64-linux-gnu/libdw.so.1
+/usr/share/doc/libdw1/changelog.Debian.gz

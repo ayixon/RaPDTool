@@ -1,0 +1,6 @@
+GCA_900444875.1	Acinetobacter junii
+GCA_014836885.1	Brevibacterium gallinarum
+GCA_041021915.1	Acinetobacter yuyunsongii
+GCA_049472635.1	Sphingobium salicis
+GCA_016028755.1	Faucicola osloensis
+GCA_000368025.1	Acinetobacter parvus

@@ -1,0 +1,11 @@
+prefix=/opt/miniconda3
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include
+
+Name: KJ Test Framework
+Description: Basic utility library called KJ (test part)
+Version: 0.9.1
+Libs: -L${libdir} -lkj-test -pthread  
+Requires: kj = 0.9.1
+Cflags: -I${includedir} -pthread  

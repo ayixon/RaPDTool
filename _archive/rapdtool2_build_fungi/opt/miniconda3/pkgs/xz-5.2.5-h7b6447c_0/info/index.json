@@ -1,0 +1,14 @@
+{
+  "arch": "x86_64",
+  "build": "h7b6447c_0",
+  "build_number": 0,
+  "depends": [
+    "libgcc-ng >=7.3.0"
+  ],
+  "license": "LGPL-2.1 and GPL-2.0",
+  "name": "xz",
+  "platform": "linux",
+  "subdir": "linux-64",
+  "timestamp": 1587011767250,
+  "version": "5.2.5"
+}

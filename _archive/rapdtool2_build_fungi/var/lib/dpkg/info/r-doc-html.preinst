@@ -1,0 +1,32 @@
+#!/bin/sh
+#
+# preinst script for the Debian GNU/Linux r-doc-html package
+# This version written by Dirk Eddelbuettel <edd@debian.org>   
+
+set -e
+
+
+    
+case "$1" in
+    install|upgrade)
+	# edd 05 Jul 2006  from with the /usr/lib -> /usr/share transition
+	# edd 12 Aug 2006  make sure it is a symlink and not a directory
+	# edd 29 Aug 2006  make sure $dir does not contain trailing slash
+	dir=/usr/share/doc/r-doc-html/manual
+    	if [ -h $dir ]
+	then
+	    echo "Removing symbolic link $dir"
+	    rm $dir
+	fi
+    ;;
+ 
+    abort-upgrade)
+    ;;
+ 
+    *)
+        echo "preinst called with unknown argument \`$1'" >&2
+    ;;
+esac
+
+exit 0
+

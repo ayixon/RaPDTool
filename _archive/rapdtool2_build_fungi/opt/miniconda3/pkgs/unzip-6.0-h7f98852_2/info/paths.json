@@ -1,0 +1,65 @@
+{
+  "paths": [
+    {
+      "_path": "bin/funzip",
+      "path_type": "hardlink",
+      "sha256": "a48bf7bbab5099ff6b5a892aaf1b1b502745c291d9e985c00dacdb6cf2119bcd",
+      "size_in_bytes": 22528
+    },
+    {
+      "_path": "bin/unzip",
+      "path_type": "hardlink",
+      "sha256": "72388b8e06659883749539435c5427eb3f496edc83db43be758631d8d251d185",
+      "size_in_bytes": 166016
+    },
+    {
+      "_path": "bin/unzipsfx",
+      "path_type": "hardlink",
+      "sha256": "f76dc691d0393055118eb38a24b7c476672e5f8971bdcae80d07528940ecf221",
+      "size_in_bytes": 71736
+    },
+    {
+      "_path": "bin/zipgrep",
+      "path_type": "hardlink",
+      "sha256": "d077ccd18e5719776df7f06b667bda8f7547aa5c3b9cf174c0005608e9309bb8",
+      "size_in_bytes": 2953
+    },
+    {
+      "_path": "bin/zipinfo",
+      "path_type": "hardlink",
+      "sha256": "72388b8e06659883749539435c5427eb3f496edc83db43be758631d8d251d185",
+      "size_in_bytes": 166016
+    },
+    {
+      "_path": "man/man1/funzip.1",
+      "path_type": "hardlink",
+      "sha256": "b3e8d8c8f0e66390245b83e17ce97f6cf5e222ef8904eaa9ab604bfe320cc0b2",
+      "size_in_bytes": 4938
+    },
+    {
+      "_path": "man/man1/unzip.1",
+      "path_type": "hardlink",
+      "sha256": "95cd597b2bd7f0e108fc74de9a91a5a3544746e9469cdfbb864532dd10f05ae1",
+      "size_in_bytes": 49657
+    },
+    {
+      "_path": "man/man1/unzipsfx.1",
+      "path_type": "hardlink",
+      "sha256": "a9191c7e1020f3e9fc50d101ced93be727b2b7e3778f5d58a6ca1e94064ba93d",
+      "size_in_bytes": 14661
+    },
+    {
+      "_path": "man/man1/zipgrep.1",
+      "path_type": "hardlink",
+      "sha256": "67102368b47fc8b027b1a13d60003f8022e63fdc79afef0da88055b8e2c2a842",
+      "size_in_bytes": 3811
+    },
+    {
+      "_path": "man/man1/zipinfo.1",
+      "path_type": "hardlink",
+      "sha256": "367ba272d2cc22a55c4bc054a69d4c535fee2c2351b6c502fae4104979768177",
+      "size_in_bytes": 23607
+    }
+  ],
+  "paths_version": 1
+}

@@ -1,0 +1,37 @@
+Command History
+
+  Ctrl-n     Next command
+  Ctrl-p     Previous command
+
+Move Cursor Forward
+
+  Ctrl-e     To end of line
+  Ctrl-f     By one character
+  Esc-f      By one argument
+
+Move Cursor Backward
+
+  Ctrl-a     To beginning of line
+  Ctrl-b     By one character
+  Esc-b      By one argument
+
+Delete
+
+  Del        Previous character
+  Ctrl-d     Next character
+  Ctrl-k     To end of line
+  Ctrl-u     Entire line
+  Ctrl-w     Previous word
+  Esc-Del    Previous argument
+  Esc-d      Next argument
+
+Autocomplete
+
+  Tab        Completes directory or file names
+
+Program Control
+
+  Ctrl-c     Quit running program
+  ^x^y       Run last command replacing x with y
+  Ctrl-z     Suspend foreground job
+  kill %%    Quit suspended script

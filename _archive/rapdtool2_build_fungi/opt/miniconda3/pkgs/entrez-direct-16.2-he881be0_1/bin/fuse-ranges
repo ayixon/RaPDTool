@@ -1,0 +1,64 @@
+#!/bin/bash -norc
+
+# Public domain notice for all NCBI EDirect scripts is located at:
+# https://www.ncbi.nlm.nih.gov/books/NBK179288/#chapter6.Public_Domain_Notice
+
+NormalizeRanges() {
+
+  while IFS=$'\t' read score index strand aligns
+  do
+    ranges=$( echo "$aligns" | tr ',' '\n' | tr -s '.' | tr '.' '\t' )
+    echo "$ranges" |
+    while IFS=$'\t' read frst scnd
+    do
+      if [ "$frst" -lt "$scnd" ]
+      then
+        echo -e "${strand}\t${frst}\t${scnd}"
+      else
+        echo -e "${strand}\t${scnd}\t${frst}"
+      fi
+    done
+  done |
+  sort-table -k 1,1r -k 2,2n -k 3,3n |
+  uniq
+}
+
+CombineRanges() {
+
+  std=""
+  lft=0
+  rgt=0
+  while IFS=$'\t' read strand frst scnd
+  do
+    if [ -n "$std" ] && [ "$std" != "$strand" ]
+    then
+      len=$(( $rgt + 1 - $lft ))
+      echo -e "${std}\t${lft}\t${rgt}\t${len}"
+      lft=0
+      rgt=0
+    fi
+    std="$strand"
+    if [ "$lft" -eq 0 ] && [ "$rgt" -eq 0 ]
+    then
+      lft="$frst"
+      rgt="$scnd"
+    elif [ "$frst" -le "$((rgt + 1))" ]
+    then
+      if [ "$rgt" -lt "$scnd" ]
+      then
+        rgt="$scnd"
+      fi
+    else
+      len=$(( $rgt + 1 - $lft ))
+      echo -e "${std}\t${lft}\t${rgt}\t${len}"
+      lft="$frst"
+      rgt="$scnd"
+    fi
+  done
+  len=$(( $rgt + 1 - $lft ))
+  echo -e "${std}\t${lft}\t${rgt}\t${len}"
+}
+
+grep '^[1-9]' |
+NormalizeRanges |
+CombineRanges

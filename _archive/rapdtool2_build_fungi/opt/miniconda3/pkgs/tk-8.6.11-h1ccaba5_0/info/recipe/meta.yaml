@@ -1,0 +1,98 @@
+# This file created by conda-build 3.21.5
+# meta.yaml template originally from:
+# /tmp/build/80754af9/rsync-recipes/tk-8.6.11-on-linux_64, last modified Fri Sep 24 17:26:52 2021
+# ------------------------------------------------
+
+package:
+  name: tk
+  version: 8.6.11
+source:
+  - folder: tcl8.6.11
+    sha256: 8c0486668586672c5693d7d95817cb05a18c5ecca2f40e2836b9578064088258
+    url: https://downloads.sourceforge.net/tcl/tcl8.6.11-src.tar.gz
+  - folder: tk8.6.11
+    patches: module_scope.patch
+    sha256: 5228a8187a7f70fa0791ef0f975270f068ba9557f57456f51eb02d9d4ea31282
+    url: https://downloads.sourceforge.net/tcl/tk8.6.11-src.tar.gz
+build:
+  detect_binary_files_with_prefix: true
+  missing_dso_whitelist:
+    - $RPATH/lib*
+  number: '0'
+  run_exports:
+    - tk >=8.6.11,<8.7.0a0
+  string: h1ccaba5_0
+requirements:
+  build:
+    - _libgcc_mutex 0.1 main
+    - _openmp_mutex 4.5 1_gnu
+    - _sysroot_linux-64_curr_repodata_hack 3 haa98f57_10
+    - binutils_impl_linux-64 2.35.1 h27ae35d_9
+    - binutils_linux-64 2.35.1 h454624a_30
+    - gcc_impl_linux-64 7.5.0 h7105cf2_17
+    - gcc_linux-64 7.5.0 h8f34230_30
+    - kernel-headers_linux-64 3.10.0 h57e8cba_10
+    - ld_impl_linux-64 2.35.1 h7274673_9
+    - libgcc-devel_linux-64 7.5.0 hbbeae57_17
+    - libgcc-ng 9.3.0 h5101ec6_17
+    - libgomp 9.3.0 h5101ec6_17
+    - libstdcxx-ng 9.3.0 hd4cf53a_17
+    - libx11-common-cos6-x86_64 1.6.4 4
+    - libx11-cos6-x86_64 1.6.4 4
+    - libx11-devel-cos6-x86_64 1.6.4 4
+    - libxau-cos6-x86_64 1.0.6 4
+    - libxcb-cos6-x86_64 1.12 4
+    - make 4.2.1 h1bed415_1
+    - patch 2.7.6 h7b6447c_1001
+    - sysroot_linux-64 2.17 h57e8cba_10
+    - xorg-x11-proto-devel-cos6-x86_64 7.7 4
+  host:
+    - _libgcc_mutex 0.1 main
+    - _openmp_mutex 4.5 1_gnu
+    - libgcc-ng 9.3.0 h5101ec6_17
+    - libgomp 9.3.0 h5101ec6_17
+    - zlib 1.2.11 h7b6447c_3
+  run:
+    - libgcc-ng >=7.5.0
+    - zlib >=1.2.11,<1.3.0a0
+test:
+  commands:
+    - test -f "${PREFIX}/bin/tclsh"
+    - test -f "${PREFIX}/bin/wish"
+    - test -f "${PREFIX}/bin/tclsh8.6"
+    - test -f "${PREFIX}/bin/wish8.6"
+    - test -f "${PREFIX}/include/tcl.h"
+    - test -f "${PREFIX}/include/tclDecls.h"
+    - test -f "${PREFIX}/include/tclPlatDecls.h"
+    - test -f "${PREFIX}/include/tclPlatDecls.h"
+    - test -f "${PREFIX}/include/tclTomMathDecls.h"
+    - test -f "${PREFIX}/include/tclTomMath.h"
+    - test -f "${PREFIX}/include/tk.h"
+    - test -f "${PREFIX}/include/tkDecls.h"
+    - test -f "${PREFIX}/include/tkPlatDecls.h"
+    - test -f "${PREFIX}/lib/libtcl8.6.so"
+    - test -f "${PREFIX}/lib/libtclstub8.6.a"
+    - test -f "${PREFIX}/lib/libtk8.6.so"
+    - test -f "${PREFIX}/lib/libtkstub8.6.a"
+    - tclsh hello.tcl
+    - tclsh8.6 hello.tcl
+    - wish hello.tcl
+    - wish8.6 hello.tcl
+  files:
+    - hello.tcl
+about:
+  home: http://www.tcl.tk/
+  license: Tcl/Tk
+  license_family: BSD
+  license_file: tcl8.6.11/license.terms
+  summary: A dynamic programming language with GUI support.  Bundles Tcl and Tk.
+extra:
+  copy_test_source_files: true
+  final: true
+  recipe-maintainers:
+    - jakirkham
+    - jjhelmus
+    - mingwandroid
+    - msarahan
+    - ocefpaf
+    - pelson

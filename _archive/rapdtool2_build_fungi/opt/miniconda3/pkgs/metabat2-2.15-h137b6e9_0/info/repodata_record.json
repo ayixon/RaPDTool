@@ -1,0 +1,27 @@
+{
+  "arch": "x86_64",
+  "build": "h137b6e9_0",
+  "build_number": 0,
+  "channel": "https://conda.anaconda.org/bioconda/linux-64",
+  "constrains": [],
+  "depends": [
+    "htslib >=1.9,<1.10.0a0",
+    "libgcc-ng >=7.3.0",
+    "libstdcxx-ng >=7.3.0",
+    "perl >=5",
+    "zlib >=1.2.11,<1.3.0a0"
+  ],
+  "features": "",
+  "fn": "metabat2-2.15-h137b6e9_0.tar.bz2",
+  "license": "BSD-3-Clause-LBNL",
+  "md5": "1c8b9c4860bef978b73f053dbef47a31",
+  "name": "metabat2",
+  "platform": "linux",
+  "sha256": "e653a55106454c3659e76f769670c8266ed12c76c038c6a7d45a56282643c53b",
+  "size": 1160657,
+  "subdir": "linux-64",
+  "timestamp": 1578172345693,
+  "track_features": "",
+  "url": "https://conda.anaconda.org/bioconda/linux-64/metabat2-2.15-h137b6e9_0.tar.bz2",
+  "version": "2.15"
+}

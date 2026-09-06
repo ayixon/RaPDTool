@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+<svg id="svg3809" width="64px" height="64px" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:xlink="http://www.w3.org/1999/xlink">
+ <defs id="defs3811">
+  <linearGradient id="linearGradient3726" x1="63.397" x2="63.397" y1="-12.489" y2="5.4676" gradientTransform="matrix(2.1154 0 0 -2.1153 -99.577 26.573)" gradientUnits="userSpaceOnUse">
+   <stop id="stop4875-7-7" style="stop-color:#fff" offset="0"/>
+   <stop id="stop4877-6-7" style="stop-color:#fff;stop-opacity:0" offset="1"/>
+  </linearGradient>
+  <linearGradient id="linearGradient3755" x1="24.481" x2="24.481" y1="5.0809" y2="45.074" gradientTransform="matrix(1.3077 0 0 1.3077 .61479 1.1391)" gradientUnits="userSpaceOnUse">
+   <stop id="stop3783" style="stop-color:#fff" offset="0"/>
+   <stop id="stop3785" style="stop-color:#fff;stop-opacity:0" offset="1"/>
+  </linearGradient>
+  <linearGradient id="linearGradient3690" x1="63.397" x2="63.397" y1="-12.489" y2="5.4676" gradientTransform="matrix(2.8014 0 0 2.8014 -142.25 43.835)" gradientUnits="userSpaceOnUse">
+   <stop id="stop4875-7" style="stop-color:#fff" offset="0"/>
+   <stop id="stop4877-6" style="stop-color:#fff;stop-opacity:0" offset="1"/>
+  </linearGradient>
+  <radialGradient id="radialGradient3749" cx="23.896" cy="3.99" r="20.397" gradientTransform="matrix(0 2.9914 -3.9485 0 47.755 -64.903)" gradientUnits="userSpaceOnUse">
+   <stop id="stop3244" style="stop-color:#f8b17e" offset="0"/>
+   <stop id="stop3246" style="stop-color:#e35d4f" offset=".26238"/>
+   <stop id="stop3248" style="stop-color:#c6262e" offset=".66094"/>
+   <stop id="stop3250" style="stop-color:#690b54" offset="1"/>
+  </radialGradient>
+  <linearGradient id="linearGradient3751" x1="18.379" x2="18.379" y1="44.98" y2="3.0816" gradientTransform="matrix(1.2534 0 0 1.2534 1.9192 3.9192)" gradientUnits="userSpaceOnUse">
+   <stop id="stop2492" style="stop-color:#791235" offset="0"/>
+   <stop id="stop2494" style="stop-color:#dd3b27" offset="1"/>
+  </linearGradient>
+  <radialGradient id="radialGradient3807" cx="62.625" cy="4.625" r="10.625" gradientTransform="matrix(2.9176 0 0 .98823 -150.72 48.929)" gradientUnits="userSpaceOnUse">
+   <stop id="stop8840-3" offset="0"/>
+   <stop id="stop8842-2" style="stop-opacity:0" offset="1"/>
+  </radialGradient>
+ </defs>
+ <metadata id="metadata3814">
+  <rdf:RDF>
+   <cc:Work rdf:about="">
+    <dc:format>image/svg+xml</dc:format>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:title/>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <g id="layer1">
+  <path id="path8836-1" d="m63 53.5c0 5.799-13.879 10.5-31 10.5s-31-4.701-31-10.5 13.879-10.5 31-10.5 31 4.701 31 10.5z" style="fill-rule:evenodd;fill:url(#radialGradient3807);opacity:.3"/>
+  <path id="path2555-5" d="m32 8.5c-14.069 0-25.5 11.431-25.5 25.5 0 14.069 11.431 25.5 25.5 25.5 14.069 0 25.5-11.431 25.5-25.5 0-14.069-11.431-25.5-25.5-25.5zm0 8c9.665 0 17.5 7.835 17.5 17.5 0 4.003-1.3636 7.6765-3.625 10.625l-22.469-25.844c2.54-1.4362 5.4676-2.2812 8.5938-2.2812zm-13.875 6.875 22.469 25.844c-2.54 1.4362-5.4676 2.2812-8.5938 2.2812-9.665 0-17.5-7.835-17.5-17.5 0-4.003 1.3636-7.6765 3.625-10.625z" style="fill:url(#radialGradient3749);stroke-linecap:round;stroke-linejoin:round;stroke:url(#linearGradient3751)"/>
+  <path id="path8655-9" d="m56.5 33.999c0 13.531-10.97 24.501-24.5 24.501-13.531 0-24.5-10.97-24.5-24.501 0-13.531 10.969-24.499 24.5-24.499 13.53 0 24.5 10.968 24.5 24.499z" style="fill:none;opacity:.4;stroke:url(#linearGradient3690)"/>
+  <path id="path3270" d="m22.64 19.353 22.521 25.948" style="fill:none;opacity:.4;stroke-linecap:round;stroke-width:1px;stroke:url(#linearGradient3755)"/>
+  <path id="path8655-9-6" d="m17.783 22.162c-2.6744 3.2082-4.2833 7.3357-4.2833 11.839 0 10.217 8.2829 18.499 18.5 18.499 3.392 0 6.571-0.913 9.3044-2.5067m4.994-4.2536c2.6252-3.1936 4.2013-7.2823 4.2013-11.739 0-10.218-8.2833-18.501-18.5-18.501" style="fill:none;opacity:.2;stroke:url(#linearGradient3726)"/>
+ </g>
+</svg>

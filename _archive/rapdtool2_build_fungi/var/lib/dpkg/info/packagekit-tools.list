@@ -1,0 +1,17 @@
+/.
+/usr
+/usr/bin
+/usr/bin/pkcon
+/usr/bin/pkmon
+/usr/share
+/usr/share/bash-completion
+/usr/share/bash-completion/completions
+/usr/share/bash-completion/completions/pkcon
+/usr/share/doc
+/usr/share/doc/packagekit-tools
+/usr/share/doc/packagekit-tools/copyright
+/usr/share/man
+/usr/share/man/man1
+/usr/share/man/man1/pkcon.1.gz
+/usr/share/man/man1/pkmon.1.gz
+/usr/share/doc/packagekit-tools/changelog.Debian.gz

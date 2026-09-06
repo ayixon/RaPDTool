@@ -1,0 +1,2 @@
+libxkbfile 1 libxkbfile1 (>= 1:1.1.0)
+udeb: libxkbfile 1 libxkbfile1-udeb (>= 1:1.1.0)

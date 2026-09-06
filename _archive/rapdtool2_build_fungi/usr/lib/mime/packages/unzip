@@ -1,0 +1,1 @@
+application/zip; unzip -l %s; nametemplate=%s.zip; copiousoutput; priority=3

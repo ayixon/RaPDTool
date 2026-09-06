@@ -1,0 +1,6 @@
+Name: Inheritable Capabilities Management
+Default: yes
+Priority: 0
+Auth-Type: Additional
+Auth-Final:
+	optional			pam_cap.so

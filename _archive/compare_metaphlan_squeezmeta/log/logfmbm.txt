@@ -1,0 +1,223 @@
+
+* Starting execution 2022-08-18 12:31:22
+Using the newly created root path /home/karel/rapdtool_results/
+All paths were verified
+Using appointed database: /db/GTDBr202.msh, copied to /home/karel/rapdtool_results/genomadbfmbm/
+File for process is: /home/karel/rapdtool_results/inputfmbm/scaff_non_virus.fasta, size: 46996046, tstamp: 2022-08-18 12:31:24
+Filenames and paths were initialized
+FOCUS command
+focus -q /home/karel/rapdtool_results/inputfmbm/ -o /home/karel/rapdtool_results/profilesfmbm/scaff_non_virus/ -l /home/karel/rapdtool_results/workfmbm/logfocus/scaff_non_virus.fasta.txt
+focus - The file /home/karel/rapdtool_results/profilesfmbm/scaff_non_virus/output_All_levels.csv was created, focus - 8 profile file(s) were created
+METABAT command
+metabat2 -m 1500 -i /home/karel/rapdtool_results/inputfmbm/scaff_non_virus.fasta -o /home/karel/rapdtool_results/workfmbm/binmetabat/scaff_non_virus/metabat > /home/karel/rapdtool_results/workfmbm/logmetabat/scaff_non_virus.fasta.txt
+metabat - 8 bin file(s) were created and copied to Binning_refiner input folders
+Binning_refiner command
+cd /home/karel/rapdtool_results/workfmbm/outbinningref/; Binning_refiner -i /home/karel/rapdtool_results/workfmbm/inbinningref/scaff_non_virus/ -p scaff_non_virus -plot > /home/karel/rapdtool_results/workfmbm/logbinningref/scaff_non_virus.fasta.txt
+Binning_refiner - The output subdirectory and 7 refined bin files were created
+rename Binning_refiner output
+scaff_non_virus_1.fasta was renamed to scaff_non_virus_1.fna
+scaff_non_virus_6.fasta was renamed to scaff_non_virus_6.fna
+scaff_non_virus_2.fasta was renamed to scaff_non_virus_2.fna
+scaff_non_virus_5.fasta was renamed to scaff_non_virus_5.fna
+scaff_non_virus_4.fasta was renamed to scaff_non_virus_4.fna
+scaff_non_virus_7.fasta was renamed to scaff_non_virus_7.fna
+scaff_non_virus_3.fasta was renamed to scaff_non_virus_3.fna
+miCompletelist command
+find /home/karel/rapdtool_results/workfmbm/outbinningref/scaff_non_virus_Binning_refiner_outputs/scaff_non_virus_refined_bins/ -maxdepth 1 -type f -name "*.fna" | miCompletelist.sh > /home/karel/rapdtool_results/workfmbm/inmicomplete/scaff_non_virus.tab
+miCompletelist - The file /home/karel/rapdtool_results/workfmbm/inmicomplete/scaff_non_virus.tab was created
+miComplete command
+miComplete /home/karel/rapdtool_results/workfmbm/inmicomplete/scaff_non_virus.tab --hmms Bact105 --threads 8 > /home/karel/rapdtool_results/workfmbm/outmicomplete/miCompleteOut_scaff_non_virus.tab
+miComplete - The file /home/karel/rapdtool_results/workfmbm/outmicomplete/miCompleteOut_scaff_non_virus.tab was created
+MASH - start cycling
+mash dist /home/karel/rapdtool_results/workfmbm/outbinningref/scaff_non_virus_Binning_refiner_outputs/scaff_non_virus_refined_bins/scaff_non_virus_4.fna /home/karel/rapdtool_results/genomadbfmbm/GTDBr202.msh > /home/karel/rapdtool_results/workfmbm/outmash/scaff_non_virus/scaff_non_virus_4.fna.txt 2> /dev/null
+mash dist /home/karel/rapdtool_results/workfmbm/outbinningref/scaff_non_virus_Binning_refiner_outputs/scaff_non_virus_refined_bins/scaff_non_virus_5.fna /home/karel/rapdtool_results/genomadbfmbm/GTDBr202.msh > /home/karel/rapdtool_results/workfmbm/outmash/scaff_non_virus/scaff_non_virus_5.fna.txt 2> /dev/null
+mash dist /home/karel/rapdtool_results/workfmbm/outbinningref/scaff_non_virus_Binning_refiner_outputs/scaff_non_virus_refined_bins/scaff_non_virus_2.fna /home/karel/rapdtool_results/genomadbfmbm/GTDBr202.msh > /home/karel/rapdtool_results/workfmbm/outmash/scaff_non_virus/scaff_non_virus_2.fna.txt 2> /dev/null
+mash dist /home/karel/rapdtool_results/workfmbm/outbinningref/scaff_non_virus_Binning_refiner_outputs/scaff_non_virus_refined_bins/scaff_non_virus_1.fna /home/karel/rapdtool_results/genomadbfmbm/GTDBr202.msh > /home/karel/rapdtool_results/workfmbm/outmash/scaff_non_virus/scaff_non_virus_1.fna.txt 2> /dev/null
+mash dist /home/karel/rapdtool_results/workfmbm/outbinningref/scaff_non_virus_Binning_refiner_outputs/scaff_non_virus_refined_bins/scaff_non_virus_7.fna /home/karel/rapdtool_results/genomadbfmbm/GTDBr202.msh > /home/karel/rapdtool_results/workfmbm/outmash/scaff_non_virus/scaff_non_virus_7.fna.txt 2> /dev/null
+mash dist /home/karel/rapdtool_results/workfmbm/outbinningref/scaff_non_virus_Binning_refiner_outputs/scaff_non_virus_refined_bins/scaff_non_virus_3.fna /home/karel/rapdtool_results/genomadbfmbm/GTDBr202.msh > /home/karel/rapdtool_results/workfmbm/outmash/scaff_non_virus/scaff_non_virus_3.fna.txt 2> /dev/null
+mash dist /home/karel/rapdtool_results/workfmbm/outbinningref/scaff_non_virus_Binning_refiner_outputs/scaff_non_virus_refined_bins/scaff_non_virus_6.fna /home/karel/rapdtool_results/genomadbfmbm/GTDBr202.msh > /home/karel/rapdtool_results/workfmbm/outmash/scaff_non_virus/scaff_non_virus_6.fna.txt 2> /dev/null
+mash - 7 taxonomic match reports were generated
+MinDistance extraction
+All 7 files were extracted for the best 10 distances
+Linking Binning_refiner results to results subdirectory
+Copying miComplete results to results subdirectory
+Moving input file to processed subdirectory
+Copying and merging results..
+Removing tmp directories..
+Done - results are in /home/karel/rapdtool_results/
+
+* Starting execution 2022-08-28 14:19:58
+The root path /home/karel/rapdtool_results_compare/ contains the most recently used logfmbm.txt
+All paths were verified
+Appointed database /db/ does not exist
+
+* Starting execution 2022-08-28 14:22:52
+The root path /home/karel/rapdtool_results_compare/ contains the most recently used logfmbm.txt
+All paths were verified
+Appointed database /db/ does not exist
+
+* Starting execution 2022-08-28 14:22:56
+The root path /home/karel/rapdtool_results_compare/ contains the most recently used logfmbm.txt
+All paths were verified
+Appointed database /db/ does not exist
+
+* Starting execution 2022-08-28 14:23:01
+The root path /home/karel/rapdtool_results_compare/ contains the most recently used logfmbm.txt
+All paths were verified
+Appointed database /db/ does not exist
+
+* Starting execution 2022-08-28 14:23:06
+The root path /home/karel/rapdtool_results_compare/ contains the most recently used logfmbm.txt
+All paths were verified
+Appointed database /db/ does not exist
+
+* Starting execution 2022-08-28 14:23:40
+The root path /home/karel/rapdtool_results_compareold/ contains the most recently used logfmbm.txt
+All paths were verified
+Appointed database /db/ does not exist
+
+* Starting execution 2022-08-28 14:23:49
+The root path /home/karel/rapdtool_results_compareold/ contains the most recently used logfmbm.txt
+All paths were verified
+Appointed database /db/ does not exist
+
+* Starting execution 2022-08-28 14:24:01
+The root path /home/karel/rapdtool_results_compareold/ contains the most recently used logfmbm.txt
+All paths were verified
+Appointed database /db/ does not exist
+
+* Starting execution 2022-08-28 17:47:07
+The root path /home/karel/rapdtool_results_compareold/ contains the most recently used logfmbm.txt
+All paths were verified
+Using appointed database: /db/GTDBr202_plus_NCBI_type_material.msh, copied to /home/karel/rapdtool_results_compareold/genomadbfmbm/
+ not found
+
+* Starting execution 2022-08-28 18:00:11
+The root path /home/karel/rapdtool_results_compareold/ contains the most recently used logfmbm.txt
+All paths were verified
+Database conflict: /db/GTDBr202_plus_NCBI_type_material.msh already exists in /home/karel/rapdtool_results_compareold/genomadbfmbm/
+
+* Starting execution 2022-08-28 18:19:49
+The root path /home/karel/rapdtool_results_compareold/ contains the most recently used logfmbm.txt
+All paths were verified
+Database conflict: /db/GTDBr202_plus_NCBI_type_material.msh already exists in /home/karel/rapdtool_results_compareold/genomadbfmbm/
+
+* Starting execution 2022-08-28 18:21:52
+The root path /home/karel/rapdtool_results_compareold/ contains the most recently used logfmbm.txt
+All paths were verified
+Database conflict: /db/GTDBr202_plus_NCBI_type_material.msh already exists in /home/karel/rapdtool_results_compareold/genomadbfmbm/
+
+* Starting execution 2022-08-28 18:38:04
+The root path /home/karel/rapdtool_results_compareold/ contains the most recently used logfmbm.txt
+All paths were verified
+Database conflict: /db/GTDBr202_plus_NCBI_type_material.msh already exists in /home/karel/rapdtool_results_compareold/genomadbfmbm/
+
+* Starting execution 2022-08-28 18:43:05
+The root path /home/karel/rapdtool_results_compareold/ contains the most recently used logfmbm.txt
+All paths were verified
+Database conflict: /db/GTDBr202_plus_NCBI_type_material.msh already exists in /home/karel/rapdtool_results_compareold/genomadbfmbm/
+
+* Starting execution 2022-08-28 18:45:45
+The root path /home/karel/rapdtool_results_compareold/ contains the most recently used logfmbm.txt
+All paths were verified
+Database conflict: /db/GTDBr202_plus_NCBI_type_material.msh already exists in /home/karel/rapdtool_results_compareold/genomadbfmbm/
+
+* Starting execution 2022-08-28 18:50:41
+The root path /home/karel/rapdtool_results_compareold/ contains the most recently used logfmbm.txt
+All paths were verified
+Database conflict: /db/GTDBr202_plus_NCBI_type_material.msh already exists in /home/karel/rapdtool_results_compareold/genomadbfmbm/
+
+* Starting execution 2022-08-28 19:27:41
+The root path /scratch2/rapdtool_apptainer/rapdtool_results_compareold/ contains the most recently used logfmbm.txt
+All paths were verified
+Database conflict: /db/GTDBr202_plus_NCBI_type_material.msh already exists in /scratch2/rapdtool_apptainer/rapdtool_results_compareold/genomadbfmbm/
+
+* Starting execution 2022-08-28 19:42:22
+The root path /scratch2/rapdtool_apptainer/rapdtool_results_compareold/ contains the most recently used logfmbm.txt
+All paths were verified
+Database conflict: /db/GTDBr202_plus_NCBI_type_material.msh already exists in /scratch2/rapdtool_apptainer/rapdtool_results_compareold/genomadbfmbm/
+
+* Starting execution 2022-08-28 19:42:45
+The root path /scratch2/rapdtool_apptainer/rapdtool_results_compareold/ contains the most recently used logfmbm.txt
+All paths were verified
+Database conflict: /db/GTDBr202_plus_NCBI_type_material.msh already exists in /scratch2/rapdtool_apptainer/rapdtool_results_compareold/genomadbfmbm/
+
+* Starting execution 2022-08-28 19:44:21
+The root path /scratch2/rapdtool_apptainer/rapdtool_results_compareold/ contains the most recently used logfmbm.txt
+All paths were verified
+Database conflict: /db/GTDBr202_plus_NCBI_type_material.msh already exists in /scratch2/rapdtool_apptainer/rapdtool_results_compareold/genomadbfmbm/
+
+* Starting execution 2022-08-28 19:47:17
+The root path /scratch2/rapdtool_apptainer/compare_metaphlan_squeezmeta/ contains the most recently used logfmbm.txt
+All paths were verified
+Database conflict: /db/GTDBr202_plus_NCBI_type_material.msh already exists in /scratch2/rapdtool_apptainer/compare_metaphlan_squeezmeta/genomadbfmbm/
+
+* Starting execution 2022-08-28 19:54:21
+The root path /scratch2/rapdtool_apptainer/compare_metaphlan_squeezmeta/ contains the most recently used logfmbm.txt
+All paths were verified
+Database conflict: /db/GTDBr202_plus_NCBI_type_material.msh already exists in /scratch2/rapdtool_apptainer/compare_metaphlan_squeezmeta/genomadbfmbm/
+The blunt name of the input file scaff_non_virus already exists in previous results
+
+* Starting execution 2022-08-28 19:55:00
+The root path /scratch2/rapdtool_apptainer/compare_metaphlan_squeezmeta/ contains the most recently used logfmbm.txt
+All paths were verified
+Database conflict: /db/GTDBr202_plus_NCBI_type_material.msh already exists in /scratch2/rapdtool_apptainer/compare_metaphlan_squeezmeta/genomadbfmbm/
+The blunt name of the input file scaff_non_virus already exists in previous results
+
+* Starting execution 2022-08-28 20:03:52
+The root path /scratch2/rapdtool_apptainer/compare_metaphlan_squeezmeta/ contains the most recently used logfmbm.txt
+All paths were verified
+Database conflict: /db/GTDBr202_plus_NCBI_type_material.msh already exists in /scratch2/rapdtool_apptainer/compare_metaphlan_squeezmeta/genomadbfmbm/
+The blunt name of the input file scaff_non_virus already exists in previous results
+
+* Starting execution 2022-08-28 20:04:09
+The root path /scratch2/rapdtool_apptainer/compare_metaphlan_squeezmeta/ contains the most recently used logfmbm.txt
+All paths were verified
+Database conflict: /db/GTDBr202_plus_NCBI_type_material.msh already exists in /scratch2/rapdtool_apptainer/compare_metaphlan_squeezmeta/genomadbfmbm/
+The blunt name of the input file scaff_non_virus already exists in previous results
+
+* Starting execution 2022-08-28 20:07:44
+The root path /scratch2/rapdtool_apptainer/compare_metaphlan_squeezmeta/ contains the most recently used logfmbm.txt
+All paths were verified
+Database conflict: /db/GTDBr202_plus_NCBI_type_material.msh already exists in /scratch2/rapdtool_apptainer/compare_metaphlan_squeezmeta/genomadbfmbm/
+The blunt name of the input file scaff_non_virus already exists in previous results
+
+* Starting execution 2022-08-28 21:49:29
+The root path /scratch2/rapdtool_apptainer/compare_metaphlan_squeezmeta/ contains the most recently used logfmbm.txt
+All paths were verified
+Database conflict: /db/GTDBr202_plus_NCBI_type_material.msh already exists in /scratch2/rapdtool_apptainer/compare_metaphlan_squeezmeta/genomadbfmbm/
+
+* Starting execution 2022-08-28 21:49:53
+The root path /scratch2/rapdtool_apptainer/compare_metaphlan_squeezmeta/ contains the most recently used logfmbm.txt
+All paths were verified
+Database conflict: /db/GTDBr202_plus_NCBI_type_material.msh already exists in /scratch2/rapdtool_apptainer/compare_metaphlan_squeezmeta/genomadbfmbm/
+
+* Starting execution 2022-08-28 21:50:57
+The root path /scratch2/rapdtool_apptainer/compare_metaphlan_squeezmeta/ contains the most recently used logfmbm.txt
+All paths were verified
+Database conflict: /db/GTDBr202_plus_NCBI_type_material.msh already exists in /scratch2/rapdtool_apptainer/compare_metaphlan_squeezmeta/genomadbfmbm/
+
+* Starting execution 2022-08-28 22:17:33
+The root path /scratch2/rapdtool_apptainer/compare_metaphlan_squeezmeta/ contains the most recently used logfmbm.txt
+All paths were verified
+Database conflict: /db/GTDBr202_plus_NCBI_type_material.msh already exists in /scratch2/rapdtool_apptainer/compare_metaphlan_squeezmeta/genomadbfmbm/
+
+* Starting execution 2022-08-28 22:18:28
+The root path /scratch2/rapdtool_apptainer/compare_metaphlan_squeezmeta/ contains the most recently used logfmbm.txt
+All paths were verified
+Database conflict: /db/GTDBr202_plus_NCBI_type_material.msh already exists in /scratch2/rapdtool_apptainer/compare_metaphlan_squeezmeta/genomadbfmbm/
+
+* Starting execution 2022-10-14 09:31:06
+The root path /scratch2/rapdtool_apptainer/compare_metaphlan_squeezmeta/ contains the most recently used logfmbm.txt
+All paths were verified
+Database conflict: /db/GTDBr202_plus_NCBI_type_material.msh already exists in /scratch2/rapdtool_apptainer/compare_metaphlan_squeezmeta/genomadbfmbm/
+
+* Starting execution 2022-10-14 09:31:25
+The root path /scratch2/rapdtool_apptainer/compare_metaphlan_squeezmeta/ contains the most recently used logfmbm.txt
+All paths were verified
+Database conflict: /db/GTDBr202_plus_NCBI_type_material.msh already exists in /scratch2/rapdtool_apptainer/compare_metaphlan_squeezmeta/genomadbfmbm/
+
+* Starting execution 2022-10-19 18:03:21
+The root path /scratch2/rapdtool_apptainer/compare_metaphlan_squeezmeta/ contains the most recently used logfmbm.txt
+All paths were verified
+Database conflict: /db/GTDBr202_plus_NCBI_type_material.msh already exists in /scratch2/rapdtool_apptainer/compare_metaphlan_squeezmeta/genomadbfmbm/

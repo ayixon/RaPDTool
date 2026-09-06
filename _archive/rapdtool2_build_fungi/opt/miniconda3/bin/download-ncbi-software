@@ -1,0 +1,136 @@
+#!/bin/bash
+
+# Public domain notice for all NCBI EDirect scripts is located at:
+# https://www.ncbi.nlm.nih.gov/books/NBK179288/#chapter6.Public_Domain_Notice
+
+cmd="$1"
+shift
+
+osname=`uname -s`
+cputype=`uname -m`
+
+case "$cmd" in
+  -h | -help | --help | help )
+  cat <<EOF
+USAGE: download-ncbi-software [ magic-blast | datasets | sra-toolkit ]
+EOF
+    exit 0
+    ;;
+  magicblast | magic-blast | -magicblast | -magic-blast )
+    suffix=""
+    case "$osname-$cputype" in
+      Linux-x86_64 )
+        suffix=linux
+        ;;
+      Darwin-x86_64 )
+        suffix=macosx
+        ;;
+      Darwin-*arm* )
+        suffix=macosx
+        ;;
+      CYGWIN_NT-* | MINGW*-* )
+        suffix=win64
+        ;;
+      Linux-*arm* )
+        suffix=
+        ;;
+      * )
+        suffix=
+        ;;
+    esac
+    if [ -n "$suffix" ]
+    then
+      dir="ftp://ftp.ncbi.nlm.nih.gov/blast/executables/magicblast/LATEST"
+      fl=$(
+        nquire -lst "$dir" |
+        grep "$suffix" | grep -v "md5"
+      )
+      nquire -dwn "$dir" "$fl"
+      gunzip "$fl"
+      tr="${fl%.gz}"
+      tar -xf "$tr"
+      dr=$( echo "${tr%.tar}" | sed -e 's/-x64.*//g' )
+      cp "./${dr}/bin/magicblast" .
+      cp "./${dr}/bin/makeblastdb" .
+      rm -rf "./${tr}"
+      rm -rf "./${dr}"
+    fi
+    exit 0
+    ;;
+  datasets | dataformat | -datasets | -dataformat )
+    suffix=""
+    extnsn=""
+    case "$osname-$cputype" in
+      Linux-x86_64 )
+        suffix=linux-amd64
+        ;;
+      Darwin-x86_64 )
+        suffix=mac
+        ;;
+      Darwin-*arm* )
+        suffix=mac
+        ;;
+      CYGWIN_NT-* | MINGW*-* )
+        suffix=win64
+        extnsn=".exe"
+        ;;
+      Linux-*arm* )
+        suffix=
+        ;;
+      * )
+        suffix=
+        ;;
+    esac
+    if [ -n "$suffix" ]
+    then
+      dir="ftp://ftp.ncbi.nlm.nih.gov/pub/datasets/command-line/LATEST"
+      nquire -dwn "$dir" "$suffix" "datasets${extnsn}"
+      nquire -dwn "$dir" "$suffix" "dataformat${extnsn}"
+      if [ -z "$extnsn" ]
+      then
+        chmod +x datasets dataformat
+      fi
+    fi
+    exit 0
+    ;;
+  sratoolkit | sra-toolkit | -sratoolkit | -sra-toolkit )
+    suffix=""
+    case "$osname-$cputype" in
+      Linux-x86_64 )
+        suffix=
+        ;;
+      Darwin-x86_64 )
+        suffix=mac64
+        ;;
+      Darwin-*arm* )
+        suffix=mac64
+        ;;
+      CYGWIN_NT-* | MINGW*-* )
+        suffix=
+        ;;
+      Linux-*arm* )
+        suffix=
+        ;;
+      * )
+        suffix=
+        ;;
+    esac
+    if [ -n "$suffix" ]
+    then
+	  dir="ftp://ftp-trace.ncbi.nlm.nih.gov/sra/sdk/current"
+	  fl=$(
+		nquire -lst "$dir" |
+		grep "sratoolkit.current" |
+		grep "$suffix"
+	  )
+	  nquire -dwn "$dir" "$fl"
+	  gunzip "$fl"
+	  tr="${fl%.gz}"
+	  tar -xf "$tr"
+      rm -rf "./${tr}"
+    fi
+    exit 0
+    ;;
+  * )
+    ;;
+esac

@@ -1,0 +1,223 @@
+ChangelogURI: http://changelogs.ubuntu.com/changelogs/pool/%s/%s/%s/%s_%s/changelog
+
+Suite: devel
+RepositoryType: deb
+BaseURI: http://ports.ubuntu.com/ubuntu-ports/
+MatchURI: ports.ubuntu.com/ubuntu-ports
+BaseURI-amd64: http://archive.ubuntu.com/ubuntu
+MatchURI-amd64: archive.ubuntu.com/ubuntu
+BaseURI-i386: http://archive.ubuntu.com/ubuntu
+MatchURI-i386: archive.ubuntu.com/ubuntu
+MirrorsFile-amd64: Ubuntu.mirrors
+MirrorsFile-i386: Ubuntu.mirrors
+Description: Ubuntu development series
+Component: main
+CompDescription: Officially supported
+CompDescriptionLong: Canonical-supported free and open-source software
+Component: universe
+CompDescription: Community-maintained
+CompDescriptionLong: Community-maintained free and open-source software
+Component: restricted
+CompDescription: Non-free drivers
+CompDescriptionLong: Proprietary drivers for devices
+Component: multiverse
+ParentComponent: universe
+CompDescription: Restricted software
+CompDescriptionLong: Software restricted by copyright or legal issues
+
+Suite: devel
+ParentSuite: devel
+RepositoryType: deb-src
+BaseURI: http://archive.ubuntu.com/ubuntu/
+MatchURI: archive.ubuntu.com/ubuntu|ports.ubuntu.com/ubuntu-ports
+Description: Ubuntu development series
+
+Suite: devel
+Official: false
+RepositoryType: deb
+BaseURI: http://extras.ubuntu.com
+MatchURI: extras.ubuntu.com
+Description: Independent
+Component: main
+CompDescription: Provided by third-party software developers
+CompDescriptionLong: Software offered by third party developers.
+
+Suite: devel-security
+ParentSuite: devel
+RepositoryType: deb
+BaseURI: http://ports.ubuntu.com/ubuntu-ports/
+MatchURI: ports.ubuntu.com/ubuntu-ports
+BaseURI-amd64: http://security.ubuntu.com/ubuntu/
+MatchURI-amd64: archive.ubuntu.com/ubuntu|security.ubuntu.com
+BaseURI-i386: http://security.ubuntu.com/ubuntu/
+MatchURI-i386: archive.ubuntu.com/ubuntu|security.ubuntu.com
+Description: Important security updates
+
+Suite: devel-security
+ParentSuite: devel
+RepositoryType: deb-src
+BaseURI: http://archive.ubuntu.com/ubuntu/
+MatchURI: archive.ubuntu.com/ubuntu|ports.ubuntu.com/ubuntu-ports|security.ubuntu.com
+Description: Important security updates
+
+Suite: devel-updates
+ParentSuite: devel
+RepositoryType: deb
+Description: Recommended updates
+
+Suite: devel-updates
+ParentSuite: devel
+RepositoryType: deb-src
+BaseURI: http://archive.ubuntu.com/ubuntu/
+MatchURI: archive.ubuntu.com/ubuntu|ports.ubuntu.com/ubuntu-ports
+Description: Recommended updates
+
+Suite: devel-proposed
+ParentSuite: devel
+RepositoryType: deb
+Description: Pre-released updates
+
+Suite: devel-proposed
+ParentSuite: devel
+RepositoryType: deb-src
+BaseURI: http://archive.ubuntu.com/ubuntu/
+MatchURI: archive.ubuntu.com/ubuntu|ports.ubuntu.com/ubuntu-ports
+Description: Pre-released updates
+
+Suite: devel-backports
+ParentSuite: devel
+RepositoryType: deb
+Description: Unsupported updates
+
+Suite: devel-backports
+ParentSuite: devel
+RepositoryType: deb-src
+BaseURI: http://archive.ubuntu.com/ubuntu/
+MatchURI: archive.ubuntu.com/ubuntu|ports.ubuntu.com/ubuntu-ports
+Description: Unsupported updates
+
+Suite: {series}
+RepositoryType: deb
+BaseURI: http://ports.ubuntu.com/ubuntu-ports/
+MatchURI: ports.ubuntu.com/ubuntu-ports
+BaseURI-amd64: http://archive.ubuntu.com/ubuntu
+MatchURI-amd64: archive.ubuntu.com/ubuntu
+BaseURI-i386: http://archive.ubuntu.com/ubuntu
+MatchURI-i386: archive.ubuntu.com/ubuntu
+MirrorsFile-amd64: Ubuntu.mirrors
+MirrorsFile-i386: Ubuntu.mirrors
+Description: Ubuntu {version} '{codename}'
+Component: main
+CompDescription: Officially supported
+CompDescriptionLong: Canonical-supported free and open-source software
+Component: universe
+CompDescription: Community-maintained
+CompDescriptionLong: Community-maintained free and open-source software
+Component: restricted
+CompDescription: Non-free drivers
+CompDescriptionLong: Proprietary drivers for devices
+Component: multiverse
+ParentComponent: universe
+CompDescription: Restricted software
+CompDescriptionLong: Software restricted by copyright or legal issues
+
+Suite: {series}
+ParentSuite: {series}
+RepositoryType: deb-src
+BaseURI: http://archive.ubuntu.com/ubuntu/
+MatchURI: archive.ubuntu.com/ubuntu|ports.ubuntu.com/ubuntu-ports
+Description: Ubuntu {version} '{codename}'
+X-Version: ge 11.04
+
+Suite: {series}
+RepositoryType: deb
+MatchName: .*
+BaseURI: cdrom:\[Ubuntu.*{version}
+MatchURI: cdrom:\[Ubuntu.*{version}
+Description: Installation medium with Ubuntu {version} '{codename}'
+Available: False
+Component: main
+CompDescription: Officially supported
+Component: restricted
+CompDescription: Restricted copyright
+
+Suite: {series}
+Official: false
+RepositoryType: deb
+BaseURI: http://archive.canonical.com
+MatchURI: archive.canonical.com
+Description: Canonical Partners
+Component: partner
+CompDescription: Software packaged by Canonical for their partners
+CompDescriptionLong: This software is not part of Ubuntu.
+X-Version: le 20.04, ge 10.10
+
+Suite: {series} 
+Official: false
+RepositoryType: deb
+BaseURI: http://extras.ubuntu.com
+MatchURI: extras.ubuntu.com
+Description: Independent
+Component: main
+CompDescription: Provided by third-party software developers
+CompDescriptionLong: Software offered by third party developers.
+X-Version: le 15.04, ge 10.10
+
+Suite: {series}-security
+ParentSuite: {series}
+RepositoryType: deb
+BaseURI: http://ports.ubuntu.com/ubuntu-ports/
+MatchURI: ports.ubuntu.com/ubuntu-ports
+BaseURI-amd64: http://security.ubuntu.com/ubuntu/
+MatchURI-amd64: archive.ubuntu.com/ubuntu|security.ubuntu.com
+BaseURI-i386: http://security.ubuntu.com/ubuntu/
+MatchURI-i386: archive.ubuntu.com/ubuntu|security.ubuntu.com
+Description: Important security updates
+
+Suite: {series}-security
+ParentSuite: {series}
+RepositoryType: deb-src
+BaseURI: http://archive.ubuntu.com/ubuntu/
+MatchURI: archive.ubuntu.com/ubuntu|ports.ubuntu.com/ubuntu-ports|security.ubuntu.com
+Description: Important security updates
+X-Version: ge 11.04
+
+Suite: {series}-updates
+ParentSuite: {series}
+RepositoryType: deb
+Description: Recommended updates
+
+Suite: {series}-updates
+ParentSuite: {series}
+RepositoryType: deb-src
+BaseURI: http://archive.ubuntu.com/ubuntu/
+MatchURI: archive.ubuntu.com/ubuntu|ports.ubuntu.com/ubuntu-ports
+Description: Recommended updates
+X-Version: ge 11.04
+
+Suite: {series}-proposed
+ParentSuite: {series}
+RepositoryType: deb
+Description: Pre-released updates
+
+Suite: {series}-proposed
+ParentSuite: {series}
+RepositoryType: deb-src
+BaseURI: http://archive.ubuntu.com/ubuntu/
+MatchURI: archive.ubuntu.com/ubuntu|ports.ubuntu.com/ubuntu-ports
+Description: Pre-released updates
+X-Version: ge 11.04
+
+Suite: {series}-backports
+ParentSuite: {series}
+RepositoryType: deb
+Description: Unsupported updates
+
+Suite: {series}-backports
+ParentSuite: {series}
+RepositoryType: deb-src
+BaseURI: http://archive.ubuntu.com/ubuntu/
+MatchURI: archive.ubuntu.com/ubuntu|ports.ubuntu.com/ubuntu-ports
+Description: Unsupported updates
+X-Version: ge 11.04
+

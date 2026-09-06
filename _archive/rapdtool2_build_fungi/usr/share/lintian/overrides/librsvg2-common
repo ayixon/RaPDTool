@@ -1,0 +1,3 @@
+# This shared object genuinely doesn't use any libc ABIs directly,
+# only via GLib
+library-not-linked-against-libc usr/lib/*/gdk-pixbuf-2.0/*/loaders/libpixbufloader-svg.so

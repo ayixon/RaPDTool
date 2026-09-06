@@ -1,0 +1,11 @@
+d3eb671c725170d8936e800e33feb075  usr/lib/x86_64-linux-gnu/gstreamer-1.0/libgstcoreelements.so
+f392f7c27348f48c8585e59d8433716e  usr/lib/x86_64-linux-gnu/gstreamer-1.0/libgstcoretracers.so
+d666d5cf4d34920a621db6a3e02e8e08  usr/lib/x86_64-linux-gnu/gstreamer1.0/gstreamer-1.0/gst-plugin-scanner
+ede9989d2f09a4e834b8627fe8f74063  usr/lib/x86_64-linux-gnu/gstreamer1.0/gstreamer-1.0/gst-ptp-helper
+a3597c095dcc5a02b2fbf2895eb69488  usr/lib/x86_64-linux-gnu/libgstbase-1.0.so.0.2003.0
+032a9be0bcbb42b95691146d78d253fa  usr/lib/x86_64-linux-gnu/libgstcheck-1.0.so.0.2003.0
+7a7d27921445f7661b8549f790a8c4dd  usr/lib/x86_64-linux-gnu/libgstcontroller-1.0.so.0.2003.0
+13f1e500837dd3935d8b65ca68903fd4  usr/lib/x86_64-linux-gnu/libgstnet-1.0.so.0.2003.0
+b8f04dc791103c3cfccc669dd4e33bd2  usr/lib/x86_64-linux-gnu/libgstreamer-1.0.so.0.2003.0
+6f68e696f93ea0d7566ff4550146bf90  usr/share/doc/libgstreamer1.0-0/changelog.Debian.gz
+671f06bafc93d6ffbeb9cbedf403c6df  usr/share/doc/libgstreamer1.0-0/copyright

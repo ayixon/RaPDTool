@@ -1,0 +1,11 @@
+/.
+/usr
+/usr/lib
+/usr/lib/x86_64-linux-gnu
+/usr/lib/x86_64-linux-gnu/libxcb-sync.so.1.0.0
+/usr/share
+/usr/share/doc
+/usr/share/doc/libxcb-sync1
+/usr/share/doc/libxcb-sync1/copyright
+/usr/lib/x86_64-linux-gnu/libxcb-sync.so.1
+/usr/share/doc/libxcb-sync1/changelog.Debian.gz

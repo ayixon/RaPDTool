@@ -1,0 +1,45 @@
+#! /bin/sh
+
+. /usr/share/debconf/confmodule
+
+
+
+#case "$1" in
+#configure)
+#    if [ ! -e /etc/papersize ]; then
+#	if db_get libpaper/defaultpaper; then
+#	    echo $RET > /etc/papersize
+#	fi
+#    fi
+#;;
+#esac
+
+set -e
+
+if [ "$1" ]; then
+ db_get libpaper/defaultpaper
+ echo $RET > /etc/papersize.dpkg-inst
+ # it is okay if /etc/papersize does not exist
+ md5_old=`md5sum /etc/papersize 2> /dev/null | awk '{print $1}'`
+ md5_inst=`md5sum /etc/papersize.dpkg-inst | awk '{print $1}'`
+ ucf --debconf-ok /etc/papersize.dpkg-inst /etc/papersize
+ md5_new=`md5sum /etc/papersize 2> /dev/null | awk '{print $1}'`
+
+ # if papersize changed, run hooks
+ if [ "$md5_old" != "$md5_new" ]; then
+  if [ -d /etc/libpaper.d ]; then
+   run-parts /etc/libpaper.d
+  fi
+ fi
+
+ # cleanup clutter
+
+ if [ -e /etc/papersize.dpkg-inst ]; then
+  if [ "$md5_inst" = "$md5_new" ]; then
+   rm -f /etc/papersize.dpkg-inst
+  fi
+ fi
+fi
+
+exit 0
+

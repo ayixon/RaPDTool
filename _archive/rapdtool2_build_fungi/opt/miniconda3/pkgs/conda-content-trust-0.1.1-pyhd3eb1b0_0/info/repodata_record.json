@@ -1,0 +1,27 @@
+{
+  "build": "pyhd3eb1b0_0",
+  "build_number": 0,
+  "channel": "https://repo.anaconda.com/pkgs/main/noarch",
+  "constrains": [],
+  "depends": [
+    "cryptography",
+    "python",
+    "six"
+  ],
+  "features": "",
+  "fn": "conda-content-trust-0.1.1-pyhd3eb1b0_0.conda",
+  "legacy_bz2_md5": "1be4f2e89f2cd757bd240a2fd44ca17b",
+  "legacy_bz2_size": 55182,
+  "license": "BSD-3-Clause",
+  "md5": "c1141f2ca06c8fe258c419190278f26a",
+  "name": "conda-content-trust",
+  "noarch": "python",
+  "package_type": "noarch_python",
+  "sha256": "954fe383e48e4b99e649171f7cc0fe80a9d49700901debb5daa80211442296ec",
+  "size": 56841,
+  "subdir": "noarch",
+  "timestamp": 1617045636206,
+  "track_features": "",
+  "url": "https://repo.anaconda.com/pkgs/main/noarch/conda-content-trust-0.1.1-pyhd3eb1b0_0.conda",
+  "version": "0.1.1"
+}

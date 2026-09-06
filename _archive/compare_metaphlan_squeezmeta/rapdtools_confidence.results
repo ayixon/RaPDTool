@@ -1,0 +1,25 @@
+Species with high confidence:
+	Species	identity	shared-hashes
+	Brevibacterium luteolum	0.045	244/1000
+Genus with high confidence:
+	Genus	identity	shared-hashes
+	Sphingobium yanoikuyae	0.061	161/1000
+	Acinetobacter sp. WCHA45	0.063	153/1000
+	Moraxella osloensis	0.057	178/1000
+
+Be cautious at species taxonomic level..:
+	Species	relative_abundance
+	Sphingobium_yanoikuyae	8.74
+	Ideonella_azotifigens	7.53
+	Acinetobacter_pullicarnis	6.31
+	Simkania_negevensis	4.47
+	Prochlorothrix_hollandica	4.33
+	Taylorella_asinigenitalis	3.35
+	Pseudorivibacter_rhizosphaerae	3.12
+	Acinetobacter_shaoyimingii	3.01
+	Poriferisphaera_corsica	2.67
+	Brevibacterium_sediminis	2.60
+	Acinetobacter_rudis	2.49
+	Sphingomonas_melonis	2.49
+	Leptothrix_mobilis	2.12
+	Asaia_platycodi	2.04

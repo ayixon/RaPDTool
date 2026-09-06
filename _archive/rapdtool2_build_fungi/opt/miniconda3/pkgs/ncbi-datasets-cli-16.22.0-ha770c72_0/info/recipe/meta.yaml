@@ -1,0 +1,43 @@
+# This file created by conda-build 24.5.1
+# meta.yaml template originally from:
+# /home/conda/recipe_root, last modified Mon Jun 17 17:14:23 2024
+# ------------------------------------------------
+
+package:
+  name: ncbi-datasets-cli
+  version: 16.22.0
+source:
+  sha256: 6ce886d634199eb4a76c0d81bd34cd530462f5b6e58bdfb566519787b7b4dece
+  url: https://github.com/ncbi/datasets/archive/refs/tags/v16.22.0.tar.gz
+build:
+  number: '0'
+  script: python /home/conda/recipe_root/build.py 16.22.0
+  string: ha770c72_0
+requirements:
+  build: []
+  run:
+    - ca-certificates
+test:
+  commands:
+    - datasets version
+    - dataformat version
+about:
+  description: 'NCBI Datasets is a resource that lets you easily gather data from
+    across NCBI databases.
+
+    '
+  doc_url: https://www.ncbi.nlm.nih.gov/datasets/docs/
+  home: https://www.ncbi.nlm.nih.gov/datasets
+  license: Public Domain
+  license_file: LICENSE.md
+  summary: NCBI Datasets command-line clients
+extra:
+  copy_test_source_files: true
+  final: true
+  flow_run_id: azure_20240617.2.1
+  recipe-maintainers:
+    - BradHolmes
+    - corneliusroemer
+    - wra3
+  remote_url: https://github.com/conda-forge/ncbi-datasets-cli-feedstock
+  sha: 61cf7b109422e42c73b1959ac48576e87fadfaae

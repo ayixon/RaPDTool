@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mime-type xmlns="http://www.freedesktop.org/standards/shared-mime-info" type="application/x-apple-systemprofiler+xml">
+  <!--Created automatically by update-mime-database. DO NOT EDIT!-->
+  <comment>Apple System Profiler</comment>
+  <comment xml:lang="zh_CN">Apple 系统概述</comment>
+  <comment xml:lang="uk">засіб профілювання системи Apple</comment>
+  <comment xml:lang="sv">Apple Systeminformation</comment>
+  <comment xml:lang="pt">Perfilador do sistema Apple</comment>
+  <comment xml:lang="pl">Profiler komputera Apple</comment>
+  <comment xml:lang="it">Profiler di sistema Apple</comment>
+  <comment xml:lang="hr">Apple profiler sustava</comment>
+  <comment xml:lang="fi">Applen järjestelmän profiloija</comment>
+  <comment xml:lang="es">perfil del sistema de Apple</comment>
+  <comment xml:lang="en_GB">Apple System Profiler</comment>
+  <comment xml:lang="de">Apple-Systeminformationen</comment>
+  <comment xml:lang="da">Apple System Profiler</comment>
+  <comment xml:lang="ca">System Profiler d'Apple</comment>
+  <sub-class-of type="application/xml"/>
+  <glob pattern="*.spx" weight="40"/>
+</mime-type>

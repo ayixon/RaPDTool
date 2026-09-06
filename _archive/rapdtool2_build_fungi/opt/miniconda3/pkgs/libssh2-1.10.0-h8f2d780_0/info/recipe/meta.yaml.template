@@ -1,0 +1,55 @@
+{% set version = "1.10.0" %}
+
+package:
+  name: libssh2
+  version: {{ version }}
+
+source:
+  url: https://www.libssh2.org/download/libssh2-{{ version }}.tar.gz
+  sha256: 2d64e90f3ded394b91d3a2e774ca203a4179f69aebee03003e5a6fa621e41d51
+
+build:
+  number: 0
+  run_exports:
+    - {{ pin_subpackage('libssh2') }}
+
+requirements:
+  build:
+    - {{ compiler('c') }}
+    - make   # [unix]
+    # This breaks a dependency cycle:
+    # curl->libssh2->cmake->curl
+    - cmake-no-system
+  host:
+    - openssl
+
+test:
+  commands:
+    - test -f $PREFIX/include/libssh2.h              # [not win]
+    - test -f $PREFIX/include/libssh2_publickey.h    # [not win]
+    - test -f $PREFIX/include/libssh2_sftp.h         # [not win]
+    
+    - test -f $PREFIX/lib/libssh2.a                  # [not win]
+    - test -f $PREFIX/lib/libssh2${SHLIB_EXT}        # [not win]
+
+    - if not exist %LIBRARY_INC%\\libssh2.h           exit 1  # [win]
+    - if not exist %LIBRARY_INC%\\libssh2_publickey.h exit 1  # [win]
+    - if not exist %LIBRARY_INC%\\libssh2_sftp.h      exit 1  # [win]
+    - if not exist %LIBRARY_LIB%\\libssh2.lib         exit 1  # [win]
+
+
+about:
+  home: https://www.libssh2.org/
+  license: BSD-3-Clause
+  license_family: BSD
+  license_file: COPYING
+  summary: 'the SSH library'
+  description: |
+    libssh2 is a library implementing the SSH2 protocol, available under the revised BSD license.
+  doc_url: https://www.libssh2.org/docs.html
+  doc_source_url: https://github.com/libssh2/libssh2/tree/libssh2-{{ version }}/docs
+  dev_url: https://github.com/libssh2/libssh2
+
+extra:
+  recipe-maintainers:
+    - shadowwalkersb

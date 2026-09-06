@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mime-type xmlns="http://www.freedesktop.org/standards/shared-mime-info" type="application/x-gd-rom-cue">
+  <!--Created automatically by update-mime-database. DO NOT EDIT!-->
+  <comment>GD-ROM image cuesheet</comment>
+  <comment xml:lang="uk">таблиця CUE образу GD-ROM</comment>
+  <comment xml:lang="pl">Obraz cuesheet płyty GD-ROM</comment>
+  <comment xml:lang="it">Cuesheet immagine GD-ROM</comment>
+  <comment xml:lang="fi">GD-ROM levykuvan taulukko</comment>
+  <comment xml:lang="ca">«cuesheet» d'imatge de GD-ROM</comment>
+  <sub-class-of type="text/plain"/>
+  <generic-icon name="text-x-generic"/>
+  <glob pattern="*.gdi"/>
+</mime-type>

@@ -1,0 +1,11 @@
+/.
+/usr
+/usr/lib
+/usr/lib/x86_64-linux-gnu
+/usr/lib/x86_64-linux-gnu/libxcb-dri2.so.0.0.0
+/usr/share
+/usr/share/doc
+/usr/share/doc/libxcb-dri2-0
+/usr/share/doc/libxcb-dri2-0/copyright
+/usr/lib/x86_64-linux-gnu/libxcb-dri2.so.0
+/usr/share/doc/libxcb-dri2-0/changelog.Debian.gz

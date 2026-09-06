@@ -1,0 +1,13 @@
+#!/bin/sh
+
+
+if [ -n "$2" ];
+then
+  rapdtool.py -i "$1" -r "$2"
+elif [ -n "$1" ];
+then
+  rapdtool.py -i "$1" -r "rapdtool_results"
+else
+  rapdtool.py
+fi
+

@@ -1,0 +1,8 @@
+09094b37cacd9c4873ec40c88b4ebb67  usr/bin/dh_perl_openssl
+064672d4804168b3e4d7ea2d8c5fdf3f  usr/share/doc/perl-openssl-defaults/README.Debian
+fd4394a55d846eace8f1e762475dbc41  usr/share/doc/perl-openssl-defaults/changelog.gz
+a6a01570bf955468daa1be93b76dc2e2  usr/share/doc/perl-openssl-defaults/copyright
+aa30d33fb4bacb1d0dd15947cae73cd7  usr/share/man/man1/dh_perl_openssl.1.gz
+dc23c886a536662618fe310e0dc2416b  usr/share/perl-openssl-defaults/get-libssl-abi
+7e335cde697b0dd20d6ac301993990ee  usr/share/perl-openssl-defaults/perl-openssl.make
+bb373b21ec7ed13d1feb26ecde45a134  usr/share/perl5/Debian/Debhelper/Sequence/perl_openssl.pm

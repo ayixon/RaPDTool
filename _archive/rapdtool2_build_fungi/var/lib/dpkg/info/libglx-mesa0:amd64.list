@@ -1,0 +1,16 @@
+/.
+/usr
+/usr/lib
+/usr/lib/x86_64-linux-gnu
+/usr/lib/x86_64-linux-gnu/libGLX_mesa.so.0.0.0
+/usr/share
+/usr/share/bug
+/usr/share/bug/libglx-mesa0
+/usr/share/bug/libglx-mesa0/control
+/usr/share/bug/libglx-mesa0/script
+/usr/share/doc
+/usr/share/doc/libglx-mesa0
+/usr/share/doc/libglx-mesa0/copyright
+/usr/lib/x86_64-linux-gnu/libGLX_indirect.so.0
+/usr/lib/x86_64-linux-gnu/libGLX_mesa.so.0
+/usr/share/doc/libglx-mesa0/changelog.Debian.gz

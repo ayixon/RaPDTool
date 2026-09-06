@@ -1,0 +1,29 @@
+{
+  "paths": [
+    {
+      "_path": "bin/x86_64-conda-linux-gnu-ld",
+      "path_type": "hardlink",
+      "sha256": "db98363adc9b1f3f785009e63bc77617093f5841ce0736b0407fc4bf66a30ab9",
+      "size_in_bytes": 2568888
+    },
+    {
+      "_path": "bin/x86_64-conda_cos6-linux-gnu-ld",
+      "path_type": "softlink",
+      "sha256": "db98363adc9b1f3f785009e63bc77617093f5841ce0736b0407fc4bf66a30ab9",
+      "size_in_bytes": 2568888
+    },
+    {
+      "_path": "x86_64-conda-linux-gnu/bin/ld",
+      "path_type": "softlink",
+      "sha256": "db98363adc9b1f3f785009e63bc77617093f5841ce0736b0407fc4bf66a30ab9",
+      "size_in_bytes": 2568888
+    },
+    {
+      "_path": "x86_64-conda_cos6-linux-gnu/bin/ld",
+      "path_type": "softlink",
+      "sha256": "db98363adc9b1f3f785009e63bc77617093f5841ce0736b0407fc4bf66a30ab9",
+      "size_in_bytes": 2568888
+    }
+  ],
+  "paths_version": 1
+}

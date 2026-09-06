@@ -1,0 +1,4 @@
+/etc/X11/Xsession.d/90qt-a11y
+/etc/environment.d/90qt-a11y.conf
+/etc/xdg/Xwayland-session.d/00-at-spi
+/etc/xdg/autostart/at-spi-dbus-bus.desktop

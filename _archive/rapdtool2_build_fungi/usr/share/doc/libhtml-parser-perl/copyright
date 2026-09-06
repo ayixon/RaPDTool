@@ -1,0 +1,40 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: HTML-Parser
+Upstream-Contact: Chase Whitener <cwhitener@gmail.com>
+Source: https://metacpan.org/release/HTML-Parser
+
+Files: *
+Copyright: 1995-2016, Gisle Aas <gaas@cpan.org>
+ 1999-2000, Michael A. Chase
+License: Artistic or GPL-1+
+
+Files: debian/*
+Copyright:
+ 1998-2001, Michael Alan Dorman <mdorman@debian.org>
+ 2002, Ivan Kohler <ivan-debian@420.am>
+ 2002, Joey Hess <joeyh@debian.org>
+ 2003, 2004, 2005, Kenneth J. Pronovici <pronovic@debian.org>
+ 2005, 2006, 2007, Krzysztof Krzyzaniak (eloy) <eloy@debian.org>
+ 2005, Florian Ragwitz <rafl@debianforum.de>
+ 2008, Damyan Ivanov <dmn@debian.org>
+ 2009-2013, Salvatore Bonaccorso <carnil@debian.org>
+ 2009, Rene Mayorga <rmayorga@debian.org>
+ 2010, Nicholas Bamber <nicholas@periapt.co.uk>
+ 2016, Lucas Kanashiro <kanashiro.duarte@gmail.com>
+License: Artistic or GPL-1+
+
+License: Artistic
+ This program is free software; you can redistribute it and/or modify
+ it under the terms of the Artistic License, which comes with Perl.
+ .
+ On Debian systems, the complete text of the Artistic License can be
+ found in `/usr/share/common-licenses/Artistic'.
+
+License: GPL-1+
+ This program is free software; you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation; either version 1, or (at your option)
+ any later version.
+ .
+ On Debian systems, the complete text of version 1 of the GNU General
+ Public License can be found in `/usr/share/common-licenses/GPL-1'.

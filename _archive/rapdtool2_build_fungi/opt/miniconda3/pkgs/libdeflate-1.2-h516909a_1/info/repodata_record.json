@@ -1,0 +1,23 @@
+{
+  "arch": "x86_64",
+  "build": "h516909a_1",
+  "build_number": 1,
+  "channel": "https://conda.anaconda.org/bioconda/linux-64",
+  "constrains": [],
+  "depends": [
+    "libgcc-ng >=7.3.0"
+  ],
+  "features": "",
+  "fn": "libdeflate-1.2-h516909a_1.tar.bz2",
+  "license": "MIT",
+  "md5": "dd64c9af2b435e1745721751150247de",
+  "name": "libdeflate",
+  "platform": "linux",
+  "sha256": "5586d558cecd76a135fbf8d1dedbd52cf63c29f2791220e927f5194ae1b8c9b5",
+  "size": 64080,
+  "subdir": "linux-64",
+  "timestamp": 1564585744045,
+  "track_features": "",
+  "url": "https://conda.anaconda.org/bioconda/linux-64/libdeflate-1.2-h516909a_1.tar.bz2",
+  "version": "1.2"
+}

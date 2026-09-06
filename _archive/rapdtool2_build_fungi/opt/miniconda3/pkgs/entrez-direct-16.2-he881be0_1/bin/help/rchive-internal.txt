@@ -1,0 +1,37 @@
+Performance Default Overrides
+
+  -proc     Number of CPU processors used
+  -cons     Ratio of parsers to processors
+  -serv     Concurrent parser instances
+  -chan     Communication channel depth
+  -heap     Order restoration heap size
+  -farm     Node allocation buffer length
+  -gogc     Garbage collection tuning knob
+
+Debugging
+
+  -debug    Display run-time parameter summary
+  -stats    Print performance tuning values
+  -timer    Report processing duration and rate
+
+Entrez Invert Performance Measurement
+
+  InvertTrials() {
+    echo -e "<Trials>"
+    for tries in {1..5}
+    do
+      cat "$1" | rchive -debug -proc "$2" -invert
+    done
+    echo -e "</Trials>"
+  }
+
+  for proc in {1..8}
+  do
+    InvertTrials "carotene.e2x" "$proc" |
+    xtract -pattern Trials -lbl "$proc" -avg Rate -dev Rate
+  done
+
+Execution Profiling
+
+  cat carotene.e2x | ./rchive -profile -invert > /dev/null
+  go tool pprof --pdf ./cpu.pprof > ./callgraph.pdf

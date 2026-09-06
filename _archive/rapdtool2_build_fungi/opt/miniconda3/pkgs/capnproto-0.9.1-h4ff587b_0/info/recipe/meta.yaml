@@ -1,0 +1,84 @@
+# This file created by conda-build 3.21.7
+# meta.yaml template originally from:
+# /feedstock/recipe, last modified Thu Feb  3 16:33:59 2022
+# ------------------------------------------------
+
+package:
+  name: capnproto
+  version: 0.9.1
+source:
+  fn: capnproto-c++-0.9.1.tar.gz
+  md5: 4e86cda4bd894c94b1ac96bf3c447b8e
+  url: https://capnproto.org/capnproto-c++-0.9.1.tar.gz
+build:
+  ignore_prefix_files:
+    - bin/capnp
+  missing_dso_whitelist:
+    - $RPATH/ld64.so.1
+  number: '0'
+  run_exports:
+    - capnproto >=0.9.1,<0.9.2.0a0
+  string: h4ff587b_0
+requirements:
+  build:
+    - _libgcc_mutex 0.1 main
+    - _openmp_mutex 4.5 1_gnu
+    - _sysroot_linux-64_curr_repodata_hack 3 haa98f57_10
+    - autoconf 2.69 pl526hebd4dad_5
+    - automake 1.16.2 pl526_0
+    - binutils_impl_linux-64 2.35.1 h27ae35d_9
+    - binutils_linux-64 2.35.1 h454624a_30
+    - gcc_impl_linux-64 7.5.0 h7105cf2_17
+    - gcc_linux-64 7.5.0 h8f34230_30
+    - gxx_impl_linux-64 7.5.0 h0a5bf11_17
+    - gxx_linux-64 7.5.0 hffc177d_30
+    - kernel-headers_linux-64 3.10.0 h57e8cba_10
+    - ld_impl_linux-64 2.35.1 h7274673_9
+    - libgcc-devel_linux-64 7.5.0 hbbeae57_17
+    - libgcc-ng 9.3.0 h5101ec6_17
+    - libgomp 9.3.0 h5101ec6_17
+    - libstdcxx-devel_linux-64 7.5.0 hf0c5c8d_17
+    - libstdcxx-ng 9.3.0 hd4cf53a_17
+    - libtool 2.4.6 h7b6447c_1005
+    - m4 1.4.18 h4e445db_0
+    - make 4.2.1 h1bed415_1
+    - perl 5.26.2 h14c3975_0
+    - sysroot_linux-64 2.17 h57e8cba_10
+  host:
+    - _libgcc_mutex 0.1 main
+    - _openmp_mutex 4.5 1_gnu
+    - ca-certificates 2021.10.26 h06a4308_2
+    - libgcc-ng 9.3.0 h5101ec6_17
+    - libgomp 9.3.0 h5101ec6_17
+    - libstdcxx-ng 9.3.0 hd4cf53a_17
+    - openssl 1.1.1m h7f8727e_0
+    - zlib 1.2.11 h7f8727e_4
+  run:
+    - libgcc-ng >=7.5.0
+    - libstdcxx-ng >=7.5.0
+    - openssl >=1.1.1m,<1.1.2a
+    - zlib >=1.2.11,<1.3.0a0
+test:
+  commands:
+    - capnp --help
+    - capnpc --help
+    - capnpc-c++ --help
+    - capnpc-capnp --help
+    - test -d "$PREFIX/include/capnp"
+    - test -f "$PREFIX/lib/libcapnp${SHLIB_EXT}"
+    - test -f "$PREFIX/lib/libcapnpc${SHLIB_EXT}"
+    - test -f "$PREFIX/lib/libcapnp-rpc${SHLIB_EXT}"
+    - test -f "$PREFIX/lib/libkj${SHLIB_EXT}"
+    - test -f "$PREFIX/lib/libkj-async${SHLIB_EXT}"
+about:
+  home: http://capnproto.org
+  license: MIT
+  license_file: LICENSE.txt
+  summary: An insanely fast data interchange format and capability-based RPC system.
+extra:
+  copy_test_source_files: true
+  final: true
+  recipe-maintainers:
+    - LehMaxence
+    - Shelnutt2
+    - ihnorton

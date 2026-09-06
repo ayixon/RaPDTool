@@ -1,0 +1,12 @@
+[Unit]
+Description=Dispatcher daemon for systemd-networkd
+
+[Service]
+Type=notify
+ExecStart=/usr/bin/networkd-dispatcher $networkd_dispatcher_args
+
+# Load /etc/default/networkd-dispatcher
+EnvironmentFile=-/etc/default/%p
+
+[Install]
+WantedBy=multi-user.target

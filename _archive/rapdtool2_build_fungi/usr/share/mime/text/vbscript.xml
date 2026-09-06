@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mime-type xmlns="http://www.freedesktop.org/standards/shared-mime-info" type="text/vbscript">
+  <!--Created automatically by update-mime-database. DO NOT EDIT!-->
+  <comment>VBScript program</comment>
+  <comment xml:lang="zh_TW">VBScript 程式</comment>
+  <comment xml:lang="zh_CN">VBScript 程序</comment>
+  <comment xml:lang="uk">програма мовою VBScript</comment>
+  <comment xml:lang="sv">VBScript-program</comment>
+  <comment xml:lang="pt_BR">Programa VBScript</comment>
+  <comment xml:lang="pl">Pogram VBScript</comment>
+  <comment xml:lang="it">Programma VBScript</comment>
+  <comment xml:lang="hr">VBScript program</comment>
+  <comment xml:lang="fr">programme VBScript</comment>
+  <comment xml:lang="fi">VBScript-ohjelma</comment>
+  <comment xml:lang="es">programa en VBScript</comment>
+  <comment xml:lang="en_GB">VBScript program</comment>
+  <comment xml:lang="de">VBScript-Programm</comment>
+  <comment xml:lang="da">VBScript-program</comment>
+  <comment xml:lang="ca">programa VBScript</comment>
+  <alias type="text/vbs"/>
+  <sub-class-of type="text/plain"/>
+  <generic-icon name="text-x-script"/>
+  <glob pattern="*.vbs"/>
+</mime-type>

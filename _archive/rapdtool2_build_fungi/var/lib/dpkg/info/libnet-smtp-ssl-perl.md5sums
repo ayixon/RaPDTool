@@ -1,0 +1,4 @@
+55c2096d0da4da468fd5d7d3e095d158  usr/share/doc/libnet-smtp-ssl-perl/changelog.Debian.gz
+777a50770c11bab5f33cd7e81b5e5f4e  usr/share/doc/libnet-smtp-ssl-perl/copyright
+76a83cb7210329b1ed8b90e5a7a5717c  usr/share/man/man3/Net::SMTP::SSL.3pm.gz
+7fdbab20a10b24e329f21c6bc1a5f15b  usr/share/perl5/Net/SMTP/SSL.pm

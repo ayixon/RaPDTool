@@ -1,0 +1,41 @@
+{
+  "paths": [
+    {
+      "_path": "include/zconf.h",
+      "path_type": "hardlink",
+      "sha256": "289c8044a0e13ce2ea2183fe899f65c7ed8d091030b9c056ae6acdc39a8e1405",
+      "size_in_bytes": 16344
+    },
+    {
+      "_path": "include/zlib.h",
+      "path_type": "hardlink",
+      "sha256": "045cf777c6c9109b28ddcf3a413c5ca15e39fc513c13ef87bd9a3132a59d1b51",
+      "size_in_bytes": 97317
+    },
+    {
+      "_path": "lib/libz.a",
+      "path_type": "hardlink",
+      "sha256": "9f29e52ad7449fa105f2344afd201725183a2f833fccd564ff820a528404dee2",
+      "size_in_bytes": 185150
+    },
+    {
+      "_path": "lib/libz.so",
+      "path_type": "softlink",
+      "sha256": "6196b2249999e3949d854e5fedbace3862428de629c0368f29f79cdfcc7353ef",
+      "size_in_bytes": 137560
+    },
+    {
+      "_path": "lib/libz.so.1",
+      "path_type": "softlink",
+      "sha256": "6196b2249999e3949d854e5fedbace3862428de629c0368f29f79cdfcc7353ef",
+      "size_in_bytes": 137560
+    },
+    {
+      "_path": "lib/libz.so.1.2.12",
+      "path_type": "hardlink",
+      "sha256": "6196b2249999e3949d854e5fedbace3862428de629c0368f29f79cdfcc7353ef",
+      "size_in_bytes": 137560
+    }
+  ],
+  "paths_version": 1
+}

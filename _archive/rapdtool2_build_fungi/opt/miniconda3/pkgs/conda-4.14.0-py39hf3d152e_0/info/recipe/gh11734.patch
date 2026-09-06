@@ -1,0 +1,23 @@
+From b086fee19cfbafb3275737d1eb2cda9632030de9 Mon Sep 17 00:00:00 2001
+From: Isuru Fernando <isuruf@gmail.com>
+Date: Thu, 18 Aug 2022 09:56:17 -0500
+Subject: [PATCH] Fix pypy win
+
+---
+ conda/gateways/disk/link.py | 3 +--
+ 1 file changed, 1 insertion(+), 2 deletions(-)
+
+diff --git a/conda/gateways/disk/link.py b/conda/gateways/disk/link.py
+index 116010f764..b66ae3eb25 100644
+--- a/conda/gateways/disk/link.py
++++ b/conda/gateways/disk/link.py
+@@ -79,8 +79,7 @@ def win_soft_link(src, dst):
+     from os import getcwd
+     from os.path import isfile
+     import sys
+-    from ...auxlib._vendor import six
+-    builtins = six.moves.builtins
++    import builtins
+ 
+     def islink(path):
+         """Determine if the given path is a symlink"""

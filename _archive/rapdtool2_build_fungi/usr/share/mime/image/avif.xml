@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mime-type xmlns="http://www.freedesktop.org/standards/shared-mime-info" type="image/avif">
+  <!--Created automatically by update-mime-database. DO NOT EDIT!-->
+  <comment>AV1 Image File Format (AVIF)</comment>
+  <comment xml:lang="zh_TW">AV1 影像檔案格式 (AVIF)</comment>
+  <comment xml:lang="zh_CN">AV1 图像文件格式（AVIF）</comment>
+  <comment xml:lang="uk">формат файлів зображень AV1 (AVIF)</comment>
+  <comment xml:lang="sv">AV1-bildfilformat (AVIF)</comment>
+  <comment xml:lang="pt_BR">Formato de arquivo de imagem AV1 (AVIF)</comment>
+  <comment xml:lang="pl">Format pliku obrazu AV1 (AVIF)</comment>
+  <comment xml:lang="it">AV1 Image File Format (AVIF)</comment>
+  <comment xml:lang="hr">AV1 format datoteke slike (AVIF)</comment>
+  <comment xml:lang="fi">AV1-kuvatiedostomuoto (AVIF)</comment>
+  <comment xml:lang="es">formato de archivo de imagen AV1 (AVIF)</comment>
+  <comment xml:lang="en_GB">AV1 Image File Format (AVIF)</comment>
+  <comment xml:lang="de">AV1-Bilddateiformat (AVIF)</comment>
+  <comment xml:lang="da">AV1-billedfilformat (AVIF)</comment>
+  <comment xml:lang="ca">format de fitxer d'imatge AV1 (AVIF)</comment>
+  <glob pattern="*.avif"/>
+  <glob pattern="*.avifs"/>
+  <alias type="image/avif-sequence"/>
+</mime-type>

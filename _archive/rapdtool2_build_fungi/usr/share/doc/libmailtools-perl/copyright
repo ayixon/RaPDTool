@@ -1,0 +1,38 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Source: https://metacpan.org/release/MailTools
+Upstream-Contact: Mark Overmeer <perl@overmeer.net>
+Upstream-Name: MailTools
+
+Files: *
+Copyright: 1995-2000, Graham Barr <gbarr@pobox.com>
+ 1995-2019, Mark Overmeer <markov@cpan.org>
+License: Artistic or GPL-1+
+
+Files: examples/mail-mailer.pl
+Copyright: 2004, Bruno Negrao G Zica
+License: Artistic or GPL-1+
+
+Files: debian/*
+Copyright: 1996, 1997, 1998, 1999, 2000, 2017, Michael Alan Dorman <mdorman@debian.org>
+ 2001, 2002, Steve Kowalik <stevenk@debian.org>
+ 2002, 2003, 2004, Matt Hope <dopey@debian.org>
+ 2006, 2007, 2008, 2010, 2011, 2012, 2013, 2014, 2016, Anibal Monsalve Salazar <anibal@debian.org>
+ 2006, Florian Ernst <florian@debian.org>
+ 2019, gregor herrmann <gregoa@debian.org>
+License: Artistic or GPL-1+
+
+License: Artistic
+ This program is free software; you can redistribute it and/or modify
+ it under the terms of the Artistic License, which comes with Perl.
+ .
+ On Debian systems, the complete text of the Artistic License can be
+ found in `/usr/share/common-licenses/Artistic'.
+
+License: GPL-1+
+ This program is free software; you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation; either version 1, or (at your option)
+ any later version.
+ .
+ On Debian systems, the complete text of version 1 of the GNU General
+ Public License can be found in `/usr/share/common-licenses/GPL-1'.

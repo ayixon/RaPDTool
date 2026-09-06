@@ -1,0 +1,29 @@
+{
+  "build": "pyhd8ed1ab_0",
+  "build_number": 0,
+  "channel": "https://conda.anaconda.org/conda-forge/noarch",
+  "constrains": [],
+  "depends": [
+    "importlib-metadata",
+    "packaging >=20.0",
+    "python >=3.6",
+    "setuptools >=45",
+    "tomli >=1.0.0",
+    "typing-extensions"
+  ],
+  "features": "",
+  "fn": "setuptools-scm-7.0.5-pyhd8ed1ab_0.tar.bz2",
+  "license": "MIT",
+  "license_family": "MIT",
+  "md5": "743074b7a216807886f7e8f6d497cceb",
+  "name": "setuptools-scm",
+  "noarch": "python",
+  "package_type": "noarch_python",
+  "sha256": "927490f1ae63428a3e18cde0fd67b5e052b2e48f2cffe6686b1f4fadfeebdeb5",
+  "size": 35805,
+  "subdir": "noarch",
+  "timestamp": 1657572532720,
+  "track_features": "",
+  "url": "https://conda.anaconda.org/conda-forge/noarch/setuptools-scm-7.0.5-pyhd8ed1ab_0.tar.bz2",
+  "version": "7.0.5"
+}

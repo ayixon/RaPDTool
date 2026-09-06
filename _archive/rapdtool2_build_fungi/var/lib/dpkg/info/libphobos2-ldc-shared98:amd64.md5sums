@@ -1,0 +1,5 @@
+18de7f40b490953b4f23c42aa1e8dfbc  usr/lib/x86_64-linux-gnu/libdruntime-ldc-shared.so.2.0.98
+6d89a8e13d6c9d944e8ef401f1a4d9e5  usr/lib/x86_64-linux-gnu/libldc-jit.so.2.0.98
+82ec545e7634bac92d1784c3099af6cd  usr/lib/x86_64-linux-gnu/libphobos2-ldc-shared.so.2.0.98
+fd173f2119b5f57409dd0197f66e231c  usr/share/doc/libphobos2-ldc-shared98/changelog.Debian.gz
+32e3dc52e161f340cc9a27b4f1c8fa3f  usr/share/doc/libphobos2-ldc-shared98/copyright

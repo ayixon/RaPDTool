@@ -1,0 +1,15 @@
+/.
+/usr
+/usr/lib
+/usr/lib/python3
+/usr/lib/python3/dist-packages
+/usr/lib/python3/dist-packages/pyparsing-2.4.7.egg-info
+/usr/lib/python3/dist-packages/pyparsing-2.4.7.egg-info/PKG-INFO
+/usr/lib/python3/dist-packages/pyparsing-2.4.7.egg-info/dependency_links.txt
+/usr/lib/python3/dist-packages/pyparsing-2.4.7.egg-info/top_level.txt
+/usr/lib/python3/dist-packages/pyparsing.py
+/usr/share
+/usr/share/doc
+/usr/share/doc/python3-pyparsing
+/usr/share/doc/python3-pyparsing/changelog.Debian.gz
+/usr/share/doc/python3-pyparsing/copyright

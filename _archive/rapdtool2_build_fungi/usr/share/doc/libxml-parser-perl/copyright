@@ -1,0 +1,45 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: XML-Parser
+Upstream-Contact: Todd Rinaldo <toddr@cpan.org>
+Source: https://metacpan.org/release/XML-Parser
+
+Files: *
+Copyright:
+ 1998-2000, Larry Wall <larry@wall.org>
+ 1998-2000, Clark Cooper <coopercc@netheaven.com>
+License: Artistic or GPL-1+
+
+Files: inc/Devel/CheckLib.pm
+Copyright:
+ 2007, David Cantrell <pause@barnyard.co.uk>
+ 2007, David Golden [Portions] <dagolden@cpan.org>
+License: Artistic or GPL-1+
+
+Files: debian/*
+Copyright:
+ 1999-2004, 2008, Ardo van Rangelrooij <ardo@debian.org>
+ 1999, Raphael Hertzog <hertzog@debian.org>
+ 1999, Stevie Strickland <sstrickl@cc.gatech.edu>
+ 2006-2007, Joey Hess <joeyh@debian.org>
+ 2006, Steinar H. Gunderson <sesse@debian.org>
+ 2008, Niko Tyni <ntyni@debian.org>
+ 2011, Nicholas Bamber <nicholas@periapt.co.uk>
+ 2011-2021, gregor herrmann <gregoa@debian.org>
+ 2019, Nick Morrott <nickm@debian.org>
+License: Artistic or GPL-1+
+
+License: Artistic
+ This program is free software; you can redistribute it and/or modify
+ it under the terms of the Artistic License, which comes with Perl.
+ .
+ On Debian systems, the complete text of the Artistic License can be
+ found in `/usr/share/common-licenses/Artistic'.
+
+License: GPL-1+
+ This program is free software; you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation; either version 1, or (at your option)
+ any later version.
+ .
+ On Debian systems, the complete text of version 1 of the GNU General
+ Public License can be found in `/usr/share/common-licenses/GPL-1'.

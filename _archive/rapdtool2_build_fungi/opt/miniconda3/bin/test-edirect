@@ -1,0 +1,563 @@
+#!/bin/bash -norc
+
+# ===========================================================================
+#
+#                            PUBLIC DOMAIN NOTICE
+#            National Center for Biotechnology Information (NCBI)
+#
+#  This software/database is a "United States Government Work" under the
+#  terms of the United States Copyright Act.  It was written as part of
+#  the author's official duties as a United States Government employee and
+#  thus cannot be copyrighted.  This software/database is freely available
+#  to the public for use. The National Library of Medicine and the U.S.
+#  Government do not place any restriction on its use or reproduction.
+#  We would, however, appreciate having the NCBI and the author cited in
+#  any work or product based on this material.
+#
+#  Although all reasonable efforts have been taken to ensure the accuracy
+#  and reliability of the software and data, the NLM and the U.S.
+#  Government do not and cannot warrant the performance or results that
+#  may be obtained by using this software or data. The NLM and the U.S.
+#  Government disclaim all warranties, express or implied, including
+#  warranties of performance, merchantability or fitness for any particular
+#  purpose.
+#
+# ===========================================================================
+#
+# File Name:  test-edirect
+#
+# Author:  Jonathan Kans
+#
+# Version Creation Date:   8/5/20
+#
+# ==========================================================================
+
+# Entrez Direct - EDirect
+
+SECONDS=0
+
+useTimer=false
+
+seconds_start=$(date "+%s")
+
+sec_start=$(date "+%s")
+
+while [ $# -gt 0 ]
+do
+  case "$1" in
+    -timer | -timed )
+      useTimer=true
+      shift
+      ;;
+    -* | * )
+      exec >&2
+      echo "$0: Unrecognized option $1"
+      exit 1
+      ;;
+  esac
+done
+
+PrintTimeAndTitle() {
+
+  ttl="$1"
+
+  seconds_end=$(date "+%s")
+  seconds=$((seconds_end - seconds_start))
+
+  if [ "$useTimer" = true ]
+  then
+    echo ""
+    echo "$seconds seconds"
+    echo ""
+  fi
+
+  seconds_start=$(date "+%s")
+
+  echo ""
+  echo "$ttl"
+  if [ ! -t 1 ]
+  then
+    echo "$ttl" >&2
+  fi
+  echo ""
+}
+
+PrintStepTime() {
+
+  sec_end=$(date "+%s")
+  sec=$((sec_end - sec_start))
+
+  if [ "$useTimer" = true ]
+  then
+    echo "$sec seconds"
+  fi
+
+  sec_start=$(date "+%s")
+}
+
+echo ""
+einfo -help | head -n 4
+sleep 2
+
+echo "Help Text"
+if [ ! -t 1 ]
+then
+  echo "" >&2
+  echo "Help Text" >&2
+fi
+echo ""
+
+  einfo -help
+
+PrintTimeAndTitle "Indexed Fields"
+
+  einfo -db pubmed |
+  xtract -pattern Field \
+    -if IsDate -equals Y -and IsHidden -equals N \
+      -pfx "[" -sep "]\t" -element Name,FullName |
+  sort -t $'\t' -k 2f
+
+PrintTimeAndTitle "First Authors"
+
+  efetch -db pubmed -id 6271474,5685784,4882854,6243420 -format xml |
+  xtract -pattern PubmedArticle -element MedlineCitation/PMID "#Author" \
+    -block Author -position first -sep " " -element Initials,LastName \
+    -block Article -element ArticleTitle
+
+PrintTimeAndTitle "Formatted Authors"
+
+  efetch -db pubmed -id 1413997,6301692,781293 -format xml |
+  xtract -pattern PubmedArticle -element MedlineCitation/PMID \
+    -block PubDate -sep "-" -element Year,Month,MedlineDate \
+    -block Author -sep " " -tab "" \
+      -element "&COM" Initials,LastName -COM "(|)" |
+  perl -pe 's/(\t[^\t|]*)\|([^\t|]*)$/$1 and $2/; s/\|([^|]*)$/, and $1/; s/\|/, /g'
+
+PrintTimeAndTitle "PMID in Variable"
+
+  efetch -db pubmed -id 3201829,6301692,781293 -format xml |
+  xtract -pattern PubmedArticle -PMID MedlineCitation/PMID \
+    -block Author -element "&PMID" \
+      -sep " " -tab "\n" -element Initials,LastName
+
+PrintTimeAndTitle "Medical Subject Headings"
+
+  efetch -db pubmed -id 6092233,2539356,1937004 -format xml |
+  xtract -pattern PubmedArticle -element MedlineCitation/PMID \
+    -block MeshHeading \
+      -subset DescriptorName -pfc "\n" -sep "|" -element @MajorTopicYN,DescriptorName \
+      -subset QualifierName -pfc " / " -sep "|" -element @MajorTopicYN,QualifierName |
+  sed -e 's/N|//g' -e 's/Y|/*/g'
+
+PrintTimeAndTitle "Book Authors and Editors"
+
+  efetch -db pubmed -id 21433338 -format xml |
+  xtract -pattern PubmedBookArticle \
+    -path BookDocument.AuthorList.Author -element LastName \
+    -path BookDocument.Book.AuthorList.Author -element LastName
+
+PrintTimeAndTitle "Heterogeneous Data"
+
+  efetch -db pubmed -id 21433338,17247418 -format xml |
+  xtract -pattern "PubmedArticleSet/*" \
+    -group "Book/AuthorList" -element LastName \
+    -group "Article/AuthorList" -element LastName
+
+PrintTimeAndTitle "Multiple Links"
+
+  esearch -db pubmed -query "conotoxin AND dopamine [MAJR]" |
+  elink -target protein -cmd neighbor |
+  xtract -pattern LinkSet -if Link/Id -element IdList/Id Link/Id
+
+PrintTimeAndTitle "Link Counts"
+
+  elink -db protein -id NP_000509 -target pubmed |
+  elink -target protein -cmd neighbor |
+  xtract -wrp "Set,Rec" -pattern LinkSet \
+    -wrp "Uid" -element IdList/Id -wrp "Count" -num Link/Id |
+  xtract -pattern Rec -if Count -ge 50 -element Uid Count
+
+PrintTimeAndTitle "Markup Correction"
+
+  for id in 8475897 8988608 9698410 10194376 15949988 16271163 17282049 \
+    19793852 20968289 21892341 22106757 22785267 22360335 23095895 23095897 \
+    25435818 26433210 27672066 28635620 29547395 29869631 29869640 29944225
+  do
+    efetch -db pubmed -format xml -id "$id" |
+    xtract -pattern PubmedArticle -plg "\n\n" -sep "\n\n" -tab "\n\n" \
+      -element MedlineCitation/PMID ArticleTitle Abstract/AbstractText
+  done
+
+PrintTimeAndTitle "XML Normalization"
+
+  echo "assembly 443538 Stat biosample 3737421 SampleData gene 5053 Summary medgen 1413 Name" |
+  xargs -n 3 sh -c 'efetch -db "$0" -id "$1" -format docsum |
+  xtract -pattern DocumentSummary -sep " | " -tab " - " -ret "\n\n" -lbl "$0" -element Id "$2"'
+
+PrintTimeAndTitle "Record Counts"
+
+  echo "diphtheria measles pertussis polio tuberculosis" |
+  xargs -n 1 sh -c 'esearch -db pubmed -query "$0 [MESH]" |
+  efilter -days 365 -datetype PDAT |
+  xtract -pattern ENTREZ_DIRECT -lbl "$0" -element Count'
+
+PrintTimeAndTitle "Citation Lookup"
+
+  esearch -db pubmed -query "Beadle GW [AUTH] AND Tatum EL [AUTH]" |
+  elink -cited |
+  efilter -days 365 |
+  efetch -format abstract -start 3 -stop 5
+
+PrintTimeAndTitle "Stopwords and Stemming"
+
+  pm=$( efetch -db pubmed -id 2005826 -format xml )
+  echo "$pm" | xtract -pattern PubmedArticle -sep " " -words ArticleTitle
+  echo "$pm" | xtract -stops -pattern PubmedArticle -sep " " -words ArticleTitle
+  echo "$pm" | xtract -stems -pattern PubmedArticle -sep " " -words ArticleTitle
+  echo "$pm" | xtract -stops -stems -pattern PubmedArticle -sep " " -words ArticleTitle
+
+PrintTimeAndTitle "DOI Extraction"
+
+  esearch -db pubmed -query "Rowley JD [AUTH]" |
+  efetch -format xml |
+  xtract -pattern PubmedArticle \
+    -block ArticleId -if @IdType -equals doi \
+      -doi ArticleId |
+  tail -n 25
+
+PrintTimeAndTitle "Combining Independent Queries"
+
+  esearch -db protein -query "amyloid* [PROT]" -log |
+  elink -target pubmed -label prot_cit | tee /dev/tty |
+  esearch -db gene -query "apo* [GENE]" |
+  elink -target pubmed -label gene_cit | tee /dev/tty |
+  esearch -query "(#prot_cit) AND (#gene_cit)" |
+  efetch -format docsum |
+  xtract -mixed -pattern DocumentSummary -element Id Title |
+  cat -v
+
+PrintTimeAndTitle "Formatting Tag Removal"
+
+  efetch -db pmc -id 4729119 -format xml |
+  xtract -mixed -pattern article -group p \
+    -position first -tab "\n\n" -element p -plain p |
+  fold -w 70 -s | awk '{$1=$1};1'
+
+PrintTimeAndTitle "Peptide Sequences"
+
+  esearch -db protein -query "conotoxin AND mat_peptide [FKEY]" |
+  efetch -format gpc |
+  xtract -insd complete mat_peptide "%peptide" product mol_wt peptide |
+  grep -i conotoxin | sort -t $'\t' -u -k 2,2n | head -n 8
+
+PrintTimeAndTitle "Vitamin Biosynthesis"
+
+  esearch -db pubmed -query "lycopene cyclase" -log |
+  elink -related |
+  elink -target protein |
+  efilter -organism rodents -source refseq |
+  efetch -format docsum |
+  xtract -pattern DocumentSummary -element AccessionVersion Title |
+  grep -i carotene | sort -V
+
+PrintTimeAndTitle "Coding Sequences"
+
+  efetch -db nuccore -id J01636.1 -format gbc |
+  xtract -insd CDS gene sub_sequence
+
+PrintTimeAndTitle "Sequence Subregion"
+
+  efetch -db nuccore -id U54469 -format gbc |
+  xtract -pattern INSDSeq -nucleic INSDSeq_sequence[2881:1] |
+  fold -w 60
+
+PrintTimeAndTitle "Amino Acid Composition"
+
+  abbrev=( Ala Asx Cys Asp Glu Phe Gly His Ile \
+           Xle Lys Leu Met Asn Pyl Pro Gln Arg \
+           Ser Thr Sec Val Trp Xxx Tyr Glx )
+
+  AminoAcidComp() {
+    local count
+    while read num lttr
+    do
+      idx=$(printf %i "'$lttr'")
+      ofs=$((idx-97))
+      count[$ofs]="$num"
+    done <<< "$1"
+    for i in {0..25}
+    do
+      echo -e "${abbrev[$i]}\t${count[$i]-0}"
+    done |
+    sort
+  }
+
+  AminoAcidJoin() {
+    result=""
+    while read acc seq gene
+    do
+      comp="$(echo "$seq" | tr A-Z a-z | sed 's/[^a-z]//g' | fold -w 1 | sort-uniq-count)"
+      current=$(AminoAcidComp "$comp")
+      current=$(echo -e "GENE\t$gene\n$current")
+      if [ -n "$result" ]
+      then
+        result=$(join -t $'\t' <(echo "$result") <(echo "$current"))
+      else
+        result=$current
+      fi
+    done
+    echo "$result" |
+    grep -e "GENE" -e "[1-9]"
+  }
+
+  ids="NP_001172026,NP_000509,NP_004001,NP_001243779"
+  efetch -db protein -id "$ids" -format gpc |
+  xtract -insd INSDSeq_sequence CDS gene |
+  AminoAcidJoin
+
+PrintTimeAndTitle "Chromosome Assignments"
+
+  esearch -db gene -query "calmodulin * [PFN] AND mammalia [ORGN]" |
+  efetch -format docsum |
+  xtract -pattern DocumentSummary \
+    -def "-" -element Id Name MapLocation ScientificName |
+  head -n 30
+
+PrintTimeAndTitle "Genome Range"
+
+  esearch -db gene -query "Homo sapiens [ORGN] AND Y [CHR]" |
+  efilter -status alive | efetch -format docsum |
+  xtract -pattern DocumentSummary -NAME Name -DESC Description \
+    -block GenomicInfoType -if ChrLoc -equals Y \
+      -min ChrStart,ChrStop -element "&NAME" "&DESC" |
+  sort -k 1,1n | cut -f 2- |
+  grep -v pseudogene | grep -v uncharacterized |
+  between-two-genes ASMT IL3RA |
+  align-columns -g 4
+
+PrintTimeAndTitle "Centromere Position"
+
+  nquire -ftp ftp.ncbi.nlm.nih.gov pub/gdp ideogram_9606_GCF_000001305.14_850_V1 |
+  grep acen | cut -f 1,2,6,7 | grep "^X"
+
+PrintTimeAndTitle "Gene Regions"
+
+  esearch -db gene -query "DDT [GENE] AND mouse [ORGN]" |
+  efetch -format docsum |
+  xtract -pattern GenomicInfoType -element ChrAccVer ChrStart ChrStop |
+  xargs -n 3 sh -c 'efetch -db nuccore -format gb \
+    -id "$0" -chr_start "$1" -chr_stop "$2"'
+
+PrintTimeAndTitle "Recursive Data"
+
+  esearch -db gene -query "rbcL [GENE] AND maize [ORGN]" |
+  efetch -format xml |
+  xtract -pattern Entrezgene -block "**/Gene-commentary" \
+    -if Gene-commentary_type@value -equals genomic \
+      -tab "\n" -element Gene-commentary_accession |
+  sort | uniq
+
+PrintTimeAndTitle "Genes in Pathways"
+
+  esearch -db gene -query "PAH [GENE]" -organism human |
+  elink -target biosystems |
+  efilter -pathway wikipathways |
+  elink -target gene |
+  efetch -format docsum |
+  xtract -pattern DocumentSummary -element Name Id Description |
+  grep -v pseudogene | grep -v uncharacterized |
+  sort -f
+
+PrintTimeAndTitle "Gene Products"
+
+  for sym in HBB BRCA2 CFTR RAG1
+  do
+    esearch -db gene -query "$sym [GENE] AND human [ORGN]" |
+    efilter -query "alive [PROP]" | efetch -format docsum |
+    xtract -pattern GenomicInfoType \
+      -element ChrAccVer ChrStart ChrStop |
+    while read acc str stp
+    do
+      efetch -db nuccore -format gbc \
+        -id "$acc" -chr_start "$str" -chr_stop "$stp" |
+      xtract -insd CDS,mRNA INSDFeature_key "#INSDInterval" \
+        gene "%transcription" "%translation" \
+        product transcription translation |
+      grep -i $'\t'"$sym"$'\t'
+    done
+  done
+
+PrintTimeAndTitle "Unfiltered Gene Lookup"
+
+  for sym in ATP6 ATP7B CBD DMD HFE PAH PRNP TTN
+  do
+    fst=$( esearch -db gene -query "$sym [GENE]" -organism human )
+    if [ -z "$fst" ]
+    then
+      echo "ESEARCH FAILURE FOR $sym"
+      continue
+    fi
+    scd=$( echo "$fst" | efetch -raw -format docsum )
+    if [ -z "$scd" ]
+    then
+      echo "EFETCH FAILURE FOR $sym, ESEARCH RESULT IS"
+      echo "$fst"
+      continue
+    fi
+    thd=$( echo "$scd" |
+           xtract -pattern DocumentSummary -def "-" -lbl "${sym}" \
+           -element NomenclatureSymbol Id,DocumentSummary@uid Description CommonName )
+    if [ -z "$thd" ]
+    then
+      echo "XTRACT FAILURE FOR $sym, EFETCH RESULT IS"
+      echo "$scd"
+      continue
+    fi
+    echo "$thd"
+  done
+
+PrintTimeAndTitle "Protein Coding Genes"
+
+  for sym in MT-ATP6 BRCA2 CFTR HBB HFE IL9R OPN1MW PAH
+  do
+    fst=$( esearch -db gene -query "$sym [PREF]" -organism human )
+    if [ -z "$fst" ]
+    then
+      echo "ESEARCH FAILURE FOR $sym"
+      continue
+    fi
+    scd=$( echo "$fst" | efetch -raw -format docsum )
+    if [ -z "$scd" ]
+    then
+      echo "EFETCH FAILURE FOR $sym, ESEARCH RESULT IS"
+      echo "$fst"
+      continue
+    fi
+    thd=$( echo "$scd" |
+           xtract -pattern DocumentSummary -def "-" \
+           -lbl "${sym}" -element Id,DocumentSummary@uid Chromosome Description )
+    if [ -z "$thd" ]
+    then
+      echo "XTRACT FAILURE FOR $sym, EFETCH RESULT IS"
+      echo "$scd"
+      continue
+    fi
+    echo "$thd"
+  done
+
+PrintTimeAndTitle "Taxonomic Names"
+
+  esearch -db taxonomy -query "txid10090 [SBTR] OR camel [COMN]" |
+  efetch -format docsum |
+  xtract -pattern DocumentSummary -if CommonName \
+    -element Id ScientificName CommonName
+
+PrintTimeAndTitle "Structural Similarity"
+
+  esearch -db structure -query "crotalus [ORGN] AND phospholipase A2" |
+  elink -related |
+  efilter -query "archaea [ORGN]" |
+  efetch -format docsum |
+  xtract -pattern DocumentSummary \
+    -if PdbClass -equals Hydrolase \
+      -element PdbAcc PdbDescr
+
+PrintTimeAndTitle "Underscore Protection"
+
+  esearch -db biosample -query "package metagenome or environmental version 1 0 [PROP]" |
+  xtract -pattern ENTREZ_DIRECT -element Count
+
+  esearch -db assembly -query "algae [ORGN] AND complete genome [FILT]" |
+  efilter -query "refseq has annotation [PROP] NOT anomalous [FILT]" |
+  xtract -pattern ENTREZ_DIRECT -element Count
+
+PrintTimeAndTitle "Mitochondrial Mistranslation"
+
+  efetch -db nuccore -id NC_012920 -format gb |
+  transmute -g2x |
+  xtract -insd CDS gene product protein_id translation sub_sequence |
+  while IFS=$'\t' read acc gene prod prid prot seq
+  do
+    mito=$( echo "$seq" | transmute -cds2prot -code 2 -stop )
+    norm=$( echo "$seq" | transmute -cds2prot -code 1 -stop )
+    if [ "$mito" != "$norm" ]
+    then
+      echo ">$acc $gene $prid $prod"
+      transmute -diff <( echo "$mito" ) <( echo "$norm" )
+      echo ""
+    fi
+  done
+
+PrintTimeAndTitle "Variation Extraction"
+
+  echo "NP_000504.1:p.Glu41Lys,NP_000504.1:p.P43Leu,NP_000504.1:p.Trp142Ter" |
+  transmute -hgvs | transmute -format
+
+PrintTimeAndTitle "Amino Acid Substitutions"
+
+  esearch -db gene -query "OPN1MW [PREF] AND human [ORGN]" |
+  elink -target snp | efilter -class missense |
+  efetch -format docsum |
+  xtract -rec HGVS -pattern DocumentSummary \
+    -wrp Id -element Id -rst -hgvs DOCSUM |
+  hgvs2spdi |
+  xtract -pattern SPDI -pfx "rs" -RSID Id \
+    -group Variant -if Class -equals Protein -and Type -equals Missense \
+      -element "&RSID" Accession Deleted Inserted Position -deq "\n" |
+  sort-table -k 2,2 -k 5,5n -k 4,4f -k 1.3n | uniq |
+  while read rsid accn del ins ofs
+  do
+    if [ "$accn" != "$last" ]
+    then
+      seq=$( efetch -db protein -id "$accn" -format gpc < /dev/null |
+             xtract -pattern INSDSeq -lower INSDSeq_sequence )
+      last="$accn"
+    fi
+    pos=$((ofs + 1))
+    echo ">$rsid [$accn $ins@$pos]"
+    echo "$seq" |
+    transmute -replace -offset "$ofs" -delete "$del" -insert "$ins" -lower |
+    fold -w 50
+  done |
+  head -n 20
+
+PrintTimeAndTitle "JSON Nested Array Expansion"
+
+  JS=$( nquire -get "http://mygene.info/v3" gene 3043 )
+  echo "$JS" | transmute -j2p | grep '"position":' -A 14 | head -n 15
+  for ns in flat recurse plural depth element
+  do
+    echo
+    echo "  $ns"
+    echo
+    echo "$JS" |
+    transmute -j2x -nest "$ns" |
+    grep position | head -n 4
+  done
+
+PrintTimeAndTitle "Heterogeneous Object Names"
+
+  JS=$( nquire -get "http://mygene.info/v3" gene 2652 )
+  PW=$( echo "$JS" |
+  xtract -pattern opt -group pathway -element "*" |
+  transmute -format | grep -v xml | grep -v DOCTYPE )
+  echo "$PW" | head -n 5
+  echo
+  echo "$PW" | tail -n 5
+  echo
+  echo "$JS" |
+  xtract -pattern opt -group "pathway/*" -deq "\n" -element "?,name,id" |
+  align-columns -
+
+seconds_end=$(date "+%s")
+seconds=$((seconds_end - seconds_start))
+
+if [ "$useTimer" = true ]
+then
+echo ""
+echo "$seconds seconds"
+fi
+
+echo ""
+echo "Total $SECONDS seconds"
+echo ""

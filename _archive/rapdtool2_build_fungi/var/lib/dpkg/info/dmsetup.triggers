@@ -1,0 +1,2 @@
+# Triggers added by dh_installinitramfs/13.6ubuntu1
+activate-noawait update-initramfs

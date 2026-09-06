@@ -1,0 +1,11 @@
+/.
+/usr
+/usr/lib
+/usr/lib/R
+/usr/lib/R/library
+/usr/share
+/usr/share/doc
+/usr/share/lintian
+/usr/share/lintian/overrides
+/usr/share/lintian/overrides/r-recommended
+/usr/share/doc/r-recommended

@@ -1,0 +1,578 @@
+#!/bin/sh
+
+# ===========================================================================
+#
+#                            PUBLIC DOMAIN NOTICE
+#            National Center for Biotechnology Information (NCBI)
+#
+#  This software/database is a "United States Government Work" under the
+#  terms of the United States Copyright Act.  It was written as part of
+#  the author's official duties as a United States Government employee and
+#  thus cannot be copyrighted.  This software/database is freely available
+#  to the public for use. The National Library of Medicine and the U.S.
+#  Government do not place any restriction on its use or reproduction.
+#  We would, however, appreciate having the NCBI and the author cited in
+#  any work or product based on this material.
+#
+#  Although all reasonable efforts have been taken to ensure the accuracy
+#  and reliability of the software and data, the NLM and the U.S.
+#  Government do not and cannot warrant the performance or results that
+#  may be obtained by using this software or data. The NLM and the U.S.
+#  Government disclaim all warranties, express or implied, including
+#  warranties of performance, merchantability or fitness for any particular
+#  purpose.
+#
+# ===========================================================================
+#
+# File Name:  elink
+#
+# Author:  Jonathan Kans, Aaron Ucko
+#
+# Version Creation Date:   06/03/2020
+#
+# ==========================================================================
+
+pth=$( dirname "$0" )
+
+case ":$PATH:" in
+  *:"$pth":* )
+    ;;
+  * )
+    PATH="$PATH:$pth"
+    export PATH
+    ;;
+esac
+
+# handle common flags - dot command is equivalent of "source"
+
+if [ ! -f "$pth"/ecommon.sh ]
+then
+  echo "${INVT} ERROR: ${LOUD} Unable to find '$pth/ecommon.sh' file${INIT}" >&2
+  exit 1
+fi
+
+. "$pth"/ecommon.sh
+
+# initialize specific flags
+
+internal=false
+
+target=""
+
+name=""
+cmmd=""
+mode=""
+
+idtype=""
+related=false
+
+cited=false
+cites=false
+
+# read command-line arguments
+
+while [ $# -gt 0 ]
+do
+  case "$1" in
+    -internal )
+      internal=true
+      shift
+      ;;
+    -newmode | -oldmode )
+      shift
+      ;;
+    -db )
+      shift
+      if [ $# -gt 0 ]
+      then
+        db="$1"
+        shift
+      else
+        echo "${INVT} ERROR: ${LOUD} Missing -db argument${INIT}" >&2
+        exit 1
+      fi
+      ;;
+    -id )
+      shift
+      if [ $# -gt 0 ]
+      then
+        ids="$1"
+        shift
+      else
+        echo "${INVT} ERROR: ${LOUD} Missing -id argument${INIT}" >&2
+        exit 1
+      fi
+      while [ $# -gt 0 ]
+      do
+        case "$1" in
+          -* )
+            break
+            ;;
+          * )
+            # concatenate run of UIDs with commas
+            ids="$ids,$1"
+            shift
+            ;;
+        esac
+      done
+      ;;
+    -format )
+      shift
+      if [ $# -gt 0 ]
+      then
+        shift
+        if [ "$1" = "acc" ] || [ "$1" = "accn" ]
+        then
+          idtype=acc
+        fi
+      else
+        echo "${INVT} ERROR: ${LOUD} Missing -format argument${INIT}" >&2
+        exit 1
+      fi
+      ;;
+    -target )
+      shift
+      if [ $# -gt 0 ]
+      then
+        target="$1"
+        shift
+      else
+        echo "${INVT} ERROR: ${LOUD} Missing -target argument${INIT}" >&2
+        exit 1
+      fi
+      ;;
+    -name | -linkname )
+      shift
+      if [ $# -gt 0 ]
+      then
+        name="$1"
+        shift
+      else
+        echo "${INVT} ERROR: ${LOUD} Missing -name argument${INIT}" >&2
+        exit 1
+      fi
+      ;;
+    -cmd )
+      shift
+      if [ $# -gt 0 ]
+      then
+        cmmd="$1"
+        shift
+      else
+        echo "${INVT} ERROR: ${LOUD} Missing -cmd argument${INIT}" >&2
+        exit 1
+      fi
+      ;;
+    -mode )
+      shift
+      if [ $# -gt 0 ]
+      then
+        mode="$1"
+        shift
+      else
+        echo "${INVT} ERROR: ${LOUD} Missing -mode argument${INIT}" >&2
+        exit 1
+      fi
+      ;;
+    -related )
+      related=true
+      shift
+      ;;
+    -neighbor )
+      related=true
+      shift
+      ;;
+    -cited )
+      cited=true
+      shift
+      ;;
+    -cites )
+      cites=true
+      shift
+      ;;
+    -batch )
+      # accept -batch flag from old scripts - now standard behavior
+      shift
+      ;;
+    -h | -help | --help | help )
+      echo "elink $version"
+      echo ""
+      cat "$pth/help/elink-help.txt"
+      echo ""
+      exit 0
+      ;;
+    -* )
+      ParseCommonArgs "$@"
+      if [ "$argsConsumed" -gt 0 ]
+      then
+        shift "$argsConsumed"
+      else
+        echo "${INVT} ERROR: ${LOUD} Unrecognized option $1${INIT}" >&2
+        exit 1
+      fi
+      ;;
+    * )
+      # allows while loop to check for multiple flags
+      break
+      ;;
+  esac
+done
+
+FinishSetup
+
+# check for ENTREZ_DIRECT message or piped UIDs unless database and UIDs provided in command line
+
+if [ -z "$db" ]
+then
+  ParseStdin
+elif [ -z "$ids" ] && [ -z "$input" ]
+then
+  ParseStdin
+fi
+
+# needHistory allows reuse of GenerateUidList
+
+if [ -z "$ids$rest$input" ]
+then
+  needHistory=true
+fi
+
+# take database from dbase value or -db argument
+
+if [ -z "$dbase" ]
+then
+  dbase="$db"
+fi
+
+# check for missing required arguments
+
+if [ -z "$dbase" ]
+then
+  echo "${INVT} ERROR: ${LOUD} Missing -db argument${INIT}" >&2
+  exit 1
+fi
+
+# convert spaces between UIDs to commas
+
+ids=$( echo "$ids" | sed -e "s/ /,/g; s/,,*/,/g" )
+
+# cmd aliases
+
+case "$cmmd" in
+  history )
+    cmmd="neighbor_history"
+    ;;
+  score )
+    cmmd="neighbor_score"
+    if [ -z "$target" ]
+    then
+      target="$dbase"
+    fi
+    ;;
+  llibs )
+    cmmd="llinkslib"
+    ;;
+esac
+
+# special cases for target, cmd, and linkname
+
+case "$cmmd" in
+  acheck )
+    ;;
+  ncheck | lcheck | llinks | llinkslib | prlinks )
+    target=""
+    ;;
+  * )
+    if [ -z "$target" ] && [ "$related" = false ] && [ "$cited" = false ] && [ "$cites" = false ]
+    then
+      echo "${INVT} ERROR: ${LOUD} Must supply -target or -related on command line${INIT}" >&2
+      exit 1
+    fi
+    if [ -z "$target" ]
+    then
+      target="$dbase"
+    fi
+
+    if [ -z "$name" ]
+    then
+      # set default name
+      name="${dbase}_${target}"
+      # special case for pubmed_pmc - commented out now that the link has returned
+      # if [ $name = "pubmed_pmc" ]
+      # then
+        # name="pubmed_pmc_local"
+      # fi
+    fi
+    ;;
+esac
+
+if [ -z "$cmmd" ]
+then
+  cmmd="neighbor_history"
+fi
+
+if [ "$dbase" = "nlmcatalog" ]
+then
+  echo "${INVT} ERROR: ${LOUD} Entrez Direct does not support links for the nlmcatalog database${INIT}" >&2
+  exit 1
+fi
+
+# input reality checks
+
+if [ "$needHistory" = true ]
+then
+  if [ -t 0 ]
+  then
+    echo "${INVT} ERROR: ${LOUD} ENTREZ_DIRECT message not piped from stdin${INIT}" >&2
+    exit 1
+  fi
+  if [ -z "$web_env" ]
+  then
+    echo "${INVT} ERROR: ${LOUD} WebEnv value not found in elink input${INIT}" >&2
+    exit 1
+  fi
+  if [ -z "$qry_key" ]
+  then
+    echo "${INVT} ERROR: ${LOUD} QueryKey value not found in elink input${INIT}" >&2
+    exit 1
+  fi
+  if [ "$num" -lt 1 ]
+  then
+    # print message with count of 0 if no results to process
+    WriteEDirect "$target" "$web_env" "$qry_key" "0" "$stp" "$err"
+    exit 0
+  fi
+fi
+
+if [ "$cited" = true ] || [ "$cites" = true ]
+then
+  if [ "$dbase" != "pubmed" ]
+  then
+    echo "${INVT} ERROR: ${LOUD} -cited or -cites can only be used with -db pubmed${INIT}" >&2
+    exit 1
+  fi
+fi
+
+# lookup accessions in -id argument or piped from stdin
+
+LookupSpecialAccessions
+
+# -cited or -cites access the NIH Open Citation Collection dataset (see PMID 31600197)
+
+PostInIcite() {
+
+  if [ -n "$web_env" ]
+  then
+    epost -db pubmed -web "$web_env" -log "$log"
+  else
+    epost -db pubmed -log "$log"
+  fi
+}
+
+LinkInIcite() {
+
+  iciteElement="$1"
+  GenerateUidList "$dbase" |
+  join-into-groups-of 100 |
+  while read uids
+  do
+    nquire -get https://icite.od.nih.gov/api/pubs -pmids "$uids" |
+    transmute -j2x |
+    xtract -pattern opt -sep "\n" -element "$iciteElement"
+  done |
+  accn-at-a-time |
+  sort -n | uniq |
+  PostInIcite
+}
+
+QueryIcite() {
+
+  cits=$( LinkInIcite "$1" )
+
+  if [ -n "$cits" ]
+  then
+    ParseMessage "$cits" ENTREZ_DIRECT \
+                  dbase Db web_env WebEnv qry_key QueryKey \
+                  num Count stp Step
+  fi
+
+  WriteEDirect "$dbase" "$web_env" "$qry_key" "$num" "$stp" "$err"
+}
+
+if [ "$cited" = true ]
+then
+  # equivalent of -name pubmed_pubmed_citedin (for pubmed records also in pmc)
+  QueryIcite "cited_by"
+
+  exit 0
+fi
+
+if [ "$cites" = true ]
+then
+  # equivalent of -name pubmed_pubmed_refs (for pubmed records also in pmc)
+  QueryIcite "references"
+
+  exit 0
+fi
+
+# helper function adds link-specific arguments (if set)
+
+RunWithLinkArgs() {
+
+  if [ "$log" = true ]
+  then
+    printf "." >&2
+  fi
+
+  AddIfNotEmpty -dbfrom "$dbase" \
+  AddIfNotEmpty -db "$target" \
+  AddIfNotEmpty -cmd "$cmmd" \
+  AddIfNotEmpty -linkname "$name" \
+  AddIfNotEmpty -retmode "$mode" \
+  AddIfNotEmpty -idtype "$idtype" \
+  RunWithCommonArgs "$@"
+}
+
+# non-history link requests generate XML results
+
+if [ "$cmmd" != "neighbor_history" ]
+then
+  GenerateUidList "$dbase" |
+  join-into-groups-of 500 |
+  while read uids
+  do
+    uids=$( echo "$uids" | tr ',' ' ' )
+    set nquire -url "$base" elink.fcgi
+    # $uids is unquoted so the shell will perform word splitting on it
+    for uid in $uids
+    do
+      # individual -id arguments get a separate set of link results for each uid
+      set "$@" -id "$uid"
+    done
+    RunWithLinkArgs "$@" |
+    transmute -format indent -doctype ""
+  done
+
+  exit 0
+fi
+
+# helper function adds web environment argument for history (if set)
+
+RunWithLinkHistoryArgs() {
+
+  AddIfNotEmpty -WebEnv "$web_env" \
+  RunWithLinkArgs "$@"
+}
+
+# -cmd neighbor_history
+
+wb="$web_env"
+
+LinkInGroups() {
+
+  if [ "$log" = true ]
+  then
+    printf "ELink\n" >&2
+  fi
+
+  GenerateUidList "$dbase" |
+  join-into-groups-of 500 |
+  while read uids
+  do
+    err=""
+    res=$( RunWithLinkHistoryArgs nquire -url "$base" elink.fcgi -id "$uids" )
+
+    if [ -n "$res" ]
+    then
+      dt=""
+      ParseMessage "$res" eLinkResult dt DbTo web_env WebEnv qry_key QueryKey
+
+      if [ -n "$err" ]
+      then
+        echo "${INVT} ERROR: ${LOUD} elink failed - $err${INIT}" >&2
+        exit 1
+      fi
+      if [ -z "$web_env" ]
+      then
+        echo "WebEnv value not found in elink output - WebEnv1 $wb"
+        exit 1
+      fi
+      if [ -n "$wb" ] && [ "$web_env" != "$wb" ]
+      then
+        echo "WebEnv mismatch in elink output - WebEnv1 $wb, WebEnv2 $web_env"
+        exit 1
+      fi
+
+      WriteEDirectStep "$dt" "$web_env" "$qry_key" "$err"
+    fi
+  done
+
+  if [ "$log" = true ]
+  then
+    printf "\n" >&2
+  fi
+}
+
+lnks=$( LinkInGroups )
+
+if [ -n "$lnks" ]
+then
+  # extract first database and webenv values, and all key numbers
+  comps=$( echo "$lnks" | xtract -wrp Set,Rec -pattern ENTREZ_DIRECT \
+           -wrp Web -element WebEnv -wrp Key -element QueryKey )
+
+  wbnv=$( echo "$comps" | xtract -pattern Set -first Web )
+  qrry=$( echo "$comps" | xtract -pattern Set -block Rec -pfx "(#" -sfx ")" -tab " OR " -element Key )
+
+  err=""
+  num=""
+  if [ -z "$qrry" ]
+  then
+    # no neighbors or links can be a normal response,
+    # e.g., elink -db gene -id 496376 -target medgen
+    WriteEDirect "$target" "$web_env" "$qry_key" "0" "$stp" "$err"
+    exit 0
+  fi
+
+  # send search command, e.g, "(#1) OR (#2)", along with database and web environment
+  srch=$( RunWithCommonArgs nquire -get "$base" esearch.fcgi -db "$target" \
+          -WebEnv "$wbnv" -term "$qrry" -retmax 0 -usehistory y )
+
+  if [ -n "$srch" ]
+  then
+    res=$( echo "$srch" | sed -e 's|<TranslationStack>.*</TranslationStack>||' )
+    ParseMessage "$srch" eSearchResult web_env WebEnv qry_key QueryKey num Count
+  fi
+
+  if [ -n "$num" ] && [ "$num" -lt 1 ]
+  then
+    uids=$( GenerateUidList "$dbase" | head -n 500 | join-into-groups-of 500 )
+    res=$( RunWithCommonArgs nquire -url "$base" elink.fcgi \
+           -dbfrom "$dbase" -id "$uids" -cmd "acheck" )
+
+    if [ -n "$res" ]
+    then
+      ParseMessage "$res" eLinkResult ignore DbFrom
+
+      if [ -z "$err" ]
+      then
+        tst=$( echo "$res" | xtract -pattern LinkInfo -if LinkName -equals "$name" -element LinkName )
+        if [ -n "$tst" ]
+        then
+          echo "${INVT} ERROR: ${LOUD} UNEXPECTED EMPTY LINK RESULT FOR ${name}${INIT}" >&2
+        fi
+      else
+        echo "${INVT} ERROR: ${LOUD} -cmd acheck TEST FAILED - ${err}${INIT}" >&2
+      fi
+    fi
+  fi
+
+  WriteEDirect "$target" "$web_env" "$qry_key" "$num" "$stp" "$err"
+
+  exit 0
+fi
+
+# warn on error
+
+echo "${INVT} ERROR: ${LOUD} ELink failure${INIT}" >&2
+exit 1

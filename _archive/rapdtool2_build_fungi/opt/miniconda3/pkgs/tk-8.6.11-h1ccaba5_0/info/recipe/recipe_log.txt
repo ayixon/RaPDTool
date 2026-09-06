@@ -1,0 +1,391 @@
+commit f7a3d3a044a840e3384c19a602b8b0db97d282a7
+Author: Kai Tietz <ktietz@anaconda.com>
+Date:   Mon Feb 1 13:26:19 2021 +0100
+
+    Enable 64 for s390x
+
+commit 33a1b2535de7b3d3aab1c2c371d068dcfac1a53f
+Author: Jonathan Helmus <jjhelmus@gmail.com>
+Date:   Thu Jun 18 13:17:32 2020 -0500
+
+    8.6.10
+
+commit ef784bb624bdbeac8cf9e50d2720668b28a6a5ce
+Author: Jonathan Helmus <jjhelmus@gmail.com>
+Date:   Tue Aug 28 14:32:55 2018 -0500
+
+    add osx patch
+    
+    sourced from:
+    https://trac.macports.org/ticket/55649
+
+commit eec92a5a4f683888679b214ffb9ad5a188f4af69
+Author: Jonathan Helmus <jjhelmus@gmail.com>
+Date:   Tue Aug 28 14:07:46 2018 -0500
+
+    activate different SDK on VS 2015
+    
+    http://wiki.tcl.tk/54819
+
+commit 73e5c4908653093bc1a9dc4f2db855ae94e90142
+Author: Jonathan Helmus <jjhelmus@gmail.com>
+Date:   Tue Aug 28 14:07:37 2018 -0500
+
+    update to 8.6.8
+    
+    add make as build dependency
+
+commit 35207aa11b104899e6160cc3fa566bc9dccf40f3
+Author: Ray Donnelly <mingw.android@gmail.com>
+Date:   Sun May 6 03:27:40 2018 +0100
+
+    We need zlib
+
+commit b49359c1c747381d57c371df45ddf4fa9f1c4ee3
+Author: Michael Sarahan <msarahan@gmail.com>
+Date:   Wed Nov 8 14:12:06 2017 -0600
+
+    remove vc features (use run_exports vc pkg instead)
+
+commit a6c26244092e2e2a03de4d781b9fc25826582786
+Author: Michael Sarahan <msarahan@gmail.com>
+Date:   Mon Oct 9 11:31:24 2017 -0500
+
+    add run_exports
+
+commit 4274ba58335b61fa8b732f8210b984dd60e00bc4
+Author: Ray Donnelly <mingw.android@gmail.com>
+Date:   Mon Sep 18 14:17:27 2017 -0700
+
+    Add features
+
+commit e6e7008bb8f5cd071a41369236e76ad0a4a31361
+Author: Ray Donnelly <mingw.android@gmail.com>
+Date:   Mon Sep 18 13:59:44 2017 -0700
+
+    Remove curl and 7za, use multiple sources instead
+
+commit c749f2bd0f327529df20c9818338e4c9ba125b61
+Author: Ray Donnelly <mingw.android@gmail.com>
+Date:   Fri Sep 1 05:50:24 2017 -0700
+
+    Add sha256 checksums
+
+commit 826800e5a39d5f0c8a9ab056a144126132b0e701
+Author: Ray Donnelly <mingw.android@gmail.com>
+Date:   Fri Sep 1 01:53:00 2017 -0700
+
+    Update to 8.6.7
+
+commit 2ac25545ce944a6d24aeaba0ad04028dc7ad6b20
+Author: Ray Donnelly <mingw.android@gmail.com>
+Date:   Mon Aug 28 23:51:55 2017 +0100
+
+    cdts are linux-only
+
+commit 9333dd2bb76ef23b04b8118cfbfbd68b149874f0
+Author: Ray Donnelly <mingw.android@gmail.com>
+Date:   Mon Aug 28 08:58:23 2017 +0100
+
+    Swap build and host requirements
+
+commit e7069d304ab6d96f0c5786f32847005064dd9c47
+Author: Ray Donnelly <mingw.android@gmail.com>
+Date:   Sun Aug 27 17:35:32 2017 +0100
+
+    Generalize logging
+
+commit fb8ccd097f7956220959ebfedc0ccb12ec63aa07
+Author: Ray Donnelly <mingw.android@gmail.com>
+Date:   Tue Jul 25 10:23:46 2017 +0100
+
+    Fix IFS / read -a
+
+commit 797ce4d4e3314c4c5f710d87a05e43bf4bee34e6
+Author: Ray Donnelly <mingw.android@gmail.com>
+Date:   Thu Jul 13 05:17:00 2017 -0500
+
+    Disable wish tests since we may not have X11
+    
+    cc @msarahan, we need to figure out what to do here.
+    
+    My current line of thought is, same as when you use the compilers you gain
+    a run dependency on the appropriate lib, when you use a CDT package you should
+    gain some record of what system-level package is needed. OK, this changes from
+    system to system, but we can detect a good many of them.
+    
+    Once we know which system package is needed we can advise people to use their
+    system package manager when we detect them as missing (using pyldd.py?).
+    
+    For building then testing on minimal system images I propose conda-build has
+    a mode to just go ahead and install the missing system dependencies, disabled
+    by default.
+
+commit 3e684a4385c7d9856bbf699e504b38a71ad6e142
+Author: Ray Donnelly <mingw.android@gmail.com>
+Date:   Thu Jul 13 05:13:30 2017 -0500
+
+    Add cross-compilation support (WIP)
+    
+    Also use conda-build 3's multiple sources feature.
+    
+    WIP because I either need to remove the (commented out)
+    call to autoreconf or I need to comment it back in and
+    add autoconf as a build dependency.
+    
+    The deciding factor here is whether the autoconf changes
+    around cross-compilation detection.  We need this to not
+    be detected as being cross-compiled as when that happens
+    tk assumes strtod is broken (as it assumes it cannot run
+    test executables) and builds its own implementation then
+    does not link to it (properly?).
+
+commit 8625ad8a22bed8e8e09203afc244c3ffd89f2941
+Author: Ray Donnelly <mingw.android@gmail.com>
+Date:   Thu Jul 13 05:12:02 2017 -0500
+
+    Use conda-build 3's multiple sources to download source
+
+commit 3b279a64e89506784312fc628ef2144e058ee112
+Merge: 30a3b54 2c3f627
+Author: Jonathan J. Helmus <jjhelmus@gmail.com>
+Date:   Fri Jun 2 14:53:54 2017 -0500
+
+    Merge pull request #19 from isuruf/test
+    
+    Fix tcl install in windows
+
+commit 2c3f627e5ca8a884b104cdb4fa727c1d8496d28f
+Author: Isuru Fernando <isuru.11@cse.mrt.ac.lk>
+Date:   Fri Jun 2 23:40:20 2017 +0530
+
+    Formatting
+
+commit 0d484bc278dcd057865ebb5af141eb1a74c90aa9
+Author: Isuru Fernando <isuruf@gmail.com>
+Date:   Sat May 27 22:02:54 2017 +0530
+
+    Remove python 3.4 from matrix
+
+commit 06109a9592da8050325de09ed7adf7f77cd7bc53
+Author: Isuru Fernando <isuruf@gmail.com>
+Date:   Sat May 27 21:59:36 2017 +0530
+
+    MNT: Re-rendered with conda-smithy 2.3.0
+
+commit 04916fcb8d42a76bac3d9c5d167b70c4a6e7276e
+Author: Isuru Fernando <isuruf@gmail.com>
+Date:   Sat May 27 21:37:03 2017 +0530
+
+    Bump build number
+
+commit 4498ac5818f2901e3886d42e6cc2292e66abddc5
+Author: Isuru Fernando <isuruf@gmail.com>
+Date:   Sat May 27 20:59:18 2017 +0530
+
+    Fix tcl install in windows
+
+commit 30a3b542fda5d25eac6a94b0b83e48e865dc23d9
+Merge: 4aa9b5f 66a5f28
+Author: Jonathan J. Helmus <jjhelmus@gmail.com>
+Date:   Wed Nov 30 07:44:24 2016 -0600
+
+    Merge pull request #13 from jjhelmus/long_prefix
+    
+    Build long prefix package using conda-build 2.x
+
+commit 66a5f2812395708870bdbdeff091cbbe20a3e636
+Author: Jonathan Helmus <jjhelmus@gmail.com>
+Date:   Tue Nov 29 11:05:31 2016 -0600
+
+    Build long prefix package using conda-build 2.x
+
+commit 2bf894aa7db9556d33c5a86b832f7bbff333ee9d
+Author: Jonathan Helmus <jjhelmus@gmail.com>
+Date:   Tue Nov 29 11:01:38 2016 -0600
+
+    MNT: Re-rendered with conda-smithy 1.6.0
+
+commit 4aa9b5fab28c5258c77d16f29b8c2bc5afae96cc
+Merge: 37c53e2 e78cb16
+Author: Jonathan J. Helmus <jjhelmus@gmail.com>
+Date:   Fri Oct 14 17:26:27 2016 -0500
+
+    Merge pull request #11 from jakirkham/kludgy_win_config
+    
+    Weird Windows hack for Re-rendering [ci skip]
+
+commit 37c53e2bfeb61198716295045c6b385364b63eec
+Merge: e2bf99e 0b16070
+Author: Jonathan J. Helmus <jjhelmus@gmail.com>
+Date:   Fri Oct 14 17:25:22 2016 -0500
+
+    Merge pull request #10 from jakirkham/re-render_master_1.3.2
+    
+    Re-render master with conda-smithy 1.3.2 [ci skip]
+
+commit 0b16070fd9c8e66e5e27d1c53c95639e4ea20bb6
+Author: John Kirkham <kirkhamj@janelia.hhmi.org>
+Date:   Mon Oct 10 15:06:47 2016 -0400
+
+    Re-render with `conda-smithy` version `1.3.2`.
+
+commit e78cb16ca02f36ea2ea87571d810ddbf13a9ab4a
+Author: John Kirkham <kirkhamj@janelia.hhmi.org>
+Date:   Mon Oct 10 15:03:15 2016 -0400
+
+    conda-forge.yml: Add weird Windows hack for re-rendering. [ci skip]
+
+commit e2bf99e0fa04ce73751fc421f6460320d7ef0543
+Merge: 3c05b24 7b4b34b
+Author: Jonathan J. Helmus <jjhelmus@gmail.com>
+Date:   Mon Oct 10 10:39:27 2016 -0400
+
+    Merge pull request #9 from conda-forge/revert-8-feedstock_rerender_master
+    
+    Revert "MNT: Re-render the feedstock [ci skip]"
+
+commit 7b4b34bbcbcf8a02e2c07aa6742c02757d2a445b
+Author: Jonathan J. Helmus <jjhelmus@gmail.com>
+Date:   Mon Oct 10 09:39:21 2016 -0500
+
+    Revert "MNT: Re-render the feedstock [ci skip]"
+
+commit 3c05b241a41c69a39ae942802e97255ed8087991
+Merge: dfa0268 1fb9149
+Author: Jonathan J. Helmus <jjhelmus@gmail.com>
+Date:   Mon Oct 10 10:38:24 2016 -0400
+
+    Merge pull request #8 from conda-forge-admin/feedstock_rerender_master
+    
+    MNT: Re-render the feedstock [ci skip]
+
+commit 1fb914925a6528860042512a62daf73a8d0e3cb7
+Author: conda-forge-admin <pelson.pub+conda-forge@gmail.com>
+Date:   Mon Oct 10 02:43:52 2016 +0000
+
+    MNT: Updated the feedstock for conda-smithy version 1.3.2.
+
+commit dfa026883d8d4b5187d6b85966fef5aaa61cd7e4
+Merge: 3e20ab2 1bcea9f
+Author: Jonathan J. Helmus <jjhelmus@gmail.com>
+Date:   Thu Sep 22 11:37:31 2016 -0500
+
+    Merge pull request #7 from jakirkham/fix_re-render_2
+    
+    Restore VC matrix
+
+commit 1bcea9f57bd7ada81038b0f77c5527908e8048e7
+Author: John Kirkham <kirkhamj@janelia.hhmi.org>
+Date:   Mon Sep 19 19:58:57 2016 -0400
+
+    recipe: Bump build number to 3.
+
+commit d447e78aab2ae45645953d8e60fa979706b2f0b3
+Author: John Kirkham <kirkhamj@janelia.hhmi.org>
+Date:   Mon Sep 19 19:56:46 2016 -0400
+
+    appveyor: Borrow VC matrix from history.
+
+commit 3e20ab2b221bada244ab037a68e6f8cc66dffcc2
+Merge: 312fff0 8287dda
+Author: Jonathan J. Helmus <jjhelmus@gmail.com>
+Date:   Mon Sep 19 15:05:20 2016 -0500
+
+    Merge pull request #6 from jakirkham/fix_re_rendering
+    
+    Re-rendering fixes for Windows
+
+commit 8287ddaf064fb28a3c7a7b7a9ddc7dee860eaec3
+Author: John Kirkham <kirkhamj@janelia.hhmi.org>
+Date:   Thu Sep 15 11:02:02 2016 -0400
+
+    recipe: Bump build number to 2 in order to get a new Windows build.
+
+commit b879c5685df1df77702e33e8d34b13a6dbdf3dee
+Author: John Kirkham <kirkhamj@janelia.hhmi.org>
+Date:   Thu Sep 15 10:59:35 2016 -0400
+
+    Revert "recipe: Add `python` as a Windows build dependency for re-rendering."
+    
+    This reverts commit e6cf3094d9deafa14e763a3ec3ccd153ec988b61.
+
+commit 18e3f8aee475fab230a06de1b3163a6ac24193c5
+Author: John Kirkham <kirkhamj@janelia.hhmi.org>
+Date:   Thu Sep 15 10:59:17 2016 -0400
+
+    Re-render with `conda-smithy` version `1.2.0`.
+
+commit 21080917a2a493a3c7d4b3d72fd291805b5d29df
+Author: John Kirkham <kirkhamj@janelia.hhmi.org>
+Date:   Thu Sep 15 10:58:32 2016 -0400
+
+    recipe: Add `python` as a Windows build dependency for re-rendering.
+
+commit 312fff09a02c31fa45dc252817c96353878a1de4
+Merge: ae11cdf 4c355f0
+Author: Jonathan J. Helmus <jjhelmus@gmail.com>
+Date:   Thu Sep 15 00:52:01 2016 -0500
+
+    Merge pull request #5 from looooo/master
+    
+    added missing headers
+
+commit 4c355f0834538dc47d04017554cc02127bdb29f6
+Author: looooo <sppedflyer@gmail.com>
+Date:   Wed Sep 14 11:56:28 2016 +0200
+
+    rerendering the recipe
+
+commit 1a268be94a44a21f066cf3a5a4047208c562775f
+Author: looooo <sppedflyer@gmail.com>
+Date:   Tue Sep 13 10:14:27 2016 +0200
+
+    added missing headers
+
+commit ae11cdfda10fadf7565543ee8838423432abcfe4
+Merge: ceeb399 588dceb
+Author: Mike Sarahan <msarahan@gmail.com>
+Date:   Wed Aug 3 11:47:58 2016 -0500
+
+    Merge pull request #2 from jjhelmus/tktcl_8_6_8
+    
+    Update to 8.6.6
+
+commit 588dceb925fc1c6c734ac8178bb7f65dec2d2797
+Author: Jonathan Helmus <jjhelmus@gmail.com>
+Date:   Wed Aug 3 09:52:25 2016 -0500
+
+    Specify version of vc package
+
+commit aa8bd50c6cfd8d9578c24294fbad17554b0fcdb3
+Author: Jonathan Helmus <jjhelmus@gmail.com>
+Date:   Tue Aug 2 12:52:09 2016 -0500
+
+    Add vc version to build/run requirements
+
+commit 084796a239eb4836b8757e1ddf694299de9ddbb6
+Author: Jonathan Helmus <jjhelmus@gmail.com>
+Date:   Wed Jul 27 20:15:07 2016 -0500
+
+    Make vc feature windows only
+
+commit 9d586e4fb2881decbdd5c99fc664cc4fd2823855
+Author: Jonathan J. Helmus <jjhelmus@gmail.com>
+Date:   Thu Jun 2 19:24:03 2016 -0500
+
+    Update to 8.6.6
+    
+    Remove python dependency on windows platform.
+
+commit ceeb3993e637d82cbac4c131d6a477282c6ef2b3
+Author: Travis-CI on github.com/conda-forge/staged-recipes <conda-forge@googlegroups.com>
+Date:   Wed May 18 06:44:20 2016 +0000
+
+    Re-render the feedstock after CI registration.
+
+commit a41ea95a2048e70b6dac8732320ce7551d350055
+Author: Travis-CI on github.com/conda-forge/staged-recipes <conda-forge@googlegroups.com>
+Date:   Wed May 18 06:43:40 2016 +0000
+
+    Initial commit of the tk feedstock.

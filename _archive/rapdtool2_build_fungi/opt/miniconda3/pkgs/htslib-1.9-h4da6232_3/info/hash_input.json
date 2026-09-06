@@ -1,0 +1,7 @@
+{
+  "bzip2": "1",
+  "c_compiler": "toolchain_c",
+  "xz": "5.2",
+  "curl": "7.59",
+  "zlib": "1.2"
+}

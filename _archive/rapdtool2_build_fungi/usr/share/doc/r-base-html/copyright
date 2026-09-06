@@ -1,0 +1,660 @@
+This is the Debian GNU/Linux r-base package of the GNU R system for
+statistical computing and graphics.
+
+R has a home page at `http://www.r-project.org/'.  It is free software
+distributed under a GNU-style copyleft, and an official part of the GNU
+project ("GNU S").
+
+This package was initially debianized by Douglas Bates bates@stat.wisc.edu on
+Wed, 10 Dec 1997 14:17:31 -0600. 
+
+Dirk Eddelbuettel <edd@debian.org> currently maintaines the package.  
+
+Sources were downloaded from http://cran.r-project.org/src/ and changes,
+typically only to files in the debian/ directory are fully documented in the
+file /usr/share/doc/r-base/changelog.Debian.gz.
+
+R was initially written by Robert Gentleman and Ross Ihaka of the
+Statistics Department of the University of Auckland.
+Since mid-1997 there has been a core group with write access to the R
+source, currently consisting of
+Douglas Bates		<bates@stat.wisc.edu>
+John Chambers		<jmc@R-project.org>
+Peter Dalgaard		<p.dalgaard@biostat.ku.dk>
+Seth Falcon		<sfalcon@fhcrc.org>
+Robert Gentleman	<rgentlem@fhcrc.org>
+Kurt Hornik		<Kurt.Hornik@wu-wien.ac.at>
+Stefano Iacus		<stefano.iacus@unimi.it>
+Ross Ihaka		<ihaka@stat.auckland.ac.nz>
+Friedrich Leisch	<Friedrich.Leisch@tuwien.ac.at>
+Thomas Lumley		<tlumley@u.washington.edu>
+Martin Maechler		<maechler@stat.math.ethz.ch>
+Duncan Murdoch		<murdoch@stats.uwo.ca>
+Paul Murrell		<paul@stat.auckland.ac.nz>
+Martyn Plummer		<plummer@iarc.fr>
+Brian Ripley		<ripley@stats.ox.ac.uk>
+Deepayan Sarkar		<deepayan@stat.wisc.edu>
+Duncan Temple Lang	<duncan@wald.ucdavis.edu>
+Luke Tierney		<luke@stat.uiowa.edu>
+Simon Urbanek		<urbanek@research.att.com>
+plus Heiner Schwarte <h.schwarte@bluewin.ch> up to October 1999
+and Guido Masarotto <guido@hal.stat.unipd.it> up to June 2003.
+
+Copyright (C) 1995, 1996  Robert Gentleman and Ross Ihaka 
+Copyright (C) 1995 - 2008 The R Development Core Team
+Copyright (C) 1995 - 2008 The R Core Development Team
+Copyright (C) 2002 - 2008 The R Foundation
+
+As a rought breakdown between R Core members (and not excluding
+double-counting), we have for R 2.7.0 and the src/ directory 
+
+   1276 files with Copyright (C) The R Development Core Team
+    338 files with Copyright (C) The R Core Development Team
+    287 files with Copyright (C) Ross Ihaka
+    215 files with Copyright (C) The R Foundation
+    201 files with Copyright (C) Robert Gentleman
+     33 files with Copyright (C) Brian D. Ripley
+     29 files with Copyright (C) Guido Masarotto
+     13 files with Copyright (C) Paul Murrell
+      5 files with Copyright (C) Martin Maechler
+      4 files with Copyright (C) Douglas M. Bates
+      1 file  with Copyright (C) Friedrich Leisch
+      1 file  with Copyright (C) Martyn Plummer
+      1 file  with Copyright (C) Deepayan Sarkar
+      1 file  with Copyright (C) Luke Tierney
+      
+As for non-R Core members
+
+      4 files with Copyright (C) Adrian Trapletti
+      3 files with Copyright (C) Jose C. Pinheiro
+      2 files with Copyright (C) Berwin A. Turlach
+
+License: GPL-2
+Portions License: LGPL
+Portions License: Artistic
+
+R ships with the following file doc/COPYRIGHTS and refers to doc/COPYING, a 
+copy of the GPL-2.
+
+========= begin doc/COPYRIGHTS ==============================================
+
+COPYRIGHT STATUS
+
+The bulk of this code is copyright by members of or all of the R
+Development Core Team.
+
+See the file COPYING for the exact conditions under which you may
+redistribute it.
+
+The status of files used only in the Windows port is in file
+src/gnuwin32/COPYRIGHTS.win, which is appended to this file in binary
+Windows distributions.
+
+	---------------------------------------------------
+
+The some of the public header files are distributed under the more
+permissive terms of the file COPYING.LIB.  This applies only to the
+files
+
+src/include/R.h
+src/include/Rdefines.h
+src/include/Rgraphics.h
+src/include/Rinternals.h
+src/include/Rmath.h
+src/include/S.h
+src/include/R_ext/*.h
+
+From the announcement of the change (2001-Feb-05)
+
+    It came to our attention that some projects are interpreting GPL to
+    mean that compiling against the header files or linking against a
+    Windows import library brings the compiled code under the scope of
+    GPL.  This would mean it would be impossible to distribute binary
+    versions of non-GPL packages with compiled code which called entry
+    points in the R executable or DLL, of which there are many on CRAN.
+
+    We encourage packages to be distributed under Open Source conditions,
+    but accept that this is not possible for some contributions.  Our
+    intention is that export files and import libraries be `accessors'
+    under clause 5 of the LGPL, so that in most cases no (additional)
+    restrictions are imposed by compiling a package using the LGPL-ed
+    components of R.
+
+    To avoid any anomalies, the versions of the same files in R versions
+    1.0.0 to 1.2.1 may also be used under LGPL or GPL.
+
+As from R 2.3.0 import libraries are no longer used under Windows, and
+as from R 2.4.0 fewer export files are used under AIX.
+
+
+Some contributed files are also covered by the Library General Public License.
+These include (see also below)
+
+src/library/stats/R/embed.R
+src/library/stats/src/PPsum.c
+
+	---------------------------------------------------
+
+
+
+
+Some of the code contains different copyright statements.  It is used
+here in accordance with the copyright conditions in that code.
+
+src/library/grDevices/inst/afm/*___.afm
+
+	Copyright (c) 1984 to 1992 Adobe Systems Incorporated.
+
+src/library/grDevices/inst/afm/MustRead.html
+src/library/grDevices/inst/afm/Courier*.afm
+src/library/grDevices/inst/afm/Helvetica*.afm
+src/library/grDevices/inst/afm/Times*.afm
+src/library/grDevices/inst/afm/Symbol.afm
+src/library/grDevices/inst/afm/ZapfDingbats.afm
+
+	Copyright (c) 1985, 1987, 1989, 1990, 1993, 1997 Adobe Systems
+	Incorporated.  All Rights Reserved.
+
+src/library/grDevices/inst/afm/*l.afm
+
+	Copyright 1999 by (URW)++ Design & Development
+
+src/library/grDevices/inst/afm/CM_*.afm
+src/library/grDevices/inst/afm/cm*.afm
+
+	are derived from afms which are copyright by the American
+	Mathematical Society, but `the AMS does require that the
+	AMS copyright notice be removed from any derivative versions
+	of the fonts which have been altered in any way'.
+
+doc/html/search/*.java
+
+	Copyright (C), 1998 Thomas Baier
+or	Copyright (C), 1998-2000, Thomas Baier, R Core Development Team
+
+doc/manual/R-intro.texi
+
+	Copyright (C) 1990 W. N. Venables
+	Copyright (C) 1992 W. N. Venables & D. M. Smith
+	Copyright (C) 1997 R. Gentleman & R. Ihaka
+	Copyright (C) 1997, 1998 M. Maechler
+
+share/texmf/upquote.sty
+
+	Copyright 2000 Michael A. Covington.
+	Copyright 2003 Michael A. Covington, Frank Mittelbach.
+
+src/library/graphics/R/mosaicplot.R
+
+	Copyright (C) 1998 John W. Emerson
+
+src/library/graphics/R/pairs.R
+
+	In part, Copyright 1999 Dr. Jens Oehlschlaegel-Akiyoshi
+
+src/library/graphics/R/polygon.R
+
+	Copyright (C) 2001 by Kevin Buhr <buhr@stat.wisc.edu>
+
+src/library/stats/R/bandwidths.R
+src/library/stats/src//bandwidths.c
+src/appl/maxcol.c
+
+	Copyright (C) various dates W. N. Venables and B. D. Ripley
+
+
+src/appl/interv.c : moved to API from code originally in
+		    src/library/stats/src/bvalue.f, see
+		    src/library/stats/COPYRIGHTS.modreg
+
+src/library/stats:
+
+	See the files src/library/stats/COPYRIGHTS.modreg and
+	src/library/stats/COPYRIGHTS.portsrc for further details
+
+
+src/library/stats/R/diffinv.R
+src/library/stats/R/embed.R
+src/library/stats/R/kernel.R
+src/library/stats/src/PPsum.c
+
+	Copyright (C) 1997-1999	 Adrian Trapletti
+
+
+src/library/stats/src/carray.c, mburg.c, myw.c, qr.c
+
+	Copyright (C) 1999 Martyn Plummer
+
+
+src/library/stats/R/nls.R
+
+	In part, Copyright 1999-1999 Saikat DebRoy
+
+
+src/library/stats/R/nlsFunc.R
+src/library/stats/R/selfStart.R
+src/library/stats/R/zzModels.R
+
+	Copyright 1997,1999 Jose C. Pinheiro
+
+src/library/stats/src/Trunmed.c
+
+	In part Copyright (C) 1995 Berwin A. Turlach
+
+src/library/tcltk/exec/*.tcl
+
+	Copyright (c) various dates Jeffrey Hobbs
+
+
+src/modules/X11/rotated.[ch]
+
+	Copyright (c) 1993 Alan Richardson
+
+
+src/appl/loglin.c
+src/library/stats/src/chisqsim.c
+src/library/stats/src/nscor.c
+src/library/stats/src/prho.c
+src/library/stats/src/swilk.c
+src/library/stats/src/kmns.f
+src/library/ts/src/starma.c
+src/nmath/pgamma.c
+src/nmath/pnbeta.c
+src/nmath/pnchisq.c
+src/nmath/pnt.c
+src/nmath/qbeta.c
+src/nmath/qgamma.c
+src/nmath/qnorm.c
+src/nmath/qtukey.c
+src/nmath/sunif.c
+  are based in whole or in part on Applied Statistics algorithms
+  (C) Royal Statistical Society
+
+src/nmath/stirlerr.c
+src/nmath/dbinom.c
+src/nmath/dpois.c
+  are partly based on Clive Loader's (1999) work,
+  (C) 1999-2000 Lucent Technologies, Bell Laboratories.
+
+
+src/main/RNG.c
+
+  The Mersenne-Twister part is
+  Copyright (C) 1997, 1999 Makoto Matsumoto and Takuji Nishimura.
+
+
+src/main/xspline.c
+
+ * Copyright (c) 1985-1988 by Supoj Sutanthavibul
+ * Parts Copyright (c) 1989-2002 by Brian V. Smith
+ * Parts Copyright (c) 1991 by Paul King
+ * Parts Copyright (c) 1992 by James Tough
+ * Parts Copyright (c) 1998 by Georg Stemmer
+ * Parts Copyright (c) 1995 by C. Blanc and C. Schlick
+  
+ * Any party obtaining a copy of these files is granted, free of charge, a
+ * full and unrestricted irrevocable, world-wide, paid up, royalty-free,
+ * nonexclusive right and license to deal in this software and
+ * documentation files (the "Software"), including without limitation the
+ * rights to use, copy, modify, merge, publish and/or distribute copies of
+ * the Software, and to permit persons who receive copies from any such 
+ * party to do so, with the only requirement being that this copyright 
+ * notice remain intact.
+
+
+src/modules/lapack/dlapack[0123].f, cmplx.f, dlamc.f
+
+  Extracted from
+  *  -- LAPACK routine (version 3.1) --
+  *     Univ. of Tennessee, Univ. of California Berkeley, NAG Ltd.,
+  *     Courant Institute, Argonne National Lab, and Rice University
+
+  The README says
+
+    It is freely-available software, and is copyrighted.
+
+  although no actual copyright statement appears in the code.
+
+
+src/main/vsnprintf.c
+
+  Taken from the wget 1.8.1 distribution: only used on platforms
+  without vsnprintf.
+  /*
+   * Copyright Patrick Powell 1995
+   * This code is based on code written by Patrick Powell (papowell@astart.com)
+   * It may be used for any purpose as long as this notice remains intact
+   * on all source code distributions
+   */
+
+
+src/main/regex.c
+   Copyright (C) 2002, 2003, 2004, 2005 Free Software Foundation, Inc.
+src/main/Rregex.h
+   Copyright (C) 1985,1989-93,1995-98,2000,2001,2002,2003
+   Free Software Foundation, Inc.
+
+
+src/extra/xdr/*
+
+	Copyright (undated) Sun Microsystems, Inc.
+
+	See the file src/extra/xdr/copyrght.txt
+
+
+src/extra/zlib/README, *.c, *.h
+
+  Taken from zlib-1.2.3 (C) 1995-2005 Jean-loup Gailly and Mark Adler
+  See src/extra/zlib/README for the licence.
+
+
+src/main/dounzip.c, unzip.h
+
+  Contains code Copyright (C) 1998 Gilles Vollant from contrib/minizip
+  in the zlib 1.1.3 distribution.
+
+
+src/main/acosh.c, asinh.c, atanh.c
+
+used as substitution code only.  Based on
+
+  Cephes Math Library Release 2.8:  June, 2000
+  Copyright 1984, 1995, 2000 by Stephen L. Moshier
+
+According to http://www.netlib.org/cephes/readme
+
+  What you see here may be used freely but it comes with no support or
+  guarantee.
+
+
+src/main/apse.c
+src/main/apse.h
+
+  Copyright (C) Jarkko Hietaniemi, 1998,1999,2000,2001.
+
+  This program is free software; you can redistribute it and/or modify
+  it under the terms of either:
+
+  a) the GNU Library General Public License as published by the Free
+     Software Foundation; either version 2, or (at your option) any
+     later version, or
+
+  b) the "Artistic License" which comes with Perl source code.
+
+
+
+src/extra/pcre/LICENCE
+src/extra/pcre/*.[ch]
+
+   Copyright (c) 1997-2008 University of Cambridge
+   All rights reserved.
+
+See file src/extra/pcre/LICENCE.  For binary builds of R that requires
+us to include
+
+  Redistribution and use in source and binary forms, with or without
+  modification, are permitted provided that the following conditions are met:
+
+      * Redistributions of source code must retain the above copyright notice,
+	this list of conditions and the following disclaimer.
+
+      * Redistributions in binary form must reproduce the above copyright
+	notice, this list of conditions and the following disclaimer in the
+	documentation and/or other materials provided with the distribution.
+
+      * Neither the name of the University of Cambridge nor the name of Google
+	Inc. nor the names of their contributors may be used to endorse or
+	promote products derived from this software without specific prior
+	written permission.
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+  AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+  IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+  ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE
+  LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+  CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+  SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+  INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+  CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+  POSSIBILITY OF SUCH DAMAGE.
+
+
+src/extra/bzip2/LICENSE
+src/extra/bzip2/blocksort.c
+src/extra/bzip2/bzlib.c
+src/extra/bzip2/bzlib.h
+src/extra/bzip2/bzlib_private.h
+src/extra/bzip2/compress.c
+src/extra/bzip2/crctable.c
+src/extra/bzip2/decompress.c
+src/extra/bzip2/huffman.c
+src/extra/bzip2/randtable.c
+
+   copyright (C) 1996-2007 Julian R Seward.
+
+
+src/library/tools/src/md5.[ch]
+
+    Copyright (C) 1995, 1996, 2001 Free Software Foundation, Inc.
+
+
+src/extra/intl/*
+
+Based on gettextize from gettext 0.17
+   Copyright (C) various dates Free Software Foundation, Inc.
+   Distributed under the GNU Library General Public License
+   version 2 or later.
+
+src/include/memcheck.h
+src/include/valgrind.h
+
+From valgrind,
+
+   Copyright (C) 2000-2005 Julian Seward.  All rights reserved.
+
+
+src/main/mkdtemp.c
+
+From glibc via
+http://lists.gnu.org/archive/html/bug-gnulib/2003-02/msg00019.html
+
+   Copyright (C) 1999, 2001-2003 Free Software Foundation, Inc.
+   Distributed under the GNU Library General Public License
+   version 2 or later.
+
+src/main/Rstrptime.c
+
+   Copyright (C) 1996, 1997, 1998, 1999, 2000 Free Software Foundation, Inc.
+   Distributed under the GNU Library General Public License
+   version 2 or later.
+
+share/perl/File/Copy/Recursive.pm
+
+   Copyright 2004 by Daniel Muey
+
+   This library is free software; you can redistribute it and/or modify
+   it under the same terms as Perl itself.
+
+
+share/perl/Text/Delimiter.pm
+
+   Copyright (C) Small Planet Software and Norman Walsh.
+   All rights reserved.  This program is free software; you can
+   redistribute it and/or modify it under the same terms as Perl itself.
+
+po/*.po
+src/library/*/po/*.po
+
+   Some of the translations are (C) the translator as marked in the files.
+
+COPYING
+doc/COPYING
+doc/COPYING.LIB
+m4/codeset.m4
+m4/gettext.m4
+m4/gettext-lib.m4
+share/licenses/GPL-2
+share/licenses/GPL-3
+share/licenses/LGPL-2
+share/licenses/LGPL-2.1
+share/licenses/LGPL-3
+src/main/strdup.c
+tools/config.quess
+tools/config.rpath
+tools/config.sub
+tools/help2man.pl
+tools/ltmain.sh
+tools/mdate-sh
+tools/missing
+
+   Copyright various dates Free Software Foundation
+
+
+tools/install-sh:
+
+   Copyright (C) 1994 X Consortium
+
+
+========= end doc/COPYRIGHTS ================================================
+
+
+The windows32 port includes the following file src/gnuwin32/COPYRIGHTS.win
+========= begin src/gnuwin32/COPYRIGHTS.win =================================
+
+Windows version
+===============
+
+src/gnuwin32/e_pow.S
+
+is distributed under the Lesser GNU Public Licence (file COPYING.LIB),
+being based closely on code in the GNU C Library.
+
+
+src/gnuwin32/getline/*
+
+/*
+ * Copyright (C) 1991, 1992, 1993 by Chris Thewalt (thewalt@ce.berkeley.edu)
+ *
+ * Permission to use, copy, modify, and distribute this software 
+ * for any purpose and without fee is hereby granted, provided
+ * that the above copyright notices appear in all copies and that both the
+ * copyright notice and this permission notice appear in supporting
+ * documentation.  This software is provided "as is" without express or
+ * implied warranty.
+ *
+ * Thanks to the following people who have provided enhancements and fixes:
+ *   Ron Ueberschaer, Christoph Keller, Scott Schwartz, Steven List,
+ *   DaviD W. Sanderson, Goran Bostrom, Michael Gleason, Glenn Kasten,
+ *   Edin Hodzic, Eric J Bivona, Kai Uwe Rommel, Danny Quah, Ulrich Betzler
+ */
+
+
+
+src/extra/graphapp/*
+src/gnuwin32/front-ends/graphappmain.c
+
+The files {arith, array, bitmap, buttons, context, controls, cursors,
+drawing, drawtext, events, fonts, image, init, menus, objects,
+strings, windows}.c, {graphapp, internal}.h are in part
+
+	Copyright (C) 1993-1998 Lachlan Patrick
+	Distributed under the GNU Library General Public License
+
+
+src/gnuwin32/psignal.[ch]
+
+Based on files which are
+	Freely redistributable and modifiable.  Use at your own risk.
+	Copyright 1994-1999 The Downhill Project
+	http://www.ede.com/free/u2nt
+
+
+src/gnuwin32/front-ends/SC_*.h, bdx*.[ch], com_util.[ch], rproxy*.[ch]
+
+	Copyright (C) 1999-2005 Thomas Baier
+	Distributed under the GNU Library General Public License
+	version 2 or later.
+
+
+
+R_HOME/Tcl:
+
+Files compiled and installed from Tcl 8.4.15 and Tk 8.4.15.
+see R_HOME/Tcl/license.terms for the license.
+
+    This software is copyrighted by the Regents of the University of
+    California, Sun Microsystems, Inc., and other parties. [...]
+
+
+src/extra/trio/* (except compat.c)
+
+From trio-1.12 (http://daniel.haxx.se/projects/trio/)
+
+ Copyright (C) 1998-2001 by Bjorn Reese and Daniel Stenberg.
+
+ Permission to use, copy, modify, and distribute this software for any
+ purpose with or without fee is hereby granted, provided that the above
+ copyright notice and this permission notice appear in all copies.
+
+ THIS SOFTWARE IS PROVIDED ``AS IS'' AND WITHOUT ANY EXPRESS OR IMPLIED
+ WARRANTIES, INCLUDING, WITHOUT LIMITATION, THE IMPLIED WARRANTIES OF
+ MERCHANTIBILITY AND FITNESS FOR A PARTICULAR PURPOSE. THE AUTHORS AND
+ CONTRIBUTORS ACCEPT NO RESPONSIBILITY IN ANY CONCEIVABLE MANNER.
+
+
+src/gnuwin32/dos_glob.[ch]
+
+Modified from perl's ext/File/Glob/bsd_glob.[ch].
+
+/*
+ * Copyright (c) 1989, 1993
+ *	The Regents of the University of California.  All rights reserved.
+ *
+ * This code is derived from software contributed to Berkeley by
+ * Guido van Rossum.
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions
+ * are met:
+ * 1. Redistributions of source code must retain the above copyright
+ *    notice, this list of conditions and the following disclaimer.
+ * 2. Redistributions in binary form must reproduce the above copyright
+ *    notice, this list of conditions and the following disclaimer in the
+ *    documentation and/or other materials provided with the distribution.
+ * 3. Neither the name of the University nor the names of its contributors
+ *    may be used to endorse or promote products derived from this software
+ *    without specific prior written permission.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE REGENTS AND CONTRIBUTORS ``AS IS'' AND
+ * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+ * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ * ARE DISCLAIMED.  IN NO EVENT SHALL THE REGENTS OR CONTRIBUTORS BE LIABLE
+ * FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+ * DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS
+ * OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
+ * HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT
+ * LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY
+ * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
+ * SUCH DAMAGE.
+ */
+
+src/fixed/h/iconv.h
+
+From GNU libiconv-1.11, distributed under LGPL>=2,
+Copyright (C) 1999-2003, 2005-2006 Free Software Foundation, Inc.
+========= end src/gnuwin32/COPYRIGHTS.win ===================================
+
+
+
+On a Debian GNU/Linux system, the GPL licenses (version 2 and 3) are
+included in the files 
+	/usr/share/common-licenses/GPL-2 and
+	/usr/share/common-licenses/GPL-3. 
+The LGPL licenses are included in the files 
+	/usr/share/common-licenses/LGPL-2,
+	/usr/share/common-licenses/LGPL-2.1 and
+	/usr/share/common-licenses/LGPL-3
+The Artistic license is in 
+	/usr/share/common-licenses/Artistic.
+  

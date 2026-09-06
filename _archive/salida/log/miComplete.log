@@ -1,0 +1,11 @@
+2023-01-11 11:50:40,169 - main - INFO - miComplete has started
+2023-01-11 11:50:40,169 - main - INFO - Using 8 thread(s)
+2023-01-11 11:50:40,169 - main - INFO - List of given sequences:
+2023-01-11 11:50:40,169 - main - INFO - /scratch2/free/programs/RaPDTool/local/salida/workfmbm/outbinningref/scaff_non_virus_Binning_refiner_outputs/scaff_non_virus_refined_bins/scaff_non_virus_2.fna
+2023-01-11 11:50:40,170 - main - INFO - /scratch2/free/programs/RaPDTool/local/salida/workfmbm/outbinningref/scaff_non_virus_Binning_refiner_outputs/scaff_non_virus_refined_bins/scaff_non_virus_6.fna
+2023-01-11 11:50:40,170 - main - INFO - /scratch2/free/programs/RaPDTool/local/salida/workfmbm/outbinningref/scaff_non_virus_Binning_refiner_outputs/scaff_non_virus_refined_bins/scaff_non_virus_5.fna
+2023-01-11 11:50:40,170 - main - INFO - /scratch2/free/programs/RaPDTool/local/salida/workfmbm/outbinningref/scaff_non_virus_Binning_refiner_outputs/scaff_non_virus_refined_bins/scaff_non_virus_1.fna
+2023-01-11 11:50:40,170 - main - INFO - /scratch2/free/programs/RaPDTool/local/salida/workfmbm/outbinningref/scaff_non_virus_Binning_refiner_outputs/scaff_non_virus_refined_bins/scaff_non_virus_4.fna
+2023-01-11 11:50:40,170 - main - INFO - /scratch2/free/programs/RaPDTool/local/salida/workfmbm/outbinningref/scaff_non_virus_Binning_refiner_outputs/scaff_non_virus_refined_bins/scaff_non_virus_7.fna
+2023-01-11 11:50:40,170 - main - INFO - /scratch2/free/programs/RaPDTool/local/salida/workfmbm/outbinningref/scaff_non_virus_Binning_refiner_outputs/scaff_non_virus_refined_bins/scaff_non_virus_3.fna
+2023-01-11 11:50:45,615 - main - INFO - Finished work on all given sequences

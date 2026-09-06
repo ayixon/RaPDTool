@@ -1,0 +1,5 @@
+#!/bin/sh
+set -e
+# Automatically added by dh_installdeb/13.6ubuntu1
+dpkg-maintscript-helper mv_conffile /etc/bash_completion.d/R /usr/share/bash-completion/completions/R -- "$@"
+# End automatically added section

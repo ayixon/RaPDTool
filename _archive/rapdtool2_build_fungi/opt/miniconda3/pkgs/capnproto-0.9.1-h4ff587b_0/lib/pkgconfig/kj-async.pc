@@ -1,0 +1,11 @@
+prefix=/opt/conda/conda-bld/capnproto_1643906043325/_h_env_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_pla
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include
+
+Name: KJ Async Framework Library
+Description: Basic utility library called KJ (async part)
+Version: 0.9.1
+Libs: -L${libdir} -lkj-async  -pthread  
+Requires: kj = 0.9.1
+Cflags: -I${includedir}  -pthread  

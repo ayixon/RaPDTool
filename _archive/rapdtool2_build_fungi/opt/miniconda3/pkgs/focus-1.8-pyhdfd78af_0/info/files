@@ -1,0 +1,15 @@
+python-scripts/focus
+python-scripts/focus_database_utils
+site-packages/focus_app/__init__.py
+site-packages/focus_app/db.zip
+site-packages/focus_app/focus.py
+site-packages/focus_app/focus_database_utils.py
+site-packages/metagenomics_focus-1.8.dist-info/COPYING
+site-packages/metagenomics_focus-1.8.dist-info/INSTALLER
+site-packages/metagenomics_focus-1.8.dist-info/METADATA
+site-packages/metagenomics_focus-1.8.dist-info/RECORD
+site-packages/metagenomics_focus-1.8.dist-info/REQUESTED
+site-packages/metagenomics_focus-1.8.dist-info/WHEEL
+site-packages/metagenomics_focus-1.8.dist-info/direct_url.json
+site-packages/metagenomics_focus-1.8.dist-info/entry_points.txt
+site-packages/metagenomics_focus-1.8.dist-info/top_level.txt

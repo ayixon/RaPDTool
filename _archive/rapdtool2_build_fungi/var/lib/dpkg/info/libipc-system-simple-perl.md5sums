@@ -1,0 +1,5 @@
+651a8cacc80f51517fda22f5d5b41004  usr/share/doc/libipc-system-simple-perl/changelog.Debian.gz
+7d936fdd37938dc259f02d6c4adb1e91  usr/share/doc/libipc-system-simple-perl/copyright
+5780300e33cd5cba30c22b33f227f05c  usr/share/doc/libipc-system-simple-perl/examples/rsync-backup.pl
+b005ba5fc4dee2f4ac61d58676c2500f  usr/share/man/man3/IPC::System::Simple.3pm.gz
+c3e1cfe2fb01bf81e1fb24d9ebfae81d  usr/share/perl5/IPC/System/Simple.pm

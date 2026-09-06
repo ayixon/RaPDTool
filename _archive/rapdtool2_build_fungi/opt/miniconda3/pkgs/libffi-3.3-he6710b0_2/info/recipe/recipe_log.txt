@@ -1,0 +1,267 @@
+commit 26aaf02612894e42bba1c5fcd37259ddf3293120
+Author: Angela Gloyna <angela.gloyna@gmail.com>
+Date:   Wed Apr 22 16:50:50 2020 -0500
+
+    updated build number to 1 and set max pin to x.x
+
+commit 0e9ea530681b36ea08a45eda4c28c4b9065f2144
+Author: Angela Gloyna <angela.gloyna@gmail.com>
+Date:   Wed Apr 22 14:19:35 2020 -0500
+
+    updated libffi to 3.3 and accounted for missing float128 in powerpc
+
+commit 5be971b24ab93d1db78b77cc6bf3c31a2bdf170b
+Author: Kai Tietz <ktietz@anaconda.com>
+Date:   Fri Feb 14 15:27:20 2020 +0100
+
+    Update to version 3.3
+
+commit b2b2d3b8934dc12d08c401364273396bc6e95d72
+Author: Nehal J Wani <nehaljw.kkd1@gmail.com>
+Date:   Wed Feb 7 15:27:00 2018 -0500
+
+    Remove share/info/dir
+
+commit 132529b8873a4dcee15154eacd33bb2700551f37
+Author: Michael Sarahan <msarahan@gmail.com>
+Date:   Wed Nov 8 15:38:41 2017 -0600
+
+    add run_exports
+
+commit 5e036fa9d1e5fd880120b77c6ad443bc116eaa0c
+Merge: 2928cf8 ba27335
+Author: Ray Donnelly <mingw.android@gmail.com>
+Date:   Thu Aug 31 01:32:57 2017 +0100
+
+    Merge pull request #1 from Maggie-M/patch-1
+    
+    Update meta.yaml
+
+commit ba27335ee7d530123c6149c69838b93ffe5eaa44
+Author: Maggie-M <maggie.mari@continuum.io>
+Date:   Wed Aug 30 16:18:35 2017 -0500
+
+    Update meta.yaml
+
+commit 2928cf8b5e368f3b4e9a9b5f20a5281d0a1904ad
+Author: Ray Donnelly <mingw.android@gmail.com>
+Date:   Sun Aug 27 17:27:36 2017 +0100
+
+    Generalize logging
+
+commit 4ad10020643bad538a02a828152c2edf493193c4
+Author: Ray Donnelly <mingw.android@gmail.com>
+Date:   Sun Apr 2 14:47:34 2017 +0100
+
+    Add support cross-compilation
+    
+    Testing is done via QEMU via Dejagnu and requires some special handling.
+
+commit dcf68f71f1f776924a445f3857f7f08fcf587f3a
+Author: Ray Donnelly <mingw.android@gmail.com>
+Date:   Sun Apr 2 14:46:28 2017 +0100
+
+    Strip -fvisibility flags
+
+commit 8d44878425275cdcd38a7ead7ad7cc6157b2f6a8
+Merge: 1bcc771 a3e81b3
+Author: Anthony Scopatz <scopatz@gmail.com>
+Date:   Thu Jan 5 11:10:11 2017 -0800
+
+    Merge pull request #10 from shadowwalkersb/fix-includes
+    
+    Fix includes
+
+commit a3e81b32576f8e5cdec37fe39805602ff9e30a85
+Author: shadow_walker <shadowwalkersb@gmail.com>
+Date:   Thu Jan 5 10:30:23 2017 -0600
+
+    fix selector for testing static lib
+
+commit 6072e33dd3be64138545b0d28d08a2a67a0eb74a
+Author: shadow_walker <shadowwalkersb@gmail.com>
+Date:   Thu Jan 5 09:00:57 2017 -0600
+
+    bump build #: 3
+
+commit 29937c8a99f74426ae52c90ef11a477d3ad9da27
+Author: shadow_walker <shadowwalkersb@gmail.com>
+Date:   Thu Jan 5 01:41:03 2017 -0600
+
+    patch pkgconfig includedir
+
+commit 4fb3e1fea6d25146e66458fccb8738fdc0efc9c2
+Author: shadow_walker <shadowwalkersb@gmail.com>
+Date:   Thu Jan 5 00:19:39 2017 -0600
+
+    patch to fix configure option includedir
+
+commit 249f76f6ddb5825517558f84967a995f4e007e06
+Author: shadow_walker <shadowwalkersb@gmail.com>
+Date:   Wed Dec 28 17:40:30 2016 -0600
+
+    specify include dir
+
+commit f74f90f8dce16f3a07bd0dae4779d0e2f4e062fd
+Author: shadow_walker <shadowwalkersb@gmail.com>
+Date:   Thu Jan 5 00:22:16 2017 -0600
+
+    Revert "move include directory manually into place"
+    
+    This reverts commit 8ff659fe306f5bc9c8a98ed5c66caeb4d4771ed1.
+
+commit 8ff659fe306f5bc9c8a98ed5c66caeb4d4771ed1
+Author: shadow_walker <shadowwalkersb@gmail.com>
+Date:   Wed Dec 28 17:52:06 2016 -0600
+
+    move include directory manually into place
+
+commit 79fa9336d6110b767ec4013513a67964aaa0e26b
+Author: shadow_walker <shadowwalkersb@gmail.com>
+Date:   Wed Dec 28 17:50:10 2016 -0600
+
+    Revert "specify include dir"
+    
+    This reverts commit 83dca57b6b82a28ede4b0d6ce51b3a9b679d1594.
+
+commit 4f8b721afa390973ac99242f33cfd740bfad772b
+Author: shadow_walker <shadowwalkersb@gmail.com>
+Date:   Wed Dec 28 17:43:51 2016 -0600
+
+    add variable for name in recipe
+
+commit 83dca57b6b82a28ede4b0d6ce51b3a9b679d1594
+Author: shadow_walker <shadowwalkersb@gmail.com>
+Date:   Wed Dec 28 17:40:30 2016 -0600
+
+    specify include dir
+
+commit 8db771bfbf7468130cfa86517536ab3b5520b074
+Author: shadow_walker <shadowwalkersb@gmail.com>
+Date:   Wed Dec 28 17:34:31 2016 -0600
+
+    test for include files
+
+commit 1bcc771855bb5aae49391f06c42d23b1ed1d3519
+Merge: 82b6f91 525b36a
+Author: jakirkham <jakirkham@gmail.com>
+Date:   Sun Dec 4 17:46:37 2016 -0500
+
+    Merge pull request #9 from conda-forge-admin/feedstock_rerender_master
+    
+    MNT: Re-render the feedstock [ci skip]
+
+commit 525b36a3aaccd82b1b461bf257f76b7c304867a4
+Author: conda-forge-admin <pelson.pub+conda-forge@gmail.com>
+Date:   Fri Dec 2 01:34:51 2016 +0000
+
+    MNT: Updated the feedstock for conda-smithy version 1.6.1.
+
+commit 82b6f915abc457fc5df47685f563c9700b03bf07
+Merge: 848a473 9e2b12a
+Author: Stefan Balke <stefan.balke@audiolabs-erlangen.de>
+Date:   Thu Oct 13 12:41:27 2016 +0200
+
+    Merge pull request #8 from conda-forge-admin/feedstock_rerender_master
+    
+    MNT: Re-render the feedstock [ci skip]
+
+commit 9e2b12a07e613183581290b462a79c8b80f272c9
+Author: conda-forge-admin <pelson.pub+conda-forge@gmail.com>
+Date:   Thu Oct 13 01:37:38 2016 +0000
+
+    MNT: Updated the feedstock for conda-smithy version 1.3.2.
+
+commit 848a4730ad473a79f8d71e48dd9ffd033018460e
+Merge: c28b2fb cad2603
+Author: Anthony Scopatz <scopatz@gmail.com>
+Date:   Sun Jun 5 08:14:00 2016 -0700
+
+    Merge pull request #6 from conda-forge-admin/feedstock_rerender_master
+    
+    MNT: Re-render the feedstock
+
+commit cad260395670b2cd184e91af51a9c50bd00d9213
+Author: conda-forge-admin <pelson.pub+conda-forge@gmail.com>
+Date:   Mon May 16 05:42:58 2016 +0000
+
+    MNT: Updated the feedstock for conda-smithy version 0.10.3.
+    
+    [ci skip]
+
+commit c28b2fb036bcf25f0edea70799bbfc38370f7a3f
+Merge: 56bca6c 80846fd
+Author: stefan-balke <stefan.balke@audiolabs-erlangen.de>
+Date:   Tue May 10 19:47:31 2016 +0200
+
+    Merge pull request #4 from scopatz/master
+    
+    more lib64 fixes
+
+commit 80846fdc33a7501530dd1c0918242f64d7b3bf26
+Author: Anthony Scopatz <scopatz@gmail.com>
+Date:   Tue May 10 12:47:04 2016 -0400
+
+    more lib64 fixes
+
+commit 56bca6cba710e067d649d405d9b3e61f37ff4e1c
+Merge: d2f10ff 465b078
+Author: stefan-balke <stefan.balke@audiolabs-erlangen.de>
+Date:   Tue May 10 08:15:48 2016 +0200
+
+    Merge pull request #3 from scopatz/master
+    
+    try to remove lib64
+
+commit 465b078545879ec571d9d60e7129fcedf1777f75
+Author: Anthony Scopatz <scopatz@gmail.com>
+Date:   Mon May 9 23:06:52 2016 -0400
+
+    change install loc
+
+commit 65b25d29ae00eb1a5f4d7e15d7f3bd3a8407683f
+Author: Anthony Scopatz <scopatz@gmail.com>
+Date:   Mon May 9 23:01:44 2016 -0400
+
+    insert
+
+commit 91c7cef7ea3b2e106d6499b53c0d1de2d7fb49d3
+Author: Anthony Scopatz <scopatz@gmail.com>
+Date:   Mon May 9 22:51:08 2016 -0400
+
+    added backslash
+
+commit 0715f9c59c2d3e2cb280c1f15899bb44f40c5e65
+Author: Anthony Scopatz <scopatz@gmail.com>
+Date:   Mon May 9 22:43:58 2016 -0400
+
+    try to remove lib64
+
+commit d2f10fffa493a6ba1803a9e40a99ccf69021cf08
+Merge: 179f22e 4ba1ccd
+Author: Filipe <ocefpaf@gmail.com>
+Date:   Tue Apr 12 12:29:57 2016 -0300
+
+    Merge pull request #2 from conda-forge-admin/feedstock_rerender_master
+    
+    MNT: Re-render the feedstock
+
+commit 4ba1ccddbb65ce23fc01f36bad77c9e68847a769
+Author: conda-forge-admin <pelson.pub+conda-forge@gmail.com>
+Date:   Sat Apr 2 12:43:16 2016 +0100
+
+    MNT: Updated the feedstock for conda-smithy version 0.8.0.
+    
+    [ci skip]
+
+commit 179f22ee58850c1f2716bd80eb614f282a5356d7
+Author: Travis-CI on github.com/conda-forge/staged-recipes <conda-forge@googlegroups.com>
+Date:   Thu Mar 31 13:49:43 2016 +0000
+
+    Re-render the feedstock after CI registration.
+
+commit 07083ba21d32f8d188eea23d6a1c84efcf77b44a
+Author: Travis-CI on github.com/conda-forge/staged-recipes <conda-forge@googlegroups.com>
+Date:   Thu Mar 31 13:48:45 2016 +0000
+
+    Initial commit of the libffi feedstock.

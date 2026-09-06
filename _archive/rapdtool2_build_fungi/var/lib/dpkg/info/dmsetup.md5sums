@@ -1,0 +1,10 @@
+0300d36297cb71f9579ca143b80eea2e  lib/udev/rules.d/55-dm.rules
+4499280c7a559119e90d2c7d430ffc9a  lib/udev/rules.d/60-persistent-storage-dm.rules
+d6a150e3deff383fbeb57b09823c8bb9  lib/udev/rules.d/95-dm-notify.rules
+1082cb76d11e7c46c8cd78bb798ac559  sbin/blkdeactivate
+71058cde8d9d6223e22ca67368103e55  sbin/dmsetup
+356882271d166f18b2a75be414763861  usr/share/doc/dmsetup/copyright
+dff1d6572b8e4fce0845cbfa00029169  usr/share/initramfs-tools/hooks/dmsetup
+30728d1879f50ab2b1c21926adbd2533  usr/share/man/man8/blkdeactivate.8.gz
+ab69f056febb25e1a50fde287953f1aa  usr/share/man/man8/dmsetup.8.gz
+4fc64445f933f60e9ba4cdb2207f7642  usr/share/man/man8/dmstats.8.gz

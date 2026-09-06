@@ -1,0 +1,5 @@
+# Versioned soname is not necessary for libtcl8.6.so
+libtcl8.6: shlib-without-versioned-soname
+# Since the library has no suffix after .so then the symlink
+# is not necessary
+libtcl8.6: dev-pkg-without-shlib-symlink

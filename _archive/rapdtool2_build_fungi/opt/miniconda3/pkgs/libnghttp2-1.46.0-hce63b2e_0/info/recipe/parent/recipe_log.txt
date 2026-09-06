@@ -1,0 +1,184 @@
+commit 60da446c7eef05f8629f3ce0f5dd53ad0bbcb66a
+Author: Serhii Kupriienko <skupriienko@anaconda.com>
+Date:   Wed Nov 17 11:58:22 2021 +0000
+
+    Add missing_dso_whitelist on s390x
+
+commit ef12c98f4fbef0e0a985792d4f72ccebf987bc9d
+Author: Serhii Kupriienko <skupriienko@anaconda.com>
+Date:   Wed Nov 17 11:47:24 2021 +0000
+
+    Update dependencies, reset build number
+
+commit 1b272585a73ec9b85e9913f7e580f879e9cdc468
+Merge: 4bf4ed4 806156f
+Author: Uwe L. Korn <xhochy@users.noreply.github.com>
+Date:   Wed Aug 26 09:36:05 2020 +0200
+
+    Merge pull request #8 from JohanMabille/static
+    
+    Added static lib packaging
+
+commit 806156f7097e9cae3df967d894171c3c1aa1a87a
+Author: Johan Mabille <johan.mabille@gmail.com>
+Date:   Fri Aug 21 18:47:58 2020 +0200
+
+    Added static dependencies
+
+commit d0655b1949233eb9c467bbafe87ee73bda0f1ae2
+Author: Johan Mabille <johan.mabille@gmail.com>
+Date:   Wed Aug 19 13:53:51 2020 +0200
+
+    Added missing ubild requirement
+
+commit 31a712f0330055791b3ad7e36f673743ab4a25ab
+Author: conda-forge-linter <github-actions@email.com>
+Date:   Wed Aug 19 11:39:49 2020 +0000
+
+    MNT: Re-rendered with conda-build 3.19.2, conda-smithy 3.7.10, and conda-forge-pinning 2020.08.17.20.01.55
+
+commit bd00a65d685deaa5cf38deb3fc2cd75842cc2010
+Author: Johan Mabille <johan.mabille@gmail.com>
+Date:   Wed Aug 19 10:45:09 2020 +0200
+
+    Added static lib packaging
+
+commit 4bf4ed4a5568aae3ebf66096ca36812e443e3c2c
+Merge: e3968d4 ce9900c
+Author: Wolf Vollprecht <w.vollprecht@gmail.com>
+Date:   Mon Aug 17 19:21:52 2020 +0200
+
+    Merge pull request #7 from regro-cf-autotick-bot/bot-pr_arm_osx_h8be579
+    
+    ARM OSX Migrator
+
+commit ce9900cdda759a3e54e94ce4b6758c18e4b9919a
+Author: regro-cf-autotick-bot <circleci@cf-graph.regro.github.com>
+Date:   Mon Aug 17 15:34:30 2020 +0000
+
+    MNT: Re-rendered with conda-build 3.19.2, conda-smithy 3.7.10, and conda-forge-pinning 2020.08.15.14.59.48
+
+commit 0a297b2ca2d12f6ac48ed6d6fd657b6eb0a350d9
+Author: regro-cf-autotick-bot <circleci@cf-graph.regro.github.com>
+Date:   Mon Aug 17 15:34:17 2020 +0000
+
+    migration: OSXArm
+
+commit e3968d47b7ba8fc889a0fc96890be3be2bf222e9
+Author: conda-forge-admin <conda-forge-admin@email.com>
+Date:   Sat Aug 8 09:29:31 2020 +0000
+
+    [ci skip] [skip ci] [cf admin skip] ***NO_CI*** admin migration CFEP13TokenCleanup
+
+commit 0c25ee30ddfb6057ccc24997f05fbcebfb852832
+Merge: 23d9842 e8ce52b
+Author: Wolf Vollprecht <w.vollprecht@gmail.com>
+Date:   Tue Jul 28 16:21:18 2020 +0200
+
+    Merge pull request #6 from regro-cf-autotick-bot/bot-pr_arch_h273084
+    
+    Arch Migrator
+
+commit e8ce52b215bc6fc5c5432875a57629f6a35908c9
+Author: regro-cf-autotick-bot <circleci@cf-graph.regro.github.com>
+Date:   Tue Jul 28 14:05:34 2020 +0000
+
+    MNT: Re-rendered with conda-build 3.19.2, conda-smithy 3.7.4, and conda-forge-pinning 2020.07.27.18.59.53
+
+commit 323ac7e81277addf548161309758450a64259d24
+Author: regro-cf-autotick-bot <circleci@cf-graph.regro.github.com>
+Date:   Tue Jul 28 14:05:23 2020 +0000
+
+    migration: ArchRebuild
+
+commit 23d98427be410bf8b17882ada5331c4cfb990572
+Merge: 9a217ad 6a4def4
+Author: Christoph Paulik <cpaulik@gmail.com>
+Date:   Thu Jul 16 10:58:49 2020 +0200
+
+    Merge pull request #5 from mariusvniekerk/pinnings
+    
+    Made nghttp2 link openssl and zlib using pinnings
+
+commit 6a4def4f5eb1cc7e92d1d31ac691a38ebf64983a
+Author: Marius van Niekerk <marius.v.niekerk@gmail.com>
+Date:   Wed Jul 15 14:27:21 2020 -0400
+
+    Revert "remove libstdcxx-ng dep as it is automatically added by the compilers"
+    
+    This reverts commit 70eb4c8371a008b6f0792271d64d00d3fe0fe700.
+
+commit 70eb4c8371a008b6f0792271d64d00d3fe0fe700
+Author: Marius van Niekerk <marius.v.niekerk@gmail.com>
+Date:   Wed Jul 15 11:19:12 2020 -0400
+
+    remove libstdcxx-ng dep as it is automatically added by the compilers
+
+commit 1408204e0c1cd6bba501fd738252636e1523bc69
+Author: Marius van Niekerk <marius.v.niekerk@gmail.com>
+Date:   Wed Jul 15 11:10:13 2020 -0400
+
+    bump build number
+
+commit 4362c46a62da25167b5e20fd35d845cf23fd0b3c
+Author: Marius van Niekerk <marius.v.niekerk@gmail.com>
+Date:   Wed Jul 15 11:00:54 2020 -0400
+
+    Made nghttp2 link openssl and zlib using pinnings
+
+commit 9a217ad22f424bb9c55e82cc2c9717d7b2b89786
+Merge: d54b9f1 9dde90b
+Author: Marius van Niekerk <marius.v.niekerk@gmail.com>
+Date:   Wed Jun 10 13:20:47 2020 -0400
+
+    Merge pull request #4 from regro-cf-autotick-bot/1.41.0_h1d73c5
+    
+    nghttp2 v1.41.0
+
+commit 9dde90b626a61b9ed3d2640ebcf697d5d2a4d035
+Author: regro-cf-autotick-bot <circleci@cf-graph.regro.github.com>
+Date:   Tue Jun 2 12:38:53 2020 +0000
+
+    MNT: Re-rendered with conda-build 3.19.2, conda-smithy 3.7.3, and conda-forge-pinning 2020.06.02.12.20.38
+
+commit 221c199b19d79f40660cc9795ac8662d4a32bc63
+Author: regro-cf-autotick-bot <circleci@cf-graph.regro.github.com>
+Date:   Tue Jun 2 12:38:12 2020 +0000
+
+    updated v1.41.0
+
+commit d54b9f1d6cc09246dd96009f31f74126f8562c2d
+Author: Matthew R Becker <becker.mr@gmail.com>
+Date:   Mon May 18 08:01:10 2020 -0500
+
+    [ci skip] [skip ci] [cf admin skip] ***NO_CI*** admin migration CondaForgeAutomerge
+
+commit de66a18af8c79cde15793e8973f633d7232e3781
+Author: conda-forge-admin <conda-forge-admin@email.com>
+Date:   Sun May 17 01:02:21 2020 +0000
+
+    [ci skip] [skip ci] [cf admin skip] ***NO_CI*** admin migration CFEP13TokensAndConfig
+
+commit f06f6f828bfeb7bfd27feead6d71f0710b69c218
+Author: conda-forge-admin <conda-forge-admin@email.com>
+Date:   Mon Mar 2 22:26:06 2020 +0000
+
+    [ci skip] [skip ci] [cf admin skip] ***NO_CI*** admin migration AutomergeAndRerender
+
+commit ab247abd93393c7a8a3d687d72873e66900c25ab
+Author: Travis-CI on github.com/conda-forge/staged-recipes <conda-forge@googlegroups.com>
+Date:   Thu Aug 1 14:42:13 2019 +0000
+
+    Re-render the feedstock after CI registration.
+
+commit d928ef36c8513b39fdc73b4fbd2969751a36344d
+Author: Travis-CI on github.com/conda-forge/staged-recipes <conda-forge@googlegroups.com>
+Date:   Thu Aug 1 14:40:14 2019 +0000
+
+    Re-render the feedstock after CI registration.
+
+commit 2232ba80aac2a586f9f4734fc63b65767caf8ec2
+Author: Travis-CI on github.com/conda-forge/staged-recipes <conda-forge@googlegroups.com>
+Date:   Thu Aug 1 14:38:47 2019 +0000
+
+    Initial feedstock commit with conda-smithy 3.4.1.

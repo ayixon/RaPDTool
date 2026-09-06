@@ -1,0 +1,25 @@
+{
+  "build": "h7f8727e_1",
+  "build_number": 1,
+  "channel": "https://repo.anaconda.com/pkgs/main/linux-64",
+  "constrains": [],
+  "depends": [
+    "libgcc-ng >=7.5.0",
+    "ncurses >=6.3,<7.0a0"
+  ],
+  "features": "",
+  "fn": "readline-8.1.2-h7f8727e_1.conda",
+  "legacy_bz2_md5": "150ac0eb929bab9dec912797bdfc7b95",
+  "legacy_bz2_size": 433182,
+  "license": "GPL-3.0-only",
+  "license_family": "GPL",
+  "md5": "ea33f478fea12406f394944e7e4f3d20",
+  "name": "readline",
+  "sha256": "ab74641903ecb92f45c392cffe5bbb712208854c6ea20ab86b65dd4dfc1b1beb",
+  "size": 362247,
+  "subdir": "linux-64",
+  "timestamp": 1642022402894,
+  "track_features": "",
+  "url": "https://repo.anaconda.com/pkgs/main/linux-64/readline-8.1.2-h7f8727e_1.conda",
+  "version": "8.1.2"
+}

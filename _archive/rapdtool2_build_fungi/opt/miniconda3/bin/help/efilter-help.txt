@@ -1,0 +1,66 @@
+Query Specification
+
+  -query       Query string
+
+Date Constraint
+
+  -days        Number of days in the past
+  -datetype    Date field abbreviation
+  -mindate     Start of date range
+  -maxdate     End of date range
+
+Publication Filters
+
+  -pub         abstract, clinical, english, free, historical,
+               journal, medline, preprint, published, retracted,
+               retraction, review, structured
+  -journal     pnas, "j bacteriol", ...
+  -released    last_week, last_month, last_year, prev_years
+
+Sequence Filters
+
+  -country     usa:minnesota, united_kingdom, "pacific ocean", ...
+  -feature     gene, mrna, cds, mat_peptide, ...
+  -location    mitochondrion, chloroplast, plasmid, plastid
+  -molecule    genomic, mrna, trna, rrna, ncrna
+  -organism    animals, archaea, bacteria, eukaryotes, fungi,
+               human, insects, mammals, plants, prokaryotes,
+               protists, rodents, viruses
+  -source      genbank, insd, pdb, pir, refseq, select, swissprot,
+               tpa
+  -division    bct, con, env, est, gss, htc, htg, inv, mam, pat,
+               phg, pln, pri, rod, sts, syn, una, vrl, vrt
+  -keyword     purpose
+  -purpose     baseline, targeted
+
+Gene Filters
+
+  -status      alive
+  -type        coding, pseudo
+
+SNP Filters
+
+  -class       acceptor, donor, coding, frameshift, indel,
+               intron, missense, nonsense, synonymous
+
+Biosystems Filters
+
+  -kind        pathway
+  -pathway     reactome, wikipathways
+
+Note
+
+  All efilter shortcuts can also be used with esearch
+
+Examples
+
+  esearch -db pubmed -query "opsin gene conversion" |
+  elink -related |
+  efilter -query "tetrachromacy"
+
+  esearch -db gene -query "PAH [GENE]" -organism human |
+  elink -target biosystems |
+  efilter -pathway wikipathways
+
+  esearch -db pubmed -query "opsin gene conversion" |
+  efilter -mindate 2015

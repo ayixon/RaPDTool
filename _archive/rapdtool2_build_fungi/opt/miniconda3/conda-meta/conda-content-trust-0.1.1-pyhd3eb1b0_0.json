@@ -1,0 +1,115 @@
+{
+  "build": "pyhd3eb1b0_0",
+  "build_number": 0,
+  "channel": "https://repo.anaconda.com/pkgs/main/noarch",
+  "constrains": [],
+  "depends": [
+    "cryptography",
+    "python",
+    "six"
+  ],
+  "extracted_package_dir": "/opt/miniconda3/pkgs/conda-content-trust-0.1.1-pyhd3eb1b0_0",
+  "features": "",
+  "files": [
+    "lib/python3.9/site-packages/conda_content_trust-0+unknown.dist-info/INSTALLER",
+    "lib/python3.9/site-packages/conda_content_trust-0+unknown.dist-info/LICENSE",
+    "lib/python3.9/site-packages/conda_content_trust-0+unknown.dist-info/METADATA",
+    "lib/python3.9/site-packages/conda_content_trust-0+unknown.dist-info/RECORD",
+    "lib/python3.9/site-packages/conda_content_trust-0+unknown.dist-info/REQUESTED",
+    "lib/python3.9/site-packages/conda_content_trust-0+unknown.dist-info/WHEEL",
+    "lib/python3.9/site-packages/conda_content_trust-0+unknown.dist-info/direct_url.json",
+    "lib/python3.9/site-packages/conda_content_trust-0+unknown.dist-info/entry_points.txt",
+    "lib/python3.9/site-packages/conda_content_trust-0+unknown.dist-info/top_level.txt",
+    "lib/python3.9/site-packages/conda_content_trust/__init__.py",
+    "lib/python3.9/site-packages/conda_content_trust/__main__.py",
+    "lib/python3.9/site-packages/conda_content_trust/_version.py",
+    "lib/python3.9/site-packages/conda_content_trust/authentication.py",
+    "lib/python3.9/site-packages/conda_content_trust/cli.py",
+    "lib/python3.9/site-packages/conda_content_trust/common.py",
+    "lib/python3.9/site-packages/conda_content_trust/encryption.py",
+    "lib/python3.9/site-packages/conda_content_trust/metadata_construction.py",
+    "lib/python3.9/site-packages/conda_content_trust/root_signing.py",
+    "lib/python3.9/site-packages/conda_content_trust/signing.py",
+    "lib/python3.9/site-packages/conda_content_trust/__pycache__/__init__.cpython-39.pyc",
+    "lib/python3.9/site-packages/conda_content_trust/__pycache__/__main__.cpython-39.pyc",
+    "lib/python3.9/site-packages/conda_content_trust/__pycache__/_version.cpython-39.pyc",
+    "lib/python3.9/site-packages/conda_content_trust/__pycache__/authentication.cpython-39.pyc",
+    "lib/python3.9/site-packages/conda_content_trust/__pycache__/cli.cpython-39.pyc",
+    "lib/python3.9/site-packages/conda_content_trust/__pycache__/common.cpython-39.pyc",
+    "lib/python3.9/site-packages/conda_content_trust/__pycache__/encryption.cpython-39.pyc",
+    "lib/python3.9/site-packages/conda_content_trust/__pycache__/metadata_construction.cpython-39.pyc",
+    "lib/python3.9/site-packages/conda_content_trust/__pycache__/root_signing.cpython-39.pyc",
+    "lib/python3.9/site-packages/conda_content_trust/__pycache__/signing.cpython-39.pyc",
+    "bin/conda-content-trust"
+  ],
+  "fn": "conda-content-trust-0.1.1-pyhd3eb1b0_0.conda",
+  "legacy_bz2_md5": "1be4f2e89f2cd757bd240a2fd44ca17b",
+  "legacy_bz2_size": 55182,
+  "license": "BSD-3-Clause",
+  "link": {
+    "source": "/opt/miniconda3/pkgs/conda-content-trust-0.1.1-pyhd3eb1b0_0",
+    "type": 1
+  },
+  "md5": "c1141f2ca06c8fe258c419190278f26a",
+  "name": "conda-content-trust",
+  "noarch": "python",
+  "package_tarball_full_path": "/opt/miniconda3/pkgs/conda-content-trust-0.1.1-pyhd3eb1b0_0.conda",
+  "package_type": "noarch_python",
+  "paths_data": {
+    "paths": [
+      {
+        "_path": "lib/python3.9/site-packages/conda_content_trust/__pycache__/__init__.cpython-39.pyc",
+        "path_type": "pyc_file"
+      },
+      {
+        "_path": "lib/python3.9/site-packages/conda_content_trust/__pycache__/__main__.cpython-39.pyc",
+        "path_type": "pyc_file"
+      },
+      {
+        "_path": "lib/python3.9/site-packages/conda_content_trust/__pycache__/_version.cpython-39.pyc",
+        "path_type": "pyc_file"
+      },
+      {
+        "_path": "lib/python3.9/site-packages/conda_content_trust/__pycache__/authentication.cpython-39.pyc",
+        "path_type": "pyc_file"
+      },
+      {
+        "_path": "lib/python3.9/site-packages/conda_content_trust/__pycache__/cli.cpython-39.pyc",
+        "path_type": "pyc_file"
+      },
+      {
+        "_path": "lib/python3.9/site-packages/conda_content_trust/__pycache__/common.cpython-39.pyc",
+        "path_type": "pyc_file"
+      },
+      {
+        "_path": "lib/python3.9/site-packages/conda_content_trust/__pycache__/encryption.cpython-39.pyc",
+        "path_type": "pyc_file"
+      },
+      {
+        "_path": "lib/python3.9/site-packages/conda_content_trust/__pycache__/metadata_construction.cpython-39.pyc",
+        "path_type": "pyc_file"
+      },
+      {
+        "_path": "lib/python3.9/site-packages/conda_content_trust/__pycache__/root_signing.cpython-39.pyc",
+        "path_type": "pyc_file"
+      },
+      {
+        "_path": "lib/python3.9/site-packages/conda_content_trust/__pycache__/signing.cpython-39.pyc",
+        "path_type": "pyc_file"
+      },
+      {
+        "_path": "bin/conda-content-trust",
+        "path_type": "unix_python_entry_point"
+      }
+    ],
+    "paths_version": 1
+  },
+  "requested_spec": "conda-content-trust==0.1.1=pyhd3eb1b0_0",
+  "sha256": "954fe383e48e4b99e649171f7cc0fe80a9d49700901debb5daa80211442296ec",
+  "size": 56841,
+  "subdir": "noarch",
+  "timestamp": 1617045636206,
+  "track_features": "",
+  "url": "https://repo.anaconda.com/pkgs/main/noarch/conda-content-trust-0.1.1-pyhd3eb1b0_0.conda",
+  "version": "0.1.1"
+}

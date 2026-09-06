@@ -1,0 +1,64 @@
+# This file created by conda-build 3.18.11
+# meta.yaml template originally from:
+# /tmp/build/80754af9/rsync-recipes/yaml-0.2.5-on-linux_64, last modified Thu Jun 25 20:12:50 2020
+# ------------------------------------------------
+
+package:
+    name: yaml
+    version: 0.2.5
+source:
+    sha256: fa240dbf262be053f3898006d502d514936c818e422afdcf33921c63bed9bf2e
+    url: https://github.com/yaml/libyaml/archive/0.2.5.tar.gz
+build:
+    number: '0'
+    run_exports:
+        - yaml >=0.2.5,<0.3.0a0
+    string: h7b6447c_0
+requirements:
+    build:
+        - _libgcc_mutex 0.1 main
+        - autoconf 2.69 pl526hebd4dad_5
+        - automake 1.16.2 pl526_0
+        - binutils_impl_linux-64 2.33.1 he6710b0_7
+        - binutils_linux-64 2.33.1 h9595d00_15
+        - gcc_impl_linux-64 7.3.0 habb00fd_1
+        - gcc_linux-64 7.3.0 h553295d_15
+        - ld_impl_linux-64 2.33.1 h53a641e_7
+        - libgcc-ng 9.1.0 hdf63c60_0
+        - libstdcxx-ng 9.1.0 hdf63c60_0
+        - libtool 2.4.6 h7b6447c_5
+        - m4 1.4.18 h4e445db_0
+        - make 4.2.1 h1bed415_1
+        - perl 5.26.2 h14c3975_0
+    host:
+        - _libgcc_mutex 0.1 main
+        - libgcc-ng 9.1.0 hdf63c60_0
+    run:
+        - libgcc-ng >=7.3.0
+test:
+    commands:
+        - test -f "${PREFIX}/include/yaml.h"
+        - test -f "${PREFIX}/lib/libyaml${SHLIB_EXT}"
+about:
+    description: 'YAML is a human friendly data serialization standard for all programming
+
+        languages.
+
+        '
+    dev_url: https://github.com/yaml
+    doc_source_url: https://github.com/yaml/www.yaml.org/tree/master/docs
+    doc_url: http://www.yaml.org/spec/1.2/spec.html
+    home: http://pyyaml.org/wiki/LibYAML
+    license: MIT
+    license_file: License
+    summary: A C library for parsing and emitting YAML
+extra:
+    copy_test_source_files: true
+    final: true
+    recipe-maintainers:
+        - jakirkham
+        - mingwandroid
+        - msarahan
+        - ocefpaf
+        - pelson
+        - seanyen

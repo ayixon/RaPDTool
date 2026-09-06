@@ -1,0 +1,15 @@
+/.
+/usr
+/usr/bin
+/usr/bin/pkexec
+/usr/share
+/usr/share/bug
+/usr/share/bug/pkexec
+/usr/share/bug/pkexec/control
+/usr/share/doc
+/usr/share/doc/pkexec
+/usr/share/doc/pkexec/copyright
+/usr/share/man
+/usr/share/man/man1
+/usr/share/man/man1/pkexec.1.gz
+/usr/share/doc/pkexec/changelog.Debian.gz

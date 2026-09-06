@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mime-type xmlns="http://www.freedesktop.org/standards/shared-mime-info" type="application/x-discjuggler-cd-image">
+  <!--Created automatically by update-mime-database. DO NOT EDIT!-->
+  <comment>Padus DiscJuggler CD image</comment>
+  <comment xml:lang="uk">образ CD Padus DiscJuggler</comment>
+  <comment xml:lang="pt_BR">Imagem de CD do Padus DiscJuggler</comment>
+  <comment xml:lang="pl">Obraz płyty CD programu Padus DiscJuggler</comment>
+  <comment xml:lang="it">Immagine CD DiscJuggler Padus</comment>
+  <comment xml:lang="fi">Padus DiscJuggler CD-levykuva</comment>
+  <comment xml:lang="ca">imatge de CD de Padus DiscJuggler</comment>
+  <glob pattern="*.cdi"/>
+</mime-type>

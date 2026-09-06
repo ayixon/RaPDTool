@@ -1,0 +1,63 @@
+#!/bin/sh
+
+# Public domain notice for all NCBI EDirect scripts is located at:
+# https://www.ncbi.nlm.nih.gov/books/NBK179288/#chapter6.Public_Domain_Notice
+
+# inspired by Steve Kinzler's align script - see http://kinzler.com/me/align/
+
+# requires tab-delimited input, output aligned by padding with spaces
+
+# -a    Column alignment codes:
+#
+#         l left
+#         c center
+#         r right
+#         n numeric (align on decimal point)
+#         N numeric (decimal parts zero-padded)
+#
+# -g    Spacing between columns
+# -h    Indent before columns
+
+if [ $# -gt 0 ]
+then
+  case "$1" in
+    -version )
+      version=$( einfo -version )
+      echo "$version"
+      exit 0
+      ;;
+    -help | --help | help )
+      version=$( einfo -version )
+      echo "align-columns $version"
+      cat << EOF
+
+  -a    Column alignment letters, with last repeated as needed:
+
+          l  left
+          c  center
+          r  right
+          n  numeric aligned on decimal point
+          N  numeric with decimal parts zero-padded
+          z  zero-pad leading integers
+          m  commas to group by 3 digits
+          M  commas plus zero-pad decimals
+
+  -g    Spacing between columns
+  -h    Indent before columns
+  -w    Minimum column width
+
+EOF
+      exit 0
+      ;;
+    * )
+      break
+      ;;
+  esac
+fi
+
+if [ "$#" -gt 0 ] && [ "$*" = "-" ]
+then
+  transmute -align -h 2 -g 4 -a l
+else
+  transmute -align "$@"
+fi

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mime-type xmlns="http://www.freedesktop.org/standards/shared-mime-info" type="text/x-kotlin">
+  <!--Created automatically by update-mime-database. DO NOT EDIT!-->
+  <comment>Kotlin source code</comment>
+  <comment xml:lang="zh_TW">Kotlin 源碼</comment>
+  <comment xml:lang="zh_CN">Kotlin 源代码</comment>
+  <comment xml:lang="uk">вихідний код мовою Kotlin</comment>
+  <comment xml:lang="sv">Kotlin-källkod</comment>
+  <comment xml:lang="pt_BR">Código-fonte Kotlin</comment>
+  <comment xml:lang="pl">Kod źródłowy Kotlin</comment>
+  <comment xml:lang="it">Codice sorgente Kotlin</comment>
+  <comment xml:lang="hr">Kotlin izvorni kôd</comment>
+  <comment xml:lang="fr">code source Kotlin</comment>
+  <comment xml:lang="fi">Kotlin-lähdekoodi</comment>
+  <comment xml:lang="es">código fuente en Kotlin</comment>
+  <comment xml:lang="en_GB">Kotlin source code</comment>
+  <comment xml:lang="de">Kotlin-Quelltext</comment>
+  <comment xml:lang="da">Kotlin-kildekode</comment>
+  <comment xml:lang="ca">codi font en Kotlin</comment>
+  <sub-class-of type="text/plain"/>
+  <glob pattern="*.kt"/>
+</mime-type>

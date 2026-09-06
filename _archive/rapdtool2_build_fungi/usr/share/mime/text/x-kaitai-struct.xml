@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mime-type xmlns="http://www.freedesktop.org/standards/shared-mime-info" type="text/x-kaitai-struct">
+  <!--Created automatically by update-mime-database. DO NOT EDIT!-->
+  <comment>Kaitai Struct definition file</comment>
+  <comment xml:lang="uk">файл визначень Kaitai Struct</comment>
+  <comment xml:lang="pl">Plik definicji Kaitai Struct</comment>
+  <comment xml:lang="it">File definizione Kaitai Struct</comment>
+  <comment xml:lang="fi">Kaitai Struct määritystiedosto</comment>
+  <comment xml:lang="ca">fitxer de definicions Kaitai Struct</comment>
+  <sub-class-of type="application/x-yaml"/>
+  <glob pattern="*.ksy"/>
+</mime-type>

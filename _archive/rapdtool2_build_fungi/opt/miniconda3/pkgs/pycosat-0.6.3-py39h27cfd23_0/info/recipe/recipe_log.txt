@@ -1,0 +1,146 @@
+commit 9a2f45bfc4030932c3ee5813a379a235909673a4
+Author: Ray Donnelly <mingw.android@gmail.com>
+Date:   Fri Dec 15 05:31:09 2017 -0800
+
+    Fix msinttpes, it is a build req
+
+commit 321f585e5f0772a8ce88cf353a3b38f047f4b12f
+Author: Ray Donnelly <mingw.android@gmail.com>
+Date:   Mon Oct 30 08:02:11 2017 +0000
+
+    Switch to my fork for now to fix GIL/PyAlloc mishandling
+
+commit 831ed10d886c1d6b9d3ec70457a90e746ef213d8
+Author: Ray Donnelly <mingw.android@gmail.com>
+Date:   Sun Sep 17 16:12:42 2017 +0100
+
+    Version bump to stay ahead of the old repo
+
+commit f4506f3e3fb30f8320e021a5ae4a56a8a452e2c3
+Author: Ray Donnelly <mingw.android@gmail.com>
+Date:   Sun Apr 9 13:36:06 2017 +0100
+
+    Add cross-compilation support.
+
+commit b9b41e7555734649ed91c838acc11f2ab00ce4ce
+Merge: 916a101 f163b28
+Author: Filipe <ocefpaf@gmail.com>
+Date:   Tue Aug 22 08:33:28 2017 -0300
+
+    Merge pull request #6 from nehaljwani/bump-version-0.6.2
+    
+    Bump version to 0.6.2
+
+commit f163b284a20a6027ffd0af469657bcbe13860e5d
+Author: Nehal J Wani <nehaljw.kkd1@gmail.com>
+Date:   Sat Aug 19 20:25:18 2017 +0000
+
+    Bump version to 0.6.2
+    
+    - Switch from pypi to GH tarball
+    - Replace subprocess hack with upstream way of running tests
+    - Add some more tests
+    - Add msinttypes as build-dep for win and py2k
+    - Update about section
+    - Add myself as maintainer
+
+commit 916a101fd3b3c8ab74064172daefe2d1dec71f82
+Author: Travis-CI on github.com/conda-forge/staged-recipes <conda-forge@googlegroups.com>
+Date:   Sun Aug 20 05:37:45 2017 +0000
+
+    Re-render the feedstock after CI registration.
+
+commit a4a2780d06196ba1ebcfc1dfe522eb11236cb3f0
+Merge: 88fc89c 5f07986
+Author: jakirkham <jakirkham@gmail.com>
+Date:   Sun Apr 9 02:15:02 2017 -0400
+
+    Merge pull request #5 from conda-forge-admin/feedstock_rerender_master
+    
+    MNT: Re-render the feedstock [ci skip]
+
+commit 5f07986ec510d689a0aa57937b62847cc774f449
+Author: conda-forge-admin <pelson.pub+conda-forge@gmail.com>
+Date:   Sun Apr 9 01:46:16 2017 +0000
+
+    MNT: Updated the feedstock for conda-smithy version 2.2.2.
+
+commit 88fc89c41cbd5334b69a9bc9ccbdac605d66fd14
+Merge: 3ca9e14 94e8f2c
+Author: jakirkham <jakirkham@gmail.com>
+Date:   Tue Jan 10 00:09:38 2017 -0500
+
+    Merge pull request #4 from jakirkham/re-render__master__1.7.0
+    
+    Re-rendered with 1.7.0 and add Python 3.6
+
+commit 94e8f2ca4c9d5c3ec5747e6acd2f766b168a62d2
+Author: John Kirkham <kirkhamj@janelia.hhmi.org>
+Date:   Mon Jan 9 10:17:38 2017 -0500
+
+    Copy all source files to the test directory.
+
+commit 07cf8e58da4f3c9e5d02515848ebdefd36805e29
+Author: John Kirkham <kirkhamj@janelia.hhmi.org>
+Date:   Mon Jan 9 01:38:13 2017 -0500
+
+    MNT: Re-rendered with conda-smithy 1.7.0
+    
+    Re-render for Python 3.6 support.
+
+commit 3ca9e145e8d49992031a925a7455b127a124928e
+Merge: 6b6af86 5be2b30
+Author: jakirkham <jakirkham@gmail.com>
+Date:   Sun Dec 18 00:55:07 2016 -0500
+
+    Merge pull request #3 from conda-forge-admin/feedstock_rerender_master
+    
+    MNT: Re-render the feedstock [ci skip]
+
+commit 5be2b301dbd11f2590cc942a86f99ea60371da4d
+Author: conda-forge-admin <pelson.pub+conda-forge@gmail.com>
+Date:   Sun Dec 18 01:37:20 2016 +0000
+
+    MNT: Updated the feedstock for conda-smithy version 1.7.0.
+
+commit 6b6af860caf91608d282435b9b9d85d49cbafdb9
+Merge: 9c598b9 9821855
+Author: jakirkham <jakirkham@gmail.com>
+Date:   Sun Nov 27 01:43:54 2016 -0500
+
+    Merge pull request #2 from conda-forge-admin/feedstock_rerender_master
+    
+    MNT: Re-render the feedstock [ci skip]
+
+commit 9821855285c38170c60df6fbcf60e41b66f17805
+Author: conda-forge-admin <pelson.pub+conda-forge@gmail.com>
+Date:   Sun Nov 27 01:37:17 2016 +0000
+
+    MNT: Updated the feedstock for conda-smithy version 1.5.3.
+
+commit 9c598b9d081559f8cca1377b5865b23870174534
+Merge: 0e9e74c a24b9de
+Author: jakirkham <jakirkham@gmail.com>
+Date:   Tue Oct 18 22:37:23 2016 -0400
+
+    Merge pull request #1 from jakirkham/re-render_master_1.3.3
+    
+    MNT: Re-rendered with conda-smithy 1.3.3 [ci skip]
+
+commit a24b9de9cfe161b64ac23fa4579320eb40371cb8
+Author: John Kirkham <kirkhamj@janelia.hhmi.org>
+Date:   Tue Oct 18 14:07:02 2016 -0400
+
+    MNT: Re-rendered with conda-smithy 1.3.3
+
+commit 0e9e74c605cee833f225e2a7ede87cb474c80d69
+Author: Travis-CI on github.com/conda-forge/staged-recipes <conda-forge@googlegroups.com>
+Date:   Thu Jun 2 03:55:46 2016 +0000
+
+    Re-render the feedstock after CI registration.
+
+commit 2bea9f69b73a5d3f500834bd46094b86eb58a758
+Author: Travis-CI on github.com/conda-forge/staged-recipes <conda-forge@googlegroups.com>
+Date:   Thu Jun 2 03:54:37 2016 +0000
+
+    Initial commit of the pycosat feedstock.

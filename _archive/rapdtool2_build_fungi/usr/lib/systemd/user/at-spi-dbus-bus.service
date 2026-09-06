@@ -1,0 +1,7 @@
+[Unit]
+Description=Accessibility services bus
+
+[Service]
+Type=dbus
+BusName=org.a11y.Bus
+ExecStart=/usr/libexec/at-spi-bus-launcher

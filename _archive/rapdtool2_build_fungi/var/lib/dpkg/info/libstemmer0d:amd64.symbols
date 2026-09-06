@@ -1,0 +1,7 @@
+libstemmer.so.0d libstemmer0d #MINVER#
+* Build-Depends-Package: libstemmer-dev
+ sb_stemmer_delete@Base 0+svn527
+ sb_stemmer_length@Base 0+svn527
+ sb_stemmer_list@Base 0+svn527
+ sb_stemmer_new@Base 0+svn527
+ sb_stemmer_stem@Base 0+svn527

@@ -1,0 +1,28 @@
+{
+  "build": "h5101ec6_17",
+  "build_number": 17,
+  "channel": "https://repo.anaconda.com/pkgs/main/linux-64",
+  "constrains": [
+    "libgomp 9.3.0 h5101ec6_17"
+  ],
+  "depends": [
+    "_libgcc_mutex 0.1 main",
+    "_openmp_mutex >=4.5",
+    "_libgcc_mutex * main",
+    "__glibc >=2.17"
+  ],
+  "features": "",
+  "fn": "libgcc-ng-9.3.0-h5101ec6_17.conda",
+  "legacy_bz2_md5": "877cdee0cc95b9b1a685a2d047072364",
+  "legacy_bz2_size": 8201947,
+  "license": "GPL-3.0-only WITH GCC-exception-3.1",
+  "md5": "e9cbabbfb9e8a430f6a7660fe8dd77a7",
+  "name": "libgcc-ng",
+  "sha256": "49a808720a51c107241a42ac3641cce3d8451ef7cfaf3d68b6e4a3fec2da0676",
+  "size": 5035441,
+  "subdir": "linux-64",
+  "timestamp": 1622663350853,
+  "track_features": "",
+  "url": "https://repo.anaconda.com/pkgs/main/linux-64/libgcc-ng-9.3.0-h5101ec6_17.conda",
+  "version": "9.3.0"
+}

@@ -1,0 +1,128 @@
+{% set version = "7.82.0" %}
+
+package:
+  name: curl_split_recipe
+  version: {{ version }}
+
+source:
+  url: https://curl.haxx.se/download/curl-{{ version }}.tar.bz2
+  sha256: 46d9a0400a33408fd992770b04a44a7434b3036f2e8089ac28b57573d59d371f
+
+build:
+  number: 0
+
+requirements:
+  build:
+    - libtool  # [unix]
+    - {{ compiler('c') }}
+    - make             # [unix]
+    # perl is required to run the tests on UNIX.
+    - perl  # [unix]
+    - pkg-config  # [unix]
+  host:
+    - zlib
+    - krb5
+    - libssh2
+    - openssl        # [unix]
+    - libnghttp2     # [unix]
+
+outputs:
+  - name: libcurl
+    requirements:
+      build:
+        - {{ compiler('c') }}
+      host:
+        - openssl   # [unix]
+        - libnghttp2   # [unix]
+        - zlib
+        - libssh2
+        - krb5
+      run:
+        - libssh2
+        - libnghttp2   # [unix]
+    build:
+      run_exports:
+        - {{ pin_subpackage('libcurl') }}
+      ignore_run_exports:  # [win]
+        - krb5             # [win]
+    files:
+      - include/curl             # [unix]
+      - lib/libcurl.so*          # [linux]
+      - lib/libcurl*.dylib       # [osx]
+      - lib/pkgconfig/libcurl*   # [unix]
+      - bin/curl-config          # [unix]
+      - Library/bin/libcurl.dll  # [win]
+      - Library/include/curl     # [win]
+      - Library/lib/libcurl.lib  # [win]
+      - Library/lib/libcurl.exp  # [win]
+    test:
+      commands:
+        - curl-config --features       # [not win]
+        - curl-config --protocols      # [not win]
+        - test -f ${PREFIX}/lib/libcurl${SHLIB_EXT}  # [not win]
+        - test ! -f ${PREFIX}/lib/libcurl.a          # [not win]
+        - if exist %LIBRARY_BIN%\curl.exe exit 1     # [win]
+        - if exist %LIBRARY_LIB%\libcurl_a.lib exit 1     # [win]
+        - if not exist %LIBRARY_BIN%\libcurl.dll exit 1   # [win]
+
+  - name: libcurl-static
+    requirements:
+      build:
+        - {{ compiler('c') }}
+      host:
+        - openssl   # [unix]
+        - libssh2
+        - krb5
+        - zlib  # [ppc64le or win]
+        - {{ pin_subpackage('libcurl', exact=True) }}
+      run:
+        - {{ pin_subpackage('libcurl', exact=True) }}
+    files:
+      - lib/libcurl.a*  # [unix]
+      - Library/lib/libcurl_a.lib  # [win]
+    test:
+      commands:
+        - test -f $PREFIX/lib/libcurl.a  # [not win]
+        - if not exist %LIBRARY_LIB%\libcurl_a.lib exit 1  # [win]
+
+  - name: curl
+    files:
+      - bin/curl               # [unix]
+      - Library/bin/curl.exe*   # [win]
+    requirements:
+      build:
+        - {{ compiler('c') }}
+      host:
+        - {{ pin_subpackage('libcurl', exact=True) }}
+      run:
+        - {{ pin_subpackage('libcurl', exact=True) }}
+
+    test:
+      commands:
+        # curl help commands on Windows have non-zero status codes.  Need other test.
+        - curl --help
+        # Try downloading something from https to make sure the certs are used correctly.
+        - curl https://raw.githubusercontent.com/conda-forge/curl-feedstock/master/LICENSE.txt
+        - if not exist %LIBRARY_BIN%\curl.exe exit 1  # [win]
+
+about:
+  home: https://curl.haxx.se/
+  license: curl
+  license_family: MIT
+  license_file: COPYING
+  summary: tool and library for transferring data with URL syntax
+
+  description: |
+    Curl is an open source command line tool and library for transferring data
+    with URL syntax. It is used in command lines or scripts to transfer data.
+  doc_url: https://curl.haxx.se/docs/
+  dev_url: https://github.com/curl/curl
+  doc_source_url: https://github.com/curl/curl/tree/master/docs
+
+extra:
+  recipe-maintainers:
+    - msarahan
+    - jakirkham
+    - ocefpaf
+    - mingwandroid
+    - xylar

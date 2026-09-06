@@ -1,0 +1,74 @@
+# This file created by conda-build 3.21.4
+# meta.yaml template originally from:
+# /tmp/build/80754af9/rsync-recipes/ruamel_yaml-0.15.100-python_3.9-on-linux_64, last modified Wed Mar 17 21:08:04 2021
+# ------------------------------------------------
+
+package:
+  name: ruamel_yaml
+  version: 0.15.100
+source:
+  sha256: 8e42f3067a59e819935a2926e247170ed93c8f0b2ab64526f888e026854db2e4
+  url: https://pypi.io/packages/source/r/ruamel.yaml/ruamel.yaml-0.15.100.tar.gz
+build:
+  number: '0'
+  string: py39h27cfd23_0
+requirements:
+  build:
+    - _libgcc_mutex 0.1 main
+    - binutils_impl_linux-64 2.33.1 he6710b0_7
+    - binutils_linux-64 2.33.1 h9595d00_15
+    - gcc_impl_linux-64 7.3.0 habb00fd_1
+    - gcc_linux-64 7.3.0 h553295d_15
+    - ld_impl_linux-64 2.33.1 h53a641e_7
+    - libgcc-ng 9.1.0 hdf63c60_0
+    - libstdcxx-ng 9.1.0 hdf63c60_0
+  host:
+    - _libgcc_mutex 0.1 main
+    - ca-certificates 2021.1.19 h06a4308_1
+    - certifi 2020.12.5 py39h06a4308_0
+    - cython 0.29.22 py39h2531618_0
+    - ld_impl_linux-64 2.33.1 h53a641e_7
+    - libffi 3.3 he6710b0_2
+    - libgcc-ng 9.1.0 hdf63c60_0
+    - libstdcxx-ng 9.1.0 hdf63c60_0
+    - ncurses 6.2 he6710b0_1
+    - openssl 1.1.1j h27cfd23_0
+    - pip 21.0.1 py39h06a4308_0
+    - python 3.9.2 hdb3f193_0
+    - readline 8.1 h27cfd23_0
+    - setuptools 52.0.0 py39h06a4308_0
+    - sqlite 3.35.1 hdfb4753_0
+    - tk 8.6.10 hbc83047_0
+    - tzdata 2020f h52ac0ba_0
+    - wheel 0.36.2 pyhd3eb1b0_0
+    - xz 5.2.5 h7b6447c_0
+    - yaml 0.2.5 h7b6447c_0
+    - zlib 1.2.11 h7b6447c_3
+  run:
+    - libgcc-ng >=7.3.0
+    - python >=3.9,<3.10.0a0
+    - yaml >=0.2.5,<0.3.0a0
+test:
+  commands:
+    - if pip show ruamel.yaml; then exit 1; fi
+    - $PYTHON -m pip install ruamel.yaml
+    - $PYTHON -c "import ruamel.yaml"
+    - pip check
+  imports:
+    - ruamel_yaml
+    - ruamel_yaml.ext._ruamel_yaml
+  requires:
+    - pip
+about:
+  home: https://sourceforge.net/p/ruamel-yaml/code/ci/default/tree
+  license: MIT
+  license_family: MIT
+  license_file: LICENSE
+  summary: A patched copy of ruamel.yaml.
+extra:
+  copy_test_source_files: true
+  final: true
+  recipe-maintainers:
+    - isuruf
+    - jakirkham
+    - mbargull

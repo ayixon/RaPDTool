@@ -1,0 +1,15 @@
+{
+  "arch": "x86_64",
+  "build": "he6710b0_2",
+  "build_number": 2,
+  "depends": [
+    "libgcc-ng >=7.3.0",
+    "libstdcxx-ng >=7.3.0"
+  ],
+  "license": "Custom",
+  "name": "libffi",
+  "platform": "linux",
+  "subdir": "linux-64",
+  "timestamp": 1594054267890,
+  "version": "3.3"
+}

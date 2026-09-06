@@ -1,0 +1,148 @@
+{
+  "build": "pyhd3eb1b0_0",
+  "build_number": 0,
+  "channel": "https://repo.anaconda.com/pkgs/main/noarch",
+  "constrains": [],
+  "depends": [
+    "python"
+  ],
+  "extracted_package_dir": "/opt/miniconda3/pkgs/wheel-0.37.1-pyhd3eb1b0_0",
+  "features": "",
+  "files": [
+    "lib/python3.9/site-packages/wheel-0.37.1-py3.9.egg-info/PKG-INFO",
+    "lib/python3.9/site-packages/wheel-0.37.1-py3.9.egg-info/SOURCES.txt",
+    "lib/python3.9/site-packages/wheel-0.37.1-py3.9.egg-info/dependency_links.txt",
+    "lib/python3.9/site-packages/wheel-0.37.1-py3.9.egg-info/entry_points.txt",
+    "lib/python3.9/site-packages/wheel-0.37.1-py3.9.egg-info/not-zip-safe",
+    "lib/python3.9/site-packages/wheel-0.37.1-py3.9.egg-info/requires.txt",
+    "lib/python3.9/site-packages/wheel-0.37.1-py3.9.egg-info/top_level.txt",
+    "lib/python3.9/site-packages/wheel/__init__.py",
+    "lib/python3.9/site-packages/wheel/__main__.py",
+    "lib/python3.9/site-packages/wheel/bdist_wheel.py",
+    "lib/python3.9/site-packages/wheel/cli/__init__.py",
+    "lib/python3.9/site-packages/wheel/cli/convert.py",
+    "lib/python3.9/site-packages/wheel/cli/pack.py",
+    "lib/python3.9/site-packages/wheel/cli/unpack.py",
+    "lib/python3.9/site-packages/wheel/macosx_libfile.py",
+    "lib/python3.9/site-packages/wheel/metadata.py",
+    "lib/python3.9/site-packages/wheel/pkginfo.py",
+    "lib/python3.9/site-packages/wheel/util.py",
+    "lib/python3.9/site-packages/wheel/vendored/__init__.py",
+    "lib/python3.9/site-packages/wheel/vendored/packaging/__init__.py",
+    "lib/python3.9/site-packages/wheel/vendored/packaging/_typing.py",
+    "lib/python3.9/site-packages/wheel/vendored/packaging/tags.py",
+    "lib/python3.9/site-packages/wheel/wheelfile.py",
+    "lib/python3.9/site-packages/wheel/__pycache__/__init__.cpython-39.pyc",
+    "lib/python3.9/site-packages/wheel/__pycache__/__main__.cpython-39.pyc",
+    "lib/python3.9/site-packages/wheel/__pycache__/bdist_wheel.cpython-39.pyc",
+    "lib/python3.9/site-packages/wheel/cli/__pycache__/__init__.cpython-39.pyc",
+    "lib/python3.9/site-packages/wheel/cli/__pycache__/convert.cpython-39.pyc",
+    "lib/python3.9/site-packages/wheel/cli/__pycache__/pack.cpython-39.pyc",
+    "lib/python3.9/site-packages/wheel/cli/__pycache__/unpack.cpython-39.pyc",
+    "lib/python3.9/site-packages/wheel/__pycache__/macosx_libfile.cpython-39.pyc",
+    "lib/python3.9/site-packages/wheel/__pycache__/metadata.cpython-39.pyc",
+    "lib/python3.9/site-packages/wheel/__pycache__/pkginfo.cpython-39.pyc",
+    "lib/python3.9/site-packages/wheel/__pycache__/util.cpython-39.pyc",
+    "lib/python3.9/site-packages/wheel/vendored/__pycache__/__init__.cpython-39.pyc",
+    "lib/python3.9/site-packages/wheel/vendored/packaging/__pycache__/__init__.cpython-39.pyc",
+    "lib/python3.9/site-packages/wheel/vendored/packaging/__pycache__/_typing.cpython-39.pyc",
+    "lib/python3.9/site-packages/wheel/vendored/packaging/__pycache__/tags.cpython-39.pyc",
+    "lib/python3.9/site-packages/wheel/__pycache__/wheelfile.cpython-39.pyc",
+    "bin/wheel"
+  ],
+  "fn": "wheel-0.37.1-pyhd3eb1b0_0.conda",
+  "legacy_bz2_md5": "9800fd2a86354f58731a7ad0eb5dd537",
+  "legacy_bz2_size": 31767,
+  "license": "MIT",
+  "license_family": "MIT",
+  "link": {
+    "source": "/opt/miniconda3/pkgs/wheel-0.37.1-pyhd3eb1b0_0",
+    "type": 1
+  },
+  "md5": "ab85e96e26da8d5797c2458232338b86",
+  "name": "wheel",
+  "noarch": "python",
+  "package_tarball_full_path": "/opt/miniconda3/pkgs/wheel-0.37.1-pyhd3eb1b0_0.conda",
+  "package_type": "noarch_python",
+  "paths_data": {
+    "paths": [
+      {
+        "_path": "lib/python3.9/site-packages/wheel/__pycache__/__init__.cpython-39.pyc",
+        "path_type": "pyc_file"
+      },
+      {
+        "_path": "lib/python3.9/site-packages/wheel/__pycache__/__main__.cpython-39.pyc",
+        "path_type": "pyc_file"
+      },
+      {
+        "_path": "lib/python3.9/site-packages/wheel/__pycache__/bdist_wheel.cpython-39.pyc",
+        "path_type": "pyc_file"
+      },
+      {
+        "_path": "lib/python3.9/site-packages/wheel/cli/__pycache__/__init__.cpython-39.pyc",
+        "path_type": "pyc_file"
+      },
+      {
+        "_path": "lib/python3.9/site-packages/wheel/cli/__pycache__/convert.cpython-39.pyc",
+        "path_type": "pyc_file"
+      },
+      {
+        "_path": "lib/python3.9/site-packages/wheel/cli/__pycache__/pack.cpython-39.pyc",
+        "path_type": "pyc_file"
+      },
+      {
+        "_path": "lib/python3.9/site-packages/wheel/cli/__pycache__/unpack.cpython-39.pyc",
+        "path_type": "pyc_file"
+      },
+      {
+        "_path": "lib/python3.9/site-packages/wheel/__pycache__/macosx_libfile.cpython-39.pyc",
+        "path_type": "pyc_file"
+      },
+      {
+        "_path": "lib/python3.9/site-packages/wheel/__pycache__/metadata.cpython-39.pyc",
+        "path_type": "pyc_file"
+      },
+      {
+        "_path": "lib/python3.9/site-packages/wheel/__pycache__/pkginfo.cpython-39.pyc",
+        "path_type": "pyc_file"
+      },
+      {
+        "_path": "lib/python3.9/site-packages/wheel/__pycache__/util.cpython-39.pyc",
+        "path_type": "pyc_file"
+      },
+      {
+        "_path": "lib/python3.9/site-packages/wheel/vendored/__pycache__/__init__.cpython-39.pyc",
+        "path_type": "pyc_file"
+      },
+      {
+        "_path": "lib/python3.9/site-packages/wheel/vendored/packaging/__pycache__/__init__.cpython-39.pyc",
+        "path_type": "pyc_file"
+      },
+      {
+        "_path": "lib/python3.9/site-packages/wheel/vendored/packaging/__pycache__/_typing.cpython-39.pyc",
+        "path_type": "pyc_file"
+      },
+      {
+        "_path": "lib/python3.9/site-packages/wheel/vendored/packaging/__pycache__/tags.cpython-39.pyc",
+        "path_type": "pyc_file"
+      },
+      {
+        "_path": "lib/python3.9/site-packages/wheel/__pycache__/wheelfile.cpython-39.pyc",
+        "path_type": "pyc_file"
+      },
+      {
+        "_path": "bin/wheel",
+        "path_type": "unix_python_entry_point"
+      }
+    ],
+    "paths_version": 1
+  },
+  "requested_spec": "wheel==0.37.1=pyhd3eb1b0_0",
+  "sha256": "d3f762f14aff275613ef8d0df2b1e608e8174960da05a1815f36e70cd62aaae9",
+  "size": 33329,
+  "subdir": "noarch",
+  "timestamp": 1641824520450,
+  "track_features": "",
+  "url": "https://repo.anaconda.com/pkgs/main/noarch/wheel-0.37.1-pyhd3eb1b0_0.conda",
+  "version": "0.37.1"
+}

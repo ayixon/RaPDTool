@@ -1,0 +1,89 @@
+# This file created by conda-build 3.21.4
+# meta.yaml template originally from:
+# /tmp/build/80754af9/combined_recipe, last modified Tue Jul 27 12:24:44 2021
+# ------------------------------------------------
+
+package:
+  name: krb5
+  version: 1.19.2
+source:
+  sha256: 84a1dc720e436926359808cc62543946897bf797aba3588b373165f127532cd8
+  url: https://github.com/krb5/krb5/archive/krb5-1.19.2-final.tar.gz
+build:
+  ignore_run_exports:
+    - libstdcxx-ng
+    - tk
+  number: '0'
+  run_exports:
+    - krb5 >=1.19.2,<1.20.0a0
+  string: hac12032_0
+requirements:
+  build:
+    - _libgcc_mutex 0.1 main
+    - _openmp_mutex 4.5 1_gnu
+    - _sysroot_linux-64_curr_repodata_hack 3 haa98f57_10
+    - autoconf 2.69 pl526hebd4dad_5
+    - binutils_impl_linux-64 2.35.1 h27ae35d_9
+    - binutils_linux-64 2.35.1 h454624a_30
+    - bison 3.7.5 h2531618_1
+    - ca-certificates 2021.7.5 h06a4308_1
+    - flex 2.6.4 ha10e3a4_1
+    - gcc_impl_linux-64 7.5.0 h7105cf2_17
+    - gcc_linux-64 7.5.0 h8f34230_30
+    - gxx_impl_linux-64 7.5.0 h0a5bf11_17
+    - gxx_linux-64 7.5.0 hffc177d_30
+    - kernel-headers_linux-64 3.10.0 h57e8cba_10
+    - ld_impl_linux-64 2.35.1 h7274673_9
+    - libffi 3.3 he6710b0_2
+    - libgcc-devel_linux-64 7.5.0 hbbeae57_17
+    - libgcc-ng 9.3.0 h5101ec6_17
+    - libgomp 9.3.0 h5101ec6_17
+    - libstdcxx-devel_linux-64 7.5.0 hf0c5c8d_17
+    - libstdcxx-ng 9.3.0 hd4cf53a_17
+    - m4 1.4.18 h4e445db_0
+    - make 4.2.1 h1bed415_1
+    - ncurses 6.2 he6710b0_1
+    - openssl 1.1.1k h27cfd23_0
+    - perl 5.26.2 h14c3975_0
+    - pkg-config 0.29.2 h1bed415_8
+    - python 3.7.10 h12debd9_4
+    - readline 8.1 h27cfd23_0
+    - sqlite 3.36.0 hc218d9a_0
+    - sysroot_linux-64 2.17 h57e8cba_10
+    - tk 8.6.10 hbc83047_0
+    - xz 5.2.5 h7b6447c_0
+    - zlib 1.2.11 h7b6447c_3
+  host:
+    - _libgcc_mutex 0.1 main
+    - _openmp_mutex 4.5 1_gnu
+    - ca-certificates 2021.7.5 h06a4308_1
+    - libedit 3.1.20210216 h27cfd23_1
+    - libgcc-ng 9.3.0 h5101ec6_17
+    - libgomp 9.3.0 h5101ec6_17
+    - libstdcxx-ng 9.3.0 hd4cf53a_17
+    - ncurses 6.2 he6710b0_1
+    - openssl 1.1.1k h27cfd23_0
+    - tk 8.6.10 hbc83047_0
+    - zlib 1.2.11 h7b6447c_3
+  run:
+    - libedit >=3.1.20210216,<3.2.0a0
+    - libedit >=3.1.20210216,<4.0a0
+    - libgcc-ng >=7.5.0
+    - openssl >=1.1.1k,<1.1.2a
+test:
+  requires:
+    - python 3.7.*
+about:
+  home: http://web.mit.edu/kerberos/
+  license: MIT
+  license_file: doc/notice.rst
+  summary: A network authentication protocol.
+extra:
+  copy_test_source_files: true
+  final: true
+  recipe-maintainers:
+    - chenghlee
+    - mariusvniekerk
+    - mingwandroid
+    - ocefpaf
+    - pelson

@@ -1,0 +1,1461 @@
+#!/bin/sh
+
+# ===========================================================================
+#
+#                            PUBLIC DOMAIN NOTICE
+#            National Center for Biotechnology Information (NCBI)
+#
+#  This software/database is a "United States Government Work" under the
+#  terms of the United States Copyright Act.  It was written as part of
+#  the author's official duties as a United States Government employee and
+#  thus cannot be copyrighted.  This software/database is freely available
+#  to the public for use. The National Library of Medicine and the U.S.
+#  Government do not place any restriction on its use or reproduction.
+#  We would, however, appreciate having the NCBI and the author cited in
+#  any work or product based on this material.
+#
+#  Although all reasonable efforts have been taken to ensure the accuracy
+#  and reliability of the software and data, the NLM and the U.S.
+#  Government do not and cannot warrant the performance or results that
+#  may be obtained by using this software or data. The NLM and the U.S.
+#  Government disclaim all warranties, express or implied, including
+#  warranties of performance, merchantability or fitness for any particular
+#  purpose.
+#
+# ===========================================================================
+#
+# File Name:  esearch
+#
+# Author:  Jonathan Kans, Aaron Ucko
+#
+# Version Creation Date:   06/15/2020
+#
+# ==========================================================================
+
+pth=$( dirname "$0" )
+
+case ":$PATH:" in
+  *:"$pth":* )
+    ;;
+  * )
+    PATH="$PATH:$pth"
+    export PATH
+    ;;
+esac
+
+# handle common flags - dot command is equivalent of "source"
+
+if [ ! -f "$pth"/ecommon.sh ]
+then
+  echo "${INVT} ERROR: ${LOUD} Unable to find '$pth/ecommon.sh' file${INIT}" >&2
+  exit 1
+fi
+
+. "$pth"/ecommon.sh
+
+# initialize specific flags
+
+internal=false
+
+isFilter=false
+
+query=""
+spell=false
+
+sort=""
+
+days=0
+mindate=""
+maxdate=""
+datetype=""
+
+# initialize shortcuts
+
+pub=""
+jour=""
+rlsd=""
+
+ctry=""
+feat=""
+locn=""
+mol=""
+orgn=""
+sorc=""
+divn=""
+kywd=""
+prps=""
+
+stts=""
+type=""
+
+clss=""
+
+kind=""
+ptwy=""
+
+# read command-line arguments
+
+while [ $# -gt 0 ]
+do
+  case "$1" in
+    -internal )
+      internal=true
+      shift
+      ;;
+    -newmode | -oldmode )
+      shift
+      ;;
+    -db )
+      shift
+      if [ $# -gt 0 ]
+      then
+        db="$1"
+        shift
+      else
+        echo "${INVT} ERROR: ${LOUD} Missing -db argument${INIT}" >&2
+        exit 1
+      fi
+      ;;
+    -query )
+      shift
+      if [ $# -gt 0 ]
+      then
+        if [ -z "$query"]
+        then
+          query="$1"
+          shift
+        else
+          echo "${INVT} ERROR: ${LOUD} Multiple -query arguments${INIT}" >&2
+          exit 1
+        fi
+      else
+        echo "${INVT} ERROR: ${LOUD} Missing -query argument${INIT}" >&2
+        exit 1
+      fi
+      ;;
+    -filter )
+      # efilter is implemented as esearch -filter "$@"
+      isFilter=true
+      shift
+      ;;
+    -spell )
+      spell=true
+      shift
+      if [ $# -gt 0 ] && [ -z "$query" ]
+      then
+        case "$1" in
+          -* )
+            # do not advance, will process next command time through the while loop
+            ;;
+          * )
+            # query string is immediately after -spell flag (undocumented)
+            query="$1"
+            shift
+            ;;
+        esac
+      fi
+      ;;
+    -sort )
+      shift
+      if [ $# -gt 0 ]
+      then
+        sort="$1"
+        shift
+      else
+        echo "${INVT} ERROR: ${LOUD} Missing -sort argument${INIT}" >&2
+        exit 1
+      fi
+      ;;
+    -days )
+      shift
+      if [ $# -gt 0 ]
+      then
+        days=$(( $1 ))
+        shift
+      else
+        echo "${INVT} ERROR: ${LOUD} Missing -days argument${INIT}" >&2
+        exit 1
+      fi
+      ;;
+    -mindate )
+      shift
+      if [ $# -gt 0 ]
+      then
+        mindate="$1"
+        shift
+      else
+        echo "${INVT} ERROR: ${LOUD} Missing -mindate argument${INIT}" >&2
+        exit 1
+      fi
+      ;;
+    -maxdate )
+      shift
+      if [ $# -gt 0 ]
+      then
+        maxdate="$1"
+        shift
+      else
+        echo "${INVT} ERROR: ${LOUD} Missing -maxdate argument${INIT}" >&2
+        exit 1
+      fi
+      ;;
+    -datetype )
+      shift
+      if [ $# -gt 0 ]
+      then
+        datetype="$1"
+        shift
+      else
+        echo "${INVT} ERROR: ${LOUD} Missing -datetype argument${INIT}" >&2
+        exit 1
+      fi
+      ;;
+    -pub )
+      shift
+      if [ $# -gt 0 ]
+      then
+        pub="$1"
+        shift
+      else
+        echo "${INVT} ERROR: ${LOUD} Missing -pub argument${INIT}" >&2
+        exit 1
+      fi
+      ;;
+    -journal )
+      shift
+      if [ $# -gt 0 ]
+      then
+        jour="$1"
+        shift
+      else
+        echo "${INVT} ERROR: ${LOUD} Missing -journal argument${INIT}" >&2
+        exit 1
+      fi
+      ;;
+    -released )
+      shift
+      if [ $# -gt 0 ]
+      then
+        rlsd="$1"
+        shift
+      else
+        echo "${INVT} ERROR: ${LOUD} Missing -released argument${INIT}" >&2
+        exit 1
+      fi
+      ;;
+    -country )
+      shift
+      if [ $# -gt 0 ]
+      then
+        ctry="$1"
+        shift
+      else
+        echo "${INVT} ERROR: ${LOUD} Missing -country argument${INIT}" >&2
+        exit 1
+      fi
+      ;;
+    -feature )
+      shift
+      if [ $# -gt 0 ]
+      then
+        feat="$1"
+        shift
+      else
+        echo "${INVT} ERROR: ${LOUD} Missing -feature argument${INIT}" >&2
+        exit 1
+      fi
+      ;;
+    -location )
+      shift
+      if [ $# -gt 0 ]
+      then
+        locn="$1"
+        shift
+      else
+        echo "${INVT} ERROR: ${LOUD} Missing -location argument${INIT}" >&2
+        exit 1
+      fi
+      ;;
+    -molecule )
+      shift
+      if [ $# -gt 0 ]
+      then
+        mol="$1"
+        shift
+      else
+        echo "${INVT} ERROR: ${LOUD} Missing -molecule argument${INIT}" >&2
+        exit 1
+      fi
+      ;;
+    -organism )
+      shift
+      if [ $# -gt 0 ]
+      then
+        orgn="$1"
+        shift
+      else
+        echo "${INVT} ERROR: ${LOUD} Missing -organism argument${INIT}" >&2
+        exit 1
+      fi
+      ;;
+    -source )
+      shift
+      if [ $# -gt 0 ]
+      then
+        sorc="$1"
+        shift
+      else
+        echo "${INVT} ERROR: ${LOUD} Missing -source argument${INIT}" >&2
+        exit 1
+      fi
+      ;;
+    -division )
+      shift
+      if [ $# -gt 0 ]
+      then
+        divn="$1"
+        shift
+      else
+        echo "${INVT} ERROR: ${LOUD} Missing -division argument${INIT}" >&2
+        exit 1
+      fi
+      ;;
+    -keyword )
+      shift
+      if [ $# -gt 0 ]
+      then
+        kywd="$1"
+        shift
+      else
+        echo "${INVT} ERROR: ${LOUD} Missing -keyword argument${INIT}" >&2
+        exit 1
+      fi
+      ;;
+    -purpose )
+      shift
+      if [ $# -gt 0 ]
+      then
+        prps="$1"
+        shift
+      else
+        echo "${INVT} ERROR: ${LOUD} Missing -purpose argument${INIT}" >&2
+        exit 1
+      fi
+      ;;
+    -status )
+      shift
+      if [ $# -gt 0 ]
+      then
+        stts="$1"
+        shift
+      else
+        echo "${INVT} ERROR: ${LOUD} Missing -status argument${INIT}" >&2
+        exit 1
+      fi
+      ;;
+    -type )
+      shift
+      if [ $# -gt 0 ]
+      then
+        type="$1"
+        shift
+      else
+        echo "${INVT} ERROR: ${LOUD} Missing -type argument${INIT}" >&2
+        exit 1
+      fi
+      ;;
+    -class )
+      shift
+      if [ $# -gt 0 ]
+      then
+        clss="$1"
+        shift
+      else
+        echo "${INVT} ERROR: ${LOUD} Missing -class argument${INIT}" >&2
+        exit 1
+      fi
+      ;;
+    -kind )
+      shift
+      if [ $# -gt 0 ]
+      then
+        kind="$1"
+        shift
+      else
+        echo "${INVT} ERROR: ${LOUD} Missing -kind argument${INIT}" >&2
+        exit 1
+      fi
+      ;;
+    -pathway )
+      shift
+      if [ $# -gt 0 ]
+      then
+        ptwy="$1"
+        shift
+      else
+        echo "${INVT} ERROR: ${LOUD} Missing -pathway argument${INIT}" >&2
+        exit 1
+      fi
+      ;;
+    -h | -help | --help | help )
+      if [ "$isFilter" = true ]
+      then
+        echo "efilter $version"
+        echo ""
+        cat "$pth/help/efilter-help.txt"
+        echo ""
+      else
+        echo "esearch $version"
+        echo ""
+        cat "$pth/help/esearch-help.txt"
+        echo ""
+      fi
+      exit 0
+      ;;
+    -* )
+      ParseCommonArgs "$@"
+      if [ "$argsConsumed" -gt 0 ]
+      then
+        shift "$argsConsumed"
+      else
+        echo "${INVT} ERROR: ${LOUD} Unrecognized option $1${INIT}" >&2
+        exit 1
+      fi
+      ;;
+    * )
+      # allows while loop to check for multiple flags
+      break
+      ;;
+  esac
+done
+
+FinishSetup
+
+# prefer -db argument over WebEnv value
+
+if [ -n "$db" ] && [ "$isFilter" = true ]
+then
+  echo "${INVT} ERROR: ${LOUD} Unexpected -db argument${INIT}" >&2
+  exit 1
+fi
+
+# also check for ENTREZ_DIRECT message from stdin (for combining independent queries)
+
+ParseStdin
+
+# prefer -db argument over WebEnv value
+
+if [ -n "$db" ]
+then
+  dbase="$db"
+fi
+
+# needHistory allows reuse of GenerateUidList
+
+if [ -z "$ids$rest$input" ]
+then
+  needHistory=true
+fi
+
+# check for missing database argument
+
+if [ -z "$dbase" ]
+then
+  echo "${INVT} ERROR: ${LOUD} Missing -db argument${INIT}" >&2
+  exit 1
+fi
+
+# check for missing esearch query argument
+
+if [ -z "$query" ] && [ "$isFilter" = false ]
+then
+  echo "${INVT} ERROR: ${LOUD} Missing -query argument${INIT}" >&2
+  exit 1
+fi
+
+# convert labels in query to history access numbers
+
+ConvertLabels() {
+
+  qry="$1"
+  echo "$labels" |
+  xtract -pattern Label -element Key Val |
+  while read key val
+  do
+    # do successive conversions one at a time
+    qry=$( echo "$qry" | sed -e "s/(#${key})/(#${val})/g" )
+    echo "$qry"
+  done |
+  # only report last line with all conversions done
+  tail -n 1
+}
+
+if [ -n "$query" ] && [ -n "$labels" ]
+then
+  conv=$( ConvertLabels "$query" )
+  if [ -n "$conv" ]
+  then
+    query="$conv"
+  fi
+fi
+
+# shortcut functions
+
+AddPubArg() {
+
+  qry="$1"
+  arg="$2"
+
+  sep=""
+  if [ -n "$qry" ]
+  then
+    sep=" AND "
+  fi
+
+  echo "$arg" |
+  word-at-a-time |
+  (
+    while read itm
+    do
+      trm=""
+      case "$itm" in
+        abstract )
+          trm="has abstract [FILT]"
+          ;;
+        clinical )
+          trm="clinical trial [FILT]"
+          ;;
+        english )
+          trm="english [FILT]"
+          ;;
+        free )
+          trm="freetext [FILT]"
+          ;;
+        historical )
+          trm="historical article  [FILT]"
+          ;;
+        journal )
+          trm="journal article [FILT]"
+          ;;
+        last_month | "last month" )
+          trm="published last month [FILT]"
+          ;;
+        last_week | "last week" )
+          trm="published last week [FILT]"
+          ;;
+        last_year | "last year" )
+          trm="published last year [FILT]"
+          ;;
+        medline )
+          trm="medline [FILT]"
+          ;;
+        preprint )
+          trm="ahead of print [FILT]"
+          ;;
+        published )
+          trm="ahead of print [FILT]"
+          sep=" NOT "
+          ;;
+        retracted )
+          trm="retracted publication [PTYP]"
+          ;;
+        retraction )
+          trm="retraction of publication [PTYP]"
+          ;;
+        review )
+          trm="review [FILT]"
+          ;;
+        structured )
+          trm="hasstructuredabstract [WORD]"
+          ;;
+        trial )
+          trm="clinical trial [FILT]"
+          ;;
+        * )
+          echo "${INVT} ERROR: ${LOUD} Unrecognized -pub option $itm${INIT}" >&2
+          exit 1
+          ;;
+      esac
+      if [ -n "$trm" ]
+      then
+        qry=$( echo "${qry}${sep}${trm}" )
+      fi
+      sep=" AND "
+    done
+    echo "$qry"
+  )
+}
+
+AddReleasedArg() {
+
+  qry="$1"
+  arg="$2"
+
+  sep=""
+
+  if [ -n "$qry" ]
+  then
+    sep=" AND "
+  fi
+
+  trm=""
+  case "$arg" in
+    last_month | "last month" )
+      trm="published last month [FILT]"
+      ;;
+    last_week | "last week" )
+      trm="published last week [FILT]"
+      ;;
+    last_year | "last year" )
+      trm="published last year [FILT]"
+      ;;
+    prev_years | "prev years" )
+      trm="published last year [FILT]"
+      sep=" NOT "
+      ;;
+    * )
+      echo "${INVT} ERROR: ${LOUD} Unrecognized -released option $arg${INIT}" >&2
+      exit 1
+      ;;
+  esac
+  if [ -n "$trm" ]
+  then
+    qry=$( echo "${qry}${sep}${trm}" )
+  fi
+  echo "$qry"
+}
+
+AddJournalArg() {
+
+  qry="$1"
+  arg="$2"
+
+  sep=""
+
+  if [ -n "$qry" ]
+  then
+    sep=" AND "
+  fi
+
+  qry=$( echo "${qry}${sep}${arg} [JOUR]" )
+
+  echo "$qry"
+}
+
+AddCountryArg() {
+
+  qry="$1"
+  arg="$2"
+
+  sep=""
+
+  if [ -n "$qry" ]
+  then
+    sep=" AND "
+  fi
+
+  qry=$( echo "${qry}${sep}country ${arg} [TEXT]" )
+
+  echo "$qry"
+}
+
+AddFeatureArg() {
+
+  qry="$1"
+  arg="$2"
+
+  sep=""
+
+  if [ -n "$qry" ]
+  then
+    sep=" AND "
+  fi
+
+  echo "$arg" |
+  sed "s/[^a-zA-Z0-9_.'-]/ /g; s/^ *//" |
+  tr 'A-Z' 'a-z' |
+  fmt -w 1 |
+  (
+    while read itm
+    do
+      if [ -n "$itm" ]
+      then
+        qry=$( echo "${qry}${sep}${itm} [FKEY]" )
+      fi
+      sep=" AND "
+    done
+    echo "$qry"
+  )
+}
+
+AddLocationArg() {
+
+  qry="$1"
+  arg="$2"
+
+  sep=""
+
+  if [ -n "$qry" ]
+  then
+    sep=" AND "
+  fi
+
+  trm=""
+  case "$arg" in
+    mitochondria | mitochondrial | mitochondrion )
+      trm="mitochondrion [FILT]"
+      ;;
+    chloroplast )
+      trm="chloroplast [FILT]"
+      ;;
+    plasmid )
+      trm="plasmid [FILT]"
+      ;;
+    plastid )
+      trm="plastid [FILT]"
+      ;;
+    * )
+      echo "${INVT} ERROR: ${LOUD} Unrecognized -location option $arg${INIT}" >&2
+      exit 1
+      ;;
+  esac
+  if [ -n "$trm" ]
+  then
+    qry=$( echo "${qry}${sep}${trm}" )
+  fi
+  echo "$qry"
+}
+
+AddMoleculeArg() {
+
+  qry="$1"
+  arg="$2"
+
+  sep=""
+
+  if [ -n "$qry" ]
+  then
+    sep=" AND "
+  fi
+
+  trm=""
+  case "$arg" in
+    genomic )
+      trm="biomol genomic [PROP]"
+      ;;
+    mrna )
+      trm="biomol mrna [PROP]"
+      ;;
+    trna )
+      trm="biomol trna [PROP]"
+      ;;
+    rrna )
+      trm="biomol rrna [PROP]"
+      ;;
+    ncrna )
+      trm="biomol ncrna [PROP]"
+      ;;
+    * )
+      echo "${INVT} ERROR: ${LOUD} Unrecognized -molecule option $arg${INIT}" >&2
+      exit 1
+      ;;
+  esac
+  if [ -n "$trm" ]
+  then
+    qry=$( echo "${qry}${sep}${trm}" )
+  fi
+  echo "$qry"
+}
+
+AddOrganismArg() {
+
+  qry="$1"
+  arg="$2"
+
+  sep=""
+
+  if [ -n "$qry" ]
+  then
+    sep=" AND "
+  fi
+
+  trm=""
+  case "$arg" in
+    animal | animals | metazoa )
+      trm="animals [FILT]"
+      ;;
+    archaea | archaeal | archaebacteria | archaebacterial )
+      trm="archaea [FILT]"
+      ;;
+    bacteria | bacterial | bacterium | eubacteria | eubacterial )
+      trm="bacteria [FILT]"
+      ;;
+    eukaryota | eukaryote | eukaryotes )
+      trm="eukaryota [ORGN]"
+      ;;
+    fungal | fungi | fungus )
+      trm="fungi [FILT]"
+      ;;
+    human | humans | man )
+      trm="human [ORGN]"
+      ;;
+    insect | insecta | insects )
+      trm="insecta [ORGN]"
+      ;;
+    mammal | mammalia | mammalian | mammals )
+      trm="mammals [FILT]"
+      ;;
+    metaphyta | plant | plants )
+      trm="plants [FILT]"
+      ;;
+    prokaryota | prokaryote | prokaryotes )
+      trm="prokaryota [ORGN]"
+      ;;
+    protist | protista | protists )
+      trm="protists [FILT]"
+      ;;
+    rodent | rodentia | rodents )
+      trm="rodents [ORGN]"
+      ;;
+    viral | virus | viruses )
+      trm="viruses [FILT]"
+      ;;
+    * )
+      # allow any organism
+      trm="$arg [ORGN]"
+      break
+      ;;
+  esac
+  if [ -n "$trm" ]
+  then
+    qry=$( echo "${qry}${sep}${trm}" )
+  fi
+  echo "$qry"
+}
+
+AddSourceArg() {
+
+  qry="$1"
+  arg="$2"
+
+  sep=""
+
+  if [ -n "$qry" ]
+  then
+    sep=" AND "
+  fi
+
+  trm=""
+  case "$arg" in
+    ddbj )
+      trm="srcdb ddbj [PROP]"
+      ;;
+    embl )
+      trm="srcdb embl [PROP]"
+      ;;
+    genbank )
+      trm="srcdb genbank [PROP]"
+      ;;
+    insd )
+      trm="srcdb ddbj/embl/genbank [PROP]"
+      ;;
+    pdb )
+      trm="srcdb pdb [PROP]"
+      ;;
+    pir )
+      trm="srcdb pir [PROP]"
+      ;;
+    refseq )
+      trm="srcdb refseq [PROP]"
+      ;;
+    "select" )
+      trm="refseq select [FILT]"
+      ;;
+    swissprot )
+      trm="srcdb swiss prot [PROP]"
+      ;;
+    tpa )
+      trm="srcdb tpa ddbj/embl/genbank [PROP]"
+      ;;
+    * )
+      echo "${INVT} ERROR: ${LOUD} Unrecognized -source option $arg${INIT}" >&2
+      exit 1
+      ;;
+  esac
+  if [ -n "$trm" ]
+  then
+    qry=$( echo "${qry}${sep}${trm}" )
+  fi
+  echo "$qry"
+}
+
+AddDivisionArg() {
+
+  qry="$1"
+  arg="$2"
+
+  sep=""
+
+  if [ -n "$qry" ]
+  then
+    sep=" AND "
+  fi
+
+  divs=""
+  seps=""
+  for itm in $( echo $arg | sed "s/,/ /g" )
+  do
+    trm=""
+    case "$itm" in
+      bct | con | env | est | gss | htc | htg | inv | mam | pat | phg | pln | pri | rod | sts | syn | una | vrl | vrt )
+        trm="gbdiv $itm [PROP]"
+        ;;
+      * )
+        echo "${INVT} ERROR: ${LOUD} Unrecognized -division option $itm${INIT}" >&2
+        exit 1
+        ;;
+    esac
+    if [ -n "$trm" ]
+    then
+      divs=$( echo "${divs}${seps}${trm}" )
+      seps=" OR "
+    fi
+  done
+  if [ -n "$divs" ]
+  then
+    qry=$( echo "${qry}${sep} ( ${divs} )" )
+  fi
+  echo "$qry"
+}
+
+AddKeywordArg() {
+
+  qry="$1"
+  arg="$2"
+
+  sep=""
+
+  if [ -n "$qry" ]
+  then
+    sep=" AND "
+  fi
+
+  trm=""
+  case "$arg" in
+    purpose )
+      trm="purpose* [KYWD]"
+      ;;
+    * )
+      echo "${INVT} ERROR: ${LOUD} Unrecognized -keyword option $arg${INIT}" >&2
+      exit 1
+      ;;
+  esac
+  if [ -n "$trm" ]
+  then
+    qry=$( echo "${qry}${sep}${trm}" )
+  fi
+  echo "$qry"
+}
+
+AddPurposeArg() {
+
+  qry="$1"
+  arg="$2"
+
+  sep=""
+
+  if [ -n "$qry" ]
+  then
+    sep=" AND "
+  fi
+
+  trm=""
+  case "$arg" in
+    baseline )
+      trm="( purposeofsampling baselinesurveillance [KYWD] OR purpose of sequencing baselinesurveillance [KYWD] )"
+      ;;
+    targeted )
+      trm="purposeofsampling targetedefforts [KYWD]"
+      ;;
+    * )
+      echo "${INVT} ERROR: ${LOUD} Unrecognized -purpose option $arg${INIT}" >&2
+      exit 1
+      ;;
+  esac
+  if [ -n "$trm" ]
+  then
+    qry=$( echo "${qry}${sep}${trm}" )
+  fi
+  echo "$qry"
+}
+
+AddStatusArg() {
+
+  qry="$1"
+  arg="$2"
+
+  sep=""
+
+  if [ -n "$qry" ]
+  then
+    sep=" AND "
+  fi
+
+  trm=""
+  case "$arg" in
+    alive | live | living )
+      trm="alive [PROP]"
+      ;;
+    * )
+      echo "${INVT} ERROR: ${LOUD} Unrecognized -status option $arg${INIT}" >&2
+      exit 1
+      ;;
+  esac
+  if [ -n "$trm" ]
+  then
+    qry=$( echo "${qry}${sep}${trm}" )
+  fi
+  echo "$qry"
+}
+
+AddTypeArg() {
+
+  qry="$1"
+  arg="$2"
+
+  sep=""
+
+  if [ -n "$qry" ]
+  then
+    sep=" AND "
+  fi
+
+  trm=""
+  case "$arg" in
+    coding )
+      trm="genetype protein coding [PROP]"
+      ;;
+    pseudo )
+      trm="genetype pseudo [PROP]"
+      ;;
+    * )
+      echo "${INVT} ERROR: ${LOUD} Unrecognized -type option $arg${INIT}" >&2
+      exit 1
+      ;;
+  esac
+  if [ -n "$trm" ]
+  then
+    qry=$( echo "${qry}${sep}${trm}" )
+  fi
+  echo "$qry"
+}
+
+AddClassArg() {
+
+  qry="$1"
+  arg="$2"
+
+  sep=""
+
+  if [ -n "$qry" ]
+  then
+    sep=" AND "
+  fi
+
+  trm=""
+  case "$arg" in
+    acceptor )
+      trm="splice acceptor variant [FXN]"
+      ;;
+    donor )
+      trm="splice donor variant [FXN]"
+      ;;
+    coding )
+      trm="coding sequence variant [FXN]"
+      ;;
+    frameshift )
+      trm="frameshift variant [FXN]"
+      ;;
+    indel )
+      trm="inframe indel [FXN]"
+      ;;
+    intron )
+      trm="intron variant [FXN]"
+      ;;
+    missense )
+      trm="missense variant [FXN]"
+      ;;
+    nonsense )
+      trm="terminator codon variant [FXN]"
+      ;;
+    synonymous )
+      trm="synonymous variant [FXN]"
+      ;;
+    * )
+      echo "${INVT} ERROR: ${LOUD} Unrecognized -class option $arg${INIT}" >&2
+      exit 1
+      ;;
+  esac
+  if [ -n "$trm" ]
+  then
+    qry=$( echo "${qry}${sep}${trm}" )
+  fi
+  echo "$qry"
+}
+
+AddKindArg() {
+
+  qry="$1"
+  arg="$2"
+
+  sep=""
+
+  if [ -n "$qry" ]
+  then
+    sep=" AND "
+  fi
+
+  trm=""
+  case "$arg" in
+    pathway )
+      trm="pathway [TYPE]"
+      ;;
+    * )
+      echo "${INVT} ERROR: ${LOUD} Unrecognized -kind option $arg${INIT}" >&2
+      exit 1
+      ;;
+  esac
+  if [ -n "$trm" ]
+  then
+    qry=$( echo "${qry}${sep}${trm}" )
+  fi
+  echo "$qry"
+}
+
+AddPathwayArg() {
+
+  qry="$1"
+  arg="$2"
+
+  sep=""
+
+  if [ -n "$qry" ]
+  then
+    sep=" AND "
+  fi
+
+  trm=""
+  case "$arg" in
+    reactome )
+      trm="src reactome [FILT]"
+      ;;
+    wikipathways )
+      trm="src wikipathways [FILT]"
+      ;;
+    * )
+      echo "${INVT} ERROR: ${LOUD} Unrecognized -pathway option $arg${INIT}" >&2
+      exit 1
+      ;;
+  esac
+  if [ -n "$trm" ]
+  then
+    qry=$( echo "${qry}${sep}${trm}" )
+  fi
+  echo "$qry"
+}
+
+# warn on mismatch between filter argument and database
+
+case "$dbase" in
+  nucleotide | nuccore | protein )
+    ;;
+  * )
+    if [ "$dbase" != "gene" ] || [ -z "$orgn" ]
+    then
+      if [ -n "$ctry" ] || [ -n "$feat" ] || [ -n "$locn" ] || [ -n "$mol" ] || [ -n "$orgn" ] || [ -n "$sorc" ] || [ -n "$divn" ] || [ -n "$kywd" ] || [ -n "$prps" ]
+      then
+        echo "${INVT} ERROR: ${LOUD} Unexpected use of sequence filter argument${INIT}" >&2
+        exit 1
+      fi
+    fi
+    ;;
+esac
+
+# spell check each query word
+
+if [ "$spell" = true ]
+then
+  spl=$( RunWithCommonArgs nquire -url "$base" espell.fcgi -db "$dbase" -term "$query" |
+         xtract -pattern eSpellResult -element CorrectedQuery )
+  if [ -n "$spl" ]
+  then
+    query="$spl"
+  fi
+fi
+
+# add shortcuts to query
+
+if [ -n "$pub" ]
+then
+  query=$( AddPubArg "$query" "$pub" )
+fi
+
+if [ -n "$rlsd" ]
+then
+  query=$( AddReleasedArg "$query" "$rlsd" )
+fi
+
+if [ -n "$jour" ]
+then
+  query=$( AddJournalArg "$query" "$jour" )
+fi
+
+if [ -n "$ctry" ]
+then
+  query=$( AddCountryArg "$query" "$ctry" )
+fi
+
+if [ -n "$feat" ]
+then
+  query=$( AddFeatureArg "$query" "$feat" )
+fi
+
+if [ -n "$locn" ]
+then
+  query=$( AddLocationArg "$query" "$locn" )
+fi
+
+if [ -n "$mol" ]
+then
+  query=$( AddMoleculeArg "$query" "$mol" )
+fi
+
+if [ -n "$orgn" ]
+then
+  query=$( AddOrganismArg "$query" "$orgn" )
+fi
+
+if [ -n "$sorc" ]
+then
+  query=$( AddSourceArg "$query" "$sorc" )
+fi
+
+if [ -n "$divn" ]
+then
+  query=$( AddDivisionArg "$query" "$divn" )
+fi
+
+if [ -n "$kywd" ]
+then
+  query=$( AddKeywordArg "$query" "$kywd" )
+fi
+
+if [ -n "$prps" ]
+then
+  query=$( AddPurposeArg "$query" "$prps" )
+fi
+
+if [ -n "$stts" ]
+then
+  query=$( AddStatusArg "$query" "$stts" )
+fi
+
+if [ -n "$type" ]
+then
+  query=$( AddTypeArg "$query" "$type" )
+fi
+
+if [ -n "$clss" ]
+then
+  query=$( AddClassArg "$query" "$clss" )
+fi
+
+if [ -n "$kind" ]
+then
+  query=$( AddKindArg "$query" "$kind" )
+fi
+
+if [ -n "$ptwy" ]
+then
+  query=$( AddPathwayArg "$query" "$ptwy" )
+fi
+
+# remove leading, trailing, and multiple spaces
+
+if [ -n "$query" ]
+then
+  query=$( echo "$query" | sed -e 's/^ *//g; s/ *$//g; s/  */ /g' )
+fi
+
+# adjust for -db assembly ACCN field inconsistency
+
+if [ "$dbase" = "assembly" ]
+then
+  query=$( echo "$query" | sed -e 's/\[ACCN\]/[ASAC]/g' )
+fi
+
+# allow only one of mindate or maxdate to be set
+
+if [ -n "$mindate" ] && [ -z "$maxdate" ]
+then
+  maxdate=$( date +"%Y" )
+  maxdate=$(( $maxdate + 1 ))
+elif [ -z "$mindate" ] && [ -n "$maxdate" ]
+then
+  mindate=1780
+fi
+
+# -query string or -days or -mindate and -maxdate arguments required
+
+ok=false
+if [ -n "$query" ] || [ "$days" -gt 0 ]
+then
+  ok=true
+elif [ -n "$mindate" ] && [ -n "$maxdate" ]
+then
+  ok=true
+fi
+
+# no key if combining independent queries
+
+if [ "$isFilter" = false ]
+then
+  qry_key=""
+fi
+
+# adjustments on search variables
+
+if [ -n "$sort" ] && [ "$sort" = "Relevance" ]
+then
+  sort="relevance"
+fi
+
+if [ -z "$datetype" ]
+then
+  datetype="PDAT"
+fi
+
+if [ -z "$days" ] || [ "$days" -lt 1 ]
+then
+  days=""
+fi
+
+if [ -z "$mindate" ] || [ -z "$maxdate" ]
+then
+  mindate=""
+  maxdate=""
+fi
+
+if [ -z "$days" ] && [ -z "$mindate" ] && [ -z "$maxdate" ]
+then
+  datetype=""
+fi
+
+# protect embedded 'and', 'or', and 'not' terms in single token filter,
+# properties, and organism fields, in select biological databases, since
+# lower-case Boolean operators will be replaced with AND according to:
+#   https://www.nlm.nih.gov/pubs/techbull/ja97/ja97_pubmed.html
+# although only 'or' and 'not' actually cause misinterpretation of:
+#   -db biosample -query "package metagenome or environmental version 1 0 [PROP]"
+
+# changed to replace all internal spaces with underscore, except leaving one
+# space before field bracket, and added assembly to list of databases given
+# this special processing of FILT, PROP, and ORGN controlled vocabularies
+
+ProtectWithUnderscores() {
+
+  echo "$1" | sed -e 's/ \[/\[/g; s/ /_/g; s/\[/ \[/g;  s/\[/ \[/g; s/_ \[/ \[/g'
+}
+
+ProcessEntrezQuery() {
+
+  echo "$1" |
+  sed -e 's/(/ | ( | /g' \
+      -e 's/)/ | ) | /g' |
+  sed -e "s/ AND / | AND | /g" \
+      -e "s/ OR / | OR | /g" \
+      -e "s/ NOT / | NOT | /g" |
+  tr '|' '\n' |
+  while read item
+  do
+    item=$( echo "$item" | sed -e 's/^ *//g; s/ *$//g; s/  */ /g' )
+    opt=$( echo "$item" | tr '[:upper:]' '[:lower:]' )
+    case "$opt" in
+      "" )
+        ;;
+      *"[filt]" | *"[filter]" )
+        ProtectWithUnderscores "$item"
+        ;;
+      *"[prop]" | *"[properties]" )
+        ProtectWithUnderscores "$item"
+        ;;
+      *"[orgn]" | *"[organism]" )
+        ProtectWithUnderscores "$item"
+        ;;
+      * )
+        echo "$item"
+        ;;
+    esac
+  done
+}
+
+case "$dbase" in
+  nuc* | prot* | gene | genome | popset | taxonomy | assembly | clinvar | cdd | sra | ipg | bio* )
+    case "$query" in
+      *\|* )
+        # skip if query contains an embedded vertical bar, reserved for splitting in ProcessEntrezQuery
+        ;;
+      * )
+        query=$( ProcessEntrezQuery "$query" | tr '\n' ' ' | sed -e 's/^ *//g; s/ *$//g; s/  */ /g' )
+        ;;
+    esac
+    ;;
+esac
+
+# helper function adds search-specific arguments (if set)
+
+RunWithSearchArgs() {
+
+  AddIfNotEmpty -WebEnv "$web_env" \
+  AddIfNotEmpty -query_key "$qry_key" \
+  AddIfNotEmpty -sort "$sort" \
+  AddIfNotEmpty -reldate "$days" \
+  AddIfNotEmpty -mindate "$mindate" \
+  AddIfNotEmpty -maxdate "$maxdate" \
+  AddIfNotEmpty -datetype "$datetype" \
+  AddIfNotEmpty -term "$query" \
+  RunWithCommonArgs "$@"
+}
+
+if [ "$ok" = true ]
+then
+  if [ "$log" = true ]
+  then
+    if [ "$isFilter" = true ]
+    then
+      printf "EFilter\n" >&2
+    else
+      printf "ESearch\n" >&2
+    fi
+  fi
+
+  err=""
+  num=""
+  res=$( RunWithSearchArgs nquire -url "$base" esearch.fcgi -retmax 0 -usehistory y -db "$dbase" )
+
+  if [ -n "$res" ]
+  then
+    res=$( echo "$res" | sed -e 's|<TranslationStack>.*</TranslationStack>||' )
+    ParseMessage "$res" eSearchResult web_env WebEnv qry_key QueryKey num Count
+  fi
+
+  WriteEDirect "$dbase" "$web_env" "$qry_key" "$num" "$stp" "$err"
+
+  exit 0
+fi
+
+# warn on insufficient arguments
+
+echo "${INVT} ERROR: ${LOUD} Missing -query argument${INIT}" >&2
+exit 1
+

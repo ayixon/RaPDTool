@@ -1,0 +1,1064 @@
+PUBMED
+
+First Authors
+
+  efetch -db pubmed -id 6271474,5685784,4882854,6243420 -format xml |
+  xtract -pattern PubmedArticle -element MedlineCitation/PMID "#Author" \
+    -block Author -position first -sep " " -element Initials,LastName \
+    -block Article -element ArticleTitle
+
+  6271474    5    MJ Casadaban     Tn3: transposition and control.
+  5685784    2    RK Mortimer      Suppressors and suppressible mutations in yeast.
+  4882854    2    ED Garber        Proteins and enzymes as taxonomic tools.
+  6243420    1    NR Cozzarelli    DNA gyrase and the supercoiling of DNA.
+
+Formatted Authors
+
+  efetch -db pubmed -id 1413997,6301692,781293 -format xml |
+  xtract -pattern PubmedArticle -element MedlineCitation/PMID \
+    -block PubDate -sep "-" -element Year,Month,MedlineDate \
+    -block Author -sep " " -tab "" \
+      -element "&COM" Initials,LastName -COM "(|)" |
+  perl -pe 's/(\t[^\t|]*)\|([^\t|]*)$/$1 and $2/; s/\|([^|]*)$/, and $1/; s/\|/, /g'
+
+  1413997    1992-Oct    RK Mortimer, CR Contopoulou, and JS King
+  6301692    1983-Apr    MA Krasnow and NR Cozzarelli
+  781293     1976-Jul    MJ Casadaban
+
+PMID in Variable
+
+  efetch -db pubmed -id 3201829,6301692,781293 -format xml |
+  xtract -pattern PubmedArticle -PMID MedlineCitation/PMID \
+    -block Author -element "&PMID" \
+      -sep " " -tab "\n" -element Initials,LastName
+
+  3201829    JR Johnston
+  3201829    CR Contopoulou
+  3201829    RK Mortimer
+  6301692    MA Krasnow
+  6301692    NR Cozzarelli
+  781293     MJ Casadaban
+
+Medical Subject Headings
+
+  efetch -db pubmed -id 6162838 -format xml |
+  xtract -transform <( echo -e "Y\t*\n" ) \
+    -pattern PubmedArticle -element MedlineCitation/PMID \
+      -block MeshHeading -clr \
+        -subset DescriptorName -plg "\n" -tab "" \
+          -translate "@MajorTopicYN" -element DescriptorName \
+        -subset QualifierName -plg " / " -tab "" \
+          -translate "@MajorTopicYN" -element QualifierName
+
+  6162838
+  Base Sequence
+  *DNA, Recombinant
+  Escherichia coli / genetics
+  ...
+  RNA, Messenger / *genetics
+  Transcription, Genetic
+  beta-Galactosidase / *genetics / metabolism
+
+Book Authors and Editors
+
+  efetch -db pubmed -id 21433338 -format xml |
+  xtract -pattern PubmedBookArticle \
+    -path BookDocument.AuthorList.Author -element LastName \
+    -path BookDocument.Book.AuthorList.Author -element LastName
+
+  Fauci    Desrosiers    Coffin    Hughes    Varmus
+
+Heterogeneous Data
+
+  efetch -db pubmed -id 21433338,17247418 -format xml |
+  xtract -pattern "PubmedArticleSet/*" \
+    -group "Book/AuthorList" -element LastName \
+    -group "Article/AuthorList" -element LastName
+
+  Coffin       Hughes     Varmus
+  Lederberg    Cavalli    Lederberg
+
+Multiple Links
+
+  esearch -db pubmed -query "conotoxin AND dopamine [MAJR]" |
+  elink -target protein -cmd neighbor |
+  xtract -pattern LinkSet -if Link/Id -element IdList/Id Link/Id
+
+  28666811    17105332    9506485
+  23624852    17105332
+  14657161    27532980    27532978    19424304
+  12944511    31542395    17105332
+
+Link Counts
+
+  elink -db protein -id NP_000509 -target pubmed |
+  elink -target protein -cmd neighbor |
+  xtract -wrp "Set,Rec" -pattern LinkSet \
+    -wrp "Uid" -element IdList/Id -wrp "Count" -num Link/Id |
+  xtract -pattern Rec -if Count -ge 50 -element Uid Count
+
+  32296183    17997
+  19372376    57
+
+Markup Correction
+
+  for id in 8475897 8988608 9698410 10194376 15949988 16271163 17282049 \
+    19793852 20968289 21892341 22106757 22785267 22360335 23095895 23095897 \
+    25435818 26433210 27672066 28635620 29547395 29869631 29869640 29944225
+  do
+    efetch -db pubmed -format xml -id "$id" |
+    xtract -pattern PubmedArticle -plg "\n\n" -sep "\n\n" -tab "\n\n" \
+      -element MedlineCitation/PMID ArticleTitle Abstract/AbstractText
+  done
+
+XML Normalization
+
+  echo "assembly 443538 Stat biosample 3737421 SampleData gene 5053 Summary medgen 1413 Name" |
+  xargs -n 3 sh -c 'efetch -db "$0" -id "$1" -format docsum |
+  xtract -pattern DocumentSummary -sep " | " -tab " - " -ret "\n\n" -lbl "$0" -element Id "$2"'
+
+Record Counts
+
+  echo "diphtheria measles pertussis polio tuberculosis" |
+  xargs -n 1 sh -c 'esearch -db pubmed -query "$0 [MESH]" |
+  efilter -days 365 -datetype PDAT |
+  xtract -pattern ENTREZ_DIRECT -lbl "$0" -element Count'
+
+  diphtheria      20
+  measles         213
+  pertussis       69
+  polio           76
+  tuberculosis    1787
+
+Citation Lookup
+
+  esearch -db pubmed -query "Beadle GW [AUTH] AND Tatum EL [AUTH]" |
+  elink -cited |
+  efilter -days 365 |
+  efetch -format abstract -start 3 -stop 5
+
+Stopwords and Stemming
+
+  pm=$( efetch -db pubmed -id 2005826 -format xml )
+  echo "$pm" | xtract -pattern PubmedArticle -sep " " -words ArticleTitle
+  echo "$pm" | xtract -stops -pattern PubmedArticle -sep " " -words ArticleTitle
+  echo "$pm" | xtract -stems -pattern PubmedArticle -sep " " -words ArticleTitle
+  echo "$pm" | xtract -stops -stems -pattern PubmedArticle -sep " " -words ArticleTitle
+
+DOI Extraction
+
+  esearch -db pubmed -query "Rowley JD [AUTH]" |
+  efetch -format xml |
+  xtract -pattern PubmedArticle \
+    -block ArticleId -if @IdType -equals doi \
+      -doi ArticleId |
+  tail -n 25
+
+Combining Independent Queries
+
+  esearch -db protein -query "amyloid* [PROT]" |
+  elink -target pubmed -label prot_cit |
+  esearch -db gene -query "apo* [GENE]" |
+  elink -target pubmed -label gene_cit |
+  esearch -query "(#prot_cit) AND (#gene_cit)" |
+  efetch -format docsum |
+  xtract -mixed -pattern DocumentSummary -element Id Title |
+  cat -v
+
+PMC
+
+Formatting Tag Removal
+
+  efetch -db pmc -id 4729119 -format xml |
+  xtract -mixed -pattern article -group p \
+    -position first -tab "\n\n" -element p -plain p |
+  fold -w 70 -s | awk '{$1=$1};1'
+
+  The intestinal cells of <italic>Caenorhabditis elegans</italic> are
+  filled with heterogeneous granular organelles that are associated
+  with specific organ functions. The best studied of these organelles
+  ...
+
+  The intestinal cells of Caenorhabditis elegans are filled with
+  heterogeneous granular organelles that are associated with specific
+  organ functions. The best studied of these organelles are lipid
+  ...
+
+SEQUENCE
+
+Peptide Sequences
+
+  esearch -db protein -query "conotoxin AND mat_peptide [FKEY]" |
+  efetch -format gpc |
+  xtract -insd complete mat_peptide "%peptide" product mol_wt peptide |
+  grep -i conotoxin | sort -t $'\t' -u -k 2,2n | head -n 8
+
+  ADB43131.1    15    conotoxin Cal 1b      1708    LCCKRHHGCHPCGRT
+  ADB43128.1    16    conotoxin Cal 5.1     1829    DPAPCCQHPIETCCRR
+  AIC77105.1    17    conotoxin Lt1.4       1705    GCCSHPACDVNNPDICG
+  ADB43129.1    18    conotoxin Cal 5.2     2008    MIQRSQCCAVKKNCCHVG
+  ADD97803.1    20    conotoxin Cal 1.2     2206    AGCCPTIMYKTGACRTNRCR
+  AIC77085.1    21    conotoxin Bt14.8      2574    NECDNCMRSFCSMIYEKCRLK
+  ADB43125.1    22    conotoxin Cal 14.2    2157    GCPADCPNTCDSSNKCSPGFPG
+  AIC77154.1    23    conotoxin Bt14.19     2578    VREKDCPPHPVPGMHKCVCLKTC
+
+Vitamin Biosynthesis
+
+  esearch -db pubmed -query "lycopene cyclase" -log |
+  elink -related |
+  elink -target protein |
+  efilter -organism rodents -source refseq |
+  efetch -format docsum |
+  xtract -pattern DocumentSummary -element AccessionVersion Title |
+  grep -i carotene | sort -V
+
+  NP_001346539.1    beta,beta-carotene 9',10'-oxygenase isoform 2 [Mus musculus]
+  NP_573480.1       beta,beta-carotene 9',10'-oxygenase isoform 1 [Mus musculus]
+  NP_446100.2       beta,beta-carotene 15,15'-dioxygenase [Rattus norvegicus]
+  NP_001121184.1    beta,beta-carotene 9',10'-oxygenase [Rattus norvegicus]
+  NP_001156500.1    beta,beta-carotene 15,15'-dioxygenase isoform 2 [Mus musculus]
+  NP_067461.2       beta,beta-carotene 15,15'-dioxygenase isoform 1 [Mus musculus]
+
+Coding Sequences
+
+  efetch -db nuccore -id J01636.1 -format gbc |
+  xtract -insd CDS gene sub_sequence
+
+  J01636.1    lacI    GTGAAACCAGTAACGTTATACGATGTCGCAGAGTATGCCG...
+  J01636.1    lacZ    ATGACCATGATTACGGATTCACTGGCCGTCGTTTTACAAC...
+  J01636.1    lacY    ATGTACTATTTAAAAAACACAAACTTTTGGATGTTCGGTT...
+  J01636.1    lacA    TTGAACATGCCAATGACCGAAAGAATAAGAGCAGGCAAGC...
+
+Sequence Subregion
+
+  efetch -db nuccore -id U54469 -format gbc |
+  xtract -pattern INSDSeq -nucleic INSDSeq_sequence[2881:1] |
+  fold -w 60
+
+  CCGGTTTTAATGTAGGTTTTTATTAATATACTTTTCCGTCTAATCCATTATTGACAGTGA
+  CTACAAAAAGCGGATAGATTTTATATTATGCCGATTTTTGATAACAAAGGGGGTTCCGTT
+  TCGGTTTCGTTACGCGGGTCTTAGACAATAGTCACGATTAATCGCTACTGTTGCTTATAA
+  ...
+
+3'UTR Sequences
+
+  #!/bin/bash -norc
+
+  ThreePrimeUTRs() {
+    xtract -pattern INSDSeq -ACC INSDSeq_accession-version -SEQ INSDSeq_sequence \
+      -block INSDFeature -if INSDFeature_key -equals CDS \
+        -pfc "\n" -element "&ACC" -rst -last INSDInterval_to -element "&SEQ" |
+    while read acc pos seq
+    do
+      if [ $pos -lt ${#seq} ]
+      then
+        echo -e ">$acc 3'UTR: $((pos+1))..${#seq}"
+        echo "${seq:$pos}" | fold -w 50
+      elif [ $pos -ge ${#seq} ]
+      then
+        echo -e ">$acc NO 3'UTR"
+      fi
+    done
+  }
+
+  esearch -db nuccore -query "5.5.1.19 [ECNO]" |
+  efilter -molecule mrna -source refseq |
+  efetch -format gbc | ThreePrimeUTRs
+
+  >NM_001328461.1 3'UTR: 1737..1871
+  gatgaatatagagttactgtgttgtaagctaatcatcatactgatgcaag
+  tgcattatcacatttacttctgctgatgattgttcataagattatgagtt
+  agccatttatcaaaaaaaaaaaaaaaaaaaaaaaa
+  >NM_001316759.1 3'UTR: 1628..1690
+  atccgagtaattcggaatcttgtccaattttatatagcctatattaatac
+  ...
+
+Amino Acid Composition
+
+  #!/bin/bash -norc
+
+  abbrev=( Ala Asx Cys Asp Glu Phe Gly His Ile \
+           Xle Lys Leu Met Asn Pyl Pro Gln Arg \
+           Ser Thr Sec Val Trp Xxx Tyr Glx )
+
+  AminoAcidComp() {
+    local count
+    while read num lttr
+    do
+      idx=$(printf %i "'$lttr'")
+      ofs=$((idx-97))
+      count[$ofs]="$num"
+    done <<< "$1"
+    for i in {0..25}
+    do
+      echo -e "${abbrev[$i]}\t${count[$i]-0}"
+    done |
+    sort
+  }
+
+  AminoAcidJoin() {
+    result=""
+    while read acc seq gene
+    do
+      comp="$(echo "$seq" | tr A-Z a-z | sed 's/[^a-z]//g' | fold -w 1 | sort-uniq-count)"
+      current=$(AminoAcidComp "$comp")
+      current=$(echo -e "GENE\t$gene\n$current")
+      if [ -n "$result" ]
+      then
+        result=$(join -t $'\t' <(echo "$result") <(echo "$current"))
+      else
+        result=$current
+      fi
+    done
+    echo "$result" |
+    grep -e "GENE" -e "[1-9]"
+  }
+
+  ids="NP_001172026,NP_000509,NP_004001,NP_001243779"
+  efetch -db protein -id "$ids" -format gpc |
+  xtract -insd INSDSeq_sequence CDS gene |
+  AminoAcidJoin
+
+  GENE    INS    HBB    DMD    TTN
+  Ala     10     15     210    2084
+  Arg     5      3      193    1640
+  Asn     3      6      153    1111
+  Asp     2      7      185    1720
+  Cys     6      2      35     513
+  Gln     7      3      301    942
+  Glu     8      8      379    3193
+  Gly     12     13     104    2066
+  His     2      9      84     478
+  Ile     2      0      165    2062
+  Leu     20     18     438    2117
+  Lys     2      11     282    2943
+  Met     2      2      79     398
+  Phe     3      8      77     908
+  Pro     6      7      130    2517
+  Ser     5      5      239    2463
+  Thr     3      7      194    2546
+  Trp     2      2      67     466
+  Tyr     4      3      61     999
+  Val     6      18     186    3184
+
+GENE
+
+Chromosome Assignments
+
+  esearch -db gene -query "calmodulin * [PFN] AND mammalia [ORGN]" |
+  efetch -format docsum |
+  xtract -pattern DocumentSummary \
+    -def "-" -element Id Name MapLocation ScientificName |
+  head -n 30
+
+  801       CALM1    14q32.11     Homo sapiens
+  808       CALM3    19q13.32     Homo sapiens
+  805       CALM2    2p21         Homo sapiens
+  24242     Calm1    6q32         Rattus norvegicus
+  12313     Calm1    12 E         Mus musculus
+  326597    CALM     -            Bos taurus
+  50663     Calm2    6q12         Rattus norvegicus
+  24244     Calm3    1q21         Rattus norvegicus
+  12315     Calm3    7 9.15 cM    Mus musculus
+  12314     Calm2    17 E4        Mus musculus
+  617095    CALM1    -            Bos taurus
+  396838    CALM3    6            Sus scrofa
+  ...
+
+Genome Range
+
+  esearch -db gene -query "Homo sapiens [ORGN] AND Y [CHR]" |
+  efilter -status alive | efetch -format docsum |
+  xtract -pattern DocumentSummary -NAME Name -DESC Description \
+    -block GenomicInfoType -if ChrLoc -equals Y \
+      -min ChrStart,ChrStop -element "&NAME" "&DESC" |
+  sort -k 1,1n | cut -f 2- |
+  grep -v pseudogene | grep -v uncharacterized |
+  between-two-genes ASMT IL3RA |
+  align-columns -g 4
+
+  IL3RA        interleukin 3 receptor subunit alpha
+  SLC25A6      solute carrier family 25 member 6
+  LINC00106    long intergenic non-protein coding RNA 106
+  ASMTL-AS1    ASMTL antisense RNA 1
+  ASMTL        acetylserotonin O-methyltransferase-like
+  P2RY8        purinergic receptor P2Y8
+  AKAP17A      A-kinase anchoring protein 17A
+  ASMT         acetylserotonin O-methyltransferase
+
+Centromere Position
+
+  nquire -ftp ftp.ncbi.nlm.nih.gov pub/gdp ideogram_9606_GCF_000001305.14_850_V1 |
+  grep acen | cut -f 1,2,6,7 | grep "^X"
+
+  X    p    58100001    61000000
+  X    q    61000001    63800000
+
+Gene Regions
+
+  esearch -db gene -query "DDT [GENE] AND mouse [ORGN]" |
+  efetch -format docsum |
+  xtract -pattern GenomicInfoType -element ChrAccVer ChrStart ChrStop |
+  xargs -n 3 sh -c 'efetch -db nuccore -format gb \
+    -id "$0" -chr_start "$1" -chr_stop "$2"'
+
+  LOCUS       NC_000076               2142 bp    DNA     linear   CON 09-FEB-2015
+  DEFINITION  Mus musculus strain C57BL/6J chromosome 10, GRCm38.p3 C57BL/6J.
+  ACCESSION   NC_000076 REGION: complement(75771233..75773374) GPC_000000783
+  VERSION     NC_000076.6
+  ...
+  FEATURES             Location/Qualifiers
+       source          1..2142
+                       /organism="Mus musculus"
+                       /mol_type="genomic DNA"
+                       /strain="C57BL/6J"
+                       /db_xref="taxon:10090"
+                       /chromosome="10"
+       gene            1..2142
+                       /gene="Ddt"
+       mRNA            join(1..159,462..637,1869..2142)
+                       /gene="Ddt"
+                       /product="D-dopachrome tautomerase"
+                       /transcript_id="NM_010027.1"
+       CDS             join(52..159,462..637,1869..1941)
+                       /gene="Ddt"
+                       /codon_start=1
+                       /product="D-dopachrome decarboxylase"
+                       /protein_id="NP_034157.1"
+                       /translation="MPFVELETNLPASRIPAGLENRLCAATATILDKPEDRVSVTIRP
+                       GMTLLMNKSTEPCAHLLVSSIGVVGTAEQNRTHSASFFKFLTEELSLDQDRIVIRFFP
+                       ...
+
+Recursive Data
+
+  esearch -db gene -query "rbcL [GENE] AND maize [ORGN]" |
+  efetch -format xml |
+  xtract -pattern Entrezgene -block "**/Gene-commentary" \
+    -if Gene-commentary_type@value -equals genomic \
+      -tab "\n" -element Gene-commentary_accession |
+  sort | uniq
+
+  NC_001666
+  X86563
+  Z11973
+
+Genes in Pathways
+
+  esearch -db gene -query "PAH [GENE]" -organism human |
+  elink -target biosystems |
+  efilter -pathway wikipathways |
+  elink -target gene |
+  efetch -format docsum |
+  xtract -pattern DocumentSummary -element Name Id Description |
+  grep -v pseudogene | grep -v uncharacterized |
+  sort -f
+
+  AANAT      15     aralkylamine N-acetyltransferase
+  ACADM      34     acyl-CoA dehydrogenase medium chain
+  ACHE       43     acetylcholinesterase (Cartwright blood group)
+  ADCYAP1    116    adenylate cyclase activating polypeptide 1
+  ...
+
+Gene Products
+
+  for sym in HBB BRCA2 CFTR RAG1
+  do
+    esearch -db gene -query "$sym [GENE] AND human [ORGN]" |
+    efilter -query "alive [PROP]" | efetch -format docsum |
+    xtract -pattern GenomicInfoType \
+      -element ChrAccVer ChrStart ChrStop |
+    while read acc str stp
+    do
+      efetch -db nuccore -format gbc \
+        -id "$acc" -chr_start "$str" -chr_stop "$stp" |
+      xtract -insd CDS,mRNA INSDFeature_key "#INSDInterval" \
+        gene "%transcription" "%translation" \
+        product transcription translation |
+      grep -i $'\t'"$sym"$'\t'
+    done
+  done
+
+  NC_000011.10    mRNA    3     HBB    626      hemoglobin, beta                     ACATTTGCTT...
+  NC_000011.10    CDS     3     HBB    147      hemoglobin subunit beta              MVHLTPEEKS...
+  NC_000023.11    mRNA    78    DMD    13805    dystrophin, transcript variant X2    AGGAAGATGA...
+  NC_000023.11    mRNA    77    DMD    13794    dystrophin, transcript variant X6    ACTTTCCCCC...
+  NC_000023.11    mRNA    77    DMD    13800    dystrophin, transcript variant X5    ACTTTCCCCC...
+  NC_000023.11    mRNA    77    DMD    13785    dystrophin, transcript variant X7    ACTTTCCCCC...
+  NC_000023.11    mRNA    74    DMD    13593    dystrophin, transcript variant X8    ACTTTCCCCC...
+  NC_000023.11    mRNA    75    DMD    13625    dystrophin, transcript variant X9    ACTTTCCCCC...
+  ...
+
+Unfiltered Gene Lookup
+
+  for sym in ATP6 ATP7B CBD DMD HFE PAH PRNP TTN
+  do
+    esearch -db gene -query "$sym [GENE]" -organism human |
+    efetch -format docsum |
+    xtract -pattern DocumentSummary -def "-" -lbl "${sym}" \
+      -element NomenclatureSymbol Id Description CommonName
+  done
+
+  ATP6      MT-ATP6    4508         ATP synthase F0 subunit 6           human
+  ATP6      -          6775074      ATP synthase F0 subunit 6           Neandertal
+  ATP6      -          8923188      ATP synthase F0 subunit 6           Denisova hominin
+  CBD       OPN1MW     2652         opsin 1, medium wave sensitive      human
+  HBB       HBB        3043         hemoglobin subunit beta             human
+  HBB       KRT89P     85344        keratin 89 pseudogene               human
+  OPN1MW    OPN1MW     2652         opsin 1, medium wave sensitive      human
+  OPN1MW    OPN1MW3    101060233    opsin 1, medium wave sensitive 3    human
+
+Protein Coding Genes
+
+  for sym in MT-ATP6 BRCA2 CFTR HBB HFE IL9R OPN1MW PAH
+  do
+    esearch -db gene -query "$sym [PREF]" -organism human |
+    efetch -format docsum |
+    xtract -pattern DocumentSummary -def "-" \
+      -lbl "${sym}" -element Id Chromosome Description
+  done |
+  ...
+
+  MT-ATP6    4508    MT      ATP synthase F0 subunit 6
+  BRCA2      675     13      BRCA2 DNA repair associated
+  CFTR       1080    7       CF transmembrane conductance regulator
+  HBB        3043    11      hemoglobin subunit beta
+  HFE        3077    6       homeostatic iron regulator
+  IL9R       3581    X, Y    interleukin 9 receptor
+  OPN1MW     2652    X       opsin 1, medium wave sensitive
+  PAH        5053    12      phenylalanine hydroxylase
+
+Common Pathways
+
+  ...
+  while IFS=$'\t' read sym uid chr desc
+  do
+    elink -db gene -id "$uid" -target biosystems |
+    efilter -kind pathway |
+    efetch -format docsum |
+    xtract -pattern DocumentSummary -lbl "${sym}" \
+      -lower source -element externalid biosystemname
+  done |
+  sort -t $'\t' -k 2,2 -k 3,3 -k 1,1 |
+  awk 'a[$3]++{ if(a[$3]==2){ print b }; print $0}; {b=$0}'
+
+  MT-ATP6    kegg        hsa01100         Metabolic pathways
+  PAH        kegg        hsa01100         Metabolic pathways
+  HBB        reactome    R-HSA-1430728    Metabolism
+  MT-ATP6    reactome    R-HSA-1430728    Metabolism
+  PAH        reactome    R-HSA-1430728    Metabolism
+  CFTR       reactome    R-HSA-162582     Signal Transduction
+  OPN1MW     reactome    R-HSA-162582     Signal Transduction
+  ...
+
+TAXONOMY
+
+Taxonomic Names
+
+  esearch -db taxonomy -query "txid10090 [SBTR] OR camel [COMN]" |
+  efetch -format docsum |
+  xtract -pattern DocumentSummary -if CommonName \
+    -element Id ScientificName CommonName
+
+  57486    Mus musculus molossinus    Japanese wild mouse
+  39442    Mus musculus musculus      eastern European house mouse
+  35531    Mus musculus bactrianus    southwestern Asian house mouse
+  10092    Mus musculus domesticus    western European house mouse
+  10091    Mus musculus castaneus     southeastern Asian house mouse
+  10090    Mus musculus               house mouse
+  9838     Camelus dromedarius        Arabian camel
+  9837     Camelus bactrianus         Bactrian camel
+
+STRUCTURE
+
+Structural Similarity
+
+  esearch -db structure -query "crotalus [ORGN] AND phospholipase A2" |
+  elink -related |
+  efilter -query "archaea [ORGN]" |
+  efetch -format docsum |
+  xtract -pattern DocumentSummary \
+    -if PdbClass -equals Hydrolase \
+      -element PdbAcc PdbDescr
+
+  3WIV    Crystal Structure Of Pro-s324a/d356a
+  3WIU    Crystal Structure Of Pro-s324a/l349a
+  3VV2    Crystal Structure Of Complex Form Between S324a-subtilisin And Mutant Tkpro
+  3VHQ    Crystal Structure Of The Ca6 Site Mutant Of Pro-Sa-Subtilisin
+  2ZWP    Crystal Structure Of Ca3 Site Mutant Of Pro-S324a
+  ...
+
+SNP
+
+Amino Acid Substitutions
+
+  esearch -db gene -query "OPN1MW [PREF] AND human [ORGN]" |
+  elink -target snp | efilter -class missense |
+  efetch -format docsum |
+  xtract -rec HGVS -pattern DocumentSummary \
+    -wrp Id -element Id -rst -hgvs DOCSUM |
+  hgvs2spdi |
+  xtract -pattern SPDI -pfx "rs" -RSID Id \
+    -group Variant -if Class -equals Protein -and Type -equals Missense \
+      -element "&RSID" Accession Deleted Inserted Position -deq "\n" |
+  sort-table -k 2,2 -k 5,5n -k 4,4f -k 1.3n | uniq |
+  while read rsid accn del ins ofs
+  do
+    if [ "$accn" != "$last" ]
+    then
+      seq=$( efetch -db protein -id "$accn" -format gpc < /dev/null |
+             xtract -pattern INSDSeq -lower INSDSeq_sequence )
+      last="$accn"
+    fi
+    pos=$((ofs + 1))
+    echo ">$rsid [$accn $ins@$pos]"
+    echo "$seq" |
+    transmute -replace -offset "$ofs" -delete "$del" -insert "$ins" -lower |
+    fold -w 50
+  done
+
+  >rs1238141906 [NP_000504.1 K@41]
+  maqqwslqrlagrhpqdsyedstqssiftytnsnstrgpfKgpnyhiapr
+  wvyhltsvwmifvviasvftnglvlaatmkfkklrhplnwilvnlavadl
+  aetviastisvvnqvygyfvlghpmcvlegytvslcgitglwslaiiswe
+  ...
+
+Sequences Flanking SNPs
+
+  #!/bin/bash -norc
+
+  efetch -db snp -id 268 -format json |
+  transmute -j2x -set - -rec RS |
+  xtract -pattern RS -pfx "rs" -RSID RS/refsnp_id \
+    -group placements_with_allele \
+      -block allele -if seq_id -starts-with "NC_" \
+        -and inserted_sequence -differs-from deleted_sequence \
+        -element "&RSID" seq_id deleted_sequence \
+          inserted_sequence -tab "\n" -inc position |
+  sort -t $'\t' -k 2,2 -k 5,5n -k 4,4f -k 1.3n | uniq |
+  while read rsid accn del ins pos
+  do
+    lft=$(efetch -db nuccore -format fasta -id "$accn" \
+            -seq_start "$((pos-50))" -seq_stop "$((pos-1))" < /dev/null |
+          grep -v '>' | tr -d '\n')
+
+    ad=${#ins}
+    sb=${#del}
+    rgt=$(efetch -db nuccore -format fasta -id "$accn" \
+            -seq_start "$((pos+ad-sb+1))" -seq_stop "$((pos+ad-sb+50))" < /dev/null |
+          grep -v '>' | tr -d '\n')
+
+    echo "$rsid $accn $pos $del->$ins"
+    echo "5': $lft"
+    echo "3': $rgt"
+    echo ""
+  done
+
+  rs268 NC_000008.10 19813529 A->G
+  5': CTGCTTGAGTTGTAGAAAGAACCGCTGCAACAATCTGGGCTATGAGATCA
+  3': TAAAGTCAGAGCCAAAAGAAGCAGCAAAATGTACCTGAAGACTCGTTCTC
+
+  rs268 NC_000008.11 19956018 A->G
+  5': CTGCTTGAGTTGTAGAAAGAACCGCTGCAACAATCTGGGCTATGAGATCA
+  3': TAAAGTCAGAGCCAAAAGAAGCAGCAAAATGTACCTGAAGACTCGTTCTC
+
+EXTERNAL
+
+JSON Nested Array Expansion
+
+  JS=$( nquire -get "http://mygene.info/v3" gene 3043 )
+  echo "$JS" | transmute -j2p | grep '"position":' -A 14 | head -n 15
+  for ns in flat recurse plural depth element
+  do
+    echo
+    echo "  $ns"
+    echo
+    echo "$JS" |
+    transmute -j2x -nest "$ns" |
+    grep position | head -n 4
+  done
+
+  "position": [
+      [
+          5225463,
+          5225726
+      ],
+      [
+          5226576,
+          5226799
+      ],
+      [
+          5226929,
+          5227071
+      ]
+  ],
+  "strand": -1,
+
+  flat
+
+    <position>5225463</position>
+    <position>5225726</position>
+    <position>5226576</position>
+    <position>5226799</position>
+
+  recurse
+
+    <position>
+      <position>5225463</position>
+      <position>5225726</position>
+    </position>
+
+  plural
+
+    <positions>
+      <position>5225463</position>
+      <position>5225726</position>
+    </positions>
+
+  depth
+
+    <position>
+      <position_1>5225463</position_1>
+      <position_1>5225726</position_1>
+    </position>
+
+  element
+
+    <position>
+      <position_E>5225463</position_E>
+      <position_E>5225726</position_E>
+    </position>
+
+Exon Interval Sets
+
+  nquire -get "http://mygene.info/v3/gene/2652" |
+  transmute -j2x -set - -rec GeneRec -nest plural |
+  xtract -pattern GeneRec -group exons -lbl "" -clr \
+    -block positions -pfc "\n" -sep ".." -tab "\n" -element position
+
+  154182595..154182789
+  154187769..154188066
+  154190053..154190222
+  154191687..154191853
+  154193407..154193647
+  154195929..154196861
+
+  154219733..154219927
+  154224907..154225204
+  ...
+
+Heterogeneous Object Names
+
+  nquire -get "http://mygene.info/v3/gene/2652" |
+  xtract -pattern opt -group "pathway/*" -deq "\n" -element "?,name,id"
+
+  <pathway>
+    <reactome>
+      <id>R-HSA-162582</id>
+      <name>Signal Transduction</name>
+    </reactome>
+    ...
+    <wikipathways>
+      <id>WP455</id>
+      <name>GPCRs, Class A Rhodopsin-like</name>
+    </wikipathways>
+  </pathway>
+
+  reactome        Signal Transduction                              R-HSA-162582
+  reactome        Disease                                          R-HSA-1643685
+  reactome        The retinoid cycle in cones (daylight vision)    R-HSA-2187335
+  reactome        Visual phototransduction                         R-HSA-2187338
+  reactome        Retinoid cycle disease events                    R-HSA-2453864
+  reactome        Diseases associated with visual transduction     R-HSA-2474795
+  reactome        Signaling by GPCR                                R-HSA-372790
+  reactome        Class A/1 (Rhodopsin-like receptors)             R-HSA-373076
+  reactome        GPCR downstream signalling                       R-HSA-388396
+  reactome        G alpha (i) signalling events                    R-HSA-418594
+  reactome        Opsins                                           R-HSA-419771
+  reactome        GPCR ligand binding                              R-HSA-500792
+  reactome        Diseases of signal transduction                  R-HSA-5663202
+  wikipathways    GPCRs, Class A Rhodopsin-like                    WP455
+
+XML Namespace Prefixes
+
+  nquire -url "http://webservice.wikipathways.org" getPathway -pwId WP455 |
+  xtract -pattern "ns1:getPathwayResponse" -decode ":gpml" |
+  xtract -pattern Pathway -block Xref \
+    -if @Database -equals "Entrez Gene" \
+      -tab "\n" -element @ID |
+  sort -n
+
+  134
+  135
+  136
+  140
+  146
+  ...
+
+LOCAL ARCHIVE
+
+Entrez Indexing
+
+  efetch -db pubmed -id 12857958,2981625 -format xml |
+  xtract -e2index |
+  xtract -pattern IdxDocument -UID IdxUid \
+    -block TIAB -pfc "\n" -element "&UID",TIAB,"@pos"
+
+  12857958    allow       205
+  12857958    assays      147
+  12857958    binding     146
+  12857958    braid       187,215
+  12857958    braiding    153
+  ...
+
+Author Frequency
+
+  esearch -db pubmed -query "rattlesnake phospholipase" |
+  efetch -format uid | fetch-pubmed |
+  xtract -pattern PubmedArticle -block Author \
+    -sep " " -tab "\n" -element LastName,Initials |
+  sort-uniq-count-rank
+
+  40    Marangoni S
+  33    Toyama MH
+  28    Soares AM
+  25    Bon C
+  ...
+
+Author Counts
+
+  esearch -db pubmed -query "conotoxin" |
+  efetch -format uid | fetch-pubmed |
+  xtract -pattern PubmedArticle -num Author |
+  sort-uniq-count -n |
+  reorder-columns 2 1 |
+  head -n 15 |
+  tee /dev/tty |
+  xy-plot auth.png
+
+  0     11
+  1     193
+  2     854
+  3     844
+  4     699
+  5     588
+  6     439
+  7     291
+  8     187
+  9     124
+  10    122
+  11    58
+  12    33
+  13    18
+
+  900 +
+      |           ********
+  800 +           *       **
+      |          *          *
+  700 +          *          ***
+      |          *             **
+  600 +         *                *
+      |         *                ***
+  500 +         *                   **
+      |        *                      ***
+  400 +       *                          **
+      |       *                            *
+  300 +       *                            ***
+      |      *                                *
+  200 +      *                                 ******
+      |     *                                        *********
+  100 +   **                                                  *
+      |  *                                                     **********
+    0 + *                                                                ******
+        +---------+---------+---------+---------+---------+---------+---------+
+        0         2         4         6         8        10        12        14
+
+Title and Abstract Word Counts
+
+  esearch -db pubmed -query "conotoxin" -pub structured |
+  efetch -format uid | fetch-pubmed |
+  xtract -stops -wrp "Set,Rec" \
+    -pattern PubmedArticle -wrp "PMID" -element MedlineCitation/PMID \
+      -wrp "Titl" -words ArticleTitle \
+      -block Abstract/AbstractText -wrp "Grp,Abst" -words AbstractText |
+  xtract -pattern Rec -element PMID -num Titl -block Grp -tab ", " -num Abst
+
+  29194563    21    63, 84, 89, 26
+  28882644    23    87, 34, 115, 25
+  28877214    10    12, 42, 315, 94
+  28825343    15    169
+  28482835    9     75, 123, 42, 37
+  28479398    15    170, 130
+  ...
+
+Verbosity Per Year
+
+  esearch -db pubmed -query "PNAS [JOUR]" -pub abstract |
+  efetch -format uid | stream-pubmed | gunzip -c |
+  xtract -stops -wrp Set,Rec -pattern PubmedArticle \
+    -wrp "Year" -year "PubDate/*" \
+    -wrp "Abst" -words Abstract/AbstractText |
+  xtract -wrp Set,Pub -pattern Rec \
+    -wrp "Year" -element Year \
+    -wrp "Num" -num Abst > countsByYear.xml
+  for yr in {1960..2020}
+  do
+    cat countsByYear.xml |
+    xtract -wrp Raw -pattern Pub -select Year -eq "$yr" |
+    xtract -pattern Raw -lbl "$yr" -avg Num
+  done |
+  tee /dev/tty |
+  xy-plot verbosity.png
+  rm countsByYear.xml
+
+Appending Metadata
+
+  esearch -db pubmed -query "PNAS [JOUR]" -pub abstract |
+  efetch -format uid | fetch-pubmed > pnas.xml
+
+  cat pnas.xml |
+  xtract -stops -wrp Set,Rec -pattern PubmedArticle \
+    -wrp ID -element MedlineCitation/PMID \
+    -wrp Abst -words Abstract/AbstractText |
+
+    <Set>
+    <Rec><ID>31822623</ID>    <Abst>foxp3</Abst><Abst>cd4</Abst><Abst>regulatory...</Abst></Rec>
+    ...
+
+  xtract -pattern Rec -element ID -wrp Num -num Abst > counts.txt
+
+    31822623    <Num>243</Num>
+    31822622    <Num>132</Num>
+    31822621    <Num>252</Num>
+    31822620    <Num>238</Num>
+    ...
+
+  xtract -input pnas.xml -wrp PubmedArticleSet -pattern PubmedArticle \
+    -select MedlineCitation/PMID -appending counts.txt > merged.xml
+
+LOCAL INDEX
+
+Histogram Shortcut
+
+  cat $EDIRECT_PUBMED_MASTER/Current/*.xml |
+  xtract -timer -pattern PubmedArticle -histogram PubDate/Month
+
+  26         8
+  37         9
+  121475     01
+  114579     02
+  111137     03
+  109794     04
+  120169     05
+  130062     06
+  125107     07
+  126246     08
+  123191     09
+  120957     10
+  109657     11
+  110854     12
+  1958892    Apr
+  1809730    Aug
+  2086169    Dec
+  1844717    Feb
+  1851803    Jan
+  1784258    Jul
+  2015942    Jun
+  1943325    Mar
+  1815691    May
+  1889194    Nov
+  2035632    Oct
+  1          October
+  1956569    Sep
+
+Month Format Per Year
+
+  cat $EDIRECT_PUBMED_MASTER/Current/*.xml |
+  xtract -wrp Set,Rec -pattern PubmedArticle \
+    -if PubDate/Month -wrp YR -year "PubDate/*" -wrp MN -len PubDate/Month |
+  xtract -wrp Set,Rec -pattern Rec \
+    -pfx "<DT>" -sep "+-" -sfx "-</DT>" -element YR,MN |
+  xtract -pattern Rec -histogram DT |
+  reorder-columns 2 1 | tr '+' '\t' |
+  sed -e 's/-3-/1/g' -e 's/-2-/2/g' -e 's/-1-/3/g' -e 's/-[0-9]-/4/g' |
+  sort -k 1,1n -k 2,2n > rawMonthCounts.txt
+
+  result=$( cat rawMonthCounts.txt | cut -f 1 | uniq )
+  for i in {1..4}
+  do
+    current=$( cat rawMonthCounts.txt | grep "\t$i\t" | cut -f 1,3 )
+    result=$(join -a 1 -t $'\t' <(echo "$result") <(echo "$current"))
+  done
+  echo "$result" > plotme.txt
+
+  cat plotme.txt | xy-plot
+
+Phrase Query Automation
+
+  ascend_mesh_tree() {
+    var="${1%\*}"
+    while :
+    do
+      phrase-search -count "$var* [TREE]"
+      case "$var" in
+        *.* ) var="${var%????}" ;;
+        *   ) break             ;;
+      esac
+    done
+  }
+
+  ascend_mesh_tree "C01.925.782.417.415"
+
+  5598       c01 925 782 417 415*
+  28400      c01 925 782 417*
+  658188     c01 925 782*
+  928201     c01 925*
+  2639368    c01*
+
+Medical Subject Heading Code Viewers
+
+  https://meshb.nlm.nih.gov/treeView
+  https://meshb-prev.nlm.nih.gov/treeView
+
+MISCELLANEOUS
+
+Indexed Fields
+
+  einfo -db pubmed |
+  xtract -pattern Field \
+    -if IsDate -equals Y -and IsHidden -equals N \
+      -pfx "[" -sep "]\t" -element Name,FullName |
+  sort -t $'\t' -k 2f
+
+  [CDAT]    Date - Completion
+  [CRDT]    Date - Create
+  [EDAT]    Date - Entrez
+  [MHDA]    Date - MeSH
+  [MDAT]    Date - Modification
+  [PDAT]    Date - Publication
+
+Pseudocode Prototype
+
+  for each PubmedArticle {
+    for each Author {
+      print Initials LastName
+    }
+    for each MeshHeading {
+      print DescriptorName
+      for each QualifierName {
+        print QualifierName
+      }
+    }
+  }
+
+  xtract -pattern PubmedArticle \
+    -block Author -element Initials LastName \
+    -block MeshHeading -element DescriptorName \
+      -subset QualifierName -element QualifierName
+
+Processing in Groups
+
+  ...
+  efetch -format acc |
+  join-into-groups-of 200 |
+  xargs -n 1 sh -c 'epost -db nuccore -format acc -id "$0" |
+  efetch -format gb'

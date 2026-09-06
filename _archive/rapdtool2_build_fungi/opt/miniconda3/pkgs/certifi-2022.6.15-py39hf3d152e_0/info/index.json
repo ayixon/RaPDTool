@@ -1,0 +1,15 @@
+{
+  "arch": "x86_64",
+  "build": "py39hf3d152e_0",
+  "build_number": 0,
+  "depends": [
+    "python >=3.9,<3.10.0a0",
+    "python_abi 3.9.* *_cp39"
+  ],
+  "license": "ISC",
+  "name": "certifi",
+  "platform": "linux",
+  "subdir": "linux-64",
+  "timestamp": 1655323969375,
+  "version": "2022.6.15"
+}

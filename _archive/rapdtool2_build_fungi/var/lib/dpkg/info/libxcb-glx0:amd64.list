@@ -1,0 +1,11 @@
+/.
+/usr
+/usr/lib
+/usr/lib/x86_64-linux-gnu
+/usr/lib/x86_64-linux-gnu/libxcb-glx.so.0.0.0
+/usr/share
+/usr/share/doc
+/usr/share/doc/libxcb-glx0
+/usr/share/doc/libxcb-glx0/copyright
+/usr/lib/x86_64-linux-gnu/libxcb-glx.so.0
+/usr/share/doc/libxcb-glx0/changelog.Debian.gz

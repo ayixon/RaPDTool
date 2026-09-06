@@ -1,0 +1,16 @@
+/.
+/usr
+/usr/lib
+/usr/lib/x86_64-linux-gnu
+/usr/lib/x86_64-linux-gnu/libcurl-gnutls.so.4.7.0
+/usr/share
+/usr/share/doc
+/usr/share/doc/libcurl3-gnutls
+/usr/share/doc/libcurl3-gnutls/NEWS.Debian.gz
+/usr/share/doc/libcurl3-gnutls/changelog.Debian.gz
+/usr/share/doc/libcurl3-gnutls/copyright
+/usr/share/lintian
+/usr/share/lintian/overrides
+/usr/share/lintian/overrides/libcurl3-gnutls
+/usr/lib/x86_64-linux-gnu/libcurl-gnutls.so.3
+/usr/lib/x86_64-linux-gnu/libcurl-gnutls.so.4

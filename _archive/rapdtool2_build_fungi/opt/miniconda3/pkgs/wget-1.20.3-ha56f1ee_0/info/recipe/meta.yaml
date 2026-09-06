@@ -1,0 +1,76 @@
+# This file created by conda-build 3.21.4
+# meta.yaml template originally from:
+# /home/conda/recipe_root, last modified Thu Jul 22 14:13:42 2021
+# ------------------------------------------------
+
+package:
+  name: wget
+  version: 1.20.3
+source:
+  sha256: 31cccfc6630528db1c8e3a06f6decf2a370060b982841cfab2b8677400a5092e
+  url: http://ftp.gnu.org/gnu/wget/wget-1.20.3.tar.gz
+build:
+  number: '0'
+  string: ha56f1ee_0
+requirements:
+  build:
+    - _libgcc_mutex 0.1 conda_forge
+    - _openmp_mutex 4.5 1_gnu
+    - binutils_impl_linux-64 2.36.1 h193b22a_1
+    - binutils_linux-64 2.36 hf3e587d_32
+    - gcc_impl_linux-64 9.3.0 h70c0ae5_19
+    - gcc_linux-64 9.3.0 hf25ea35_32
+    - kernel-headers_linux-64 2.6.32 he073ed8_14
+    - ld_impl_linux-64 2.36.1 hea4e1c9_1
+    - libgcc-devel_linux-64 9.3.0 h7864c58_19
+    - libgcc-ng 9.3.0 h2828fa1_19
+    - libgomp 9.3.0 h2828fa1_19
+    - libstdcxx-ng 9.3.0 h6de172a_19
+    - make 4.3 hd18ef5c_1
+    - pkg-config 0.29.2 h36c2ea0_1008
+    - sysroot_linux-64 2.12 he073ed8_14
+  host:
+    - _libgcc_mutex 0.1 conda_forge
+    - _openmp_mutex 4.5 1_gnu
+    - ca-certificates 2021.5.30 ha878542_0
+    - gettext 0.19.8.1 h0b5b191_1005
+    - libffi 3.3 h58526e2_2
+    - libgcc-ng 9.3.0 h2828fa1_19
+    - libgomp 9.3.0 h2828fa1_19
+    - libidn2 2.3.2 h7f98852_0
+    - libstdcxx-ng 9.3.0 h6de172a_19
+    - libunistring 0.9.10 h7f98852_0
+    - openssl 1.1.1k h7f98852_0
+    - zlib 1.2.11 h516909a_1010
+  run:
+    - libgcc-ng >=9.3.0
+    - libidn2 >=2,<3.0a0
+    - libunistring >=0,<1.0a0
+    - openssl >=1.1.1k,<1.1.2a
+    - openssl >=1.1.1k,<1.1.2a
+    - zlib >=1.2.11,<1.3.0a0
+    - zlib >=1.2.11,<1.3.0a0
+test:
+  commands:
+    - wget --help
+    - wget --version
+    - wget https://github.com/conda-forge
+about:
+  description: 'wget is a free software package for retrieving files using HTTP, HTTPS
+    and FTP,
+
+    the most widely-used Internet protocols.
+
+    '
+  doc_source_url: https://savannah.gnu.org/projects/wget/
+  doc_url: https://www.gnu.org/software/wget/
+  home: https://www.gnu.org/software/wget/
+  license: GPL3
+  license_file: COPYING
+  summary: utility for non-interactive download of files from the Web
+extra:
+  copy_test_source_files: true
+  final: true
+  recipe-maintainers:
+    - bgruening
+    - johanneskoester

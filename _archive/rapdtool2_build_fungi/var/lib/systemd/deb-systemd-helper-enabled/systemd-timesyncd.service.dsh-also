@@ -1,0 +1,2 @@
+/etc/systemd/system/sysinit.target.wants/systemd-timesyncd.service
+/etc/systemd/system/dbus-org.freedesktop.timesync1.service

@@ -1,0 +1,368 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: LDC
+Source: https://github.com/ldc-developers/ldc
+
+Files: *
+Copyright: (c) 2007-2017 LDC Team
+           David Nadlinger,
+           Kai Nacke,
+           Tomas Lindquist Olsen,
+           Kinke,
+           Johan Engelen,
+           Alexey Prokhin
+License: BSD-3-Clause and BSL-1.0 and LLVM
+Comment:
+ LDC is released under the "three-clause BSD" LDC license reproduced below, with
+ the following exceptions:
+ .
+ Compiler (bin/ in binary packages):
+  - LDC uses the DMD frontend (dmd/* and dmd2/* in source code distributions),
+    which was originally written by Walter Bright and is released under the
+    Artistic license or the GPL version 1. LDMD (driver/ldmd.cpp) and the RTTI
+    handling code (gen/typinf.cpp) are also partly derived from DMD.
+ .
+  - LDC incorporates code (gen/asmstmt.cpp and gen/asm-*.h) originally written
+    by David Friedman for GDC and released under the Artistic license or the
+    GPL version 2 or later.
+ .
+  - LDC uses the libconfig++ library under the terms of the GNU LGPL 2.1.
+ .
+  - The LDC project makes use of the LLVM framework, which is govenered by the
+    University of Illinois Open Source License. A few LDC source files directly
+    incorporate code derived from LLVM, see the file headers for details.
+ .
+ Libraries (lib/ and import/ in binary packages):
+  - The D standard library, comprised of druntime (runtime/druntime) and
+    Phobos (runtime/phobos), is distributed under the terms of the Boost
+    Software License. See the individual source files for author information.
+
+Files: dmd/*
+Copyright:
+ (c) 2015-2017 by D Language Foundation
+ (c) 1999-2017 by Digital Mars
+ (c) 2001-2002, Pavel Minayev
+ (c) 2010-2017, Andrei Alexandrescu.
+ (c) 2010-2011, Rainer Schuetze
+ (c) 2012, Alex Rønne Petersen
+ (c) 2016, Sociomantic Labs GmbH
+License: BSL-1.0
+
+Files: runtime/druntime/*
+Copyright:
+ (c) 2015-2017 by D Language Foundation
+ Digital Mars 2004 - 2017
+ (c) Sean Kelly 2005 - 2014
+ Copyright Martin Nowak 2012
+ Andrei Alexandrescu 2008-2017
+ 2004-2011, Christopher E. Miller
+ David Nadlinger, 2012.
+ Copyright (c) 2016 Sociomantic Labs
+ Copyright Benjamin Thaut 2010 - 2013
+ Copyright David Nadlinger 2013
+ Copyright Sean Kelly 2005 - 2014
+ 2011-2012, Alex Rønne Petersen
+ Sönke Ludwig 2013
+ 2016, Sociomantic Labs GmbH
+ Kai Nacke 2016
+ Jacob Carlborg
+License: BSL-1.0
+
+Files: runtime/phobos/*
+Copyright:
+ (c) 2004-2017 by D Language Foundation
+ Digital Mars 2004 - 2017,
+ Sebastian Wilzbach,
+ Vladimir Panteleev,
+ Martin Nowak,
+ Andrei Alexandrescu,
+ Jack Stouffer,
+ Petar Kirov,
+ Simen Kjærås,
+ Lars T. Kyllingstad,
+ Jonathan M Davis,
+ Rainer Schuetze,
+ Johannes Pfau,
+ Robert Schadek,
+ Iain Buclaw,
+ David Nadlinger,
+ MetaLang,
+ Steven Schveighoffer,
+ Joseph Rushton Wakeling,
+ Dmitry Olshansky
+License: BSL-1.0
+
+Files: tests/d2/dmd-testsuite/runnable/template6.d
+Copyright: 2005, Eric Anderton
+License: Expat
+
+Files: tests/d2/dmd-testsuite/runnable/extra-files/untag.html
+Copyright: (c) various wikipedia authors
+License: GFDL-1.3
+ For GFDL, see `/usr/share/common-licenses/GFDL-1.3'.
+
+Files: tests/d2/dmd-testsuite/runnable/extra-files/alice30.txt
+Copyright: Lewis Carroll
+License: public-domain
+ Project Gutenberg "license":
+ ***START**THE SMALL PRINT!**FOR PUBLIC DOMAIN ETEXTS**START***
+ Why is this "Small Print!" statement here?  You know: lawyers.
+ They tell us you might sue us if there is something wrong with
+ your copy of this etext, even if you got it for free from
+ someone other than us, and even if what's wrong is not our
+ fault.  So, among other things, this "Small Print!" statement
+ disclaims most of our liability to you.  It also tells you how
+ you can distribute copies of this etext if you want to.
+ .
+ *BEFORE!* YOU USE OR READ THIS ETEXT
+ By using or reading any part of this PROJECT GUTENBERG-tm
+ etext, you indicate that you understand, agree to and accept
+ this "Small Print!" statement.  If you do not, you can receive
+ a refund of the money (if any) you paid for this etext by
+ sending a request within 30 days of receiving it to the person
+ you got it from.  If you received this etext on a physical
+ medium (such as a disk), you must return it with your request.
+ .
+ ABOUT PROJECT GUTENBERG-TM ETEXTS
+ This PROJECT GUTENBERG-tm etext, like most PROJECT GUTENBERG-
+ tm etexts, is a "public domain" work distributed by Professor
+ Michael S. Hart through the Project Gutenberg Association at
+ Illinois Benedictine College (the "Project").  Among other
+ things, this means that no one owns a United States copyright
+ on or for this work, so the Project (and you!) can copy and
+ distribute it in the United States without permission and
+ without paying copyright royalties.  Special rules, set forth
+ below, apply if you wish to copy and distribute this etext
+ under the Project's "PROJECT GUTENBERG" trademark.
+ .
+ To create these etexts, the Project expends considerable
+ efforts to identify, transcribe and proofread public domain
+ works.  Despite these efforts, the Project's etexts and any
+ medium they may be on may contain "Defects".  Among other
+ things, Defects may take the form of incomplete, inaccurate or
+ corrupt data, transcription errors, a copyright or other
+ intellectual property infringement, a defective or damaged
+ disk or other etext medium, a computer virus, or computer
+ codes that damage or cannot be read by your equipment.
+ .
+ LIMITED WARRANTY; DISCLAIMER OF DAMAGES
+ But for the "Right of Replacement or Refund" described below,
+ [1] the Project (and any other party you may receive this
+ etext from as a PROJECT GUTENBERG-tm etext) disclaims all
+ liability to you for damages, costs and expenses, including
+ legal fees, and [2] YOU HAVE NO REMEDIES FOR NEGLIGENCE OR
+ UNDER STRICT LIABILITY, OR FOR BREACH OF WARRANTY OR CONTRACT,
+ INCLUDING BUT NOT LIMITED TO INDIRECT, CONSEQUENTIAL, PUNITIVE
+ OR INCIDENTAL DAMAGES, EVEN IF YOU GIVE NOTICE OF THE
+ POSSIBILITY OF SUCH DAMAGES.
+ .
+ If you discover a Defect in this etext within 90 days of
+ receiving it, you can receive a refund of the money (if any)
+ you paid for it by sending an explanatory note within that
+ time to the person you received it from.  If you received it
+ on a physical medium, you must return it with your note, and
+ such person may choose to alternatively give you a replacement
+ copy.  If you received it electronically, such person may
+ choose to alternatively give you a second opportunity to
+ receive it electronically.
+ .
+ THIS ETEXT IS OTHERWISE PROVIDED TO YOU "AS-IS".  NO OTHER
+ WARRANTIES OF ANY KIND, EXPRESS OR IMPLIED, ARE MADE TO YOU AS
+ TO THE ETEXT OR ANY MEDIUM IT MAY BE ON, INCLUDING BUT NOT
+ LIMITED TO WARRANTIES OF MERCHANTABILITY OR FITNESS FOR A
+ PARTICULAR PURPOSE.
+ .
+ Some states do not allow disclaimers of implied warranties or
+ the exclusion or limitation of consequential damages, so the
+ above disclaimers and exclusions may not apply to you, and you
+ may have other legal rights.
+ .
+ INDEMNITY
+ You will indemnify and hold the Project, its directors,
+ officers, members and agents harmless from all liability, cost
+ and expense, including legal fees, that arise directly or
+ indirectly from any of the following that you do or cause:
+ [1] distribution of this etext, [2] alteration, modification,
+ or addition to the etext, or [3] any Defect.
+ .
+ DISTRIBUTION UNDER "PROJECT GUTENBERG-tm"
+ You may distribute copies of this etext electronically, or by
+ disk, book or any other medium if you either delete this
+ "Small Print!" and all other references to Project Gutenberg,
+ or:
+ .
+ [1]  Only give exact copies of it.  Among other things, this
+      requires that you do not remove, alter or modify the
+      etext or this "small print!" statement.  You may however,
+      if you wish, distribute this etext in machine readable
+      binary, compressed, mark-up, or proprietary form,
+      including any form resulting from conversion by word pro-
+      cessing or hypertext software, but only so long as
+      *EITHER*:
+ .
+      [*]  The etext, when displayed, is clearly readable, and
+           does *not* contain characters other than those
+           intended by the author of the work, although tilde
+           (~), asterisk (*) and underline (_) characters may
+           be used to convey punctuation intended by the
+           author, and additional characters may be used to
+           indicate hypertext links; OR
+ .
+      [*]  The etext may be readily converted by the reader at
+           no expense into plain ASCII, EBCDIC or equivalent
+           form by the program that displays the etext (as is
+           the case, for instance, with most word processors);
+           OR
+ .
+      [*]  You provide, or agree to also provide on request at
+           no additional cost, fee or expense, a copy of the
+           etext in its original plain ASCII form (or in EBCDIC
+           or other equivalent proprietary form).
+ .
+ [2]  Honor the etext refund and replacement provisions of this
+      "Small Print!" statement.
+ .
+ [3]  Pay a trademark license fee to the Project of 20% of the
+      net profits you derive calculated using the method you
+      already use to calculate your applicable taxes.  If you
+      don't derive profits, no royalty is due.  Royalties are
+      payable to "Project Gutenberg Association / Illinois
+      Benedictine College" within the 60 days following each
+      date you prepare (or were legally required to prepare)
+      your annual (or equivalent periodic) tax return.
+ .
+ WHAT IF YOU *WANT* TO SEND MONEY EVEN IF YOU DON'T HAVE TO?
+ The Project gratefully accepts contributions in money, time,
+ scanning machines, OCR software, public domain etexts, royalty
+ free copyright licenses, and every other sort of contribution
+ you can think of.  Money should be paid to "Project Gutenberg
+ Association / Illinois Benedictine College".
+ .
+ This "Small Print!" by Charles B. Kramer, Attorney
+ Internet (72600.2026@compuserve.com); TEL: 2122545093
+ *END*THE SMALL PRINT! FOR PUBLIC DOMAIN ETEXTS*Ver.04.29.93*END*
+
+Files: debian/*
+Copyright: (c) 2009 Arthur Loiret <aloiret@debian.org>
+ (c) 2014-2017 Konstantinos Margaritis <markos@debian.org>
+ (c) 2016-2017 Matthias Klumpp <mak@debian.org>
+License: GPL-3.0+
+
+License: Artistic-1
+ On Debian systems, the complete text of the Artistic version 1 license
+ can be found in `/usr/share/common-licenses/Artistic'.
+
+License: GPL-3.0+
+ On Debian systems, the complete text of the GPL version 3 license can be
+ found in `/usr/share/common-licenses/GPL-3'.
+
+License: GPL-2.0
+ On Debian systems, the complete text of the GPL version 2 license can be
+ found in `/usr/share/common-licenses/GPL-2'.
+
+License: BSD-3-Clause
+ Copyright (c) 2007-2017 LDC Team.
+ All rights reserved.
+ .
+ Redistribution and use in source and binary forms, with or without
+ modification, are permitted provided that the following conditions are met:
+ .
+    * Redistributions of source code must retain the above copyright notice,
+      this list of conditions and the following disclaimer.
+    * Redistributions in binary form must reproduce the above copyright notice,
+      this list of conditions and the following disclaimer in the documentation
+      and/or other materials provided with the distribution.
+    * Neither the name of the LDC Team nor the names of its contributors may be
+      used to endorse or promote products derived from this software without
+      specific prior written permission.
+ .
+ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+ ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+ WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+ DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR
+ ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+ (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+ LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON
+ ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+ (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+License: BSL-1.0
+ Boost Software License - Version 1.0 - August 17th, 2003
+ .
+ Permission is hereby granted, free of charge, to any person or organization obtaining a copy of
+ the software and accompanying documentation covered by this license (the "Software") to use,
+ reproduce, display, distribute, execute, and transmit the Software, and to prepare derivative
+ works of the Software, and to permit third-parties to whom the Software is furnished to do so,
+ all subject to the following:
+ .
+ The copyright notices in the Software and this entire statement, including the above license grant,
+ this restriction and the following disclaimer, must be included in all copies of the Software,
+ in whole or in part, and all derivative works of the Software, unless such copies or derivative works
+ are solely in the form of machine-executable object code generated by a source language processor.
+ .
+ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT
+ LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, TITLE AND NON-INFRINGEMENT.
+ IN NO EVENT SHALL THE COPYRIGHT HOLDERS OR ANYONE DISTRIBUTING THE SOFTWARE BE LIABLE FOR ANY DAMAGES OR
+ OTHER LIABILITY, WHETHER IN CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+License: LLVM
+ University of Illinois/NCSA
+ Open Source License
+ .
+ Copyright (c) 2003-2013 University of Illinois at Urbana-Champaign.
+ All rights reserved.
+ .
+ Developed by:
+ .
+     LLVM Team
+ .
+     University of Illinois at Urbana-Champaign
+ .
+     http://llvm.org
+ .
+ Permission is hereby granted, free of charge, to any person obtaining a copy of
+ this software and associated documentation files (the "Software"), to deal with
+ the Software without restriction, including without limitation the rights to
+ use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies
+ of the Software, and to permit persons to whom the Software is furnished to do
+ so, subject to the following conditions:
+ .
+     * Redistributions of source code must retain the above copyright notice,
+       this list of conditions and the following disclaimers.
+ .
+     * Redistributions in binary form must reproduce the above copyright notice,
+       this list of conditions and the following disclaimers in the
+       documentation and/or other materials provided with the distribution.
+ .
+     * Neither the names of the LLVM Team, University of Illinois at
+       Urbana-Champaign, nor the names of its contributors may be used to
+       endorse or promote products derived from this Software without specific
+       prior written permission.
+ .
+ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
+ FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.  IN NO EVENT SHALL THE
+ CONTRIBUTORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS WITH THE
+ SOFTWARE.
+
+License: Expat
+ Permission is hereby granted, free of charge, to any person obtaining a copy of
+ this software and associated documentation files (the "Software"), to deal in
+ the Software without restriction, including without limitation the rights to
+ use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies
+ of the Software, and to permit persons to whom the Software is furnished to do
+ so, subject to the following conditions:
+ .
+ The above copyright notice and this permission notice shall be included in all
+ copies or substantial portions of the Software.
+ .
+ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ SOFTWARE.

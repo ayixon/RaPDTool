@@ -1,0 +1,17 @@
+/.
+/usr
+/usr/bin
+/usr/bin/gtk-update-icon-cache
+/usr/sbin
+/usr/sbin/update-icon-caches
+/usr/share
+/usr/share/doc
+/usr/share/doc/gtk-update-icon-cache
+/usr/share/doc/gtk-update-icon-cache/AUTHORS
+/usr/share/doc/gtk-update-icon-cache/changelog.Debian.gz
+/usr/share/doc/gtk-update-icon-cache/copyright
+/usr/share/man
+/usr/share/man/man1
+/usr/share/man/man1/gtk-update-icon-cache.1.gz
+/usr/share/man/man8
+/usr/share/man/man8/update-icon-caches.8.gz

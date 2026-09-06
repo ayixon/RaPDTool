@@ -1,0 +1,587 @@
+#!/bin/sh
+
+# ===========================================================================
+#
+#                            PUBLIC DOMAIN NOTICE
+#            National Center for Biotechnology Information (NCBI)
+#
+#  This software/database is a "United States Government Work" under the
+#  terms of the United States Copyright Act.  It was written as part of
+#  the author's official duties as a United States Government employee and
+#  thus cannot be copyrighted.  This software/database is freely available
+#  to the public for use. The National Library of Medicine and the U.S.
+#  Government do not place any restriction on its use or reproduction.
+#  We would, however, appreciate having the NCBI and the author cited in
+#  any work or product based on this material.
+#
+#  Although all reasonable efforts have been taken to ensure the accuracy
+#  and reliability of the software and data, the NLM and the U.S.
+#  Government do not and cannot warrant the performance or results that
+#  may be obtained by using this software or data. The NLM and the U.S.
+#  Government disclaim all warranties, express or implied, including
+#  warranties of performance, merchantability or fitness for any particular
+#  purpose.
+#
+# ===========================================================================
+#
+# File Name:  test-eutils
+#
+# Author:  Jonathan Kans
+#
+# Version Creation Date:   3/12/19
+#
+# ==========================================================================
+
+# Entrez Direct - EDirect
+
+dir=`dirname "$0"`
+
+cmd="-all"
+
+verby=false
+timey=false
+failed=false
+failures=""
+repeats=1
+START=0
+END=0
+DIFF=0
+
+ColorSetup() {
+
+  if [ -z "$TERM" ] || [ ! -t 2 ]
+  then
+    INIT=""
+  elif command -v tput >/dev/null
+  then
+    INIT="$(tput init)"
+  else
+    # assume ANSI
+    escape="$(printf '\033')"
+    INIT="${escape}[0m"
+  fi
+}
+
+ColorSetup
+
+while [ $# -gt 0 ]
+do
+  case "$1" in
+    -all | -alive | -einfo | -esearch | -elink | -efetch | -esummary )
+      cmd="$1"
+      shift
+      ;;
+    all | alive | einfo | esearch | elink | efetch | esummary )
+      cmd="$1"
+      shift
+      ;;
+    -verbose )
+      verby=true
+      shift
+      ;;
+    -timer | -timed )
+      timey=true
+      shift
+      ;;
+    -repeat | -repeats )
+      shift
+      if [ $# -gt 0 ]
+      then
+        repeats="$1"
+        shift
+        if [ "$repeats" -lt 1 ]
+        then
+          repeats=1
+        fi
+        if [ "$repeats" -gt 100 ]
+        then
+          repeats=1
+        fi
+      fi
+      ;;
+    -h | -help | --help )
+      cat <<EOF
+USAGE: $0
+       [ -all | -alive | -esearch | -elink | -efetch | -esummary ]
+       [ -verbose ]
+       [ -repeats # ]
+
+EXAMPLE: test-eutils -alive
+EOF
+      exit 0
+      ;;
+    -* | * )
+      exec >&2
+      echo "$0: Unrecognized option $1"
+      exit 1
+      ;;
+  esac
+done
+
+MarkFailure() {
+  fails="$1"
+  res="$2"
+  if [ "$failed" != true ]
+  then
+    if [ "$verby" = true ]
+    then
+      echo ""
+      echo "FAILURE"
+      echo ""
+    fi
+    failed=true
+  fi
+  if [ "$verby" = true ]
+  then
+    echo ""
+    echo "$fails"
+    echo ""
+    echo "$res"
+    echo ""
+  fi
+  failures=$(printf '%s\n\n  %s' "$failures" "$fails")
+}
+
+DoStart() {
+  DIFF=0
+  START=$(perl -MTime::HiRes -e 'printf("%.0f\n",Time::HiRes::time()*1000)')
+}
+
+DoStop() {
+  END=$(perl -MTime::HiRes -e 'printf("%.0f\n",Time::HiRes::time()*1000)')
+  DIFF=$(($END - $START))
+}
+
+DoTime() {
+  if [ "$timey" = true ]
+  then
+    echo " $DIFF"
+  fi
+}
+
+DoAlive() {
+  for i in $(seq 1 $repeats)
+  do
+    sleep 1
+    DoStart
+    size=0
+    res=$(
+      nquire -get https://eutils.ncbi.nlm.nih.gov/entrez/eutils einfo.fcgi
+    )
+    if [ -n "$res" ]
+    then
+      size=${#res}
+    fi
+    DoStop
+    tst=$(
+      echo "$res" | xtract -pattern DbList -sep "\n" -element DbName |
+      sort | uniq | tr '\n' ' '
+    )
+    case "$tst" in
+      *" mesh "* )
+        printf "${INIT}."
+        ;;
+      * )
+        fails="nquire -get https://eutils.ncbi.nlm.nih.gov/entrez/eutils einfo.fcgi"
+        MarkFailure "$fails" "$res"
+        printf "${INIT}x"
+        ;;
+    esac
+    DoTime
+    if [ "$size" -ne 1341 ]
+    then
+      echo "($size)"
+    fi
+  done
+
+  for i in $(seq 1 $repeats)
+  do
+    sleep 1
+    DoStart
+    size=0
+    res=$(
+      nquire -get https://eutils.ncbi.nlm.nih.gov/entrez/eutils elink.fcgi -dbfrom pubmed -db pubmed -id 2539356
+    )
+    if [ -n "$res" ]
+    then
+      size=${#res}
+    fi
+    DoStop
+    num=$(
+      echo "$res" | tr '\n' ' ' | xtract -pattern LinkSet -num "Link/Id"
+    )
+    if [ -z "$num" ] || [ "$num" -lt 100 ]
+    then
+      fails="nquire -get https://eutils.ncbi.nlm.nih.gov/entrez/eutils elink.fcgi -dbfrom pubmed -db pubmed -id 2539356"
+      MarkFailure "$fails" "$res"
+      printf "${INIT}x"
+    else
+      printf "${INIT}."
+    fi
+    DoTime
+  done
+
+  for i in $(seq 1 $repeats)
+  do
+    sleep 1
+    DoStart
+    size=0
+    res=$(
+      nquire -get https://eutils.ncbi.nlm.nih.gov/entrez/eutils efetch.fcgi -db pubmed -id 2539356 -rettype native -retmode xml
+    )
+    if [ -n "$res" ]
+    then
+      size=${#res}
+    fi
+    DoStop
+    tst=$(
+      echo "$res" | tr '\n' ' '
+    )
+    case "$tst" in
+      *"Tn3 transposon inserts at a reduced frequency"* )
+        printf "${INIT}."
+        ;;
+      * )
+        fails="nquire -get https://eutils.ncbi.nlm.nih.gov/entrez/eutils efetch.fcgi -db pubmed -id 2539356 -rettype native -retmode xml"
+        MarkFailure "$fails" "$res"
+        printf "${INIT}x"
+        ;;
+    esac
+    DoTime
+    if [ "$size" -ne 13931 ]
+    then
+      echo "($size)"
+    fi
+  done
+
+  for i in $(seq 1 $repeats)
+  do
+    sleep 1
+    DoStart
+    size=0
+    res=$(
+      nquire -get https://eutils.ncbi.nlm.nih.gov/entrez/eutils esummary.fcgi -db pubmed -id 2539356 -version 2.0
+    )
+    if [ -n "$res" ]
+    then
+      size=${#res}
+    fi
+    DoStop
+    tst=$(
+      echo "$res" | tr '\n' ' '
+    )
+    case "$tst" in
+      *"Nucleotide sequences required for Tn3 transposition immunity"* )
+        printf "${INIT}."
+        ;;
+      * )
+        fails="nquire -get https://eutils.ncbi.nlm.nih.gov/entrez/eutils esummary.fcgi -db pubmed -id 2539356 -version 2.0"
+        MarkFailure "$fails" "$res"
+        printf "${INIT}x"
+        ;;
+    esac
+    DoTime
+  done
+
+  for i in $(seq 1 $repeats)
+  do
+    sleep 1
+    DoStart
+    size=0
+    res=$(
+      nquire -get https://eutils.ncbi.nlm.nih.gov/entrez/eutils esearch.fcgi -db pubmed -term "tn3 transposition immunity"
+    )
+    if [ -n "$res" ]
+    then
+      size=${#res}
+    fi
+    DoStop
+    tst=$(
+      echo "$res" | tr '\n' ' '
+    )
+    case "$tst" in
+      *"QueryTranslation>tn3"* )
+        printf "${INIT}."
+        ;;
+      * )
+        fails="nquire -get https://eutils.ncbi.nlm.nih.gov/entrez/eutils esearch.fcgi -db pubmed -term \"tn3 transposition immunity\""
+        MarkFailure "$fails" "$res"
+        printf "${INIT}x"
+        ;;
+    esac
+    DoTime
+    if [ "$size" -ne 1589 ]
+    then
+      echo "($size)"
+    fi
+  done
+  printf "${INIT}\n"
+}
+
+DoInfo() {
+  for i in $(seq 1 $repeats)
+  do
+    DoStart
+    res=$(
+      einfo -db all
+    )
+    DoStop
+    tst=$(
+      echo "$res" | xtract -pattern DbInfo -sep "\n" -element DbName |
+      sort | uniq | tr '\n' ' '
+    )
+    case "$tst" in
+      *" mesh "* )
+        printf "${INIT}."
+        ;;
+      * )
+        fails="einfo -db all"
+        MarkFailure "$fails" "$res"
+        printf "${INIT}x"
+        ;;
+    esac
+    DoTime
+  done
+  printf "${INIT}\n"
+}
+
+DoSearch() {
+  while read db qy
+  do
+    for i in $(seq 1 $repeats)
+    do
+      DoStart
+      res=$(
+        esearch -db "$db" -query "$qy" < /dev/null
+      )
+      DoStop
+      num=$(
+        echo "$res" | xtract -pattern ENTREZ_DIRECT -element Count
+      )
+      if [ -z "$num" ] || [ "$num" -lt 1 ]
+      then
+        fails=$(echo "esearch -db \"$db\" -query \"$qy\"")
+        MarkFailure "$fails" "$res"
+        printf "${INIT}x"
+      else
+        printf "${INIT}."
+      fi
+      DoTime
+    done
+  done < "$dir/help/tst-esearch.txt"
+  printf "${INIT}\n"
+}
+
+DoLink() {
+  while read db tg id
+  do
+    for i in $(seq 1 $repeats)
+    do
+      DoStart
+      res=$(
+        elink -db "$db" -target "$tg" -id "$id"
+      )
+      DoStop
+      num=$(
+        echo "$res" | xtract -pattern ENTREZ_DIRECT -element Count
+      )
+      if [ -z "$num" ] || [ "$num" -lt 1 ]
+      then
+        fails=$(echo "elink -db \"$db\" -target \"$tg\" -id \"$id\"")
+        MarkFailure "$fails" "$res"
+        printf "${INIT}x"
+      else
+        printf "${INIT}."
+      fi
+      DoTime
+    done
+  done < "$dir/help/tst-elink.txt"
+  printf "${INIT}\n"
+}
+
+DoFetch() {
+  while read db ft id mt
+  do
+    for i in $(seq 1 $repeats)
+    do
+      DoStart
+      res=$(
+        efetch -db "$db" -id "$id" -format "$ft"
+      )
+      DoStop
+      tst=$(
+        echo "$res" | tr '\n' ' '
+      )
+      case "$tst" in
+        *"$mt"* )
+          printf "${INIT}."
+          ;;
+        * )
+          fails=$(echo "efetch -db \"$db\" -id \"$id\" -format \"$ft\"")
+          MarkFailure "$fails" "$res"
+          printf "${INIT}x"
+          ;;
+      esac
+      DoTime
+    done
+  done < "$dir/help/tst-efetch.txt"
+  printf "${INIT}\n"
+}
+
+DoSummary() {
+  while read db id
+  do
+    for i in $(seq 1 $repeats)
+    do
+      DoStart
+      res=$(
+        esummary -db "$db" -id "$id"
+      )
+      DoStop
+      tst=$(
+        echo "$res" | xtract -pattern DocumentSummary -element DocumentSummary/Id
+      )
+      if [ -z "$tst" ] || [ "$tst" != "$id" ]
+      then
+        fails=$(echo "esummary -db \"$db\" -id \"$id\"")
+        MarkFailure "$fails" "$res"
+        printf "${INIT}x"
+      else
+        printf "${INIT}."
+      fi
+      DoTime
+    done
+  done < "$dir/help/tst-esummary.txt"
+
+  # special tests for dbVar summary, since IDs are reconstructed weekly
+  DoStart
+  res=$(
+    esearch -db dbvar -query "study [OT] AND case_set [STYPE]" |
+    efetch -format docsum -start 1 -stop 1
+  )
+  DoStop
+  tst=$(
+    echo "$res" | xtract -pattern DocumentSummary -element Study_type
+  )
+  if [ -z "$tst" ] || [ "$tst" != "Case-Set" ]
+  then
+    fails=$(echo "esearch -db dbvar -query \"study AND case_set\"")
+    MarkFailure "$fails" "$res"
+    printf "${INIT}x"
+  else
+    printf "${INIT}."
+  fi
+  DoTime
+
+  DoStart
+  query="pathogenic [CLIN] AND germline [ALLELE_ORIGIN]"
+  query="$query AND nstd102 [ACC] AND brca1 [GENE_NAME]"
+  query="$query AND copy_number_variation [VT] AND variant [OT]"
+  res=$( esearch -db dbvar -query "$query" |
+         efetch -format docsum -start 1 -stop 1 )
+  DoStop
+  tst=$(
+    echo "$res" | xtract -pattern DocumentSummary -first dbVarGene/name
+  )
+  if [ "$tst" != "BRCA1" ]
+  then
+    fails=$(echo "esearch -db dbvar -query \"nstd102 AND brca1\"")
+    MarkFailure "$fails" "$res"
+    printf "${INIT}x"
+  else
+    printf "${INIT}."
+  fi
+  DoTime
+
+  printf "${INIT}\n"
+}
+
+DoCmd() {
+
+  case "$cmd" in
+    -all | all )
+      echo "alive"
+      DoAlive
+      echo "einfo"
+      DoInfo
+      echo "esearch"
+      DoSearch
+      echo "elink"
+      DoLink
+      echo "efetch"
+      DoFetch
+      echo "esummary"
+      DoSummary
+      ;;
+    -alive | alive )
+      DoAlive
+      ;;
+    -einfo | einfo )
+      DoInfo
+      ;;
+    -esearch | esearch )
+      DoSearch
+      ;;
+    -elink | elink )
+      DoLink
+      ;;
+    -efetch | efetch )
+      DoFetch
+      ;;
+    -esummary | esummary )
+      DoSummary
+      ;;
+    * )
+      break
+      ;;
+  esac
+
+  seconds_end=$(date "+%s")
+  seconds=$((seconds_end - seconds_start))
+
+  echo "${INIT}"
+  echo "Elapsed time $seconds seconds"
+  echo ""
+}
+
+seconds_start=$(date "+%s")
+
+echo ""
+ver=$( einfo -help | head -n 1 | sed 's/einfo //g' )
+int=$( einfo -help | grep internal )
+if [ -n "$int" ]
+then
+  echo "Int EDirect $ver"
+else
+  echo "EDirect $ver"
+fi
+echo ""
+
+DoCmd
+
+if [ "$failed" = true ]
+then
+  export EXTERNAL_EDIRECT=true
+  export NQUIRE_TIMEOUT=1
+  seconds_start=$(date "+%s")
+
+  echo ""
+  if [ -n "$int" ]
+  then
+    echo "Ext EDirect $ver"
+    echo ""
+
+    DoCmd
+  fi
+fi
+
+if [ "$failed" = true ]
+then
+  echo ""
+  echo "Failure in test-eutils commands:"
+  echo "$failures"
+  echo ""
+  exit 1
+fi
+
+echo "Successful completion"

@@ -1,0 +1,15 @@
+/.
+/usr
+/usr/lib
+/usr/lib/x86_64-linux-gnu
+/usr/lib/x86_64-linux-gnu/girepository-1.0
+/usr/lib/x86_64-linux-gnu/girepository-1.0/GIRepository-2.0.typelib
+/usr/lib/x86_64-linux-gnu/girepository-1.0/GLib-2.0.typelib
+/usr/lib/x86_64-linux-gnu/girepository-1.0/GModule-2.0.typelib
+/usr/lib/x86_64-linux-gnu/girepository-1.0/GObject-2.0.typelib
+/usr/lib/x86_64-linux-gnu/girepository-1.0/Gio-2.0.typelib
+/usr/share
+/usr/share/doc
+/usr/share/doc/gir1.2-glib-2.0
+/usr/share/doc/gir1.2-glib-2.0/copyright
+/usr/share/doc/gir1.2-glib-2.0/changelog.Debian.gz

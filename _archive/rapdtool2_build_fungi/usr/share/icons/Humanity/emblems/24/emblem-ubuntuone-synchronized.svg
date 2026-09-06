@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+<svg id="svg3265" width="24" height="24" version="1.0" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+ <defs id="defs3267">
+  <linearGradient id="linearGradient3390" x1="10" x2="10" y1="29.485" gradientUnits="userSpaceOnUse">
+   <stop id="stop2492" style="stop-color:#455f0e" offset="0"/>
+   <stop id="stop2494" style="stop-color:#84a718" offset="1"/>
+  </linearGradient>
+  <linearGradient id="linearGradient3253" x1="17.49" x2="17.49" y1="-7.9937e-8" y2="30.318" gradientUnits="userSpaceOnUse">
+   <stop id="stop3257" style="stop-color:#eef87e" offset="0"/>
+   <stop id="stop3259" style="stop-color:#cde34f" offset=".31738"/>
+   <stop id="stop3261" style="stop-color:#93b723" offset=".79345"/>
+   <stop id="stop3263" style="stop-color:#5a7e0d" offset="1"/>
+  </linearGradient>
+  <linearGradient id="linearGradient3236" x1="14" x2="14" y2="19.168" gradientUnits="userSpaceOnUse">
+   <stop id="stop4224" style="stop-color:#fff" offset="0"/>
+   <stop id="stop4226" style="stop-color:#fff;stop-opacity:0" offset="1"/>
+  </linearGradient>
+ </defs>
+ <g id="layer1">
+  <path id="path1542" d="m19.197 0.5061c-0.36407-0.036262-0.72603 0.13874-0.91308 0.47471l-7.97 14.312-5.1242-3.9987c-0.45644-0.24478-1.0259-0.087311-1.2753 0.36066l-2.2979 2.8954c-0.24941 0.44796-0.081622 1.0067 0.37481 1.2515 0 0 9.3561 7.5839 9.3676 7.5895 0.10698 0.057373 0.21885 0.08624 0.33256 0.10034 0.37148 0.046067 0.75164-0.12522 0.94259-0.46819l10.749-19.301c0.24941-0.44796 0.081626-1.0067-0.37481-1.2515l-3.4488-1.8574c-0.11411-0.061196-0.24071-0.094772-0.36207-0.10686z" style="fill:url(#linearGradient3253);stroke-linecap:round;stroke-linejoin:round;stroke-width:1.0028;stroke:url(#linearGradient3390)"/>
+  <path id="path3231" d="m19.125 1.5312c-2.6458 4.75-5.2917 9.5-7.9375 14.25-0.47758 0.87055-1.4897 0.45804-2.0242-0.09886-1.4711-1.1545-2.9422-2.3091-4.4133-3.4636-0.74445 0.90306-1.4558 1.8356-2.1875 2.75 3.0766 2.4939 6.1664 4.9752 9.2188 7.5 3.5521-6.3854 7.1042-12.771 10.656-19.156-1.1042-0.59375-2.2083-1.1875-3.3125-1.7812z" style="fill:none;opacity:.4;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.0028;stroke:url(#linearGradient3236)"/>
+ </g>
+</svg>

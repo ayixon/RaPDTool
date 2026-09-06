@@ -1,0 +1,36 @@
+{
+  "build": "2_cp39",
+  "build_number": 2,
+  "channel": "https://conda.anaconda.org/conda-forge/linux-64",
+  "constrains": [
+    "pypy <0a0"
+  ],
+  "depends": [
+    "python 3.9.*"
+  ],
+  "extracted_package_dir": "/opt/miniconda3/pkgs/python_abi-3.9-2_cp39",
+  "features": "",
+  "files": [],
+  "fn": "python_abi-3.9-2_cp39.tar.bz2",
+  "license": "BSD-3-Clause",
+  "license_family": "BSD",
+  "link": {
+    "source": "/opt/miniconda3/pkgs/python_abi-3.9-2_cp39",
+    "type": 1
+  },
+  "md5": "39adde4247484de2bb4000122fdcf665",
+  "name": "python_abi",
+  "package_tarball_full_path": "/opt/miniconda3/pkgs/python_abi-3.9-2_cp39.tar.bz2",
+  "paths_data": {
+    "paths": [],
+    "paths_version": 1
+  },
+  "requested_spec": "None",
+  "sha256": "67231829ea0101fee30c68f788fdba40a11bbee8fdac556daaab5832bd27bf3d",
+  "size": 4017,
+  "subdir": "linux-64",
+  "timestamp": 1624472010037,
+  "track_features": "",
+  "url": "https://conda.anaconda.org/conda-forge/linux-64/python_abi-3.9-2_cp39.tar.bz2",
+  "version": "3.9"
+}

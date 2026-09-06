@@ -1,0 +1,23 @@
+{
+  "arch": "x86_64",
+  "build": "he881be0_1",
+  "build_number": 1,
+  "channel": "https://conda.anaconda.org/bioconda/linux-64",
+  "constrains": [],
+  "depends": [
+    "wget"
+  ],
+  "features": "",
+  "fn": "entrez-direct-16.2-he881be0_1.tar.bz2",
+  "license": "PUBLIC DOMAIN",
+  "md5": "ff30142050ba583481215a6e1b3a5de0",
+  "name": "entrez-direct",
+  "platform": "linux",
+  "sha256": "7c582b64e1c870704c3e705849f0277cb102a97387dc488e8384a89be762f941",
+  "size": 7818723,
+  "subdir": "linux-64",
+  "timestamp": 1654550457582,
+  "track_features": "",
+  "url": "https://conda.anaconda.org/bioconda/linux-64/entrez-direct-16.2-he881be0_1.tar.bz2",
+  "version": "16.2"
+}

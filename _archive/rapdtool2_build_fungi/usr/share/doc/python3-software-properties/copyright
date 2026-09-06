@@ -1,0 +1,77 @@
+Format: http://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Source: http://launchpad.net/ubuntu/+source/software-properties
+
+Files: *
+Copyright: © 2004-2012 Canonical Ltd.
+           © 2004-2005 Michiel Sikkes
+           © 2009-2010 Harald Sitter <apachelogger@ubuntu.com>
+           © 2006 FSF Europe
+License: GPL-2+
+
+License: GPL-2+
+ This program is free software; you can redistribute it and/or
+ modify it under the terms of the GNU General Public License as
+ published by the Free Software Foundation; either version 2 of the
+ License, or (at your option) any later version.
+ .
+ On Debian systems, the full text of the GNU General Public License version
+ 2 can be found in the file `/usr/share/common-licenses/GPL-2'.
+
+Files: manpages/add-apt-repository.1
+Copyright: © 2010 Chow Loong Jin <hyperair@gmail.com>
+License: GPL-2+
+ This manual page was written by Chow Loong Jin <hyperair@gmail.com> for the
+ Debian system (but may be used by others). Permission is granted to copy,
+ distribute and/or modify this document under the terms of the GNU General Public
+ License, Version 2 or any later version published by the Free Software
+ .
+ On Debian systems, the full text of the GNU General Public License version
+ 2 can be found in the file `/usr/share/common-licenses/GPL-2'.
+Comment:
+ A non-common version of the GPL-2+ statement, potentially derived from the
+ GFDL one. There was no year statement included, but the commit (revision 602)
+ was made in 2010.
+
+Files: software-properties-dbus
+       softwareproperties/dbus/SoftwarePropertiesDBus.py
+Copyright: © 2010 Harald Sitter <apachelogger@ubuntu.com>
+License: GPL-2+
+Comment:
+ A non-common version of the GPL-2+ header, omitting the "(at your option)"
+ part.
+
+Files: softwareproperties/gtk/SimpleGtkbuilderApp.py
+Copyright: © 2009 Michael Vogt
+License: LGPL-3
+ This library is free software; you can redistribute it and/or
+ modify it under the terms of the GNU Lesser General Public
+ License as published by the Free Software Foundation; version 3.
+ .
+ On Debian systems, the full text of the GNU Lesser General Public License
+ version 3 can be found in the file `/usr/share/common-licenses/LGPL-3'.
+
+Files: softwareproperties/gtk/utils.py
+Copyright: © 2009 Canonical
+License: GPL-3
+ This program is free software; you can redistribute it and/or modify it under
+ the terms of the GNU General Public License as published by the Free Software
+ Foundation; version 3.
+ .
+ On Debian systems, the full text of the GNU General Public License
+ version 3 can be found in the file `/usr/share/common-licenses/GPL-3'.
+
+Files: po/*
+Copyright: © 2006 Rosetta Contributors
+           © 2005 Adam Weinberger and the GNOME Foundation
+           © 2005-2006 Timo Jyrinki
+           © 2005-2006 Free Software Foundation, Inc.
+           © 2005 Zygmunt Krynicki <zyga@www.suxx.pl>
+           © 2005 Gnome i18n Project for Vietnamese.
+License: GPL-2+
+Comment:
+ The actual copyright / licensing statements differ in details. It mostly says
+ .
+  This file is distributed under the same licence as the update-manager package.
+ .
+ The update-notifier package and the update-manager package share a common
+ history and are GPL-2+ licensed.

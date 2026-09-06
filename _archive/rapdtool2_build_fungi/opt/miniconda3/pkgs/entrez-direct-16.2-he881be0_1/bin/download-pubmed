@@ -1,0 +1,42 @@
+#!/bin/sh
+
+# Public domain notice for all NCBI EDirect scripts is located at:
+# https://www.ncbi.nlm.nih.gov/books/NBK179288/#chapter6.Public_Domain_Notice
+
+download() {
+  dir="$1"
+  nquire -lst ftp.ncbi.nlm.nih.gov "pubmed" "$dir" |
+  grep -v ".md5" | grep "xml.gz" |
+  skip-if-file-exists |
+  while read fl
+  do
+    echo "$fl"
+    echo "$fl" |
+    nquire -asp ftp.ncbi.nlm.nih.gov "pubmed" "$dir"
+  done
+}
+
+if [ "$#" -eq 0 ]
+then
+  download "baseline"
+  if [ $? -ne 0 ]
+  then
+    download "baseline"
+  fi
+  download "updatefiles"
+  if [ $? -ne 0 ]
+  then
+    download "updatefiles"
+  fi
+fi
+
+while [ "$#" -gt 0 ]
+do
+  sect="$1"
+  shift
+  download "$sect"
+  if [ $? -ne 0 ]
+  then
+    download "$sect"
+  fi
+done

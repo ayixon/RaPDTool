@@ -1,0 +1,215 @@
+{
+  "paths": [
+    {
+      "_path": "bin/mash",
+      "path_type": "hardlink",
+      "sha256": "3197e87c59a2deec975a80451319a7e0d5f79cb54afed668596157c8d42ea3c7",
+      "size_in_bytes": 818656
+    },
+    {
+      "_path": "include/mash/Command.h",
+      "path_type": "hardlink",
+      "sha256": "5712344fdd52f3dfdaa443a160f64ea8632dadab6abfe6be0da014b12a2d59b8",
+      "size_in_bytes": 3491
+    },
+    {
+      "_path": "include/mash/CommandBounds.h",
+      "path_type": "hardlink",
+      "sha256": "d54226927dcbbc640b1008297d9959fdc42e29450361514c2f9e0aadd82b1940",
+      "size_in_bytes": 496
+    },
+    {
+      "_path": "include/mash/CommandContain.h",
+      "path_type": "hardlink",
+      "sha256": "2fdbc1c59a53777a2509f53ca6a19e899a2e93bacfed27927b1cd136e6b57db8",
+      "size_in_bytes": 2373
+    },
+    {
+      "_path": "include/mash/CommandDistance.h",
+      "path_type": "hardlink",
+      "sha256": "dfb256ee24e102e23727bd293cd704f4a4bdc3862a85a9ba372fb59954478580",
+      "size_in_bytes": 2890
+    },
+    {
+      "_path": "include/mash/CommandFind.h",
+      "path_type": "hardlink",
+      "sha256": "6813da80d156991ac65e81dfc3d7056a67c517409f102a182763bbd8e420ea33",
+      "size_in_bytes": 2373
+    },
+    {
+      "_path": "include/mash/CommandInfo.h",
+      "path_type": "hardlink",
+      "sha256": "5b9d024da222dd644e0045084088fbd222968e724e02e0ae35bc9ad984fbde6d",
+      "size_in_bytes": 621
+    },
+    {
+      "_path": "include/mash/CommandList.h",
+      "path_type": "hardlink",
+      "sha256": "789f516f080136c768b654798fad8f0d022554089579c3b950f1a6bf2808f445",
+      "size_in_bytes": 721
+    },
+    {
+      "_path": "include/mash/CommandPaste.h",
+      "path_type": "hardlink",
+      "sha256": "0bf40b0be7bea2e66f9fae5d18533fdce27bcccfffb8311d22cb1cb1b6379d7a",
+      "size_in_bytes": 517
+    },
+    {
+      "_path": "include/mash/CommandScreen.h",
+      "path_type": "hardlink",
+      "sha256": "f0890fdc60926882a49cda8a1df245ca45c8a7302c93d8922d3af63c8aef5224",
+      "size_in_bytes": 3629
+    },
+    {
+      "_path": "include/mash/CommandSketch.h",
+      "path_type": "hardlink",
+      "sha256": "9d16445247de2cf08619abdb22ffd13a837fe1233686208481bac54407257c99",
+      "size_in_bytes": 497
+    },
+    {
+      "_path": "include/mash/CommandTaxScreen.h",
+      "path_type": "hardlink",
+      "sha256": "a39a9a39b6d89dc52eef6f6995a550a5b8d5d50284aa763702e9d03b818ddd17",
+      "size_in_bytes": 1162
+    },
+    {
+      "_path": "include/mash/CommandTriangle.h",
+      "path_type": "hardlink",
+      "sha256": "07c0d15c9258f15f8b84184a81c78b4256545f944e642f6b97cc3d1e891c87e8",
+      "size_in_bytes": 1873
+    },
+    {
+      "_path": "include/mash/HashList.h",
+      "path_type": "hardlink",
+      "sha256": "403cfc947eef86518ad3975da9defd0d7aebbfdcfe8473ba1c581c6d05158671",
+      "size_in_bytes": 1036
+    },
+    {
+      "_path": "include/mash/HashPriorityQueue.h",
+      "path_type": "hardlink",
+      "sha256": "86980a04dd0a8bc32100506b2a85cec5d859176b72c5f7b0ec81dd271f82df54",
+      "size_in_bytes": 805
+    },
+    {
+      "_path": "include/mash/HashSet.h",
+      "path_type": "hardlink",
+      "sha256": "5dcea52caf2abcf053860b650cfd7541071c9bc321ddee91fa4dd6526bfcb70d",
+      "size_in_bytes": 961
+    },
+    {
+      "_path": "include/mash/MinHashHeap.h",
+      "path_type": "hardlink",
+      "sha256": "9f2cf9472bd97c07a88e716573ba95d9b3c0b4bbd033878de058b006600e3bb6",
+      "size_in_bytes": 1455
+    },
+    {
+      "_path": "include/mash/MurmurHash3.h",
+      "path_type": "hardlink",
+      "sha256": "b4779c716bbafb9d461f2c3d3a035fd12e9106bfad9576dc1f441cafda686871",
+      "size_in_bytes": 1109
+    },
+    {
+      "_path": "include/mash/Sketch.h",
+      "path_type": "hardlink",
+      "sha256": "77a5354acb8ded626d0e9e4f8d90ac75c4470ecb8057cf3e52ddd01fad639410",
+      "size_in_bytes": 7974
+    },
+    {
+      "_path": "include/mash/ThreadPool.h",
+      "path_type": "hardlink",
+      "sha256": "4b7165dd91b7f3d175c7b2283d416bdb13c08ec2dd7061d44b480279d4ac3466",
+      "size_in_bytes": 1697
+    },
+    {
+      "_path": "include/mash/capnp/MinHash.capnp.h",
+      "path_type": "hardlink",
+      "sha256": "c12b830728677ff896ab13fb8ea6a77df1e2926ddbd9098aa8c0f145dcfad252",
+      "size_in_bytes": 54508
+    },
+    {
+      "_path": "include/mash/hash.h",
+      "path_type": "hardlink",
+      "sha256": "44633c48def27a7be868b12bf52d7a7e5d82501b38b49aba3c2e0f8b3e51df9d",
+      "size_in_bytes": 565
+    },
+    {
+      "_path": "include/mash/kseq.h",
+      "path_type": "hardlink",
+      "sha256": "ac10e4cb0e62ae5c6545440334903410c78679e3c7c2a33567f85556b6f5c796",
+      "size_in_bytes": 12437
+    },
+    {
+      "_path": "include/mash/memcpyLink.h",
+      "path_type": "hardlink",
+      "sha256": "222a47ad52ff2fceaaa8cf4bdce98b0a0c15556405438997e40a2869d595d2ac",
+      "size_in_bytes": 301
+    },
+    {
+      "_path": "include/mash/robin_hood.h",
+      "path_type": "hardlink",
+      "sha256": "db0a3aaa1c082df96cdb63ee97a5e8762c8aac6756270a7bf4e522796e8157f2",
+      "size_in_bytes": 90267
+    },
+    {
+      "_path": "include/mash/sketchParameterSetup.h",
+      "path_type": "hardlink",
+      "sha256": "1d5371cbf8ef6908385756416ee8800fffdbaf03fe4dea0b33562daa0e779d78",
+      "size_in_bytes": 678
+    },
+    {
+      "_path": "include/mash/version.h",
+      "path_type": "hardlink",
+      "sha256": "14b4d3fe515d62fc872aca69e17facf7f663c8cbf859f4e316b6dd2bd4059d17",
+      "size_in_bytes": 292
+    },
+    {
+      "_path": "lib/libmash.a",
+      "path_type": "hardlink",
+      "sha256": "dd4412be458f0b808c18aceb11ef2add33aaa92a3ee2913821decb4ce3f6ae79",
+      "size_in_bytes": 1248488
+    },
+    {
+      "_path": "share/man/man1/mash-dist.1",
+      "path_type": "hardlink",
+      "sha256": "74e847559e69ec62e70e148972555db2db2cd25f5e8599773768375db26f5c80",
+      "size_in_bytes": 3758
+    },
+    {
+      "_path": "share/man/man1/mash-info.1",
+      "path_type": "hardlink",
+      "sha256": "110d454f254b37f0154e60e5e29db1e47dd5a97401530b3f7f29097e3f4c24bf",
+      "size_in_bytes": 1176
+    },
+    {
+      "_path": "share/man/man1/mash-paste.1",
+      "path_type": "hardlink",
+      "sha256": "a1a6368117d7d65925da451235abcd6f4328a3616119681dd2e9a717b45c2839",
+      "size_in_bytes": 845
+    },
+    {
+      "_path": "share/man/man1/mash-screen.1",
+      "path_type": "hardlink",
+      "sha256": "e5dd2b2fda900623ab2e82bf5bd4721fd158f91c2234d45d9386b635d1191003",
+      "size_in_bytes": 2175
+    },
+    {
+      "_path": "share/man/man1/mash-sketch.1",
+      "path_type": "hardlink",
+      "sha256": "c92db43c89e64b9afe1e9948fcfc96c11728e106a0073dc48e3b02556c7d5a7b",
+      "size_in_bytes": 3798
+    },
+    {
+      "_path": "share/man/man1/mash-triangle.1",
+      "path_type": "hardlink",
+      "sha256": "ab3017abb1bb7d6da957fb0e4ddf12160ca1dd20341f2c11d15b5f7e799408b6",
+      "size_in_bytes": 3969
+    },
+    {
+      "_path": "share/man/man1/mash.1",
+      "path_type": "hardlink",
+      "sha256": "97c2d49f1265342fd74f8b29b3e9fe469ebf2783f06b6502a815c12f0f0ee1b4",
+      "size_in_bytes": 1451
+    }
+  ],
+  "paths_version": 1
+}

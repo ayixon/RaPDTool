@@ -1,0 +1,17 @@
+{
+  "arch": null,
+  "build": "pyhd3eb1b0_0",
+  "build_number": 0,
+  "depends": [
+    "colorama",
+    "python >=2.7"
+  ],
+  "license": "MPL-2.0 AND MIT",
+  "license_family": "MOZILLA",
+  "name": "tqdm",
+  "noarch": "python",
+  "platform": null,
+  "subdir": "noarch",
+  "timestamp": 1647339099123,
+  "version": "4.63.0"
+}

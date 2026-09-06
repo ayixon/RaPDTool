@@ -1,0 +1,24 @@
+From d5081f47837fe8de279c06c4b26ce2a6da02a3f2 Mon Sep 17 00:00:00 2001
+From: Ray Donnelly <mingw.android@gmail.com>
+Date: Wed, 12 Feb 2020 21:35:50 +0100
+Subject: [PATCH 23/30] egg debugging with Windows debug builds
+
+---
+ Lib/zipimport.py | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/Lib/zipimport.py b/Lib/zipimport.py
+index 5ef0a17c2a..4e8d8da1f6 100644
+--- a/Lib/zipimport.py
++++ b/Lib/zipimport.py
+@@ -463,6 +463,7 @@ def _read_directory(archive):
+             path = _bootstrap_external._path_join(archive, name)
+             t = (path, compress, data_size, file_size, file_offset, time, date, crc)
+             files[name] = t
++            _bootstrap._verbose_message('zipimport: name : {}', name)
+             count += 1
+     _bootstrap._verbose_message('zipimport: found {} names in {!r}', count, archive)
+     return files
+-- 
+2.23.0
+

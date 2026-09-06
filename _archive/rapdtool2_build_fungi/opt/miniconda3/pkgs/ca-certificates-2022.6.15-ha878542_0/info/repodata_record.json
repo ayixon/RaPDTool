@@ -1,0 +1,21 @@
+{
+  "arch": "x86_64",
+  "build": "ha878542_0",
+  "build_number": 0,
+  "channel": "https://conda.anaconda.org/conda-forge/linux-64",
+  "constrains": [],
+  "depends": [],
+  "features": "",
+  "fn": "ca-certificates-2022.6.15-ha878542_0.tar.bz2",
+  "license": "ISC",
+  "md5": "c320890f77fd1d617fa876e0982002c2",
+  "name": "ca-certificates",
+  "platform": "linux",
+  "sha256": "e2aa0004ae9907f8c150d4cb3d00f8146b812f7f6906142c5258cca3eb2c7abf",
+  "size": 152819,
+  "subdir": "linux-64",
+  "timestamp": 1655340944595,
+  "track_features": "",
+  "url": "https://conda.anaconda.org/conda-forge/linux-64/ca-certificates-2022.6.15-ha878542_0.tar.bz2",
+  "version": "2022.6.15"
+}

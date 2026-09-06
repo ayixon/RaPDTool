@@ -1,0 +1,56 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+
+  "title": "ISO 3166-3",
+  "description": "ISO 3166-3 formerly used country codes",
+  "type": "object",
+
+  "properties": {
+	"3166-3": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "alpha_2": {
+            "description": "Two letter alphabetic code of the item",
+            "type": "string",
+            "pattern": "^[A-Z]{2}$"
+          },
+          "alpha_3": {
+            "description": "Three letter alphabetic code of the item",
+            "type": "string",
+            "pattern": "^[A-Z]{3}$"
+          },
+          "alpha_4": {
+            "description": "Four letter alphabetic code of the item",
+            "type": "string",
+            "pattern": "^[A-Z]{2,4}$"
+          },
+          "name": {
+            "description": "Name of the item",
+            "type": "string",
+            "minLength": 1
+          },
+          "numeric": {
+            "description": "Three digit numeric code of the item, including leading zeros (optional)",
+            "type": "string",
+            "pattern": "^[0-9]{3}$"
+          },
+          "comment": {
+            "description": "Comment for the item (optional)",
+            "type": "string",
+            "minLength": 1
+          },
+          "withdrawal_date": {
+            "description": "Date of withdrawal from ISO 3166-1 (optional)",
+            "type": "string",
+            "pattern": "^[0-9]{4}(|-[0-9]{2}){2}$"
+          }
+        },
+        "required": ["alpha_2", "alpha_3", "alpha_4", "name"],
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

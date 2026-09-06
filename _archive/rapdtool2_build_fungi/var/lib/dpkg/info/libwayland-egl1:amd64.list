@@ -1,0 +1,11 @@
+/.
+/usr
+/usr/lib
+/usr/lib/x86_64-linux-gnu
+/usr/lib/x86_64-linux-gnu/libwayland-egl.so.1.20.0
+/usr/share
+/usr/share/doc
+/usr/share/doc/libwayland-egl1
+/usr/share/doc/libwayland-egl1/changelog.Debian.gz
+/usr/share/doc/libwayland-egl1/copyright
+/usr/lib/x86_64-linux-gnu/libwayland-egl.so.1

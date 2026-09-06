@@ -1,0 +1,64 @@
+From c23b6879c789beb899744592bbd5e13a2153c7f1 Mon Sep 17 00:00:00 2001
+From: Ray Donnelly <mingw.android@gmail.com>
+Date: Sun, 29 Apr 2018 16:10:42 +0100
+Subject: [PATCH 12/30] Disable new-dtags in unixccompiler.py
+
+They prevent isolation from system libraries and the HPC 'modules' system
+by giving precedence to LD_LIBRARY_PATH. We never want our libraries to
+be interposed by other libraries.
+
+The ELF spec. has comprehensive rpath support and new-dtags causes far
+more harm than good (for Anaconda Distribution at least). This may be a
+bit controversial I am convinced this is the right thing to do.
+
+Exclude this check from Windows though really we shouldn't have to as
+GNULD should be getting determined in a different way than from using
+sysconfig (which relates to the compiler used to build the interpreter
+itself, MSVC).
+---
+ Lib/distutils/tests/test_unixccompiler.py | 4 ++--
+ Lib/distutils/unixccompiler.py            | 6 +++---
+ 2 files changed, 5 insertions(+), 5 deletions(-)
+
+diff --git a/setuptools/_distutils/tests/test_unixccompiler.py b/setuptools/_distutils/tests/test_unixccompiler.py
+index eef702cf01..2d8d61df03 100644
+--- a/setuptools/_distutils/tests/test_unixccompiler.py	2022-03-28 00:12:42.000000000 +0300
++++ b/setuptools/_distutils/tests/test_unixccompiler.py	2022-04-04 13:57:01.224072490 +0300
+@@ -151,7 +151,7 @@
+             elif v == 'GNULD':
+                 return 'yes'
+         sysconfig.get_config_var = gcv
+-        self.assertEqual(self.cc.rpath_foo(), '-Wl,--enable-new-dtags,-R/foo')
++        self.assertEqual(self.cc.rpath_foo(), '-Wl,-R/foo')
+ 
+         # GCC non-GNULD
+         sys.platform = 'bar'
+@@ -161,7 +161,7 @@
+             elif v == 'GNULD':
+                 return 'no'
+         sysconfig.get_config_var = gcv
+-        self.assertEqual(self.cc.rpath_foo(), '-Wl,-R/foo')
++        self.assertEqual(self.cc.rpath_foo(), '-Wl,--disable-new-dtags,-R/foo')
+ 
+         # GCC GNULD with fully qualified configuration prefix
+         # see #7617
+diff --git a/setuptools/_distutils/unixccompiler.py b/setuptools/_distutils/unixccompiler.py
+index 84a421767d..12a9f777fe 100644
+--- a/setuptools/_distutils/unixccompiler.py	2022-03-28 00:12:42.000000000 +0300
++++ b/setuptools/_distutils/unixccompiler.py	2022-04-04 14:00:08.035874005 +0300
+@@ -294,12 +294,12 @@
+         # For all compilers, `-Wl` is the presumed way to
+         # pass a compiler option to the linker and `-R` is
+         # the way to pass an RPATH.
+-        if sysconfig.get_config_var("GNULD") == "yes":
++        if sysconfig.get_config_var("GNULD") == "yes" or sys.platform == 'win32':
+             # GNU ld needs an extra option to get a RUNPATH
+             # instead of just an RPATH.
+-            return "-Wl,--enable-new-dtags,-R" + dir
+-        else:
+             return "-Wl,-R" + dir
++        else:
++            return "-Wl,--disable-new-dtags,-R" + dir
+ 
+     def library_option(self, lib):
+         return "-l" + lib

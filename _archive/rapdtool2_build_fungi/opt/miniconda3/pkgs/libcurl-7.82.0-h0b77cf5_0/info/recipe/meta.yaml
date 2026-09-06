@@ -1,0 +1,83 @@
+# This file created by conda-build 3.21.8
+# ------------------------------------------------
+
+package:
+  name: libcurl
+  version: 7.82.0
+source:
+  sha256: 46d9a0400a33408fd992770b04a44a7434b3036f2e8089ac28b57573d59d371f
+  url: https://curl.haxx.se/download/curl-7.82.0.tar.bz2
+build:
+  number: 0
+  run_exports:
+    - libcurl >=7.82.0,<8.0a0
+  string: h0b77cf5_0
+requirements:
+  build:
+    - _libgcc_mutex 0.1 main
+    - _openmp_mutex 4.5 1_gnu
+    - _sysroot_linux-64_curr_repodata_hack 3 haa98f57_10
+    - binutils_impl_linux-64 2.35.1 h27ae35d_9
+    - binutils_linux-64 2.35.1 h454624a_30
+    - gcc_impl_linux-64 7.5.0 h7105cf2_17
+    - gcc_linux-64 7.5.0 h8f34230_30
+    - kernel-headers_linux-64 3.10.0 h57e8cba_10
+    - ld_impl_linux-64 2.35.1 h7274673_9
+    - libgcc-devel_linux-64 7.5.0 hbbeae57_17
+    - libgcc-ng 9.3.0 h5101ec6_17
+    - libgomp 9.3.0 h5101ec6_17
+    - libstdcxx-ng 9.3.0 hd4cf53a_17
+    - sysroot_linux-64 2.17 h57e8cba_10
+  host:
+    - _libgcc_mutex 0.1 main
+    - _openmp_mutex 4.5 1_gnu
+    - c-ares 1.18.1 h7f8727e_0
+    - ca-certificates 2022.3.29 h06a4308_0
+    - krb5 1.19.2 hac12032_0
+    - libedit 3.1.20210910 h7f8727e_0
+    - libev 4.33 h7f8727e_1
+    - libgcc-ng 9.3.0 h5101ec6_17
+    - libgomp 9.3.0 h5101ec6_17
+    - libnghttp2 1.46.0 hce63b2e_0
+    - libssh2 1.9.0 h1ba5d50_1
+    - libstdcxx-ng 9.3.0 hd4cf53a_17
+    - ncurses 6.3 h7f8727e_2
+    - openssl 1.1.1n h7f8727e_0
+    - zlib 1.2.11 h7f8727e_4
+  run:
+    - krb5 >=1.19.2,<1.20.0a0
+    - libgcc-ng >=7.5.0
+    - libnghttp2 >=1.46.0,<2.0a0
+    - libssh2 >=1.9.0,<2.0a0
+    - openssl >=1.1.1n,<1.1.2a
+    - zlib >=1.2.11,<1.3.0a0
+test:
+  commands:
+    - curl-config --features
+    - curl-config --protocols
+    - test -f ${PREFIX}/lib/libcurl${SHLIB_EXT}
+    - test ! -f ${PREFIX}/lib/libcurl.a
+about:
+  description: 'Curl is an open source command line tool and library for transferring
+    data
+
+    with URL syntax. It is used in command lines or scripts to transfer data.
+
+    '
+  dev_url: https://github.com/curl/curl
+  doc_source_url: https://github.com/curl/curl/tree/master/docs
+  doc_url: https://curl.haxx.se/docs/
+  home: https://curl.haxx.se/
+  license: curl
+  license_family: MIT
+  license_file: COPYING
+  summary: tool and library for transferring data with URL syntax
+extra:
+  copy_test_source_files: true
+  final: true
+  recipe-maintainers:
+    - jakirkham
+    - mingwandroid
+    - msarahan
+    - ocefpaf
+    - xylar

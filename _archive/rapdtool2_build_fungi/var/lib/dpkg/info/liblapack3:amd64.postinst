@@ -1,0 +1,11 @@
+#!/bin/sh
+
+set -e
+
+update-alternatives --install /usr/lib/x86_64-linux-gnu/liblapack.so.3 \
+                    liblapack.so.3-x86_64-linux-gnu \
+	            /usr/lib/x86_64-linux-gnu/lapack/liblapack.so.3 10
+
+
+
+exit 0

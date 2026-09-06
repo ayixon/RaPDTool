@@ -1,0 +1,13 @@
+#!/bin/sh
+
+set -e
+
+# Cleanup pre-multiarch alternative
+if [ "$1" = "upgrade" ] && dpkg --compare-versions "$2" lt 3.7.1-2~
+then
+    update-alternatives --remove liblapack.so.3 /usr/lib/lapack/liblapack.so.3
+fi
+
+
+
+exit 0

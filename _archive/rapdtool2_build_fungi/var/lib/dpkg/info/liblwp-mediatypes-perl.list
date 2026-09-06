@@ -1,0 +1,14 @@
+/.
+/usr
+/usr/share
+/usr/share/doc
+/usr/share/doc/liblwp-mediatypes-perl
+/usr/share/doc/liblwp-mediatypes-perl/changelog.Debian.gz
+/usr/share/doc/liblwp-mediatypes-perl/copyright
+/usr/share/man
+/usr/share/man/man3
+/usr/share/man/man3/LWP::MediaTypes.3pm.gz
+/usr/share/perl5
+/usr/share/perl5/LWP
+/usr/share/perl5/LWP/MediaTypes.pm
+/usr/share/perl5/LWP/media.types

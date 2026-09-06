@@ -1,0 +1,62 @@
+{% set name = "libedit" %}
+{% set version = "3.1" %}
+{% set date = "20210910" %}
+{% set sha256 = "6792a6a992050762edcca28ff3318cdb7de37dccf7bc30db59fcd7017eed13c5" %}
+
+package:
+  name: {{ name|lower }}
+  version: {{ version }}.{{ date }}
+
+source:
+  fn: {{ name }}-{{ date }}-{{ version }}.tar.gz
+  #url: https://github.com/AnacondaRecipes/libedit-feedstock/releases/download/source/{{ name }}-{{ date }}-{{ version }}.tar.gz
+  url: http://thrysoee.dk/editline/{{ name }}-{{ date }}-{{ version }}.tar.gz
+  sha256: {{ sha256 }}
+  patches:
+    - 0001-prefer-tinfo-over-curses-and-termcap.patch
+
+
+build:
+  number: 0
+  run_exports:
+    # no info available.  Guessing at x.x.  Change if you know better.
+    - {{ pin_subpackage('libedit', max_pin='x.x') }}
+  skip: True   # [win]
+
+requirements:
+  build:
+    - {{ compiler('c') }}
+    - automake
+    - autoconf
+    - m4
+    - perl
+    - make
+    - patch
+  host:
+    - ncurses
+
+  run:
+    - ncurses
+
+test:
+  commands:
+    - test -f $PREFIX/lib/libedit.dylib  # [osx]
+    - test -f $PREFIX/lib/libedit.so     # [linux]
+
+about:
+  home: http://thrysoee.dk/editline/
+  license: BSD-2-Clause
+  license_family: BSD
+  license_file: COPYING
+  summary: Editline Library (libedit)
+  description: |
+    This is an autotool- and libtoolized port of the NetBSD Editline library
+    (libedit). This Berkeley-style licensed command line editor library provides
+    generic line editing, history, and tokenization functions, similar to those
+    found in GNU Readline
+
+extra:
+  recipe-maintainers:
+    - djsutherland
+    - scopatz
+    - mingwandroid

@@ -1,0 +1,78 @@
+# This file created by conda-build 3.21.4
+# meta.yaml template originally from:
+# /opt/recipe, last modified Wed Dec 29 13:37:34 2021
+# ------------------------------------------------
+
+package:
+  name: focus
+  version: '1.8'
+source:
+  sha256: 1eadde87e4d666d88003df213eef7f52c75d5aa062e3a47fe0bf8d6e66e09bfc
+  url: https://pypi.io/packages/source/m/metagenomics-focus/metagenomics-focus-1.8.tar.gz
+build:
+  noarch: python
+  number: '0'
+  script: $PYTHON -m pip install --no-deps --ignore-installed --no-cache-dir -vvv
+    .
+  string: pyhdfd78af_0
+requirements:
+  host:
+    - _libgcc_mutex 0.1 conda_forge
+    - _openmp_mutex 4.5 1_gnu
+    - attrs 21.2.0 pyhd8ed1ab_0
+    - bzip2 1.0.8 h7f98852_4
+    - ca-certificates 2021.10.8 ha878542_0
+    - iniconfig 1.1.1 pyh9f0ad1d_0
+    - ld_impl_linux-64 2.36.1 hea4e1c9_2
+    - libffi 3.4.2 h7f98852_5
+    - libgcc-ng 11.2.0 h1d223b6_11
+    - libgomp 11.2.0 h1d223b6_11
+    - libnsl 2.0.0 h7f98852_0
+    - libuuid 2.32.1 h7f98852_1000
+    - libzlib 1.2.11 h36c2ea0_1013
+    - more-itertools 8.12.0 pyhd8ed1ab_0
+    - ncurses 6.2 h58526e2_4
+    - openssl 3.0.0 h7f98852_2
+    - packaging 21.3 pyhd8ed1ab_0
+    - pip 21.3.1 pyhd8ed1ab_0
+    - pluggy 1.0.0 py310hff52083_2
+    - py 1.11.0 pyh6c4a22f_0
+    - pyparsing 3.0.6 pyhd8ed1ab_0
+    - pytest 6.2.5 py310hff52083_1
+    - python 3.10.1 h543edf9_2_cpython
+    - python_abi 3.10 2_cp310
+    - readline 8.1 h46c0cb4_0
+    - setuptools 60.1.0 py310hff52083_0
+    - setuptools-scm 6.3.2 pyhd8ed1ab_0
+    - setuptools_scm 6.3.2 hd8ed1ab_0
+    - sqlite 3.37.0 h9cd32fc_0
+    - tk 8.6.11 h27826a3_1
+    - toml 0.10.2 pyhd8ed1ab_0
+    - tomli 2.0.0 pyhd8ed1ab_1
+    - tzdata 2021e he74cb21_0
+    - wheel 0.37.1 pyhd8ed1ab_0
+    - xz 5.2.5 h516909a_1
+    - zlib 1.2.11 h36c2ea0_1013
+  run:
+    - kmer-jellyfish >=2.2.6
+    - numpy >=1.12.1
+    - python >=3
+    - scipy >=0.19.0
+    - setuptools >=38.6.0
+    - setuptools_scm
+    - unzip
+test:
+  commands:
+    - focus --help
+about:
+  dev_url: https://github.com/metageni/FOCUS
+  home: https://edwards.sdsu.edu/FOCUS
+  license: GPL-3.0
+  license_family: GPL
+  license_file: COPYING
+  summary: FOCUS is an innovative and agile model to profile and report organisms
+    present in metagenomic samples based on composition usage without sequence length
+    dependencies.
+extra:
+  copy_test_source_files: true
+  final: true

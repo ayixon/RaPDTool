@@ -1,0 +1,47 @@
+Query Specification
+
+  -db            Database name
+  -query         Query string
+
+Spell Check
+
+  -spell         Correct misspellings in query
+
+Document Order
+
+  -sort          Result presentation order
+
+Sort Choices by Database
+
+  gene           Chromosome, Gene Weight, Name, Relevance
+
+  geoprofiles    Default Order, Deviation, Mean Value, Outliers, Subgroup Effect
+
+  pubmed         First Author, Journal, Last Author, Pub Date, Recently Added,
+                 Relevance, Title
+
+  (sequences)    Accession, Date Modified, Date Released, Default Order,
+                 Organism Name, Taxonomy ID
+
+  snp            Chromosome Base Position, Default Order, Heterozygosity,
+                 Organism, SNP_ID, Success Rate
+
+Note
+
+  All efilter shortcuts can also be used with esearch
+
+Examples
+
+  esearch -db pubmed -query "opsin gene conversion OR tetrachromacy"
+
+  esearch -db pubmed -query "Garber ED [AUTH] AND PNAS [JOUR]"
+
+  esearch -db nuccore -query "MatK [GENE] AND NC_0:NC_999999999 [PACC]"
+
+  esearch -db protein -query "amyloid* [PROT]" |
+  elink -target pubmed -label prot_cit |
+  esearch -db gene -query "apo* [GENE]" |
+  elink -target pubmed -label gene_cit |
+  esearch -query "(#prot_cit) AND (#gene_cit)" |
+  efetch -format docsum |
+  xtract -pattern DocumentSummary -element Id Title

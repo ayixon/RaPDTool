@@ -1,0 +1,155 @@
+{
+  "paths": [
+    {
+      "_path": "lib/python3.9/site-packages/importlib_metadata-4.11.4.dist-info/INSTALLER",
+      "path_type": "hardlink",
+      "sha256": "d0edee15f91b406f3f99726e44eb990be6e34fd0345b52b910c568e0eef6a2a8",
+      "size_in_bytes": 5
+    },
+    {
+      "_path": "lib/python3.9/site-packages/importlib_metadata-4.11.4.dist-info/LICENSE",
+      "path_type": "hardlink",
+      "sha256": "c0d7ba740721989d55bd507c0fda1373e8071da742b9a48101ebf7eac60433a5",
+      "size_in_bytes": 571
+    },
+    {
+      "_path": "lib/python3.9/site-packages/importlib_metadata-4.11.4.dist-info/METADATA",
+      "path_type": "hardlink",
+      "sha256": "b54439e56f481b19e793caaf951dfd216a3c642501b1cf3a307e65970dc90288",
+      "size_in_bytes": 3960
+    },
+    {
+      "_path": "lib/python3.9/site-packages/importlib_metadata-4.11.4.dist-info/RECORD",
+      "path_type": "hardlink",
+      "sha256": "fee98e1fd17d2fa44ab40ad036158064814dc2c19f8e7dae9d85be954872e060",
+      "size_in_bytes": 2012
+    },
+    {
+      "_path": "lib/python3.9/site-packages/importlib_metadata-4.11.4.dist-info/REQUESTED",
+      "path_type": "hardlink",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size_in_bytes": 0
+    },
+    {
+      "_path": "lib/python3.9/site-packages/importlib_metadata-4.11.4.dist-info/WHEEL",
+      "path_type": "hardlink",
+      "sha256": "1b5e87e00dc87a84269cead8578b9e6462928e18a95f1f3373c9eef451a5bcc0",
+      "size_in_bytes": 92
+    },
+    {
+      "_path": "lib/python3.9/site-packages/importlib_metadata-4.11.4.dist-info/direct_url.json",
+      "path_type": "hardlink",
+      "sha256": "f949b8d52b2ea7b2d2806c497214c235f91fdcbf7d14d4959cfbc9d3a0ab410c",
+      "size_in_bytes": 114
+    },
+    {
+      "_path": "lib/python3.9/site-packages/importlib_metadata-4.11.4.dist-info/top_level.txt",
+      "path_type": "hardlink",
+      "sha256": "08eddf0fdcb29403625e4acca38a872d5fe6a972f6b02e4914a82dd725804fe0",
+      "size_in_bytes": 19
+    },
+    {
+      "_path": "lib/python3.9/site-packages/importlib_metadata/__init__.py",
+      "path_type": "hardlink",
+      "sha256": "133856a5b0a07e9f0e3b060444102211257bef3565d64952f0bdb5b711842089",
+      "size_in_bytes": 31365
+    },
+    {
+      "_path": "lib/python3.9/site-packages/importlib_metadata/__pycache__/__init__.cpython-39.pyc",
+      "path_type": "hardlink",
+      "sha256": "2664559c9912e52ffa609bdfc0e3dc18bd4fe5968cfad6569120293fe6a3e552",
+      "size_in_bytes": 38492
+    },
+    {
+      "_path": "lib/python3.9/site-packages/importlib_metadata/__pycache__/_adapters.cpython-39.pyc",
+      "path_type": "hardlink",
+      "sha256": "e98b060e3479436ec8e483562c3122dfd44c71068cf13671bcce5d9ba1b9cbde",
+      "size_in_bytes": 2344
+    },
+    {
+      "_path": "lib/python3.9/site-packages/importlib_metadata/__pycache__/_collections.cpython-39.pyc",
+      "path_type": "hardlink",
+      "sha256": "3974dba3d090f28003c6fab75d233a3784ff51d3b199678769fc1a39cc930fa4",
+      "size_in_bytes": 1519
+    },
+    {
+      "_path": "lib/python3.9/site-packages/importlib_metadata/__pycache__/_compat.cpython-39.pyc",
+      "path_type": "hardlink",
+      "sha256": "47ea4043604da6e31e946d38b136edcca70c86d7fab583257f34eaee8a51d427",
+      "size_in_bytes": 2003
+    },
+    {
+      "_path": "lib/python3.9/site-packages/importlib_metadata/__pycache__/_functools.cpython-39.pyc",
+      "path_type": "hardlink",
+      "sha256": "b37606287ff58cf45c298554b20a45522359ee7669d0d53ae5f395258d0084ae",
+      "size_in_bytes": 3109
+    },
+    {
+      "_path": "lib/python3.9/site-packages/importlib_metadata/__pycache__/_itertools.cpython-39.pyc",
+      "path_type": "hardlink",
+      "sha256": "8d76ec1fc315ccbfff965a920120908f0231ab025df72f218f09a134dd908d46",
+      "size_in_bytes": 1986
+    },
+    {
+      "_path": "lib/python3.9/site-packages/importlib_metadata/__pycache__/_meta.cpython-39.pyc",
+      "path_type": "hardlink",
+      "sha256": "798c29d6a5ac77d1ff1ef78e23bbf25471d40fab9ca44f41de27dd2465e8f31f",
+      "size_in_bytes": 2363
+    },
+    {
+      "_path": "lib/python3.9/site-packages/importlib_metadata/__pycache__/_text.cpython-39.pyc",
+      "path_type": "hardlink",
+      "sha256": "3f46a1c60f570dd0246de8b4cad7b1b8c2874b3bf900c8a52cd70fbb3332243a",
+      "size_in_bytes": 3052
+    },
+    {
+      "_path": "lib/python3.9/site-packages/importlib_metadata/_adapters.py",
+      "path_type": "hardlink",
+      "sha256": "07a7c28b9fbc98b543154663de4ac8e67028fa62a9d5d1ffa886afc88c85ac9b",
+      "size_in_bytes": 1862
+    },
+    {
+      "_path": "lib/python3.9/site-packages/importlib_metadata/_collections.py",
+      "path_type": "hardlink",
+      "sha256": "089d0e4c21c88d6034648552e2fa0e440b27d91e11d9c40112d3ec6442690126",
+      "size_in_bytes": 743
+    },
+    {
+      "_path": "lib/python3.9/site-packages/importlib_metadata/_compat.py",
+      "path_type": "hardlink",
+      "sha256": "114d9708504f141cae23439fe97900b8161bcea4b28f0c30c2a9ac2b871c9dad",
+      "size_in_bytes": 1826
+    },
+    {
+      "_path": "lib/python3.9/site-packages/importlib_metadata/_functools.py",
+      "path_type": "hardlink",
+      "sha256": "3ec636fb8aeb297e1155e442d681a9d65075a660bd78a37cf3f7fe6c3f6e3a80",
+      "size_in_bytes": 2895
+    },
+    {
+      "_path": "lib/python3.9/site-packages/importlib_metadata/_itertools.py",
+      "path_type": "hardlink",
+      "sha256": "72faffdaff0145bc5c225e71e6575fa9d1e3848f188bcb3cca4e741bf9e6ea34",
+      "size_in_bytes": 2068
+    },
+    {
+      "_path": "lib/python3.9/site-packages/importlib_metadata/_meta.py",
+      "path_type": "hardlink",
+      "sha256": "fc5e3c1eefe317191f296cf9c1c612f2f3b6dea13281b55d17dafeeaa87e8631",
+      "size_in_bytes": 1154
+    },
+    {
+      "_path": "lib/python3.9/site-packages/importlib_metadata/_text.py",
+      "path_type": "hardlink",
+      "sha256": "1c2b0592c66924b7933f734493f9e0ac079755146d4ebb7287d78e001a113f80",
+      "size_in_bytes": 2166
+    },
+    {
+      "_path": "lib/python3.9/site-packages/importlib_metadata/py.typed",
+      "path_type": "hardlink",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size_in_bytes": 0
+    }
+  ],
+  "paths_version": 1
+}

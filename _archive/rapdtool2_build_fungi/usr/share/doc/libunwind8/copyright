@@ -1,0 +1,109 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: libunwind
+Upstream-Contact: David Mosberger <davidm@hpl.hp.com>
+Source: http://www.nongnu.org/libunwind
+
+Files: *
+Copyright: 2001-2005 Hewlett-Packard Co.
+           2007 David Mosberger-Tang
+License: Expat
+
+Files: src/arm/*
+Copyright: 2008 CodeSourcery
+License: Expat
+
+Files: src/mi/strerror.c
+Copyright: 2004 BEA Systems
+License: Expat
+
+Files: src/mips/*
+Copyright: 2008 CodeSourcery
+License: Expat
+
+Files: src/os-freebsd.c src/x86/*-freebsd.* 
+Copyright: 2010 Konstantin Belousov <kib@freebsd.org>
+License: Expat
+
+Files: src/ppc*/*
+Copyright: 2006-2007 IBM
+License: Expat
+
+Files: src/ptrace/_UPT_access_*
+Copyright: 2003-2005 Hewlett-Packard Co
+           2010 Konstantin Belousov <kib@freebsd.org>
+License: Expat
+
+Files: src/unwind/GetIPInfo.c
+Copyright: 2009 Red Hat
+License: Expat
+
+Files: src/x86/getcontext-linux.S
+Copyright: 2009 Google, Inc
+License: Expat
+
+Files: src/x86_64/Gstash_frame.c src/x86_64/Gtrace.c
+Copyright: 2010, 2011 by FERMI NATIONAL ACCELERATOR LABORATORY
+License: Expat
+
+Files: src/x86_64/*context.S
+Copyright: 2008 Google, Inc
+           2010 Konstantin Belousov <kib@freebsd.org>
+License: Expat
+
+Files: tests/Gtest-nocalloc.c tests/Gtest-nomalloc.c
+Copyright: 2009, 2011 Google, Inc
+License: Expat
+
+Files: tests/Gtest-trace.c
+Copyright: 2010, 2011 by FERMI NATIONAL ACCELERATOR LABORATORY
+License: Expat
+
+Files: tests/Ltest-cxx-exceptions.cxx
+Copyright: 2010 stefan.demharter@gmx.net
+           2010 arun.sharma@google.com
+License: Expat
+
+Files: debian/*
+Copyright: Copyright 2003 Matthieu Delahaye <matthieu@debian.org>
+           Copyright 2012 Daigo Moriwaki <daigo@debian.org>
+License: GPL-2+
+ This program is free software; you can redistribute it
+ and/or modify it under the terms of the GNU General Public
+ License as published by the Free Software Foundation; either
+ version 2 of the License, or (at your option) any later
+ version.
+ .
+ This program is distributed in the hope that it will be
+ useful, but WITHOUT ANY WARRANTY; without even the implied
+ warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR
+ PURPOSE.  See the GNU General Public License for more
+ details.
+ .
+ You should have received a copy of the GNU General Public
+ License along with this package; if not, write to the Free
+ Software Foundation, Inc., 51 Franklin St, Fifth Floor,
+ Boston, MA  02110-1301 USA
+ .
+ On Debian systems, the full text of the GNU General Public
+ License version 2 can be found in the file
+ `/usr/share/common-licenses/GPL-2'.
+
+License: Expat
+ Permission is hereby granted, free of charge, to any person obtaining
+ a copy of this software and associated documentation files (the
+ "Software"), to deal in the Software without restriction, including
+ without limitation the rights to use, copy, modify, merge, publish,
+ distribute, sublicense, and/or sell copies of the Software, and to
+ permit persons to whom the Software is furnished to do so, subject to
+ the following conditions:
+ .
+ The above copyright notice and this permission notice shall be
+ included in all copies or substantial portions of the Software.
+ .
+ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+ EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+ MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+ NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
+ LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+ OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
+ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.

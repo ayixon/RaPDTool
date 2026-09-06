@@ -1,0 +1,9 @@
+bin/aggregateBinDepths.pl
+bin/aggregateContigOverlapsByBin.pl
+bin/contigOverlaps
+bin/jgi_summarize_bam_contig_depths
+bin/merge_depths.pl
+bin/metabat
+bin/metabat1
+bin/metabat2
+bin/runMetaBat.sh

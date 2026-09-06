@@ -1,0 +1,62 @@
+#!/bin/sh
+
+# Public domain notice for all NCBI EDirect scripts is located at:
+# https://www.ncbi.nlm.nih.gov/books/NBK179288/#chapter6.Public_Domain_Notice
+
+flag="none"
+
+while [ $# -gt 0 ]
+do
+  case "$1" in
+    -path )
+      shift
+      ;;
+    -* )
+      exec >&2
+      echo "$0: Unrecognized option $1"
+      exit 1
+      ;;
+    * )
+      break
+      ;;
+  esac
+done
+
+if [ "$#" -gt 0 ]
+then
+  argument="$1"
+  target=$(cd "$argument" && pwd)
+  target=${target%/}
+  case "$target" in
+    */Archive ) ;;
+    * ) target=$target/Archive ;;
+  esac
+else
+  if [ -z "${EDIRECT_PUBMED_MASTER}" ]
+  then
+    echo "Must supply path to archive files or set EDIRECT_PUBMED_MASTER environment variable"
+    exit 1
+  else
+    MASTER="${EDIRECT_PUBMED_MASTER}"
+    MASTER=${MASTER%/}
+    target="$MASTER/Archive"
+  fi
+fi
+
+target=${target%/}
+
+HEAD=$(cat <<EOF
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE PubmedArticleSet PUBLIC "-//NLM//DTD PubMedArticle, 1st January 2019//EN" "https://dtd.nlm.nih.gov/ncbi/pubmed/out/pubmed_190101.dtd">
+<PubmedArticleSet>
+EOF
+)
+
+TAIL=$(cat <<EOF
+</PubmedArticleSet>
+EOF
+)
+
+echo "$HEAD" | gzip
+rchive -stream "$target"
+echo "$TAIL" | gzip

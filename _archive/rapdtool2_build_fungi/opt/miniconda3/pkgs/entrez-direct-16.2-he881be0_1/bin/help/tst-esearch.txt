@@ -1,0 +1,22 @@
+books	allergen OR concanavalin OR dystonia OR penicillin OR serotonin
+cdd	acetylcholine OR adenylate OR cyclase OR gibberellin OR resolvase OR retinal
+gap	ataxia OR dystonia OR idiopathic OR myopia OR vitamin
+gds	ataxia OR gravis OR myasthenia OR porphyrin OR telangiectasia OR xeroderma
+gene	color OR glomerulonephritis OR measles OR melibiose OR opsin OR vision
+genome	NC_001224 OR NC_001367 OR NC_001422 OR NC_003426
+geoprofiles	57p02 OR acid OR binding OR copper OR gamma OR ion OR m200013495 OR translocase
+homologene	anaemia OR aplastic OR deutan OR ustilago
+mesh	acute OR agonist OR helicase OR hemoglobin OR indole OR insulin OR porphyria OR rna
+nuccore		AB070594 OR AC000099 OR M65061 OR U54469 OR X58538
+omim	anaemia OR deuteranopia OR fanconi's OR hypertension OR pruritis OR tonsillitis
+pcassay	analgesics OR cholesterol OR diuretics OR hypoxanthine OR ibuprofen
+pccompound	acid OR chiral OR furanose OR glucuronic OR glyoxylate OR ornithine
+pcsubstance	bilirubin OR dehydrogenase OR enantiomer OR kinase OR lactate OR pyruvate OR vanilla
+pmc	ectromelia OR media/sinusitis OR otitis OR rotenone OR thyroxin
+popset	adh OR ethylene OR lycopene OR mouse OR mycelium
+protein	AAE59865 OR AAE92904 OR 1GDT OR 1YNK OR 2CSV
+proteinclusters	calmodulin OR heat OR keratin OR kinase OR lacz OR pyruvate OR shock
+pubmed	Tn3 transposition immunity OR Submitting DNA sequences to the databases
+snp	rs9859145 OR rs16911894
+structure	1GDT OR 1KP6 OR 1U5K OR 1YNK OR 2CSV
+taxonomy	Dengue virus type 2 OR Escherichia coli OR Microbotryum violaceum

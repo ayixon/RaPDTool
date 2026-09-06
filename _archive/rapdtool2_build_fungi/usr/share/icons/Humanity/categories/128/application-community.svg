@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+<svg id="svg1" width="128" height="128" version="1.0" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+ <defs id="defs3">
+  <linearGradient id="linearGradient7881" x1="22.82" x2="12.85" y1="28.829" y2="12.239" gradientTransform="matrix(2.8251 0 0 1.4532 3.3329 12.425)" gradientUnits="userSpaceOnUse">
+   <stop id="stop6622" style="stop-color:#f5a108;stop-opacity:0" offset="0"/>
+   <stop id="stop6623" style="stop-color:#fefdc3;stop-opacity:.74251" offset="1"/>
+  </linearGradient>
+  <radialGradient id="radialGradient2796" cx="24.375" cy="37.75" r="17.375" gradientTransform="matrix(2.6667 0 0 1.1799 -1.515e-7 57.627)" gradientUnits="userSpaceOnUse">
+   <stop id="stop2792" offset="0"/>
+   <stop id="stop2794" style="stop-opacity:0" offset="1"/>
+  </radialGradient>
+  <linearGradient id="linearGradient3853" x1="24" x2="24" y1="6" y2="51" gradientTransform="matrix(2.6051 0 0 2.6619 1.1706 1.0466)" gradientUnits="userSpaceOnUse">
+   <stop id="stop3244" style="stop-color:#f8b17e" offset="0"/>
+   <stop id="stop3246" style="stop-color:#e35d4f" offset=".3121"/>
+   <stop id="stop3248" style="stop-color:#c6262e" offset=".57054"/>
+   <stop id="stop3250" style="stop-color:#690b54" offset="1"/>
+  </linearGradient>
+  <linearGradient id="linearGradient3861" x1="17" x2="17" y1="45" y2="6" gradientTransform="matrix(2.6051 0 0 2.6619 1.1706 1.0466)" gradientUnits="userSpaceOnUse">
+   <stop id="stop2492" style="stop-color:#791235" offset="0"/>
+   <stop id="stop2494" style="stop-color:#dd3b27" offset="1"/>
+  </linearGradient>
+  <linearGradient id="linearGradient3208" x1="21.802" x2="21.802" y1="5.9933" y2="44.754" gradientTransform="matrix(2.6051 0 0 2.6619 1.1706 1.0466)" gradientUnits="userSpaceOnUse">
+   <stop id="stop2782" style="stop-color:#fff" offset="0"/>
+   <stop id="stop2784" style="stop-color:#fff;stop-opacity:0" offset="1"/>
+  </linearGradient>
+ </defs>
+ <path id="path2788" d="m111.33 102.17c0 11.322-20.744 20.5-46.333 20.5s-46.333-9.1782-46.333-20.5c0-11.322 20.744-20.5 46.333-20.5s46.333 9.1782 46.333 20.5z" style="fill:url(#radialGradient2796);opacity:.3"/>
+ <path id="path7876" d="m37.433 22.667c-14.314-0.70429-20.983 8.4874-24.59 17.231-3.5797 11.515 1.4805 33.263 26.278 31.609 14.144 0 19.766-14.499 27.21-18.263 6.7653-2.5569 7.2978-2.7858 14.445-2.7858 9.933 0 27.896-7.1856 27.896-14.315-3.0532-5.7212-11.159-15.91-26.054-14.173-9.4812 1.103-18.451 7.8774-20.794 11.248-5.7396-5.0603-13.068-10.551-24.391-10.551z" style="fill-rule:evenodd;fill:url(#linearGradient7881)"/>
+ <path id="path920" d="m63.267 28.194c24.198-24.715 57.451-1.9351 57.232 21.504-0.19996 21.427-16.189 31.689-56.357 69.802-42.044-35.456-56.858-43.632-56.639-69.055 0.21874-26.317 28.686-46.067 55.764-22.251z" style="fill-rule:evenodd;fill:url(#linearGradient3853);stroke:url(#linearGradient3861)"/>
+ <path id="path3206" d="m38.375 18.469c-16.652-0.13311-29.76 14.358-29.906 31.969-0.10772 12.52 3.3848 20.548 12.219 30.094 8.7208 9.4234 22.811 20.315 43.406 37.656 19.707-18.669 33.645-30.694 42.5-40.5 8.965-9.9277 12.84-17.528 12.938-28 0.10502-11.254-7.913-22.557-18.906-27.938-10.993-5.3808-24.819-4.9651-36.656 7.125-0.36034 0.37416-0.95023 0.4016-1.3438 0.0625-8.3184-7.3164-16.681-10.408-24.25-10.469z" style="fill:none;opacity:.4;stroke:url(#linearGradient3208)"/>
+</svg>

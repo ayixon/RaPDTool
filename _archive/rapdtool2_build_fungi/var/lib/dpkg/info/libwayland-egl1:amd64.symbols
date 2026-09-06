@@ -1,0 +1,6 @@
+libwayland-egl.so.1 libwayland-egl1 #MINVER#
+* Build-Depends-Package: libwayland-dev
+ wl_egl_window_create@Base 1.15.0
+ wl_egl_window_destroy@Base 1.15.0
+ wl_egl_window_get_attached_size@Base 1.15.0
+ wl_egl_window_resize@Base 1.15.0

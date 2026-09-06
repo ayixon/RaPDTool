@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mime-type xmlns="http://www.freedesktop.org/standards/shared-mime-info" type="text/x-sagemath">
+  <!--Created automatically by update-mime-database. DO NOT EDIT!-->
+  <comment>SageMath script</comment>
+  <comment xml:lang="uk">скрипт SageMath</comment>
+  <comment xml:lang="pt_BR">Script SageMath</comment>
+  <comment xml:lang="pl">Skrypt SageMath</comment>
+  <comment xml:lang="it">Script SageMath</comment>
+  <comment xml:lang="fi">SageMath skripti</comment>
+  <comment xml:lang="ca">script SageMath</comment>
+  <sub-class-of type="text/x-python"/>
+  <glob pattern="*.sage" weight="60"/>
+</mime-type>

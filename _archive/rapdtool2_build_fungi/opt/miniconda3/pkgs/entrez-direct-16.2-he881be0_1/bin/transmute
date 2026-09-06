@@ -1,0 +1,367 @@
+#!/bin/sh
+
+# ===========================================================================
+#
+#                            PUBLIC DOMAIN NOTICE
+#            National Center for Biotechnology Information (NCBI)
+#
+#  This software/database is a "United States Government Work" under the
+#  terms of the United States Copyright Act.  It was written as part of
+#  the author's official duties as a United States Government employee and
+#  thus cannot be copyrighted.  This software/database is freely available
+#  to the public for use. The National Library of Medicine and the U.S.
+#  Government do not place any restriction on its use or reproduction.
+#  We would, however, appreciate having the NCBI and the author cited in
+#  any work or product based on this material.
+#
+#  Although all reasonable efforts have been taken to ensure the accuracy
+#  and reliability of the software and data, the NLM and the U.S.
+#  Government do not and cannot warrant the performance or results that
+#  may be obtained by using this software or data. The NLM and the U.S.
+#  Government disclaim all warranties, express or implied, including
+#  warranties of performance, merchantability or fitness for any particular
+#  purpose.
+#
+# ===========================================================================
+#
+# File Name:  transmute
+#
+# Author:  Jonathan Kans, Aaron Ucko
+#
+# Version Creation Date:   09/28/2018
+#
+# ==========================================================================
+
+pth=$( dirname "$0" )
+
+case ":$PATH:" in
+  *:"$pth":* )
+    ;;
+  * )
+    PATH="$PATH:$pth"
+    export PATH
+    ;;
+esac
+
+# read command-line arguments to intercept certain commands
+
+for arg in "$@"
+do
+  case "$arg" in
+    -encodeXML )
+      while read line
+      do
+        echo "$line" |
+        sed -e "s/\&/\&amp;/; s/>/\&gt;/; s/</\&lt;/; s/'/\&apos;/g" -e 's/"/\&quot;/g'
+      done
+      exit
+      ;;
+    -decodeXML )
+      while read line
+      do
+        echo "$line" |
+        sed -e "s/\&amp;/\&/; s/\&gt;/>/; s/\&lt;/</; s/\&apos;/'/g" -e 's/\&quot;/"/g'
+      done
+      exit
+      ;;
+    -plainXML )
+      while read line
+      do
+        echo "$line" |
+        sed -e 's/<[^>]*>//g; s/  */ /g'
+      done
+      exit
+      ;;
+    -x2p )
+      binary=$( command -v xmllint )
+      if [ ! -x "$binary" ]
+      then
+        echo "ERROR: required xmllint helper is not present" >&2
+        exit 1
+      fi
+      xmllint --format -
+      exit
+      ;;
+    -j2p )
+      binary=$( command -v python )
+      if [ ! -x "$binary" ]
+      then
+        echo "ERROR: required python helper is not present" >&2
+        exit 1
+      fi
+      awk '{ gsub("}{", "}\n{"); print }' |
+      python -m json.tool
+      exit
+      ;;
+    -x2j )
+      binary=$( command -v perl )
+      if [ ! -x "$binary" ]
+      then
+        echo "ERROR: required perl helper is not present" >&2
+        exit 1
+      fi
+      xml2json
+      exit
+      ;;
+    -missing )
+      shift
+      # find missing subranges in list of ordered numbers
+      awk '($1 != p+1) { print p+1 "-" $1-1} { p=$1 }' "$@"
+      exit
+      ;;
+    -sort-by-length )
+      shift
+      perl -e 'print sort { length($a) <=> length($b) } <>'
+      exit
+      ;;
+    -sort-columns )
+      shift
+      while read line
+      do
+        echo "$line" |
+        tr '\t' '\n' |
+        sort "$@" |
+        tr '\n' '\t' |
+        perl -pe 's/\t$/\n/g'
+      done
+      exit
+      ;;
+    -uniq-columns )
+      shift
+      while read line
+      do
+        echo "$line" |
+        tr '\t' '\n' |
+        uniq "$@" |
+        tr '\n' '\t' |
+        perl -pe 's/\t$/\n/g'
+      done
+      exit
+      ;;
+    -grep-columns )
+      shift
+      while read line
+      do
+        echo "$line" |
+        tr '\t' '\n' |
+        grep "$@" |
+        tr '\n' '\t' |
+        perl -pe 's/\t$/\n/g'
+      done
+      exit
+      ;;
+    -loc2exons )
+      shift
+      tr ',' '\n' |
+      tr -s '.' '\t'
+      exit
+      ;;
+    -loc2introns )
+      shift
+      tr -s '.' '\n' |
+      grep ',' |
+      tr ',' '\t' |
+      print-columns '$1+1, $2-1'
+      exit
+      ;;
+    -loc2range )
+      shift
+      while read loc
+      do
+        echo "$loc" |
+        tr -cs '[^0-9]' '[\n*]' |
+        sort -n |
+        xargs echo |
+        awk '{ print $1 "\t" $NF }'
+      done
+      exit
+      ;;
+    -mactounix )
+      shift
+      perl -pi -e 's/\r/\n/g' "$1"
+      exit
+      ;;
+    -unixtomac )
+      shift
+      perl -pi -e 's/\n/\r/g' "$1"
+      exit
+      ;;
+    -unixtopc )
+      shift
+      perl -pi -e 's/\n/\r\n/g' "$1"
+      exit
+      ;;
+    -pctounix )
+      shift
+      perl -pi -e 's/\r\n/\n/g' "$1"
+      exit
+      ;;
+    -utf16toutf8 )
+      shift
+      iconv -f UTF-16 -t UTF-8 "$1"
+      exit
+      ;;
+    -utf8toascii )
+      shift
+      iconv -c -t ASCII "$1"
+      exit
+      ;;
+    -parse-email )
+      shift
+      perl -nle 'print "$1" if /([a-zA-Z0-9\.\_\-]+\@[a-zA-Z0-9\.\_\-]+)(?<!\.)/'
+      exit
+      ;;
+    -parse-url )
+      shift
+      # input: "https://username@host.org:99/path/to/server.fcgi?width=5&height=7"
+      if [ $# -gt 0 ]
+      then
+        orig="$1"
+      else
+        orig=$( cat )
+      fi
+      proto=$( echo "$orig" | sed -ne "s,^\(.*://\).*,\1,p" )
+      url=$( echo "$orig" | sed -e "s,$proto,,g" )
+      user=$( echo "$url" | sed -ne 's/^\([^/@]*\)@.*/\1/p' )
+      hspt=$( echo "$url" | sed -ne "s,^[^/@]*@,,; s,/.*,,p" )
+      host=$( echo "$hspt" | sed -e "s,:.*,," )
+      port=$( echo "$hspt" | sed -ne "s,.*:\([0-9]*\).*,\1,p" )
+      rest=$( echo "$url" | sed -ne "s,^[^/]*/,,p" )
+      path=$( echo "$rest" | sed -e "s/\?.*//" )
+      argu=$( echo "$rest" | sed -ne "s/^[^?]*\?//p" )
+      echo "${proto}|${user}|${host}|${port}|${path}|${argu}"
+      # output: "https://|username|host.org|99|path/to/server.fcgi|width=5&height=7"
+      exit
+      ;;
+    -aa1to3 )
+      fold -w 1 | tr A-Z a-z |
+      while read single
+      do
+        case "$single" in
+          a ) echo "Ala" ;;
+          b ) echo "Asx" ;;
+          c ) echo "Cys" ;;
+          d ) echo "Asp" ;;
+          e ) echo "Glu" ;;
+          f ) echo "Phe" ;;
+          g ) echo "Gly" ;;
+          h ) echo "His" ;;
+          i ) echo "Ile" ;;
+          j ) echo "Xle" ;;
+          k ) echo "Lys" ;;
+          l ) echo "Leu" ;;
+          m ) echo "Met" ;;
+          n ) echo "Asn" ;;
+          o ) echo "Pyl" ;;
+          p ) echo "Pro" ;;
+          q ) echo "Gln" ;;
+          r ) echo "Arg" ;;
+          s ) echo "Ser" ;;
+          t ) echo "Thr" ;;
+          u ) echo "Sec" ;;
+          v ) echo "Val" ;;
+          w ) echo "Trp" ;;
+          x ) echo "Xxx" ;;
+          y ) echo "Tyr" ;;
+          z ) echo "Glx" ;;
+          - ) echo "Gap" ;;
+          "*" ) echo "Ter" ;;
+        esac
+      done
+      exit
+      ;;
+    -aa3to1 )
+      tr -d ' ' | fold -w 3 | tr A-Z a-z |
+      while read triple
+      do
+        case "$triple" in
+          ala ) echo "A" ;;
+          arg ) echo "R" ;;
+          asn ) echo "N" ;;
+          asp ) echo "D" ;;
+          asx ) echo "B" ;;
+          cys ) echo "C" ;;
+          gap ) echo "-" ;;
+          gln ) echo "Q" ;;
+          glu ) echo "E" ;;
+          glx ) echo "Z" ;;
+          gly ) echo "G" ;;
+          his ) echo "H" ;;
+          ile ) echo "I" ;;
+          leu ) echo "L" ;;
+          lys ) echo "K" ;;
+          met ) echo "M" ;;
+          phe ) echo "F" ;;
+          pro ) echo "P" ;;
+          pyl ) echo "O" ;;
+          sec ) echo "U" ;;
+          ser ) echo "S" ;;
+          stp ) echo "*" ;;
+          ter ) echo "*" ;;
+          thr ) echo "T" ;;
+          trp ) echo "W" ;;
+          tyr ) echo "Y" ;;
+          val ) echo "V" ;;
+          xle ) echo "J" ;;
+          xxx ) echo "X" ;;
+        esac
+      done
+      exit
+      ;;
+    -test | -tests )
+      str="the rain & in [spain] stay's <mainly> on \"the\" plain"
+      pln="the rain & in [spain] stay's <mainly> on \\\"the\\\" plain"
+      echo "Plain"
+      echo "$pln"
+      echo "$str" | transmute -plainXML
+      echo "XML"
+      echo "$str" | transmute -encodeXML
+      echo "$str" | transmute -encodeXML | transmute -decodeXML
+      echo "URL"
+      echo "$str" | transmute -encodeURL
+      echo "$str" | transmute -encodeURL | transmute -decodeURL
+      echo "B64"
+      echo "$str" | transmute -encodeB64
+      echo "$str" | transmute -encodeB64 | transmute -decodeB64
+      echo "j2p"
+      nquire -get http://mygene.info/v3 gene 3043 | transmute -j2p
+      echo "-j2x"
+      nquire -get http://mygene.info/v3 gene 3043 | transmute -j2x -set - -rec GeneRec -nest plural
+      echo "-x2p"
+      efetch -db nuccore -id 3043 -format gbc | transmute -format compact | transmute -x2p
+      echo "-g2x"
+      efetch -db nuccore -id 3043 -format gb | transmute -g2x
+      exit
+      ;;
+    * )
+      continue
+      ;;
+  esac
+done
+
+# pass remaining commands to precompiled transmute executable
+PATH=/bin:/usr/bin
+export PATH
+osname=`uname -s`
+cputype=`uname -m`
+case "$osname-$cputype" in
+  Linux-x86_64 )           platform=Linux ;;
+  Darwin-x86_64 )          platform=Darwin ;;
+  Darwin-*arm* )           platform=Silicon ;;
+  CYGWIN_NT-* | MINGW*-* ) platform=CYGWIN_NT ;;
+  Linux-*arm* )            platform=ARM ;;
+  * )                      platform=UNSUPPORTED ;;
+esac
+compiled=$0."$platform"
+if [ -x "$compiled" ]
+then
+  exec "$compiled" "$@"
+else
+  echo ""
+  echo "Unable to locate transmute executable. Please execute the following:"
+  echo ""
+  echo "  nquire -dwn ftp.ncbi.nlm.nih.gov entrez/entrezdirect transmute.$platform.gz"
+  echo "  gunzip -f transmute.$platform.gz"
+  echo "  chmod +x transmute.$platform"
+  echo ""
+fi

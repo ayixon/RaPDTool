@@ -1,0 +1,43 @@
+{
+  "paths": [
+    {
+      "_path": "include/yaml.h",
+      "path_type": "hardlink",
+      "sha256": "de39c9fc2b2c8584775e6d0dc0f13c8e778ceba47d419cff9d85465ca35d6954",
+      "size_in_bytes": 54439
+    },
+    {
+      "_path": "lib/libyaml-0.so.2",
+      "path_type": "softlink",
+      "sha256": "ea079a6864ca10a6f8ea7d2d312c71121f5c966dc8e334f713a3bc8eb242ee49",
+      "size_in_bytes": 125072
+    },
+    {
+      "_path": "lib/libyaml-0.so.2.0.9",
+      "path_type": "hardlink",
+      "sha256": "ea079a6864ca10a6f8ea7d2d312c71121f5c966dc8e334f713a3bc8eb242ee49",
+      "size_in_bytes": 125072
+    },
+    {
+      "_path": "lib/libyaml.a",
+      "path_type": "hardlink",
+      "sha256": "dcb5ac836eab886f9e8220c17c77cab81376e4292fa94b9c664201ebd285fc63",
+      "size_in_bytes": 175496
+    },
+    {
+      "_path": "lib/libyaml.so",
+      "path_type": "softlink",
+      "sha256": "ea079a6864ca10a6f8ea7d2d312c71121f5c966dc8e334f713a3bc8eb242ee49",
+      "size_in_bytes": 125072
+    },
+    {
+      "_path": "lib/pkgconfig/yaml-0.1.pc",
+      "file_mode": "text",
+      "path_type": "hardlink",
+      "prefix_placeholder": "/opt/anaconda1anaconda2anaconda3",
+      "sha256": "ccaa923d9a666534b8b05bd03b38e0ce1f92ee3ccf4e2c0aad93b29f19db613f",
+      "size_in_bytes": 240
+    }
+  ],
+  "paths_version": 1
+}

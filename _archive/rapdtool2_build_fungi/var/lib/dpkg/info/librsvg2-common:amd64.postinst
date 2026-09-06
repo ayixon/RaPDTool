@@ -1,0 +1,15 @@
+#!/bin/sh
+set -e
+
+
+
+if [ "$1" = configure ]; then
+    # gdk-pixbuf's triggers already trigger on "interest" which happens after
+    # unpack. At that time the SVG loader might not work yet due to
+    # unconfigured/missing dependencies, so we need to run the gdk pixbuf
+    # loader query again after we are configured, as that is the only time when
+    # our library is guaranteed to work. see #
+    # https://launchpad.net/bugs/719861 comment 9 for details
+    dpkg-trigger --no-await /usr/lib/x86_64-linux-gnu/gdk-pixbuf-2.0/*/loaders
+fi
+

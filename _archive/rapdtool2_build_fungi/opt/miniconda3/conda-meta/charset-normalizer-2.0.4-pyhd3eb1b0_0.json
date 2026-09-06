@@ -1,0 +1,126 @@
+{
+  "build": "pyhd3eb1b0_0",
+  "build_number": 0,
+  "channel": "https://repo.anaconda.com/pkgs/main/noarch",
+  "constrains": [],
+  "depends": [
+    "python >=3.5"
+  ],
+  "extracted_package_dir": "/opt/miniconda3/pkgs/charset-normalizer-2.0.4-pyhd3eb1b0_0",
+  "features": "",
+  "files": [
+    "lib/python3.9/site-packages/charset_normalizer-2.0.4.dist-info/INSTALLER",
+    "lib/python3.9/site-packages/charset_normalizer-2.0.4.dist-info/LICENSE",
+    "lib/python3.9/site-packages/charset_normalizer-2.0.4.dist-info/METADATA",
+    "lib/python3.9/site-packages/charset_normalizer-2.0.4.dist-info/RECORD",
+    "lib/python3.9/site-packages/charset_normalizer-2.0.4.dist-info/REQUESTED",
+    "lib/python3.9/site-packages/charset_normalizer-2.0.4.dist-info/WHEEL",
+    "lib/python3.9/site-packages/charset_normalizer-2.0.4.dist-info/direct_url.json",
+    "lib/python3.9/site-packages/charset_normalizer-2.0.4.dist-info/entry_points.txt",
+    "lib/python3.9/site-packages/charset_normalizer-2.0.4.dist-info/top_level.txt",
+    "lib/python3.9/site-packages/charset_normalizer/__init__.py",
+    "lib/python3.9/site-packages/charset_normalizer/api.py",
+    "lib/python3.9/site-packages/charset_normalizer/assets/__init__.py",
+    "lib/python3.9/site-packages/charset_normalizer/cd.py",
+    "lib/python3.9/site-packages/charset_normalizer/cli/__init__.py",
+    "lib/python3.9/site-packages/charset_normalizer/cli/normalizer.py",
+    "lib/python3.9/site-packages/charset_normalizer/constant.py",
+    "lib/python3.9/site-packages/charset_normalizer/legacy.py",
+    "lib/python3.9/site-packages/charset_normalizer/md.py",
+    "lib/python3.9/site-packages/charset_normalizer/models.py",
+    "lib/python3.9/site-packages/charset_normalizer/py.typed",
+    "lib/python3.9/site-packages/charset_normalizer/utils.py",
+    "lib/python3.9/site-packages/charset_normalizer/version.py",
+    "lib/python3.9/site-packages/charset_normalizer/__pycache__/__init__.cpython-39.pyc",
+    "lib/python3.9/site-packages/charset_normalizer/__pycache__/api.cpython-39.pyc",
+    "lib/python3.9/site-packages/charset_normalizer/assets/__pycache__/__init__.cpython-39.pyc",
+    "lib/python3.9/site-packages/charset_normalizer/__pycache__/cd.cpython-39.pyc",
+    "lib/python3.9/site-packages/charset_normalizer/cli/__pycache__/__init__.cpython-39.pyc",
+    "lib/python3.9/site-packages/charset_normalizer/cli/__pycache__/normalizer.cpython-39.pyc",
+    "lib/python3.9/site-packages/charset_normalizer/__pycache__/constant.cpython-39.pyc",
+    "lib/python3.9/site-packages/charset_normalizer/__pycache__/legacy.cpython-39.pyc",
+    "lib/python3.9/site-packages/charset_normalizer/__pycache__/md.cpython-39.pyc",
+    "lib/python3.9/site-packages/charset_normalizer/__pycache__/models.cpython-39.pyc",
+    "lib/python3.9/site-packages/charset_normalizer/__pycache__/utils.cpython-39.pyc",
+    "lib/python3.9/site-packages/charset_normalizer/__pycache__/version.cpython-39.pyc",
+    "bin/normalizer"
+  ],
+  "fn": "charset-normalizer-2.0.4-pyhd3eb1b0_0.conda",
+  "legacy_bz2_md5": "544adf2677c47c9b9c891aea720678f1",
+  "legacy_bz2_size": 33999,
+  "license": "MIT",
+  "link": {
+    "source": "/opt/miniconda3/pkgs/charset-normalizer-2.0.4-pyhd3eb1b0_0",
+    "type": 1
+  },
+  "md5": "e7a441d94234b2b5fafee06e25dbf076",
+  "name": "charset-normalizer",
+  "noarch": "python",
+  "package_tarball_full_path": "/opt/miniconda3/pkgs/charset-normalizer-2.0.4-pyhd3eb1b0_0.conda",
+  "package_type": "noarch_python",
+  "paths_data": {
+    "paths": [
+      {
+        "_path": "lib/python3.9/site-packages/charset_normalizer/__pycache__/__init__.cpython-39.pyc",
+        "path_type": "pyc_file"
+      },
+      {
+        "_path": "lib/python3.9/site-packages/charset_normalizer/__pycache__/api.cpython-39.pyc",
+        "path_type": "pyc_file"
+      },
+      {
+        "_path": "lib/python3.9/site-packages/charset_normalizer/assets/__pycache__/__init__.cpython-39.pyc",
+        "path_type": "pyc_file"
+      },
+      {
+        "_path": "lib/python3.9/site-packages/charset_normalizer/__pycache__/cd.cpython-39.pyc",
+        "path_type": "pyc_file"
+      },
+      {
+        "_path": "lib/python3.9/site-packages/charset_normalizer/cli/__pycache__/__init__.cpython-39.pyc",
+        "path_type": "pyc_file"
+      },
+      {
+        "_path": "lib/python3.9/site-packages/charset_normalizer/cli/__pycache__/normalizer.cpython-39.pyc",
+        "path_type": "pyc_file"
+      },
+      {
+        "_path": "lib/python3.9/site-packages/charset_normalizer/__pycache__/constant.cpython-39.pyc",
+        "path_type": "pyc_file"
+      },
+      {
+        "_path": "lib/python3.9/site-packages/charset_normalizer/__pycache__/legacy.cpython-39.pyc",
+        "path_type": "pyc_file"
+      },
+      {
+        "_path": "lib/python3.9/site-packages/charset_normalizer/__pycache__/md.cpython-39.pyc",
+        "path_type": "pyc_file"
+      },
+      {
+        "_path": "lib/python3.9/site-packages/charset_normalizer/__pycache__/models.cpython-39.pyc",
+        "path_type": "pyc_file"
+      },
+      {
+        "_path": "lib/python3.9/site-packages/charset_normalizer/__pycache__/utils.cpython-39.pyc",
+        "path_type": "pyc_file"
+      },
+      {
+        "_path": "lib/python3.9/site-packages/charset_normalizer/__pycache__/version.cpython-39.pyc",
+        "path_type": "pyc_file"
+      },
+      {
+        "_path": "bin/normalizer",
+        "path_type": "unix_python_entry_point"
+      }
+    ],
+    "paths_version": 1
+  },
+  "requested_spec": "charset-normalizer==2.0.4=pyhd3eb1b0_0",
+  "sha256": "b39aea12bf02654cdd0094c79bfa6edbc8d054787f6e2d0b96d403cd4ba4cc0d",
+  "size": 35372,
+  "subdir": "noarch",
+  "timestamp": 1630003259346,
+  "track_features": "",
+  "url": "https://repo.anaconda.com/pkgs/main/noarch/charset-normalizer-2.0.4-pyhd3eb1b0_0.conda",
+  "version": "2.0.4"
+}

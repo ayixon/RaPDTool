@@ -1,0 +1,15 @@
+/.
+/usr
+/usr/share
+/usr/share/doc
+/usr/share/doc/liblwp-protocol-https-perl
+/usr/share/doc/liblwp-protocol-https-perl/CONTRIBUTING.md.gz
+/usr/share/doc/liblwp-protocol-https-perl/changelog.Debian.gz
+/usr/share/doc/liblwp-protocol-https-perl/copyright
+/usr/share/man
+/usr/share/man/man3
+/usr/share/man/man3/LWP::Protocol::https.3pm.gz
+/usr/share/perl5
+/usr/share/perl5/LWP
+/usr/share/perl5/LWP/Protocol
+/usr/share/perl5/LWP/Protocol/https.pm

@@ -1,0 +1,82 @@
+#! /usr/bin/perl -w
+
+my $login=0;
+
+while ($opt = shift(@ARGV))
+{
+    if ($opt eq '-display')
+    {
+	$ENV{'DISPLAY'} = shift(@ARGV);
+    }
+    elsif ($opt eq '-name')
+    {
+	# Accept but ignore
+	print STDERR "$0: The -name flag is not supported by the Tilix wrapper.\n"
+    }
+    elsif ($opt eq '-n')
+    {
+	# Accept but ignore
+	print STDERR "$0: to set an icon, please use -name <profile> and set a profile icon\n"
+    }
+    elsif ($opt eq '-T' || $opt eq '-title')
+    {
+	push(@args, '-t', shift(@ARGV));
+    }
+    elsif ($opt eq '-ls')
+    {
+	$login = 1;
+    }
+    elsif ($opt eq '+ls')
+    {
+	$login = 0;
+    }
+    elsif ($opt eq '-geometry')
+    {
+	$arg = shift(@ARGV);
+	push(@args, "--geometry=$arg");
+    }
+    elsif ($opt eq '-fn')
+    {
+	# Accept but ignore
+	print STDERR "$0: The -fn flag is not supported by the Tilix wrapper.\n"
+    }
+    elsif ($opt eq '-fg')
+    {
+	# Accept but ignore
+	print STDERR "$0: The -fg flag is not supported by the Tilix wrapper.\n"
+    }
+    elsif ($opt eq '-bg')
+    {
+	# Accept but ignore
+	print STDERR "$0: The -bg flag is not supported by the Tilix wrapper.\n"
+    }
+    elsif ($opt eq '-tn')
+    {
+	# Accept but ignore
+	print STDERR "$0: The -tn flag (set terminal name) is not supported by the Tilix wrapper.\n"
+    }
+    elsif ($opt eq '-e')
+    {
+	$arg = shift(@ARGV);
+	if (@ARGV)
+	{
+	    push(@args, '-x', $arg, @ARGV);
+	    last;
+	}
+	else
+	{
+	    push(@args, '-e', $arg);
+	}
+	last;
+    }
+    elsif ($opt eq '-h' || $opt eq '--help')
+    {
+	push(@args, '--help');
+    }
+}
+if ($login == 1)
+{
+    # Accept but ignore
+    print STDERR "$0: Running a login shell is not supported by the Tilix wrapper.\n"
+}
+exec('tilix', @args);

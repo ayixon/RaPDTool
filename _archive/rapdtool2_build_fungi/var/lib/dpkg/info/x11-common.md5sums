@@ -1,0 +1,7 @@
+c3ea640d689b1fbea5717587fc51ec06  usr/share/doc/x11-common/NEWS.Debian.gz
+4561027bfc415667f25844ca614fe92a  usr/share/doc/x11-common/changelog.gz
+d61715a706a95b7c222b5caebd8ce7f8  usr/share/doc/x11-common/copyright
+f36754cb1d65cc02b40e8df88ee675ec  usr/share/lintian/overrides/x11-common
+41aded319dc499d58ab94e19c845d617  usr/share/man/man5/Xsession.5.gz
+9b50d275faa3f2a34d90508b453b0ac5  usr/share/man/man5/Xsession.options.5.gz
+9b50d275faa3f2a34d90508b453b0ac5  usr/share/man/man5/Xsession.options.d.5.gz

@@ -1,0 +1,12 @@
+libXss.so.1 libxss1 #MINVER#
+ XScreenSaverAllocInfo@Base 0
+ XScreenSaverGetRegistered@Base 0
+ XScreenSaverQueryExtension@Base 0
+ XScreenSaverQueryInfo@Base 0
+ XScreenSaverQueryVersion@Base 0
+ XScreenSaverRegister@Base 0
+ XScreenSaverSelectInput@Base 0
+ XScreenSaverSetAttributes@Base 0
+ XScreenSaverSuspend@Base 0
+ XScreenSaverUnregister@Base 0
+ XScreenSaverUnsetAttributes@Base 0

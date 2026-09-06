@@ -1,0 +1,11 @@
+/.
+/usr
+/usr/lib
+/usr/lib/x86_64-linux-gnu
+/usr/lib/x86_64-linux-gnu/libdrm_amdgpu.so.1.0.0
+/usr/share
+/usr/share/doc
+/usr/share/doc/libdrm-amdgpu1
+/usr/share/doc/libdrm-amdgpu1/copyright
+/usr/lib/x86_64-linux-gnu/libdrm_amdgpu.so.1
+/usr/share/doc/libdrm-amdgpu1/changelog.Debian.gz

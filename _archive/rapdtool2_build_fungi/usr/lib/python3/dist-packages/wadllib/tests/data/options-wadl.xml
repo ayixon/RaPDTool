@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<application xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  xmlns="http://research.sun.com/wadl/2006/10"
+                  xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                  xsi:schemaLocation="http://research.sun.com/wadl/2006/10/wadl.xsd">
+  <resources base="http://www.example.com/">
+    <resource path="" type="#service-root"/>
+  </resources>
+
+  <resource_type id="service-root">
+    <method name="GET" id="service-root-get">
+      <response>
+        <representation href="#service-root-json"/>
+      </response>
+    </method>
+  </resource_type>
+
+  <representation id="service-root-json" mediaType="application/json">
+    <param style="plain" required="true" path="$['has_options]"
+           name="has_options">
+      <option value="Value 1" />
+      <option value="Value 2" />
+    </param>
+  </representation>
+</application>

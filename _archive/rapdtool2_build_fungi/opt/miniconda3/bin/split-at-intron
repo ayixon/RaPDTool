@@ -1,0 +1,68 @@
+#!/bin/bash -norc
+
+# Public domain notice for all NCBI EDirect scripts is located at:
+# https://www.ncbi.nlm.nih.gov/books/NBK179288/#chapter6.Public_Domain_Notice
+
+idx=0
+lft=0
+rgt=0
+stp=0
+std=""
+scr=""
+pfx=""
+while IFS=$'\t' read tag val
+do
+  case "$tag" in
+    index )
+      idx="$val"
+      ;;
+    score )
+      lft=0
+      rgt=0
+      scr="$val"
+      pfx=""
+      printf "\n${scr}\t${idx}\t"
+      ;;
+    start )
+      lft="$val"
+      rgt="$lft"
+      ;;
+    stop )
+      stp="$val"
+      ;;
+    strand )
+      std="$val"
+      printf "${std}\t"
+      ;;
+    match )
+      rgt=$((rgt + val))
+      ;;
+    mismatch )
+      rgt=$((rgt + val))
+      ;;
+    genomic-ins )
+      if [ "$val" -ge 30 ]
+      then
+        dec=$(( rgt - 1 ))
+        printf "${pfx}${lft}..${dec}"
+        lft=$((rgt + val))
+        rgt="$lft"
+        pfx=","
+      else
+        rgt=$((rgt + val))
+      fi
+      ;;
+    product-ins )
+      ;;
+    end )
+      dec=$(( rgt - 1 ))
+      printf "${pfx}${lft}..${dec}\n"
+      lft=0
+      rgt=0
+      pfx=""
+      ;;
+    * )
+      ;;
+  esac
+done |
+grep '.'

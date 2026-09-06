@@ -1,0 +1,8 @@
+Thank you for reporting a bug against xdg-utils. For us to be able to
+debug your problem, it would be most helpful if you could run the
+affected command using "sh -x" and include the output in your bug
+report. For example:
+
+    sh -x /usr/bin/xdg-open somefile.txt
+
+Note that you need to give the full path to the command.

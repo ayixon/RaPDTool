@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16" height="16" xmlns="http://www.w3.org/2000/svg">
+ <g color="#bebebe" fill="#474747">
+  <path d="m7 10v3h2v-3zm-5 3v2h12v-2z" font-family="sans-serif" font-weight="400" overflow="visible" style="font-feature-settings:normal;font-variant-alternates:normal;font-variant-caps:normal;font-variant-ligatures:normal;font-variant-numeric:normal;font-variant-position:normal;isolation:auto;mix-blend-mode:normal;shape-padding:0;text-decoration-color:#000;text-decoration-line:none;text-decoration-style:solid;text-indent:0;text-orientation:mixed;text-transform:none"/>
+  <path d="M4 5h8v6H4z" overflow="visible"/>
+  <path d="M8 1s-.709-.014-1.447.355C5.814 1.725 5 2.667 5 4v3h2V4c0-.667.186-.725.447-.855C7.71 3.014 8 3 8 3s.291.014.553.145c.261.13.447.188.447.855v3h2V4c0-1.333-.814-2.275-1.553-2.645C8.71.986 8 1 8 1z" font-family="sans-serif" font-weight="400" overflow="visible" style="font-feature-settings:normal;font-variant-alternates:normal;font-variant-caps:normal;font-variant-ligatures:normal;font-variant-numeric:normal;font-variant-position:normal;isolation:auto;mix-blend-mode:normal;shape-padding:0;text-decoration-color:#000;text-decoration-line:none;text-decoration-style:solid;text-indent:0;text-orientation:mixed;text-transform:none"/>
+ </g>
+</svg>

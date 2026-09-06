@@ -1,0 +1,77 @@
+# This file created by conda-build 3.21.9
+# meta.yaml template originally from:
+# /home/conda/recipe_root, last modified Tue Aug  2 00:36:53 2022
+# ------------------------------------------------
+
+package:
+  name: zipp
+  version: 3.8.1
+source:
+  sha256: 05b45f1ee8f807d0cc928485ca40a07cb491cf092ff587c0df9cb1fd154848d2
+  url: https://pypi.io/packages/source/z/zipp/zipp-3.8.1.tar.gz
+build:
+  noarch: python
+  number: '0'
+  script: '/home/conda/feedstock_root/build_artifacts/zipp_1659400682470/_h_env_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placeh/bin/python
+    -m pip install . --no-deps --ignore-installed -vv '
+  string: pyhd8ed1ab_0
+requirements:
+  host:
+    - _libgcc_mutex 0.1 conda_forge
+    - _openmp_mutex 4.5 2_gnu
+    - bzip2 1.0.8 h7f98852_4
+    - ca-certificates 2022.6.15 ha878542_0
+    - ld_impl_linux-64 2.36.1 hea4e1c9_2
+    - libffi 3.4.2 h7f98852_5
+    - libgcc-ng 12.1.0 h8d9b700_16
+    - libgomp 12.1.0 h8d9b700_16
+    - libnsl 2.0.0 h7f98852_0
+    - libuuid 2.32.1 h7f98852_1000
+    - libzlib 1.2.12 h166bdaf_2
+    - ncurses 6.3 h27087fc_1
+    - openssl 3.0.5 h166bdaf_1
+    - packaging 21.3 pyhd8ed1ab_0
+    - pip 22.2.1 pyhd8ed1ab_0
+    - pyparsing 3.0.9 pyhd8ed1ab_0
+    - python 3.10.5 ha86cf86_0_cpython
+    - python_abi 3.10 2_cp310
+    - readline 8.1.2 h0f457ee_0
+    - setuptools 63.3.0 py310hff52083_0
+    - setuptools-scm 6.4.2 pyhd8ed1ab_0
+    - setuptools_scm 6.4.2 hd8ed1ab_0
+    - sqlite 3.39.2 h4ff8645_0
+    - tk 8.6.12 h27826a3_0
+    - toml 0.10.2 pyhd8ed1ab_0
+    - tomli 2.0.1 pyhd8ed1ab_0
+    - tzdata 2022a h191b570_0
+    - wheel 0.37.1 pyhd8ed1ab_0
+    - xz 5.2.5 h516909a_1
+    - zlib 1.2.12 h166bdaf_2
+  run:
+    - python >=3.7
+test:
+  commands:
+    - python -m unittest test_zipp.py
+    - pip check
+  imports:
+    - zipp
+  requires:
+    - func_timeout
+    - importlib_metadata
+    - jaraco.itertools
+    - pip
+  source_files:
+    - test_zipp.py
+about:
+  dev_url: https://github.com/jaraco/zipp
+  doc_url: https://zipp.readthedocs.io/en/latest
+  home: https://github.com/jaraco/zipp
+  license: MIT
+  license_family: MIT
+  license_file: LICENSE
+  summary: A pathlib-compatible Zipfile object wrapper
+extra:
+  copy_test_source_files: true
+  final: true
+  recipe-maintainers:
+    - nehaljwani

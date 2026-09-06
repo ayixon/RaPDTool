@@ -1,0 +1,46 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+
+  "title": "ISO 639-2",
+  "description": "ISO 639-2 language codes",
+  "type": "object",
+
+  "properties": {
+	"639-2": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "alpha_3": {
+            "description": "Three letter terminology code of the language",
+            "type": "string",
+            "pattern": "^[a-z]{3}(-[a-z]{3})?$"
+          },
+          "name": {
+            "description": "Name of the item",
+            "type": "string",
+            "minLength": 1
+          },
+          "alpha_2": {
+            "description": "Two letter alphabetic code of the language from part 1 (optional)",
+            "type": "string",
+            "pattern": "^[a-z]{2}$"
+          },
+          "bibliographic": {
+            "description": "Three letter bibliographic code of the language (optional)",
+            "type": "string",
+            "pattern": "^[a-z]{3}$"
+          },
+          "common_name": {
+            "description": "Common name of the language (optional)",
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required": ["alpha_3", "name"],
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

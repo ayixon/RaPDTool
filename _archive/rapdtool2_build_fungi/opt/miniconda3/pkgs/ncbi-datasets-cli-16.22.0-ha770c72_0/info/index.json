@@ -1,0 +1,14 @@
+{
+  "arch": "x86_64",
+  "build": "ha770c72_0",
+  "build_number": 0,
+  "depends": [
+    "ca-certificates"
+  ],
+  "license": "Public Domain",
+  "name": "ncbi-datasets-cli",
+  "platform": "linux",
+  "subdir": "linux-64",
+  "timestamp": 1718644667537,
+  "version": "16.22.0"
+}

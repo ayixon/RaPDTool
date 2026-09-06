@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+<svg id="svg7306" width="48" height="48" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+ <defs id="defs7308">
+  <linearGradient id="linearGradient3752" x1="22" x2="22" y1="-41" y2="-13" gradientTransform="translate(-.000419 50)" gradientUnits="userSpaceOnUse">
+   <stop id="stop3736" style="stop-color:#eeeeec" offset="0"/>
+   <stop id="stop3738" style="stop-color:#babdb6" offset=".7495"/>
+   <stop id="stop3740" style="stop-color:#a1a59b" offset="1"/>
+  </linearGradient>
+  <radialGradient id="radialGradient3755" cx="21.578" cy="24.484" r="3.1719" gradientTransform="matrix(1 0 0 2.2315 -.000419 -30.153)" gradientUnits="userSpaceOnUse">
+   <stop id="stop6891" offset="0"/>
+   <stop id="stop6893" style="stop-opacity:0" offset="1"/>
+  </radialGradient>
+  <linearGradient id="linearGradient3759" x1="22" x2="22" y1="-40" y2="-13" gradientTransform="translate(-.000419 50)" gradientUnits="userSpaceOnUse">
+   <stop id="stop3744" style="stop-color:#eeeeec" offset="0"/>
+   <stop id="stop3746" style="stop-color:#babdb6" offset=".74034"/>
+   <stop id="stop3748" style="stop-color:#a1a59b" offset="1"/>
+  </linearGradient>
+  <linearGradient id="linearGradient3766" x1="22" x2="22" y1="13" y2="33" gradientUnits="userSpaceOnUse">
+   <stop id="stop3214" style="stop-color:#fff" offset="0"/>
+   <stop id="stop3216" style="stop-color:#fff;stop-opacity:0" offset="1"/>
+  </linearGradient>
+  <linearGradient id="linearGradient3768" x1="22" x2="22" y1="12" y2="35" gradientUnits="userSpaceOnUse">
+   <stop id="stop6868" style="stop-color:#fff" offset="0"/>
+   <stop id="stop6870" style="stop-color:#fff;stop-opacity:0" offset="1"/>
+  </linearGradient>
+ </defs>
+ <g id="layer1">
+  <path id="path6793" d="m31.5 36.5v-3h-3c-2.1222-1e-6 -4.247-0.90356-5.9688-2.4375s-3.0312-3.8276-3.0312-6.5625c0-3.336-2.0391-5-4.5-5h-4.5-2v-4h2 4.5c4.5391 0 8.5 3.7914 8.5 9 0 1.4651 0.69052 2.6777 1.7188 3.5938s2.4035 1.4062 3.2812 1.4062h3v-3l7 5-7 5z" style="fill-rule:evenodd;fill:url(#linearGradient3759);stroke-linecap:square;stroke:#888a85"/>
+  <path id="path6854" transform="translate(0 -.0375)" d="m9.3125 16.312v2.375h1.1875 4.5c1.4136 0 2.7663 0.49751 3.75 1.5s1.5625 2.4789 1.5625 4.3125c0 2.4756 1.1758 4.5663 2.75 5.9688 1.5922 1.4185 3.5459 2.2187 5.4375 2.2188h3a0.81258 0.81258 0 0 1 0.8125 0.8125v1.4375l4.8125-3.4375-4.8125-3.4375v1.4375a0.81258 0.81258 0 0 1-0.8125 0.8125h-3c-1.1803 0-2.6231-0.56534-3.8125-1.625-1.1592-1.0328-2-2.4671-2-4.1875 0-4.7966-3.6008-8.1875-7.6875-8.1875h-4.5-1.1875z" style="fill:none;opacity:.6;stroke-linecap:square;stroke-width:.8;stroke:url(#linearGradient3768)"/>
+  <path id="path6876" d="m20.968 17.406c-1.15 1.1828-2.0687 2.6675-2.5625 4.4062 0.40105 0.68112 0.625 1.5619 0.625 2.6875 0 2.8876 1.3788 5.2949 3.1875 6.9062 0.06175 0.05502 0.12476 0.10276 0.1875 0.15625 1.1268-1.2986 1.9555-2.9182 2.3438-4.7188-0.4785-0.67914-0.78125-1.4512-0.78125-2.3438 0-2.9001-1.1734-5.3943-3-7.0938z" style="fill-rule:evenodd;fill:url(#radialGradient3755);opacity:.6"/>
+  <path id="path6784" d="m31.5 12.5v3h-3c-2.1222 1e-6 -4.247 0.90356-5.9688 2.4375s-3.0312 3.8276-3.0312 6.5625c0 3.336-2.0391 5-4.5 5h-4.5-2v4h2 4.5c4.5391 0 8.5-3.7914 8.5-9 0-1.4651 0.69052-2.6777 1.7188-3.5938s2.4035-1.4062 3.2812-1.4062h3v3l7-5-7-5z" style="fill-rule:evenodd;fill:url(#linearGradient3752);stroke-linecap:square;stroke:#888a85"/>
+  <path id="path6816" transform="translate(0 -.0375)" d="m32.344 14.156v1.3438a0.85262 0.85262 0 0 1-0.84375 0.84375h-3c-1.8802 1e-6 -3.8204 0.80593-5.4062 2.2188-1.5669 1.396-2.75 3.4747-2.75 5.9375 0 1.8417-0.5706 3.3329-1.5625 4.3438s-2.3587 1.5-3.7812 1.5h-4.5-1.1562v2.3125h1.1562 4.5c4.0644 0 7.6562-3.3799 7.6562-8.1562 0-1.733 0.83431-3.1802 2-4.2188 1.1974-1.0667 2.6486-1.625 3.8438-1.625h3a0.85262 0.85262 0 0 1 0.84375 0.84375v1.3438l4.6875-3.3438-4.6875-3.3438z" style="fill:none;opacity:.6;stroke-linecap:square;stroke-width:.8;stroke:url(#linearGradient3766)"/>
+ </g>
+</svg>

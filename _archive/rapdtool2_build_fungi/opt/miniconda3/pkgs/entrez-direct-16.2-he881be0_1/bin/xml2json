@@ -1,0 +1,103 @@
+#!/usr/bin/env perl
+
+# ===========================================================================
+#
+#                            PUBLIC DOMAIN NOTICE
+#            National Center for Biotechnology Information (NCBI)
+#
+#  This software/database is a "United States Government Work" under the
+#  terms of the United States Copyright Act.  It was written as part of
+#  the author's official duties as a United States Government employee and
+#  thus cannot be copyrighted.  This software/database is freely available
+#  to the public for use. The National Library of Medicine and the U.S.
+#  Government do not place any restriction on its use or reproduction.
+#  We would, however, appreciate having the NCBI and the author cited in
+#  any work or product based on this material.
+#
+#  Although all reasonable efforts have been taken to ensure the accuracy
+#  and reliability of the software and data, the NLM and the U.S.
+#  Government do not and cannot warrant the performance or results that
+#  may be obtained by using this software or data. The NLM and the U.S.
+#  Government disclaim all warranties, express or implied, including
+#  warranties of performance, merchantability or fitness for any particular
+#  purpose.
+#
+# ===========================================================================
+#
+# File Name:  xml2json
+#
+# Author:  Jonathan Kans
+#
+# Version Creation Date:   11/09/2020
+#
+# ==========================================================================
+
+# Entrez Direct legacy support for xml to json, extracted from edirect.pl
+
+# use strict;
+use warnings;
+
+# usage - xml2json
+
+use JSON::PP;
+use XML::Simple;
+
+# definitions
+
+use constant false => 0;
+use constant true  => 1;
+
+sub convert_bools {
+    my %unrecognized;
+
+    local *_convert_bools = sub {
+        my $ref_type = ref($_[0]);
+        if (!$ref_type) {
+            # Nothing.
+        }
+        elsif ($ref_type eq 'HASH') {
+            _convert_bools($_) for values(%{ $_[0] });
+        }
+        elsif ($ref_type eq 'ARRAY') {
+            _convert_bools($_) for @{ $_[0] };
+        }
+        elsif (
+               $ref_type eq 'JSON::PP::Boolean'           # JSON::PP
+            || $ref_type eq 'Types::Serialiser::Boolean'  # JSON::XS
+        ) {
+            $_[0] = $_[0] ? 1 : 0;
+        }
+        else {
+            ++$unrecognized{$ref_type};
+        }
+    };
+
+    &_convert_bools;
+}
+
+sub xml_to_json {
+
+  my $data = shift (@_);
+
+  my $xc = new XML::Simple(KeepRoot => 1);
+  my $conv = $xc->XMLin($data);
+  convert_bools($conv);
+  my $jc = JSON::PP->new->ascii->pretty->allow_nonref;
+  $data = $jc->encode($conv);
+
+  return $data;
+}
+
+# main block
+
+my $str = do { local $/; <STDIN> };
+
+$data = xml_to_json($str);
+
+print $data;
+
+# close input and output files
+
+close (STDIN);
+close (STDOUT);
+close (STDERR);

@@ -1,0 +1,100 @@
+#!/usr/bin/env perl
+
+# Public domain notice for all NCBI EDirect scripts is located at:
+# https://www.ncbi.nlm.nih.gov/books/NBK179288/#chapter6.Public_Domain_Notice
+
+use warnings;
+use strict;
+
+use File::Path;
+use Net::FTP;
+use POSIX qw(uname);
+
+my $cache_dir = "$ENV{HOME}/.cache/ncbi-converters";
+if (defined $ENV{NCBI_CONVERTER_DIR}) {
+    $cache_dir = $ENV{NCBI_CONVERTER_DIR};
+}
+
+my $server   = 'ftp.ncbi.nlm.nih.gov';
+my $platform = DetectPlatform();
+my $dir      = "/toolbox/ncbi_tools/converters/by_platform/$platform";
+my $ext      = ($platform eq 'win') ? 'zip' : 'gz';
+my $binext   = ($platform eq 'win') ? '.exe' : '';
+my $archive  = "$ARGV[0].$platform.$ext";
+my $executable = "$cache_dir/" . $ARGV[0] . $binext;
+
+if ( ! -d $cache_dir ) {
+    File::Path::make_path($cache_dir)
+        or die "Unable to ensure the existence of $cache_dir: $!";
+}
+
+my $ftp = new Net::FTP($server, Passive => 1)
+    or die "Unable to connect to FTP server: $!";
+$ftp->login or die "Unable to log in to FTP server";
+$ftp->cwd($dir) or die "Unable to change to $dir";
+$ftp->binary or warn "Unable to set binary mode";
+
+my $time = $ftp->mdtm($archive);
+my @stats = stat "$cache_dir/$ARGV[0]$binext";
+if ( !@stats  ||  $stats[9] < $time) {
+    $ftp->get("$archive", "$cache_dir/$archive")
+        or die "Unable to download $archive";
+    utime $time, $time, "$cache_dir/$archive";
+    my $pid = fork();
+    if ($pid < 0) {
+        die "Unable to fork for unpacking: $!";
+    } elsif ($pid > 0) {
+        waitpid($pid, 0);
+        chmod(0777 &~ umask, $executable);
+        utime $time, $time, $executable;
+    } else {
+        chdir($cache_dir);
+        if ($platform eq 'win') {
+            exec('unzip', $archive);
+        } else {
+            system('gunzip', '-n', $archive);
+            rename("$ARGV[0].$platform", $ARGV[0]);
+            exit 0;
+        }
+    }
+}
+
+shift;
+exec($executable, @ARGV);
+
+sub DetectPlatform
+{
+    my @uname = uname();
+    my $OS    = $uname[0];
+    my $CPU   = $uname[4];
+    my $pf;
+    my $last_built;
+    if ($OS =~ /^CYGWIN/) {
+        $pf = 'win';
+    } elsif ($OS eq 'Darwin') {
+        $pf = 'mac';
+    } elsif ($OS eq 'Linux') {
+        if ($CPU =~ /i\d86/) {
+            $pf = 'linux32';
+            $last_built = 'November 2014';
+        } elsif ($CPU eq 'x86_64') {
+            $pf = 'linux64';
+        }
+    } elsif ($OS eq 'SunOS') {
+        if ($CPU =~ /^s/) {
+            $pf = 'solaris';
+            $last_built = 'March 2014';
+        } else {
+            $pf = 'solaris-x86';
+            $last_built = 'September 2014';
+        }
+    } else {
+        die "No prebuilt binaries available for $OS/$CPU";
+    }
+
+    if (defined $last_built) {
+        warn "NCBI no longer builds for $OS/$CPU; using a binary from"
+            . " $last_built";
+    }
+    return $pf;
+}

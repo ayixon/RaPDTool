@@ -1,0 +1,27 @@
+{
+  "arch": "x86_64",
+  "build": "ha56f1ee_0",
+  "build_number": 0,
+  "channel": "https://conda.anaconda.org/conda-forge/linux-64",
+  "constrains": [],
+  "depends": [
+    "libgcc-ng >=9.3.0",
+    "libidn2 >=2,<3.0a0",
+    "libunistring >=0,<1.0a0",
+    "openssl >=1.1.1k,<1.1.2a",
+    "zlib >=1.2.11,<1.3.0a0"
+  ],
+  "features": "",
+  "fn": "wget-1.20.3-ha56f1ee_0.tar.bz2",
+  "license": "GPL3",
+  "md5": "0ab59241af86dae01c659ce53e95246e",
+  "name": "wget",
+  "platform": "linux",
+  "sha256": "cd35dd9a0330cb77b8a5b2cc891dee7ca00596aa9a334c14fc2eb3b935ee4ff5",
+  "size": 827336,
+  "subdir": "linux-64",
+  "timestamp": 1626963513599,
+  "track_features": "",
+  "url": "https://conda.anaconda.org/conda-forge/linux-64/wget-1.20.3-ha56f1ee_0.tar.bz2",
+  "version": "1.20.3"
+}

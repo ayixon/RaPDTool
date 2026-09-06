@@ -1,0 +1,370 @@
+ChangelogURI: http://arsip.blankonlinux.or.id/blankon/changelogs/pool/%s/%s/%s/%s_%s/changelog
+
+Suite: tambora
+RepositoryType: deb
+BaseURI: http://arsip.blankonlinux.or.id/blankon/
+MatchURI: arsip.blankonlinux.or.id/blankon
+MirrorsFile-amd64: /usr/share/python-apt/templates/Blankon.mirrors
+MirrorsFile-i386: /usr/share/python-apt/templates/Blankon.mirrors
+Description: Blankon 10.0 'Tambora'
+Component: main
+CompDescription: Officially supported
+CompDescriptionLong: Blankon-supported Free/Open Source software
+Component: extras
+CompDescription: Community-maintained
+CompDescriptionLong: Community-maintained Free/Open Source software
+Component: restricted
+CompDescription: Non-free drivers
+CompDescriptionLong: Proprietary drivers for devices
+Component: extras-restricted
+CompDescription: Restricted software
+CompDescriptionLong: Software restricted by copyright or legal issues
+
+Suite: tambora
+MatchName: .*
+BaseURI: cdrom:\[Blankon.*10.0
+MatchURI: cdrom:\[Blankon.*10.0
+Description: CDROM with Blankon 10.0 'Tambora'
+Available: False
+Component: main
+CompDescription: Officially supported
+Component: restricted
+CompDescription: Restricted copyright
+
+Suite: tambora-security
+ParentSuite: tambora
+RepositoryType: deb
+BaseURI: http://arsip.blankonlinux.or.id/blankon/
+MatchURI: arsip.blankonlinux.or.id/blankon
+Description: Important security updates
+
+Suite: tambora-updates
+ParentSuite: tambora
+RepositoryType: deb
+Description: Recommended updates
+
+Suite: suroboyo
+RepositoryType: deb
+BaseURI: http://arsip.blankonlinux.or.id/blankon/
+MatchURI: arsip.blankonlinux.or.id/blankon
+MirrorsFile-amd64: /usr/share/python-apt/templates/Blankon.mirrors
+MirrorsFile-i386: /usr/share/python-apt/templates/Blankon.mirrors
+Description: Blankon 9.0 'Suroboyo'
+Component: main
+CompDescription: Officially supported
+CompDescriptionLong: Blankon-supported Free/Open Source software
+Component: extras
+CompDescription: Community-maintained
+CompDescriptionLong: Community-maintained Free/Open Source software
+Component: restricted
+CompDescription: Non-free drivers
+CompDescriptionLong: Proprietary drivers for devices
+Component: extras-restricted
+CompDescription: Restricted software
+CompDescriptionLong: Software restricted by copyright or legal issues
+
+Suite: suroboyo
+MatchName: .*
+BaseURI: cdrom:\[Blankon.*9.0
+MatchURI: cdrom:\[Blankon.*9.0
+Description: CDROM with Blankon 9.0 'Suroboyo'
+Available: False
+Component: main
+CompDescription: Officially supported
+Component: restricted
+CompDescription: Restricted copyright
+
+Suite: suroboyo-security
+ParentSuite: suroboyo
+RepositoryType: deb
+BaseURI: http://arsip.blankonlinux.or.id/blankon/
+MatchURI: arsip.blankonlinux.or.id/blankon
+Description: Important security updates
+
+Suite: suroboyo-updates
+ParentSuite: suroboyo
+RepositoryType: deb
+Description: Recommended updates
+
+Suite: rote
+RepositoryType: deb
+BaseURI: http://arsip.blankonlinux.or.id/blankon/
+MatchURI: arsip.blankonlinux.or.id/blankon
+MirrorsFile-amd64: /usr/share/python-apt/templates/Blankon.mirrors
+MirrorsFile-i386: /usr/share/python-apt/templates/Blankon.mirrors
+Description: Blankon 8.0 'Rote'
+Component: main
+CompDescription: Officially supported
+CompDescriptionLong: Blankon-supported Free/Open Source software
+Component: extras
+CompDescription: Community-maintained
+CompDescriptionLong: Community-maintained Free/Open Source software
+Component: restricted
+CompDescription: Non-free drivers
+CompDescriptionLong: Proprietary drivers for devices
+Component: extras-restricted
+CompDescription: Restricted software
+CompDescriptionLong: Software restricted by copyright or legal issues
+
+Suite: rote
+MatchName: .*
+BaseURI: cdrom:\[Blankon.*8.0
+MatchURI: cdrom:\[Blankon.*8.0
+Description: CDROM with Blankon 8.0 'Rote'
+Available: False
+Component: main
+CompDescription: Officially supported
+Component: restricted
+CompDescription: Restricted copyright
+
+Suite: rote-security
+ParentSuite: rote
+RepositoryType: deb
+BaseURI: http://arsip.blankonlinux.or.id/blankon/
+MatchURI: arsip.blankonlinux.or.id/blankon
+Description: Important security updates
+
+Suite: rote-updates
+ParentSuite: rote
+RepositoryType: deb
+Description: Recommended updates
+
+Suite: pattimura
+RepositoryType: deb
+BaseURI: http://arsip.blankonlinux.or.id/blankon-legacy/
+MatchURI: arsip.blankonlinux.or.id/blankon-legacy
+MirrorsFile-amd64: /usr/share/python-apt/templates/Blankon.mirrors
+MirrorsFile-i386: /usr/share/python-apt/templates/Blankon.mirrors
+Description: Blankon 7.0 'Pattimura'
+Component: main
+CompDescription: Officially supported
+CompDescriptionLong: Blankon-supported Free/Open Source software
+Component: extras
+CompDescription: Community-maintained
+CompDescriptionLong: Community-maintained Free/Open Source software
+Component: restricted
+CompDescription: Non-free drivers
+CompDescriptionLong: Proprietary drivers for devices
+Component: extras-restricted
+CompDescription: Restricted software
+CompDescriptionLong: Software restricted by copyright or legal issues
+
+Suite: pattimura
+MatchName: .*
+BaseURI: cdrom:\[Blankon.*7.0
+MatchURI: cdrom:\[Blankon.*7.0
+Description: CDROM with Blankon 7.0 'Pattimura'
+Available: False
+Component: main
+CompDescription: Officially supported
+Component: restricted
+CompDescription: Restricted copyright
+
+Suite: pattimura-security
+ParentSuite: pattimura
+RepositoryType: deb
+BaseURI: http://arsip.blankonlinux.or.id/blankon-legacy/
+MatchURI: arsip.blankonlinux.or.id/blankon-legacy
+Description: Important security updates
+
+Suite: pattimura-updates
+ParentSuite: pattimura
+RepositoryType: deb
+Description: Recommended updates
+
+Suite: ombilin
+RepositoryType: deb
+BaseURI: http://arsip.blankonlinux.or.id/blankon-legacy/
+MatchURI: arsip.blankonlinux.or.id/blankon-legacy
+MirrorsFile-amd64: /usr/share/python-apt/templates/Blankon.mirrors
+MirrorsFile-i386: /usr/share/python-apt/templates/Blankon.mirrors
+Description: Blankon 6.0 'Ombilin'
+Component: main
+CompDescription: Officially supported
+CompDescriptionLong: Blankon-supported Free/Open Source software
+Component: extras
+CompDescription: Community-maintained
+CompDescriptionLong: Community-maintained Free/Open Source software
+Component: restricted
+CompDescription: Non-free drivers
+CompDescriptionLong: Proprietary drivers for devices
+Component: extras-restricted
+CompDescription: Restricted software
+CompDescriptionLong: Software restricted by copyright or legal issues
+
+Suite: ombilin
+MatchName: .*
+BaseURI: cdrom:\[Blankon.*6.0
+MatchURI: cdrom:\[Blankon.*6.0
+Description: CDROM with Blankon 6.0 'Ombilin'
+Available: False
+Component: main
+CompDescription: Officially supported
+Component: restricted
+CompDescription: Restricted copyright
+
+Suite: ombilin-security
+ParentSuite: ombilin
+RepositoryType: deb
+BaseURI: http://arsip.blankonlinux.or.id/blankon-legacy/
+MatchURI: arsip.blankonlinux.or.id/blankon-legacy
+Description: Important security updates
+
+Suite: ombilin-updates
+ParentSuite: ombilin
+RepositoryType: deb
+Description: Recommended updates
+
+Suite: nanggar
+RepositoryType: deb
+BaseURI: http://arsip.blankonlinux.or.id/blankon-legacy/
+MatchURI: arsip.blankonlinux.or.id/blankon-legacy
+MirrorsFile-amd64: /usr/share/python-apt/templates/Blankon.mirrors
+MirrorsFile-i386: /usr/share/python-apt/templates/Blankon.mirrors
+Description: Blankon 5.0 'Nanggar'
+Component: main
+CompDescription: Officially supported
+CompDescriptionLong: BlankOn-supported Open Source software
+Component: universe
+CompDescription: Community-maintained
+CompDescriptionLong: Community-maintained Open Source software
+Component: restricted
+CompDescription: Non-free drivers
+CompDescriptionLong: Proprietary drivers for devices
+Component: multiverse
+CompDescription: Restricted software
+CompDescriptionLong: Software restricted by copyright or legal issues
+
+Suite: nanggar
+MatchName: .*
+BaseURI: cdrom:\[Blankon.*5.0
+MatchURI: cdrom:\[Blankon.*5.0
+Description: Cdrom with Blankon 5.0 'Nanggar'
+Available: False
+Component: main
+CompDescription: Officially supported
+Component: restricted
+CompDescription: Restricted copyright
+
+Suite: nanggar-security
+ParentSuite: nanggar
+RepositoryType: deb
+BaseURI: http://arsip.blankonlinux.or.id/blankon-legacy/
+MatchURI: arsip.blankonlinux.or.id/blankon-legacy
+Description: Important security updates
+
+Suite: nanggar-updates
+ParentSuite: nanggar
+RepositoryType: deb
+Description: Recommended updates
+
+Suite: meuligoe
+RepositoryType: deb
+BaseURI: http://arsip.blankonlinux.or.id/blankon-legacy/
+MatchURI: arsip.blankonlinux.or.id/blankon-legacy
+MirrorsFile-amd64: /usr/share/python-apt/templates/Blankon.mirrors
+MirrorsFile-i386: /usr/share/python-apt/templates/Blankon.mirrors
+Description: Blankon 4.1 'Meuligoe'
+Component: main
+CompDescription: Officially supported
+CompDescriptionLong: BlankOn-supported Open Source software
+Component: restricted
+CompDescription: Non-free drivers
+CompDescriptionLong: Proprietary drivers for devices
+
+Suite: meuligoe
+MatchName: .*
+BaseURI: cdrom:\[Blankon.*4.1
+MatchURI: cdrom:\[Blankon.*4.1
+Description: Cdrom with Blankon 4.1 'Meuligoe'
+Available: False
+Component: main
+CompDescription: Officially supported
+Component: restricted
+CompDescription: Restricted copyright
+
+Suite: meuligoe-security
+ParentSuite: meuligoe
+RepositoryType: deb
+BaseURI: http://arsip.blankonlinux.or.id/blankon-legacy/
+MatchURI: arsip.blankonlinux.or.id/blankon-legacy
+Description: Important security updates
+
+Suite: meuligoe-updates
+ParentSuite: meuligoe
+RepositoryType: deb
+Description: Recommended updates
+
+Suite: lontara
+RepositoryType: deb
+BaseURI: http://arsip.blankonlinux.or.id/blankon-legacy/
+MatchURI: arsip.blankonlinux.or.id/blankon-legacy
+MirrorsFile-amd64: /usr/share/python-apt/templates/Blankon.mirrors
+MirrorsFile-i386: /usr/share/python-apt/templates/Blankon.mirrors
+Description: BlankOn 3.0 'Lontara'
+Component: main
+CompDescription: Officially supported
+CompDescriptionLong: BlankOn-supported Open Source software
+Component: restricted
+CompDescription: Non-free drivers
+CompDescriptionLong: Proprietary drivers for devices
+
+Suite: lontara
+MatchName: .*
+BaseURI: cdrom:\[Blankon.*3.0
+MatchURI: cdrom:\[Blankon.*3.0
+Description: Cdrom with Blankon 3.0 'Lontara'
+Available: False
+Component: main
+CompDescription: Officially supported
+Component: restricted
+CompDescription: Restricted copyright
+
+Suite: lontara-security
+ParentSuite: lontara
+RepositoryType: deb
+BaseURI: http://arsip.blankonlinux.or.id/blankon-legacy/
+MatchURI: arsip.blankonlinux.or.id/blankon-legacy
+Description: Important security updates
+
+Suite: lontara-updates
+ParentSuite: lontara
+RepositoryType: deb
+Description: Recommended updates
+
+Suite: konde
+RepositoryType: deb
+BaseURI: http://arsip.blankonlinux.or.id/blankon-legacy/
+MatchURI: arsip.blankonlinux.or.id/blankon-legacy
+MirrorsFile-amd64: /usr/share/python-apt/templates/Blankon.mirrors
+MirrorsFile-i386: /usr/share/python-apt/templates/Blankon.mirrors
+Description: Blankon 2.0 'Konde'
+Component: main
+CompDescription: Officially supported
+CompDescriptionLong: BlankOn-supported Open Source software
+Component: restricted
+CompDescription: Non-free drivers
+CompDescriptionLong: Proprietary drivers for devices
+
+Suite: konde
+MatchName: .*
+BaseURI: cdrom:\[Blankon.*2.0
+MatchURI: cdrom:\[Blankon.*2.0
+Description: Cdrom with Blankon 2.0 'Konde'
+Available: False
+Component: main
+CompDescription: Officially supported
+Component: restricted
+CompDescription: Restricted copyright
+
+Suite: konde-security
+ParentSuite: konde
+RepositoryType: deb
+BaseURI: http://arsip.blankonlinux.or.id/blankon-legacy/
+MatchURI: arsip.blankonlinux.or.id/blankon-legacy
+Description: Important security updates
+
+Suite: konde-updates
+ParentSuite: konde
+RepositoryType: deb
+Description: Recommended updates

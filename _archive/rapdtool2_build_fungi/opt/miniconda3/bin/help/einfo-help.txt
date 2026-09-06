@@ -1,0 +1,40 @@
+Database Selection
+
+  -dbs       Print all database names
+  -db        Database name (or "all")
+
+Data Summaries
+
+  -fields    Print field names
+  -links     Print link names
+
+Field Example
+
+  <Field>
+    <Name>ALL</Name>
+    <FullName>All Fields</FullName>
+    <Description>All terms from all searchable fields</Description>
+    <TermCount>245340803</TermCount>
+    <IsDate>N</IsDate>
+    <IsNumerical>N</IsNumerical>
+    <SingleToken>N</SingleToken>
+    <Hierarchy>N</Hierarchy>
+    <IsHidden>N</IsHidden>
+    <IsTruncatable>Y</IsTruncatable>
+    <IsRangable>N</IsRangable>
+  </Field>
+
+Link Example
+
+  <Link>
+    <Name>pubmed_protein</Name>
+    <Menu>Protein Links</Menu>
+    <Description>Published protein sequences</Description>
+    <DbTo>protein</DbTo>
+  </Link>
+  <Link>
+    <Name>pubmed_protein_refseq</Name>
+    <Menu>Protein (RefSeq) Links</Menu>
+    <Description>Link to Protein RefSeqs</Description>
+    <DbTo>protein</DbTo>
+  </Link>

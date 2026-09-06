@@ -1,0 +1,62 @@
+#!/bin/bash
+
+# Public domain notice for all NCBI EDirect scripts is located at:
+# https://www.ncbi.nlm.nih.gov/books/NBK179288/#chapter6.Public_Domain_Notice
+
+seconds_start=$(date "+%s")
+for i in {1..100}
+do
+  echo $(( ( 1 + RANDOM % 30000) * 1000 + ( RANDOM % 1000) ))
+done |
+sort -n |
+uniq |
+fetch-pubmed |
+xtract -pattern PubmedArticle -element MedlineCitation/PMID ArticleTitle |
+while read uid ttl
+do
+  if [ "$ttl" = "[Not Available]." ]
+  then
+    echo "$uid SKIP"
+    continue
+  fi
+  if [ "$ttl" = "Health." ]
+  then
+    echo "$uid SKIP"
+    continue
+  fi
+  if [ -z "$ttl" ]
+  then
+    echo "$uid TRIM -- $ttl"
+    continue
+  fi
+  res=`phrase-search -title "$ttl"`
+  report="1"
+  if [ -z "$res" ]
+  then
+    echo "$uid NONE -- $ttl"
+    continue
+  fi
+  num=`echo "$res" | wc -l | tr -d '[:space:]'`
+  echo "$res" |
+  while read pmid
+  do
+    if [[ $uid =~ $pmid ]]
+    then
+      if [ "$num" -lt 2 ]
+      then
+        echo "$uid OKAY -- $ttl"
+      else
+        echo "$uid MULT ${num## } -- $ttl"
+      fi
+      report="0"
+      break
+    fi
+  done
+  if [ "$report" -lt 1 ]
+  then
+    echo "$uid FAIL $num -- $ttl"
+  fi
+done
+seconds_end=$(date "+%s")
+seconds=$((seconds_end - seconds_start))
+echo "$seconds seconds"

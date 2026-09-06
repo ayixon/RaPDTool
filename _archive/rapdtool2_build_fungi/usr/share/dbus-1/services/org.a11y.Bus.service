@@ -1,0 +1,4 @@
+[D-BUS Service]
+Name=org.a11y.Bus
+Exec=/usr/libexec/at-spi-bus-launcher
+SystemdService=at-spi-dbus-bus.service

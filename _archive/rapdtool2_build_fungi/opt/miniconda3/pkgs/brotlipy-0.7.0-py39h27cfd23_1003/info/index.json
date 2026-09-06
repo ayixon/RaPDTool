@@ -1,0 +1,17 @@
+{
+  "arch": "x86_64",
+  "build": "py39h27cfd23_1003",
+  "build_number": 1003,
+  "depends": [
+    "cffi >=1.0.0",
+    "libgcc-ng >=7.3.0",
+    "python >=3.9,<3.10.0a0"
+  ],
+  "license": "MIT",
+  "license_family": "MIT",
+  "name": "brotlipy",
+  "platform": "linux",
+  "subdir": "linux-64",
+  "timestamp": 1605539534667,
+  "version": "0.7.0"
+}

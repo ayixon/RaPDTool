@@ -1,0 +1,47 @@
+Medical Subject Headings
+
+  nquire -get "http://id.nlm.nih.gov/mesh/sparql" \
+    -query "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> \
+      SELECT DISTINCT ?class FROM <http://id.nlm.nih.gov/mesh> \
+      WHERE { ?s rdf:type ?class } ORDER BY ?class" |
+  xtract -pattern result -pfx "meshv:" -first "uri[http://id.nlm.nih.gov/mesh/vocab#|]"
+
+MeSH Predicates
+
+  nquire -get "http://id.nlm.nih.gov/mesh/sparql" \
+    -query "SELECT DISTINCT ?p FROM <http://id.nlm.nih.gov/mesh> \
+      WHERE { ?s ?p ?o } ORDER BY ?p" |
+  xtract -pattern result -pfx "meshv:" -first "uri[http://id.nlm.nih.gov/mesh/vocab#|]"
+
+WikiData Predicate List
+
+  nquire -url "https://query.wikidata.org/sparql" \
+    -query "SELECT ?property ?propertyType ?propertyLabel \
+      ?propertyDescription ?propertyAltLabel WHERE { \
+      ?property wikibase:propertyType ?propertyType . SERVICE wikibase:label \
+      { bd:serviceParam wikibase:language '[AUTO_LANGUAGE],en'. } } \
+      ORDER BY ASC(xsd:integer(STRAFTER(STR(?property), 'P')))" |
+  xtract -pattern result -first "uri[http://www.wikidata.org/entity/|]" -first literal
+
+Vitamin Binding Site
+
+  nquire -get "http://www.wikidata.org/entity/Q22679758" |
+  transmute -j2x |
+  xtract -pattern entities -group claims -block P527 -element "value/id"
+
+Children of JS Bach
+
+  nquire -url "https://query.wikidata.org/sparql" \
+    -query "SELECT ?child ?childLabel WHERE \
+      { ?child wdt:P22 wd:Q1339. SERVICE wikibase:label \
+        { bd:serviceParam wikibase:language '[AUTO_LANGUAGE],en'. } }" |
+  xtract -pattern result -block binding -if "@name" -equals childLabel -element literal
+
+Eye Color Frequency
+
+  nquire -url "https://query.wikidata.org/sparql" \
+    -query "SELECT ?eyeColorLabel WHERE \
+      { ?human wdt:P31 wd:Q5. ?human wdt:P1340 ?eyeColor. SERVICE wikibase:label \
+        { bd:serviceParam wikibase:language '[AUTO_LANGUAGE],en'. } }" |
+  xtract -pattern result -element literal |
+  sort-uniq-count-rank

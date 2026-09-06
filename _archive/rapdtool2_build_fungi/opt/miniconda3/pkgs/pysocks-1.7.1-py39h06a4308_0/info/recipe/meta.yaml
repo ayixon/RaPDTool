@@ -1,0 +1,58 @@
+# This file created by conda-build 3.20.5
+# meta.yaml template originally from:
+# /tmp/build/80754af9/rsync-recipes/pysocks-1.7.1-python_3.9-on-linux_64, last modified Mon Aug 17 14:41:29 2020
+# ------------------------------------------------
+
+package:
+    name: pysocks
+    version: 1.7.1
+source:
+    sha256: 3f8804571ebe159c380ac6de37643bb4685970655d3bba243530d6558b799aa0
+    url: https://pypi.io/packages/source/P/PySocks/PySocks-1.7.1.tar.gz
+build:
+    number: '0'
+    script: /tmp/build/80754af9/pysocks_1605305812635/_h_env_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placeh/bin/python
+        -m pip install . --no-deps -vv
+    string: py39h06a4308_0
+requirements:
+    host:
+        - _libgcc_mutex 0.1 main
+        - ca-certificates 2020.10.14 0
+        - certifi 2020.6.20 pyhd3eb1b0_3
+        - ld_impl_linux-64 2.33.1 h53a641e_7
+        - libedit 3.1.20191231 h14c3975_1
+        - libffi 3.3 he6710b0_2
+        - libgcc-ng 9.1.0 hdf63c60_0
+        - libstdcxx-ng 9.1.0 hdf63c60_0
+        - ncurses 6.2 he6710b0_1
+        - openssl 1.1.1h h7b6447c_0
+        - pip 20.2.4 py39h06a4308_0
+        - python 3.9.0 hcff3b4d_1
+        - readline 8.0 h7b6447c_0
+        - setuptools 50.3.1 py39h06a4308_1
+        - sqlite 3.33.0 h62c20be_0
+        - tk 8.6.10 hbc83047_0
+        - tzdata 2020d h14c3975_0
+        - wheel 0.35.1 pyhd3eb1b0_0
+        - xz 5.2.5 h7b6447c_0
+        - zlib 1.2.11 h7b6447c_3
+    run:
+        - python >=3.9,<3.10.0a0
+test:
+    imports:
+        - socks
+about:
+    dev_url: https://github.com/Anorov/PySocks
+    doc_url: https://github.com/Anorov/PySocks/blob/master/README.md
+    home: https://github.com/Anorov/PySocks
+    license: BSD 3-Clause
+    license_family: BSD
+    license_file: LICENSE
+    summary: A Python SOCKS client module. See https://github.com/Anorov/PySocks for
+        more information.
+extra:
+    copy_test_source_files: true
+    final: true
+    recipe-maintainers:
+        - ocefpaf
+        - pmlandwehr

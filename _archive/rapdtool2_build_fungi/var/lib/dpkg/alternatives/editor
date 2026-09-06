@@ -1,0 +1,9 @@
+auto
+/usr/bin/editor
+editor.1.gz
+/usr/share/man/man1/editor.1.gz
+
+/bin/nano
+40
+/usr/share/man/man1/nano.1.gz
+

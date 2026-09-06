@@ -1,0 +1,312 @@
+#!/bin/sh
+
+# ===========================================================================
+#
+#                            PUBLIC DOMAIN NOTICE
+#            National Center for Biotechnology Information (NCBI)
+#
+#  This software/database is a "United States Government Work" under the
+#  terms of the United States Copyright Act.  It was written as part of
+#  the author's official duties as a United States Government employee and
+#  thus cannot be copyrighted.  This software/database is freely available
+#  to the public for use. The National Library of Medicine and the U.S.
+#  Government do not place any restriction on its use or reproduction.
+#  We would, however, appreciate having the NCBI and the author cited in
+#  any work or product based on this material.
+#
+#  Although all reasonable efforts have been taken to ensure the accuracy
+#  and reliability of the software and data, the NLM and the U.S.
+#  Government do not and cannot warrant the performance or results that
+#  may be obtained by using this software or data. The NLM and the U.S.
+#  Government disclaim all warranties, express or implied, including
+#  warranties of performance, merchantability or fitness for any particular
+#  purpose.
+#
+# ===========================================================================
+#
+# File Name:  epost
+#
+# Author:  Jonathan Kans, Aaron Ucko
+#
+# Version Creation Date:   06/25/2020
+#
+# ==========================================================================
+
+pth=$( dirname "$0" )
+
+case ":$PATH:" in
+  *:"$pth":* )
+    ;;
+  * )
+    PATH="$PATH:$pth"
+    export PATH
+    ;;
+esac
+
+# handle common flags - dot command is equivalent of "source"
+
+if [ ! -f "$pth"/ecommon.sh ]
+then
+  echo "${INVT} ERROR: ${LOUD} Unable to find '$pth/ecommon.sh' file${INIT}" >&2
+  exit 1
+fi
+
+. "$pth"/ecommon.sh
+
+# initialize specific flags
+
+internal=false
+
+format=""
+
+# read command-line arguments
+
+while [ $# -gt 0 ]
+do
+  case "$1" in
+    -internal )
+      internal=true
+      shift
+      ;;
+    -newmode | -oldmode )
+      shift
+      ;;
+    -db )
+      shift
+      if [ $# -gt 0 ]
+      then
+        db="$1"
+        shift
+      else
+        echo "${INVT} ERROR: ${LOUD} Missing -db argument${INIT}" >&2
+        exit 1
+      fi
+      ;;
+    -id )
+      shift
+      if [ $# -gt 0 ]
+      then
+        ids="$1"
+        shift
+      else
+        echo "${INVT} ERROR: ${LOUD} Missing -id argument${INIT}" >&2
+        exit 1
+      fi
+      while [ $# -gt 0 ]
+      do
+        case "$1" in
+          -* )
+            break
+            ;;
+          * )
+            # concatenate run of UIDs with commas
+            ids="$ids,$1"
+            shift
+            ;;
+        esac
+      done
+      ;;
+    -format )
+      # no longer needed to identify non-numeric accessions, provided for backward compatibility
+      shift
+      if [ $# -gt 0 ]
+      then
+        format="$1"
+        shift
+      else
+        echo "${INVT} ERROR: ${LOUD} Missing -format argument${INIT}" >&2
+        exit 1
+      fi
+      ;;
+    -h | -help | --help | help )
+      echo "epost $version"
+      echo ""
+      cat "$pth/help/epost-help.txt"
+      echo ""
+      exit 0
+      ;;
+    -* )
+      ParseCommonArgs "$@"
+      if [ "$argsConsumed" -gt 0 ]
+      then
+        shift "$argsConsumed"
+      else
+        echo "${INVT} ERROR: ${LOUD} Unrecognized option $1${INIT}" >&2
+        exit 1
+      fi
+      ;;
+    * )
+      # allows while loop to check for multiple flags
+      break
+      ;;
+  esac
+done
+
+FinishSetup
+
+# check for missing database argument
+
+if [ -z "$db" ]
+then
+  echo "${INVT} ERROR: ${LOUD} Missing -db argument${INIT}" >&2
+  exit 1
+fi
+
+# check for piped UIDs unless database and UIDs provided in command line
+
+if [ -z "$ids" ] && [ -z "$input" ]
+then
+  ParseStdin
+fi
+
+# needHistory allows reuse of GenerateUidList
+
+if [ -z "$ids$rest$input" ]
+then
+  needHistory=true
+fi
+
+# take database from dbase value or -db argument
+
+if [ -z "$dbase" ]
+then
+  dbase="$db"
+fi
+
+# check for missing required arguments
+
+if [ -z "$dbase" ]
+then
+  echo "${INVT} ERROR: ${LOUD} Missing -db argument${INIT}" >&2
+  exit 1
+fi
+
+# helper function adds post-specific arguments (if set)
+
+RunWithPostArgs() {
+
+  if [ "$log" = true ]
+  then
+    printf "." >&2
+  fi
+
+  AddIfNotEmpty -WebEnv "$web_env" \
+  RunWithCommonArgs "$@"
+}
+
+# convert spaces between UIDs to commas
+
+ids=$( echo "$ids" | sed -e "s/ /,/g; s/,,*/,/g" )
+
+# lookup accessions in -id argument or piped from stdin
+
+LookupSpecialAccessions
+
+# only in epost - lookup of nucleotide accessions to silently exclude retired records
+
+if [ "$needHistory" = false ]
+then
+  case "$dbase" in
+    nuc* )
+      nucUidList=$( GenerateUidList "$dbase" )
+      anyNonInteger=$( echo "$nucUidList" | sed -e 's/[0-9.]//g' )
+      if [ -n "$anyNonInteger" ]
+      then
+        accn=$( echo "$nucUidList" | grep -v "^[0-9]*$" )
+        lcl=$( echo "$nucUidList" | grep "^[0-9]*$" )
+        if [ -n "$accn" ]
+        then
+          newids=$( echo "$accn" |
+                    PrepareAccnQuery "ACCN" "100" |
+                    RunAccnSearch "1000" )
+          if [ -n "$newids" ]
+          then
+            ids=$( echo "$newids $lcl" | fmt -w 1 | sort -n | uniq )
+          fi
+        fi
+      fi
+      ;;
+  esac
+fi
+
+# post to history in groups, join if necessary with esearch
+
+wb="$web_env"
+
+PostInGroups() {
+
+  if [ "$log" = true ]
+  then
+    printf "EPost\n" >&2
+  fi
+
+  GenerateUidList "$dbase" |
+  join-into-groups-of 1000 |
+  while read uids
+  do
+    err=""
+    res=$( RunWithPostArgs nquire -url "$base" epost.fcgi -db "$dbase" -id "$uids" )
+
+    if [ -n "$res" ]
+    then
+      qry_key=""
+      ParseMessage "$res" ePostResult web_env WebEnv qry_key QueryKey
+
+      if [ -n "$err" ]
+      then
+        echo "${INVT} ERROR: ${LOUD} epost failed - $err${INIT}" >&2
+        exit 1
+      fi
+      if [ -z "$web_env" ]
+      then
+        echo "${INVT} ERROR: ${LOUD} WebEnv value not found in epost output - WebEnv1 $wb${INIT}"
+        exit 1
+      fi
+      if [ -n "$wb" ] && [ "$web_env" != "$wb" ]
+      then
+        echo "${INVT} ERROR: ${LOUD} WebEnv mismatch in epost output - WebEnv1 $wb, WebEnv2 $web_env${INIT}"
+        exit 1
+      fi
+
+      WriteEDirectStep "$dbase" "$web_env" "$qry_key" "$err"
+    fi
+  done
+
+  if [ "$log" = true ]
+  then
+    printf "\n" >&2
+  fi
+}
+
+psts=$( PostInGroups )
+
+if [ -n "$psts" ]
+then
+  # extract first database and webenv values, and all key numbers
+  comps=$( echo "$psts" | xtract -wrp Set,Rec -pattern ENTREZ_DIRECT \
+           -wrp Web -element WebEnv -wrp Key -element QueryKey )
+
+  wbnv=$( echo "$comps" | xtract -pattern Set -first Web )
+  qrry=$( echo "$comps" | xtract -pattern Set -block Rec -pfx "(#" -sfx ")" -tab " OR " -element Key )
+
+  err=""
+  num=""
+  # send search command, e.g, "(#1) OR (#2)", along with database and web environment
+  srch=$( RunWithCommonArgs nquire -get "$base" esearch.fcgi -db "$dbase" \
+          -WebEnv "$wbnv" -term "$qrry" -retmax 0 -usehistory y )
+
+  if [ -n "$srch" ]
+  then
+    res=$( echo "$srch" | sed -e 's|<TranslationStack>.*</TranslationStack>||' )
+    ParseMessage "$srch" eSearchResult web_env WebEnv qry_key QueryKey num Count
+  fi
+
+  WriteEDirect "$dbase" "$web_env" "$qry_key" "$num" "$stp" "$err"
+
+  exit 0
+fi
+
+# warn on error
+
+echo "${INVT} ERROR: ${LOUD} EPost failure${INIT}" >&2
+exit 1

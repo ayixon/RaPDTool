@@ -1,0 +1,225 @@
+#!/bin/sh
+
+# Public domain notice for all NCBI EDirect scripts is located at:
+# https://www.ncbi.nlm.nih.gov/books/NBK179288/#chapter6.Public_Domain_Notice
+
+while [ $# -gt 0 ]
+do
+  case "$1" in
+    -path )
+      shift
+      ;;
+    -* )
+      exec >&2
+      echo "$0: Unrecognized option $1"
+      exit 1
+      ;;
+    * )
+      break
+      ;;
+  esac
+done
+
+if [ "$#" -gt 0 ]
+then
+  target="$1"
+  if [ ! -d "$target" ]
+  then
+    echo "Unable to find '$target' path"
+    exit 1
+  fi
+  MASTER=$(cd "$target" && pwd)
+  CONFIG=${MASTER}
+  shift
+else
+  if [ -z "${EDIRECT_PUBMED_MASTER}" ]
+  then
+    echo "Must supply path to master archive area or set EDIRECT_PUBMED_MASTER environment variable"
+    exit 1
+  else
+    MASTER="${EDIRECT_PUBMED_MASTER}"
+    MASTER=${MASTER%/}
+    if [ ! -d "${MASTER}" ]
+    then
+      echo "Unable to find '$MASTER' path"
+      exit 1
+    fi
+  fi
+fi
+
+while [ $# -gt 0 ]
+do
+  case "$1" in
+    -temp | -work | -working )
+      shift
+      ;;
+    -* )
+      exec >&2
+      echo "$0: Unrecognized option $1"
+      exit 1
+      ;;
+    * )
+      break
+      ;;
+  esac
+done
+
+if [ "$#" -gt 0 ]
+then
+  working="$1"
+  if [ ! -d "$working" ]
+  then
+    echo "Unable to find '$working' path"
+    exit 1
+  fi
+  WORKING=$(cd "$working" && pwd)
+  shift
+else
+  if [ -z "${EDIRECT_PUBMED_WORKING}" ]
+  then
+    WORKING=${MASTER}
+  else
+    WORKING="${EDIRECT_PUBMED_WORKING}"
+    WORKING=${WORKING%/}
+  fi
+  if [ ! -d "${WORKING}" ]
+  then
+    echo "Unable to find '$WORKING' path"
+    exit 1
+  fi
+fi
+
+echo "MASTER $MASTER"
+
+echo "WORKING $WORKING"
+
+osname=`uname -s | sed -e 's/_NT-.*$/_NT/; s/^MINGW[0-9]*/CYGWIN/'`
+
+if [ "$osname" = "Darwin" ]
+then
+  MASTER_ROOT=$(df $MASTER | awk 'END { print $NF }')
+  sdst=$(diskutil info -plist $MASTER_ROOT | plutil -extract SolidState xml1 - -o - |  sed -ne 's,<,,pg' | sed -ne 's,/>,,pg')
+  if [ "$sdst" != "true" ]
+  then
+    echo ""
+    echo "$MASTER IS A HARD DISK DRIVE, NOT THE EXPECTED SOLID-STATE DRIVE."
+    echo ""
+    echo "WOULD YOU LIKE TO PROCEED WITH ARCHIVING EVEN THOUGH IT IS NOT RECOMMENDED? [y/N]"
+    read response
+    case "$response" in
+      [Yy]*      ) echo "OK, PROCEEDING." ;;
+      [Nn]* | '' ) echo "Holding off, then."; exit 1 ;;
+      *          ) echo "Conservatively taking that as a no."; exit 1 ;;
+    esac
+  fi
+  ftyp=$(diskutil info -plist $MASTER_ROOT | plutil -extract FilesystemType xml1 - -o - | sed -ne 's,</*string>,,pg')
+  if [ "$ftyp" != "apfs" ]
+  then
+    echo ""
+    echo "$MASTER IS OF TYPE '$ftyp'"
+    echo ""
+    echo "IT NEEDS TO BE REFORMATTED AS APFS BEFORE YOU CAN PROCEED:"
+    echo ""
+    echo "  Run Utilities -> Disk Utility"
+    echo ""
+    echo "  Switch the View option to 'Show All Devices'."
+    echo ""
+    echo "  Select the entry named 'PCIe SSD Media' (not the two entries indented below it)."
+    echo ""
+    echo "  Click on 'Erase'."
+    echo ""
+    echo "  Change the Scheme to 'GUID Partition Map' (which will expand the Format choices)."
+    echo ""
+    echo "  Set the Format to 'APFS'."
+    echo ""
+    echo "  Press Erase."
+    echo ""
+    echo "ALSO RUN:"
+    echo ""
+    echo "  sudo trimforce enable"
+    echo ""
+    echo "IF NECESSARY TO ENABLE TRIM SUPPORT ON THE SOLID STATE DRIVE."
+    echo ""
+    echo "WOULD YOU LIKE TO PROCEED WITH ARCHIVING ON THE NON-APFS VOLUME ANYWAY? [y/N]"
+    read response
+    case "$response" in
+      [Yy]*      ) echo "OK, PROCEEDING." ;;
+      [Nn]* | '' ) echo "Holding off, then."; exit 1 ;;
+      *          ) echo "Conservatively taking that as a no."; exit 1 ;;
+    esac
+  fi
+fi
+
+for dir in Archive Postings
+do
+  mkdir -p "$MASTER/$dir"
+done
+
+for dir in Current Data Indexed Inverted Merged Pubmed
+do
+  mkdir -p "$WORKING/$dir"
+done
+
+if [ ! -f "$MASTER/Archive/CACHEDIR.TAG" ]
+then
+  pm-prepare "$MASTER/Archive"
+fi
+
+date
+
+seconds_start=$(date "+%s")
+echo "Downloading PubMed Files"
+cd "$WORKING/Pubmed"
+download-pubmed baseline updatefiles
+seconds_end=$(date "+%s")
+seconds=$((seconds_end - seconds_start))
+echo "$seconds seconds"
+DWN=$seconds
+
+seconds_start=$(date "+%s")
+echo "Populating PubMed Archive"
+pm-stash "$MASTER/Archive"
+seconds_end=$(date "+%s")
+seconds=$((seconds_end - seconds_start))
+echo "$seconds seconds"
+POP=$seconds
+
+seconds_start=$(date "+%s")
+echo "Refreshing Versioned Records"
+pm-refresh "$MASTER/Archive"
+seconds_end=$(date "+%s")
+seconds=$((seconds_end - seconds_start))
+echo "$seconds seconds"
+REF=$seconds
+
+echo "DWN $DWN seconds"
+echo "POP $POP seconds"
+echo "REF $REF seconds"
+
+echo ""
+
+echo 18810966 |
+fetch-pubmed -path "$MASTER/Archive" |
+xtract -pattern Author -if Affiliation -contains Medicine \
+  -pfx "Archive is " -element Initials
+
+echo ""
+
+date
+
+if [ -n "$CONFIG" ]
+then
+  target=bash_profile
+  if ! grep "$target" "$HOME/.bashrc" >/dev/null 2>&1
+  then
+    if [ ! -f $HOME/.$target ] || grep 'bashrc' "$HOME/.$target" >/dev/null 2>&1
+    then
+      target=bashrc
+    fi
+  fi
+  echo ""
+  echo "For convenience, please execute the following to save the archive path to a variable:"
+  echo ""
+  echo "  echo \"export EDIRECT_PUBMED_MASTER='${CONFIG}'\" >>" "\$HOME/.$target"
+  echo ""
+fi

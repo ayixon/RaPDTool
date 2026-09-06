@@ -1,0 +1,6 @@
+[Allow admins to upgrade the system]
+Identity=unix-group:sudo
+Action=org.freedesktop.packagekit.upgrade-system;org.freedesktop.packagekit.trigger-offline-update
+ResultAny=no
+ResultInactive=no
+ResultActive=yes

@@ -1,0 +1,27 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: lazr.uri
+Source: https://launchpad.net/lazr.uri
+
+Files: *
+Copyright: 2006-2021, Canonical Ltd
+License: LGPL-3.0
+
+Files: debian/*
+Copyright:
+ 2009,      James Westby <james.westby@ubuntu.com>
+ 2009-2011, Luca Falavigna <dktrkranz@debian.org>
+ 2012-2021, Stefano Rivera <stefanor@debian.org>
+License: LGPL-3.0
+
+License: LGPL-3.0
+ lazr.uri is free software: you can redistribute it and/or modify it
+ under the terms of the GNU Lesser General Public License as published by
+ the Free Software Foundation, version 3 of the License.
+ .
+ lazr.uri is distributed in the hope that it will be useful, but WITHOUT
+ ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+ FITNESS FOR A PARTICULAR PURPOSE.  See the GNU Lesser General Public
+ License for more details.
+ .
+ On Debian-based systems the full text of the LGPL, version 3, can be found at
+ /usr/share/common-licenses/LGPL-3.

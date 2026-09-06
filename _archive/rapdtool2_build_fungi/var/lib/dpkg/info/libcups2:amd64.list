@@ -1,0 +1,13 @@
+/.
+/usr
+/usr/lib
+/usr/lib/x86_64-linux-gnu
+/usr/lib/x86_64-linux-gnu/libcups.so.2
+/usr/share
+/usr/share/doc
+/usr/share/doc/libcups2
+/usr/share/doc/libcups2/README.Debian.gz
+/usr/share/doc/libcups2/changelog.Debian.gz
+/usr/share/doc/libcups2/copyright
+/usr/share/doc/libcups2/examples
+/usr/share/doc/libcups2/examples/client.conf

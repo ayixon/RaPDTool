@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+<svg id="svg11300" width="16" height="16" version="1.0" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+ <defs id="defs3">
+  <linearGradient id="linearGradient8579" x1="15" x2="15" y1="36" y2="1.25" gradientTransform="matrix(.33333 0 0 .38235 6.796e-7 -.07353)" gradientUnits="userSpaceOnUse">
+   <stop id="stop3823" style="stop-color:gray" offset="0"/>
+   <stop id="stop3825" style="stop-color:#999" offset="1"/>
+  </linearGradient>
+  <linearGradient id="linearGradient8838" x1="25" x2="25" y1="1.125" y2="35.875" gradientTransform="matrix(.33333 0 0 .38235 6.796e-7 -.07353)" gradientUnits="userSpaceOnUse">
+   <stop id="stop3145" style="stop-color:#e6e6e6" offset="0"/>
+   <stop id="stop3147" style="stop-color:#afafaf" offset="1"/>
+  </linearGradient>
+  <radialGradient id="radialGradient9547" cx="21.333" cy="-36.857" r="8" gradientTransform="matrix(.55152 -1.3105e-7 1.0589e-7 .5114 -4.3596 5.7351)" gradientUnits="userSpaceOnUse">
+   <stop id="stop9129" style="stop-color:#f0f0f0" offset="0"/>
+   <stop id="stop9131" style="stop-color:#a9a9a9" offset="1"/>
+  </radialGradient>
+  <linearGradient id="linearGradient9571" x1="15.429" x2="32.571" y1="-39.143" y2="-39.143" gradientTransform="matrix(.29697 0 0 .31818 .87272 -1.3408)" gradientUnits="userSpaceOnUse">
+   <stop id="stop9575" style="stop-color:#8f8f8f" offset="0"/>
+   <stop id="stop9577" style="stop-color:#5f5f5f" offset=".12709"/>
+   <stop id="stop9579" style="stop-color:#616161" offset=".87578"/>
+   <stop id="stop9581" style="stop-color:#9e9e9e" offset="1"/>
+  </linearGradient>
+  <filter id="filter8047" x="-.18" y="-.065455" width="1.36" height="1.1309" color-interpolation-filters="sRGB">
+   <feGaussianBlur id="feGaussianBlur8049" stdDeviation="0.29999999"/>
+  </filter>
+ </defs>
+ <rect id="rect3448" transform="scale(1,-1)" x="5.7727" y="-15.5" width="4.4545" height="4.7728" rx=".56471" ry=".56471" style="fill:url(#radialGradient9547);stroke:url(#linearGradient9571)"/>
+ <rect id="rect5391" x="4.5" y=".5" width="7" height="13" rx="1" ry="1" style="fill:url(#linearGradient8838);stroke-linecap:round;stroke-linejoin:round;stroke:url(#linearGradient8579)"/>
+ <rect id="rect8840" x="6" y="1" width="4" height="11" rx="1" ry="1" style="fill:#fff;filter:url(#filter8047);opacity:.3"/>
+</svg>

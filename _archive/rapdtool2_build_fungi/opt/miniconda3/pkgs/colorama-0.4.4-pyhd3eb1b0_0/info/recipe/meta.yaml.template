@@ -1,0 +1,43 @@
+{% set version = "0.4.4" %}
+
+package:
+  name: colorama
+  version: {{ version }}
+
+source:
+  url: https://pypi.io/packages/source/c/colorama/colorama-{{ version }}.tar.gz
+  sha256: 5941b2b48a20143d2267e95b1c2a7603ce057ee39fd88e7329b0c292aa16869b
+
+build:
+  number: 0
+  noarch: python
+  script: {{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv
+
+requirements:
+  host:
+    - python
+    - pip
+  run:
+    - python
+
+test:
+  imports:
+    - colorama
+
+about:
+  home: https://github.com/tartley/colorama
+  license: BSD-3-Clause
+  license_file: LICENSE.txt
+  summary: Cross-platform colored terminal text
+  description: |
+    colorama is a cross-platform colored terminal text.It makes
+    ANSI escape character sequences (for producing colored terminal text
+    and cursor positioning) work under MS Windows.
+  doc_url: http://pypi.python.org/pypi/colorama
+  doc_source_url: https://github.com/tartley/colorama/blob/master/README.rst
+  dev_url: https://github.com/tartley/colorama
+
+extra:
+  recipe-maintainers:
+    - kwilcox
+    - ocefpaf

@@ -1,0 +1,30 @@
+{
+  "build": "pyhdfd78af_0",
+  "build_number": 0,
+  "channel": "https://conda.anaconda.org/bioconda/noarch",
+  "constrains": [],
+  "depends": [
+    "kmer-jellyfish >=2.2.6",
+    "numpy >=1.12.1",
+    "python >=3",
+    "scipy >=0.19.0",
+    "setuptools >=38.6.0",
+    "setuptools_scm",
+    "unzip"
+  ],
+  "features": "",
+  "fn": "focus-1.8-pyhdfd78af_0.tar.bz2",
+  "license": "GPL-3.0",
+  "license_family": "GPL",
+  "md5": "5db5dcb46a2eff62d947cdf330bfe759",
+  "name": "focus",
+  "noarch": "python",
+  "package_type": "noarch_python",
+  "sha256": "5e1d7632e8b91283dcc25e9ca65a5b1b2e40da256a7547cbbbaf2b8e4484ed8d",
+  "size": 47409061,
+  "subdir": "noarch",
+  "timestamp": 1640785637322,
+  "track_features": "",
+  "url": "https://conda.anaconda.org/bioconda/noarch/focus-1.8-pyhdfd78af_0.tar.bz2",
+  "version": "1.8"
+}

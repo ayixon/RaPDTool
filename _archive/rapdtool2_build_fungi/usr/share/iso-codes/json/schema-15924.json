@@ -1,0 +1,36 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+
+  "title": "ISO 15924",
+  "description": "Codes for the representation of names of scripts",
+  "type": "object",
+
+  "properties": {
+	"15924": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "alpha_4": {
+            "description": "Four letter alphabetic code of the script",
+            "type": "string",
+            "pattern": "^[A-Z][a-z]{3}$"
+          },
+          "name": {
+            "description": "Name of the script",
+            "type": "string",
+            "minLength": 1
+          },
+          "numeric": {
+            "description": "Three digit numeric code of the script, including leading zeros",
+            "type": "string",
+            "pattern": "^[0-9]{3}$"
+          }
+        },
+        "required": ["alpha_4", "name", "numeric"],
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

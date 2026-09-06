@@ -1,0 +1,69 @@
+{% set version = "0.9.1" %}
+
+package:
+  name: capnproto
+  version: {{ version }}
+
+source:
+  fn: capnproto-c++-{{ version }}.tar.gz
+  url: https://capnproto.org/capnproto-c++-{{ version }}.tar.gz
+  md5: 4e86cda4bd894c94b1ac96bf3c447b8e
+
+build:
+  number: 0
+  run_exports:
+    # soname changes with every release
+    # https://abi-laboratory.pro/index.php?view=timeline&l=capnproto
+    - {{ pin_subpackage('capnproto', max_pin='x.x.x') }}
+  ignore_prefix_files:
+    - bin/capnp
+  missing_dso_whitelist:  # [linux]
+    - $RPATH/ld64.so.1    # [linux]
+
+requirements:
+  build:
+    - cmake  # [win]
+    - make  # [not win]
+    - sed   # [osx]
+    - gawk  # [osx]
+    - {{ compiler('c') }}
+    - {{ compiler('cxx') }}
+    - automake   # [unix]
+    - autoconf   # [unix]
+    - libtool    # [unix]
+    - llvm-tools  # [osx]
+  host:
+    - zlib
+    - openssl 1.1*
+  run:
+    - __osx >={{ MACOSX_DEPLOYMENT_TARGET|default("10.9") }}  # [osx and x86_64]
+
+test:
+  commands:
+    - capnp --help
+    - capnpc --help
+    - capnpc-c++ --help
+    - capnpc-capnp --help
+
+    - test -d "$PREFIX/include/capnp"  # [unix]
+    - if not exist %LIBRARY_INC%\\capnp exit 1  # [win]
+
+    - test -f "$PREFIX/lib/libcapnp${SHLIB_EXT}"  # [unix]
+    - test -f "$PREFIX/lib/libcapnpc${SHLIB_EXT}"  # [unix]
+    - test -f "$PREFIX/lib/libcapnp-rpc${SHLIB_EXT}"  # [unix]
+    - test -f "$PREFIX/lib/libkj${SHLIB_EXT}"  # [unix]
+    - test -f "$PREFIX/lib/libkj-async${SHLIB_EXT}"  # [unix]
+    - if not exist %LIBRARY_LIB%\\capnp.lib exit 1  # [win]
+    - if not exist %LIBRARY_LIB%\\kj.lib exit 1  # [win]
+
+about:
+  home: http://capnproto.org
+  license_file: LICENSE.txt
+  license: MIT
+  summary: An insanely fast data interchange format and capability-based RPC system.
+
+extra:
+  recipe-maintainers:
+    - LehMaxence
+    - ihnorton
+    - Shelnutt2

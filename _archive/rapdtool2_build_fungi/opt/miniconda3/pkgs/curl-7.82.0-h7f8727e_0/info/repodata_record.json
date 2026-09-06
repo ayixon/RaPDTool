@@ -1,0 +1,26 @@
+{
+  "arch": "x86_64",
+  "build": "h7f8727e_0",
+  "build_number": 0,
+  "channel": "https://repo.anaconda.com/pkgs/main/linux-64",
+  "constrains": [],
+  "depends": [
+    "libcurl 7.82.0 h0b77cf5_0",
+    "libgcc-ng >=7.5.0"
+  ],
+  "features": "",
+  "fn": "curl-7.82.0-h7f8727e_0.conda",
+  "legacy_bz2_md5": "412fb1f9d310969821ce52adffaf80c7",
+  "license": "curl",
+  "license_family": "MIT",
+  "md5": "151ad900396dbd644727fb53d677d4fb",
+  "name": "curl",
+  "platform": "linux",
+  "sha256": "b107e440b54111e5221b658722faf1b14b1014405a4df1d6249692d538ecb5d3",
+  "size": 97652,
+  "subdir": "linux-64",
+  "timestamp": 1649731358187,
+  "track_features": "",
+  "url": "https://repo.anaconda.com/pkgs/main/linux-64/curl-7.82.0-h7f8727e_0.conda",
+  "version": "7.82.0"
+}

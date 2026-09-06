@@ -1,0 +1,58 @@
+This is the Debian GNU/Linux r-cran-rpart package of rpart, a
+collection of functions for recursive partitioning and regression
+trees. Rpart was written by Terry Therneau and Beth Atkinson, and
+Brian Ripley provided the R port.
+
+This package was created by Dirk Eddelbuettel <edd@debian.org>.
+The sources were downloaded from 
+	http://cran.us.r-project.org/src/contrib/
+and are also included in the (large) source tar archive of R itself at
+	http://cran.us.r-project.org/src/base/
+
+The package was renamed from its upstream name 'rpart' to 'r-cran-rpart'
+to fit the pattern of CRAN (and non-CRAN) packages for R.
+
+Copyright (C) 1993 - 2008 Terry Therneau and Beth Atkinson
+Portions Copyright (C) 1998 - 2008 Brian Ripley
+
+License: GPL-2+ | license included below.
+
+On a Debian GNU/Linux system, the GPL-2 license is included in the file
+/usr/share/common-licenses/GPL-2.
+
+For reference, the upstream DESCRIPTION [with lines broken to 80 cols]
+file is included below:
+
+    Package: rpart
+    Priority: recommended
+    Version: 3.1-13
+    Date: March 2002 version of rpart, R version 2003-08-03
+    Author: Terry M Therneau and Beth Atkinson <atkinson@mayo.edu>.
+            R port by Brian Ripley <ripley@stats.ox.ac.uk>.
+    Maintainer: Brian Ripley <ripley@stats.ox.ac.uk>
+    Description: Recursive partitioning and regression trees
+    Title: Recursive partitioning
+    Depends: R (>= 1.8.0), survival
+    License: use under GPL2, or see file LICENCE
+    URL: S-PLUS 6.x original at http://www.mayo.edu/hsr/Sfunc.html
+
+as is the file LICENSE
+
+    This package is released under the GPL version 2.  It can also be used
+    under the following license, which is in some respects more liberal.
+    
+    
+    License: Copyright 2000 Mayo Foundation for Medical Education and
+    	Research. This software is accepted by users "as is" and
+    	without warranties or guarantees of any kind. It may be used
+    	for research purposes or in relation to projects with
+    	commercial applications or included in commercial packages,
+    	but only so long as it is not relicensed as a stand-alone
+    	program, and only so long as the first two sentences of this 
+    	paragraph (copyright notice and no warranty) are reproduced 
+    	with the software.
+    
+    	Modifications for use with R (c) 1998-2001 B.D. Ripley under the
+    	same conditions.
+
+    

@@ -1,0 +1,8 @@
+06bf27ea96d4101b03b109e36cb435b8  usr/lib/x86_64-linux-gnu/engines-3/afalg.so
+558cf1cdfa3bfd711eabc1fde0b59e65  usr/lib/x86_64-linux-gnu/engines-3/loader_attic.so
+117f6211d6b91b7d2e0cc824e44060da  usr/lib/x86_64-linux-gnu/engines-3/padlock.so
+70eb804c76eb72d2e6be7da8ba903b4b  usr/lib/x86_64-linux-gnu/libcrypto.so.3
+c984954a042baa78c9c5859f70b9605b  usr/lib/x86_64-linux-gnu/libssl.so.3
+1d3fde4fe38bdf9f95608f9f7fb18631  usr/lib/x86_64-linux-gnu/ossl-modules/legacy.so
+3c22613adb0bc62751e7cd704641cf36  usr/share/doc/libssl3/changelog.Debian.gz
+6264b3617e9bd0092102a2ab8db06adb  usr/share/doc/libssl3/copyright

@@ -1,0 +1,15 @@
+{
+  "arch": "x86_64",
+  "build": "hdcd56e2_16",
+  "build_number": 16,
+  "constrains": [
+    "libgfortran-ng 12.1.0"
+  ],
+  "depends": [],
+  "license": "GPL-3.0-only WITH GCC-exception-3.1",
+  "name": "libgfortran5",
+  "platform": "linux",
+  "subdir": "linux-64",
+  "timestamp": 1652326131251,
+  "version": "12.1.0"
+}

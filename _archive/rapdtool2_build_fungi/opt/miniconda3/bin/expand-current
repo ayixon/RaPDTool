@@ -1,0 +1,158 @@
+#!/bin/sh
+
+# Public domain notice for all NCBI EDirect scripts is located at:
+# https://www.ncbi.nlm.nih.gov/books/NBK179288/#chapter6.Public_Domain_Notice
+
+while [ $# -gt 0 ]
+do
+  case "$1" in
+    -path )
+      shift
+      ;;
+    -* )
+      exec >&2
+      echo "$0: Unrecognized option $1"
+      exit 1
+      ;;
+    * )
+      break
+      ;;
+  esac
+done
+
+if [ "$#" -gt 0 ]
+then
+  target="$1"
+  if [ ! -d "$target" ]
+  then
+    echo "Unable to find '$target' path"
+    exit 1
+  fi
+  MASTER=$(cd "$target" && pwd)
+  CONFIG=${MASTER}
+  shift
+else
+  if [ -z "${EDIRECT_PUBMED_MASTER}" ]
+  then
+    echo "Must supply path to master archive area or set EDIRECT_PUBMED_MASTER environment variable"
+    exit 1
+  else
+    MASTER="${EDIRECT_PUBMED_MASTER}"
+    MASTER=${MASTER%/}
+    if [ ! -d "${MASTER}" ]
+    then
+      echo "Unable to find '$MASTER' path"
+      exit 1
+    fi
+  fi
+fi
+
+while [ $# -gt 0 ]
+do
+  case "$1" in
+    -temp | -work | -working )
+      shift
+      ;;
+    -* )
+      exec >&2
+      echo "$0: Unrecognized option $1"
+      exit 1
+      ;;
+    * )
+      break
+      ;;
+  esac
+done
+
+if [ "$#" -gt 0 ]
+then
+  working="$1"
+  if [ ! -d "$working" ]
+  then
+    echo "Unable to find '$working' path"
+    exit 1
+  fi
+  WORKING=$(cd "$working" && pwd)
+  shift
+else
+  if [ -z "${EDIRECT_PUBMED_WORKING}" ]
+  then
+    WORKING=${MASTER}
+  else
+    WORKING="${EDIRECT_PUBMED_WORKING}"
+    WORKING=${WORKING%/}
+  fi
+  if [ ! -d "${WORKING}" ]
+  then
+    echo "Unable to find '$WORKING' path"
+    exit 1
+  fi
+fi
+
+echo "MASTER $MASTER"
+
+echo "WORKING $WORKING"
+
+for dir in Archive Postings
+do
+  mkdir -p "$MASTER/$dir"
+done
+
+for dir in Current Data Indexed Inverted Merged Pubmed
+do
+  mkdir -p "$WORKING/$dir"
+done
+
+date
+
+seconds_start=$(date "+%s")
+echo "Removing Intermediate Indices"
+cd "$WORKING/Indexed"
+target="$WORKING/Indexed"
+find "$target" -name "*.e2x" -delete
+find "$target" -name "*.e2x.gz" -delete
+cd "$WORKING/Inverted"
+target="$WORKING/Inverted"
+find "$target" -name "*.inv" -delete
+find "$target" -name "*.inv.gz" -delete
+cd "$WORKING/Merged"
+target="$WORKING/Merged"
+find "$target" -name "*.mrg" -delete
+find "$target" -name "*.mrg.gz" -delete
+seconds_end=$(date "+%s")
+seconds=$((seconds_end - seconds_start))
+echo "$seconds seconds"
+CLR=$seconds
+
+seconds_start=$(date "+%s")
+echo "Expanding Current PubMed Archive"
+cd "$WORKING/Current"
+target="$WORKING/Current"
+if [ \! -f pubmed001.xml ]
+then
+  [ -f pubmed001.xml.gz ]  ||  pm-collect "$MASTER/Archive" "$WORKING/Current"
+  for fl in *.xml.gz
+  do
+    base=${fl%.xml.gz}
+    echo "$base.xml"
+    gunzip -c "$fl" |
+    xtract -set PubmedArticleSet -index -pattern PubmedArticle > "$target/$base.xml"
+    sleep 1
+    rm "$fl"
+  done
+fi
+seconds_end=$(date "+%s")
+seconds=$((seconds_end - seconds_start))
+echo "$seconds seconds"
+EXP=$seconds
+
+echo ""
+
+echo "EXPAND-CURRENT"
+
+echo "CLR $CLR seconds"
+echo "EXP $EXP seconds"
+
+echo ""
+
+date

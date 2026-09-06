@@ -1,0 +1,18 @@
+{
+  "arch": "x86_64",
+  "build": "ha56f1ee_0",
+  "build_number": 0,
+  "depends": [
+    "libgcc-ng >=9.3.0",
+    "libidn2 >=2,<3.0a0",
+    "libunistring >=0,<1.0a0",
+    "openssl >=1.1.1k,<1.1.2a",
+    "zlib >=1.2.11,<1.3.0a0"
+  ],
+  "license": "GPL3",
+  "name": "wget",
+  "platform": "linux",
+  "subdir": "linux-64",
+  "timestamp": 1626963513599,
+  "version": "1.20.3"
+}

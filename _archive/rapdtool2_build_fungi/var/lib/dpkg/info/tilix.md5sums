@@ -1,0 +1,9 @@
+37ecf283d928adc46255acc4bf37cd98  usr/bin/tilix
+26a3cff204446423adc91297acdb3cba  usr/bin/tilix.wrapper
+ded92eaa167264c590a4ed7a95a96b7b  usr/share/applications/com.gexperts.Tilix.desktop
+77a8d6579cdab33a4f6c6696a1513bca  usr/share/dbus-1/services/com.gexperts.Tilix.service
+12a0dfbf612c589b00ce4c7c6cbf0c02  usr/share/doc/tilix/changelog.Debian.gz
+f95c9a267c2bb329c9e9124a1b8d3497  usr/share/doc/tilix/copyright
+8deaf41353059e380f93bbd7144c309a  usr/share/glib-2.0/schemas/com.gexperts.Tilix.gschema.xml
+fe75ec55733a0597ef44a60e09aed6ac  usr/share/man/man1/tilix.1.gz
+1f230004482ddd3d2065e59fb1eefbcf  usr/share/metainfo/com.gexperts.Tilix.appdata.xml

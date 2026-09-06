@@ -1,0 +1,61 @@
+# This file created by conda-build 3.21.4
+# meta.yaml template originally from:
+# /tmp/build/80754af9/combined_recipe, last modified Wed Jul 21 12:56:32 2021
+# ------------------------------------------------
+
+package:
+  name: libidn2
+  version: 2.3.2
+source:
+  sha256: 76940cd4e778e8093579a9d195b25fff5e936e9dc6242068528b437a76764f91
+  url: https://ftp.gnu.org/gnu/libidn/libidn2-2.3.2.tar.gz
+build:
+  number: '0'
+  run_exports:
+    - libidn2 >=2,<3.0a0
+  string: h7f8727e_0
+requirements:
+  build:
+    - _libgcc_mutex 0.1 main
+    - _openmp_mutex 4.5 1_gnu
+    - _sysroot_linux-64_curr_repodata_hack 3 haa98f57_10
+    - binutils_impl_linux-64 2.35.1 h27ae35d_9
+    - binutils_linux-64 2.35.1 h454624a_30
+    - gcc_impl_linux-64 7.5.0 h7105cf2_17
+    - gcc_linux-64 7.5.0 h8f34230_30
+    - kernel-headers_linux-64 3.10.0 h57e8cba_10
+    - ld_impl_linux-64 2.35.1 h7274673_9
+    - libgcc-devel_linux-64 7.5.0 hbbeae57_17
+    - libgcc-ng 9.3.0 h5101ec6_17
+    - libgomp 9.3.0 h5101ec6_17
+    - libstdcxx-ng 9.3.0 hd4cf53a_17
+    - make 4.2.1 h1bed415_1
+    - pkg-config 0.29.2 h1bed415_8
+    - sysroot_linux-64 2.17 h57e8cba_10
+  host:
+    - _libgcc_mutex 0.1 main
+    - _openmp_mutex 4.5 1_gnu
+    - libgcc-ng 9.3.0 h5101ec6_17
+    - libgomp 9.3.0 h5101ec6_17
+    - libunistring 0.9.10 h27cfd23_0
+  run:
+    - libgcc-ng >=7.5.0
+    - libunistring >=0,<1.0a0
+test:
+  commands:
+    - test -f "${PREFIX}/include/idn2.h"
+    - test -f "${PREFIX}/lib/libidn2${SHLIB_EXT}"
+    - test ! -f "${PREFIX}/lib/libidn2.a"
+about:
+  dev_url: https://gitlab.com/libidn/libidn2
+  doc_url: https://libidn.gitlab.io/libidn2/manual/libidn2.html
+  home: https://www.gnu.org/software/libidn/#libidn2
+  license: LGPLv2 AND LGPL-3.0-or-later AND GPL-3.0-or-later
+  license_file: COPYING
+  summary: Library for internationalized domain names (IDNA2008) support
+extra:
+  copy_test_source_files: true
+  final: true
+  recipe-maintainers:
+    - chenghlee
+    - hmaarrfk

@@ -1,0 +1,950 @@
+commit 9aba419af1cd512b961248cc1439b20d19f2aad5
+Author: Anthony DiPietro <adipietro@anaconda.com>
+Date:   Wed Mar 17 17:29:29 2021 -0400
+
+    Update hashes for release 0.15.100
+
+commit 68bd38af3492f3ff1ab5ea715b8234132d5538bd
+Merge: a33794d bc688c8
+Author: Anthony DiPietro <adipietro@anaconda.com>
+Date:   Wed Mar 17 16:47:17 2021 -0400
+
+    Merge remote-tracking branch 'conda-forge/master' into release-0.15.100
+
+commit bc688c809500fbb2a04a139132aa55f9ee6f8851
+Merge: 5ad06fb 5812ca3
+Author: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
+Date:   Fri Jan 29 18:00:54 2021 +0000
+
+    Add a 'pip check' to ensure consistent environments
+    
+    automerged PR by conda-forge/automerge-action
+
+commit 5812ca3c15ce24f3d36b8ac9d2590ffe55c17dfb
+Author: conda-forge-linter <github-actions@email.com>
+Date:   Fri Jan 29 12:58:42 2021 +0000
+
+    MNT: Re-rendered with conda-build 3.21.4, conda-smithy 3.8.6, and conda-forge-pinning 2021.01.27.21.31.49
+
+commit f20ccfd3c27853d500af9991d0b21296200a219f
+Author: Markus Gerstel <markus.gerstel@diamond.ac.uk>
+Date:   Fri Jan 29 12:50:16 2021 +0000
+
+    Add a 'pip check' to ensure consistent environments
+
+commit 5ad06fb65133bbd98457fc74d5c09fc053bf0678
+Merge: 4fca42d b39ba47
+Author: jakirkham <jakirkham@gmail.com>
+Date:   Mon Jan 11 15:35:25 2021 -0800
+
+    Merge pull request #77 from regro-cf-autotick-bot/rebuild-pypy37-0-1_h8cfa4f
+    
+    Rebuild for pypy37
+
+commit b39ba472f20da4b5feb753bb4ab3c812128d0fdb
+Author: regro-cf-autotick-bot <36490558+regro-cf-autotick-bot@users.noreply.github.com>
+Date:   Sun Jan 10 22:07:05 2021 +0000
+
+    MNT: Re-rendered with conda-build 3.20.5, conda-smithy 3.8.6, and conda-forge-pinning 2021.01.10.01.07.36
+
+commit b30fe51a192cce14a1dd6d6e159101fdd4b36b0b
+Author: regro-cf-autotick-bot <36490558+regro-cf-autotick-bot@users.noreply.github.com>
+Date:   Sun Jan 10 22:06:53 2021 +0000
+
+    Rebuild for pypy37
+
+commit a33794d85a123d2ba43c7a1ba62489955ba98dc7
+Author: Ray Donnelly <mingw.android@gmail.com>
+Date:   Mon Nov 16 11:36:32 2020 +0100
+
+    Fix Windows 32-bit and reset build number
+
+commit 4fca42d03bebc4df654716ec61fad59132290f37
+Merge: 3e25584 b3b92e7
+Author: Isuru Fernando <isuruf@gmail.com>
+Date:   Sun Oct 11 10:30:35 2020 -0500
+
+    Merge pull request #74 from regro-cf-autotick-bot/rebuild-python39-0-2_hbc0977
+    
+    Rebuild for python39
+
+commit b3b92e7a3c81954bd1f708c0c458ec8c00aec387
+Author: regro-cf-autotick-bot <36490558+regro-cf-autotick-bot@users.noreply.github.com>
+Date:   Sun Oct 11 11:27:26 2020 +0000
+
+    MNT: Re-rendered with conda-build 3.20.3, conda-smithy 3.8.1, and conda-forge-pinning 2020.10.09.16.47.17
+
+commit a69a42d4f750a7233f165310ecc469695f8073fc
+Author: regro-cf-autotick-bot <36490558+regro-cf-autotick-bot@users.noreply.github.com>
+Date:   Sun Oct 11 11:27:12 2020 +0000
+
+    Rebuild for python39
+
+commit 3e2558443e097f42e910186b950f3c4d383fc8bd
+Merge: 3592417 c7cd398
+Author: Isuru Fernando <isuruf@gmail.com>
+Date:   Thu Sep 17 15:30:21 2020 -0500
+
+    Merge pull request #71 from regro-cf-autotick-bot/bot-pr_arm_osx_heaed97
+    
+    ARM OSX Migrator
+
+commit c7cd39877ddcafd798f4941a15ae253a175024d2
+Author: conda-forge-linter <github-actions@email.com>
+Date:   Thu Sep 17 19:52:24 2020 +0000
+
+    MNT: Re-rendered with conda-build 3.20.2, conda-smithy 3.7.10, and conda-forge-pinning 2020.09.17.18.26.02
+
+commit 54d655fd3e28a97e2a43a0603bb349c6adb20dae
+Author: Isuru Fernando <isuruf@gmail.com>
+Date:   Thu Sep 17 14:50:40 2020 -0500
+
+    native
+
+commit 66236640592ea8cbac3d26f7c6676d6385002977
+Author: regro-cf-autotick-bot <circleci@cf-graph.regro.github.com>
+Date:   Thu Sep 17 19:37:18 2020 +0000
+
+    MNT: Re-rendered with conda-build 3.20.2, conda-smithy 3.7.10, and conda-forge-pinning 2020.09.17.18.26.02
+
+commit 1434f9b254cdbd466ae9847904a3640dd499b1b1
+Author: regro-cf-autotick-bot <circleci@cf-graph.regro.github.com>
+Date:   Thu Sep 17 19:37:06 2020 +0000
+
+    migration: OSXArm
+
+commit 3592417609c7a8e37c08823a13c09ef8db7fe8af
+Merge: e1c6a17 533a780
+Author: Isuru Fernando <isuruf@gmail.com>
+Date:   Tue Sep 1 09:56:43 2020 -0500
+
+    Merge pull request #68 from minrk/pip-collision
+    
+    avoid conflicting pip package name with ruamel.yaml
+
+commit 533a7801132a527f1327966da7b285d0cc97eb84
+Author: Min RK <benjaminrk@gmail.com>
+Date:   Thu Aug 20 16:41:30 2020 +0200
+
+    verify pip-install of ruamel.yaml after the fact
+
+commit 8a5610bd2f31aa039527c0e792bdc33a44e74a74
+Author: Min RK <benjaminrk@gmail.com>
+Date:   Thu Aug 20 16:38:52 2020 +0200
+
+    avoid pip package name collision
+    
+    pip package normalization makes ruamel_yaml and ruamel.yaml equivalent,
+    so `pip install ruamel.yaml` will not install the real package
+    if `ruamel_yaml` is installed.
+    
+    Add `_conda_fork` to the package name to avoid this problem.
+
+commit f66bec03ad75b1b3d2d39cef76b9e220e2856462
+Author: Min RK <benjaminrk@gmail.com>
+Date:   Thu Aug 20 16:40:03 2020 +0200
+
+    MNT: Re-rendered with conda-build 3.19.2, conda-smithy 3.7.10, and conda-forge-pinning 2020.08.17.20.01.55
+
+commit e1c6a174c4092dff83abfe698f194353b917ddad
+Author: conda-forge-admin <conda-forge-admin@email.com>
+Date:   Sun Aug 9 03:25:14 2020 +0000
+
+    [ci skip] [skip ci] [cf admin skip] ***NO_CI*** admin migration CFEP13TokenCleanup
+
+commit 4b944757f9b62063d35810eb490fbf36c9761577
+Author: conda-forge-admin <conda-forge-admin@email.com>
+Date:   Tue May 19 18:36:26 2020 +0000
+
+    [ci skip] [skip ci] [cf admin skip] ***NO_CI*** admin migration CFEP13TokensAndConfig
+
+commit 62df5ad0f1e3bc1ecc30d1952179099e37ce9a89
+Author: conda-forge-admin <conda-forge-admin@email.com>
+Date:   Mon May 18 09:20:22 2020 +0000
+
+    [ci skip] [skip ci] [cf admin skip] ***NO_CI*** admin migration CondaForgeAutomerge
+
+commit 9c08932deddeeadd90778bef4534bd419cfe81eb
+Author: conda-forge-admin <conda-forge-admin@email.com>
+Date:   Wed May 13 00:47:32 2020 +0000
+
+    [ci skip] [skip ci] [cf admin skip] ***NO_CI*** admin migration CFEP13TurnOff
+
+commit 993c3fb32839d07ba0d357f2c09aa8173aafd271
+Author: conda-forge-admin <conda-forge-admin@email.com>
+Date:   Tue May 12 05:10:31 2020 +0000
+
+    [ci skip] [skip ci] [cf admin skip] ***NO_CI*** admin migration CFEP13TokensAndConfig
+
+commit 53e631ee23504a52d19d4da0ccf94effcf0b0c9f
+Merge: ae0b7a2 57d32e3
+Author: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
+Date:   Mon Mar 16 18:52:33 2020 +0000
+
+    Rebuild for pypy
+    
+    automerged PR by regro-cf-autotick-bot-action
+
+commit 57d32e3b53357735d8f606636a7c85cc062272b5
+Author: Isuru Fernando <isuruf@gmail.com>
+Date:   Mon Mar 16 13:31:13 2020 -0500
+
+    Add isuruf to maintainers
+
+commit 7080530f4d2b862aa9018440ffab94c97e201dad
+Author: Isuru Fernando <isuruf@gmail.com>
+Date:   Sun Mar 15 15:10:10 2020 -0500
+
+    Remove patch
+
+commit a2b4dd77799e7c057ecf06c6542c52a7ad9f91d0
+Author: Isuru Fernando <isuruf@gmail.com>
+Date:   Sun Mar 15 15:02:16 2020 -0500
+
+    Use PyPI source
+
+commit 324f74795659559fd3de2bfb309a6f2dd5c207b6
+Author: regro-cf-autotick-bot <circleci@cf-graph.regro.github.com>
+Date:   Sun Mar 15 19:48:29 2020 +0000
+
+    MNT: Re-rendered with conda-build 3.19.0, conda-smithy 3.6.12, and conda-forge-pinning 2020.03.14
+
+commit 320438529561ec5dcfd67037c301576f22e23096
+Author: regro-cf-autotick-bot <circleci@cf-graph.regro.github.com>
+Date:   Sun Mar 15 19:47:55 2020 +0000
+
+    Rebuild for pypy
+
+commit ae0b7a2cbf8c7b88d3ceccb1be1cb6e5ea553bb7
+Author: conda-forge-admin <conda-forge-admin@email.com>
+Date:   Tue Mar 3 03:50:23 2020 +0000
+
+    [ci skip] [skip ci] [cf admin skip] ***NO_CI*** admin migration AutomergeAndRerender
+
+commit efacb3e0aab756f919ef9ec513ad58e4a9da76d3
+Merge: f561a73 46ea62e
+Author: Filipe <ocefpaf@gmail.com>
+Date:   Thu Nov 28 08:42:12 2019 -0300
+
+    Merge pull request #59 from regro-cf-autotick-bot/rebuild-python3801
+    
+    Rebuild for python38
+
+commit 46ea62e6c1d973a988ed8368c9a2b06f730aaf1a
+Author: Marcel Bargull <marcel.bargull@udo.edu>
+Date:   Thu Nov 28 10:28:57 2019 +0100
+
+    MNT: Re-rendered with conda-build 3.18.11, conda-smithy 3.6.3, and conda-forge-pinning 2019.11.26
+
+commit 615ae040823bb70c3562f510c9de2107c7e64be5
+Author: Marcel Bargull <marcel.bargull@udo.edu>
+Date:   Thu Nov 28 10:27:28 2019 +0100
+
+    updated v0.15.80
+
+commit c66fc20011d0fcee9c361a0cb4a93f717e08a2f9
+Author: regro-cf-autotick-bot <circleci@cf-graph.regro.github.com>
+Date:   Sat Nov 2 12:30:17 2019 +0000
+
+    MNT: Re-rendered with conda-build 3.18.11, conda-smithy 3.6.1, and conda-forge-pinning 2019.11.01
+
+commit ace3cb4368fc4dc5062f499a4107889754ab16e1
+Author: regro-cf-autotick-bot <circleci@cf-graph.regro.github.com>
+Date:   Sat Nov 2 12:29:59 2019 +0000
+
+    bump build number
+
+commit f561a7341fb6388bb3edf0ffd255f2eeac17da8a
+Author: conda-forge-admin <pelson.pub+conda-forge@gmail.com>
+Date:   Fri Sep 6 18:43:41 2019 -0500
+
+    [ci skip] ***NO_CI*** Move from appveyor to azure.
+    
+    See https://github.com/conda-forge/conda-forge.github.io/issues/857
+
+commit 1aa8a1236aa784afba16f72034977ff26496a640
+Merge: 95db582 ca37477
+Author: Isuru Fernando <isuruf@gmail.com>
+Date:   Wed Mar 13 00:51:02 2019 -0500
+
+    Merge pull request #52 from isuruf/arch
+    
+    aarch64 and ppc64le
+
+commit ca37477c0028fa1fe0e7eb2cf27616e5d4ae0f49
+Author: Isuru Fernando <isuruf@gmail.com>
+Date:   Wed Mar 13 00:35:31 2019 -0500
+
+    remove conda as a test requirement
+
+commit ce7607ae63ed235b87a79f22bb41340489fe6ebd
+Author: Isuru Fernando <isuruf@gmail.com>
+Date:   Wed Mar 13 00:25:11 2019 -0500
+
+    Remove downstream conda tests as they are conda version specific
+
+commit 8ba6d96b8f048d8cffe10b48d413be9754d43191
+Author: Isuru Fernando <isuruf@gmail.com>
+Date:   Wed Mar 13 00:07:27 2019 -0500
+
+    MNT: Re-rendered with conda-build 3.17.8, conda-smithy 3.2.14, and conda-forge-pinning 2019.03.11
+
+commit 4f8c0d78ae4544fa49f209589aa097912c0888a5
+Author: Isuru Fernando <isuruf@gmail.com>
+Date:   Wed Mar 13 00:07:11 2019 -0500
+
+    Build for aarch64 and ppc64le
+
+commit 95db5829d617cd652f20e9fd919c922d26a6c73d
+Merge: fd8cbf2 c0d1535
+Author: Marius van Niekerk <marius.v.niekerk@gmail.com>
+Date:   Wed Oct 3 13:10:45 2018 -0400
+
+    Merge pull request #47 from regro-cf-autotick-bot/rebuild
+    
+    Rebuild for Python 3.7, GCC 7, R 3.5.1, openBLAS 0.3.2
+
+commit c0d153527d390d9c214eac42278133955271851c
+Author: regro-cf-autotick-bot <circleci@cf-graph.regro.github.com>
+Date:   Wed Oct 3 04:14:17 2018 +0000
+
+    MNT: Re-rendered with conda-smithy 3.1.12 and pinning 2018.10.01
+
+commit 1c706e6701c811d6af16dc63b9e0f0ed4a7626f0
+Author: regro-cf-autotick-bot <circleci@cf-graph.regro.github.com>
+Date:   Wed Oct 3 04:14:09 2018 +0000
+
+    bump build number
+
+commit fd8cbf25ecc00b7ce8f03d4dd3fed8ee81716935
+Merge: 5a7b90c 089476a
+Author: Marcel Bargull <mbargull@users.noreply.github.com>
+Date:   Sun Sep 30 21:52:31 2018 +0200
+
+    Merge pull request #46 from mbargull/update-0.15.71
+    
+    ruamel_yaml v0.15.71
+
+commit 089476a64fce922816d32cb4bfa8184ff85b8790
+Author: Marcel Bargull <marcel.bargull@udo.edu>
+Date:   Sun Sep 30 21:12:16 2018 +0200
+
+    add some conda config tests
+
+commit 3b5509db6ac6adf04ed3cb9af0a5cac2b57a4c64
+Author: Marcel Bargull <marcel.bargull@udo.edu>
+Date:   Sun Sep 30 21:11:38 2018 +0200
+
+    update pip install in reference to https://github.com/conda/conda-build/pull/3104
+
+commit e352e7d27b3ff10ba9df25ed9af845c727a8c27d
+Author: Marcel Bargull <marcel.bargull@udo.edu>
+Date:   Sun Sep 30 21:09:14 2018 +0200
+
+    updated v0.15.71
+
+commit 5a7b90cd78d38c7bd0220932342130adefd20918
+Merge: 21771d9 2e82b11
+Author: Marcel Bargull <mbargull@users.noreply.github.com>
+Date:   Wed Aug 29 21:11:35 2018 +0200
+
+    Merge pull request #41 from regro-cf-autotick-bot/0.15.63
+    
+    ruamel_yaml v0.15.63
+
+commit 2e82b11a3a7fdc656361ccb0dd56d91c513e6ede
+Author: regro-cf-autotick-bot <circleci@cf-graph.regro.github.com>
+Date:   Wed Aug 29 16:27:04 2018 +0000
+
+    updated v0.15.63
+
+commit 21771d92cbb71c914a322bdb0c21fc1ce4b5b5b3
+Merge: c5263ae 936c0e1
+Author: Marcel Bargull <mbargull@users.noreply.github.com>
+Date:   Wed Aug 29 17:53:07 2018 +0200
+
+    Merge pull request #40 from regro-cf-autotick-bot/0.15.62
+    
+    ruamel_yaml v0.15.62
+
+commit 936c0e193533a83e3d2faeb89463ee6331b5ad5b
+Author: Marcel Bargull <marcel.bargull@udo.edu>
+Date:   Wed Aug 29 16:06:49 2018 +0200
+
+    make pip verbose
+
+commit 08d074cca4923765925e63a7d0889e36c2983c80
+Author: regro-cf-autotick-bot <circleci@cf-graph.regro.github.com>
+Date:   Wed Aug 29 11:13:34 2018 +0000
+
+    updated v0.15.62
+
+commit c5263ae9d064a056900ed30ba8aae12cd0dbb74e
+Merge: 26febfb 113c79a
+Author: Marcel Bargull <mbargull@users.noreply.github.com>
+Date:   Thu Aug 23 14:32:35 2018 +0200
+
+    Merge pull request #38 from regro-cf-autotick-bot/0.15.61
+    
+    ruamel_yaml v0.15.61
+
+commit 113c79a48ddf06f028184a8618b8ce6290113009
+Author: regro-cf-autotick-bot <circleci@cf-graph.regro.github.com>
+Date:   Thu Aug 23 06:14:20 2018 +0000
+
+    MNT: Re-rendered with conda-smithy 3.1.12 and pinning 2018.08.21
+
+commit aa3adbb187670fd78f4fc7b74d930df218329aa3
+Author: regro-cf-autotick-bot <circleci@cf-graph.regro.github.com>
+Date:   Thu Aug 23 06:14:13 2018 +0000
+
+    updated v0.15.61
+
+commit 26febfb59bc2d70cfce6019174af27e396a89a22
+Merge: e76a586 ebe5c78
+Author: jakirkham <jakirkham@gmail.com>
+Date:   Sat Aug 18 05:04:40 2018 -0400
+
+    Merge pull request #35 from regro-cf-autotick-bot/0.15.57
+    
+    ruamel_yaml v0.15.57
+
+commit ebe5c781ed547a634dcb18ad68a0276ce0b67ce6
+Merge: 80443d4 e76a586
+Author: John Kirkham <kirkhamj@janelia.hhmi.org>
+Date:   Fri Aug 17 20:35:55 2018 -0400
+
+    Merge 'conda-forge/master' into 'regro-cf-autotick-bot/0.15.57'
+
+commit e76a5867df9d001d27110ac5671bdb5443c20aee
+Merge: b1f5943 118fcf0
+Author: jakirkham <jakirkham@gmail.com>
+Date:   Fri Aug 17 20:33:23 2018 -0400
+
+    Merge pull request #34 from regro-cf-autotick-bot/0.15.56
+    
+    ruamel_yaml v0.15.56
+
+commit 118fcf03850a0a57996a95f06d56655718084e6e
+Merge: 4993382 b1f5943
+Author: John Kirkham <kirkhamj@janelia.hhmi.org>
+Date:   Fri Aug 17 18:41:15 2018 -0400
+
+    Merge 'conda-forge/master' into 'regro-cf-autotick-bot/0.15.56'
+
+commit b1f59433fb569094b75d949697880a9ea1313c22
+Merge: 8fe573a 684adb1
+Author: jakirkham <jakirkham@gmail.com>
+Date:   Fri Aug 17 18:40:25 2018 -0400
+
+    Merge pull request #33 from regro-cf-autotick-bot/0.15.55
+    
+    ruamel_yaml v0.15.55
+
+commit 684adb146628781c1fa629aea1f0cbf4d2cf1162
+Merge: 005cd61 8fe573a
+Author: John Kirkham <kirkhamj@janelia.hhmi.org>
+Date:   Fri Aug 17 12:12:17 2018 -0400
+
+    Merge 'conda-forge/master' into 'regro-cf-autotick-bot/0.15.55'
+
+commit 8fe573ae7fd8c55a319d87092c6ea107189e545e
+Merge: e21f3ca b95e418
+Author: jakirkham <jakirkham@gmail.com>
+Date:   Fri Aug 17 12:11:02 2018 -0400
+
+    Merge pull request #32 from regro-cf-autotick-bot/0.15.54
+    
+    ruamel_yaml v0.15.54
+
+commit 80443d44fe71f381e6d708eda0b26aee6d190acb
+Author: regro-cf-autotick-bot <circleci@cf-graph.regro.github.com>
+Date:   Wed Aug 15 20:12:43 2018 +0000
+
+    updated v0.15.57
+
+commit 49933826cb7e308228d30aad75c5f812fa02dab1
+Author: regro-cf-autotick-bot <circleci@cf-graph.regro.github.com>
+Date:   Wed Aug 15 15:15:11 2018 +0000
+
+    updated v0.15.56
+
+commit 005cd617c8e931c59fd74282f65d2173a7b88825
+Author: regro-cf-autotick-bot <circleci@cf-graph.regro.github.com>
+Date:   Tue Aug 14 19:11:15 2018 +0000
+
+    updated v0.15.55
+
+commit b95e4184e2f40e4af08b455e22cc793d1fa90b67
+Merge: d5f987b e21f3ca
+Author: John Kirkham <kirkhamj@janelia.hhmi.org>
+Date:   Mon Aug 13 09:29:22 2018 -0400
+
+    Merge 'conda-forge/master' into 'regro-cf-autotick-bot/0.15.54'
+
+commit e21f3ca4c37fc6f28a843e1743344bdcd02146fa
+Merge: c4f9166 50de8b5
+Author: jakirkham <jakirkham@gmail.com>
+Date:   Mon Aug 13 09:27:38 2018 -0400
+
+    Merge pull request #31 from regro-cf-autotick-bot/0.15.53
+    
+    ruamel_yaml v0.15.53
+
+commit d5f987b6092998e4ea7a5aeea2b66c7abd2668f8
+Author: regro-cf-autotick-bot <circleci@cf-graph.regro.github.com>
+Date:   Mon Aug 13 10:16:11 2018 +0000
+
+    updated v0.15.54
+
+commit 50de8b558476861877dddd8e08d5252f6a89812c
+Author: regro-cf-autotick-bot <circleci@cf-graph.regro.github.com>
+Date:   Sun Aug 12 09:15:05 2018 +0000
+
+    MNT: Re-rendered with conda-smithy 3.1.11 and pinning 2018.08.05
+
+commit ed237aafb84ab57eb4358fec3a9b30dc1a6f91ed
+Author: regro-cf-autotick-bot <circleci@cf-graph.regro.github.com>
+Date:   Sun Aug 12 09:14:51 2018 +0000
+
+    updated v0.15.53
+
+commit c4f9166a736d8f1cbc377d04bd6f17411d416cbb
+Merge: 204ec36 89085fd
+Author: Marcel Bargull <mbargull@users.noreply.github.com>
+Date:   Thu Aug 9 13:20:38 2018 +0200
+
+    Merge pull request #30 from regro-cf-autotick-bot/0.15.52
+    
+    ruamel_yaml v0.15.52
+
+commit 89085fdcaf093e18ee8773fe2274859961e76dc2
+Author: regro-cf-autotick-bot <circleci@cf-graph.regro.github.com>
+Date:   Thu Aug 9 07:13:49 2018 +0000
+
+    updated v0.15.52
+
+commit 204ec363e2b8d4555d07fc79b402301ff9ae0e08
+Merge: a91946e a95f583
+Author: Marcel Bargull <mbargull@users.noreply.github.com>
+Date:   Wed Aug 8 21:52:03 2018 +0200
+
+    Merge pull request #29 from regro-cf-autotick-bot/0.15.51
+    
+    ruamel_yaml v0.15.51
+
+commit a95f583eb337e43635425f0a1a77a6e0daacec46
+Author: Marcel Bargull <marcel.bargull@udo.edu>
+Date:   Wed Aug 8 20:33:40 2018 +0200
+
+    update ordereddict_test.patch
+
+commit 2d324819d3d01ef83d7eae6305525f01d9d704df
+Author: regro-cf-autotick-bot <circleci@cf-graph.regro.github.com>
+Date:   Wed Aug 8 16:12:31 2018 +0000
+
+    MNT: Re-rendered with conda-smithy 3.1.10 and pinning 2018.08.05
+
+commit 3e55f5d1f21e617845bece6734041529acf97fdf
+Author: regro-cf-autotick-bot <circleci@cf-graph.regro.github.com>
+Date:   Wed Aug 8 16:12:24 2018 +0000
+
+    updated v0.15.51
+
+commit a91946e8853649b3711c893a408205c7dd29461d
+Author: Travis CI User <travis@example.org>
+Date:   Sat Aug 4 17:23:23 2018 +0000
+
+    [ci skip] [skip ci] Update anaconda token
+
+commit e4f9100f3e0df60458f8f12bd58db88649761fbb
+Merge: bfa3612 2aee39e
+Author: Marcel Bargull <mbargull@users.noreply.github.com>
+Date:   Mon Jul 30 10:15:04 2018 +0200
+
+    Merge pull request #24 from mbargull/0.15.46-ordereddict_test.patch
+    
+    reintroduce updated test patch
+
+commit 2aee39e88b860223c1edda68af97738e17217a6a
+Author: Marcel Bargull <marcel.bargull@udo.edu>
+Date:   Mon Jul 30 08:58:31 2018 +0200
+
+    reintroduce updated test patch
+
+commit bfa361241ce931585f1cd351a37ba53df6d62991
+Merge: ac70a3a 0e14c69
+Author: Marcel Bargull <mbargull@users.noreply.github.com>
+Date:   Sun Jul 29 21:14:16 2018 +0200
+
+    Merge pull request #23 from regro-cf-autotick-bot/0.15.45
+    
+    ruamel_yaml v0.15.46
+
+commit 0e14c69ba4829943e15fae0433a7136cc9057853
+Author: Marcel Bargull <marcel.bargull@udo.edu>
+Date:   Sun Jul 29 19:29:46 2018 +0200
+
+    remove outdated patch
+
+commit 2a2b840a14489a1c7a05bf2f13fd57f7c7343f1a
+Author: Marcel Bargull <mbargull@users.noreply.github.com>
+Date:   Sun Jul 29 19:06:06 2018 +0200
+
+    updated v0.15.46
+
+commit b4176617eea78a94baeecc950427a5c94fc32447
+Author: regro-cf-autotick-bot <circleci@cf-graph.regro.github.com>
+Date:   Fri Jul 27 07:12:09 2018 +0000
+
+    updated v0.15.45
+
+commit ac70a3a9f3130858309508e5a08ac6f9eb69ff05
+Merge: cb385c0 8e4429e
+Author: Marcel Bargull <mbargull@users.noreply.github.com>
+Date:   Sun Jul 15 13:32:47 2018 -0500
+
+    Merge pull request #21 from regro-cf-autotick-bot/0.15.44
+    
+    ruamel_yaml v0.15.44
+
+commit 8e4429e398036ccab0e98a0da7407b4bf8832161
+Author: regro-cf-autotick-bot <circleci@cf-graph.regro.github.com>
+Date:   Sat Jul 14 08:12:20 2018 +0000
+
+    updated v0.15.44
+
+commit cb385c06d0d25d1c4ae05a8f8c428fb87910a30d
+Merge: 703918b 6a81819
+Author: Marcel Bargull <mbargull@users.noreply.github.com>
+Date:   Thu Jul 12 19:01:52 2018 -0500
+
+    Merge pull request #20 from regro-cf-autotick-bot/0.15.43
+    
+    ruamel_yaml v0.15.43
+
+commit 6a81819d378322b1eba4616258b5452d01f93c90
+Author: regro-cf-autotick-bot <circleci@cf-graph.regro.github.com>
+Date:   Thu Jul 12 18:14:35 2018 +0000
+
+    updated v0.15.43
+
+commit 703918bff977dddeee96a113b30536cf4b0a157c
+Merge: f92077a d4026c7
+Author: Björn Grüning <bjoern@gruenings.eu>
+Date:   Fri Jul 6 00:53:18 2018 +0200
+
+    Merge pull request #19 from regro-cf-autotick-bot/0.15.42
+    
+    ruamel_yaml v0.15.42
+
+commit d4026c776e56782071db385dc295f281df1b1c90
+Author: John Kirkham <kirkhamj@janelia.hhmi.org>
+Date:   Tue Jul 3 12:32:09 2018 -0400
+
+    Add @mbargull as a maintainer
+
+commit 7096e9c6174e55cec7b53ae1abbbe679ebafca81
+Merge: 6a33b48 f92077a
+Author: John Kirkham <kirkhamj@janelia.hhmi.org>
+Date:   Tue Jul 3 12:21:59 2018 -0400
+
+    Merge branch 'conda-forge/master' into 'regro-cf-autotick-bot/0.15.42'
+
+commit f92077a8785ad91539b7f47ee058dd8e09884686
+Merge: ae56595 c78c473
+Author: jakirkham <jakirkham@gmail.com>
+Date:   Tue Jul 3 12:21:04 2018 -0400
+
+    Merge pull request #18 from regro-cf-autotick-bot/0.15.41
+    
+    ruamel_yaml v0.15.41
+
+commit 6a33b48ce271b7fce3df9a8017b42bef0f14bcfd
+Author: regro-cf-autotick-bot <circleci@cf-graph.regro.github.com>
+Date:   Sun Jul 1 16:27:53 2018 +0000
+
+    updated v0.15.42
+
+commit c78c4738602f6ea515bbd206f185acd7cbf37568
+Author: Travis CI User <travis@example.org>
+Date:   Fri Jun 29 07:04:07 2018 +0000
+
+    updated v0.15.41
+
+commit ae565958c78d5ae7e193ba05f019b5493ad39c0a
+Merge: 51991af de272e6
+Author: jakirkham <jakirkham@gmail.com>
+Date:   Tue Jun 19 00:06:42 2018 -0400
+
+    Merge pull request #17 from regro-cf-autotick-bot/0.15.40
+    
+    ruamel_yaml v0.15.40
+
+commit de272e6de1b86ff02f30f59741d1d07fdd7d0e63
+Author: Travis CI User <travis@example.org>
+Date:   Mon Jun 18 21:46:21 2018 +0000
+
+    updated v0.15.40
+
+commit 51991affb57e37e2ee37cb52157a8c642a03454e
+Merge: e7ab962 1775d7b
+Author: jakirkham <jakirkham@gmail.com>
+Date:   Sun Jun 17 14:10:32 2018 -0400
+
+    Merge pull request #16 from regro-cf-autotick-bot/0.15.39
+    
+    ruamel_yaml v0.15.39
+
+commit 1775d7beeece687256cd45377018d98accae98c3
+Author: Travis CI User <travis@example.org>
+Date:   Sun Jun 17 05:38:43 2018 +0000
+
+    updated v0.15.39
+
+commit e7ab962fca508ea6d31c971c391fbce97241ac95
+Merge: 43ae7b9 f98de29
+Author: jakirkham <jakirkham@gmail.com>
+Date:   Wed Jun 13 15:18:57 2018 -0400
+
+    Merge pull request #15 from regro-cf-autotick-bot/0.15.38
+    
+    ruamel_yaml v0.15.38
+
+commit f98de293054aabf3a97b38008444309c74e75716
+Author: Travis CI User <travis@example.org>
+Date:   Wed Jun 13 17:54:32 2018 +0000
+
+    MNT: Re-rendered with conda-smithy 3.1.5 and pinning 2018.05.22
+
+commit 45fc82b72567e70399372419d42078f8fd7684cb
+Author: Travis CI User <travis@example.org>
+Date:   Wed Jun 13 17:54:24 2018 +0000
+
+    updated v0.15.38
+
+commit 43ae7b906361eef3010edf57a36960cb2e50d8c5
+Merge: fa73c8c 98709fe
+Author: jakirkham <jakirkham@gmail.com>
+Date:   Mon May 14 15:34:28 2018 -0400
+
+    Merge pull request #14 from regro-cf-autotick-bot/0.15.37
+    
+    ruamel_yaml v0.15.37
+
+commit 98709fe58da62b6872f8c2ce92e7c5d71d049e05
+Merge: b917173 fa73c8c
+Author: John Kirkham <kirkhamj@janelia.hhmi.org>
+Date:   Mon May 14 15:02:28 2018 -0400
+
+    Merge remote-tracking branch 'conda-forge/master' into 'regro-cf-autotick-bot/0.15.37'
+
+commit fa73c8c726b6eea653036481cba6f5b133926169
+Merge: c77a5c6 ebe11e1
+Author: jakirkham <jakirkham@gmail.com>
+Date:   Mon May 14 15:01:09 2018 -0400
+
+    Merge pull request #13 from regro-cf-autotick-bot/0.15.36
+    
+    ruamel_yaml v0.15.36
+
+commit ebe11e100b757fcdb8d851aba3ebc2fb89d5cc83
+Author: conda-forge-admin <pelson.pub+conda-forge@gmail.com>
+Date:   Mon May 14 18:43:30 2018 +0000
+
+    MNT: Re-rendered with conda-smithy 3.1.2 and pinning 2018.05.07
+
+commit 576f8dac2c91185db5f75f11553b313e2af3eb71
+Author: John Kirkham <kirkhamj@janelia.hhmi.org>
+Date:   Mon May 14 14:40:57 2018 -0400
+
+    Modernize for `conda-build` 3
+    
+    * Move build tools to `requirements/build`.
+    * Move build dependencies to `requirements/host`.
+    * Drop the `toolchain` and use the new `compiler` syntax.
+    * Tweak some selectors' preceding whitespace.
+
+commit 515bc738f08968ae7967f270d89444ee3d1e29a7
+Author: John Kirkham <kirkhamj@janelia.hhmi.org>
+Date:   Mon May 14 14:40:55 2018 -0400
+
+    Add a terminal newline to `__init__`
+
+commit c7a1062757375aac008cc3799727e598790ae804
+Author: John Kirkham <kirkhamj@janelia.hhmi.org>
+Date:   Mon May 14 14:25:39 2018 -0400
+
+    Fix `sed` replacement of `$VERSION`
+    
+    Rewrite this `sed` line to replace just the `$VERSION` portion in the
+    way that we would expect/desire and avoid matching anything else that is
+    potentially unrelated.
+
+commit 8b0f55ed72e89f0d25919a76c40b2447827b15f5
+Author: John Kirkham <kirkhamj@janelia.hhmi.org>
+Date:   Mon May 14 14:19:36 2018 -0400
+
+    Programmatically determine `version_info`
+    
+    Instead of hard-coding `version_info` in `__init__`, just determine it
+    based on the value of `__version__` that we inject into it.
+
+commit b917173e86d1d15d7b76c2c09d309a69ce8146e2
+Author: Travis CI User <travis@example.org>
+Date:   Thu Mar 22 12:36:52 2018 +0000
+
+    updated v0.15.37
+
+commit 2a64f60bd23a458cf7e2b63163240f3cd9c457f7
+Author: Travis CI User <travis@example.org>
+Date:   Sat Mar 17 22:39:24 2018 +0000
+
+    updated v0.15.36
+
+commit c77a5c681bfb6856ca58774ccc3ec63959245512
+Merge: b2bfb63 39fcfb9
+Author: Filipe <ocefpaf@gmail.com>
+Date:   Wed Feb 28 20:39:57 2018 -0300
+
+    Merge pull request #12 from ocefpaf/update_to_0.15.35
+    
+    Update to 0.15.35
+
+commit 39fcfb9e381cf4164cd92c5989c67fc2af2de7f7
+Author: Filipe Fernandes <ocefpaf@gmail.com>
+Date:   Wed Feb 28 15:36:50 2018 -0300
+
+    update_to_0.15.35
+
+commit 1b69dc28921b890e33a77abc52d5fe6417ec99f2
+Author: Filipe Fernandes <ocefpaf@gmail.com>
+Date:   Wed Feb 28 15:36:25 2018 -0300
+
+    rerender
+
+commit b2bfb63847a250bf7989207cf2146efebe2b04b8
+Author: Travis-CI on github.com/conda-forge/staged-recipes <conda-forge@googlegroups.com>
+Date:   Sat Aug 26 20:07:45 2017 +0000
+
+    [ci skip] [skip ci] Update anaconda token
+
+commit 58bbce1b102cc2ae74c28ce777ad7b289b8ba4ce
+Merge: 71fb31b 4569f46
+Author: jakirkham <jakirkham@gmail.com>
+Date:   Mon Mar 6 20:14:30 2017 -0500
+
+    Merge pull request #9 from lexual/rerender_py36
+    
+    MNT: Re-rendered with conda-smithy 2.1.1
+
+commit 4569f46c34bf0e72abf6f57006aeaa274fea6384
+Author: lexual <lex.hider@bom.gov.au>
+Date:   Thu Mar 2 22:36:52 2017 +1100
+
+    MNT: Re-rendered with conda-smithy 2.1.1
+
+commit 71fb31b178f3d43e2e986ae830c983b78f0bd5e2
+Merge: 16bd28b b4c2056
+Author: Matt Craig <mattwcraig@gmail.com>
+Date:   Fri Jan 13 15:41:35 2017 -0600
+
+    Merge pull request #3 from jakirkham/update_0.11.14
+    
+    Update 0.11.14
+
+commit b4c2056a71b8e87ed1a81a58d261f946f1f46ee9
+Author: John Kirkham <kirkhamj@janelia.hhmi.org>
+Date:   Sun Nov 6 14:58:49 2016 -0500
+
+    Update to 0.11.14.
+    
+    This includes a ton of patches and other changes from upstream and
+    various other modifications to make them compatible at conda-forge.
+
+commit 16bd28b839746cb4690e29de77478dc853410e81
+Merge: a4119f3 57e8b9c
+Author: jakirkham <jakirkham@gmail.com>
+Date:   Mon Jan 9 01:03:06 2017 -0500
+
+    Merge pull request #8 from jakirkham/minor_cleanup
+    
+    Minor cleanup
+
+commit 57e8b9c3dac68ffcb2c23953b2167115420c71f0
+Author: John Kirkham <kirkhamj@janelia.hhmi.org>
+Date:   Sat Jan 7 17:43:11 2017 -0500
+
+    Bump the build number to 1.
+
+commit 4f110615c0fcf87f696d4ef1c28ca369b3ca01ef
+Author: John Kirkham <kirkhamj@janelia.hhmi.org>
+Date:   Sat Jan 7 17:42:33 2017 -0500
+
+    Drop setuptools from run.
+
+commit 028b7f615355d07d6a9c5d8a0783b7e251086ecb
+Author: John Kirkham <kirkhamj@janelia.hhmi.org>
+Date:   Sat Jan 7 17:42:10 2017 -0500
+
+    Require Cython for the build.
+
+commit 604166e52b98045438be7a09f41b746d4dc93e75
+Author: John Kirkham <kirkhamj@janelia.hhmi.org>
+Date:   Sat Jan 7 17:34:50 2017 -0500
+
+    Package the license file.
+
+commit fa1e406db4d0df895f72508076e477a82f3a567a
+Author: John Kirkham <kirkhamj@janelia.hhmi.org>
+Date:   Sat Jan 7 17:34:35 2017 -0500
+
+    Add the license family metadata.
+
+commit fce9be88babc951d927d0671fff7fb352615b48e
+Author: John Kirkham <kirkhamj@janelia.hhmi.org>
+Date:   Sat Jan 7 17:34:06 2017 -0500
+
+    Use jinja templating for the version.
+
+commit a4119f34e884fedb44b113dfab6a645286a8a0a2
+Merge: c70f0a5 3039c47
+Author: jakirkham <jakirkham@gmail.com>
+Date:   Sun Dec 18 00:45:53 2016 -0500
+
+    Merge pull request #5 from conda-forge-admin/feedstock_rerender_master
+    
+    MNT: Re-render the feedstock [ci skip]
+
+commit 3039c47c0143ff727b800d8e67a397238ec2a2ff
+Author: conda-forge-admin <pelson.pub+conda-forge@gmail.com>
+Date:   Sat Dec 17 01:38:00 2016 +0000
+
+    MNT: Updated the feedstock for conda-smithy version 1.7.0.
+
+commit c70f0a57c4ad88747fc05bcbd4c1f1a97d4694df
+Merge: 822e352 4ee852a
+Author: jakirkham <jakirkham@gmail.com>
+Date:   Mon Nov 7 00:00:53 2016 -0500
+
+    Merge pull request #4 from jakirkham/re-render_1.4.6
+    
+    MNT: Re-rendered with conda-smithy 1.4.6 [ci skip]
+
+commit 4ee852a828c758dfb9d4bc2f1263da77f0ec7860
+Author: John Kirkham <kirkhamj@janelia.hhmi.org>
+Date:   Sun Nov 6 15:00:09 2016 -0500
+
+    MNT: Re-rendered with conda-smithy 1.4.6
+
+commit 822e352ffcb1c55c3b6e08432c551bbd6c323fdf
+Author: Travis-CI on github.com/conda-forge/staged-recipes <conda-forge@googlegroups.com>
+Date:   Tue Jul 26 04:43:23 2016 +0000
+
+    Re-render the feedstock after CI registration.
+
+commit 079790c5f138d71e71deb4cc24b98ff91d05ab81
+Author: Travis-CI on github.com/conda-forge/staged-recipes <conda-forge@googlegroups.com>
+Date:   Tue Jul 26 04:41:34 2016 +0000
+
+    Initial commit of the ruamel_yaml feedstock.

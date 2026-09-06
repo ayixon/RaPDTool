@@ -1,0 +1,7 @@
+{
+  "channel_targets": "defaults",
+  "_libgcc_mutex": "0.1 main",
+  "ctng_target_platform": "linux-64",
+  "target_platform": "linux-64",
+  "libgomp_ver": "1.0.0"
+}

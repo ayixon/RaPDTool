@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+<svg id="svg7324" width="16" height="16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+ <defs id="defs7326">
+  <linearGradient id="linearGradient3637" x1="9.0002" x2="9.0002" y1="15" y2="18" gradientTransform="matrix(1.0001 0 0 1 -2.0101 1.988)" gradientUnits="userSpaceOnUse" xlink:href="#linearGradient3607"/>
+  <linearGradient id="linearGradient3607">
+   <stop id="stop3609" style="stop-color:#3b7caf" offset="0"/>
+   <stop id="stop3611" style="stop-color:#194c70" offset="1"/>
+  </linearGradient>
+  <linearGradient id="linearGradient3629" x1="13" x2="13" y1="11" y2="18" gradientTransform="translate(-3.0117 1.988)" gradientUnits="userSpaceOnUse" xlink:href="#linearGradient3607"/>
+  <linearGradient id="linearGradient3621" x1="17" x2="17" y1="7" y2="18" gradientTransform="translate(-4.014 1.988)" gradientUnits="userSpaceOnUse" xlink:href="#linearGradient3607"/>
+  <linearGradient id="linearGradient3613" x1="21" x2="21" y1="2" y2="18" gradientTransform="matrix(.99373 0 0 .93671 -4.8794 3.128)" gradientUnits="userSpaceOnUse" xlink:href="#linearGradient3607"/>
+ </defs>
+ <g id="layer3" transform="translate(-1.0002 -5)">
+  <path id="path3694" d="m6.0002 16.998h2.043v3.0017h-2.043v-3.0017z" style="fill:url(#linearGradient3637)"/>
+  <path id="path3696" d="m9.0287 12.996h2.0143v7.004h-2.0428l0.02852-7.004z" style="fill:url(#linearGradient3629)"/>
+  <path id="path3698" d="m12 8.9937h2.0163l-0.01517 11.006h-2.0011l-8e-6 -11.006z" style="fill:url(#linearGradient3621)"/>
+  <path id="path3700" d="m17 5v15h-2l0.02585-15 1.9742-4.899e-4z" style="fill:url(#linearGradient3613)"/>
+  <path id="path2830" d="m4.5002 19.5-1.4412-1.0588-1.5588 1.0588 1.641-7.0515 1.359 7.0515z" style="fill:none;stroke-linecap:round;stroke-linejoin:round;stroke-width:.99996px;stroke:#454545"/>
+  <path id="path3601" d="m4.6072 11.493c-1.4558 0.09791-0.019838 1.6115-1.4 1-1.5944 0.78557 0.028052-1.3065-1.6997-1 1.6689 0.40945 0.43007-1.1419 1.6997-1 1.1813-0.10078 0.18686 1.2256 1.4 1z" style="fill:#454545;stroke-linecap:round;stroke-linejoin:round;stroke-width:.99996;stroke:#454545"/>
+ </g>
+</svg>

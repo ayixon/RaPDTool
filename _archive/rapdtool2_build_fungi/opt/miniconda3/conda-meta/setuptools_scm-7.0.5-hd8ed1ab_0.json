@@ -1,0 +1,36 @@
+{
+  "build": "hd8ed1ab_0",
+  "build_number": 0,
+  "channel": "https://conda.anaconda.org/conda-forge/noarch",
+  "constrains": [],
+  "depends": [
+    "setuptools-scm >=7.0.5,<7.0.6.0a0"
+  ],
+  "extracted_package_dir": "/opt/miniconda3/pkgs/setuptools_scm-7.0.5-hd8ed1ab_0",
+  "features": "",
+  "files": [],
+  "fn": "setuptools_scm-7.0.5-hd8ed1ab_0.tar.bz2",
+  "license": "MIT",
+  "license_family": "MIT",
+  "link": {
+    "source": "/opt/miniconda3/pkgs/setuptools_scm-7.0.5-hd8ed1ab_0",
+    "type": 1
+  },
+  "md5": "be83043fc87fff096056e6598a438745",
+  "name": "setuptools_scm",
+  "noarch": "generic",
+  "package_tarball_full_path": "/opt/miniconda3/pkgs/setuptools_scm-7.0.5-hd8ed1ab_0.tar.bz2",
+  "package_type": "noarch_generic",
+  "paths_data": {
+    "paths": [],
+    "paths_version": 1
+  },
+  "requested_spec": "None",
+  "sha256": "a6152cdf2fc35f40d529c02fbfdf4caa1a87ba4c0d888953eb162131c6cba210",
+  "size": 4646,
+  "subdir": "noarch",
+  "timestamp": 1657572538107,
+  "track_features": "",
+  "url": "https://conda.anaconda.org/conda-forge/noarch/setuptools_scm-7.0.5-hd8ed1ab_0.tar.bz2",
+  "version": "7.0.5"
+}

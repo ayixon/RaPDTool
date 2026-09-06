@@ -1,0 +1,36 @@
+#!/bin/sh
+# postrm script for packagekit
+set -e
+
+if [ "$1" = "purge" ]; then
+
+        if [ -x /etc/init.d/dbus ]; then
+                invoke-rc.d dbus force-reload || true
+        fi
+
+        # Remove PK transaction db and desktop cache
+        rm -rf /var/lib/PackageKit
+        rm -rf /var/cache/PackageKit
+
+fi
+
+# Automatically added by dh_installsystemduser/13.6ubuntu1
+if [ "$1" = "remove" ]; then
+	if [ -z "${DPKG_ROOT:-}" ] && [ -x "/usr/bin/deb-systemd-helper" ] ; then
+		deb-systemd-helper --user mask 'pk-debconf-helper.socket' >/dev/null || true
+	fi
+fi
+
+if [ "$1" = "purge" ]; then
+	if [ -z "${DPKG_ROOT:-}" ] && [ -x "/usr/bin/deb-systemd-helper" ] ; then
+		deb-systemd-helper --user purge 'pk-debconf-helper.socket' >/dev/null || true
+		deb-systemd-helper --user unmask 'pk-debconf-helper.socket' >/dev/null || true
+	fi
+fi
+# End automatically added section
+# Automatically added by dh_installsystemd/13.6ubuntu1
+if [ "$1" = remove ] && [ -d /run/systemd/system ] ; then
+	systemctl --system daemon-reload >/dev/null || true
+fi
+# End automatically added section
+

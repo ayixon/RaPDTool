@@ -1,0 +1,46 @@
+{% set version = "6.0" %}
+{% set sha256 = "036d96991646d0449ed0aa952e4fbe21b476ce994abc276e49d30e686708bd37" %}
+
+package:
+  name: unzip
+  version: {{ version }}
+
+source:
+  url: ftp://ftp.info-zip.org/pub/infozip/src/unzip{{ version.replace(".", "") }}.tgz
+  sha256: {{ sha256 }}
+
+build:
+  number: 2
+  skip: True  # [win]
+  script:
+   # Can't build with bzip2 support due to:
+   # > A bzip2 library built with BZ_NO_STDIO should have an
+   # > unresolved external, "bz_internal_error".  The default,
+   # > full-function library will not mention it.
+   - make -f unix/Makefile CC=$CC prefix="$PREFIX" CF="$CFLAGS -I." LFLAGS1="$LDFLAGS" generic  # [osx]
+   - make -f unix/Makefile CC=$CC prefix="$PREFIX" CF="$CFLAGS -I. -DNO_LCHMOD" LFLAGS1="$LDFLAGS" unzips  # [linux]
+   - make prefix="$PREFIX" -f unix/Makefile install
+
+requirements:
+  build:
+    - "{{ compiler('c') }}"
+    - make
+
+test:
+  commands:
+    - unzip -h
+    - zipinfo -h
+    # Ensure lchmod is not being used by the binary
+    - test "$(strings $(which unzip) | grep -ci lchmod)" -eq 0  # [linux]
+
+about:
+  home: http://www.info-zip.org/
+  license: LicenseRef-BSD-like
+  license_file: LICENSE
+  summary: simple program for unzipping files
+
+extra:
+  recipe-maintainers:
+    - chrisburr
+    - msarahan
+    - jerowe

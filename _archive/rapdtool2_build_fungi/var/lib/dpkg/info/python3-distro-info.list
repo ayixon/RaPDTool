@@ -1,0 +1,15 @@
+/.
+/usr
+/usr/lib
+/usr/lib/python3
+/usr/lib/python3/dist-packages
+/usr/lib/python3/dist-packages/distro_info-1.1build1.egg-info
+/usr/lib/python3/dist-packages/distro_info-1.1build1.egg-info/PKG-INFO
+/usr/lib/python3/dist-packages/distro_info-1.1build1.egg-info/dependency_links.txt
+/usr/lib/python3/dist-packages/distro_info-1.1build1.egg-info/top_level.txt
+/usr/lib/python3/dist-packages/distro_info.py
+/usr/share
+/usr/share/doc
+/usr/share/doc/python3-distro-info
+/usr/share/doc/python3-distro-info/changelog.gz
+/usr/share/doc/python3-distro-info/copyright

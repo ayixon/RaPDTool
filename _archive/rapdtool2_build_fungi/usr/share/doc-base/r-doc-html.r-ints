@@ -1,0 +1,10 @@
+Document: r-ints
+Title: R Internals 
+Author: R Core 
+Abstract: This is a guide to the internal structures of R ("GNU S"), and the
+ coding standards for the core team working on R itself.
+Section: Science/Data Analysis
+
+Format: HTML
+Index: /usr/share/doc/r-doc-html/manual/R-ints.html
+Files: /usr/share/doc/r-doc-html/manual/R-ints.html

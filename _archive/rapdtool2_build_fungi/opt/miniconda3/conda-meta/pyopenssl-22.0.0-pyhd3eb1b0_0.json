@@ -1,0 +1,91 @@
+{
+  "build": "pyhd3eb1b0_0",
+  "build_number": 0,
+  "channel": "https://repo.anaconda.com/pkgs/main/noarch",
+  "constrains": [],
+  "depends": [
+    "cryptography >=35.0",
+    "python >=3.6"
+  ],
+  "extracted_package_dir": "/opt/miniconda3/pkgs/pyopenssl-22.0.0-pyhd3eb1b0_0",
+  "features": "",
+  "files": [
+    "lib/python3.9/site-packages/OpenSSL/SSL.py",
+    "lib/python3.9/site-packages/OpenSSL/__init__.py",
+    "lib/python3.9/site-packages/OpenSSL/_util.py",
+    "lib/python3.9/site-packages/OpenSSL/crypto.py",
+    "lib/python3.9/site-packages/OpenSSL/debug.py",
+    "lib/python3.9/site-packages/OpenSSL/rand.py",
+    "lib/python3.9/site-packages/OpenSSL/version.py",
+    "lib/python3.9/site-packages/pyOpenSSL-22.0.0.dist-info/INSTALLER",
+    "lib/python3.9/site-packages/pyOpenSSL-22.0.0.dist-info/LICENSE",
+    "lib/python3.9/site-packages/pyOpenSSL-22.0.0.dist-info/METADATA",
+    "lib/python3.9/site-packages/pyOpenSSL-22.0.0.dist-info/RECORD",
+    "lib/python3.9/site-packages/pyOpenSSL-22.0.0.dist-info/REQUESTED",
+    "lib/python3.9/site-packages/pyOpenSSL-22.0.0.dist-info/WHEEL",
+    "lib/python3.9/site-packages/pyOpenSSL-22.0.0.dist-info/direct_url.json",
+    "lib/python3.9/site-packages/pyOpenSSL-22.0.0.dist-info/top_level.txt",
+    "lib/python3.9/site-packages/OpenSSL/__pycache__/SSL.cpython-39.pyc",
+    "lib/python3.9/site-packages/OpenSSL/__pycache__/__init__.cpython-39.pyc",
+    "lib/python3.9/site-packages/OpenSSL/__pycache__/_util.cpython-39.pyc",
+    "lib/python3.9/site-packages/OpenSSL/__pycache__/crypto.cpython-39.pyc",
+    "lib/python3.9/site-packages/OpenSSL/__pycache__/debug.cpython-39.pyc",
+    "lib/python3.9/site-packages/OpenSSL/__pycache__/rand.cpython-39.pyc",
+    "lib/python3.9/site-packages/OpenSSL/__pycache__/version.cpython-39.pyc"
+  ],
+  "fn": "pyopenssl-22.0.0-pyhd3eb1b0_0.conda",
+  "legacy_bz2_md5": "24300c22dced4609b77f3ace93b5beeb",
+  "legacy_bz2_size": 50062,
+  "license": "Apache-2.0",
+  "license_family": "Apache",
+  "link": {
+    "source": "/opt/miniconda3/pkgs/pyopenssl-22.0.0-pyhd3eb1b0_0",
+    "type": 1
+  },
+  "md5": "1dbbf9422269cd62c7094960d9b43f36",
+  "name": "pyopenssl",
+  "noarch": "python",
+  "package_tarball_full_path": "/opt/miniconda3/pkgs/pyopenssl-22.0.0-pyhd3eb1b0_0.conda",
+  "package_type": "noarch_python",
+  "paths_data": {
+    "paths": [
+      {
+        "_path": "lib/python3.9/site-packages/OpenSSL/__pycache__/SSL.cpython-39.pyc",
+        "path_type": "pyc_file"
+      },
+      {
+        "_path": "lib/python3.9/site-packages/OpenSSL/__pycache__/__init__.cpython-39.pyc",
+        "path_type": "pyc_file"
+      },
+      {
+        "_path": "lib/python3.9/site-packages/OpenSSL/__pycache__/_util.cpython-39.pyc",
+        "path_type": "pyc_file"
+      },
+      {
+        "_path": "lib/python3.9/site-packages/OpenSSL/__pycache__/crypto.cpython-39.pyc",
+        "path_type": "pyc_file"
+      },
+      {
+        "_path": "lib/python3.9/site-packages/OpenSSL/__pycache__/debug.cpython-39.pyc",
+        "path_type": "pyc_file"
+      },
+      {
+        "_path": "lib/python3.9/site-packages/OpenSSL/__pycache__/rand.cpython-39.pyc",
+        "path_type": "pyc_file"
+      },
+      {
+        "_path": "lib/python3.9/site-packages/OpenSSL/__pycache__/version.cpython-39.pyc",
+        "path_type": "pyc_file"
+      }
+    ],
+    "paths_version": 1
+  },
+  "requested_spec": "pyopenssl==22.0.0=pyhd3eb1b0_0",
+  "sha256": "0a0629a3816bd639f1b1a94dd2fd521ad407e55bfd6532154dce22cddb875783",
+  "size": 51144,
+  "subdir": "noarch",
+  "timestamp": 1643788591664,
+  "track_features": "",
+  "url": "https://repo.anaconda.com/pkgs/main/noarch/pyopenssl-22.0.0-pyhd3eb1b0_0.conda",
+  "version": "22.0.0"
+}

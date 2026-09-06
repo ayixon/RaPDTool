@@ -1,0 +1,13 @@
+?package(x11-xserver-utils):\
+ needs="x11"\
+ section="Applications/System/Administration"\
+ longtitle="Xrefresh: redraw X screen"\
+ title="Xrefresh"\
+ command="xrefresh"
+?package(x11-xserver-utils):\
+ needs="x11"\
+ section="Applications/System/Hardware"\
+ hints="Config"\
+ longtitle="Xvidtune: tool for customizing X server modelines"\
+ title="Xvidtune"\
+ command="xvidtune"

@@ -1,0 +1,22 @@
+From 1218ca492f4781ffc680e4a450ca1933ddcb29f4 Mon Sep 17 00:00:00 2001
+From: Isuru Fernando <isuruf@gmail.com>
+Date: Wed, 7 Oct 2020 10:08:30 -0500
+Subject: [PATCH] Fix TZPATH on windows
+
+---
+ Lib/sysconfig.py | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/Lib/sysconfig.py b/Lib/sysconfig.py
+index bf04ac541e..11e81d4f44 100644
+--- a/Lib/sysconfig.py	2022-03-21 11:02:53.155328789 +0300
++++ b/Lib/sysconfig.py	2022-03-21 11:03:00.719474212 +0300
+@@ -567,7 +567,7 @@
+ 
+         if os.name == 'nt':
+             _init_non_posix(_CONFIG_VARS)
+-            _CONFIG_VARS['TZPATH'] = ''
++            _CONFIG_VARS['TZPATH'] = os.path.join(_PREFIX, "share", "zoneinfo")
+         if os.name == 'posix':
+             _init_posix(_CONFIG_VARS)
+         # For backward compatibility, see issue19555

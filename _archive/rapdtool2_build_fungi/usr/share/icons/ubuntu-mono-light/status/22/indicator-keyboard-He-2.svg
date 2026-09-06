@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="22" height="22" version="1.1" xmlns="http://www.w3.org/2000/svg">
+ <defs>
+  <mask id="m">
+   <rect width="22" height="22" style="fill:#fff"/>
+   <text x="0.5" y="15.5" style="fill:black;font-family:Ubuntu;font-size:12;font-weight:500">He</text>
+   <text x="16.5" y="18.5" style="fill:black;font-family:Ubuntu;font-size:8;font-weight:500">2</text>
+  </mask>
+ </defs>
+ <rect x="1" y="1" width="20" height="20" rx="2" mask="url(#m)" style="fill:#3c3c3c"/>
+</svg>

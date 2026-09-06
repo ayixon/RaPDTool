@@ -1,0 +1,75 @@
+# This file created by conda-build 3.21.8
+# meta.yaml template originally from:
+# /feedstock/recipe, last modified Thu Mar 31 09:06:43 2022
+# ------------------------------------------------
+
+package:
+  name: tzdata
+  version: 2022a
+source:
+  - sha256: ef7fffd9f4f50f4f58328b35022a32a5a056b245c5cb3d6791dddb342f871664
+    url: https://data.iana.org/time-zones/releases/tzdata2022a.tar.gz
+  - sha256: f8575e7e33be9ee265df2081092526b81c80abac3f4a04399ae9d4d91cdadac7
+    url: https://data.iana.org/time-zones/releases/tzcode2022a.tar.gz
+build:
+  ignore_run_exports:
+    - libgcc-ng
+  noarch: generic
+  number: '0'
+  string: hda174b7_0
+requirements:
+  build:
+    - _libgcc_mutex 0.1 main
+    - _openmp_mutex 4.5 1_gnu
+    - _sysroot_linux-64_curr_repodata_hack 3 haa98f57_10
+    - binutils_impl_linux-64 2.35.1 h27ae35d_9
+    - binutils_linux-64 2.35.1 h454624a_30
+    - gcc_impl_linux-64 7.5.0 h7105cf2_17
+    - gcc_linux-64 7.5.0 h8f34230_30
+    - kernel-headers_linux-64 3.10.0 h57e8cba_10
+    - ld_impl_linux-64 2.35.1 h7274673_9
+    - libgcc-devel_linux-64 7.5.0 hbbeae57_17
+    - libgcc-ng 9.3.0 h5101ec6_17
+    - libgomp 9.3.0 h5101ec6_17
+    - libstdcxx-ng 9.3.0 hd4cf53a_17
+    - make 4.2.1 h1bed415_1
+    - sysroot_linux-64 2.17 h57e8cba_10
+  host: []
+  run: []
+test:
+  commands:
+    - "dirs=\"$(\n  find \"${PREFIX}\" -mindepth 1 -maxdepth 2 \\\n  \\! -path \"\
+      ${PREFIX}/share\" \\! -path \"${PREFIX}/conda-meta*\"\n)\"\ntest \"${dirs}\"\
+      \ = \"${PREFIX}/share/zoneinfo\"\n"
+    - "heads=\"$(\n  find \"${PREFIX}/share/zoneinfo\" -type f \\\n    \\! -name \\\
+      *.zi \\! -name \\*.tab \\! -name leapseconds \\\n    -exec head -c4 {} \\; -printf\
+      \ \\\\n \\\n    | uniq\n)\"\n"
+    - "heads=\"$(\n  find \"${PREFIX}/share/zoneinfo\" -type f \\\n    \\! -name \\\
+      *.zi \\! -name \\*.tab \\! -name leapseconds \\\n    -exec head -c4 {} \\; -print0\
+      \ \\\n    | uniq \\\n    | cut -c1-4 \\\n)\"\ntest \"${heads}\" = TZif\n"
+about:
+  description: 'The Time Zone Database (called tz, tzdb or zoneinfo) contains code
+    and
+
+    data that represent the history of local time for many representative
+
+    locations around the globe.  It is updated periodically to reflect
+
+    changes made by political bodies to time zone boundaries, UTC offsets,
+
+    and daylight-saving rules.
+
+    '
+  dev_url: https://github.com/eggert/tz
+  doc_url: https://data.iana.org/time-zones/tz-link.html
+  home: https://www.iana.org/time-zones
+  license: Public-Domain AND BSD-3-clause
+  license_file: LICENSE
+  summary: The Time Zone Database (called tz, tzdb or zoneinfo)
+extra:
+  copy_test_source_files: true
+  final: true
+  recipe-maintainers:
+    - mbargull
+    - ocefpaf
+    - pganssle

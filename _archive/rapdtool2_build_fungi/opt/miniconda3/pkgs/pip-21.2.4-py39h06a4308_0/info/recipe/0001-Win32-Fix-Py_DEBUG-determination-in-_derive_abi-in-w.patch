@@ -1,0 +1,32 @@
+From 84b170fce436d26b46c14be431e414e77023cee4 Mon Sep 17 00:00:00 2001
+From: Ray Donnelly <mingw.android@gmail.com>
+Date: Fri, 21 Feb 2020 15:43:09 +0100
+Subject: [PATCH] Win32: Fix Py_DEBUG determination in _derive_abi() in
+ wheel.py
+
+---
+ src/pip/_vendor/distlib/wheel.py | 8 +++++++-
+ 1 file changed, 7 insertions(+), 1 deletion(-)
+
+diff --git a/src/pip/_vendor/distlib/wheel.py b/src/pip/_vendor/distlib/wheel.py
+index bd179383..27984f64 100644
+--- a/src/pip/_vendor/distlib/wheel.py
++++ b/src/pip/_vendor/distlib/wheel.py
+@@ -58,7 +58,13 @@ if ABI and ABI.startswith('cpython-'):
+ else:
+     def _derive_abi():
+         parts = ['cp', VER_SUFFIX]
+-        if sysconfig.get_config_var('Py_DEBUG'):
++        with_debug = sysconfig.get_config_var("Py_DEBUG", False)
++        has_refcount = hasattr(sys, "gettotalrefcount")
++        # Windows doesn't set Py_DEBUG, so checking for support of debug-compiled
++        # extension modules is the best option.
++        # https://github.com/pypa/pip/issues/3383#issuecomment-173267692
++        has_ext = "_d.pyd" in EXTENSION_SUFFIXES
++        if with_debug or (with_debug is None and (has_refcount or has_ext)):
+             parts.append('d')
+         if sysconfig.get_config_var('WITH_PYMALLOC'):
+             parts.append('m')
+-- 
+2.25.0
+

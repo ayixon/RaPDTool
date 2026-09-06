@@ -1,0 +1,14 @@
+{
+  "arch": "x86_64",
+  "build": "h7f98852_0",
+  "build_number": 0,
+  "depends": [
+    "libgcc-ng >=9.3.0"
+  ],
+  "license": "GPL-3.0-only OR LGPL-3.0-only",
+  "name": "libunistring",
+  "platform": "linux",
+  "subdir": "linux-64",
+  "timestamp": 1626955018689,
+  "version": "0.9.10"
+}

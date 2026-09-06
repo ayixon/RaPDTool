@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+<svg id="svg2471" width="24" height="24" version="1.0" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+ <defs id="defs2473">
+  <linearGradient id="linearGradient6687">
+   <stop id="stop6689" style="stop-color:#fff" offset="0"/>
+   <stop id="stop6691" style="stop-color:#fff;stop-opacity:0" offset="1"/>
+  </linearGradient>
+  <linearGradient id="linearGradient5543" x1="-20.75" x2="-19.5" y1="29" y2="18.75" gradientTransform="matrix(.80851 0 0 .96775 27.059 -10.589)" gradientUnits="userSpaceOnUse" xlink:href="#linearGradient6687"/>
+  <linearGradient id="linearGradient5546" x1="-20.75" x2="-19.5" y1="29" y2="18.75" gradientTransform="matrix(.80851 0 0 .96775 27.059 -12.589)" gradientUnits="userSpaceOnUse" xlink:href="#linearGradient6687"/>
+  <linearGradient id="linearGradient5559" x1="-25.286" x2="-16.965" y1="17.743" y2="32.403" gradientTransform="matrix(.83148 0 0 1.0064 27.496 -13.609)" gradientUnits="userSpaceOnUse">
+   <stop id="stop6701" style="stop-color:#f8b17e" offset="0"/>
+   <stop id="stop6295" style="stop-color:#da3e46" offset="1"/>
+  </linearGradient>
+  <radialGradient id="radialGradient5563" cx="28.284" cy="47.401" r="13.804" gradientTransform="matrix(.86929 0 0 .64134 -12.587 -15.253)" gradientUnits="userSpaceOnUse">
+   <stop id="stop2458" offset="0"/>
+   <stop id="stop2460" style="stop-opacity:0" offset="1"/>
+  </radialGradient>
+  <linearGradient id="linearGradient6411" x1="6.4584" x2="9.3125" y1="3" y2="16.188" gradientUnits="userSpaceOnUse">
+   <stop id="stop6299" style="stop-color:#dc8378" offset="0"/>
+   <stop id="stop6281" style="stop-color:#9f3529" offset="1"/>
+  </linearGradient>
+ </defs>
+ <g id="g5512">
+  <path id="path1693" d="m24 15.147c0 4.8896-5.3726 8.8533-12 8.8533-6.6274 0-12-3.9638-12-8.8533s5.3726-8.8533 12-8.8533c6.6274 0 12 3.9638 12 8.8533z" style="fill-rule:evenodd;fill:url(#radialGradient5563)"/>
+  <path id="path6385" d="m12 2c-3.9508-0.018389-8.1375 1.8004-10.094 5.375-0.86555 1.4776-0.95163 3.2086-0.90625 4.875-0.10661 1.9435 0.36991 3.9244 1.5938 5.4688 1.7892 2.3298 4.5332 3.6938 7.4062 4.125v-10.844h12.969c-0.0038-0.20854-1.26e-4 -0.41778 0-0.625-0.24364-3.482-2.9873-6.2624-6.125-7.4688-1.5328-0.60941-3.1957-0.90654-4.8438-0.90625z" style="fill:url(#linearGradient6411)"/>
+  <path id="path3933" d="m21.656 10.918c-1.1463-3.4081-5.033-5.9175-9.6554-5.9175-4.6224 0-8.5091 2.5094-9.6554 5.9175h-0.34489v2.0831c0 4.4181 4.4777 7.9993 10 7.9993 5.5231 0 9.9997-3.5812 9.9997-7.9993v-2.0831h-0.34436z" style="fill:#b40000"/>
+  <path id="path6402" d="m15 11v10.656c4.5851-1.0541 8-4.4574 8-8.5938l-0.03-2.0625h-7.97z" style="fill:#285378"/>
+  <path id="path6413" d="m10 18v3.8438c1.447 0.22347 2.9248 0.22047 4.3438-0.03125 0.35633-0.06051 0.71025-0.15675 1.0625-0.25v-3.5625h-5.4062z" style="fill:#5c852f"/>
+  <path id="path3935" d="m22 11c0 4.4188-4.4767 8-9.9997 8-5.5231 0-10-3.5812-10-8 0-4.4188 4.4777-8 10-8 5.5231 0 9.9997 3.5812 9.9997 8z" style="fill:url(#linearGradient5559)"/>
+  <path id="path5580" d="m15 11v9.625c4.0557-1.0202 7-4.0439 7-7.625v-2h-7z" style="fill:#3774a5"/>
+  <path id="path3939" d="m22 11c-1e-6 5.4189-6.5082 7.7064-7.1277 7.6768l-2.8723-7.6768h10z" style="fill:#8badea"/>
+  <path id="path5568" d="m15.438 18.5-5.4375 0.3v2.0438c0.65096 0.10657 1.3097 0.15625 2 0.15625 1.2082 0 2.3654-0.18599 3.4375-0.5v-2z" style="fill:#7cb040"/>
+  <path id="path3943" d="m12 11 3.45 7.5365c-2.45 0.70211-4.95 0.44333-5.45 0.27132l2-7.8078z" style="fill:#d7e866"/>
+  <path id="path5959" d="m21.5 11c0 4.1422-4.2533 7.5-9.5 7.5-5.2467 0-9.5-3.3579-9.5-7.5 0-4.1422 4.2533-7.5 9.5-7.5 5.2467 0 9.5 3.3579 9.5 7.5z" style="display:block;fill:none;opacity:.31111;stroke-width:.99991;stroke:url(#linearGradient5546)"/>
+  <path id="path6707" d="m21.5 13c0 4.1422-4.2533 7.5-9.5 7.5-5.2467 0-9.5-3.3579-9.5-7.5 0-4.1422 4.2533-7.5 9.5-7.5 5.2467 0 9.5 3.3579 9.5 7.5z" style="display:block;fill:none;opacity:.13333;stroke-width:.99991;stroke:url(#linearGradient5543)"/>
+ </g>
+</svg>

@@ -1,0 +1,270 @@
+#!/bin/sh
+
+# ===========================================================================
+#
+#                            PUBLIC DOMAIN NOTICE
+#            National Center for Biotechnology Information (NCBI)
+#
+#  This software/database is a "United States Government Work" under the
+#  terms of the United States Copyright Act.  It was written as part of
+#  the author's official duties as a United States Government employee and
+#  thus cannot be copyrighted.  This software/database is freely available
+#  to the public for use. The National Library of Medicine and the U.S.
+#  Government do not place any restriction on its use or reproduction.
+#  We would, however, appreciate having the NCBI and the author cited in
+#  any work or product based on this material.
+#
+#  Although all reasonable efforts have been taken to ensure the accuracy
+#  and reliability of the software and data, the NLM and the U.S.
+#  Government do not and cannot warrant the performance or results that
+#  may be obtained by using this software or data. The NLM and the U.S.
+#  Government disclaim all warranties, express or implied, including
+#  warranties of performance, merchantability or fitness for any particular
+#  purpose.
+#
+# ===========================================================================
+#
+# File Name:  einfo
+#
+# Author:  Jonathan Kans, Aaron Ucko
+#
+# Version Creation Date:   04/04/2020
+#
+# ==========================================================================
+
+pth=$( dirname "$0" )
+
+case ":$PATH:" in
+  *:"$pth":* )
+    ;;
+  * )
+    PATH="$PATH:$pth"
+    export PATH
+    ;;
+esac
+
+# handle common flags - dot command is equivalent of "source"
+
+if [ ! -f "$pth"/ecommon.sh ]
+then
+  echo "${INVT} ERROR: ${LOUD} Unable to find '$pth/ecommon.sh' file${INIT}" >&2
+  exit 1
+fi
+
+. "$pth"/ecommon.sh
+
+# initialize specific flags
+
+internal=false
+
+db=""
+dbs=false
+
+fields=false
+links=false
+
+test=false
+repeats=1
+
+# read command-line arguments
+
+while [ $# -gt 0 ]
+do
+  case "$1" in
+    -internal )
+      internal=true
+      shift
+      ;;
+    -newmode | -oldmode )
+      shift
+      ;;
+    -db )
+      shift
+      if [ $# -gt 0 ]
+      then
+        db="$1"
+        shift
+      else
+        echo "${INVT} ERROR: ${LOUD} einfo is missing the -db argument${INIT}" >&2
+        exit 1
+      fi
+      ;;
+    -dbs )
+      dbs=true
+      shift
+      ;;
+    -field | -fields )
+      fields=true
+      shift
+      ;;
+    -link | -links )
+      links=true
+      shift
+      ;;
+    -test | -tests )
+      test=true
+      shift
+      ;;
+    -repeat | -repeats )
+      shift
+      if [ $# -gt 0 ]
+      then
+        repeats="$1"
+        shift
+        if [ "$repeats" -lt 1 ] || [ "$repeats" -gt 20 ]
+        then
+          repeats=1
+        fi
+      fi
+      ;;
+    -h | -help | --help | help )
+      echo "einfo $version"
+      echo ""
+      sfx=""
+      if [ "$external" = true ]
+      then
+        sfx=" - external"
+      elif [ "$internal" = true ]
+      then
+        sfx=" - internal"
+      fi
+      echo "$( uname -s ) - $( uname -m )${sfx}"
+      echo ""
+      cat "$pth/help/einfo-help.txt"
+      echo ""
+      exit 0
+      ;;
+    -error | -errors )
+      echo "einfo $version"
+      echo ""
+      cat "$pth/help/einfo-errors.txt"
+      echo ""
+      exit 0
+      ;;
+    -* )
+      ParseCommonArgs "$@"
+      if [ "$argsConsumed" -gt 0 ]
+      then
+        shift "$argsConsumed"
+      else
+        echo "${INVT} ERROR: ${LOUD} '$1' is not a recognized einfo option${INIT}" >&2
+        exit 1
+      fi
+      ;;
+    * )
+      # allows while loop to check for multiple flags
+      break
+      ;;
+  esac
+done
+
+FinishSetup
+
+# take database from dbase value (not expected for einfo) or -db argument
+
+if [ -z "$dbase" ]
+then
+  dbase="$db"
+fi
+
+# -dbs
+
+if [ "$dbs" = true ]
+then
+  res=$( RunWithCommonArgs nquire -get "$base" einfo.fcgi )
+  echo "$res" |
+  xtract -pattern DbList -sep "\n" -element DbName |
+  sort -f
+
+  exit 0
+fi
+
+# -db
+
+if [ -n "$dbase" ]
+then
+  res=$( RunWithCommonArgs nquire -get "$base" einfo.fcgi -db "$dbase" -version "2.0" )
+
+  # shortcut for fields
+
+  if [ "$fields" = true ]
+  then
+    echo "$res" |
+    xtract -pattern DbInfo -block Field -tab "\n" -element Name,FullName |
+    sort -f
+  fi
+
+  # shortcut for links
+
+  if [ "$links" = true ]
+  then
+    echo "$res" |
+    xtract -pattern DbInfo -block Link -tab "\n" -element Name,Menu |
+    sort -f
+  fi
+
+  # if neither -fields nor -links, print cleaned-up XML result, keeping original DOCTYPE line
+
+  if [ "$fields" = false ] && [ "$links" = false ]
+  then
+    echo "$res" | transmute -format indent -doctype ""
+  fi
+
+  exit 0
+fi
+
+# -test (undocumented)
+
+RunTests() {
+
+  res=$(
+    nquire -get https://eutils.ncbi.nlm.nih.gov/entrez/eutils esummary.fcgi -db pubmed -id 2539356 -version 2.0 | tr '\n' ' '
+  )
+  case "$res" in
+    *"Nucleotide sequences required for Tn3 transposition immunity"* )
+      ;;
+    * )
+      echo "FAIL: esummary.fcgi -db pubmed -id 2539356 -version 2.0" >&2
+      ;;
+  esac
+
+  res=$(
+    nquire -get https://eutils.ncbi.nlm.nih.gov/entrez/eutils esearch.fcgi -db pubmed -term "tn3 transposition immunity" | tr '\n' ' '
+  )
+  case "$res" in
+    *"QueryTranslation>tn3"* )
+      ;;
+    * )
+      echo "FAIL: esearch.fcgi -db pubmed -term \"tn3 transposition immunity\"" >&2
+      ;;
+  esac
+
+  for sym in ATP6 ATP7B CBD DMD HFE PAH PRNP TTN
+  do
+    res=$( esearch -db gene -query "$sym [GENE]" -organism human |
+           efetch -format docsum |
+           xtract -pattern DocumentSummary -def "-" -lbl "${sym}" \
+             -element NomenclatureSymbol Id Description CommonName )
+    if [ -z "$res" ]
+    then
+      echo "FAIL: $sym" >&2
+    fi
+  done
+}
+
+if [ "$test" = true ]
+then
+  for i in $(seq 1 $repeats)
+  do
+    RunTests
+
+    sleep 5
+  done
+
+  exit 0
+fi
+
+# warn on insufficient arguments
+
+echo "${INVT} ERROR: ${LOUD} einfo requires either -db or -dbs on command line${INIT}" >&2
+exit 1

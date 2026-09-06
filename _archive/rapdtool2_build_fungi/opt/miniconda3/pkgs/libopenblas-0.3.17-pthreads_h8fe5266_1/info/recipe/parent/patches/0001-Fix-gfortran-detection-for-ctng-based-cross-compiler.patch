@@ -1,0 +1,28 @@
+From f8a45d24b2843d7721b5bffa01f469d2450d1507 Mon Sep 17 00:00:00 2001
+From: Isuru Fernando <isuruf@gmail.com>
+Date: Fri, 5 Oct 2018 21:23:40 -0500
+Subject: [PATCH 1/2] Fix gfortran detection for ctng-based cross-compilers
+
+---
+ f_check | 5 +++--
+ 1 file changed, 3 insertions(+), 2 deletions(-)
+
+diff --git a/f_check b/f_check
+index 17d86322..7ffa821f 100644
+--- a/f_check
++++ b/f_check
+@@ -71,8 +71,9 @@ if ($compiler eq "") {
+ 
+ 	if ($data =~ /GNU/) {
+ 
+-	    $data =~ /(\d+)\.(\d+).(\d+)/;
+-	    $major = $1;
++           $data2 = $& if $data=~/GCC.*\n/m;
++           $data2 =~ /(\d+)\.(\d+).(\d+).$/;
++           $major = $1;
+ 	    $minor = $2;
+ 
+ 	    if ($major >= 4) {
+-- 
+2.26.2.windows.1
+

@@ -1,0 +1,243 @@
+{
+  "build": "pyhd3eb1b0_0",
+  "build_number": 0,
+  "channel": "https://repo.anaconda.com/pkgs/main/noarch",
+  "constrains": [],
+  "depends": [
+    "colorama",
+    "python >=2.7"
+  ],
+  "extracted_package_dir": "/opt/miniconda3/pkgs/tqdm-4.63.0-pyhd3eb1b0_0",
+  "features": "",
+  "files": [
+    "lib/python3.9/site-packages/tqdm-4.63.0.dist-info/INSTALLER",
+    "lib/python3.9/site-packages/tqdm-4.63.0.dist-info/LICENCE",
+    "lib/python3.9/site-packages/tqdm-4.63.0.dist-info/METADATA",
+    "lib/python3.9/site-packages/tqdm-4.63.0.dist-info/RECORD",
+    "lib/python3.9/site-packages/tqdm-4.63.0.dist-info/REQUESTED",
+    "lib/python3.9/site-packages/tqdm-4.63.0.dist-info/WHEEL",
+    "lib/python3.9/site-packages/tqdm-4.63.0.dist-info/direct_url.json",
+    "lib/python3.9/site-packages/tqdm-4.63.0.dist-info/entry_points.txt",
+    "lib/python3.9/site-packages/tqdm-4.63.0.dist-info/top_level.txt",
+    "lib/python3.9/site-packages/tqdm/__init__.py",
+    "lib/python3.9/site-packages/tqdm/__main__.py",
+    "lib/python3.9/site-packages/tqdm/_dist_ver.py",
+    "lib/python3.9/site-packages/tqdm/_main.py",
+    "lib/python3.9/site-packages/tqdm/_monitor.py",
+    "lib/python3.9/site-packages/tqdm/_tqdm.py",
+    "lib/python3.9/site-packages/tqdm/_tqdm_gui.py",
+    "lib/python3.9/site-packages/tqdm/_tqdm_notebook.py",
+    "lib/python3.9/site-packages/tqdm/_tqdm_pandas.py",
+    "lib/python3.9/site-packages/tqdm/_utils.py",
+    "lib/python3.9/site-packages/tqdm/asyncio.py",
+    "lib/python3.9/site-packages/tqdm/auto.py",
+    "lib/python3.9/site-packages/tqdm/autonotebook.py",
+    "lib/python3.9/site-packages/tqdm/cli.py",
+    "lib/python3.9/site-packages/tqdm/completion.sh",
+    "lib/python3.9/site-packages/tqdm/contrib/__init__.py",
+    "lib/python3.9/site-packages/tqdm/contrib/bells.py",
+    "lib/python3.9/site-packages/tqdm/contrib/concurrent.py",
+    "lib/python3.9/site-packages/tqdm/contrib/discord.py",
+    "lib/python3.9/site-packages/tqdm/contrib/itertools.py",
+    "lib/python3.9/site-packages/tqdm/contrib/logging.py",
+    "lib/python3.9/site-packages/tqdm/contrib/telegram.py",
+    "lib/python3.9/site-packages/tqdm/contrib/utils_worker.py",
+    "lib/python3.9/site-packages/tqdm/dask.py",
+    "lib/python3.9/site-packages/tqdm/gui.py",
+    "lib/python3.9/site-packages/tqdm/keras.py",
+    "lib/python3.9/site-packages/tqdm/notebook.py",
+    "lib/python3.9/site-packages/tqdm/rich.py",
+    "lib/python3.9/site-packages/tqdm/std.py",
+    "lib/python3.9/site-packages/tqdm/tk.py",
+    "lib/python3.9/site-packages/tqdm/tqdm.1",
+    "lib/python3.9/site-packages/tqdm/utils.py",
+    "lib/python3.9/site-packages/tqdm/version.py",
+    "lib/python3.9/site-packages/tqdm/__pycache__/__init__.cpython-39.pyc",
+    "lib/python3.9/site-packages/tqdm/__pycache__/__main__.cpython-39.pyc",
+    "lib/python3.9/site-packages/tqdm/__pycache__/_dist_ver.cpython-39.pyc",
+    "lib/python3.9/site-packages/tqdm/__pycache__/_main.cpython-39.pyc",
+    "lib/python3.9/site-packages/tqdm/__pycache__/_monitor.cpython-39.pyc",
+    "lib/python3.9/site-packages/tqdm/__pycache__/_tqdm.cpython-39.pyc",
+    "lib/python3.9/site-packages/tqdm/__pycache__/_tqdm_gui.cpython-39.pyc",
+    "lib/python3.9/site-packages/tqdm/__pycache__/_tqdm_notebook.cpython-39.pyc",
+    "lib/python3.9/site-packages/tqdm/__pycache__/_tqdm_pandas.cpython-39.pyc",
+    "lib/python3.9/site-packages/tqdm/__pycache__/_utils.cpython-39.pyc",
+    "lib/python3.9/site-packages/tqdm/__pycache__/asyncio.cpython-39.pyc",
+    "lib/python3.9/site-packages/tqdm/__pycache__/auto.cpython-39.pyc",
+    "lib/python3.9/site-packages/tqdm/__pycache__/autonotebook.cpython-39.pyc",
+    "lib/python3.9/site-packages/tqdm/__pycache__/cli.cpython-39.pyc",
+    "lib/python3.9/site-packages/tqdm/contrib/__pycache__/__init__.cpython-39.pyc",
+    "lib/python3.9/site-packages/tqdm/contrib/__pycache__/bells.cpython-39.pyc",
+    "lib/python3.9/site-packages/tqdm/contrib/__pycache__/concurrent.cpython-39.pyc",
+    "lib/python3.9/site-packages/tqdm/contrib/__pycache__/discord.cpython-39.pyc",
+    "lib/python3.9/site-packages/tqdm/contrib/__pycache__/itertools.cpython-39.pyc",
+    "lib/python3.9/site-packages/tqdm/contrib/__pycache__/logging.cpython-39.pyc",
+    "lib/python3.9/site-packages/tqdm/contrib/__pycache__/telegram.cpython-39.pyc",
+    "lib/python3.9/site-packages/tqdm/contrib/__pycache__/utils_worker.cpython-39.pyc",
+    "lib/python3.9/site-packages/tqdm/__pycache__/dask.cpython-39.pyc",
+    "lib/python3.9/site-packages/tqdm/__pycache__/gui.cpython-39.pyc",
+    "lib/python3.9/site-packages/tqdm/__pycache__/keras.cpython-39.pyc",
+    "lib/python3.9/site-packages/tqdm/__pycache__/notebook.cpython-39.pyc",
+    "lib/python3.9/site-packages/tqdm/__pycache__/rich.cpython-39.pyc",
+    "lib/python3.9/site-packages/tqdm/__pycache__/std.cpython-39.pyc",
+    "lib/python3.9/site-packages/tqdm/__pycache__/tk.cpython-39.pyc",
+    "lib/python3.9/site-packages/tqdm/__pycache__/utils.cpython-39.pyc",
+    "lib/python3.9/site-packages/tqdm/__pycache__/version.cpython-39.pyc",
+    "bin/tqdm"
+  ],
+  "fn": "tqdm-4.63.0-pyhd3eb1b0_0.conda",
+  "legacy_bz2_md5": "f9f7f35856c7dae0236810a9315225f6",
+  "legacy_bz2_size": 81937,
+  "license": "MPL-2.0 AND MIT",
+  "license_family": "MOZILLA",
+  "link": {
+    "source": "/opt/miniconda3/pkgs/tqdm-4.63.0-pyhd3eb1b0_0",
+    "type": 1
+  },
+  "md5": "a1f9b3029ce6142f03bbcbad14e04f0a",
+  "name": "tqdm",
+  "noarch": "python",
+  "package_tarball_full_path": "/opt/miniconda3/pkgs/tqdm-4.63.0-pyhd3eb1b0_0.conda",
+  "package_type": "noarch_python",
+  "paths_data": {
+    "paths": [
+      {
+        "_path": "lib/python3.9/site-packages/tqdm/__pycache__/__init__.cpython-39.pyc",
+        "path_type": "pyc_file"
+      },
+      {
+        "_path": "lib/python3.9/site-packages/tqdm/__pycache__/__main__.cpython-39.pyc",
+        "path_type": "pyc_file"
+      },
+      {
+        "_path": "lib/python3.9/site-packages/tqdm/__pycache__/_dist_ver.cpython-39.pyc",
+        "path_type": "pyc_file"
+      },
+      {
+        "_path": "lib/python3.9/site-packages/tqdm/__pycache__/_main.cpython-39.pyc",
+        "path_type": "pyc_file"
+      },
+      {
+        "_path": "lib/python3.9/site-packages/tqdm/__pycache__/_monitor.cpython-39.pyc",
+        "path_type": "pyc_file"
+      },
+      {
+        "_path": "lib/python3.9/site-packages/tqdm/__pycache__/_tqdm.cpython-39.pyc",
+        "path_type": "pyc_file"
+      },
+      {
+        "_path": "lib/python3.9/site-packages/tqdm/__pycache__/_tqdm_gui.cpython-39.pyc",
+        "path_type": "pyc_file"
+      },
+      {
+        "_path": "lib/python3.9/site-packages/tqdm/__pycache__/_tqdm_notebook.cpython-39.pyc",
+        "path_type": "pyc_file"
+      },
+      {
+        "_path": "lib/python3.9/site-packages/tqdm/__pycache__/_tqdm_pandas.cpython-39.pyc",
+        "path_type": "pyc_file"
+      },
+      {
+        "_path": "lib/python3.9/site-packages/tqdm/__pycache__/_utils.cpython-39.pyc",
+        "path_type": "pyc_file"
+      },
+      {
+        "_path": "lib/python3.9/site-packages/tqdm/__pycache__/asyncio.cpython-39.pyc",
+        "path_type": "pyc_file"
+      },
+      {
+        "_path": "lib/python3.9/site-packages/tqdm/__pycache__/auto.cpython-39.pyc",
+        "path_type": "pyc_file"
+      },
+      {
+        "_path": "lib/python3.9/site-packages/tqdm/__pycache__/autonotebook.cpython-39.pyc",
+        "path_type": "pyc_file"
+      },
+      {
+        "_path": "lib/python3.9/site-packages/tqdm/__pycache__/cli.cpython-39.pyc",
+        "path_type": "pyc_file"
+      },
+      {
+        "_path": "lib/python3.9/site-packages/tqdm/contrib/__pycache__/__init__.cpython-39.pyc",
+        "path_type": "pyc_file"
+      },
+      {
+        "_path": "lib/python3.9/site-packages/tqdm/contrib/__pycache__/bells.cpython-39.pyc",
+        "path_type": "pyc_file"
+      },
+      {
+        "_path": "lib/python3.9/site-packages/tqdm/contrib/__pycache__/concurrent.cpython-39.pyc",
+        "path_type": "pyc_file"
+      },
+      {
+        "_path": "lib/python3.9/site-packages/tqdm/contrib/__pycache__/discord.cpython-39.pyc",
+        "path_type": "pyc_file"
+      },
+      {
+        "_path": "lib/python3.9/site-packages/tqdm/contrib/__pycache__/itertools.cpython-39.pyc",
+        "path_type": "pyc_file"
+      },
+      {
+        "_path": "lib/python3.9/site-packages/tqdm/contrib/__pycache__/logging.cpython-39.pyc",
+        "path_type": "pyc_file"
+      },
+      {
+        "_path": "lib/python3.9/site-packages/tqdm/contrib/__pycache__/telegram.cpython-39.pyc",
+        "path_type": "pyc_file"
+      },
+      {
+        "_path": "lib/python3.9/site-packages/tqdm/contrib/__pycache__/utils_worker.cpython-39.pyc",
+        "path_type": "pyc_file"
+      },
+      {
+        "_path": "lib/python3.9/site-packages/tqdm/__pycache__/dask.cpython-39.pyc",
+        "path_type": "pyc_file"
+      },
+      {
+        "_path": "lib/python3.9/site-packages/tqdm/__pycache__/gui.cpython-39.pyc",
+        "path_type": "pyc_file"
+      },
+      {
+        "_path": "lib/python3.9/site-packages/tqdm/__pycache__/keras.cpython-39.pyc",
+        "path_type": "pyc_file"
+      },
+      {
+        "_path": "lib/python3.9/site-packages/tqdm/__pycache__/notebook.cpython-39.pyc",
+        "path_type": "pyc_file"
+      },
+      {
+        "_path": "lib/python3.9/site-packages/tqdm/__pycache__/rich.cpython-39.pyc",
+        "path_type": "pyc_file"
+      },
+      {
+        "_path": "lib/python3.9/site-packages/tqdm/__pycache__/std.cpython-39.pyc",
+        "path_type": "pyc_file"
+      },
+      {
+        "_path": "lib/python3.9/site-packages/tqdm/__pycache__/tk.cpython-39.pyc",
+        "path_type": "pyc_file"
+      },
+      {
+        "_path": "lib/python3.9/site-packages/tqdm/__pycache__/utils.cpython-39.pyc",
+        "path_type": "pyc_file"
+      },
+      {
+        "_path": "lib/python3.9/site-packages/tqdm/__pycache__/version.cpython-39.pyc",
+        "path_type": "pyc_file"
+      },
+      {
+        "_path": "bin/tqdm",
+        "path_type": "unix_python_entry_point"
+      }
+    ],
+    "paths_version": 1
+  },
+  "requested_spec": "tqdm==4.63.0=pyhd3eb1b0_0",
+  "sha256": "6c5aeb62e0f401bdad300eaaf5e2f5499fbb32d3d8e1c7690730ac904eee103b",
+  "size": 85919,
+  "subdir": "noarch",
+  "timestamp": 1647339099123,
+  "track_features": "",
+  "url": "https://repo.anaconda.com/pkgs/main/noarch/tqdm-4.63.0-pyhd3eb1b0_0.conda",
+  "version": "4.63.0"
+}

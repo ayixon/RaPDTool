@@ -1,0 +1,198 @@
+Processing Flags
+
+  -strict     Remove HTML and MathML tags
+  -mixed      Allow mixed content XML
+
+Data Source
+
+  -input      Read XML from file instead of stdin
+
+Local Record Cache
+
+  -archive    Base path for saving individual XML files
+  -index      Use [parent/element@attribute^version] for identifier
+
+  -fetch      Base path for retrieving XML files
+  -stream     Path for retrieving compressed XML
+
+  -flag       [strict|mixed|none]
+  -gzip       Use compression for local XML files
+  -hash       Print UIDs and checksum values to stdout
+
+  -trie       Print archive trie
+
+Local Record Index
+
+  -e2index    Create Entrez index XML (in xtract)
+  -invert     Generate inverted index
+  -join       Collect subsets of inverted index files
+  -fuse       Combine subsets of inverted index files
+  -merge      Combine inverted indices, divide by term prefix
+  -promote    Create term lists and posting files
+
+  -path       Path to postings directory
+
+  -query      Search on words or phrases in Boolean formulas
+  -exact      Strict search for article round-tripping
+  -title      Exact search limited to indexed title field
+
+  -count      Print terms and counts, merging wildcards
+  -counts     Expand wildcards, print individual term counts
+
+Documentation
+
+  -help       Print this document
+  -version    Print version number
+
+Sample File Download
+
+  nquire -dwn ftp.ncbi.nlm.nih.gov /entrez/entrezdirect/samples carotene.xml.zip
+  unzip carotene.xml.zip
+  rm carotene.xml.zip
+
+Mammalian Sequence Download
+
+  download-sequence gbmam gbpri gbrod
+
+Human Subset Extraction
+
+  #!/bin/sh
+
+  for fl in gbpri?.aso.gz gbpri??.aso.gz
+  do
+    run-ncbi-converter asn2all -i "$fl" -a t -b -c -O 9606 -f s > ${fl%.aso.gz}.xml
+  done
+
+Populate PubMed Archive and Positional Term Index
+
+  export EDIRECT_PUBMED_MASTER=/Volumes/cachet
+  export EDIRECT_PUBMED_WORKING=/Volumes/scratch
+
+  archive-pubmed
+
+  index-pubmed
+
+Retrieve from PubMed Archive
+
+  cat subset.uid | fetch-pubmed > subset.xml
+
+Entrez Indexing
+
+  cat carotene.xml | xtract -strict -e2index > carotene.e2x
+
+Index Inversion
+
+  cat carotene.e2x | rchive -invert > carotene.inv
+
+Merge Indices
+
+  rchive -merge "$MASTER/Merged" carotene.inv
+
+Create Postings
+
+  rchive -promote "$MASTER/Postings" TIAB carotene.mrg
+
+Record Counts
+
+  phrase-search -count "catabolite repress*"
+
+Wildcard Expansion
+
+  phrase-search -counts "catabolite repress*"
+
+Query Processing
+
+  phrase-search -query "selective serotonin reuptake inhibitor [STEM]"
+
+  phrase-search -query "(literacy AND numeracy) NOT (adolescent OR child)"
+
+  phrase-search -query "vitamin c + + common cold"
+
+  phrase-search -query "vitamin c ~ ~ common cold"
+
+  phrase-search -title "Genetic Control of Biochemical Reactions in Neurospora."
+
+Large-Scale Record Retrieval
+
+  esearch -db pubmed -query "DNA Repair [MESH]" |
+  efetch -format uid |
+  fetch-pubmed |
+  xtract -pattern PubmedArticle -num Author |
+  sort-uniq-count -n |
+  reorder-columns 2 1 |
+  head -n 25 |
+  tee /dev/tty |
+  xy-plot auth.png
+
+XML Data Transformation
+
+  seconds_start=$(date "+%s")
+  esearch -db pubmed -query "PNAS [JOUR]" -pub abstract |
+  efetch -format uid | stream-pubmed | gunzip -c |
+  xtract -stops -wrp Set,Rec -pattern PubmedArticle \
+    -wrp "Year" -year "PubDate/*" \
+    -wrp "Abst" -words Abstract/AbstractText |
+  xtract -wrp Set,Pub -pattern Rec \
+    -wrp "Year" -element Year \
+    -wrp "Num" -num Abst > countsByYear.xml
+  for yr in {1960..2020}
+  do
+    cat countsByYear.xml |
+    xtract -wrp Raw -pattern Pub -select Year -eq "$yr" |
+    xtract -pattern Raw -lbl "$yr" -avg Num
+  done |
+  tee /dev/tty |
+  xy-plot verbosity.png
+  rm countsByYear.xml
+  seconds_end=$(date "+%s")
+  seconds=$((seconds_end - seconds_start))
+  echo "$seconds seconds"
+
+Annotation Timeline
+
+  cat $EDIRECT_PUBMED_MASTER/Current/*.xml |
+  xtract -wrp Set,Rec -pattern PubmedArticle \
+    -if PubDate/Month -wrp YR -year "PubDate/*" -wrp MN -len PubDate/Month |
+  xtract -wrp Set,Rec -pattern Rec \
+    -pfx "<DT>" -sep "+-" -sfx "-</DT>" -element YR,MN |
+  xtract -pattern Rec -histogram DT |
+  reorder-columns 2 1 | tr '+' '\t' |
+  sed -e 's/-3-/1/g' -e 's/-2-/2/g' -e 's/-1-/3/g' -e 's/-[0-9]-/4/g' |
+  sort -k 1,1n -k 2,2n > rawMonthCounts.txt
+
+  result=$( cat rawMonthCounts.txt | cut -f 1 | uniq )
+  for i in {1..4}
+  do
+    current=$( cat rawMonthCounts.txt | grep "\t$i\t" | cut -f 1,3 )
+    result=$(join -a 1 -t $'\t' <(echo "$result") <(echo "$current"))
+  done
+  echo "$result" > plotme.txt
+
+Query Automation
+
+  ascend_mesh_tree() {
+    var="${1%\*}"
+    while :
+    do
+      phrase-search -count "$var* [TREE]"
+      case "$var" in
+        *.* ) var="${var%????}" ;;
+        *   ) break             ;;
+      esac
+    done
+  }
+
+  ascend_mesh_tree "C14.907.617.812"
+
+  6584       c14 907 617 812*
+  50722      c14 907 617*
+  1567114    c14 907*
+  2232414    c14*
+
+Medical Subject Heading Code Viewer
+
+  https://meshb.nlm.nih.gov/treeView
+
+DISABLE ANTI-VIRUS FILE SCANNING FOR LOCAL ARCHIVES OR DESIGNATE AS TRUSTED FILES
+
+DISABLE SPOTLIGHT INDEXING FOR EXTERNAL DISKS CONTAINING LOCAL ARCHIVES

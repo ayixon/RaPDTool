@@ -1,0 +1,52 @@
+
+* Starting execution 2023-01-11 11:50:35
+Using the appointed existent root path /scratch2/free/programs/RaPDTool/local/salida/
+All paths were verified
+Using appointed database: /free/databases/rapdtool/GTDBr202_plus_NCBI_type_material.msh, copied to /scratch2/free/programs/RaPDTool/local/salida/genomadbfmbm/
+File for process is: /scratch2/free/programs/RaPDTool/local/salida/inputfmbm/scaff_non_virus.fasta, size: 46996046, tstamp: 2023-01-11 11:50:35
+Filenames and paths were initialized
+FOCUS command
+focus -q /scratch2/free/programs/RaPDTool/local/salida/inputfmbm/ -o /scratch2/free/programs/RaPDTool/local/salida/profilesfmbm/scaff_non_virus/ -l /scratch2/free/programs/RaPDTool/local/salida/workfmbm/logfocus/scaff_non_virus.fasta.txt
+focus - The file /scratch2/free/programs/RaPDTool/local/salida/profilesfmbm/scaff_non_virus/output_All_levels.csv was created, focus - 8 profile file(s) were created
+METABAT command
+metabat2 -m 1500 -i /scratch2/free/programs/RaPDTool/local/salida/inputfmbm/scaff_non_virus.fasta -o /scratch2/free/programs/RaPDTool/local/salida/workfmbm/binmetabat/scaff_non_virus/metabat > /scratch2/free/programs/RaPDTool/local/salida/workfmbm/logmetabat/scaff_non_virus.fasta.txt
+metabat - 8 bin file(s) were created and copied to Binning_refiner input folders
+Binning_refiner command
+cd /scratch2/free/programs/RaPDTool/local/salida/workfmbm/outbinningref/; Binning_refiner -i /scratch2/free/programs/RaPDTool/local/salida/workfmbm/inbinningref/scaff_non_virus/ -p scaff_non_virus -plot > /scratch2/free/programs/RaPDTool/local/salida/workfmbm/logbinningref/scaff_non_virus.fasta.txt
+Binning_refiner - The output subdirectory and 7 refined bin files were created
+rename Binning_refiner output
+scaff_non_virus_7.fasta was renamed to scaff_non_virus_7.fna
+scaff_non_virus_5.fasta was renamed to scaff_non_virus_5.fna
+scaff_non_virus_4.fasta was renamed to scaff_non_virus_4.fna
+scaff_non_virus_6.fasta was renamed to scaff_non_virus_6.fna
+scaff_non_virus_2.fasta was renamed to scaff_non_virus_2.fna
+scaff_non_virus_3.fasta was renamed to scaff_non_virus_3.fna
+scaff_non_virus_1.fasta was renamed to scaff_non_virus_1.fna
+miCompletelist command
+find /scratch2/free/programs/RaPDTool/local/salida/workfmbm/outbinningref/scaff_non_virus_Binning_refiner_outputs/scaff_non_virus_refined_bins/ -maxdepth 1 -type f -name "*.fna" | miCompletelist.sh > /scratch2/free/programs/RaPDTool/local/salida/workfmbm/inmicomplete/scaff_non_virus.tab
+miCompletelist - The file /scratch2/free/programs/RaPDTool/local/salida/workfmbm/inmicomplete/scaff_non_virus.tab was created
+miComplete command
+miComplete /scratch2/free/programs/RaPDTool/local/salida/workfmbm/inmicomplete/scaff_non_virus.tab --hmms Bact105 --threads 8 > /scratch2/free/programs/RaPDTool/local/salida/workfmbm/outmicomplete/miCompleteOut_scaff_non_virus.tab
+miComplete - The file /scratch2/free/programs/RaPDTool/local/salida/workfmbm/outmicomplete/miCompleteOut_scaff_non_virus.tab was created
+MASH - start cycling
+mash dist /scratch2/free/programs/RaPDTool/local/salida/workfmbm/outbinningref/scaff_non_virus_Binning_refiner_outputs/scaff_non_virus_refined_bins/scaff_non_virus_2.fna /scratch2/free/programs/RaPDTool/local/salida/genomadbfmbm/GTDBr202_plus_NCBI_type_material.msh > /scratch2/free/programs/RaPDTool/local/salida/workfmbm/outmash/scaff_non_virus/scaff_non_virus_2.fna.txt 2> /dev/null
+mash dist /scratch2/free/programs/RaPDTool/local/salida/workfmbm/outbinningref/scaff_non_virus_Binning_refiner_outputs/scaff_non_virus_refined_bins/scaff_non_virus_6.fna /scratch2/free/programs/RaPDTool/local/salida/genomadbfmbm/GTDBr202_plus_NCBI_type_material.msh > /scratch2/free/programs/RaPDTool/local/salida/workfmbm/outmash/scaff_non_virus/scaff_non_virus_6.fna.txt 2> /dev/null
+mash dist /scratch2/free/programs/RaPDTool/local/salida/workfmbm/outbinningref/scaff_non_virus_Binning_refiner_outputs/scaff_non_virus_refined_bins/scaff_non_virus_5.fna /scratch2/free/programs/RaPDTool/local/salida/genomadbfmbm/GTDBr202_plus_NCBI_type_material.msh > /scratch2/free/programs/RaPDTool/local/salida/workfmbm/outmash/scaff_non_virus/scaff_non_virus_5.fna.txt 2> /dev/null
+mash dist /scratch2/free/programs/RaPDTool/local/salida/workfmbm/outbinningref/scaff_non_virus_Binning_refiner_outputs/scaff_non_virus_refined_bins/scaff_non_virus_1.fna /scratch2/free/programs/RaPDTool/local/salida/genomadbfmbm/GTDBr202_plus_NCBI_type_material.msh > /scratch2/free/programs/RaPDTool/local/salida/workfmbm/outmash/scaff_non_virus/scaff_non_virus_1.fna.txt 2> /dev/null
+mash dist /scratch2/free/programs/RaPDTool/local/salida/workfmbm/outbinningref/scaff_non_virus_Binning_refiner_outputs/scaff_non_virus_refined_bins/scaff_non_virus_4.fna /scratch2/free/programs/RaPDTool/local/salida/genomadbfmbm/GTDBr202_plus_NCBI_type_material.msh > /scratch2/free/programs/RaPDTool/local/salida/workfmbm/outmash/scaff_non_virus/scaff_non_virus_4.fna.txt 2> /dev/null
+mash dist /scratch2/free/programs/RaPDTool/local/salida/workfmbm/outbinningref/scaff_non_virus_Binning_refiner_outputs/scaff_non_virus_refined_bins/scaff_non_virus_7.fna /scratch2/free/programs/RaPDTool/local/salida/genomadbfmbm/GTDBr202_plus_NCBI_type_material.msh > /scratch2/free/programs/RaPDTool/local/salida/workfmbm/outmash/scaff_non_virus/scaff_non_virus_7.fna.txt 2> /dev/null
+mash dist /scratch2/free/programs/RaPDTool/local/salida/workfmbm/outbinningref/scaff_non_virus_Binning_refiner_outputs/scaff_non_virus_refined_bins/scaff_non_virus_3.fna /scratch2/free/programs/RaPDTool/local/salida/genomadbfmbm/GTDBr202_plus_NCBI_type_material.msh > /scratch2/free/programs/RaPDTool/local/salida/workfmbm/outmash/scaff_non_virus/scaff_non_virus_3.fna.txt 2> /dev/null
+mash - 7 taxonomic match reports were generated
+MinDistance extraction
+All 7 files were extracted for the best 10 distances
+Linking Binning_refiner results to results subdirectory
+Copying miComplete results to results subdirectory
+Moving input file to processed subdirectory
+Copying and merging results..
+Generating interactive metagenomic visualization tool (Krona)..
+Removing tmp directories..
+Done - results are in /scratch2/free/programs/RaPDTool/local/salida/
+
+* Starting execution 2024-04-09 08:47:02
+The root path /free/programs/RaPDTool/local/salida/ contains the most recently used logfmbm.txt
+All paths were verified

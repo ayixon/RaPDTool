@@ -1,0 +1,4 @@
+91667739fe44b58ed1f0d9c59b890a0c  usr/lib/systemd/user/dbus.service
+67ace2f695f27b1d288bda671b6503d3  usr/lib/systemd/user/dbus.socket
+8caeab292befe4a6ffc224d0ab0e87db  usr/share/doc/dbus-user-session/copyright
+ee47e71345ad596cc09800305c9f7060  usr/share/lintian/overrides/dbus-user-session

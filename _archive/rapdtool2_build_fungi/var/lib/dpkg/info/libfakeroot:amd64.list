@@ -1,0 +1,3 @@
+/etc
+/etc/ld.so.conf.d
+/etc/ld.so.conf.d/fakeroot-x86_64-linux-gnu.conf

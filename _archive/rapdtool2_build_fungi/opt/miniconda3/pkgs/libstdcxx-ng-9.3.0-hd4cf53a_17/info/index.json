@@ -1,0 +1,12 @@
+{
+  "arch": "x86_64",
+  "build": "hd4cf53a_17",
+  "build_number": 17,
+  "depends": [],
+  "license": "GPL-3.0-only WITH GCC-exception-3.1",
+  "name": "libstdcxx-ng",
+  "platform": "linux",
+  "subdir": "linux-64",
+  "timestamp": 1622663335295,
+  "version": "9.3.0"
+}

@@ -1,0 +1,11 @@
+prefix=/opt/miniconda3
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include
+
+Name: Cap'n Proto WebSocket RPC
+Description: WebSocket MessageStream for Cap'n Proto
+Version: 0.9.1
+Libs: -L${libdir} -lcapnp-websocket
+Requires: capnp = 0.9.1 capnp-rpc = 0.9.1 kj = 0.9.1 kj-async = 0.9.1 kj-http = 0.9.1
+Cflags: -I${includedir}

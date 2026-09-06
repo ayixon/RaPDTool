@@ -1,0 +1,59 @@
+#!/bin/sh
+
+set -e
+
+_adopt_conffile() {
+    conffile=$1
+    pkg=$2
+
+    [ -f ${conffile}.dpkg-bak ] || return 0
+
+    md5sum="$(md5sum ${conffile} | sed -e 's/ .*//')"
+    old_md5sum="$(dpkg-query -W -f='${Conffiles}' $pkg | \
+                        sed -n -e "\' ${conffile} ' { s/ obsolete$//; s/.* //; p }")"
+    # On new installs, if the policy file was preserved on systemd upgrade
+    # by dpkg-maintscript helper, copy it back if the new file has not been modified yet
+    if [ "$md5sum" = "$old_md5sum" ]; then
+        mv ${conffile}.dpkg-bak ${conffile}
+    fi
+}
+
+adduser --quiet --system --group --no-create-home --home /run/systemd \
+    --gecos "systemd Time Synchronization" systemd-timesync
+
+if [ "$1" = configure ] && [ -z "$2" ]; then
+    _adopt_conffile /etc/dhcp/dhclient-exit-hooks.d/timesyncd systemd-timesyncd
+    _adopt_conffile /etc/systemd/timesyncd.conf systemd-timesyncd
+fi
+
+# Automatically added by dh_installsystemd/13.6ubuntu1
+if [ "$1" = "configure" ] || [ "$1" = "abort-upgrade" ] || [ "$1" = "abort-deconfigure" ] || [ "$1" = "abort-remove" ] ; then
+	# This will only remove masks created by d-s-h on package removal.
+	deb-systemd-helper unmask 'systemd-timesyncd.service' >/dev/null || true
+
+	# was-enabled defaults to true, so new installations run enable.
+	if deb-systemd-helper --quiet was-enabled 'systemd-timesyncd.service'; then
+		# Enables the unit on first installation, creates new
+		# symlinks on upgrades if the unit file has changed.
+		deb-systemd-helper enable 'systemd-timesyncd.service' >/dev/null || true
+	else
+		# Update the statefile to add new symlinks (if any), which need to be
+		# cleaned up on purge. Also remove old symlinks.
+		deb-systemd-helper update-state 'systemd-timesyncd.service' >/dev/null || true
+	fi
+fi
+# End automatically added section
+# Automatically added by dh_installsystemd/13.6ubuntu1
+if [ "$1" = "configure" ] || [ "$1" = "abort-upgrade" ] || [ "$1" = "abort-deconfigure" ] || [ "$1" = "abort-remove" ] ; then
+	if [ -d /run/systemd/system ]; then
+		systemctl --system daemon-reload >/dev/null || true
+		if [ -n "$2" ]; then
+			_dh_action=restart
+		else
+			_dh_action=start
+		fi
+		deb-systemd-invoke $_dh_action 'systemd-timesyncd.service' >/dev/null || true
+	fi
+fi
+# End automatically added section
+

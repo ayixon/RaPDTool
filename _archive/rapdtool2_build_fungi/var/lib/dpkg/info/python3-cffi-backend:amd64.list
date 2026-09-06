@@ -1,0 +1,11 @@
+/.
+/usr
+/usr/lib
+/usr/lib/python3
+/usr/lib/python3/dist-packages
+/usr/lib/python3/dist-packages/_cffi_backend.cpython-310-x86_64-linux-gnu.so
+/usr/share
+/usr/share/doc
+/usr/share/doc/python3-cffi-backend
+/usr/share/doc/python3-cffi-backend/changelog.Debian.gz
+/usr/share/doc/python3-cffi-backend/copyright

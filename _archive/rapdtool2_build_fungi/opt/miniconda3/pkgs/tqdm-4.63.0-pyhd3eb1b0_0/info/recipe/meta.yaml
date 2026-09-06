@@ -1,0 +1,85 @@
+# This file created by conda-build 3.21.7
+# meta.yaml template originally from:
+# /feedstock/recipe, last modified Tue Mar 15 10:10:49 2022
+# ------------------------------------------------
+
+package:
+  name: tqdm
+  version: 4.63.0
+source:
+  sha256: 1d9835ede8e394bb8c9dcbffbca02d717217113adc679236873eeaac5bc0b3cd
+  url: https://pypi.io/packages/source/t/tqdm/tqdm-4.63.0.tar.gz
+build:
+  entry_points:
+    - tqdm = tqdm.cli:main
+  noarch: python
+  number: '0'
+  script: /opt/conda/conda-bld/tqdm_1647339053476/_h_env_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehol/bin/python
+    -m pip install . --no-deps -vv
+  string: pyhd3eb1b0_0
+requirements:
+  host:
+    - _libgcc_mutex 0.1 main
+    - _openmp_mutex 4.5 1_gnu
+    - bzip2 1.0.8 h7b6447c_0
+    - ca-certificates 2022.2.1 h06a4308_0
+    - certifi 2021.5.30 py310h06a4308_0
+    - ld_impl_linux-64 2.35.1 h7274673_9
+    - libffi 3.3 he6710b0_2
+    - libgcc-ng 9.3.0 h5101ec6_17
+    - libgomp 9.3.0 h5101ec6_17
+    - libstdcxx-ng 9.3.0 hd4cf53a_17
+    - libuuid 1.0.3 h7f8727e_2
+    - ncurses 6.3 h7f8727e_2
+    - openssl 1.1.1m h7f8727e_0
+    - packaging 21.3 pyhd3eb1b0_0
+    - pip 21.2.4 py310h06a4308_0
+    - pyparsing 3.0.4 pyhd3eb1b0_0
+    - python 3.10.0 h12debd9_5
+    - readline 8.1.2 h7f8727e_1
+    - setuptools 58.0.4 py310h06a4308_0
+    - setuptools-scm 6.3.2 pyhd3eb1b0_0
+    - setuptools_scm 6.3.2 hd3eb1b0_0
+    - sqlite 3.38.0 hc218d9a_0
+    - tk 8.6.11 h1ccaba5_0
+    - toml 0.10.2 pyhd3eb1b0_0
+    - tomli 1.2.2 pyhd3eb1b0_0
+    - tzdata 2021e hda174b7_0
+    - wheel 0.37.1 pyhd3eb1b0_0
+    - xz 5.2.5 h7b6447c_0
+    - zlib 1.2.11 h7f8727e_4
+  run:
+    - colorama
+    - python >=2.7
+test:
+  commands:
+    - pip check
+    - tqdm --help
+    - tqdm -v
+    - pytest -k "not tests_perf"
+  imports:
+    - tqdm
+  requires:
+    - pip
+    - pytest
+    - pytest-asyncio
+    - pytest-timeout
+  source_files:
+    - pyproject.toml
+    - setup.cfg
+    - tests
+about:
+  dev_url: https://github.com/tqdm/tqdm
+  doc_source_url: https://github.com/tqdm/tqdm/blob/master/README.rst
+  doc_url: https://github.com/tqdm/tqdm#tqdm
+  home: https://pypi.python.org/pypi/tqdm
+  license: MPL-2.0 AND MIT
+  license_family: MOZILLA
+  license_file: LICENCE
+  summary: A Fast, Extensible Progress Meter
+extra:
+  copy_test_source_files: true
+  final: true
+  recipe-maintainers:
+    - casperdcl
+    - pmlandwehr

@@ -1,0 +1,32 @@
+ChangelogURI: http://pkg.kali.org/media/packages/%s/%s/%s/%s/changelog-%s
+
+Suite: kali-rolling
+RepositoryType: deb
+BaseURI: http://http.kali.org/kali/
+MatchURI: (kali\.download|(archive.*|http)\.kali\.org)
+MirrorsFile: Kali.mirrors
+Description: Kali Rolling
+Component: main
+CompDescription: Officially supported
+Component: contrib
+CompDescription: DFSG-compatible Software with Non-Free Dependencies
+Component: non-free
+CompDescription: Non-DFSG-compatible Software
+
+Suite: kali-dev
+RepositoryType: deb
+BaseURI: http://http.kali.org/kali/
+MatchURI: (kali\.download|(archive.*|http)\.kali\.org)
+MirrorsFile: Kali.mirrors
+Description: Kali Development Release
+Component: main
+CompDescription: Officially supported
+Component: contrib
+CompDescription: DFSG-compatible Software with Non-Free Dependencies
+Component: non-free
+CompDescription: Non-DFSG-compatible Software
+
+Suite: kali-experimental
+RepositoryType: deb
+ParentSuite: kali-dev
+Description: Kali Experimental Release

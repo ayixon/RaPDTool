@@ -1,0 +1,32 @@
+From 8223be8a3f971bb357601e0129871e1891bba3b2 Mon Sep 17 00:00:00 2001
+From: Martin Kroeker <martin@ruby.chemie.uni-freiburg.de>
+Date: Wed, 22 Jul 2020 17:30:55 +0000
+Subject: [PATCH 2/2] Unify BUFFER_SIZE settings for x86_64 again to fix
+ potentially fatal mismatch in DYNAMIC_ARCH builds
+
+---
+ common_x86_64.h | 6 ------
+ 1 file changed, 6 deletions(-)
+
+diff --git a/common_x86_64.h b/common_x86_64.h
+index 15d0c30a..bee7e8cd 100644
+--- a/common_x86_64.h
++++ b/common_x86_64.h
+@@ -228,14 +228,8 @@ static __inline unsigned int blas_quickdivide(unsigned int x, unsigned int y){
+ #define HUGE_PAGESIZE	( 2 << 20)
+ 
+ #ifndef BUFFERSIZE
+-#if defined(SKYLAKEX) 
+-#define BUFFER_SIZE	(32 << 21)
+-#elif defined(HASWELL) || defined(ZEN)
+ #define BUFFER_SIZE	(32 << 22)
+ #else
+-#define BUFFER_SIZE	(32 << 20)
+-#endif
+-#else
+ #define BUFFER_SIZE	(32 << BUFFERSIZE)
+ #endif
+ 
+-- 
+2.26.2.windows.1
+

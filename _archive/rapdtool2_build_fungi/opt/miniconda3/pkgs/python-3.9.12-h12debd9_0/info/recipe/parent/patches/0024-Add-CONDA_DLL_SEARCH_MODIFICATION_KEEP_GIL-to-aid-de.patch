@@ -1,0 +1,53 @@
+From b994e0849ac776321ff1e91c6c8cdd6a31d107ab Mon Sep 17 00:00:00 2001
+From: Ray Donnelly <mingw.android@gmail.com>
+Date: Tue, 18 Feb 2020 17:38:32 +0100
+Subject: [PATCH 24/30] Add CONDA_DLL_SEARCH_MODIFICATION_KEEP_GIL to aid
+ debugging extension module load issues
+
+LIEF (before it was fixed) crashed because Python code gets called from its static initialization
+code (CreateModule2 gets called, more?) and it now drops the GIL during DLL init.
+
+So we add a flag in-case this comes up again: CONDA_DLL_SEARCH_MODIFICATION_KEEP_GIL which might
+be useful when debugging strange extension module import issues.
+
+There really isn't any way to get the ProcAddress without allowing static initialization to happen
+---
+ Python/dynload_win.c | 22 ++++++++++++++++++----
+ 1 file changed, 18 insertions(+), 4 deletions(-)
+
+diff --git a/Python/dynload_win.c b/Python/dynload_win.c
+index 1b3e275614..071c2623b1 100644
+--- a/Python/dynload_win.c	2022-03-21 10:59:58.356016840 +0300
++++ b/Python/dynload_win.c	2022-03-21 11:00:08.256201626 +0300
+@@ -182,6 +182,11 @@
+     {
+         HINSTANCE hDLL = NULL;
+         unsigned int old_mode;
++        /* The fix in https://bugs.python.org/issue33895 breaks 'import lief'. The fix means that any static initialization
++           cannot call into Python (or if it does it needs to aquire the GIL itself.
++           Other worse ideas:
++           DONT_RESOLVE_DLL_REFERENCES :: https://devblogs.microsoft.com/oldnewthing/20050214-00/?p=36463 */
++        int drop_gil = _wgetenv(L"CONDA_DLL_SEARCH_MODIFICATION_KEEP_GIL") ? 0 : 1;
+ 
+         /* Don't display a message box when Python can't load a DLL */
+         old_mode = SetErrorMode(SEM_FAILCRITICALERRORS);
+@@ -194,10 +199,15 @@
+         extern int CondaEcosystemModifyDllSearchPath(int, int);
+         CondaEcosystemModifyDllSearchPath(1, 1);
+ 
+-        Py_BEGIN_ALLOW_THREADS
+-        hDLL = LoadLibraryExW(wpathname, NULL,
+-                              LOAD_WITH_ALTERED_SEARCH_PATH);
+-        Py_END_ALLOW_THREADS
++        if (drop_gil) {
++            Py_BEGIN_ALLOW_THREADS
++            hDLL = LoadLibraryExW(wpathname, NULL,
++                                LOAD_WITH_ALTERED_SEARCH_PATH);
++            Py_END_ALLOW_THREADS
++        } else {
++            hDLL = LoadLibraryExW(wpathname, NULL,
++                                LOAD_WITH_ALTERED_SEARCH_PATH);
++        }
+ 
+         /* restore old error mode settings */
+         SetErrorMode(old_mode);

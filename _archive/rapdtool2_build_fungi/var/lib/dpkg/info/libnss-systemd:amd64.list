@@ -1,0 +1,14 @@
+/.
+/usr
+/usr/lib
+/usr/lib/x86_64-linux-gnu
+/usr/lib/x86_64-linux-gnu/libnss_systemd.so.2
+/usr/share
+/usr/share/doc
+/usr/share/doc/libnss-systemd
+/usr/share/doc/libnss-systemd/copyright
+/usr/share/man
+/usr/share/man/man8
+/usr/share/man/man8/nss-systemd.8.gz
+/usr/share/doc/libnss-systemd/changelog.Debian.gz
+/usr/share/man/man8/libnss_systemd.so.2.8.gz

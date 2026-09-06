@@ -1,0 +1,121 @@
+From ee0faacf1f8c46e331e537ca1c5eded2fc0b9783 Mon Sep 17 00:00:00 2001
+From: Ray Donnelly <mingw.android@gmail.com>
+Date: Wed, 16 Aug 2017 12:17:33 +0100
+Subject: [PATCH 05/30] Support cross-compiling byte-code
+
+https://bugs.python.org/issue22724
+---
+ Makefile.pre.in | 13 +++++++------
+ configure       |  4 +++-
+ configure.ac    |  4 +++-
+ 3 files changed, 13 insertions(+), 8 deletions(-)
+
+diff --git a/configure b/configure
+index ac5cc21dcc..a8e2400a15 100755
+--- a/configure	2022-03-21 10:30:40.582677359 +0300
++++ b/configure	2022-03-21 10:30:51.470899272 +0300
+@@ -755,6 +755,7 @@
+ SOVERSION
+ VERSION
+ PYTHON_FOR_BUILD
++PY_BUILD_ENVIRON
+ PYTHON_FOR_REGEN
+ host_os
+ host_vendor
+@@ -2991,7 +2992,8 @@
+ 	fi
+         { $as_echo "$as_me:${as_lineno-$LINENO}: result: $interp" >&5
+ $as_echo "$interp" >&6; }
+-	PYTHON_FOR_BUILD='_PYTHON_PROJECT_BASE=$(abs_builddir) _PYTHON_HOST_PLATFORM=$(_PYTHON_HOST_PLATFORM) PYTHONPATH=$(shell test -f pybuilddir.txt && echo $(abs_builddir)/`cat pybuilddir.txt`:)$(srcdir)/Lib _PYTHON_SYSCONFIGDATA_NAME=_sysconfigdata_$(ABIFLAGS)_$(MACHDEP)_$(MULTIARCH) '$interp
++	PY_BUILD_ENVIRON='_PYTHON_PROJECT_BASE=$(abs_builddir) _PYTHON_HOST_PLATFORM=$(_PYTHON_HOST_PLATFORM) PYTHONPATH=$(shell test -f pybuilddir.txt && echo $(abs_builddir)/`cat pybuilddir.txt`:)$(srcdir)/Lib _PYTHON_SYSCONFIGDATA_NAME=_sysconfigdata_$(ABIFLAGS)_$(MACHDEP)_$(MULTIARCH)'
++	PYTHON_FOR_BUILD=$interp
+     fi
+ elif test "$cross_compiling" = maybe; then
+     as_fn_error $? "Cross compiling required --host=HOST-TUPLE and --build=ARCH" "$LINENO" 5
+diff --git a/configure.ac b/configure.ac
+index a8135f1d8e..e178d1fb54 100644
+--- a/configure.ac	2022-03-21 10:30:40.582677359 +0300
++++ b/configure.ac	2022-03-21 10:30:51.474899354 +0300
+@@ -82,13 +82,15 @@
+ 	    AC_MSG_ERROR([python$PACKAGE_VERSION interpreter not found])
+ 	fi
+         AC_MSG_RESULT($interp)
+-	PYTHON_FOR_BUILD='_PYTHON_PROJECT_BASE=$(abs_builddir) _PYTHON_HOST_PLATFORM=$(_PYTHON_HOST_PLATFORM) PYTHONPATH=$(shell test -f pybuilddir.txt && echo $(abs_builddir)/`cat pybuilddir.txt`:)$(srcdir)/Lib _PYTHON_SYSCONFIGDATA_NAME=_sysconfigdata_$(ABIFLAGS)_$(MACHDEP)_$(MULTIARCH) '$interp
++	PY_BUILD_ENVIRON='_PYTHON_PROJECT_BASE=$(abs_builddir) _PYTHON_HOST_PLATFORM=$(_PYTHON_HOST_PLATFORM) PYTHONPATH=$(shell test -f pybuilddir.txt && echo $(abs_builddir)/`cat pybuilddir.txt`:)$(srcdir)/Lib _PYTHON_SYSCONFIGDATA_NAME=_sysconfigdata_$(ABIFLAGS)_$(MACHDEP)_$(MULTIARCH)'
++	PYTHON_FOR_BUILD=$interp
+     fi
+ elif test "$cross_compiling" = maybe; then
+     AC_MSG_ERROR([Cross compiling required --host=HOST-TUPLE and --build=ARCH])
+ else
+     PYTHON_FOR_BUILD='./$(BUILDPYTHON) -E'
+ fi
++AC_SUBST(PY_BUILD_ENVIRON)
+ AC_SUBST(PYTHON_FOR_BUILD)
+ 
+ dnl Ensure that if prefix is specified, it does not end in a slash. If
+diff --git a/Makefile.pre.in b/Makefile.pre.in
+index 77f91e72b1..5bebe06f1d 100644
+--- a/Makefile.pre.in	2022-03-21 10:30:40.578677278 +0300
++++ b/Makefile.pre.in	2022-03-21 10:30:51.470899272 +0300
+@@ -255,6 +255,7 @@
+ 
+ PYTHON_FOR_REGEN?=@PYTHON_FOR_REGEN@
+ UPDATE_FILE=@PYTHON_FOR_REGEN@ $(srcdir)/Tools/scripts/update_file.py
++PY_BUILD_ENVIRON=@PY_BUILD_ENVIRON@
+ PYTHON_FOR_BUILD=@PYTHON_FOR_BUILD@
+ _PYTHON_HOST_PLATFORM=@_PYTHON_HOST_PLATFORM@
+ BUILD_GNU_TYPE=	@build@
+@@ -592,7 +593,7 @@
+ 	$(LINKCC) $(PY_CORE_LDFLAGS) $(LINKFORSHARED) -o $@ Programs/python.o $(BLDLIBRARY) $(LIBS) $(MODLIBS) $(SYSLIBS)
+ 
+ platform: $(BUILDPYTHON) pybuilddir.txt
+-	$(RUNSHARED) $(PYTHON_FOR_BUILD) -c 'import sys ; from sysconfig import get_platform ; print("%s-%d.%d" % (get_platform(), *sys.version_info[:2]))' >platform
++	$(RUNSHARED) $(PY_BUILD_ENVIRON) $(PYTHON_FOR_BUILD) -c 'import sys ; from sysconfig import get_platform ; print("%s-%d.%d" % (get_platform(), *sys.version_info[:2]))' >platform
+ 
+ # Create build directory and generate the sysconfig build-time data there.
+ # pybuilddir.txt contains the name of the build dir and is used for
+@@ -603,7 +604,7 @@
+ # or removed in case of failure.
+ pybuilddir.txt: $(BUILDPYTHON)
+ 	@echo "none" > ./pybuilddir.txt
+-	$(RUNSHARED) $(PYTHON_FOR_BUILD) -S -m sysconfig --generate-posix-vars ;\
++	$(RUNSHARED) $(PY_BUILD_ENVIRON) $(PYTHON_FOR_BUILD) -S -m sysconfig --generate-posix-vars ;\
+ 	if test $$? -ne 0 ; then \
+ 		echo "generate-posix-vars failed" ; \
+ 		rm -f ./pybuilddir.txt ; \
+@@ -634,7 +635,7 @@
+ 		$(PYTHON_FOR_BUILD) $(srcdir)/setup.py $$quiet build"; \
+ 	$(RUNSHARED) CC='$(CC)' LDSHARED='$(BLDSHARED)' OPT='$(OPT)' \
+ 		_TCLTK_INCLUDES='$(TCLTK_INCLUDES)' _TCLTK_LIBS='$(TCLTK_LIBS)' \
+-		$(PYTHON_FOR_BUILD) $(srcdir)/setup.py $$quiet build
++		$(PY_BUILD_ENVIRON) $(PYTHON_FOR_BUILD) $(srcdir)/setup.py $$quiet build
+ 
+ 
+ # Build static library
+@@ -1254,7 +1255,7 @@
+ 			upgrade) ensurepip="--upgrade" ;; \
+ 			install|*) ensurepip="" ;; \
+ 		esac; \
+-		$(RUNSHARED) $(PYTHON_FOR_BUILD) -m ensurepip \
++		$(RUNSHARED) $(PY_BUILD_ENVIRON) $(PYTHON_FOR_BUILD) -m ensurepip \
+ 			$$ensurepip --root=$(DESTDIR)/ ; \
+ 	fi
+ 
+@@ -1264,7 +1265,7 @@
+ 			upgrade) ensurepip="--altinstall --upgrade" ;; \
+ 			install|*) ensurepip="--altinstall" ;; \
+ 		esac; \
+-		$(RUNSHARED) $(PYTHON_FOR_BUILD) -m ensurepip \
++		$(RUNSHARED) $(PY_BUILD_ENVIRON) $(PYTHON_FOR_BUILD) -m ensurepip \
+ 			$$ensurepip --root=$(DESTDIR)/ ; \
+ 	fi
+ 
+@@ -1693,7 +1694,7 @@
+ # Install the dynamically loadable modules
+ # This goes into $(exec_prefix)
+ sharedinstall: sharedmods
+-	$(RUNSHARED) $(PYTHON_FOR_BUILD) $(srcdir)/setup.py install \
++	$(RUNSHARED) $(PY_BUILD_ENVIRON) $(PYTHON_FOR_BUILD) $(srcdir)/setup.py install \
+ 	   	--prefix=$(prefix) \
+ 		--install-scripts=$(BINDIR) \
+ 		--install-platlib=$(DESTSHARED) \

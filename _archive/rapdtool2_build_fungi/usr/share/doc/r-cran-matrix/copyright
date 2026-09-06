@@ -1,0 +1,51 @@
+This is the Debian GNU/Linux r-cran-matrix package of Matrix, a
+package for GNU R providing dense and sparse matrix utilities for R.
+This package was created by Douglas Bates <bates@debian.org> who is
+also one of the principal authors. It is now maintained by Dirk
+Eddelbuettel <edd@debian.org>.
+
+The sources were downloaded from 
+	http://cran.us.r-project.org/src/contrib/
+
+The package was renamed from its upstream name 'Matrix' to
+'r-cran-matrix' to highlight the fact that is it a CRAN package for R.
+
+Copyright (C) 2001-2008 Douglas Bates
+Copyright (C) 2005-2008 Martin Maechler
+Portions Copyright (C) 1998-2007 Timothy A. Davis
+Portions Copyright (C) 2007 Timothy A. Davis, Patrick R. Amestoy, and 
+                            Iain S. Duff
+Portions Copyright (C) 2005-2007 Timothy A. Davis and William W. Hager
+
+License: GPL-2+
+Portions License: LGPL-2.1
+
+On a Debian GNU/Linux system, the GPL license (v2) and LGPL license
+(v2.1) are included in the files /usr/share/common-licenses/GPL-2 
+and /usr/share/common-licenses/LGPL-2.1.
+
+For reference, the upstream DESCRIPTION file is included below [ and
+reindented to 80 columns ]:
+
+   Package: Matrix
+   Version: 0.999375-5
+   Date: 2008-03-07
+   Title: A Matrix package for R
+   Author: Douglas Bates <bates@stat.wisc.edu> and 
+           Martin Maechler <maechler@stat.math.ethz.ch>
+   Maintainer: Doug and Martin <Matrix-authors@R-project.org>
+   Description: Classes and methods for dense and sparse matrices and
+       operations on them using Lapack, CSparse and CHOLMOD
+   Depends: R (>= 2.5.1), stats, methods, utils, lattice
+   Imports: graphics, lattice, grid, stats
+   Enhances: graph, SparseM
+   SystemRequirements: GNU make
+   LazyLoad: yes
+   LazyData: no
+   LazyDataNote: no longer available, since we use data/*.R *and* our classes
+   License: GPL (>= 2)
+   LicenseDetails: The Matrix package includes libraries CHOLMOD, AMD, COLAMD 
+    and CSparse from the University of Florida sparse matrix library maintained 
+    by Tim Davis.  All sections of that code are covered by the GPL or LGPL
+    licenses.  See the directory doc/UFsparse for details.
+   Packaged: Fri Mar  7 15:10:34 2008; maechler

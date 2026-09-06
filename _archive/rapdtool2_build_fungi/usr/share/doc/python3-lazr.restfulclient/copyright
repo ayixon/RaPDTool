@@ -1,0 +1,51 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: lazr.restfulclient
+Source: https://launchpad.net/lazr.restfulclient
+
+Files: *
+Copyright: 2008-2021, Canonical Ltd.
+License: LGPL-3.0
+
+Files:
+ src/lazr/restfulclient/__init__.py
+ src/lazr/restfulclient/_browser.py
+ src/lazr/restfulclient/authorize/__init__.py
+ src/lazr/restfulclient/authorize/oauth.py
+ src/lazr/restfulclient/errors.py
+ src/lazr/restfulclient/resource.py
+Copyright: 2008-2021, Canonical Ltd.
+License: LGPL-3.0+
+
+Files: debian/*
+Copyright:
+ 2009,      James Westby <james.westby@ubuntu.com>
+ 2009-2011, Luca Falavigna <dktrkranz@debian.org>
+ 2012-2021, Stefano Rivera <stefanor@debian.org>
+License: LGPL-3.0
+
+License: LGPL-3.0
+ lazr.restfulclient is free software: you can redistribute it and/or modify it
+ under the terms of the GNU Lesser General Public License as published by the
+ Free Software Foundation, version 3 of the License.
+ .
+ lazr.restfulclient is distributed in the hope that it will be useful, but
+ WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+ FITNESS FOR A PARTICULAR PURPOSE.  See the GNU Lesser General Public License
+ for more details.
+ .
+ On Debian systems the complete text of the LGPL, version 3, can be found at
+ /usr/share/common-licenses/LGPL-3.
+
+License: LGPL-3.0+
+ lazr.restfulclient is free software: you can redistribute it and/or modify it
+ under the terms of the GNU Lesser General Public License as published by the
+ Free Software Foundation, either version 3 of the License, or (at your option)
+ any later version.
+ .
+ lazr.restfulclient is distributed in the hope that it will be useful, but
+ WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+ FITNESS FOR A PARTICULAR PURPOSE.  See the GNU Lesser General Public License
+ for more details.
+ .
+ On Debian systems the complete text of the LGPL, version 3, can be found at
+ /usr/share/common-licenses/LGPL-3.

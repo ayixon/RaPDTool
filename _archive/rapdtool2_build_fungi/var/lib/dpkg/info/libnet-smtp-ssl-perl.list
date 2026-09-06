@@ -1,0 +1,14 @@
+/.
+/usr
+/usr/share
+/usr/share/doc
+/usr/share/doc/libnet-smtp-ssl-perl
+/usr/share/doc/libnet-smtp-ssl-perl/changelog.Debian.gz
+/usr/share/doc/libnet-smtp-ssl-perl/copyright
+/usr/share/man
+/usr/share/man/man3
+/usr/share/man/man3/Net::SMTP::SSL.3pm.gz
+/usr/share/perl5
+/usr/share/perl5/Net
+/usr/share/perl5/Net/SMTP
+/usr/share/perl5/Net/SMTP/SSL.pm

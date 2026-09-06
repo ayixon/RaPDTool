@@ -1,0 +1,64 @@
+# This file created by conda-build 3.21.7
+# meta.yaml template originally from:
+# /tmp/build/80754af9/rsync-recipes/c-ares-1.18.1-on-linux_64, last modified Tue Jan 11 16:21:11 2022
+# ------------------------------------------------
+
+package:
+  name: c-ares
+  version: 1.18.1
+source:
+  sha256: 1a7d52a8a84a9fbffb1be9133c0f6e17217d91ea5a6fa61f6b4729cda78ebbcf
+  url: https://c-ares.org/download/c-ares-1.18.1.tar.gz
+build:
+  number: '0'
+  run_exports:
+    - c-ares >=1.18.1,<2.0a0
+  string: h7f8727e_0
+requirements:
+  build:
+    - _libgcc_mutex 0.1 main
+    - _openmp_mutex 4.5 1_gnu
+    - _sysroot_linux-64_curr_repodata_hack 3 haa98f57_10
+    - binutils_impl_linux-64 2.35.1 h27ae35d_9
+    - binutils_linux-64 2.35.1 h454624a_30
+    - ca-certificates 2021.10.26 h06a4308_2
+    - cmake-no-system 3.16.5 h295c915_1
+    - gcc_impl_linux-64 7.5.0 h7105cf2_17
+    - gcc_linux-64 7.5.0 h8f34230_30
+    - kernel-headers_linux-64 3.10.0 h57e8cba_10
+    - ld_impl_linux-64 2.35.1 h7274673_9
+    - libffi 3.3 he6710b0_2
+    - libgcc-devel_linux-64 7.5.0 hbbeae57_17
+    - libgcc-ng 9.3.0 h5101ec6_17
+    - libgomp 9.3.0 h5101ec6_17
+    - libstdcxx-ng 9.3.0 hd4cf53a_17
+    - ncurses 6.3 h7f8727e_2
+    - ninja 1.10.2 py39hd09550d_3
+    - openssl 1.1.1l h7f8727e_0
+    - python 3.9.7 h12debd9_1
+    - readline 8.1.2 h7f8727e_0
+    - sqlite 3.37.0 hc218d9a_0
+    - sysroot_linux-64 2.17 h57e8cba_10
+    - tk 8.6.11 h1ccaba5_0
+    - tzdata 2021e hda174b7_0
+    - xz 5.2.5 h7b6447c_0
+    - zlib 1.2.11 h7f8727e_4
+  run:
+    - libgcc-ng >=7.5.0
+  run_constraint:
+    - c-ares-static <0a0
+about:
+  dev_url: https://github.com/c-ares/c-ares
+  doc_url: https://c-ares.org/docs.html
+  home: https://c-ares.org/
+  license: MIT
+  license_family: MIT
+  license_file: LICENSE.md
+  summary: This is c-ares, an asynchronous resolver library
+extra:
+  copy_test_source_files: true
+  final: true
+  recipe-maintainers:
+    - ocefpaf
+    - wesm
+    - xhochy

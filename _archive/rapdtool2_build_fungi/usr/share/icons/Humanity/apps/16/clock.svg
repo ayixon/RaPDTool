@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+<svg id="svg3295" width="16" height="16" version="1.0" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+ <defs id="defs3297">
+  <linearGradient id="linearGradient2838" x1="63.761" x2="63.761" y1="-12.929" y2="5.9722" gradientTransform="matrix(.74324 0 0 .74322 -38.23 10.609)" gradientUnits="userSpaceOnUse">
+   <stop id="stop37937" style="stop-color:#929292" offset="0"/>
+   <stop id="stop37939" style="stop-color:#4a4a4a" offset="1"/>
+  </linearGradient>
+  <linearGradient id="linearGradient2841" x1="28.771" x2="28.771" y1="12.918" y2="45.348" gradientTransform="matrix(.36876 0 0 .36876 -.851 -.85137)" gradientUnits="userSpaceOnUse">
+   <stop id="stop2147" style="stop-color:#fffffd" offset="0"/>
+   <stop id="stop2149" style="stop-color:#cbcbc9" offset="1"/>
+  </linearGradient>
+  <linearGradient id="linearGradient2843" x1="10.443" x2="10.443" y1="2.3088" y2="45.698" gradientTransform="matrix(.36876 0 0 .36876 -.851 -.85137)" gradientUnits="userSpaceOnUse">
+   <stop id="stop5356" style="stop-color:#3f3f3f" offset="0"/>
+   <stop id="stop5358" offset="1"/>
+  </linearGradient>
+ </defs>
+ <path id="path2555" d="m7.9941 0.49998c-4.1393 0-7.4941 3.3548-7.4941 7.4941 0 4.1393 3.3548 7.5059 7.4941 7.5059 4.1393 0 7.5059-3.3666 7.5059-7.5059 0-4.1393-3.3666-7.4941-7.5059-7.4941z" style="fill:url(#linearGradient2841);stroke-linecap:round;stroke-linejoin:round;stroke-width:.99995;stroke:url(#linearGradient2843)"/>
+ <path id="path8655" d="m14.5 7.9998c0 3.59-2.9104 6.5002-6.4999 6.5002-3.5899 0-6.5001-2.9103-6.5001-6.5002 0-3.5898 2.9102-6.4998 6.5001-6.4998 3.5896 0 6.4999 2.91 6.4999 6.4998z" style="fill:none;opacity:.52747;stroke:url(#linearGradient2838)"/>
+ <path id="path2312" d="m7.6277 9.7909 5.1167-5.5353" style="fill:none;stroke-linecap:round;stroke-width:.5;stroke:#000"/>
+ <path id="path2314" d="m8.4623 9.7909-3.1835-3.4888" style="fill:none;stroke-linecap:round;stroke-width:.5;stroke:#000"/>
+ <path id="path2316" d="m8 9.4191 6-2.4191" style="fill-rule:evenodd;fill:#f00;stroke-linecap:round;stroke-width:.4;stroke:#f00"/>
+</svg>

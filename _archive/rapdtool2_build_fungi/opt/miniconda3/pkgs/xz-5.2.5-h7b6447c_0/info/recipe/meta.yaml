@@ -1,0 +1,70 @@
+# This file created by conda-build 3.18.11
+# meta.yaml template originally from:
+# /tmp/build/80754af9/rsync-recipes/xz-5.2.5-on-linux_64, last modified Wed Apr 15 15:55:04 2020
+# ------------------------------------------------
+
+package:
+    name: xz
+    version: 5.2.5
+source:
+    patches:
+        - 0001-Add-vs2008-support-via-cmake.patch
+        - 0002-Add-gettimeofday-for-VS2008.patch
+    sha256: 5117f930900b341493827d63aa910ff5e011e0b994197c3b71c08a20228a42df
+    url: http://downloads.sourceforge.net/project/lzmautils/xz-5.2.5.tar.bz2
+build:
+    number: '0'
+    run_exports:
+        - xz >=5.2.5,<6.0a0
+    string: h7b6447c_0
+requirements:
+    build:
+        - _libgcc_mutex 0.1 main
+        - autoconf 2.69 pl526hebd4dad_5
+        - automake 1.16.1 pl526_0
+        - binutils_impl_linux-64 2.33.1 he6710b0_7
+        - binutils_linux-64 2.33.1 h9595d00_15
+        - gcc_impl_linux-64 7.3.0 habb00fd_1
+        - gcc_linux-64 7.3.0 h553295d_15
+        - ld_impl_linux-64 2.33.1 h53a641e_7
+        - libgcc-ng 9.1.0 hdf63c60_0
+        - libstdcxx-ng 9.1.0 hdf63c60_0
+        - m4 1.4.18 h4e445db_0
+        - make 4.2.1 h1bed415_1
+        - perl 5.26.2 h14c3975_0
+    host:
+        - _libgcc_mutex 0.1 main
+        - libgcc-ng 9.1.0 hdf63c60_0
+    run:
+        - libgcc-ng >=7.3.0
+test:
+    commands:
+        - xz --help
+        - unxz --help
+        - lzma --help
+        - conda inspect linkages -p $PREFIX $PKG_NAME
+about:
+    description: 'XZ Utils is free general-purpose data compression software with
+        a high
+
+        compression ratio. XZ Utils were written for POSIX-like systems, but also
+
+        work on some not-so-POSIX systems.
+
+        '
+    dev_url: http://git.tukaani.org/
+    doc_source_url: https://github.com/xz-mirror/xz/blob/master/README
+    doc_url: http://tukaani.org/xz/
+    home: http://tukaani.org/xz/
+    license: LGPL-2.1 and GPL-2.0
+    license_file: COPYING
+    summary: Data compression software with high compression ratio
+extra:
+    copy_test_source_files: true
+    final: true
+    recipe-maintainers:
+        - mingwandroid
+        - msarahan
+        - nehaljwani
+        - ocefpaf
+        - scopatz

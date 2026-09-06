@@ -1,0 +1,13 @@
+{
+  "arch": null,
+  "build": "hda174b7_0",
+  "build_number": 0,
+  "depends": [],
+  "license": "Public-Domain AND BSD-3-clause",
+  "name": "tzdata",
+  "noarch": "generic",
+  "platform": null,
+  "subdir": "noarch",
+  "timestamp": 1648717639082,
+  "version": "2022a"
+}

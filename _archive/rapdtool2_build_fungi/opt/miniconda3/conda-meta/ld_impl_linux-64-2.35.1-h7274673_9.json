@@ -1,0 +1,40 @@
+{
+  "build": "h7274673_9",
+  "build_number": 9,
+  "channel": "https://repo.anaconda.com/pkgs/main/linux-64",
+  "constrains": [
+    "binutils_impl_linux-64 2.35.1"
+  ],
+  "depends": [],
+  "extracted_package_dir": "/opt/miniconda3/pkgs/ld_impl_linux-64-2.35.1-h7274673_9",
+  "features": "",
+  "files": [
+    "bin/x86_64-conda-linux-gnu-ld",
+    "bin/x86_64-conda_cos6-linux-gnu-ld",
+    "x86_64-conda-linux-gnu/bin/ld",
+    "x86_64-conda_cos6-linux-gnu/bin/ld"
+  ],
+  "fn": "ld_impl_linux-64-2.35.1-h7274673_9.conda",
+  "legacy_bz2_md5": "74753bc14c44f52ce318f4385c746eb8",
+  "legacy_bz2_size": 652172,
+  "license": "GPL-3.0-only",
+  "link": {
+    "source": "/opt/miniconda3/pkgs/ld_impl_linux-64-2.35.1-h7274673_9",
+    "type": 1
+  },
+  "md5": "dec20f7c8f9d5f1b293abd97b0f518ed",
+  "name": "ld_impl_linux-64",
+  "package_tarball_full_path": "/opt/miniconda3/pkgs/ld_impl_linux-64-2.35.1-h7274673_9.conda",
+  "paths_data": {
+    "paths": [],
+    "paths_version": 1
+  },
+  "requested_spec": "ld_impl_linux-64==2.35.1=h7274673_9",
+  "sha256": "cc5b453d585754bb9d52bac9e2045f32eb0fc43d74ec3eee21e44604cf1a6485",
+  "size": 600155,
+  "subdir": "linux-64",
+  "timestamp": 1622698544714,
+  "track_features": "",
+  "url": "https://repo.anaconda.com/pkgs/main/linux-64/ld_impl_linux-64-2.35.1-h7274673_9.conda",
+  "version": "2.35.1"
+}

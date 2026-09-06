@@ -1,0 +1,25 @@
+{
+  "build": "hc218d9a_0",
+  "build_number": 0,
+  "channel": "https://repo.anaconda.com/pkgs/main/linux-64",
+  "constrains": [],
+  "depends": [
+    "libgcc-ng >=7.5.0",
+    "readline >=8.0,<9.0a0",
+    "zlib >=1.2.11,<1.3.0a0"
+  ],
+  "features": "",
+  "fn": "sqlite-3.38.2-hc218d9a_0.conda",
+  "legacy_bz2_md5": "68387ed148d6329ae609dfe0e8a894df",
+  "legacy_bz2_size": 1546837,
+  "license": "Unlicense",
+  "md5": "eb9f2708fc1162d01855c12c8156aecf",
+  "name": "sqlite",
+  "sha256": "74822a899fe4b46d8fdbdad19afaf614e4f172b5adeafb6260ed868fdd5c81bc",
+  "size": 1056400,
+  "subdir": "linux-64",
+  "timestamp": 1648718095207,
+  "track_features": "",
+  "url": "https://repo.anaconda.com/pkgs/main/linux-64/sqlite-3.38.2-hc218d9a_0.conda",
+  "version": "3.38.2"
+}

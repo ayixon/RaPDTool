@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mime-type xmlns="http://www.freedesktop.org/standards/shared-mime-info" type="application/x-nintendo-3ds-rom">
+  <!--Created automatically by update-mime-database. DO NOT EDIT!-->
+  <comment>Nintendo 3DS ROM</comment>
+  <comment xml:lang="uk">ППП Nintendo 3DS</comment>
+  <comment xml:lang="pt_BR">ROM do Nintendo 3DS</comment>
+  <comment xml:lang="pl">Plik ROM konsoli Nintendo 3DS</comment>
+  <comment xml:lang="it">ROM Nintendo 3DS</comment>
+  <comment xml:lang="fi">Nintendo 3DS ROM</comment>
+  <comment xml:lang="ca">ROM de Nintendo 3DS</comment>
+  <generic-icon name="application-x-executable"/>
+  <glob pattern="*.3ds"/>
+  <glob pattern="*.cci"/>
+</mime-type>

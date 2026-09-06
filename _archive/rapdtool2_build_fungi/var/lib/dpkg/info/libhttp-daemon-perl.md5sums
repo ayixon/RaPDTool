@@ -1,0 +1,5 @@
+5c3918b4a24fffd1ec89e5084594b884  usr/share/doc/libhttp-daemon-perl/CONTRIBUTING
+896dc86156c26cce1b6629b449075885  usr/share/doc/libhttp-daemon-perl/changelog.Debian.gz
+29554cfcf0e9049524df78575fd731a6  usr/share/doc/libhttp-daemon-perl/copyright
+9dceea1050349a7141594f20e79b6bef  usr/share/man/man3/HTTP::Daemon.3pm.gz
+8ddadcbb0f4bf7a1f391445536e0175b  usr/share/perl5/HTTP/Daemon.pm

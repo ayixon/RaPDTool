@@ -1,0 +1,21 @@
+#! /bin/sh
+set -e
+
+
+
+case "$1" in
+    (remove|purge)
+        if [ -d /usr/lib/x86_64-linux-gnu/gio/modules ]; then
+            # Purge the cache
+            rm -f /usr/lib/x86_64-linux-gnu/gio/modules/giomodule.cache
+            rmdir -p --ignore-fail-on-non-empty /usr/lib/x86_64-linux-gnu/gio/modules
+        fi
+        ;;
+esac
+
+if [ "$1" = purge ] && [ -d /usr/share/glib-2.0/schemas ] && [ "$DPKG_MAINTSCRIPT_PACKAGE_REFCOUNT" = 1 ]; then
+    # This is the last multiarch variant to be removed, so drop the
+    # architecture-independent compiled schemas
+    rm -f /usr/share/glib-2.0/schemas/gschemas.compiled
+    rmdir -p --ignore-fail-on-non-empty /usr/share/glib-2.0/schemas
+fi

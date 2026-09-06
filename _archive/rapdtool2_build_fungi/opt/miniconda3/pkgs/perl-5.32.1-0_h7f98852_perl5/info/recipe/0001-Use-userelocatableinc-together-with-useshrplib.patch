@@ -1,0 +1,27 @@
+diff --git Configure Configure
+index cef8c3c..9e96f1d 100755
+--- Configure
++++ Configure
+@@ -8712,13 +8712,6 @@ esac
+ 
+ case "$useshrplib" in
+ true)
+-	case "$userelocatableinc" in
+-	true|define)
+-		echo "Cannot build with both -Duserelocatableinc and -Duseshrplib" >&4
+-		echo "See INSTALL for an explanation why that won't work." >&4
+-		exit 4
+-		;;
+-	esac
+ 	case "$libperl" in
+ 	'')
+ 		# Figure out a good name for libperl.so.  Since it gets stored in
+@@ -8811,7 +8804,7 @@ esac
+ # Add $xxx to ccdlflags.
+ # If we can't figure out a command-line option, use $shrpenv to
+ # set env LD_RUN_PATH.  The main perl makefile uses this.
+-shrpdir=$archlibexp/CORE
++shrpdir="$( printf %s "$archlibexp/CORE" | sed "s|\.\.\.|${PREFIX}/bin|" )"
+ xxx=''
+ tmp_shrpenv=''
+ if "$useshrplib"; then

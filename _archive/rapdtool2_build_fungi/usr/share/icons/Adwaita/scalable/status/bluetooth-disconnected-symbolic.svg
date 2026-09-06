@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="svg7384" width="16" height="16" style="enable-background:new" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+ <metadata id="metadata90">
+  <rdf:RDF>
+   <cc:Work rdf:about="">
+    <dc:format>image/svg+xml</dc:format>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:title>Gnome Symbolic Icons</dc:title>
+    <cc:license rdf:resource="http://creativecommons.org/licenses/by-sa/4.0/"/>
+   </cc:Work>
+   <cc:License rdf:about="http://creativecommons.org/licenses/by-sa/4.0/">
+    <cc:permits rdf:resource="http://creativecommons.org/ns#Reproduction"/>
+    <cc:permits rdf:resource="http://creativecommons.org/ns#Distribution"/>
+    <cc:requires rdf:resource="http://creativecommons.org/ns#Notice"/>
+    <cc:requires rdf:resource="http://creativecommons.org/ns#Attribution"/>
+    <cc:permits rdf:resource="http://creativecommons.org/ns#DerivativeWorks"/>
+    <cc:requires rdf:resource="http://creativecommons.org/ns#ShareAlike"/>
+   </cc:License>
+  </rdf:RDF>
+ </metadata>
+ <title id="title8473">Gnome Symbolic Icons</title>
+ <g id="layer1" transform="translate(-212 -208)">
+  <path id="path3359" d="m218 208v4.586l-1.293-1.293a1 1 0 0 0-0.70703-0.29302h-1v1a1 1 0 0 0 0.29297 0.70703l2.707 2.707v1.1719l-2.707 2.707a1 1 0 0 0-0.29297 0.70703v1h0.9707a1 1 0 0 0 0.0293 0 1 1 0 0 0 0.70703-0.29297l1.293-1.293v4.5859h1a1.0001 1.0001 0 0 0 0.70703-0.29297l2.5664-2.5664a0.98884 0.98884 0 0 1-0.26172-0.67187v-1.4688a0.98884 0.98884 0 0 1 0.98828-0.98828h0.42578l-2.0117-2.0117 2.293-2.293a1.0001 1.0001 0 0 0 0-1.4141l-4-4a1.0001 1.0001 0 0 0-0.67773-0.29297 1.0001 1.0001 0 0 0-0.0293 0zm2 3.4141 1.5859 1.5859-1.5859 1.5859zm0 6 1.5859 1.5859-1.5859 1.5859z" style="color-rendering:auto;color:#000000;dominant-baseline:auto;enable-background:accumulate;fill:#2e3436;font-feature-settings:normal;font-variant-alternates:normal;font-variant-caps:normal;font-variant-east-asian:normal;font-variant-ligatures:normal;font-variant-numeric:normal;font-variant-position:normal;font-variation-settings:normal;image-rendering:auto;inline-size:0;isolation:auto;mix-blend-mode:normal;opacity:.35;shape-margin:0;shape-padding:0;shape-rendering:auto;solid-color:#000000;stop-color:#000000;text-decoration-color:#000000;text-decoration-line:none;text-decoration-style:solid;text-indent:0;text-orientation:mixed;text-transform:none;white-space:normal"/>
+  <path id="path3761-2-3-5-4-8-9-8-0-1-6-3" d="m223 219h1.375l1.125 1.0938 1.0938-1.0938h1.4062v1.4688l-1.0938 1.0625 1.0938 1.0625v1.4062h-1.4375l-1.0625-1.0625-1.0625 1.0625h-1.4375v-1.4062l1.0625-1.0625-1.0625-1.0625z" style="color:#bebebe;enable-background:new;fill:#2e3436"/>
+ </g>
+</svg>

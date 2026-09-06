@@ -1,0 +1,5 @@
+{
+  "curl": "7",
+  "target_platform": "linux-64",
+  "channel_targets": "conda-forge main"
+}

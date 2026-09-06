@@ -1,0 +1,4 @@
+GCF_013359525.1	Brevibacterium luteolum
+GCF_000315525.1	Sphingobium yanoikuyae
+GCF_002165255.2	Acinetobacter sp. WCHA45
+GCF_009867135.1	Moraxella osloensis

@@ -1,0 +1,76 @@
+{% set name = "openssl" %}
+{% set version = "1.1.1w" %}
+
+package:
+  name: {{ name|lower }}
+  version: {{ version }}
+
+source:
+  url: https://www.openssl.org/source/{{ name }}-{{ version }}.tar.gz
+  sha256: cf3098950cb4d853ad95c0841f1f9c6d3dc102dccfcacd521d93925208b76ac8
+build:
+  number: 0
+  no_link: lib/libcrypto.so.1.1        # [linux]
+  no_link: lib/libcrypto.1.1.dylib     # [osx]
+  has_prefix_files:                      # [unix]
+    - bin/c_rehash                       # [unix]
+    - lib/pkgconfig/libcrypto.pc         # [unix]
+    - lib/pkgconfig/libssl.pc            # [unix]
+    - lib/pkgconfig/openssl.pc           # [unix]
+  run_exports:
+    # openssl's versioning is X.Y.Z(rev), where rev is really the patch release ID
+    #    This pin allows the patch release to be >= the build-time openssl version.
+    - {{ pin_subpackage('openssl', max_pin='x.x.x') }}
+  detect_binary_files_with_prefix: True
+  binary_has_prefix_files:
+    - lib/libcrypto.so.1.1  # [linux]
+    - lib/libcrypto.1.1.dylib  # [osx]
+    - lib/libcrypto.a  # [unix]
+
+requirements:
+  build:
+    - {{ compiler('c') }}
+    - nasm               # [win]
+    - make               # [unix]
+    - perl
+  run:
+    - ca-certificates
+
+test:
+  requires:
+    - certifi  # [win]
+    - python 3.7  # [not (osx and arm64)]
+    - python 3.8  # [osx and arm64]
+    - six
+  commands:
+    - copy NUL checksum.txt        # [win]
+    - touch checksum.txt           # [unix]
+    - openssl sha256 checksum.txt
+    - openssl ecparam -name prime256v1
+    - python -c "from six.moves import urllib; urllib.request.urlopen('https://pypi.org')"  # [unix]
+    - python -c "import certifi; import ssl; import urllib.request as urlrq; urlrq.urlopen('https://pypi.org', context=ssl.create_default_context(cafile=certifi.where()))"  # [win]
+
+about:
+  home: https://www.openssl.org/
+  license_file: LICENSE
+  license: OpenSSL
+  license_family: Apache
+  summary: OpenSSL is an open-source implementation of the SSL and TLS protocols
+  description: |
+    OpenSSL is a robust, commercial-grade, full-featured Open Source Toolkit
+    for the Transport Layer Security (TLS) protocol formerly known as the
+    Secure Sockets Layer (SSL) protocol. The protocol implementation is based
+    on a full-strength general purpose cryptographic library, which can also
+    be used stand-alone.
+  dev_url: https://github.com/openssl/openssl
+  doc_url: https://www.openssl.org/docs/man1.1.1/
+
+extra:
+  recipe-maintainers:
+    - jakirkham
+    - jjhelmus
+    - msarahan
+    - ocefpaf
+    - pelson
+    - carlodri
+    - chenghlee

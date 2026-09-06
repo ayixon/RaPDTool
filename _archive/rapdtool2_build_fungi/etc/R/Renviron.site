@@ -1,0 +1,43 @@
+##						Emacs please make this -*- R -*-
+## empty Renviron.site for R on Debian
+##
+## Copyright (C) 2008 - 2022  Dirk Eddelbuettel and GPL'ed
+##
+## see help(Startup) for documentation on ~/.Renviron and Renviron.site
+
+# ## Example ~/.Renviron on Unix
+# R_LIBS=~/R/library
+# PAGER=/usr/local/bin/less
+
+# ## Example .Renviron on Windows
+# R_LIBS=C:/R/library
+# MY_TCLTK="c:/Program Files/Tcl/bin"
+
+# ## Example of setting R_DEFAULT_PACKAGES (from R CMD check)
+# R_DEFAULT_PACKAGES='utils,grDevices,graphics,stats'
+# # this loads the packages in the order given, so they appear on
+# # the search path in reverse order.
+
+## # We comment out this line in the default Renviron, you can re-enable it here
+## # @R_PLATFORM@ can be eg x86_64-pc-linux-gnu, see /etc/R/Renviron for R_PLATFORM
+## # @MAJ_MIN_VERSION@ is likely something like '3.4', see /etc/R/Renviron too
+## #
+## # Also note that you set this per-user via '%p' and '%v' for platform and version
+#R_LIBS_USER=${R_LIBS_USER-'~/R/@R_PLATFORM@-library/@MAJ_MIN_VERSION@'}
+
+## edd May 2019
+##
+## Debian (and its derivatives) impose a set of compiler flags to prevent some known
+## security issues with compiled code.  These flags then become defaults for R as well
+## (see eg /etc/R/Makeconf) but nevertheless confuse R as warnings get triggers.  Users,
+## on the other hand, are often stumped about these.  So with this variable we declare
+## these options as known for the local checks on the machine this file is on.
+##
+## See Section 8 of the R Internals manual for many more options to customize tests.
+_R_CHECK_COMPILATION_FLAGS_KNOWN_='-Wformat -Werror=format-security -Wdate-time'
+
+## edd Apr 2003  Allow local install in /usr/local, also add a directory for
+##               Debian packaged CRAN packages, and finally the default dir
+## edd Jul 2007  Now use R_LIBS_SITE, not R_LIBS
+## edd Mar 2022  Now in Renviron.site reflecting R_LIBS_SITE
+R_LIBS_SITE="/usr/local/lib/R/site-library/:${R_LIBS_SITE}:/usr/lib/R/library"

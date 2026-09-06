@@ -1,0 +1,75 @@
+{
+  "build": "h516909a_1",
+  "build_number": 1,
+  "channel": "https://conda.anaconda.org/bioconda/linux-64",
+  "constrains": [],
+  "depends": [
+    "libgcc-ng >=7.3.0"
+  ],
+  "extracted_package_dir": "/opt/miniconda3/pkgs/libdeflate-1.2-h516909a_1",
+  "features": "",
+  "files": [
+    "include/libdeflate.h",
+    "lib/libdeflate.a",
+    "lib/libdeflate.h",
+    "lib/libdeflate.so",
+    "lib/libdeflate.so.0"
+  ],
+  "fn": "libdeflate-1.2-h516909a_1.tar.bz2",
+  "license": "MIT",
+  "link": {
+    "source": "/opt/miniconda3/pkgs/libdeflate-1.2-h516909a_1",
+    "type": 1
+  },
+  "md5": "dd64c9af2b435e1745721751150247de",
+  "name": "libdeflate",
+  "package_tarball_full_path": "/opt/miniconda3/pkgs/libdeflate-1.2-h516909a_1.tar.bz2",
+  "paths_data": {
+    "paths": [
+      {
+        "_path": "include/libdeflate.h",
+        "path_type": "hardlink",
+        "sha256": "6a9dcd491ac319343a99e5ec5bee5315860cb1e94fdc7b2a0cca1b57965ee98e",
+        "sha256_in_prefix": "6a9dcd491ac319343a99e5ec5bee5315860cb1e94fdc7b2a0cca1b57965ee98e",
+        "size_in_bytes": 13008
+      },
+      {
+        "_path": "lib/libdeflate.a",
+        "path_type": "hardlink",
+        "sha256": "35c48e4da9080a7dc2f58d2717ce661a7091cf309c0679ebcb0e1dbf51c4bc79",
+        "sha256_in_prefix": "35c48e4da9080a7dc2f58d2717ce661a7091cf309c0679ebcb0e1dbf51c4bc79",
+        "size_in_bytes": 82424
+      },
+      {
+        "_path": "lib/libdeflate.h",
+        "path_type": "hardlink",
+        "sha256": "6a9dcd491ac319343a99e5ec5bee5315860cb1e94fdc7b2a0cca1b57965ee98e",
+        "sha256_in_prefix": "6a9dcd491ac319343a99e5ec5bee5315860cb1e94fdc7b2a0cca1b57965ee98e",
+        "size_in_bytes": 13008
+      },
+      {
+        "_path": "lib/libdeflate.so",
+        "path_type": "hardlink",
+        "sha256": "33e2449ec8daaf19e768b0aa41529f41fa92e8e6ecb60d5c6d109098f19d6965",
+        "sha256_in_prefix": "33e2449ec8daaf19e768b0aa41529f41fa92e8e6ecb60d5c6d109098f19d6965",
+        "size_in_bytes": 64640
+      },
+      {
+        "_path": "lib/libdeflate.so.0",
+        "path_type": "hardlink",
+        "sha256": "33e2449ec8daaf19e768b0aa41529f41fa92e8e6ecb60d5c6d109098f19d6965",
+        "sha256_in_prefix": "33e2449ec8daaf19e768b0aa41529f41fa92e8e6ecb60d5c6d109098f19d6965",
+        "size_in_bytes": 64640
+      }
+    ],
+    "paths_version": 1
+  },
+  "requested_spec": "None",
+  "sha256": "5586d558cecd76a135fbf8d1dedbd52cf63c29f2791220e927f5194ae1b8c9b5",
+  "size": 64080,
+  "subdir": "linux-64",
+  "timestamp": 1564585744045,
+  "track_features": "",
+  "url": "https://conda.anaconda.org/bioconda/linux-64/libdeflate-1.2-h516909a_1.tar.bz2",
+  "version": "1.2"
+}

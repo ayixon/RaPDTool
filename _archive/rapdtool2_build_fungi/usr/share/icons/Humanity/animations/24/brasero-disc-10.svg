@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+<svg id="svg2465" width="24" height="24" version="1.0" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+ <defs id="defs2467">
+  <linearGradient id="linearGradient2461" x1="35.008" x2="35.008" y1="23.179" y2="4.9946" gradientTransform="translate(-24.786 -2.0357)" gradientUnits="userSpaceOnUse" xlink:href="#linearGradient3587-6-5"/>
+  <linearGradient id="linearGradient3587-6-5">
+   <stop id="stop3589-9-2" offset="0"/>
+   <stop id="stop3591-7-4" style="stop-color:#363636" offset="1"/>
+  </linearGradient>
+  <linearGradient id="linearGradient2458" x1="15.669" x2="15.669" y1="-2.622" y2="11.969" gradientTransform="matrix(.93023 0 0 1.236 -10.576 6.1536)" gradientUnits="userSpaceOnUse" xlink:href="#linearGradient3587-6-5"/>
+ </defs>
+ <g id="layer1">
+  <path id="path3229" d="m12 5c-4.416 0-8 3.584-8 8 0 4.416 3.584 8 8 8 4.416 0 8-3.584 8-8 0-4.416-3.584-8-8-8zm0 5c1.656 0 3 1.344 3 3s-1.344 3-3 3-3-1.344-3-3c1e-7 -1.656 1.344-3 3-3z" style="fill-rule:evenodd;fill:#fff;opacity:.6"/>
+  <path id="path3170" d="m12 4c-4.416 0-8 3.584-8 8 0 4.416 3.584 8 8 8 4.416 0 8-3.584 8-8 0-1.7783-0.57987-3.4213-1.5625-4.75-0.017196-0.023253-0.045059-0.039441-0.0625-0.0625-0.14514-0.19189-0.30725-0.38464-0.46875-0.5625-0.3565-0.39262-0.7617-0.74697-1.1875-1.0625l-2.9375 4.0312c0.23804 0.1774 0.448 0.38641 0.625 0.625 0.37014 0.49892 0.59375 1.1128 0.59375 1.7812 0 1.656-1.344 3-3 3s-3-1.344-3-3c1e-7 -1.656 1.344-3 3-3v-5zm0 5c0.24688 0 0.48959 0.037072 0.71875 0.09375-0.22797-0.056434-0.47351-0.09375-0.71875-0.09375zm0.71875 0.09375c0.22916 0.056678 0.45136 0.14372 0.65625 0.25-0.21149-0.11183-0.41862-0.19117-0.65625-0.25zm-0.0625-5.0625c0.16243 0.013052 0.30912 0.039947 0.46875 0.0625-0.1549-0.021848-0.31101-0.049705-0.46875-0.0625z" style="fill-rule:evenodd;fill:url(#linearGradient2461);opacity:.42"/>
+  <path id="path3288" d="m12 4v5c0.66784 1e-7 1.284 0.22314 1.7812 0.59375l2.9375-4.0625c-1.3224-0.96592-2.9573-1.5312-4.7188-1.5312z" style="fill:url(#linearGradient2458);opacity:.7"/>
+ </g>
+</svg>

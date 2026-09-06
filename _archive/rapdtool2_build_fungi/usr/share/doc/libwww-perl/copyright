@@ -1,0 +1,57 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: libwww-perl
+Upstream-Contact: Olaf Alders <olaf@wundercounter.com>
+Source: https://metacpan.org/release/libwww-perl
+
+Files: *
+Copyright:
+ 1995-2009, Gisle Aas <gisle@activestate.com>
+License: Artistic or GPL-1+
+
+Files: lib/LWP.pm
+Copyright:
+ 1995-2009, Gisle Aas <gisle@activestate.com>
+ 1995, Martijn Koster
+License: Artistic or GPL-1+
+
+Files: lib/LWP/Authen/Ntlm.pm
+Copyright: 2002, James Tillman
+License: Artistic or GPL-1+
+
+Files: lwptut.pod
+Copyright: 2002, Sean M. Burke
+License: Artistic or GPL-1+
+
+Files: debian/*
+Copyright:
+ 1996-2004, Michael Alan Dorman <mdorman@debian.org>
+ 1999, John Goerzen <jgoerzen@complete.org>
+ 2002, Brendan O'Dea <bod@debian.org>
+ 2004-2006, Jay Bonci <jaybonci@debian.org>
+ 2007, 2009, Damyan Ivanov <dmn@debian.org>
+ 2008, Krzysztof Krzyżaniak (eloy) <eloy@debian.org>
+ 2008, Roberto C. Sanchez <roberto@debian.org>
+ 2008-2022, gregor herrmann <gregoa@debian.org>
+ 2009-2010, Jonathan Yu <jawnsy@cpan.org>
+ 2009, Antonio Radici <antonio@dyne.org>
+ 2009, Iulian Udrea <iulian@ubuntu.com>
+ 2009, Nathan Handler <nhandler@debian.org>
+ 2009, Ryan Niebur <ryan@debian.org>
+ 2010-2011, Nicholas Bamber <nicholas@periapt.co.uk>
+License: Artistic or GPL-1+
+
+License: Artistic
+ This program is free software; you can redistribute it and/or modify
+ it under the terms of the Artistic License, which comes with Perl.
+ .
+ On Debian systems, the complete text of the Artistic License
+ can be found in `/usr/share/common-licenses/Artistic'.
+
+License: GPL-1+
+ This program is free software; you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation; either version 1, or (at your option)
+ any later version.
+ .
+ On Debian systems, the complete text of version 1 of the GNU
+ General Public License can be found in `/usr/share/common-licenses/GPL-1'.

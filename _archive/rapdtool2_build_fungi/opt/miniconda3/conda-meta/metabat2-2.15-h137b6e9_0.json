@@ -1,0 +1,110 @@
+{
+  "build": "h137b6e9_0",
+  "build_number": 0,
+  "channel": "https://conda.anaconda.org/bioconda/linux-64",
+  "constrains": [],
+  "depends": [
+    "htslib >=1.9,<1.10.0a0",
+    "libgcc-ng >=7.3.0",
+    "libstdcxx-ng >=7.3.0",
+    "perl >=5",
+    "zlib >=1.2.11,<1.3.0a0"
+  ],
+  "extracted_package_dir": "/opt/miniconda3/pkgs/metabat2-2.15-h137b6e9_0",
+  "features": "",
+  "files": [
+    "bin/aggregateBinDepths.pl",
+    "bin/aggregateContigOverlapsByBin.pl",
+    "bin/contigOverlaps",
+    "bin/jgi_summarize_bam_contig_depths",
+    "bin/merge_depths.pl",
+    "bin/metabat",
+    "bin/metabat1",
+    "bin/metabat2",
+    "bin/runMetaBat.sh"
+  ],
+  "fn": "metabat2-2.15-h137b6e9_0.tar.bz2",
+  "license": "BSD-3-Clause-LBNL",
+  "link": {
+    "source": "/opt/miniconda3/pkgs/metabat2-2.15-h137b6e9_0",
+    "type": 1
+  },
+  "md5": "1c8b9c4860bef978b73f053dbef47a31",
+  "name": "metabat2",
+  "package_tarball_full_path": "/opt/miniconda3/pkgs/metabat2-2.15-h137b6e9_0.tar.bz2",
+  "paths_data": {
+    "paths": [
+      {
+        "_path": "bin/aggregateBinDepths.pl",
+        "path_type": "hardlink",
+        "sha256": "466d774619a04e6c15d1b32ef88d0337e3cd9f99f7faf055707e97722166f8e7",
+        "sha256_in_prefix": "466d774619a04e6c15d1b32ef88d0337e3cd9f99f7faf055707e97722166f8e7",
+        "size_in_bytes": 1363
+      },
+      {
+        "_path": "bin/aggregateContigOverlapsByBin.pl",
+        "path_type": "hardlink",
+        "sha256": "c17f40a30a7d4f1ec67a37ff01c5d87b95ae004a8060590dec45fbfb8ecdbe8a",
+        "sha256_in_prefix": "c17f40a30a7d4f1ec67a37ff01c5d87b95ae004a8060590dec45fbfb8ecdbe8a",
+        "size_in_bytes": 2907
+      },
+      {
+        "_path": "bin/contigOverlaps",
+        "path_type": "hardlink",
+        "sha256": "b779ddd2216373a4bb9b12c65fb7f5600600511faa1893dea57d9d78fb4ecc8d",
+        "sha256_in_prefix": "b779ddd2216373a4bb9b12c65fb7f5600600511faa1893dea57d9d78fb4ecc8d",
+        "size_in_bytes": 606944
+      },
+      {
+        "_path": "bin/jgi_summarize_bam_contig_depths",
+        "path_type": "hardlink",
+        "sha256": "d2cd2f9da92d61c218115ad64356eada8d038c5f8d84d07f93a62c282246d66a",
+        "sha256_in_prefix": "d2cd2f9da92d61c218115ad64356eada8d038c5f8d84d07f93a62c282246d66a",
+        "size_in_bytes": 787016
+      },
+      {
+        "_path": "bin/merge_depths.pl",
+        "path_type": "hardlink",
+        "sha256": "5fc6e144822abc0bdebff63773fb485de61d1d32adc47cb989785284c0cf2bf2",
+        "sha256_in_prefix": "5fc6e144822abc0bdebff63773fb485de61d1d32adc47cb989785284c0cf2bf2",
+        "size_in_bytes": 1348
+      },
+      {
+        "_path": "bin/metabat",
+        "path_type": "softlink",
+        "sha256": "484b793bb09d7c6bb4a9c58360c02901fdfc81c7c5d12a0f9182cfcbcd3802ac",
+        "size_in_bytes": 795336
+      },
+      {
+        "_path": "bin/metabat1",
+        "path_type": "hardlink",
+        "sha256": "996dc3d32886cd116feecdcc38976b1c53488e0b23c308174facd5788af63521",
+        "sha256_in_prefix": "996dc3d32886cd116feecdcc38976b1c53488e0b23c308174facd5788af63521",
+        "size_in_bytes": 1073032
+      },
+      {
+        "_path": "bin/metabat2",
+        "path_type": "hardlink",
+        "sha256": "484b793bb09d7c6bb4a9c58360c02901fdfc81c7c5d12a0f9182cfcbcd3802ac",
+        "sha256_in_prefix": "484b793bb09d7c6bb4a9c58360c02901fdfc81c7c5d12a0f9182cfcbcd3802ac",
+        "size_in_bytes": 795336
+      },
+      {
+        "_path": "bin/runMetaBat.sh",
+        "path_type": "hardlink",
+        "sha256": "aea81330cfdc663270e3e44a8d5041bdafeb8a139224948ac712559f7ca9c966",
+        "sha256_in_prefix": "aea81330cfdc663270e3e44a8d5041bdafeb8a139224948ac712559f7ca9c966",
+        "size_in_bytes": 2719
+      }
+    ],
+    "paths_version": 1
+  },
+  "requested_spec": "metabat2",
+  "sha256": "e653a55106454c3659e76f769670c8266ed12c76c038c6a7d45a56282643c53b",
+  "size": 1160657,
+  "subdir": "linux-64",
+  "timestamp": 1578172345693,
+  "track_features": "",
+  "url": "https://conda.anaconda.org/bioconda/linux-64/metabat2-2.15-h137b6e9_0.tar.bz2",
+  "version": "2.15"
+}

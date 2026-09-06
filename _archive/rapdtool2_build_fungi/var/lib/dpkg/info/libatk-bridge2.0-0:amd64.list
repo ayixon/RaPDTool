@@ -1,0 +1,14 @@
+/.
+/usr
+/usr/lib
+/usr/lib/x86_64-linux-gnu
+/usr/lib/x86_64-linux-gnu/libatk-bridge-2.0.so.0.0.0
+/usr/share
+/usr/share/doc
+/usr/share/doc/libatk-bridge2.0-0
+/usr/share/doc/libatk-bridge2.0-0/changelog.Debian.gz
+/usr/share/doc/libatk-bridge2.0-0/copyright
+/usr/share/lintian
+/usr/share/lintian/overrides
+/usr/share/lintian/overrides/libatk-bridge2.0-0
+/usr/lib/x86_64-linux-gnu/libatk-bridge-2.0.so.0

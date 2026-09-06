@@ -1,0 +1,11 @@
+[Unit]
+Description=Session Migration
+Before=graphical-session-pre.target
+Requires=dbus.socket
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/session-migration
+
+[Install]
+WantedBy=graphical-session-pre.target

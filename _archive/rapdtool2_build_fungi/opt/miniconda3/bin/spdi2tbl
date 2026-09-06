@@ -1,0 +1,13 @@
+#!/bin/bash
+
+# Public domain notice for all NCBI EDirect scripts is located at:
+# https://www.ncbi.nlm.nih.gov/books/NBK179288/#chapter6.Public_Domain_Notice
+
+# efetch -db snp -id 104894914,104894915,104894916,11549407 -format docsum |
+# snp2hgvs | hgvs2spdi | spdi2tbl
+
+xtract -transform <( echo -e "Genomic\t1\nCoding\t2\nProtein\t3\n" ) \
+  -pattern SPDI -GENE Gene -pfx "rs" -RSID Id \
+    -group Variant -def "-" \
+      -element "&RSID" Accession Position Deleted Inserted Class Type "&GENE" -translate Class -deq "\n" |
+sort-table -k 2,2V -k 3,3n -k 1.3n -k 9,9n -k 5,5f | cut -f 1-8 | uniq

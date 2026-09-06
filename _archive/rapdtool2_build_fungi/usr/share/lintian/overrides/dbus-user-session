@@ -1,0 +1,2 @@
+# false positive: we only say dbus when talking about an executable
+dbus-user-session: capitalization-error-in-description dbus D-Bus

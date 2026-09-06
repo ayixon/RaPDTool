@@ -1,0 +1,11 @@
+prefix=/opt/conda/conda-bld/capnproto_1643906043325/_h_env_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_pla
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include
+
+Name: KJ HTTP Library
+Description: Basic utility library called KJ (HTTP part)
+Version: 0.9.1
+Libs: -L${libdir} -lkj-http -pthread  
+Requires: kj-async = 0.9.1
+Cflags: -I${includedir} -pthread  

@@ -1,0 +1,84 @@
+#!/bin/bash
+
+# Public domain notice for all NCBI EDirect scripts is located at:
+# https://www.ncbi.nlm.nih.gov/books/NBK179288/#chapter6.Public_Domain_Notice
+
+hgvs=$( cat )
+
+# hgvs=$(
+#   efetch -db snp -id 104894914,104894915,104894916,11549407 -format docsum |
+#   xtract -rec HGVS -pattern DocumentSummary -wrp Id -element Id -rst -hgvs DOCSUM |
+#   transmute -format
+# )
+
+# get location of first base of CDS for each NM accession
+
+TFORM() {
+  echo "$1" |
+  xtract -pattern Variant -if Offset -element Accession |
+  sort -f | uniq -i |
+  while read accn
+  do
+    efetch -db nuccore -id "$accn" -format gbc |
+    xtract -pattern INSDSeq -ACCN INSDSeq_accession-version \
+      -group INSDFeature -if INSDFeature_key -equals CDS \
+        -tab "-" -element "&ACCN" -tab "|" -min INSDInterval_from |
+    grep "-" | grep -v "|" | tr '-' '\t'
+  done |
+  print-columns '$1, $2-1'
+}
+
+tform=$( TFORM "$hgvs" )
+
+# tform=$( echo -e "NM_000513.2\t82\nNM_000518.5\t50\n" )
+
+# add location of CDS start to CDS-relative offset to get sequence-relative position
+
+echo "$hgvs" |
+xtract -transform <( echo "$tform" ) \
+  -rec OFST -pattern HGVS \
+  -wrp Id -element Id \
+  -wrp Gene -element Gene \
+  -group Variant -enc Variant \
+    -wrp Class -element Class \
+    -wrp Type -element Type \
+    -wrp Accession -element Accession \
+    -wrp Position -element Position \
+    -wrp Offset -element Offset \
+    -wrp Inset -translate Accession \
+    -wrp Deleted -element Deleted \
+    -wrp Inserted -element Inserted \
+    -wrp Hgvs -element Hgvs |
+xtract -rec POSN -pattern OFST \
+  -wrp Id -element Id \
+  -wrp Gene -element Gene \
+  -group Variant \
+    -if Offset -enc Variant \
+      -wrp Class -element Class \
+      -wrp Type -element Type \
+      -wrp Accession -element Accession \
+      -wrp Position -sum Offset,Inset \
+      -wrp Deleted -element Deleted \
+      -wrp Inserted -element Inserted \
+      -wrp Hgvs -element Hgvs \
+    -else -enc Variant \
+      -wrp Class -element Class \
+      -wrp Type -element Type \
+      -wrp Accession -element Accession \
+      -wrp Position -element Position \
+      -wrp Deleted -element Deleted \
+      -wrp Inserted -element Inserted \
+      -wrp Hgvs -element Hgvs |
+xtract -rec SPDI -pattern POSN \
+  -wrp Id -element Id \
+  -wrp Gene -element Gene \
+  -group Variant -enc Variant \
+    -wrp Class -element Class \
+    -wrp Type -element Type \
+    -wrp Accession -element Accession \
+    -wrp Position -element Position \
+    -wrp Deleted -element Deleted \
+    -wrp Inserted -element Inserted \
+    -wrp Hgvs -element Hgvs \
+    -wrp Spdi -sep ":" -element Accession,Position,Deleted,Inserted |
+transmute -format

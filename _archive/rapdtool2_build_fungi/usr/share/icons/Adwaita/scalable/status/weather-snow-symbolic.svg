@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16" height="16" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+ <g transform="translate(-332 -88)">
+  <path id="a" d="M339.492 88.492A.5.5 0 00339 89v1.533l-1.252-.717a.5.5 0 10-.496.868l1.748 1v8.683l-1.746.987a.5.5 0 10.492.87l1.254-.708V103a.5.5 0 101 0v-1.484l1.254.709a.5.5 0 10.492-.871l-1.746-.987v-8.683l1.748-1a.5.5 0 10-.496-.868l-1.252.717V89a.5.5 0 00-.508-.508z" fill="#2e3436" font-family="sans-serif" font-weight="400" overflow="visible" stroke-linecap="round" style="font-feature-settings:normal;font-variant-alternates:normal;font-variant-caps:normal;font-variant-ligatures:normal;font-variant-numeric:normal;font-variant-position:normal;isolation:auto;mix-blend-mode:normal;shape-padding:0;text-decoration-color:#000;text-decoration-line:none;text-decoration-style:solid;text-indent:0;text-orientation:mixed;text-transform:none"/>
+  <use transform="rotate(-60 339.5 96)" width="100%" height="100%" xlink:href="#a"/>
+  <use transform="rotate(240 339.5 96)" width="100%" height="100%" xlink:href="#a"/>
+ </g>
+</svg>

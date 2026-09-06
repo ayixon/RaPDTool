@@ -1,0 +1,96 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: LAPACK — Linear Algebra PACKage
+Upstream-Contact: lapack@icl.utk.edu
+Source: http://www.netlib.org/lapack/
+
+Files: *
+Copyright: 1992-2021 The University of Tennessee and The University of Tennessee Research Foundation
+           2000-2021 The University of California Berkeley
+           2006-2021 The University of Colorado Denverf
+License: BSD-3-clause
+
+Files: CMAKE/FindGcov.cmake
+       CMAKE/Findcodecov.cmake
+Copyright: 2015-2016 RWTH Aachen University, Federal Republic of Germany
+License: BSD-3-clause
+
+Files: LAPACKE/*
+Copyright: 2010-2020 Intel Corp
+License: BSD-3-clause-intel
+ Redistribution and use in source and binary forms, with or without
+ modification, are permitted provided that the following conditions are met:
+ .
+   * Redistributions of source code must retain the above copyright notice,
+     this list of conditions and the following disclaimer.
+   * Redistributions in binary form must reproduce the above copyright
+     notice, this list of conditions and the following disclaimer in the
+     documentation and/or other materials provided with the distribution.
+   * Neither the name of Intel Corporation nor the names of its contributors
+     may be used to endorse or promote products derived from this software
+     without specific prior written permission.
+ .
+ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+ AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+ IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE
+ LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+ CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+ SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+ INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+ CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+ ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF
+ THE POSSIBILITY OF SUCH DAMAGE.
+
+Files: debian/*
+License: BSD-3-clause
+Copyright: 1997 Sue Campbell <sacampbe@mercator.math.uwaterloo.ca>
+           1998,2008 Matthias Klose <doko@debian.org>
+           1999-2000 James A. Treacy <treacy@debian.org>
+           2000 Christopher C. Chimelis <chris@classnet.med.miami.edu>
+           2001-2005,2007 Camm Maguire <camm@enhanced.com>
+           2001 John Daily <jdaily@progeny.com>
+           2007 Amaya Rodrigo Sastre <amaya@debian.org>
+           2008 Kumar Appaiah <akumar@ee.iitm.ac.in>
+           2008 Riku Voipio <riku.voipio@iki.fi>
+           2008 Ondrej Certik <ondrej@certik.cz>
+           2009 Rafael Laboissiere <rafael@laboissiere.net>
+           2010 Laurent Bigonville <bigon@debian.org>
+           2013 Julian Taylor
+           2008-2013 Sylvestre Ledru <sylvestre@debian.org>
+           2012-2021 Sébastien Villemot <sebastien@debian.org>
+
+License: BSD-3-clause
+ Redistribution and use in source and binary forms, with or without
+ modification, are permitted provided that the following conditions are
+ met:
+ .
+ - Redistributions of source code must retain the above copyright
+   notice, this list of conditions and the following disclaimer.
+ .
+ - Redistributions in binary form must reproduce the above copyright
+   notice, this list of conditions and the following disclaimer listed
+   in this license in the documentation and/or other materials
+   provided with the distribution.
+ .
+ - Neither the name of the copyright holders nor the names of its
+   contributors may be used to endorse or promote products derived from
+   this software without specific prior written permission.
+ .
+ The copyright holders provide no reassurances that the source code
+ provided does not infringe any patent, copyright, or any other
+ intellectual property rights of third parties.  The copyright holders
+ disclaim any liability to any recipient for claims brought against
+ recipient by any third party for infringement of that parties
+ intellectual property rights.
+ .
+ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+ "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+ LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+ A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+ OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+ SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+ LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+ DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+ THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+ (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.

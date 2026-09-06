@@ -1,0 +1,15 @@
+#!/bin/sh
+
+# Public domain notice for all NCBI EDirect scripts is located at:
+# https://www.ncbi.nlm.nih.gov/books/NBK179288/#chapter6.Public_Domain_Notice
+
+# Usage: reorder-columns COLUMN NUMBERS...
+
+cmd=""
+com="$"
+for col in "$@"
+do
+  cmd=$( echo "$cmd$com$col" )
+  com=", $"
+done
+awk -F '\t' -v 'OFS=\t' "{print $cmd}"

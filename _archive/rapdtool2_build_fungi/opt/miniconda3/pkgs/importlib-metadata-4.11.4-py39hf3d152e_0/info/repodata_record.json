@@ -1,0 +1,26 @@
+{
+  "arch": "x86_64",
+  "build": "py39hf3d152e_0",
+  "build_number": 0,
+  "channel": "https://conda.anaconda.org/conda-forge/linux-64",
+  "constrains": [],
+  "depends": [
+    "python >=3.9,<3.10.0a0",
+    "python_abi 3.9.* *_cp39",
+    "zipp >=0.5"
+  ],
+  "features": "",
+  "fn": "importlib-metadata-4.11.4-py39hf3d152e_0.tar.bz2",
+  "license": "Apache-2.0",
+  "license_family": "APACHE",
+  "md5": "4c2a0eabf0b8980b2c755646a6f750eb",
+  "name": "importlib-metadata",
+  "platform": "linux",
+  "sha256": "3a13f3af58e7a5b50516c9bf10473953e51d9a5367f93fafd04c2bccc9162983",
+  "size": 33641,
+  "subdir": "linux-64",
+  "timestamp": 1653252887702,
+  "track_features": "",
+  "url": "https://conda.anaconda.org/conda-forge/linux-64/importlib-metadata-4.11.4-py39hf3d152e_0.tar.bz2",
+  "version": "4.11.4"
+}

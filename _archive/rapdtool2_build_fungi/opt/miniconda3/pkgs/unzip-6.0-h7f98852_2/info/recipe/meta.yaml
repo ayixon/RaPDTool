@@ -1,0 +1,58 @@
+# This file created by conda-build 3.21.4
+# meta.yaml template originally from:
+# /home/conda/recipe_root, last modified Thu Jan 28 10:33:19 2021
+# ------------------------------------------------
+
+package:
+  name: unzip
+  version: '6.0'
+source:
+  sha256: 036d96991646d0449ed0aa952e4fbe21b476ce994abc276e49d30e686708bd37
+  url: ftp://ftp.info-zip.org/pub/infozip/src/unzip60.tgz
+build:
+  number: '2'
+  script:
+    - make -f unix/Makefile CC=$CC prefix="$PREFIX" CF="$CFLAGS -I. -DNO_LCHMOD" LFLAGS1="$LDFLAGS"
+      unzips
+    - make prefix="$PREFIX" -f unix/Makefile install
+  string: h7f98852_2
+requirements:
+  build:
+    - _libgcc_mutex 0.1 conda_forge
+    - _openmp_mutex 4.5 1_gnu
+    - binutils_impl_linux-64 2.35.1 h193b22a_1
+    - binutils_linux-64 2.35 hc3fd857_29
+    - gcc_impl_linux-64 9.3.0 h70c0ae5_18
+    - gcc_linux-64 9.3.0 h7247604_29
+    - kernel-headers_linux-64 2.6.32 h77966d4_13
+    - ld_impl_linux-64 2.35.1 hea4e1c9_1
+    - libgcc-devel_linux-64 9.3.0 h7864c58_18
+    - libgcc-ng 9.3.0 h2828fa1_18
+    - libgomp 9.3.0 h2828fa1_18
+    - libstdcxx-ng 9.3.0 h6de172a_18
+    - make 4.3 hd18ef5c_1
+    - sysroot_linux-64 2.12 h77966d4_13
+  host:
+    - _libgcc_mutex 0.1 conda_forge
+    - _openmp_mutex 4.5 1_gnu
+    - libgcc-ng 9.3.0 h2828fa1_18
+    - libgomp 9.3.0 h2828fa1_18
+  run:
+    - libgcc-ng >=9.3.0
+test:
+  commands:
+    - unzip -h
+    - zipinfo -h
+    - test "$(strings $(which unzip) | grep -ci lchmod)" -eq 0
+about:
+  home: http://www.info-zip.org/
+  license: LicenseRef-BSD-like
+  license_file: LICENSE
+  summary: simple program for unzipping files
+extra:
+  copy_test_source_files: true
+  final: true
+  recipe-maintainers:
+    - chrisburr
+    - jerowe
+    - msarahan

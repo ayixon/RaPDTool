@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mime-type xmlns="http://www.freedesktop.org/standards/shared-mime-info" type="application/postscript">
+  <!--Created automatically by update-mime-database. DO NOT EDIT!-->
+  <comment>PostScript document</comment>
+  <comment xml:lang="zh_TW">PostScript 文件</comment>
+  <comment xml:lang="zh_CN">PostScript 文档</comment>
+  <comment xml:lang="uk">документ PostScript</comment>
+  <comment xml:lang="tr">PostScript belgesi</comment>
+  <comment xml:lang="sv">Postscript-dokument</comment>
+  <comment xml:lang="sl">Dokument PostScript</comment>
+  <comment xml:lang="sk">Dokument PostScript</comment>
+  <comment xml:lang="ru">Документ PostScript</comment>
+  <comment xml:lang="pt_BR">Documento PostScript</comment>
+  <comment xml:lang="pt">documento PostScript</comment>
+  <comment xml:lang="pl">Dokument PostScript</comment>
+  <comment xml:lang="lt">PostScript dokumentas</comment>
+  <comment xml:lang="ko">포스트스크립트 문서</comment>
+  <comment xml:lang="kk">PostScript құжаты</comment>
+  <comment xml:lang="it">Documento PostScript</comment>
+  <comment xml:lang="id">Dokumen PostScript</comment>
+  <comment xml:lang="hu">PostScript dokumentum</comment>
+  <comment xml:lang="hr">PostScript dokument</comment>
+  <comment xml:lang="fr">document PostScript</comment>
+  <comment xml:lang="fi">PostScript-asiakirja</comment>
+  <comment xml:lang="eu">PostScript dokumentua</comment>
+  <comment xml:lang="es">documento PostScript</comment>
+  <comment xml:lang="en_GB">PostScript document</comment>
+  <comment xml:lang="de">PostScript-Dokument</comment>
+  <comment xml:lang="da">PostScript-dokument</comment>
+  <comment xml:lang="ca">document PostScript</comment>
+  <comment xml:lang="bg">Документ — PostScrip</comment>
+  <sub-class-of type="text/plain"/>
+  <generic-icon name="x-office-document"/>
+  <glob pattern="*.ps"/>
+</mime-type>

@@ -1,0 +1,7 @@
+6ec8a6141dcd5c85e9c8dfe4995cc759  usr/bin/session-migration
+8fe04f6f303f11a64866ca18a3d6340d  usr/lib/systemd/user/session-migration.service
+a2e15faae22250c0309e46e37b8deac0  usr/share/doc/session-migration/changelog.gz
+5c505118de2f08f477b7494fcc6845ba  usr/share/doc/session-migration/copyright
+f125e722a794bac87e0eb52eaa067176  usr/share/man/man1/session-migration.1.gz
+b80df1b7e8b4dfd47b7a5f751478f857  usr/share/upstart/sessions/session-migration.conf
+cf3f2a865fbea819dadd439586eaee31  usr/share/upstart/systemd-session/upstart/session-migration.override

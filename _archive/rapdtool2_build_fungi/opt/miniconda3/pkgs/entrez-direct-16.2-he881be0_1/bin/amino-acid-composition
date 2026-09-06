@@ -1,0 +1,29 @@
+#!/bin/bash -norc
+
+# Public domain notice for all NCBI EDirect scripts is located at:
+# https://www.ncbi.nlm.nih.gov/books/NBK179288/#chapter6.Public_Domain_Notice
+
+abbrev=( Ala Asx Cys Asp Glu Phe Gly His Ile \
+         Xle Lys Leu Met Asn Pyl Pro Gln Arg \
+         Ser Thr Sec Val Trp Xxx Tyr Glx )
+
+AminoAcidComp() {
+  local count
+  while read num lttr
+  do
+    idx=$(printf %i "'$lttr'")
+    ofs=$((idx-97))
+    count[$ofs]="$num"
+  done <<< "$1"
+  for i in {0..25}
+  do
+    echo -e "${abbrev[$i]}\t${count[$i]-0}"
+  done |
+  sort
+}
+
+while read seq
+do
+  comp="$(echo "$seq" | tr A-Z a-z | sed 's/[^a-z]//g' | fold -w 1 | sort-uniq-count)"
+  AminoAcidComp "$comp"
+done

@@ -1,0 +1,14 @@
+{
+  "arch": "x86_64",
+  "build": "h516909a_1",
+  "build_number": 1,
+  "depends": [
+    "libgcc-ng >=7.3.0"
+  ],
+  "license": "MIT",
+  "name": "libdeflate",
+  "platform": "linux",
+  "subdir": "linux-64",
+  "timestamp": 1564585744045,
+  "version": "1.2"
+}

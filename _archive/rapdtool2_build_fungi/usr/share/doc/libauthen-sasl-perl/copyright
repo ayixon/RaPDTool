@@ -1,0 +1,48 @@
+Format: http://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Source: https://metacpan.org/release/Authen-SASL
+Upstream-Name: Authen-SASL
+Upstream-Contact: Graham Barr <gbarr@pobox.com>
+
+Files: *
+Copyright: 1998-2009, Graham Barr <gbarr@pobox.com>
+ 2001, Chris Ridd <chris.ridd@isode.com>
+ 2004-2006, Peter Marschall
+ 2003-2009, Djamel Boudjerda (NEXOR)
+ 2003-2009, Paul Connolly
+ 2003-2009, Julian Onions (NEXOR)
+ 2009, Yann Kerherve
+License: Artistic or GPL-1+
+
+Files: inc/Module/*
+Copyright: 2002-2010, Adam Kennedy <adamk@cpan.org>
+ 2002-2010, Audrey Tang <autrijus@autrijus.org>
+ 2002-2010, Brian Ingerson <ingy@cpan.org>
+License: Artistic or GPL-1+
+
+Files: debian/*
+Copyright: 2003-2005, Davide Puricelli (evo) <evo@debian.org>
+ 2005, Florian Ragwitz <rafl@debianforum.de>
+ 2006, Florian Ragwitz <rafl@debian.org>
+ 2008-2009, Gunnar Wolf <gwolf@debian.org>
+ 2008, AGOSTINI Yves <agostini@univ-metz.fr>
+ 2008, Stephen Gran <sgran@debian.org>
+ 2010, Franck Joncourt <franck@debian.org>
+ 2012, Harlan Lieberman-Berg <H.LiebermanBerg@gmail.com>
+ 2014, Daniel Lintott <daniel@serverb.co.uk>
+License: Artistic or GPL-1+
+
+License: Artistic
+ This program is free software; you can redistribute it and/or modify
+ it under the terms of the Artistic License, which comes with Perl.
+ .
+ On Debian systems, the complete text of the Artistic License can be
+ found in `/usr/share/common-licenses/Artistic'.
+
+License: GPL-1+
+ This program is free software; you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation; either version 1, or (at your option)
+ any later version.
+ .
+ On Debian systems, the complete text of version 1 of the GNU General
+ Public License can be found in `/usr/share/common-licenses/GPL-1'.

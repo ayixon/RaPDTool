@@ -1,0 +1,17 @@
+7997ecf743661dbf110b3cfaa8d8931b  usr/share/doc/libfont-afm-perl/changelog.Debian.gz
+1b262600fb8701a07f7341de035d1a84  usr/share/doc/libfont-afm-perl/copyright
+91e92d5dbf40c3ad927e36da72010c40  usr/share/doc/libfont-afm-perl/examples/make_metrics
+b128ecca03fba1542e3cfb6c76bc9761  usr/share/man/man3/Font::AFM.3pm.gz
+143bd0509712e7a817880f19206e94f7  usr/share/perl5/Font/AFM.pm
+888faa38ae2213c51311e7caf2e497c3  usr/share/perl5/Font/Metrics/Courier.pm
+2d6374cd4168627944b3d9544ce08d96  usr/share/perl5/Font/Metrics/CourierBold.pm
+27f1624226c5e34bee9462d494a36a98  usr/share/perl5/Font/Metrics/CourierBoldOblique.pm
+a9e27d9315826ba4c887ad2faa424bb4  usr/share/perl5/Font/Metrics/CourierOblique.pm
+ed013a61c1abedef96a44bc63f2a63bd  usr/share/perl5/Font/Metrics/Helvetica.pm
+47f5ae2004dbd3cab31e2416ef234bc1  usr/share/perl5/Font/Metrics/HelveticaBold.pm
+ad7547b22c7790058a079e548e7125f4  usr/share/perl5/Font/Metrics/HelveticaBoldOblique.pm
+f8e9e7363c080b80505165e23309d512  usr/share/perl5/Font/Metrics/HelveticaOblique.pm
+4329bbb9ae5849f0cfbf130cab684501  usr/share/perl5/Font/Metrics/TimesBold.pm
+e975f1f78cc5426a230989a6e694619d  usr/share/perl5/Font/Metrics/TimesBoldItalic.pm
+ef3e7ac1daedbdc2a7a380dc872a0fbf  usr/share/perl5/Font/Metrics/TimesItalic.pm
+286e4690ee7cc0b2b787563c6c33b691  usr/share/perl5/Font/Metrics/TimesRoman.pm

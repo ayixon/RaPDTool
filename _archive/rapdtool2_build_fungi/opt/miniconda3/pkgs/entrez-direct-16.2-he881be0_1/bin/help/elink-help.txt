@@ -1,0 +1,68 @@
+Destination Database
+
+  -related    Neighbors in same database
+  -target     Links in different database
+
+Direct Record Selection
+
+  -db         Database name
+  -id         Unique identifier(s)
+  -input      Read identifier(s) from file instead of stdin
+
+PubMed Citation Lookup*
+
+  -cited      References to this paper
+  -cites      Publication reference list
+
+Command Mode
+
+  -cmd        Command type
+
+-cmd Options
+
+  history     Save results in Entrez history server
+  neighbor    Neighbors or links
+  score       Neighbors with computed similarity scores
+  acheck      All links available
+  ncheck      Existence of neighbors
+  lcheck      Existence of external links (LinkOuts)
+  llinks      Non-library LinkOut providers
+  llibs       All LinkOut providers
+  prlinks     Primary LinkOut provider
+
+Restrict Neighbor Links
+
+  -name       Link name (e.g., pubmed_protein_refseq, pubmed_pubmed_citedin)
+
+Note
+
+  * -cited and -cites use the NIH Open Citation Collection
+    dataset (see PMID 31600197) to follow reference lists
+
+Examples
+
+  esearch -db pubmed -query "lycopene cyclase" |
+  elink -related |
+  elink -target protein |
+  efilter -organism rodents -source refseq |
+  efetch -format docsum |
+  xtract -pattern DocumentSummary -element AccessionVersion Title |
+  grep -i carotene
+
+  esearch -db pubmed -query "Beadle GW [AUTH] AND Tatum EL [AUTH]" |
+  elink -cited |
+  efilter -days 365 |
+  efetch -format abstract
+
+  esearch -db pubmed -query "conotoxin AND dopamine [MAJR]" |
+  elink -target protein -cmd neighbor |
+  xtract -pattern LinkSet -if Link/Id -element IdList/Id Link/Id
+
+  elink -db pubmed -id 20210808 -cmd score |
+  xtract -pattern LinkSet -max Link/Score
+
+  elink -db assembly -id GCF_000001405.25,GCF_000001215.3 -cmd acheck |
+  xtract -pattern LinkSet -sep "\n" -element Id,LinkName
+
+  elink -db pubmed -id 19880848 -cmd prlinks |
+  xtract -pattern LinkSet -first Id -element ObjUrl/Url

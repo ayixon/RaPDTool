@@ -1,0 +1,92 @@
+#!/bin/sh
+
+# ===========================================================================
+#
+#                            PUBLIC DOMAIN NOTICE
+#            National Center for Biotechnology Information (NCBI)
+#
+#  This software/database is a "United States Government Work" under the
+#  terms of the United States Copyright Act.  It was written as part of
+#  the author's official duties as a United States Government employee and
+#  thus cannot be copyrighted.  This software/database is freely available
+#  to the public for use. The National Library of Medicine and the U.S.
+#  Government do not place any restriction on its use or reproduction.
+#  We would, however, appreciate having the NCBI and the author cited in
+#  any work or product based on this material.
+#
+#  Although all reasonable efforts have been taken to ensure the accuracy
+#  and reliability of the software and data, the NLM and the U.S.
+#  Government do not and cannot warrant the performance or results that
+#  may be obtained by using this software or data. The NLM and the U.S.
+#  Government disclaim all warranties, express or implied, including
+#  warranties of performance, merchantability or fitness for any particular
+#  purpose.
+#
+# ===========================================================================
+#
+# File Name:  xtract
+#
+# Author:  Jonathan Kans, Aaron Ucko
+#
+# Version Creation Date:   11/01/2016
+#
+# ==========================================================================
+
+pth=$( dirname "$0" )
+
+case ":$PATH:" in
+  *:"$pth":* )
+    ;;
+  * )
+    PATH="$PATH:$pth"
+    export PATH
+    ;;
+esac
+
+# read command-line arguments to intercept certain commands
+
+for arg in "$@"
+do
+  case "$arg" in
+    -format | -filter | -normalize | -outline | -contour | -synopsis | -tokens )
+      # front-ends to functions implemented in transmute
+      transmute "$@"
+      exit
+      ;;
+    -j2x | -a2x | -t2x | -c2x | -g2x )
+      # front-ends to functions implemented in transmute
+      transmute "$@"
+      exit
+      ;;
+    * )
+      continue
+      ;;
+  esac
+done
+
+# pass remaining commands to precompiled xtract executable
+PATH=/bin:/usr/bin
+export PATH
+osname=`uname -s`
+cputype=`uname -m`
+case "$osname-$cputype" in
+  Linux-x86_64 )           platform=Linux ;;
+  Darwin-x86_64 )          platform=Darwin ;;
+  Darwin-*arm* )           platform=Silicon ;;
+  CYGWIN_NT-* | MINGW*-* ) platform=CYGWIN_NT ;;
+  Linux-*arm* )            platform=ARM ;;
+  * )                      platform=UNSUPPORTED ;;
+esac
+compiled=$0."$platform"
+if [ -x "$compiled" ]
+then
+  exec "$compiled" "$@"
+else
+  echo ""
+  echo "Unable to locate xtract executable. Please execute the following:"
+  echo ""
+  echo "  nquire -dwn ftp.ncbi.nlm.nih.gov entrez/entrezdirect xtract.$platform.gz"
+  echo "  gunzip -f xtract.$platform.gz"
+  echo "  chmod +x xtract.$platform"
+  echo ""
+fi

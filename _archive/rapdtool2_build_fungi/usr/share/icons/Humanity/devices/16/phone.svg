@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+<svg id="svg3395" width="16" height="16" version="1.0" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+ <defs id="defs3397">
+  <linearGradient id="linearGradient3350" x1="37.015" x2="18.406" y1="29.462" y2="31.529" gradientTransform="matrix(.48363 0 0 .48363 27.149 -54.16)" gradientUnits="userSpaceOnUse">
+   <stop id="stop3391" style="stop-color:#1e1e1e" offset="0"/>
+   <stop id="stop3393" style="stop-color:#606060" offset="1"/>
+  </linearGradient>
+  <linearGradient id="linearGradient3203" x1="15.336" x2="15.706" y1=".5" y2="12.796" gradientTransform="matrix(-.00064243 -.17054 .67441 -.00037138 32.693 44.616)" gradientUnits="userSpaceOnUse">
+   <stop id="stop6594-0-2" style="stop-color:#fff;stop-opacity:.27451" offset="0"/>
+   <stop id="stop6596-2-5" style="stop-color:#fff;stop-opacity:0" offset="1"/>
+  </linearGradient>
+  <linearGradient id="linearGradient3653" x1="12" x2="37" y1="33" y2="31" gradientTransform="matrix(.48363 0 0 .48363 27.149 -54.16)" gradientUnits="userSpaceOnUse">
+   <stop id="stop3657" style="stop-color:#b4b4b4" offset="0"/>
+   <stop id="stop3659" style="stop-color:#b4b4b4;stop-opacity:.2" offset="1"/>
+  </linearGradient>
+  <linearGradient id="linearGradient3646" x1="17" x2="17" y1="20" y2="19" gradientTransform="matrix(.5 0 0 1 -45.5 25)" gradientUnits="userSpaceOnUse" xlink:href="#linearGradient3640"/>
+  <linearGradient id="linearGradient3640">
+   <stop id="stop3642" style="stop-color:#b3b3b3" offset="0"/>
+   <stop id="stop3650" style="stop-color:#fff" offset=".5"/>
+   <stop id="stop3644" style="stop-color:#f0f0f0" offset="1"/>
+  </linearGradient>
+  <linearGradient id="linearGradient3648" x1="8" x2="8" y1="20" y2="19" gradientTransform="matrix(.5 0 0 1 -46.5 25)" gradientUnits="userSpaceOnUse" xlink:href="#linearGradient3640"/>
+  <linearGradient id="linearGradient2890" x1="12" x2="12" y1="22" y2="19" gradientTransform="matrix(0 -.57143 .56705 0 33.659 46.857)" gradientUnits="userSpaceOnUse" xlink:href="#linearGradient3640"/>
+  <radialGradient id="radialGradient3707" cx="41.061" cy="-38.019" r="2" gradientTransform="matrix(.0041006 -2.5 2 .00040354 116.93 65.718)" gradientUnits="userSpaceOnUse">
+   <stop id="stop3703" style="stop-color:#2a2a2a" offset="0"/>
+   <stop id="stop3705" style="stop-color:#060606" offset="1"/>
+  </radialGradient>
+ </defs>
+ <g id="layer1" transform="matrix(0 1 -1 0 48 -32)">
+  <rect id="rect2459" transform="matrix(.0014403 1 -1 .0014403 0 0)" x="35.52" y="-47.428" width="9.0511" height="15.009" rx="1.5029" ry="1.4925" style="fill:url(#linearGradient3350);stroke-dashoffset:.5;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:3.8857;stroke:#000"/>
+  <rect id="rect4140" transform="matrix(.0012654 1 -1 .0016394 0 0)" x="38.058" y="-42.947" width="4" height="7.0283" rx="0" ry="0" style="fill-rule:evenodd;fill:url(#radialGradient3707)"/>
+  <rect id="rect2984" transform="matrix(.0014403 1 -1 .0014403 0 0)" x="36.511" y="-46.547" width="7.0476" height="13.143" rx=".49172" ry="1.0902" style="fill:none;opacity:.81;stroke-dashoffset:.5;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:3.8857;stroke:url(#linearGradient3653)"/>
+  <path id="path3871" d="m35.641 43.998c-1.3567 0.0288-2.6148-0.24446-2.6163-0.65096l-0.02517-6.6786c-0.0012-0.32232 0.37174-0.66666 1.2148-0.66713l2.2689-0.0012 3.5163 7.9956-4.3585 0.0024z" style="fill:url(#linearGradient3203);opacity:.6"/>
+  <path id="path6724" d="m45 39a0.99222 1 0 0 1 0 2 0.99222 1 0 1 1 0-2z" style="fill:url(#linearGradient2890)"/>
+  <rect id="rect3675" transform="rotate(-90)" x="-43" y="44" width="1" height=".99999" rx="8.8818e-16" ry="0" style="fill:url(#linearGradient3648)"/>
+  <rect id="rect3677" transform="rotate(-90)" x="-38" y="44" width="1" height="1" rx="1.7764e-15" ry="0" style="fill:url(#linearGradient3646)"/>
+  <rect id="rect4157" transform="matrix(.0014403 1 -1 .0014403 0 0)" x="39.051" y="-34.912" width="2" height=".99999" rx=".089641" ry=".13446" style="fill-rule:evenodd;fill:#1d1d1d"/>
+ </g>
+</svg>

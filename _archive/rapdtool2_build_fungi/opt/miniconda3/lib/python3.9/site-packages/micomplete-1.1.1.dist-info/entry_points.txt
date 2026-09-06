@@ -1,0 +1,2 @@
+[console_scripts]
+miComplete = micomplete.micomplete:main

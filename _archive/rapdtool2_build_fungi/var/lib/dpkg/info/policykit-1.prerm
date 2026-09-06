@@ -1,0 +1,6 @@
+#!/bin/sh
+set -e
+# Automatically added by dh_installdeb/13.6ubuntu1
+dpkg-maintscript-helper rm_conffile /etc/dbus-1/system.d/org.freedesktop.PolicyKit1.conf 0.105-22\~ -- "$@"
+dpkg-maintscript-helper rm_conffile /etc/polkit-1/nullbackend.conf.d/50-nullbackend.conf 0.105-26\~ -- "$@"
+# End automatically added section

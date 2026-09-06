@@ -1,0 +1,3 @@
+# See reasoning at #843932 ('dev-pkg-without-shlib-symlink' was renamed
+# to 'lacks-unversioned-link-to-shared-library')
+lacks-unversioned-link-to-shared-library lib/x86_64-linux-gnu/libcryptsetup.so.* usr/lib/x86_64-linux-gnu/libcryptsetup.so

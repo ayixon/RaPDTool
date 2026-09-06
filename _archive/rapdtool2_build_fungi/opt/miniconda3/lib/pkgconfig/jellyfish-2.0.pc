@@ -1,0 +1,10 @@
+prefix=/opt/miniconda3
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include
+
+Name: Jellyfish
+Description: A multi-threaded hash based k-mer counter.
+Version: 2.3.0
+Libs: -L${libdir} -ljellyfish-2.0 -lpthread
+Cflags: -I${includedir}/jellyfish-2.3.0

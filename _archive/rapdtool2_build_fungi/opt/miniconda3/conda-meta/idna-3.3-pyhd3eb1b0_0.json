@@ -1,0 +1,97 @@
+{
+  "build": "pyhd3eb1b0_0",
+  "build_number": 0,
+  "channel": "https://repo.anaconda.com/pkgs/main/noarch",
+  "constrains": [],
+  "depends": [
+    "python >=3.5"
+  ],
+  "extracted_package_dir": "/opt/miniconda3/pkgs/idna-3.3-pyhd3eb1b0_0",
+  "features": "",
+  "files": [
+    "lib/python3.9/site-packages/idna-3.3.dist-info/INSTALLER",
+    "lib/python3.9/site-packages/idna-3.3.dist-info/LICENSE.md",
+    "lib/python3.9/site-packages/idna-3.3.dist-info/METADATA",
+    "lib/python3.9/site-packages/idna-3.3.dist-info/RECORD",
+    "lib/python3.9/site-packages/idna-3.3.dist-info/REQUESTED",
+    "lib/python3.9/site-packages/idna-3.3.dist-info/WHEEL",
+    "lib/python3.9/site-packages/idna-3.3.dist-info/direct_url.json",
+    "lib/python3.9/site-packages/idna-3.3.dist-info/top_level.txt",
+    "lib/python3.9/site-packages/idna/__init__.py",
+    "lib/python3.9/site-packages/idna/codec.py",
+    "lib/python3.9/site-packages/idna/compat.py",
+    "lib/python3.9/site-packages/idna/core.py",
+    "lib/python3.9/site-packages/idna/idnadata.py",
+    "lib/python3.9/site-packages/idna/intranges.py",
+    "lib/python3.9/site-packages/idna/package_data.py",
+    "lib/python3.9/site-packages/idna/py.typed",
+    "lib/python3.9/site-packages/idna/uts46data.py",
+    "lib/python3.9/site-packages/idna/__pycache__/__init__.cpython-39.pyc",
+    "lib/python3.9/site-packages/idna/__pycache__/codec.cpython-39.pyc",
+    "lib/python3.9/site-packages/idna/__pycache__/compat.cpython-39.pyc",
+    "lib/python3.9/site-packages/idna/__pycache__/core.cpython-39.pyc",
+    "lib/python3.9/site-packages/idna/__pycache__/idnadata.cpython-39.pyc",
+    "lib/python3.9/site-packages/idna/__pycache__/intranges.cpython-39.pyc",
+    "lib/python3.9/site-packages/idna/__pycache__/package_data.cpython-39.pyc",
+    "lib/python3.9/site-packages/idna/__pycache__/uts46data.cpython-39.pyc"
+  ],
+  "fn": "idna-3.3-pyhd3eb1b0_0.conda",
+  "legacy_bz2_md5": "f2d821eedf78bfe0e9f1d8faf9c8b23e",
+  "legacy_bz2_size": 55889,
+  "license": "BSD-3-Clause",
+  "license_family": "BSD",
+  "link": {
+    "source": "/opt/miniconda3/pkgs/idna-3.3-pyhd3eb1b0_0",
+    "type": 1
+  },
+  "md5": "8f43a528cf83b43af38a4d142fa38b8a",
+  "name": "idna",
+  "noarch": "python",
+  "package_tarball_full_path": "/opt/miniconda3/pkgs/idna-3.3-pyhd3eb1b0_0.conda",
+  "package_type": "noarch_python",
+  "paths_data": {
+    "paths": [
+      {
+        "_path": "lib/python3.9/site-packages/idna/__pycache__/__init__.cpython-39.pyc",
+        "path_type": "pyc_file"
+      },
+      {
+        "_path": "lib/python3.9/site-packages/idna/__pycache__/codec.cpython-39.pyc",
+        "path_type": "pyc_file"
+      },
+      {
+        "_path": "lib/python3.9/site-packages/idna/__pycache__/compat.cpython-39.pyc",
+        "path_type": "pyc_file"
+      },
+      {
+        "_path": "lib/python3.9/site-packages/idna/__pycache__/core.cpython-39.pyc",
+        "path_type": "pyc_file"
+      },
+      {
+        "_path": "lib/python3.9/site-packages/idna/__pycache__/idnadata.cpython-39.pyc",
+        "path_type": "pyc_file"
+      },
+      {
+        "_path": "lib/python3.9/site-packages/idna/__pycache__/intranges.cpython-39.pyc",
+        "path_type": "pyc_file"
+      },
+      {
+        "_path": "lib/python3.9/site-packages/idna/__pycache__/package_data.cpython-39.pyc",
+        "path_type": "pyc_file"
+      },
+      {
+        "_path": "lib/python3.9/site-packages/idna/__pycache__/uts46data.cpython-39.pyc",
+        "path_type": "pyc_file"
+      }
+    ],
+    "paths_version": 1
+  },
+  "requested_spec": "idna==3.3=pyhd3eb1b0_0",
+  "sha256": "2214ad8a3c5f0afc3c13ced28dd1961b98ff780b4e8562357a85c243e7fe678e",
+  "size": 50318,
+  "subdir": "noarch",
+  "timestamp": 1637925913145,
+  "track_features": "",
+  "url": "https://repo.anaconda.com/pkgs/main/noarch/idna-3.3-pyhd3eb1b0_0.conda",
+  "version": "3.3"
+}

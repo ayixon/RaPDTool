@@ -1,0 +1,62 @@
+commit 6bd6dca020882b7b23307272e4c719e4832bfe44
+Merge: 9c3a540 6ca7886
+Author: Filipe <ocefpaf@gmail.com>
+Date:   Fri Jul 30 21:04:49 2021 -0300
+
+    Merge pull request #3 from regro-cf-autotick-bot/2.0.4_h365831
+    
+    charset-normalizer v2.0.4
+
+commit 6ca78865de73bd2b295b71beeb493cfcf51b0ddc
+Author: regro-cf-autotick-bot <36490558+regro-cf-autotick-bot@users.noreply.github.com>
+Date:   Fri Jul 30 23:44:07 2021 +0000
+
+    updated v2.0.4
+
+commit 9c3a5401686a096a253824e12aa6943225e9f62a
+Merge: 8fd1421 750947b
+Author: Filipe <ocefpaf@gmail.com>
+Date:   Sat Jul 17 14:48:09 2021 -0300
+
+    Merge pull request #2 from regro-cf-autotick-bot/2.0.3_hb0a4ee
+    
+    charset-normalizer v2.0.3
+
+commit 750947b08d1ed9e1cf7c46ebbe60688e536a1a6b
+Author: regro-cf-autotick-bot <36490558+regro-cf-autotick-bot@users.noreply.github.com>
+Date:   Fri Jul 16 17:41:07 2021 +0000
+
+    updated v2.0.3
+
+commit 8fd1421caebf95ad339fd8b7753fd3af76e4ef80
+Merge: f3b88df a202eea
+Author: Filipe <ocefpaf@gmail.com>
+Date:   Thu Jul 15 14:08:48 2021 -0300
+
+    Merge pull request #1 from regro-cf-autotick-bot/2.0.2_h2c3456
+    
+    charset-normalizer v2.0.2
+
+commit a202eea9a1803daba3154047a7a4a01dc6862085
+Author: regro-cf-autotick-bot <36490558+regro-cf-autotick-bot@users.noreply.github.com>
+Date:   Wed Jul 14 23:50:26 2021 +0000
+
+    updated v2.0.2
+
+commit f3b88df91d2d01da269c359738686e6a18a8c047
+Author: cf-blacksmithy <41433396+cf-blacksmithy@users.noreply.github.com>
+Date:   Wed Jul 14 01:50:39 2021 +0000
+
+    [ci skip] [skip ci] [cf admin skip] ***NO_CI*** admin migration CFEP13TokenCleanup
+
+commit 01876f432f138ab275341f4c2c93655f62857f2b
+Author: GitHub Actions on github.com/conda-forge/staged-recipes <conda-forge@googlegroups.com>
+Date:   Tue Jul 13 21:13:10 2021 +0000
+
+    Re-render the feedstock after CI registration.
+
+commit 3a8f2977102e72f2ab84ecbfdd19a97e0e4dca6e
+Author: GitHub Actions on github.com/conda-forge/staged-recipes <conda-forge@googlegroups.com>
+Date:   Tue Jul 13 21:08:39 2021 +0000
+
+    Initial feedstock commit with conda-smithy 3.10.3.

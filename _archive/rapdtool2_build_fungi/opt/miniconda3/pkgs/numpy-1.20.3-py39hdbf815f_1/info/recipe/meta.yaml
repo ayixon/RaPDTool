@@ -1,0 +1,107 @@
+# This file created by conda-build 3.21.4
+# meta.yaml template originally from:
+# /home/conda/recipe_root, last modified Wed May 26 07:35:50 2021
+# ------------------------------------------------
+
+package:
+  name: numpy
+  version: 1.20.3
+source:
+  sha256: b7340f0628ce1823c151e3d2a2a8cba2a3ff1357fba4475a24b1816e75c21f90
+  url: https://github.com/numpy/numpy/releases/download/v1.20.3/numpy-1.20.3.tar.gz
+build:
+  entry_points: null
+  number: '1'
+  string: py39hdbf815f_1
+requirements:
+  build:
+    - _libgcc_mutex 0.1 conda_forge
+    - _openmp_mutex 4.5 1_gnu
+    - binutils_impl_linux-64 2.35.1 h193b22a_2
+    - binutils_linux-64 2.35 h67ddf6f_30
+    - gcc_impl_linux-64 9.3.0 h70c0ae5_19
+    - gcc_linux-64 9.3.0 hf25ea35_30
+    - kernel-headers_linux-64 2.6.32 h77966d4_13
+    - ld_impl_linux-64 2.35.1 hea4e1c9_2
+    - libgcc-devel_linux-64 9.3.0 h7864c58_19
+    - libgcc-ng 9.3.0 h2828fa1_19
+    - libgomp 9.3.0 h2828fa1_19
+    - libstdcxx-ng 9.3.0 h6de172a_19
+    - sysroot_linux-64 2.12 h77966d4_13
+  host:
+    - _libgcc_mutex 0.1 conda_forge
+    - _openmp_mutex 4.5 1_gnu
+    - ca-certificates 2020.12.5 ha878542_0
+    - certifi 2020.12.5 py39hf3d152e_1
+    - cython 0.29.23 py39he80948d_0
+    - ld_impl_linux-64 2.35.1 hea4e1c9_2
+    - libblas 3.8.0 11_h86c2bf4_netlib
+    - libcblas 3.8.0 11_h86c2bf4_netlib
+    - libffi 3.3 h58526e2_2
+    - libgcc-ng 9.3.0 h2828fa1_19
+    - libgfortran-ng 9.3.0 hff62375_19
+    - libgfortran5 9.3.0 hff62375_19
+    - libgomp 9.3.0 h2828fa1_19
+    - liblapack 3.8.0 11_h86c2bf4_netlib
+    - libstdcxx-ng 9.3.0 h6de172a_19
+    - ncurses 6.2 h58526e2_4
+    - openssl 1.1.1k h7f98852_0
+    - pip 21.1.2 pyhd8ed1ab_0
+    - python 3.9.4 hffdb5ce_0_cpython
+    - python_abi 3.9 1_cp39
+    - readline 8.1 h46c0cb4_0
+    - setuptools 49.6.0 py39hf3d152e_3
+    - sqlite 3.35.5 h74cdb3f_0
+    - tk 8.6.10 h21135ba_1
+    - tzdata 2021a he74cb21_0
+    - wheel 0.36.2 pyhd3deb0d_0
+    - xz 5.2.5 h516909a_1
+    - zlib 1.2.11 h516909a_1010
+  run:
+    - libblas >=3.8.0,<4.0a0
+    - libcblas >=3.8.0,<4.0a0
+    - libgcc-ng >=9.3.0
+    - liblapack >=3.8.0,<4.0a0
+    - python >=3.9,<3.10.0a0
+    - python_abi 3.9.* *_cp39
+  run_constrained:
+    - numpy-base <0a0
+test:
+  commands:
+    - f2py -h
+    - pytest --pyargs numpy -k "not (_not_a_real_test or test_sincos_float32 or (TestCond
+      and test_nan))"  --durations=100 -v
+  imports:
+    - numpy
+    - numpy.core._multiarray_tests
+    - numpy.core._operand_flag_tests
+    - numpy.core._rational_tests
+    - numpy.core._struct_ufunc_tests
+    - numpy.core._umath_tests
+    - numpy.core.multiarray
+    - numpy.core.numeric
+    - numpy.core.umath
+    - numpy.linalg.lapack_lite
+    - numpy.random.mtrand
+  requires:
+    - hypothesis
+    - pytest
+    - setuptools
+about:
+  dev_url: https://github.com/numpy/numpy
+  doc_url: https://docs.scipy.org/doc/numpy/reference/
+  home: http://numpy.scipy.org/
+  license: BSD-3-Clause
+  license_file: LICENSE.txt
+  summary: Array processing for numbers, strings, records, and objects.
+extra:
+  copy_test_source_files: true
+  final: true
+  recipe-maintainers:
+    - isuruf
+    - jakirkham
+    - msarahan
+    - ocefpaf
+    - pelson
+    - rgommers
+    - xhochy

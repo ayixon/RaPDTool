@@ -1,0 +1,880 @@
+ENTREZ DIRECT: COMMAND LINE ACCESS TO NCBI ENTREZ DATABASES
+
+Searching, retrieving, and parsing data from NCBI databases through the Unix command line.
+
+INTRODUCTION
+
+Entrez Direct (EDirect) provides access to the NCBI's suite of interconnected databases from a Unix terminal window. Search terms are entered as command-line arguments. Individual operations are connected with Unix pipes to construct multi-step queries. Selected records can then be retrieved in a variety of formats.
+
+PROGRAMMATIC ACCESS
+
+EDirect connects to Entrez through the Entrez Programming Utilities interface. It supports searching by indexed terms, looking up precomputed neighbors or links, filtering results by date or category, and downloading record summaries or reports.
+
+Navigation programs (esearch, elink, efilter, and efetch) communicate by means of a small structured message, which can be passed invisibly between operations with a Unix pipe. The message includes the current database, so it does not need to be given as an argument after the first step.
+
+Accessory programs (nquire, transmute, and xtract) can help eliminate the need for writing custom software to answer ad hoc questions. Queries can move seamlessly between EDirect programs and Unix utilities or scripts to perform actions that cannot be accomplished entirely within Entrez.
+
+All EDirect programs are designed to work on large sets of data. Intermediate results are stored on the Entrez history server. For best performance, obtain an API Key from NCBI, and place the following line in your .bash_profile and .zshrc configuration files:
+
+  export NCBI_API_KEY=unique_api_key_goes_here
+
+Each program also has a -help command that prints detailed information about available arguments.
+
+NAVIGATION FUNCTIONS
+
+Esearch performs a new Entrez search using terms in indexed fields. It requires a -db argument for the database name and uses -query for the search terms. For PubMed, without field qualifiers, the server uses automatic term mapping to compose a search strategy by translating the supplied query:
+
+  esearch -db pubmed -query "selective serotonin reuptake inhibitor"
+
+Search terms can also be qualified with a bracketed field name to match within the specified index:
+
+  esearch -db nuccore -query "insulin [PROT] AND rodents [ORGN]"
+
+Elink looks up precomputed neighbors within a database, or finds associated records in other databases, or uses the NIH Open Citation Collection dataset (see PMID 31600197) to follow reference lists:
+
+  elink -related
+
+  elink -target gene
+
+  elink -cited
+
+  elink -cites
+
+Efilter limits the results of a previous query, with shortcuts that can also be used in esearch:
+
+  efilter -molecule genomic -location chloroplast -country sweden -mindate 1985
+
+Efetch downloads selected records or reports in a style designated by -format:
+
+  efetch -format abstract
+
+Individual query commands are connected by a Unix vertical bar pipe symbol:
+
+  esearch -db pubmed -query "tn3 transposition immunity" | efetch -format medline
+
+There is no need to use a script to loop over records in small groups, or write code to retry after a transient network failure, or add a time delay between requests. All of those features are already built into the EDirect commands.
+
+ACCESSORY PROGRAMS
+
+Nquire retrieves data from remote servers with URLs constructed from command line arguments:
+
+  nquire -url http://www.wikidata.org/entity Q22679758
+
+Transmute converts a concatenated stream of JSON objects or other structured formats into XML:
+
+  transmute -j2x
+
+Xtract can use waypoints to navigate a complex XML hierarchy and obtain data values by field name:
+
+  xtract -pattern entities -group P527/mainsnak -block datavalue -element id
+
+The resulting output can be post-processed by Unix utilities or scripts:
+
+  fmt -w 1 | sort -V | uniq
+
+DISCOVERY BY NAVIGATION
+
+PubMed related articles are calculated by a statistical text retrieval algorithm using the title, abstract, and medical subject headings (MeSH terms). The connections between papers can be used for making discoveries. An example of this is finding the last enzymatic step in the vitamin A biosynthetic pathway.
+
+Lycopene cyclase in plants converts lycopene into beta-carotene, the immediate biochemical precursor of vitamin A. An initial search on the enzyme:
+
+  esearch -db pubmed -query "lycopene cyclase" |
+
+finds 269 articles. Looking up precomputed neighbors:
+
+  elink -related |
+
+returns 16,736 PubMed papers, some of which might be expected to discuss other enzymes in the pathway. Since beta-carotene (or vitamin A itself) is an essential nutrient, enzymes catalyzing earlier steps are not present in animals (with a few exceptions caused by horizontal gene transfer from fungi).
+
+This knowledge can be used to help locate the desired enzyme. Linking from publications to proteins:
+
+  elink -target protein |
+
+finds 575,853 protein sequences, all annotated and indexed with organism information from the NCBI taxonomy. Limiting to mice excludes plants, fungi, and bacteria, which eliminates the earlier enzymes:
+
+  efilter -organism mouse -source refseq |
+
+This matches only 23 sequences, which is small enough to examine by retrieving the individual records:
+
+  efetch -format fasta
+
+As anticipated, the results include the enzyme that splits beta-carotene into two molecules of retinal:
+
+  ...
+  >NP_067461.2 beta,beta-carotene 15,15'-dioxygenase isoform 1 [Mus musculus]
+  MEIIFGQNKKEQLEPVQAKVTGSIPAWLQGTLLRNGPGMHTVGESKYNHWFDGLALLHSFSIRDGEVFYR
+  SKYLQSDTYIANIEANRIVVSEFGTMAYPDPCKNIFSKAFSYLSHTIPDFTDNCLINIMKCGEDFYATTE
+  ...
+
+XML DATA EXTRACTION
+
+The ability to obtain Entrez records in structured format, and to easily extract the underlying data, allows the user to ask novel questions that are not addressed by existing analysis software.
+
+The xtract program uses command-line arguments to direct the conversion of data in eXtensible Markup Language format. It allows path exploration, element selection, conditional processing, and report formatting to be controlled independently.
+
+The -pattern command partitions an XML stream by object name into individual records that are processed separately. Within each record, the -element command does an exhaustive, depth-first search to find data content by field name. Explicit paths to objects are not needed.
+
+FORMAT CUSTOMIZATION
+
+By default, the -pattern argument divides the results into rows, while placement of data into columns is controlled by -element, to create a tab-delimited table.
+
+Formatting commands allow extensive customization of the output. The line break between -pattern rows is changed with -ret, while the tab character between -element columns is modified by -tab.
+
+Multiple instances of the same element are distinguished using -sep, which controls their separation independently of the -tab command. The following query:
+
+  efetch -db pubmed -id 6271474,6092233,16589597 -format docsum |
+  xtract -pattern DocumentSummary -sep "|" -element Id PubDate Name
+
+returns a tab-delimited table with individual author names separated by vertical bars:
+
+  6271474     1981            Casadaban MJ|Chou J|Lemaux P|Tu CP|Cohen SN
+  6092233     1984 Jul-Aug    Calderon IL|Contopoulou CR|Mortimer RK
+  16589597    1954 Dec        Garber ED
+
+The -sep value also applies to distinct -element arguments that are grouped with commas. This can be used to keep data from multiple related fields in the same column:
+
+  -sep " " -element Initials,LastName
+
+The -def command sets a default placeholder to be printed when none of the comma-separated fields in an -element clause are present:
+
+  -def "-" -sep " " -element Year,Month,MedlineDate
+
+Repackaging commands (-wrp, -enc, and -pkg) wrap extracted data values with bracketed XML tags given only the object name. For example, "-wrp Word" issues the following formatting instructions:
+
+  -pfx "<Word>" -sep "</Word><Word>" -sfx "</Word>"
+
+ELEMENT VARIANTS
+
+Derivatives of -element were created to eliminate the inconvenience of having to write post-processing scripts to perform otherwise trivial modifications or analyses on extracted data. Examples include positional (-first, -last), numeric (-inc, -sum, -max, -avg), text (-upper, -title, -words), and sequence (-revcomp, -fasta, -0-based) commands. Substitute for -element as needed.
+
+The original -element prefix shortcuts, "#" and "%", are redirected to -num and -len, respectively.
+
+EXPLORATION CONTROL
+
+Exploration commands provide fine control over the order in which XML record contents are examined, by separately presenting each instance of the chosen subregion. This limits what subsequent commands "see" at any one time, and allows related fields in an object to be kept together.
+
+In contrast to the simpler DocumentSummary format, records retrieved as PubmedArticle XML:
+
+  efetch -db pubmed -id 1413997 -format xml |
+
+have authors with separate fields for last name and initials:
+
+  <Author>
+    <LastName>Mortimer</LastName>
+    <Initials>RK</Initials>
+  </Author>
+
+Without being given any guidance about context, an -element command on initials and last names:
+
+  xtract -pattern PubmedArticle -element Initials LastName
+
+will explore the current record for each argument in turn, printing all initials followed by all last names:
+
+  RK    CR    JS    Mortimer    Contopoulou    King
+
+Inserting a -block command adds another exploration layer between -pattern and -element, and redirects data exploration to present the authors one at a time:
+
+  xtract -pattern PubmedArticle -block Author -element Initials LastName
+
+Each time through the loop, the -element command only sees the current author's values. This restores the correct association of initials and last names in the output:
+
+  RK    Mortimer    CR    Contopoulou    JS    King
+
+Grouping the two author subfields with a comma, and adjusting the -sep -and -tab values:
+
+  xtract -pattern PubmedArticle -block Author \
+    -sep " " -tab ", " -element Initials,LastName
+
+produces a more traditional formatting of author names:
+
+  RK Mortimer, CR Contopoulou, JS King
+
+NESTED EXPLORATION
+
+Exploration command names (-group, -block, and -subset) are assigned to a precedence hierarchy:
+
+  -pattern > -group > -block > -subset > -element
+
+and are combined in ranked order to control object iteration at progressively deeper levels in the XML data structure. Each command argument acts as a "nested for-loop" control variable, retaining information about the context, or state of exploration, at its level.
+
+A sequence record can have multiple features, each feature can have multiple qualifiers, and every qualifier has separate name and value nodes. Exploring this natural data hierarchy, with -pattern for the sequence, -group for the feature, and -block for the qualifier:
+
+  efetch -db nuccore -id NG_008030.1 -format gbc |
+  xtract -pattern INSDSeq -element INSDSeq_accession-version \
+    -group INSDFeature -deq "\n\t" -element INSDFeature_key \
+      -block INSDQualifier -deq "\n\t\t" \
+        -element INSDQualifier_name INSDQualifier_value
+
+keeps qualifiers, such as gene and product, associated with their parent features, and keeps qualifier names and values together on the same line:
+
+  NG_008030.1
+      source
+                organism         Homo sapiens
+                mol_type         genomic DNA
+                db_xref          taxon:9606
+      gene
+                gene             COL5A1
+      mRNA
+                gene             COL5A1
+                product          collagen type V alpha 1 chain, transcript variant 1
+                transcript_id    NM_000093.4
+      CDS
+                gene             COL5A1
+                product          collagen alpha-1(V) chain isoform 1 preproprotein
+                protein_id       NP_000084.3
+                translation      MDVHTRWKARSALRPGAPLLPPLLLLLLWAPPPSRAAQP...
+      ...
+
+SAVING DATA IN VARIABLES
+
+A value can be recorded in a variable and used wherever needed. Variables are created by a hyphen followed by a name consisting of a string of capital letters or digits (e.g., -KEY). Variable values are retrieved by placing an ampersand before the variable name (e.g., "&KEY") in an -element statement:
+
+  efetch -db nuccore -id NG_008030.1 -format gbc |
+  xtract -pattern INSDSeq -element INSDSeq_accession-version \
+    -group INSDFeature -KEY INSDFeature_key \
+      -block INSDQualifier -deq "\n\t" \
+        -element "&KEY" INSDQualifier_name INSDQualifier_value
+
+This prints the feature key on each line before the qualifier name and value, even though the feature key is now outside of the visibility scope (which is the current qualifier):
+
+  NG_008030.1
+      source    organism         Homo sapiens
+      source    mol_type         genomic DNA
+      source    db_xref          taxon:9606
+      gene      gene             COL5A1
+      mRNA      gene             COL5A1
+      mRNA      product          collagen type V alpha 1 chain, transcript variant 1
+      mRNA      transcript_id    NM_000093.4
+     ...
+
+Variables can be (re)initialized with an explicit literal value inside parentheses:
+
+  -block Author -sep " " -tab "" -element "&COM" Initials,LastName -COM "(, )"
+
+CONDITIONAL EXECUTION
+
+Conditional processing commands (-if, -unless, -and, -or, and -else) restrict object exploration by data content. They check to see if the named field is within the scope, and may be used in conjunction with string, numeric, or object constraints to require an additional match by value. For example:
+
+  esearch -db pubmed -query "Havran W [AUTH]" |
+  efetch -format xml |
+  xtract -pattern PubmedArticle -if "#Author" -lt 14 \
+    -block Author -if LastName -is-not Havran \
+      -sep ", " -tab "\n" -element LastName,Initials[1:1] |
+  sort-uniq-count-rank
+
+selects papers with fewer than 14 authors and prints a table of the most frequent collaborators, using a range to keep only the first initial so that variants like "Beadle, GW" and "Beadle, G" are combined:
+
+  34    Witherden, D
+  15    Boismenu, R
+  12    Jameson, J
+  10    Allison, J
+  10    Fitch, F
+  ...
+
+Numeric constraints can also compare the integer values of two fields. This can be used to find genes that are encoded on the minus strand of a nucleotide sequence:
+
+  -if ChrStart -gt ChrStop
+
+BIOLOGICAL DATA IN ENTREZ
+
+EDirect provides additional functions, scripts, and exploration constructs to simplify the extraction of complex data obtained from the interconnected Entrez biological databases.
+
+SEQUENCE QUALIFIERS
+
+The NCBI data model for sequence records is based on the central dogma of molecular biology. Features contain information about the biology of a given region, including the transformations involved in gene expression. Each feature can have multiple qualifiers, which store specific details about that feature (e.g., name of the gene, genetic code used for protein translation, accession of the product sequence, cross-references to external databases).
+
+As a convenience for exploring sequence records, the -insd helper function generates the appropriate nested extraction commands from feature and qualifier names on the command line. (Two computed qualifiers, sub_sequence and feat_location, are also supported.) A search on cone snail venom:
+
+  esearch -db protein -query "conotoxin" -feature mat_peptide |
+  efetch -format gpc |
+  xtract -insd complete mat_peptide "%peptide" product mol_wt peptide |
+  grep -i conotoxin | sort-table -u -k 2,2n
+
+prints the accession number, mature peptide length, product name, calculated molecular weight, and amino acid sequence for a sample of neurotoxic peptides:
+
+  ADB43131.1    15    conotoxin Cal 1b      1708    LCCKRHHGCHPCGRT
+  ADB43128.1    16    conotoxin Cal 5.1     1829    DPAPCCQHPIETCCRR
+  AIC77105.1    17    conotoxin Lt1.4       1705    GCCSHPACDVNNPDICG
+  ADB43129.1    18    conotoxin Cal 5.2     2008    MIQRSQCCAVKKNCCHVG
+  ADD97803.1    20    conotoxin Cal 1.2     2206    AGCCPTIMYKTGACRTNRCR
+  AIC77085.1    21    conotoxin Bt14.8      2574    NECDNCMRSFCSMIYEKCRLK
+  ADB43125.1    22    conotoxin Cal 14.2    2157    GCPADCPNTCDSSNKCSPGFPG
+  ...
+
+GENES IN A REGION
+
+Records for protein-coding genes on the human X chromosome are retrieved by running:
+
+  esearch -db gene -query "Homo sapiens [ORGN] AND X [CHR]" |
+  efilter -status alive -type coding | efetch -format docsum |
+
+Gene names and chromosomal positions are extracted by piping the records to:
+
+  xtract -pattern DocumentSummary -NAME Name -DESC Description \
+    -block GenomicInfoType -if ChrLoc -equals X \
+      -min ChrStart,ChrStop -element "&NAME" "&DESC" |
+
+with the -if statement eliminating coordinates from pseudoautosomal gene copies present on the Y chromosome telomeres. Results can now be sorted by position, and then filtered and partitioned:
+
+  sort -k 1,1n | cut -f 2- |
+  grep -v pseudogene | grep -v uncharacterized | grep -v hypothetical |
+  between-two-genes AMER1 FAAH2
+
+to produce an ordered table of known genes located between two markers flanking the centromere:
+
+  FAAH2      fatty acid amide hydrolase 2
+  SPIN2A     spindlin family member 2A
+  ZXDB       zinc finger X-linked duplicated B
+  NLRP2B     NLR family pyrin domain containing 2B
+  ZXDA       zinc finger X-linked duplicated A
+  SPIN4      spindlin family member 4
+  ARHGEF9    Cdc42 guanine nucleotide exchange factor 9
+  AMER1      APC membrane recruitment protein 1
+
+TAXONOMIC LINEAGE
+
+When xtract explores a recursively-defined data structure, -element is blocked from descending into the internal objects. Recursive data can be fully explored with a double star / child construct:
+
+  efetch -db taxonomy -id 9606 -format xml |
+  xtract -pattern Taxon -first TaxId -tab "\n" -element ScientificName \
+    -block "**/Taxon" -if Rank -is-not "no rank" -and Rank -is-not clade \
+      -tab "\n" -element Rank,ScientificName
+
+which removes the search constraint and visits every child object, regardless of nesting depth, to print all of the individual internal lineage nodes:
+
+  9606            Homo sapiens
+  superkingdom    Eukaryota
+  kingdom         Metazoa
+  phylum          Chordata
+  subphylum       Craniata
+  ...
+
+SNP-MODIFIED PRODUCT PAIRS
+
+Single nucleotide polymorphisms in human can represent different substitutions at the same position, but variation records do not explicitly match a modified CDS to its modified protein product:
+
+  efetch -db snp -id 11549407 -format docsum |
+  snp2hgvs | hgvs2spdi | spdi2tbl | tbl2prod
+
+The first scripts convert HGVS data ("NM_000518.5:c.118C>T;...;NP_000509.1:p.Gln40Lys") into the 0-based, sequence-relative convention of SPDI format. The tbl2prod script then translates coding sequences (after nucleotide modification), and sorts them with protein sequences (after residue replacement), to produce adjacent matching CDS/protein pairs:
+
+  rs11549407    NM_000518.5:167:C:T    MVHLTPEEKSAVTALWGKVNVDEVGGEALGRLLVVYPWT*R...
+  rs11549407    NP_000509.1:39:Q:*     MVHLTPEEKSAVTALWGKVNVDEVGGEALGRLLVVYPWT*R...
+  rs11549407    NM_000518.5:167:C:G    MVHLTPEEKSAVTALWGKVNVDEVGGEALGRLLVVYPWTER...
+  rs11549407    NP_000509.1:39:Q:E     MVHLTPEEKSAVTALWGKVNVDEVGGEALGRLLVVYPWTER...
+  rs11549407    NM_000518.5:167:C:A    MVHLTPEEKSAVTALWGKVNVDEVGGEALGRLLVVYPWTKR...
+  rs11549407    NP_000509.1:39:Q:K     MVHLTPEEKSAVTALWGKVNVDEVGGEALGRLLVVYPWTKR...
+  rs11549407    NM_000518.5:167:C:+    MVHLTPEEKSAVTALWGKVNVDEVGGEALGRLLVVYPWTQR...
+  rs11549407    NP_000509.1:39:Q:+     MVHLTPEEKSAVTALWGKVNVDEVGGEALGRLLVVYPWTQR...
+
+The "+" sign indicates the unmodified "wild-type" nucleotide or amino acid.
+
+EXTERNAL DATA INTEGRATION
+
+The nquire program uses command-line arguments to obtain data from external RESTful, CGI, or FTP servers. Results in various formats can be converted to XML by the transmute program.
+
+JSON ARRAYS
+
+Human beta-globin information from a Scripps Research data integration project (see PMID 23175613):
+
+  nquire -get http://mygene.info/v3 gene 3043 |
+
+contains a multi-dimensional JavaScript Object Notation array of exon coordinates:
+
+  "position": [
+    [ 5225463, 5225726 ],
+    [ 5226576, 5226799 ],
+    [ 5226929, 5227071 ]
+  ],
+  "strand": -1,
+
+This can be converted to XML with transmute -j2x (or the json2xml shortcut script):
+
+  transmute -j2x |
+
+with the default "-nest element" argument assigning distinct tag names to each level:
+
+  <position>
+    <position_E>5225463</position_E>
+    <position_E>5225726</position_E>
+  </position>
+  ...
+
+JSON MIXTURES
+
+A query for the human green-sensitive opsin gene:
+
+  nquire -get http://mygene.info/v3/gene/2652 |
+  transmute -j2x |
+
+returns data containing a heterogeneous mixture of objects in the pathway section:
+
+  <pathway>
+    <reactome>
+      <id>R-HSA-162582</id>
+      <name>Signal Transduction</name>
+    </reactome>
+    ...
+    <wikipathways>
+      <id>WP455</id>
+      <name>GPCRs, Class A Rhodopsin-like</name>
+    </wikipathways>
+  </pathway>
+
+The parent / star construct is used to visit the individual components of a parent object without needing to explicitly specify their names. For printing, the name of a child object is indicated by a question mark:
+
+  xtract -pattern opt -group "pathway/*" \
+    -pfc "\n" -element "?,name,id"
+
+This displays a table of pathway database references:
+
+  reactome        Signal Transduction                R-HSA-162582
+  reactome        Disease                            R-HSA-1643685
+  ...
+  reactome        Diseases of the neuronal system    R-HSA-9675143
+  wikipathways    GPCRs, Class A Rhodopsin-like      WP455
+
+TABLES TO XML
+
+Tab-delimited files are easily converted to XML with transmute -t2x (or tbl2xml):
+
+  nquire -ftp ftp.ncbi.nlm.nih.gov gene/DATA gene_info.gz |
+  gunzip -c | grep -v NEWENTRY | cut -f 2,3 |
+  transmute -t2x -set Set -rec Rec -skip 1 Code Name
+
+This takes a series of command-line arguments with tag names for wrapping the individual columns, and skips the first line of input, which contains header information, to generate a new XML file:
+
+  <Rec>
+    <Code>1246500</Code>
+    <Name>repA1</Name>
+  </Rec>
+  <Rec>
+    <Code>1246501</Code>
+    <Name>repA2</Name>
+  </Rec>
+  ...
+
+Similarly, transmute -c2x (or csv2xml) will convert comma-separated values (CSV) files to XML.
+
+GENBANK DOWNLOAD
+
+Recent GenBank virus data can be downloaded with:
+
+  nquire -lst ftp.ncbi.nlm.nih.gov genbank |
+  grep "^gbvrl" | grep ".seq.gz" | sort -V |
+  tail -n 1 | skip-if-file-exists |
+  nquire -dwn ftp.ncbi.nlm.nih.gov genbank
+
+GenBank flatfiles can be parsed into XML with transmute -g2x (or gbf2xml):
+
+  gunzip -c *.seq.gz | transmute -g2x |
+
+They can then be filtered by organism name or taxon identifier with xtract -select:
+
+  xtract -pattern INSDSeq -select INSDQualifier_value -equals "taxon:11292" |
+
+and used to obtain feature location intervals and underlying sequences of individual coding regions:
+
+  xtract -insd CDS gene product feat_location sub_sequence
+
+LOCAL PUBMED ARCHIVE
+
+Fetching data from Entrez works well when a few thousand records are needed, but it does not scale for much larger sets of data, where the time it takes to download becomes a limiting factor.
+
+LOCAL RECORD CACHE
+
+EDirect can now preload over 30 million live PubMed records onto an inexpensive external 500 GB solid state drive for rapid retrieval. For example, PMID 12345678 would be stored at:
+
+  /Archive/12/34/56/12345678.xml.gz
+
+using a hierarchy of folders to organize the data for random access to any record.
+
+Set an environment variable in your configuration file(s) to reference your external drive:
+
+  export EDIRECT_PUBMED_MASTER=/Volumes/external_disk_name_goes_here
+
+Then run archive-pubmed to download the PubMed release files and distribute each record on the drive. This process will take several hours to complete, but subsequent updates are incremental, and should finish in minutes.
+
+The local archive is a completely self-contained turnkey system, with no need for the user to download and configure complicated third-party database software.
+
+Retrieving over 125,000 compressed PubMed records from the local archive:
+
+  esearch -db pubmed -query "PNAS [JOUR]" -pub abstract |
+  efetch -format uid | stream-pubmed | gunzip -c |
+
+takes about 20 seconds. Retrieving those records from NCBI's network service, with efetch -format xml, would take around 40 minutes.
+
+Even modest sets of PubMed query results can benefit from using the local cache. A reverse citation lookup on 191 papers:
+
+  esearch -db pubmed -query "Cozzarelli NR [AUTH]" | elink -cited |
+
+requires 12 seconds to match 7854 subsequent articles. Fetching them from the local archive:
+
+  efetch -format uid | fetch-pubmed |
+
+takes less than one second. Printing the names of all authors in those records:
+
+  xtract -pattern PubmedArticle -block Author \
+    -sep " " -tab "\n" -element LastName,Initials |
+
+allows creation of a frequency table that lists the authors who most often cited the original papers:
+
+  sort-uniq-count-rank
+
+Fetching from the network service would extend the 13 second running time to over 2 minutes.
+
+LOCAL SEARCH INDEX
+
+A similar divide-and-conquer strategy is used to create a local information retrieval system suitable for large data mining queries. Run index-pubmed to populate retrieval index files from records stored in the local archive. This will also take a few hours. Since PubMed updates are released once per day, it may be most convenient to schedule reindexing to start in the late evening and run during the night.
+
+For PubMed titles and primary abstracts, the indexing process deletes hyphens after specific prefixes, removes accents and diacritical marks, splits words at punctuation characters, corrects encoding artifacts, and spells out Greek letters for easier searching on scientific terms. It then prepares inverted indices with term positions, and uses them to build distributed term lists and postings files.
+
+For example, the term list that includes "cancer" would be located at:
+
+  /Postings/TIAB/c/a/n/c/canc.TIAB.trm
+
+A query on cancer thus only needs to load a very small subset of the total index. The underlying software supports efficient expression evaluation, unrestricted wildcard truncation, phrase queries, and proximity searches.
+
+The phrase-search script provides access to the local search system.
+
+Currently indexed field names, and the full set of indexed terms for a given field, are shown by:
+
+  phrase-search -terms
+
+  phrase-search -terms TIAB
+
+Terms are truncated with trailing asterisks, and can be expanded to show individual postings counts:
+
+  phrase-search -count "catabolite repress*"
+
+  phrase-search -counts "catabolite repress*"
+
+Query evaluation includes Boolean operations and parenthetical expressions:
+
+  phrase-search -query "(literacy AND numeracy) NOT (adolescent OR child)"
+
+Adjacent words in the query are treated as a contiguous phrase:
+
+  phrase-search -query "selective serotonin reuptake inhibitor"
+
+More inclusive searches can use the Porter2 stemming algorithm:
+
+  phrase-search -query "monoamine oxidase inhibitor [STEM]"
+
+Each plus sign will replace a single word inside a phrase, and runs of tildes indicate the maximum distance between sequential phrases:
+
+  phrase-search -query "vitamin c + + common cold"
+
+  phrase-search -query "vitamin c ~ ~ common cold"
+
+MeSH identifier code, MeSH hierarchy key, and year of publication are also indexed:
+
+  phrase-search -query "C14.907.617.812* [TREE] AND 2015:2019 [YEAR]"
+
+All query commands return a list of PMIDs, which can be piped directly to fetch-pubmed to retrieve the uncompressed records. For example:
+
+  phrase-search -query "selective serotonin ~ ~ ~ reuptake inhibit*" |
+  fetch-pubmed |
+  xtract -pattern PubmedArticle -num AuthorList/Author |
+  sort-uniq-count -n | reorder-columns 2 1 |
+  head -n 25 | align-columns -g 4 -a lr
+
+performs a proximity search with dynamic wildcard expansion (matching phrases like "selective serotonin and norepinephrine reuptake inhibitors") and fetches 12,966 PubMed records from the local archive. It then counts the number of authors for each paper (a consortium is treated as a single author), printing a frequency table of the number of papers per number of authors.
+
+NATURAL LANGUAGE PROCESSING
+
+Additional annotation on PubMed can be downloaded and indexed by running index-extras.
+
+NCBI's Biomedical Text Mining Group performs computational analysis to extract chemical, disease, and gene references from article contents (see PMID 31114887). Along with NLM Gene Reference Into Function mappings (see PMID 14728215), these terms are indexed in CHEM, DISZ, and GENE fields.
+
+Research at Stanford University defined biological themes, supported by dependency paths, which are indexed in THME, PATH, and CONV fields. Theme keys are taken from a table in the Global Network of Biomedical Relationships paper (see PMID 29490008):
+
+  A+    Agonism, activation                      N     Inhibits
+  A-    Antagonism, blocking                     O     Transport, channels
+  B     Binding, ligand                          Pa    Alleviates, reduces
+  C     Inhibits cell growth                     Pr    Prevents, suppresses
+  D     Drug targets                             Q     Production by cell population
+  E     Affects expression/production            Rg    Regulation
+  E+    Increases expression/production          Sa    Side effect/adverse event
+  E-    Decreases expression/production          T     Treatment/therapy
+  G     Promotes progression                     Te    Possible therapeutic effect
+  H     Same protein or complex                  U     Causal mutations
+  I     Signaling pathway                        Ud    Mutations affecting disease course
+  J     Role in disease pathogenesis             V+    Activates, stimulates
+  K     Metabolism, pharmacokinetics             W     Enhances response
+  L     Improper regulation linked to disease    X     Overexpression in disease
+  Md    Biomarkers (diagnostic)                  Y     Polymorphisms alter risk
+  Mp    Biomarkers (progression)                 Z     Enzyme activity
+
+The phrase-search -filter command allows PMIDs to be generated by an EDirect search and then incorporated as a component in a local query:
+
+  esearch -db pubmed -query "complement system proteins [MESH]" |
+  efetch -format uid | phrase-search -filter "L [THME] AND D10* [TREE]"
+
+This finds PubMed papers about complement proteins and limits them by the "improper regulation linked to disease" theme and the "lipids" MeSH chemical category.
+
+RAPIDLY SCANNING PUBMED
+
+If the expand-current script is run after archive-pubmed or index-pubmed, an ad hoc scan can be performed on the nonredundant set of live PubMed records:
+
+  cat $EDIRECT_PUBMED_MASTER/Current/*.xml |
+  xtract -timer -turbo -pattern PubmedArticle -PMID MedlineCitation/PMID \
+    -group AuthorList -if "#LastName" -eq 7 -element "&PMID" LastName
+
+finding 1,700,652 articles with seven authors. (Author count is not indexed by Entrez or EDirect. This query excludes consortia and additional named investigators.)
+
+Note that "MedlineCitation/PMID" uses the parent / child construct to prevent the display of additional PMID items that may be present later in CommentsCorrections objects.
+
+USER-SPECIFIED TERM INDEX
+
+Running custom-index with a PubMed indexer script and the names of the fields it populates:
+
+  custom-index $( which idx-authors ) ANUM AUTH
+
+  custom-index $( which idx-metadata ) JOUR LANG MAJR MESH SUBH
+
+integrates user-specified indices into the local search system. Once the final inversion and posting steps are completed, the new fields are ready to be searched:
+
+  phrase-search -query "tn3 transposition immunity [TITL] AND 2 [ANUM]"
+
+SCRIPTING
+
+A shell script can be used to repeat the same sequence of operations on a number of input values. The Unix shell is a command interpreter that supports user-defined variables, conditional statements, and repetitive execution loops. Scripts are usually saved in a file, and referenced by file name.
+
+Given a tab-delimited file of feature keys and values, where each gene is followed by its coding regions:
+
+  gene    matK
+  CDS     maturase K
+  gene    ATP2B1
+  CDS     ATPase 1 isoform 2
+  CDS     ATPase 1 isoform 7
+  gene    ps2
+  CDS     peptide synthetase
+
+the cat command can pipe the file contents to a shell script that reads the data one line at a time.
+
+Dissecting the script, the first line selects the Bash shell on the user's machine:
+
+  #!/bin/bash
+
+The latest gene name is stored in the "gene" variable, which is first initialized to an empty string:
+
+  gene=""
+
+The while command sequentially reads each line of the input file, IFS indicates tab-delimited fields, and read saves the first field in the "feature" variable and the remaining text in the "product" variable:
+
+  while IFS=$'\t' read feature product
+
+The statements between the do and done commands are executed once for each input line. The if statement retrieves the current value stored in the feature variable (indicated by placing a dollar sign ($) in front of the variable name) and compares it to the word "gene":
+
+  if [ "$feature" = "gene" ]
+
+If the feature key was "gene", it runs the then section, which copies the contents of the current line's "product" value into the persistent "gene" variable:
+
+  then
+    gene="$product"
+
+Otherwise the else section prints the saved gene name and the current coding region product name:
+
+  else
+    echo "$gene\t$product"
+
+separated by a tab character. The conditional block is terminated with a fi instruction ("if" in reverse):
+
+  fi
+
+The resulting output lines, printed by the echo command, have the gene name and subsequent CDS product names in separate columns on individual rows:
+
+  matK      maturase K
+  ATP2B1    ATPase 1 isoform 2
+  ATP2B1    ATPase 1 isoform 7
+  ps2       peptide synthetase
+
+In addition to else, the elif command can allow a series of mutually-exclusive conditional tests.
+
+A variable can be set to the result of commands that are enclosed between "$(" and ")" symbols.
+
+PYTHON INTEGRATION
+
+Controlling EDirect from Python scripts is easily done with assistance from the edirect.py library file, which is included in the EDirect archive.
+
+At the beginning of your program, import the edirect module with the following commands:
+
+  #!/usr/bin/env python3
+
+  import sys
+  import os
+  import shutil
+
+  sys.path.insert(1, os.path.dirname(shutil.which('xtract')))
+  import edirect
+
+The first argument to edirect.execute is the Unix command you wish to run. It can be provided either as a string:
+
+  ("efetch -db nuccore -id NM_000518.5 -format fasta")
+
+or as a sequence of strings:
+
+  (('efetch', '-db', 'nuccore', '-id', 'NM_000518.5', '-format', 'fasta'))
+
+An optional second argument accepts data to be passed to the Unix command through stdin. Multiple steps are chained together by using the result of the previous command as the data argument in the next command:
+
+  seq = edirect.execute("efetch -db nuccore -id NM_000518.5 -format fasta")
+  sub = edirect.execute("transmute -extract -1-based -loc 51..494", seq)
+  prt = edirect.execute("transmute -cds2prot -every -trim", sub)
+
+Alternatively, the edirect.pipeline function can execute a string containing several piped commands:
+
+  edirect.pipeline('''efetch -db nuccore -id NM_000518.5 -format gbc |
+                      xtract -insd CDS gene product feat_location''')
+
+or can accept a sequence of individual command strings to be piped together for execution:
+
+  edirect.pipeline(('efetch -db nuccore -id NM_000518.5 -format gbc',
+                    'xtract -insd CDS gene product feat_location'))
+
+An edirect.efetch shortcut that uses named arguments is also available:
+
+  edirect.efetch(db="nuccore", id="NM_000518.5", format="fasta")
+
+To run a custom shell script, make sure the execute permission bit is set, supply the full execution path, and follow it with any command-line arguments:
+
+  db = "pubmed"
+  res = edirect.execute(("./datefields.sh", db), "")
+
+PROGRAMMING
+
+A program written in a compiled language is translated into a computer's native machine instruction code, and will run much faster than an interpreted script. Piping FASTA data to the basecount binary executable (compiled from the basecount.go source code file, below):
+
+  efetch -db nuccore -id J01749,U54469 -format fasta | basecount
+
+will return rows containing an accession number followed by counts for each base:
+
+  J01749.1    A 983    C 1210    G 1134    T 1034
+  U54469.1    A 849    C 699     G 585     T 748
+
+Programs in Google's Go language ("golang") start with package main and then import additional software libraries (many included with Go, others residing in commercial repositories like github.com):
+
+  package main
+
+  import (
+      "eutils"
+      "fmt"
+      "os"
+      "sort"
+  )
+
+Each compiled Go binary has a single main function, which is where program execution begins:
+
+  func main() {
+
+The fsta variable is assigned to a data channel that streams individual FASTA records one at a time:
+
+      fsta := eutils.FASTAConverter(os.Stdin, false)
+
+The countLetters subroutine will be called with the identifier and sequence of each FASTA record:
+
+      countLetters := func(id, seq string) {
+
+An empty counts map is created for each sequence, and its memory is freed when the subroutine exits:
+
+          counts := make(map[rune]int)
+
+A for loop on the range of the sequence string visits each sequence letter. The map keeps a running count for each base or residue, with "++" incrementing the current value of the letter's map entry:
+
+          for _, base := range seq {
+             counts[base]++
+          }
+
+Maps are not returned in a defined order, so map keys are loaded to a keys array, which is then sorted:
+
+          var keys []rune
+          for ky := range counts {
+              keys = append(keys, ky)
+          }
+          sort.Slice(keys, func(i, j int) bool { return keys[i] < keys[j] })
+
+(The second argument passed to sort.Slice is an anonymous function literal used to control the sort order. It is also a closure, implicitly inheriting the keys array from the enclosing function.)
+
+The sequence identifier is printed in the first column:
+
+         fmt.Fprintf(os.Stdout, "%s", id)
+
+Iterating over the array prints letters and base counts in alphabetical order, with tabs between columns:
+
+          for _, base := range keys {
+              num := counts[base]
+              fmt.Fprintf(os.Stdout, "\t%c %d", base, num)
+          }
+
+A newline is printed at the end of the row, and then the subroutine exits, clearing the map and array:
+
+          fmt.Fprintf(os.Stdout, "\n")
+      }
+
+The remainder of the main function uses a loop to drain the fsta channel, passing the identifier and sequence string of each successive FASTA record to the countLetters function. The main function then ends with a final closing brace:
+
+      for fsa := range fsta {
+          countLetters(fsa.SeqID, fsa.Sequence)
+      }
+  }
+
+Save the following script to a file named build.sh, in the same directory as the basecount.go file:
+
+  #!/bin/bash
+
+  if [ ! -f "go.mod" ]
+  then
+    go mod init "$( basename $PWD )"
+    echo "replace eutils => $HOME/edirect/eutils" >> go.mod
+  fi
+
+  if [ ! -f "go.sum" ]
+  then
+    go mod tidy
+  fi
+
+  go build
+
+The build script creates module files used to track dependencies and retrieve imported packages. It also computes the path for finding the local eutils helper library included with EDirect. Set the Unix execution permission bit for the build script and compile the program by running:
+
+  chmod +x build.sh
+  ./build.sh
+
+This will compile all of the "*.go" files in the directory. You can select specific input files, change the executable program's name, and cross-compile for a different platform, with additional arguments:
+
+  env GOOS=darwin GOARCH=arm64 go build -o basecount.Silicon basecount.go
+
+INSTALLATION
+
+EDirect consists of a set of scripts and programs that are downloaded to the user's computer. To install the software, open a terminal window and execute one of the following two commands:
+
+  sh -c "$(curl -fsSL ftp://ftp.ncbi.nlm.nih.gov/entrez/entrezdirect/install-edirect.sh)"
+
+  sh -c "$(wget -q ftp://ftp.ncbi.nlm.nih.gov/entrez/entrezdirect/install-edirect.sh -O -)"
+
+One installation is complete, run the following to set the PATH for the current terminal session:
+
+  export PATH=${PATH}:${HOME}/edirect
+
+DOCUMENTATION
+
+Documentation for EDirect is on the web at:
+
+  http://www.ncbi.nlm.nih.gov/books/NBK179288
+
+Information on how to obtain an API Key is described in this NCBI blogpost:
+
+  https://ncbiinsights.ncbi.nlm.nih.gov/2017/11/02/new-api-keys-for-the-e-utilities
+
+An introduction to shell scripting for non-programmers is at:
+
+  https://missing.csail.mit.edu/2020/shell-tools/
+
+Instructions for downloading and installing the Go compiler are at:
+
+  https://golang.org/doc/install#download
+
+Questions or comments on EDirect may be sent to info@ncbi.nlm.nih.gov.
+
+This research was supported by the Intramural Research Program of the National Library of Medicine at the NIH.

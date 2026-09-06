@@ -1,0 +1,6 @@
+d163fb7f800f4b94459874f0dbaddc33  usr/share/doc/libwww-robotrules-perl/changelog.Debian.gz
+f7cec09de28eff0080a85da1f9990248  usr/share/doc/libwww-robotrules-perl/copyright
+b633d85d053d5038bae6a2c1af7e7369  usr/share/man/man3/WWW::RobotRules.3pm.gz
+f97beb73e310ce0644a962e3b7dc4476  usr/share/man/man3/WWW::RobotRules::AnyDBM_File.3pm.gz
+de40bbd859b8bfd2d4e398f8118f7634  usr/share/perl5/WWW/RobotRules.pm
+8995ac0619d7294f9433d072a686c6ac  usr/share/perl5/WWW/RobotRules/AnyDBM_File.pm

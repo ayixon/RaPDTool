@@ -1,0 +1,4 @@
+/etc
+/etc/dpkg
+/etc/dpkg/dpkg.cfg.d
+/etc/dpkg/dpkg.cfg.d/pkg-config-hook-config

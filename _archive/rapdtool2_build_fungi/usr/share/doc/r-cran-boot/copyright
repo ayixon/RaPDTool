@@ -1,0 +1,46 @@
+This is the Debian GNU/Linux r-cran-boot package of boot, a collection
+of functions and datasets for bootstrapping from the book "Bootstrap
+Methods and Their Applications" by A. C. Davison and D. V. Hinkley
+(1997, CUP).  The boot package was written by Angelo Canty.
+
+This package was created by Dirk Eddelbuettel <edd@debian.org>.
+The sources were downloaded from 
+	http://cran.us.r-project.org/src/contrib/
+and are also included in the (large) source tar archive of R itself at
+	http://cran.us.r-project.org/src/base/
+
+The package was renamed from its upstream name 'boot' to 'r-cran-boot'
+to fit the pattern of CRAN (and non-CRAN) packages for R.
+
+Copyright (C) 1997-2008 A. C. Davison and D. V. Hinkley
+Portions Copyright (C) 1997-2008 Angelo J. Canty
+Portions Copyright (C) 1997-2008 Brian D. Ripley
+
+License: 'unlimited distribution'.
+(see e.g. R/bootfuns.q)
+
+For reference, the upstream DESCRIPTION [with lines broken to 80 cols] file
+is included below:
+
+    Package: boot
+    Priority: recommended
+    Version: 1.2-15
+    Date: 2003-10-22
+    Author: S original <http://statwww.epfl.ch/davison/BMA/library.html>
+      by Angelo Canty <cantya@mcmaster.ca>.  
+      R port by  Brian Ripley <ripley@stats.ox.ac.uk>.
+    Maintainer: Brian Ripley <ripley@stats.ox.ac.uk>
+    Description: functions and datasets for bootstrapping from the
+      book "Bootstrap Methods and Their Applications" by A. C. Davison and 
+      D. V. Hinkley (1997, CUP).
+    Title: Bootstrap R (S-Plus) Functions (Canty)
+    Depends: R (>= 1.8.0), survival
+    License: Unlimited distribution.
+
+The file R/bootfuns.q contains the following header:
+
+    # part of R package boot
+    # copyright (C) 1997-2001 Angelo J. Canty
+    # corrections (C) 1997-2007 B. D. Ripley
+    #
+    # Unlimited distribution is permitted

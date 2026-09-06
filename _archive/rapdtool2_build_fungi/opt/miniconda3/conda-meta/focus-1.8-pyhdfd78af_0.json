@@ -1,0 +1,183 @@
+{
+  "build": "pyhdfd78af_0",
+  "build_number": 0,
+  "channel": "https://conda.anaconda.org/bioconda/noarch",
+  "constrains": [],
+  "depends": [
+    "kmer-jellyfish >=2.2.6",
+    "numpy >=1.12.1",
+    "python >=3",
+    "scipy >=0.19.0",
+    "setuptools >=38.6.0",
+    "setuptools_scm",
+    "unzip"
+  ],
+  "extracted_package_dir": "/opt/miniconda3/pkgs/focus-1.8-pyhdfd78af_0",
+  "features": "",
+  "files": [
+    "bin/focus",
+    "bin/focus_database_utils",
+    "lib/python3.9/site-packages/focus_app/__init__.py",
+    "lib/python3.9/site-packages/focus_app/db.zip",
+    "lib/python3.9/site-packages/focus_app/focus.py",
+    "lib/python3.9/site-packages/focus_app/focus_database_utils.py",
+    "lib/python3.9/site-packages/metagenomics_focus-1.8.dist-info/COPYING",
+    "lib/python3.9/site-packages/metagenomics_focus-1.8.dist-info/INSTALLER",
+    "lib/python3.9/site-packages/metagenomics_focus-1.8.dist-info/METADATA",
+    "lib/python3.9/site-packages/metagenomics_focus-1.8.dist-info/RECORD",
+    "lib/python3.9/site-packages/metagenomics_focus-1.8.dist-info/REQUESTED",
+    "lib/python3.9/site-packages/metagenomics_focus-1.8.dist-info/WHEEL",
+    "lib/python3.9/site-packages/metagenomics_focus-1.8.dist-info/direct_url.json",
+    "lib/python3.9/site-packages/metagenomics_focus-1.8.dist-info/entry_points.txt",
+    "lib/python3.9/site-packages/metagenomics_focus-1.8.dist-info/top_level.txt",
+    "lib/python3.9/site-packages/focus_app/__pycache__/__init__.cpython-39.pyc",
+    "lib/python3.9/site-packages/focus_app/__pycache__/focus.cpython-39.pyc",
+    "lib/python3.9/site-packages/focus_app/__pycache__/focus_database_utils.cpython-39.pyc"
+  ],
+  "fn": "focus-1.8-pyhdfd78af_0.tar.bz2",
+  "license": "GPL-3.0",
+  "license_family": "GPL",
+  "link": {
+    "source": "/opt/miniconda3/pkgs/focus-1.8-pyhdfd78af_0",
+    "type": 1
+  },
+  "md5": "5db5dcb46a2eff62d947cdf330bfe759",
+  "name": "focus",
+  "noarch": "python",
+  "package_tarball_full_path": "/opt/miniconda3/pkgs/focus-1.8-pyhdfd78af_0.tar.bz2",
+  "package_type": "noarch_python",
+  "paths_data": {
+    "paths": [
+      {
+        "_path": "python-scripts/focus",
+        "file_mode": "text",
+        "path_type": "hardlink",
+        "prefix_placeholder": "/opt/conda/conda-bld/focus_1640785337967/_h_env_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placeho",
+        "sha256": "6f8bef35248a9bad6365bd26c86afb5be773a31bb2ac58bc162b01815e4a17b3",
+        "sha256_in_prefix": "1bde764919a19b14d5f5dcddbd9c63c1bbee45b459902607eccfcf42be5c89c7",
+        "size_in_bytes": 497
+      },
+      {
+        "_path": "python-scripts/focus_database_utils",
+        "file_mode": "text",
+        "path_type": "hardlink",
+        "prefix_placeholder": "/opt/conda/conda-bld/focus_1640785337967/_h_env_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placeho",
+        "sha256": "9affd7f5c0857594d6dc9cc01b4ccf96d145692b95e8c6240a95aac2b63a61cb",
+        "sha256_in_prefix": "ea366b77b8e042e9bcd9f4c6ef533b54186fd89883c7612efd7766aed3eb80c6",
+        "size_in_bytes": 512
+      },
+      {
+        "_path": "site-packages/focus_app/__init__.py",
+        "path_type": "hardlink",
+        "sha256": "be11db4a2ec7c0d7a93b1b540e485a08309e4746ea1dd9165f99fd5933d17c7f",
+        "sha256_in_prefix": "be11db4a2ec7c0d7a93b1b540e485a08309e4746ea1dd9165f99fd5933d17c7f",
+        "size_in_bytes": 180
+      },
+      {
+        "_path": "site-packages/focus_app/db.zip",
+        "path_type": "hardlink",
+        "sha256": "2b7305d5055433cff206da4a20f8792b26798c629dff258959781b6c96d48206",
+        "sha256_in_prefix": "2b7305d5055433cff206da4a20f8792b26798c629dff258959781b6c96d48206",
+        "size_in_bytes": 47149106
+      },
+      {
+        "_path": "site-packages/focus_app/focus.py",
+        "path_type": "hardlink",
+        "sha256": "667266df9ea319ff350a0cd597ac73c984ca6f1f9251792fc1daa247ac165abb",
+        "sha256_in_prefix": "667266df9ea319ff350a0cd597ac73c984ca6f1f9251792fc1daa247ac165abb",
+        "size_in_bytes": 13320
+      },
+      {
+        "_path": "site-packages/focus_app/focus_database_utils.py",
+        "path_type": "hardlink",
+        "sha256": "7632d8d2205681a552dc42ca597bcaa77e7b86bacdae39acebd85a708b24f05c",
+        "sha256_in_prefix": "7632d8d2205681a552dc42ca597bcaa77e7b86bacdae39acebd85a708b24f05c",
+        "size_in_bytes": 3053
+      },
+      {
+        "_path": "site-packages/metagenomics_focus-1.8.dist-info/COPYING",
+        "path_type": "hardlink",
+        "sha256": "8ceb4b9ee5adedde47b31e975c1d90c73ad27b6b165a1dcd80c7c545eb65b903",
+        "sha256_in_prefix": "8ceb4b9ee5adedde47b31e975c1d90c73ad27b6b165a1dcd80c7c545eb65b903",
+        "size_in_bytes": 35147
+      },
+      {
+        "_path": "site-packages/metagenomics_focus-1.8.dist-info/INSTALLER",
+        "path_type": "hardlink",
+        "sha256": "d0edee15f91b406f3f99726e44eb990be6e34fd0345b52b910c568e0eef6a2a8",
+        "sha256_in_prefix": "d0edee15f91b406f3f99726e44eb990be6e34fd0345b52b910c568e0eef6a2a8",
+        "size_in_bytes": 5
+      },
+      {
+        "_path": "site-packages/metagenomics_focus-1.8.dist-info/METADATA",
+        "path_type": "hardlink",
+        "sha256": "646348f55a8f01cca80e320ec515de8c021e49ed42fb94f8b4e5bb7c05ec6f65",
+        "sha256_in_prefix": "646348f55a8f01cca80e320ec515de8c021e49ed42fb94f8b4e5bb7c05ec6f65",
+        "size_in_bytes": 627
+      },
+      {
+        "_path": "site-packages/metagenomics_focus-1.8.dist-info/RECORD",
+        "path_type": "hardlink",
+        "sha256": "1d5427dd2a21e41eecae2b9d7b2e057260eb325a8d571967dee1331b6662ab3d",
+        "sha256_in_prefix": "1d5427dd2a21e41eecae2b9d7b2e057260eb325a8d571967dee1331b6662ab3d",
+        "size_in_bytes": 1488
+      },
+      {
+        "_path": "site-packages/metagenomics_focus-1.8.dist-info/REQUESTED",
+        "path_type": "hardlink",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "sha256_in_prefix": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size_in_bytes": 0
+      },
+      {
+        "_path": "site-packages/metagenomics_focus-1.8.dist-info/WHEEL",
+        "path_type": "hardlink",
+        "sha256": "1b5e87e00dc87a84269cead8578b9e6462928e18a95f1f3373c9eef451a5bcc0",
+        "sha256_in_prefix": "1b5e87e00dc87a84269cead8578b9e6462928e18a95f1f3373c9eef451a5bcc0",
+        "size_in_bytes": 92
+      },
+      {
+        "_path": "site-packages/metagenomics_focus-1.8.dist-info/direct_url.json",
+        "path_type": "hardlink",
+        "sha256": "e5556e721869a1377cbcc4e391ea88ac1a3c34eb69e09ad7a9dd39b325db75ed",
+        "sha256_in_prefix": "e5556e721869a1377cbcc4e391ea88ac1a3c34eb69e09ad7a9dd39b325db75ed",
+        "size_in_bytes": 79
+      },
+      {
+        "_path": "site-packages/metagenomics_focus-1.8.dist-info/entry_points.txt",
+        "path_type": "hardlink",
+        "sha256": "92fb55a00dbcb31716ebbd45fd60b235847cfa72bf83d8c36155b4ff5931a7b0",
+        "sha256_in_prefix": "92fb55a00dbcb31716ebbd45fd60b235847cfa72bf83d8c36155b4ff5931a7b0",
+        "size_in_bytes": 107
+      },
+      {
+        "_path": "site-packages/metagenomics_focus-1.8.dist-info/top_level.txt",
+        "path_type": "hardlink",
+        "sha256": "35897f2d2333b5b6d3fb82d923c9686fa9263ce5c818b97ff7c950dc059276d1",
+        "sha256_in_prefix": "35897f2d2333b5b6d3fb82d923c9686fa9263ce5c818b97ff7c950dc059276d1",
+        "size_in_bytes": 10
+      },
+      {
+        "_path": "lib/python3.9/site-packages/focus_app/__pycache__/__init__.cpython-39.pyc",
+        "path_type": "pyc_file"
+      },
+      {
+        "_path": "lib/python3.9/site-packages/focus_app/__pycache__/focus.cpython-39.pyc",
+        "path_type": "pyc_file"
+      },
+      {
+        "_path": "lib/python3.9/site-packages/focus_app/__pycache__/focus_database_utils.cpython-39.pyc",
+        "path_type": "pyc_file"
+      }
+    ],
+    "paths_version": 1
+  },
+  "requested_spec": "focus",
+  "sha256": "5e1d7632e8b91283dcc25e9ca65a5b1b2e40da256a7547cbbbaf2b8e4484ed8d",
+  "size": 47409061,
+  "subdir": "noarch",
+  "timestamp": 1640785637322,
+  "track_features": "",
+  "url": "https://conda.anaconda.org/bioconda/noarch/focus-1.8-pyhdfd78af_0.tar.bz2",
+  "version": "1.8"
+}

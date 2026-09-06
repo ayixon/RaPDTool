@@ -1,0 +1,35 @@
+This is the Debian GNU/Linux r-cran-mgcv package of mgcv, a collection
+of functions for multiple smoothing parameter estimation. Mgcv was written
+by Simon Wood.
+
+This package was created by Dirk Eddelbuettel <edd@debian.org>.
+The sources were downloaded from 
+	http://cran.us.r-project.org/src/contrib/
+and are also included in the (large) source tar archive of R itself at
+	http://cran.us.r-project.org/src/base/
+
+The package was renamed from its upstream name 'mgcv' to 'r-cran-mgcv'
+to fit the pattern of CRAN (and non-CRAN) packages for R.
+
+Copyright (C) 1998 - 2008 Simon Wood
+
+License: GPL
+
+On a Debian GNU/Linux system, the GPL license is included in the file
+/usr/share/common-licenses/GPL.
+
+For reference, the upstream DESCRIPTION [with lines broken to 80 cols]
+file is included below:
+
+    Package: mgcv
+    Version: 0.9-6
+    Author: Simon Wood <simon@stats.gla.ac.uk>
+    Maintainer: Simon Wood <simon@stats.gla.ac.uk>
+    Title: Multiple smoothing parameter estimation and GAMs by GCV
+    Description: Routines for GAMs and other generalized ridge regression 
+                 problems with multiple smoothing parameter selection by 
+                 GCV or UBRE.
+                 Includes an implementation (not a clone) of gam().
+    Priority: recommended
+    License: GPL version 2 or later
+    

@@ -1,0 +1,6 @@
+#!/bin/bash -norc
+
+# Public domain notice for all NCBI EDirect scripts is located at:
+# https://www.ncbi.nlm.nih.gov/books/NBK179288/#chapter6.Public_Domain_Notice
+
+awk -F '\t' -v 'OFS=\t' "/^$1\t/{a++}/^$2\t/{a++}a>0{print}a>1{exit}"

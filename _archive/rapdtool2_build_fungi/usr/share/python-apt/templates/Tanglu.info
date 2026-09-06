@@ -1,0 +1,42 @@
+ChangelogURI: http://changelogs.tanglu.org/changelogs/%s/%s/%s/%s_%s/changelog
+
+Suite: aequorea
+RepositoryType: deb
+BaseURI: http://archive.tanglu.org/tanglu/
+MatchURI: archive.tanglu.org/tanglu
+MirrorsFile: Tanglu.mirrors
+Description: Tanglu 1.0 'Aequorea'
+Component: main
+CompDescription: Officially supported
+Component: contrib
+CompDescription: DFSG-compatible Software with Non-Free Dependencies
+Component: non-free
+CompDescription: Non-DFSG-compatible Software
+
+Suite: aequorea-updates
+RepositoryType: deb
+ParentSuite: aequorea
+Description: Recommended updates
+
+Suite: bartholomea
+RepositoryType: deb
+BaseURI: http://archive.tanglu.org/tanglu/
+MatchURI: archive.tanglu.org/tanglu
+MirrorsFile: Tanglu.mirrors
+Description: Tanglu 2.0 'Bartholomea'
+Component: main
+CompDescription: Officially supported
+Component: contrib
+CompDescription: DFSG-compatible Software with Non-Free Dependencies
+Component: non-free
+CompDescription: Non-DFSG-compatible Software
+
+Suite: bartholomea-security
+RepositoryType: deb
+ParentSuite: bartholomea
+Description: Security updates
+
+Suite: bartholomea-updates
+RepositoryType: deb
+ParentSuite: bartholomea
+Description: Recommended updates

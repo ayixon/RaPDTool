@@ -1,0 +1,17 @@
+libpolkit-agent-1.so.0 libpolkit-agent-1-0 #MINVER#
+* Build-Depends-Package: libpolkit-agent-1-dev
+ polkit_agent_listener_get_type@Base 0.94
+ polkit_agent_listener_initiate_authentication@Base 0.94
+ polkit_agent_listener_initiate_authentication_finish@Base 0.94
+ polkit_agent_listener_register@Base 0.99
+ polkit_agent_listener_register_with_options@Base 0.105
+ polkit_agent_listener_unregister@Base 0.99
+ polkit_agent_register_flags_get_type@Base 0.99
+ polkit_agent_register_listener@Base 0.94
+ polkit_agent_session_cancel@Base 0.94
+ polkit_agent_session_get_type@Base 0.94
+ polkit_agent_session_initiate@Base 0.94
+ polkit_agent_session_new@Base 0.94
+ polkit_agent_session_response@Base 0.94
+ polkit_agent_text_listener_get_type@Base 0.99
+ polkit_agent_text_listener_new@Base 0.99

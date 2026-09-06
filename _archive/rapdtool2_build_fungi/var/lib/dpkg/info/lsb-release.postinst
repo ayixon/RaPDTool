@@ -1,0 +1,16 @@
+#!/bin/sh
+
+set -e
+
+case "$1" in
+    configure)
+        if [ -e /etc/lsb-release ]; then
+            MD5SUM=`md5sum /etc/lsb-release | cut -d" " -f1`
+            if [ "$MD5SUM" = "b5bfe10d9b02fb4e4a45337d1c4d88ab" ]; then
+                rm -f /etc/lsb-release
+            fi
+        fi
+        ;;
+esac
+
+

@@ -1,0 +1,36 @@
+#!/bin/sh
+
+set -e
+
+case "$1" in
+    purge)
+        # clean up after manually enabled units in postinst
+        rm -f /etc/systemd/system/getty.target.wants/getty@tty1.service
+        rm -f /etc/systemd/system/multi-user.target.wants/remote-fs.target
+        rm -f /etc/systemd/system/sysinit.target.wants/systemd-timesyncd.service
+        rm -f /etc/systemd/system/dbus-org.freedesktop.timesync1.service
+        rm -f /etc/systemd/system/sysinit.target.wants/systemd-pstore.service
+        rmdir --ignore-fail-on-non-empty /etc/systemd/system/getty.target.wants 2> /dev/null || true
+        rmdir --ignore-fail-on-non-empty /etc/systemd/system/multi-user.target.wants 2> /dev/null || true
+        rmdir --ignore-fail-on-non-empty /etc/systemd/system/sysinit.target.wants 2> /dev/null || true
+
+        rm -f /var/lib/systemd/catalog/database
+        rmdir --ignore-fail-on-non-empty /var/lib/systemd/catalog 2> /dev/null || true
+
+        rm -rf /var/lib/systemd/backlight/
+        rm -rf /var/lib/systemd/rfkill/
+        rm -rf /var/lib/systemd/timesync/
+
+        rm -f /var/lib/systemd/random-seed
+
+        rmdir --ignore-fail-on-non-empty /var/log/journal 2> /dev/null || true
+    ;;
+esac
+
+# Automatically added by dh_installdeb/13.6ubuntu1
+dpkg-maintscript-helper rm_conffile /etc/dhcp/dhclient-exit-hooks.d/timesyncd 245.4-2\~ -- "$@"
+dpkg-maintscript-helper rm_conffile /etc/systemd/timesyncd.conf 245.4-2\~ -- "$@"
+dpkg-maintscript-helper rm_conffile /etc/dhcp/dhclient-enter-hooks.d/resolved 246-2ubuntu1\~ -- "$@"
+dpkg-maintscript-helper rm_conffile /etc/pam.d/systemd-user 246.6-3\~ -- "$@"
+# End automatically added section
+

@@ -1,0 +1,9 @@
+{
+  "channel_targets": "defaults",
+  "c_compiler": "gcc",
+  "c_compiler_version": "7.3.0",
+  "target_platform": "linux-64",
+  "ctng_cpu_arch": "x86_64",
+  "ctng_vendor": "conda_cos6",
+  "ctng_target_platform": "linux-64"
+}

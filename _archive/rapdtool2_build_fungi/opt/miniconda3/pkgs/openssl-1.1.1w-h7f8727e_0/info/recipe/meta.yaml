@@ -1,0 +1,97 @@
+# This file created by conda-build 3.24.0
+# meta.yaml template originally from:
+# /feedstock/recipe, last modified Mon Sep 11 20:41:42 2023
+# ------------------------------------------------
+
+package:
+  name: openssl
+  version: 1.1.1w
+source:
+  sha256: cf3098950cb4d853ad95c0841f1f9c6d3dc102dccfcacd521d93925208b76ac8
+  url: https://www.openssl.org/source/openssl-1.1.1w.tar.gz
+build:
+  binary_has_prefix_files:
+    - lib/libcrypto.a
+    - lib/libcrypto.so.1.1
+  detect_binary_files_with_prefix: true
+  has_prefix_files:
+    - bin/c_rehash
+    - lib/pkgconfig/libcrypto.pc
+    - lib/pkgconfig/libssl.pc
+    - lib/pkgconfig/openssl.pc
+  no_link: lib/libcrypto.so.1.1
+  number: '0'
+  run_exports:
+    - openssl >=1.1.1w,<1.1.2a
+  string: h7f8727e_0
+requirements:
+  build:
+    - _libgcc_mutex 0.1 main
+    - _openmp_mutex 5.1 1_gnu
+    - _sysroot_linux-64_curr_repodata_hack 3 haa98f57_10
+    - binutils_impl_linux-64 2.35.1 h27ae35d_9
+    - binutils_linux-64 2.35.1 h454624a_30
+    - gcc_impl_linux-64 7.5.0 h7105cf2_17
+    - gcc_linux-64 7.5.0 h8f34230_30
+    - gdbm 1.18 hd4cb3f1_4
+    - kernel-headers_linux-64 3.10.0 h57e8cba_10
+    - ld_impl_linux-64 2.35.1 h7274673_9
+    - libgcc-devel_linux-64 7.5.0 hbbeae57_17
+    - libgcc-ng 11.2.0 h1234567_1
+    - libgomp 11.2.0 h1234567_1
+    - libstdcxx-ng 11.2.0 h1234567_1
+    - make 4.2.1 h1bed415_1
+    - ncurses 6.4 h6a678d5_0
+    - perl 5.34.0 h5eee18b_2
+    - readline 8.2 h5eee18b_0
+    - sysroot_linux-64 2.17 h57e8cba_10
+  host:
+    - _libgcc_mutex 0.1 main
+    - _openmp_mutex 5.1 1_gnu
+    - libgcc-ng 11.2.0 h1234567_1
+    - libgomp 11.2.0 h1234567_1
+  run:
+    - ca-certificates
+    - libgcc-ng >=7.5.0
+test:
+  commands:
+    - touch checksum.txt
+    - openssl sha256 checksum.txt
+    - openssl ecparam -name prime256v1
+    - python -c "from six.moves import urllib; urllib.request.urlopen('https://pypi.org')"
+  requires:
+    - python 3.7.*
+    - six
+about:
+  description: 'OpenSSL is a robust, commercial-grade, full-featured Open Source Toolkit
+
+    for the Transport Layer Security (TLS) protocol formerly known as the
+
+    Secure Sockets Layer (SSL) protocol. The protocol implementation is based
+
+    on a full-strength general purpose cryptographic library, which can also
+
+    be used stand-alone.
+
+    '
+  dev_url: https://github.com/openssl/openssl
+  doc_url: https://www.openssl.org/docs/man1.1.1/
+  home: https://www.openssl.org/
+  license: OpenSSL
+  license_family: Apache
+  license_file: LICENSE
+  summary: OpenSSL is an open-source implementation of the SSL and TLS protocols
+extra:
+  copy_test_source_files: true
+  final: true
+  flow_run_id: 0b02583b-c60c-483a-86d8-5745d824277e
+  recipe-maintainers:
+    - carlodri
+    - chenghlee
+    - jakirkham
+    - jjhelmus
+    - msarahan
+    - ocefpaf
+    - pelson
+  remote_url: git@github.com:AnacondaRecipes/openssl-feedstock.git
+  sha: 8e8a5b1e02d2991311e0807eebc0d277de8d468f

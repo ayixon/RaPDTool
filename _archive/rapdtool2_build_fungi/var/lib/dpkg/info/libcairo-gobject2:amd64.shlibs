@@ -1,0 +1,2 @@
+libcairo-gobject 2 libcairo-gobject2 (>= 1.16.0)
+udeb: libcairo-gobject 2 libcairo2-udeb (>= 1.16.0)

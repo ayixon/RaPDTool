@@ -1,0 +1,63 @@
+
+# Reference genomes detected (mash screen):
+
+Species	taxID	Identity	Shared-hashes
+Acinetobacter junii	40215	0.9866	754/1000
+Brevibacterium gallinarum	2762220	0.9694	521/1000
+Acinetobacter yuyunsongii	3157368	0.9684	510/1000
+Sphingobium salicis	3591446	0.9658	482/1000
+Faucicola osloensis	34062	0.9534	367/1000
+Acinetobacter parvus	134533	0.9530	364/1000
+
+# FOCUS profile (be cautious at species taxonomic level):
+
+Ideonella_azotifigens	8.27
+Sphingobium_salicis	7.86
+Acinetobacter_pullicarnis	6.10
+Simkania_negevensis	4.60
+Prochlorothrix_hollandica	4.00
+Brevibacterium_gallinarum	3.64
+Poriferisphaera_corsica	3.44
+Rhizorhabdus_antheiae	3.07
+Sphingomicrobium_clamense	2.93
+Taylorella_asinigenitalis	2.52
+Acinetobacter_shaoyimingii	1.94
+Acinetobacter_gerneri	1.91
+Asaia_platycodi	1.84
+Acinetobacter_junii	1.79
+Paraburkholderia_flava	1.44
+Candidatus_Magnetominusculus_xianensis	1.41
+Halovenus_rubra	1.41
+Providencia_zhijiangensis	1.39
+Tistrella_mobilis	1.38
+Cobetia_marina	1.35
+Comamonas_serinivorans	1.33
+Loktanella_gaetbuli	1.32
+Sphingomonas_hankookensis	1.28
+Helicobacter_gastrofelis	1.27
+Proteiniclasticum_aestuarii	1.27
+Dactylococcopsis_salina	1.25
+Moraxella_nonliquefaciens	1.25
+Halocynthiibacter_namhaensis	1.25
+Acinetobacter_apis	1.19
+Pseudaquabacterium_terrae	1.18
+Sulfoacidibacillus_thermotolerans	1.16
+Lwoffella_lincolnii	1.10
+Actinoplanes_liguriensis	1.09
+Teichococcus_deserti	1.08
+Caldivirga_maquilingensis	1.08
+Helicobacter_acinonychis	1.03
+Psittacicella_melopsittaci	1.00
+Helicobacter_macacae	0.97
+Marivivens_niveibacter	0.93
+Methylibium_rhizosphaerae	0.84
+Candidatus_Hepatobacter_penaei	0.80
+Sphingopyxis_terrae	0.76
+Amylibacter_marinus	0.76
+Bovifimicola_ammoniilytica	0.75
+Paracoccus_contaminans	0.70
+Nasibacterium_caprae	0.69
+Desulfothermus_okinawensis	0.68
+Alysiella_crassa	0.61
+Chlamydia_pecorum	0.60
+Alysiella_filiformis	0.53

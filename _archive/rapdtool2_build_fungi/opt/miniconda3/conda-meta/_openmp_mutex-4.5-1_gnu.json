@@ -1,0 +1,38 @@
+{
+  "build": "1_gnu",
+  "build_number": 17,
+  "channel": "https://repo.anaconda.com/pkgs/main/linux-64",
+  "constrains": [
+    "openmp_impl 9999"
+  ],
+  "depends": [
+    "_libgcc_mutex 0.1 main",
+    "libgomp >=7.5.0"
+  ],
+  "extracted_package_dir": "/opt/miniconda3/pkgs/_openmp_mutex-4.5-1_gnu",
+  "features": "",
+  "files": [
+    "lib/libgomp.so.1"
+  ],
+  "fn": "_openmp_mutex-4.5-1_gnu.tar.bz2",
+  "license": "BSD-3-Clause",
+  "link": {
+    "source": "/opt/miniconda3/pkgs/_openmp_mutex-4.5-1_gnu",
+    "type": 1
+  },
+  "md5": "84414b0edb0a36bd7e25fc4936c1abb5",
+  "name": "_openmp_mutex",
+  "package_tarball_full_path": "/opt/miniconda3/pkgs/_openmp_mutex-4.5-1_gnu.tar.bz2",
+  "paths_data": {
+    "paths": [],
+    "paths_version": 1
+  },
+  "requested_spec": "_openmp_mutex==4.5=1_gnu",
+  "sha256": "2c269ff2e33d3c158b4744485b7fe11ee132814c55a70b33b3e68d588375d465",
+  "size": 22165,
+  "subdir": "linux-64",
+  "timestamp": 1612961522265,
+  "track_features": "",
+  "url": "https://repo.anaconda.com/pkgs/main/linux-64/_openmp_mutex-4.5-1_gnu.tar.bz2",
+  "version": "4.5"
+}

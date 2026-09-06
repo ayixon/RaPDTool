@@ -1,0 +1,16 @@
+/usr/share/debianutils/shells.d debianutils/noawait
+/usr/lib/systemd/catalog systemd/noawait
+/etc/dbus-1/system.d dbus/noawait
+/usr/share/dbus-1/system.d dbus/noawait
+/usr/share/dbus-1/system-services dbus/noawait
+/usr/lib/x86_64-linux-gnu/gio/modules libglib2.0-0:amd64/noawait
+/usr/share/glib-2.0/schemas libglib2.0-0:amd64
+/usr/share/mime/packages shared-mime-info/noawait
+/usr/share/icons/hicolor hicolor-icon-theme/noawait
+/usr/lib/gdk-pixbuf-2.0/2.10.0/loaders libgdk-pixbuf-2.0-0:amd64/noawait
+/usr/lib/x86_64-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders libgdk-pixbuf-2.0-0:amd64/noawait
+/usr/share/fonts fontconfig/noawait
+/usr/share/ghostscript/fonts fontconfig/noawait
+/usr/share/texmf/fonts fontconfig/noawait
+/usr/lib/x86_64-linux-gnu/gtk-3.0/3.0.0/immodules libgtk-3-0:amd64/noawait
+/usr/lib/gtk-3.0/3.0.0/immodules libgtk-3-0:amd64/noawait

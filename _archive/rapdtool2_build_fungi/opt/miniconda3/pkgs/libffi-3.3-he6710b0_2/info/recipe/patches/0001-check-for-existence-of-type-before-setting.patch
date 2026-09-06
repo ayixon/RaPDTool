@@ -1,0 +1,25 @@
+From 61a47c0a9e19f6fafd4d1d5b6c2fa7bdf949d1e1 Mon Sep 17 00:00:00 2001
+From: Angela Gloyna <angela.gloyna@gmail.com>
+Date: Wed, 22 Apr 2020 13:16:21 -0500
+Subject: [PATCH] check for existence of type before setting
+
+---
+ src/powerpc/ffi_powerpc.h | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/src/powerpc/ffi_powerpc.h b/src/powerpc/ffi_powerpc.h
+index 8e2f2f0..960a5c4 100644
+--- a/src/powerpc/ffi_powerpc.h
++++ b/src/powerpc/ffi_powerpc.h
+@@ -57,7 +57,7 @@ typedef union
+   double d;
+ } ffi_dblfl;
+ 
+-#if defined(__FLOAT128_TYPE__)
++#if defined(__FLOAT128_TYPE__) && defined(__HAVE_FLOAT128)
+ typedef _Float128 float128;
+ #elif defined(__FLOAT128__)
+ typedef __float128 float128;
+-- 
+2.20.1 (Apple Git-117)
+

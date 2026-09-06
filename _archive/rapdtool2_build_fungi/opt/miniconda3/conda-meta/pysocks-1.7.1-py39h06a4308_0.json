@@ -1,0 +1,49 @@
+{
+  "build": "py39h06a4308_0",
+  "build_number": 0,
+  "channel": "https://repo.anaconda.com/pkgs/main/linux-64",
+  "constrains": [],
+  "depends": [
+    "python >=3.9,<3.10.0a0"
+  ],
+  "extracted_package_dir": "/opt/miniconda3/pkgs/pysocks-1.7.1-py39h06a4308_0",
+  "features": "",
+  "files": [
+    "lib/python3.9/site-packages/PySocks-1.7.1.dist-info/INSTALLER",
+    "lib/python3.9/site-packages/PySocks-1.7.1.dist-info/LICENSE",
+    "lib/python3.9/site-packages/PySocks-1.7.1.dist-info/METADATA",
+    "lib/python3.9/site-packages/PySocks-1.7.1.dist-info/RECORD",
+    "lib/python3.9/site-packages/PySocks-1.7.1.dist-info/REQUESTED",
+    "lib/python3.9/site-packages/PySocks-1.7.1.dist-info/WHEEL",
+    "lib/python3.9/site-packages/PySocks-1.7.1.dist-info/direct_url.json",
+    "lib/python3.9/site-packages/PySocks-1.7.1.dist-info/top_level.txt",
+    "lib/python3.9/site-packages/__pycache__/socks.cpython-39.pyc",
+    "lib/python3.9/site-packages/__pycache__/sockshandler.cpython-39.pyc",
+    "lib/python3.9/site-packages/socks.py",
+    "lib/python3.9/site-packages/sockshandler.py"
+  ],
+  "fn": "pysocks-1.7.1-py39h06a4308_0.conda",
+  "legacy_bz2_md5": "c5f3f7f10ad30f0945e75252615ab6e5",
+  "legacy_bz2_size": 31331,
+  "license": "BSD 3-Clause",
+  "license_family": "BSD",
+  "link": {
+    "source": "/opt/miniconda3/pkgs/pysocks-1.7.1-py39h06a4308_0",
+    "type": 1
+  },
+  "md5": "0a2dc6c521fd674b11a99dea461c2d84",
+  "name": "pysocks",
+  "package_tarball_full_path": "/opt/miniconda3/pkgs/pysocks-1.7.1-py39h06a4308_0.conda",
+  "paths_data": {
+    "paths": [],
+    "paths_version": 1
+  },
+  "requested_spec": "pysocks==1.7.1=py39h06a4308_0",
+  "sha256": "ead83f9ff403c95124f8f7bd88a3af1d195139a316cf53d881430cad7d09d870",
+  "size": 31752,
+  "subdir": "linux-64",
+  "timestamp": 1605305847037,
+  "track_features": "",
+  "url": "https://repo.anaconda.com/pkgs/main/linux-64/pysocks-1.7.1-py39h06a4308_0.conda",
+  "version": "1.7.1"
+}

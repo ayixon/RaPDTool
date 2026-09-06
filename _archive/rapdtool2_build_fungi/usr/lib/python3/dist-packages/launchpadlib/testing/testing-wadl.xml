@@ -1,0 +1,346 @@
+<?xml version="1.0"?>
+<!DOCTYPE application [
+  <!ENTITY nbsp "\&#160;">
+]>
+<wadl:application xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  xmlns="http://research.sun.com/wadl/2006/10"
+                  xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                  xmlns:wadl="http://research.sun.com/wadl/2006/10"
+                  xsi:schemaLocation="http://research.sun.com/wadl/2006/10/wadl.xsd">
+
+
+  <wadl:resources base="https://api.example.com/testing/">
+    <wadl:resource path="" type="#service-root"/>
+  </wadl:resources>
+
+  <!--A "service root" resource responds to GET.-->
+  <wadl:resource_type id="service-root">
+    <wadl:method name="GET" id="service-root-get">
+      <wadl:response>
+        <wadl:representation href="#service-root-json"/>
+        <wadl:representation mediaType="application/vnd.sun.wadl+xml" id="service-root-wadl"/>
+      </wadl:response>
+    </wadl:method>
+  </wadl:resource_type>
+
+  <wadl:representation mediaType="application/json" id="service-root-json">
+    <wadl:param style="plain"
+                path="$['branches_collection_link']"
+                name="branches_collection_link">
+      <wadl:link resource_type="https://api.example.com/testing/#branches"/>
+    </wadl:param>
+
+    <wadl:param style="plain"
+                path="$['bugs_collection_link']"
+                name="bugs_collection_link">
+      <wadl:link resource_type="https://api.example.com/testing/#bugs"/>
+    </wadl:param>
+
+    <wadl:param style="plain" path="$['me_link']"
+                name="me_link">
+      <wadl:link resource_type="https://api.example.com/testing/#person"/>
+    </wadl:param>
+  </wadl:representation>
+
+
+  <wadl:resource_type id="person">
+    <wadl:method name="GET" id="person-get">
+      <wadl:response>
+        <wadl:representation
+           href="https://api.example.com/testing/#person-full"/>
+        <wadl:representation
+           mediaType="application/xhtml+xml" id="person-xhtml"/>
+        <wadl:representation
+           mediaType="application/vnd.sun.wadl+xml"
+           id="person-wadl"/>
+      </wadl:response>
+    </wadl:method>
+
+    <wadl:method name="PUT" id="person-put">
+      <wadl:request>
+        <wadl:representation
+           href="https://api.example.com/testing/#person-full"/>
+      </wadl:request>
+    </wadl:method>
+
+    <wadl:method name="PATCH" id="person-patch">
+      <wadl:request>
+        <wadl:representation
+           href="https://api.example.com/testing/#person-diff"/>
+      </wadl:request>
+    </wadl:method>
+
+    <wadl:method id="person-getBranches" name="GET">
+      <wadl:request>
+        <wadl:param style="query" name="ws.op"
+                        required="true" fixed="getBranches"/>
+        <wadl:param style="query" required="false"
+                    type="xsd:dateTime"
+                    name="modified_since">
+        </wadl:param>
+        <wadl:param style="query" required="false"
+                    name="status">
+        </wadl:param>
+      </wadl:request>
+      <wadl:response>
+        <wadl:representation href="https://api.example.com/testing/#branch-page"/>
+      </wadl:response>
+    </wadl:method>
+
+    <wadl:method id="person-getPPAByName" name="GET">
+      <wadl:request>
+        <wadl:param style="query" name="ws.op"
+                    required="true" fixed="getPPAByName"/>
+        <wadl:param style="query" required="true"
+                    name="name">
+        </wadl:param>
+      </wadl:request>
+      <wadl:response>
+        <wadl:representation href="https://api.example.com/testing/#archive-full"/>
+      </wadl:response>
+    </wadl:method>
+  </wadl:resource_type>
+
+  <wadl:representation mediaType="application/json"
+                       id="person-full">
+    <wadl:param style="plain" name="self_link" path="$['self_link']">
+      <wadl:link resource_type="https://api.example.com/testing/#person"/>
+    </wadl:param>
+    <wadl:param style="plain" name="web_link"
+                path="$['web_link']">
+      <wadl:link/>
+    </wadl:param>
+    <wadl:param style="plain" name="resource_type_link" path="$['resource_type_link']">
+      <wadl:link/>
+    </wadl:param>
+    <wadl:param style="plain" name="http_etag" path="$['http_etag']">
+    </wadl:param>
+    <wadl:param style="plain" required="true"
+                path="$['date_created']"
+                type="xsd:dateTime" name="date_created">
+    </wadl:param>
+
+    <wadl:param style="plain" required="true"
+                path="$['display_name']"
+                name="display_name">
+    </wadl:param>
+
+    <wadl:param style="plain" required="true"
+                path="$['name']" name="name">
+    </wadl:param>
+  </wadl:representation>
+
+  <wadl:resource_type id="branch">
+    <wadl:doc xmlns="http://www.w3.org/1999/xhtml">
+      A Bazaar branch.
+    </wadl:doc>
+    <wadl:method name="GET" id="branch-get">
+      <wadl:response>
+        <wadl:representation
+           href="https://api.example.com/testing/#branch-full"/>
+        <wadl:representation
+           mediaType="application/xhtml+xml" id="branch-xhtml"/>
+        <wadl:representation
+           mediaType="application/vnd.sun.wadl+xml"
+           id="branch-wadl"/>
+      </wadl:response>
+    </wadl:method>
+
+    <wadl:method name="PUT" id="branch-put">
+      <wadl:request>
+        <wadl:representation
+           href="https://api.example.com/testing/#branch-full"/>
+      </wadl:request>
+    </wadl:method>
+
+    <wadl:method name="PATCH" id="branch-patch">
+      <wadl:request>
+        <wadl:representation
+           href="https://api.example.com/testing/#branch-diff"/>
+      </wadl:request>
+    </wadl:method>
+
+    <wadl:method name="DELETE" id="branch-delete"/>
+  </wadl:resource_type>
+
+  <wadl:representation mediaType="application/json"
+                       id="branch-full">
+    <wadl:param style="plain" name="self_link" path="$['self_link']">
+      <wadl:link resource_type="https://api.example.com/testing/#branch"/>
+    </wadl:param>
+    <wadl:param style="plain" name="web_link"
+                path="$['web_link']">
+      <wadl:link/>
+    </wadl:param>
+    <wadl:param style="plain" name="resource_type_link" path="$['resource_type_link']">
+      <wadl:link/>
+    </wadl:param>
+    <wadl:param style="plain" name="http_etag" path="$['http_etag']">
+    </wadl:param>
+    <wadl:param style="plain" required="true"
+                path="$['bzr_identity']"
+                name="bzr_identity">
+    </wadl:param>
+    <wadl:param style="plain" required="true"
+                path="$['unique_name']" name="unique_name">
+    </wadl:param>
+    <wadl:param style="plain" required="true"
+                path="$['name']" name="name">
+    </wadl:param>
+  </wadl:representation>
+
+  <wadl:resource_type id="branches">
+    <wadl:doc xmlns="http://www.w3.org/1999/xhtml">
+      Interface representing the set of branches.
+    </wadl:doc>
+    <wadl:method name="GET" id="branches-get">
+      <wadl:response>
+        <wadl:representation
+           href="https://api.example.com/testing/#branch-page"/>
+        <wadl:representation
+           mediaType="application/vnd.sun.wadl+xml"
+           id="branches-wadl"/>
+      </wadl:response>
+    </wadl:method>
+
+    <wadl:method id="branches-getByUniqueName" name="GET">
+      <wadl:request>
+        <wadl:param style="query" name="ws.op"
+                    required="true"
+                    fixed="getByUniqueName">
+        </wadl:param>
+        <wadl:param style="query" required="true"
+                    name="unique_name">
+        </wadl:param>
+      </wadl:request>
+      <wadl:response>
+        <wadl:representation
+           href="https://api.example.com/testing/#branch-full"/>
+      </wadl:response>
+    </wadl:method>
+
+  </wadl:resource_type>
+
+  <wadl:resource_type id="branch-page-resource">
+    <wadl:method name="GET" id="branch-page-resource-get">
+      <wadl:response>
+        <wadl:representation href="#branch-page"/>
+      </wadl:response>
+    </wadl:method>
+  </wadl:resource_type>
+
+  <wadl:representation mediaType="application/json"
+                       id="branch-page">
+    <wadl:param style="plain" name="resource_type_link" path="$['resource_type_link']">
+      <wadl:link/>
+    </wadl:param>
+    <wadl:param style="plain" name="total_size"
+                path="$['total_size']" required="true"/>
+    <wadl:param style="plain" name="start" path="$['start']" required="true"/>
+    <wadl:param style="plain" name="next_collection_link" path="$['next_collection_link']">
+      <wadl:link resource_type="#branch-page-resource"/>
+    </wadl:param>
+    <wadl:param style="plain" name="prev_collection_link" path="$['prev_collection_link']">
+      <wadl:link resource_type="#branch-page-resource"/>
+    </wadl:param>
+    <wadl:param style="plain" name="entries" path="$['entries']" required="true"/>
+    <wadl:param style="plain" name="entry_links" path="$['entries'][*]['self_link']">
+      <wadl:link resource_type="https://api.example.com/testing/#branch"/>
+    </wadl:param>
+  </wadl:representation>
+
+  <wadl:resource_type id="bugs">
+    <wadl:doc xmlns="http://www.w3.org/1999/xhtml">
+      Application root for malone.
+    </wadl:doc>
+    <wadl:method name="GET" id="bugs-get">
+      <wadl:response>
+        <wadl:representation
+           href="https://api.example.com/testing/#bug-page"/>
+        <wadl:representation
+           mediaType="application/vnd.sun.wadl+xml" id="bugs-wadl"/>
+      </wadl:response>
+    </wadl:method>
+  </wadl:resource_type>
+
+  <wadl:resource_type id="bug-page-resource">
+    <wadl:method name="GET" id="bug-page-resource-get">
+      <wadl:response>
+        <wadl:representation href="#bug-page"/>
+      </wadl:response>
+    </wadl:method>
+  </wadl:resource_type>
+
+  <wadl:representation mediaType="application/json"
+                       id="bug-page">
+    <wadl:param style="plain" name="resource_type_link" path="$['resource_type_link']">
+      <wadl:link/>
+    </wadl:param>
+    <wadl:param style="plain" name="total_size"
+                path="$['total_size']" required="true"/>
+    <wadl:param style="plain" name="start" path="$['start']" required="true"/>
+    <wadl:param style="plain" name="next_collection_link" path="$['next_collection_link']">
+      <wadl:link resource_type="#bug-page-resource"/>
+    </wadl:param>
+    <wadl:param style="plain" name="prev_collection_link" path="$['prev_collection_link']">
+      <wadl:link resource_type="#bug-page-resource"/>
+    </wadl:param>
+    <wadl:param style="plain" name="entries" path="$['entries']" required="true"/>
+    <wadl:param style="plain" name="entry_links" path="$['entries'][*]['self_link']">
+      <wadl:link resource_type="https://api.example.com/testing/#bug"/>
+    </wadl:param>
+  </wadl:representation>
+
+  <wadl:resource_type id="bug">
+    <wadl:doc xmlns="http://www.w3.org/1999/xhtml">
+      The core bug entry.
+    </wadl:doc>
+    <wadl:method name="GET" id="bug-get">
+      <wadl:response>
+        <wadl:representation
+           href="https://api.example.com/testing/#bug-full"/>
+        <wadl:representation
+           mediaType="application/xhtml+xml" id="bug-xhtml"/>
+        <wadl:representation
+           mediaType="application/vnd.sun.wadl+xml" id="bug-wadl"/>
+      </wadl:response>
+    </wadl:method>
+
+    <wadl:method name="PUT" id="bug-put">
+      <wadl:request>
+        <wadl:representation
+           href="https://api.example.com/testing/#bug-full"/>
+      </wadl:request>
+    </wadl:method>
+
+    <wadl:method name="PATCH" id="bug-patch">
+      <wadl:request>
+        <wadl:representation
+           href="https://api.example.com/testing/#bug-diff"/>
+      </wadl:request>
+    </wadl:method>
+  </wadl:resource_type>
+
+  <wadl:representation mediaType="application/json"
+                       id="bug-full">
+    <wadl:param style="plain" name="self_link" path="$['self_link']">
+      <wadl:link resource_type="https://api.example.com/testing/#bug"/>
+    </wadl:param>
+    <wadl:param style="plain" name="web_link"
+                path="$['web_link']">
+      <wadl:link/>
+    </wadl:param>
+    <wadl:param style="plain" name="resource_type_link" path="$['resource_type_link']">
+      <wadl:link/>
+    </wadl:param>
+    <wadl:param style="plain" name="http_etag" path="$['http_etag']">
+    </wadl:param>
+    <wadl:param style="plain" required="true"
+                path="$['id']" name="id">
+    </wadl:param>
+    <wadl:param style="plain" required="true"
+                path="$['title']" name="title">
+    </wadl:param>
+  </wadl:representation>
+
+</wadl:application>

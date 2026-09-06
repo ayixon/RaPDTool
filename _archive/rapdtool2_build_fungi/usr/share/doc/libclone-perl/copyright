@@ -1,0 +1,39 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: Clone
+Source: https://metacpan.org/release/Clone
+Upstream-Contact: Ray Finch <rdf@cpan.org>
+
+Files: *
+Copyright: 2001-2019, Ray Finch <rdf@cpan.org>
+License: Artistic or GPL-1+
+
+Files: t/dclone.t
+ t/dump.pl
+ t/tied.pl
+Copyright: 1995-2000, Raphael Manfredi
+License: Artistic or GPL-1+
+
+Files: debian/*
+Copyright: 2004-2007, Bastian Blank <waldi@debian.org>
+ 2008, Brian Cassidy <brian.cassidy@gmail.com>
+ 2008, Gunnar Wolf <gwolf@debian.org>
+ 2008-2011, Ansgar Burchardt <ansgar@debian.org>
+ 2008-2020, gregor herrmann <gregoa@debian.org>
+ 2012-2018, Xavier Guimard <yadd@debian.org>
+License: Artistic or GPL-1+
+
+License: Artistic
+ This program is free software; you can redistribute it and/or modify
+ it under the terms of the Artistic License, which comes with Perl.
+ .
+ On Debian systems, the complete text of the Artistic License can be
+ found in `/usr/share/common-licenses/Artistic'.
+
+License: GPL-1+
+ This program is free software; you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation; either version 1, or (at your option)
+ any later version.
+ .
+ On Debian systems, the complete text of version 1 of the GNU General
+ Public License can be found in `/usr/share/common-licenses/GPL-1'.

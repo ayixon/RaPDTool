@@ -1,0 +1,2 @@
+libepoxy 0 libepoxy0 (>= 1.5.4)
+udeb: libepoxy 0 libepoxy0-udeb (>= 1.5.4)

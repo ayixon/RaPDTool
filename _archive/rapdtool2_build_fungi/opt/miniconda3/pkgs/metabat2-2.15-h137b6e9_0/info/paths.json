@@ -1,0 +1,59 @@
+{
+  "paths": [
+    {
+      "_path": "bin/aggregateBinDepths.pl",
+      "path_type": "hardlink",
+      "sha256": "466d774619a04e6c15d1b32ef88d0337e3cd9f99f7faf055707e97722166f8e7",
+      "size_in_bytes": 1363
+    },
+    {
+      "_path": "bin/aggregateContigOverlapsByBin.pl",
+      "path_type": "hardlink",
+      "sha256": "c17f40a30a7d4f1ec67a37ff01c5d87b95ae004a8060590dec45fbfb8ecdbe8a",
+      "size_in_bytes": 2907
+    },
+    {
+      "_path": "bin/contigOverlaps",
+      "path_type": "hardlink",
+      "sha256": "b779ddd2216373a4bb9b12c65fb7f5600600511faa1893dea57d9d78fb4ecc8d",
+      "size_in_bytes": 606944
+    },
+    {
+      "_path": "bin/jgi_summarize_bam_contig_depths",
+      "path_type": "hardlink",
+      "sha256": "d2cd2f9da92d61c218115ad64356eada8d038c5f8d84d07f93a62c282246d66a",
+      "size_in_bytes": 787016
+    },
+    {
+      "_path": "bin/merge_depths.pl",
+      "path_type": "hardlink",
+      "sha256": "5fc6e144822abc0bdebff63773fb485de61d1d32adc47cb989785284c0cf2bf2",
+      "size_in_bytes": 1348
+    },
+    {
+      "_path": "bin/metabat",
+      "path_type": "softlink",
+      "sha256": "484b793bb09d7c6bb4a9c58360c02901fdfc81c7c5d12a0f9182cfcbcd3802ac",
+      "size_in_bytes": 795336
+    },
+    {
+      "_path": "bin/metabat1",
+      "path_type": "hardlink",
+      "sha256": "996dc3d32886cd116feecdcc38976b1c53488e0b23c308174facd5788af63521",
+      "size_in_bytes": 1073032
+    },
+    {
+      "_path": "bin/metabat2",
+      "path_type": "hardlink",
+      "sha256": "484b793bb09d7c6bb4a9c58360c02901fdfc81c7c5d12a0f9182cfcbcd3802ac",
+      "size_in_bytes": 795336
+    },
+    {
+      "_path": "bin/runMetaBat.sh",
+      "path_type": "hardlink",
+      "sha256": "aea81330cfdc663270e3e44a8d5041bdafeb8a139224948ac712559f7ca9c966",
+      "size_in_bytes": 2719
+    }
+  ],
+  "paths_version": 1
+}

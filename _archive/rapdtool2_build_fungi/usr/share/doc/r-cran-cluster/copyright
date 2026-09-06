@@ -1,0 +1,40 @@
+This is the Debian GNU/Linux r-cran-cluster package of cluster, a
+collection of functions and datasets for cluster analysis, originally
+from Peter Rousseeuw, Anja Struyf and Mia Hubert. The R port was
+written by Kurt Hornik and Martin Maechler.
+
+This package was created by Dirk Eddelbuettel <edd@debian.org>.
+The sources were downloaded from 
+	http://cran.us.r-project.org/src/contrib/
+and are also included in the (large) source tar archive of R itself at
+	http://cran.us.r-project.org/src/base/
+
+The package was renamed from its upstream name 'cluster' to 'r-cran-cluster'
+to fit the pattern of CRAN (and non-CRAN) packages for R.
+
+Copyright (C) 1998-2008 Kurt Hornik and Martin Maechler
+Portions Copyright (C) Peter Rousseeuw, Anja Struyf, and Mia Hubert
+
+License: GPL-2+
+
+On a Debian GNU/Linux system, the GPL (v2) license is included in the file
+/usr/share/common-licenses/GPL-2.
+
+For reference, the upstream DESCRIPTION [with lines broken to 80 cols]
+file is included below:
+
+    Package: cluster
+    Version: 1.7.6
+    Date: 2003-09-24
+    Priority: recommended
+    Author: S original by Peter Rousseeuw <rousse@uia.ua.ac.be>, Anja Struyf
+    	<Anja.Struyf@uia.ua.ac.be> and Mia Hubert <Mia.Hubert@uia.ua.ac.be>.
+      R port by Kurt Hornik <Kurt.Hornik@ci.tuwien.ac.at> and Martin Maechler
+      who has added several extensions.
+    Maintainer: Martin Maechler <maechler@stat.math.ethz.ch>
+    Title: Functions for clustering (by Rousseeuw et al.)
+    Description: Functions for cluster analysis, originally from
+      Peter Rousseeuw, Anja Struyf and Mia Hubert.
+    Depends: R (>= 1.4)
+    License: GPL version 2 or later
+

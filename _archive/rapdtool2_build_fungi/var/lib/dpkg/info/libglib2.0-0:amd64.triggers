@@ -1,0 +1,4 @@
+interest-noawait /usr/lib/x86_64-linux-gnu/gio/modules
+interest-await /usr/share/glib-2.0/schemas
+# Triggers added by dh_makeshlibs/13.6ubuntu1
+activate-noawait ldconfig

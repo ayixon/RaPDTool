@@ -1,0 +1,23 @@
+{
+  "arch": "x86_64",
+  "build": "ha770c72_0",
+  "build_number": 0,
+  "channel": "https://conda.anaconda.org/conda-forge/linux-64",
+  "constrains": [],
+  "depends": [
+    "ca-certificates"
+  ],
+  "features": "",
+  "fn": "ncbi-datasets-cli-16.22.0-ha770c72_0.conda",
+  "license": "Public Domain",
+  "md5": "1cafea70b8d93c781f90da1b67d1ae0f",
+  "name": "ncbi-datasets-cli",
+  "platform": "linux",
+  "sha256": "f395046a5473eb328bd298fdafac5f1ecd47c2f7045add845cce271973623dcf",
+  "size": 16655565,
+  "subdir": "linux-64",
+  "timestamp": 1718644667537,
+  "track_features": "",
+  "url": "https://conda.anaconda.org/conda-forge/linux-64/ncbi-datasets-cli-16.22.0-ha770c72_0.conda",
+  "version": "16.22.0"
+}

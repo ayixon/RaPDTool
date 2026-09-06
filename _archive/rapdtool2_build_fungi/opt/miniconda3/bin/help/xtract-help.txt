@@ -1,0 +1,368 @@
+Overview
+
+  Xtract uses command-line arguments to convert XML data into a tab-delimited table.
+
+  -pattern places the data from individual records into separate rows.
+
+  -element extracts values from specified fields into separate columns.
+
+  -group, -block, and -subset limit element exploration to selected XML subregions.
+
+Processing Flags
+
+  -strict          Remove HTML and MathML tags
+  -mixed           Allow mixed content XML
+
+  -self            Allow detection of empty self-closing tags
+
+  -accent          Excise Unicode accents and diacritical marks
+  -ascii           Unicode to numeric HTML character entities
+  -compress        Compress runs of spaces
+
+  -stops           Retain stop words in selected phrases
+
+Data Source
+
+  -input           Read XML from file instead of stdin
+  -transform       File of substitutions for -translate
+
+Exploration Argument Hierarchy
+
+  -pattern         Name of record within set
+  -group             Use of different argument
+  -block               names allows command-line
+  -subset                control of nested looping
+
+Path Navigation
+
+  -path            Explore by list of adjacent object names
+
+Exploration Constructs
+
+  Object           DateRevised
+  Parent/Child     Book/AuthorList
+  Path             MedlineCitation/Article/Journal/JournalIssue/PubDate
+  Heterogeneous    "PubmedArticleSet/*"
+  Exhaustive       "History/**"
+  Nested           "*/Taxon"
+  Recursive        "**/Gene-commentary"
+
+Conditional Execution
+
+  -if              Element [@attribute] required
+  -unless          Skip if element matches
+  -and             All tests must pass
+  -or              Any passing test suffices
+  -else            Execute if conditional test failed
+  -position        [first|last|outer|inner|even|odd|all]
+
+String Constraints
+
+  -equals          String must match exactly
+  -contains        Substring must be present
+  -includes        Substring must match at word boundaries
+  -is-within       String must be present
+  -starts-with     Substring must be at beginning
+  -ends-with       Substring must be at end
+  -is-not          String must not match
+  -is-before       First string < second string
+  -is-after        First string > second string
+  -matches         Matches without commas or semicolons
+  -resembles       Requires all words, but in any order
+
+Object Constraints
+
+  -is-equal-to     Object values must match
+  -differs-from    Object values must differ
+
+Numeric Constraints
+
+  -gt              Greater than
+  -ge              Greater than or equal to
+  -lt              Less than
+  -le              Less than or equal to
+  -eq              Equal to
+  -ne              Not equal to
+
+Format Customization
+
+  -ret             Override line break between patterns
+  -tab             Replace tab character between fields
+  -sep             Separator between group members
+  -pfx             Prefix to print before group
+  -sfx             Suffix to print after group
+  -rst             Reset -sep through -elg
+  -clr             Clear queued tab separator
+  -pfc             Preface combines -clr and -pfx
+  -deq             Delete and replace queued tab separator
+  -def             Default placeholder for missing fields
+  -lbl             Insert arbitrary text
+
+XML Generation
+
+  -set             XML tag for entire set
+  -rec             XML tag for each record
+
+  -wrp             Wrap elements in XML object
+
+  -enc             Encase instance in XML object
+  -plg             Prologue to print before instance
+  -elg             Epilogue to print after instance
+
+  -pkg             Package subset in XML object
+  -fwd             Foreword to print before subset
+  -awd             Afterword to print after subset
+
+Element Selection
+
+  -element         Print all items that match tag name
+  -first           Only print value of first item
+  -last            Only print value of last item
+  -backward        Print values in reverse order
+  -NAME            Record value in named variable
+  --STATS          Accumulate values into variable
+
+-element Constructs
+
+  Tag              Caption
+  Group            Initials,LastName
+  Parent/Child     MedlineCitation/PMID
+  Unrestricted     "PubDate/*"
+  Attribute        DescriptorName@MajorTopicYN
+  Range            MedlineDate[1:4]
+  Substring        "Title[phospholipase | rattlesnake]"
+  Object Count     "#Author"
+  Item Length      "%Title"
+  Element Depth    "^PMID"
+  Variable         "&NAME"
+
+Special -element Operations
+
+  Parent Index     "+"
+  Object Name      "?"
+  Object Value     "~"
+  XML Subtree      "*"
+  Children         "$"
+  Attributes       "@"
+
+Numeric Processing
+
+  -num             Count
+  -len             Length
+  -sum             Sum
+  -min             Minimum
+  -max             Maximum
+  -inc             Increment
+  -dec             Decrement
+  -sub             Difference
+  -avg             Average
+  -dev             Deviation
+  -med             Median
+  -mul             Product
+  -div             Quotient
+  -mod             Remainder
+  -bin             Binary
+  -bit             Bit Count
+
+Character Processing
+
+  -encode          XML-encode <, >, &, ", and ' characters
+  -plain           Remove embedded mixed-content markup tags
+  -upper           Convert text to upper-case
+  -lower           Convert text to lower-case
+  -chain           Change_spaces_to_underscores
+  -title           Capitalize initial letters of words
+  -author          Replace commas and periods in author string
+
+String Processing
+
+  -terms           Partition text at spaces
+  -words           Split at punctuation marks
+  -pairs           Adjacent informative words
+  -order           Rearrange words in sorted order
+  -reverse         Reverse words in string
+  -letters         Separate individual letters
+  -clauses         Break at phrase separators
+
+Miscellaneous Functions
+
+  -year            Extract first 4-digit year from string
+  -doi             Add https://doi.org/ prefix, URL encode
+
+Value Transformation
+
+  -translate       Substitute values with -transform table
+
+Regular Expression
+
+  -replace         Substitute text using regular expressions
+
+  -reg             Target expression
+  -exp             Replacement pattern
+
+Sequence Processing
+
+  -revcomp         Reverse complement nucleotide sequence
+  -nucleic         Subrange determines forward or revcomp
+  -fasta           Split sequence into blocks of 70 uppercase letters
+  -ncbi2na         Expand ncbi2na to iupac
+  -ncbi4na         Expand ncbi4na to iupac
+                     (May need to truncate result to actual sequence length)
+  -molwt           Calculate molecular weight of peptide
+
+Sequence Coordinates
+
+  -0-based         Zero-Based
+  -1-based         One-Based
+  -ucsc-based      Half-Open
+
+Command Generator
+
+  -insd            Generate INSDSeq extraction commands
+
+-insd Argument Order
+
+  Descriptors      INSDSeq_sequence INSDSeq_definition INSDSeq_division
+  Flags            [complete|partial]
+  Feature(s)       CDS,mRNA
+  Qualifiers       INSDFeature_key "#INSDInterval" gene product feat_location sub_sequence
+
+Variation Processing
+
+  -hgvs            Convert sequence variation format to XML
+
+Frequency Table
+
+  -histogram       Collects data for sort-uniq-count on entire set of records
+
+Entrez Indexing
+
+  -e2index         Create Entrez index XML
+  -indices         Index normalized words
+  -article         Only index article title
+
+Output Organization
+
+  -head            Print before everything else
+  -tail            Print after everything else
+  -hd              Print before each record
+  -tl              Print after each record
+
+Record Selection
+
+  -select          Select record subset by conditions
+  -in              File of identifiers to use for selection
+
+Record Rearrangement
+
+  -sort            Element to use as sort key
+
+Reformatting
+
+  -format          [copy|compact|flush|indent|expand]
+
+Validation
+
+  -verify          Report XML data integrity problems
+
+Summary
+
+  -outline         Display outline of XML structure
+  -synopsis        Display individual XML paths
+  -contour         Display XML paths to leaf nodes
+                     [delimiter]
+
+Documentation
+
+  -help            Print this document
+  -examples        Examples of EDirect and xtract usage
+  -unix            Common Unix command arguments
+  -version         Print version number
+
+Notes
+
+  String constraints use case-insensitive comparisons.
+
+  Numeric constraints and selection arguments use integer values.
+
+  -num and -len selections are synonyms for Object Count (#) and Item Length (%).
+
+  -words, -pairs, -reverse, -indices, and -article convert to lower case.
+
+  See transmute -help for data conversion and modification functions.
+
+Xtract Examples
+
+  -pattern DocumentSummary -element Id -first Name Title
+
+  -pattern "PubmedArticleSet/*" -block Author -sep " " -element Initials,LastName
+
+  -pattern PubmedArticle -block MeshHeading -if "@MajorTopicYN" -equals Y -sep " / " -element DescriptorName,QualifierName
+
+  -pattern GenomicInfoType -element ChrAccVer ChrStart ChrStop
+
+  -pattern Taxon -block "*/Taxon" -unless Rank -equals "no rank" -tab "\n" -element Rank,ScientificName
+
+  -pattern Entrezgene -block "**/Gene-commentary"
+
+  -block INSDReference -position 2
+
+  -subset INSDInterval -position last -POS INSDInterval_to -element "&SEQ[&POS+1:]"
+
+  -if Author -and Title
+
+  -if "#Author" -lt 6 -and "%Title" -le 70
+
+  -if DateRevised/Year -gt 2005
+
+  -if ChrStop -lt ChrStart
+
+  -if CommonName -contains mouse
+
+  -if "&ABST" -starts-with "Transposable elements"
+
+  -if MapLocation -element MapLocation -else -lbl "\-"
+
+  -if inserted_sequence -differs-from deleted_sequence
+
+  -min ChrStart,ChrStop
+
+  -max ExonCount
+
+  -inc position -element inserted_sequence
+
+  -1-based ChrStart
+
+  -insd CDS gene product protein_id translation
+
+  -insd complete mat_peptide "%peptide" product peptide
+
+  -insd CDS INSDInterval_iscomp@value INSDInterval_from INSDInterval_to
+
+  -pattern PubmedArticle -select PubDate/Year -eq 2015
+
+  -pattern PubmedArticle -select MedlineCitation/PMID -in file_of_pmids.txt
+
+  -wrp PubmedArticleSet -pattern PubmedArticle -sort MedlineCitation/PMID
+
+  -pattern PubmedArticle -split 5000 -prefix "subset" -suffix "xml"
+
+  -pattern PubmedBookArticle -path BookDocument.Book.AuthorList.Author -element LastName
+
+  -pattern PubmedArticle -group MedlineCitation/Article/Journal/JournalIssue/PubDate -year "PubDate/*"
+
+  -mixed -verify MedlineCitation/PMID -html
+
+Transmute Examples
+
+  transmute -j2x -set - -rec GeneRec
+
+  transmute -t2x -set Set -rec Rec -skip 1 Code Name
+
+  transmute -filter ExpXml decode content
+
+  transmute -filter LocationHist remove object
+
+  transmute -normalize pubmed
+
+  transmute -head "<PubmedArticleSet>" -tail "</PubmedArticleSet>" -pattern "PubmedArticleSet/*" -format

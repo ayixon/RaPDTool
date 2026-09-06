@@ -1,0 +1,3 @@
+# Triggers added by dh_makeshlibs/13.6ubuntu1
+# Triggers added by dh_makeshlibs/13.6ubuntu1
+activate-noawait ldconfig

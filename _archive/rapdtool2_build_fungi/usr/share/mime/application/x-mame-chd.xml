@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mime-type xmlns="http://www.freedesktop.org/standards/shared-mime-info" type="application/x-mame-chd">
+  <!--Created automatically by update-mime-database. DO NOT EDIT!-->
+  <comment>MAME compressed hard disk image</comment>
+  <comment xml:lang="uk">стиснений образ жорсткого диска MAME</comment>
+  <comment xml:lang="pl">Skompresowany obraz dysku twardego MAME</comment>
+  <comment xml:lang="it">Immagine disco MAME compressa</comment>
+  <comment xml:lang="fi">MAME-pakatun kiintolevyn levykuva</comment>
+  <comment xml:lang="ca">imatge de disc dur MAME amb compressió</comment>
+  <generic-icon name="application-x-executable"/>
+  <glob pattern="*.chd"/>
+</mime-type>

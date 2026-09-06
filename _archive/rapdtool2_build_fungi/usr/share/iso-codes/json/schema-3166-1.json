@@ -1,0 +1,56 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+
+  "title": "ISO 3166-1",
+  "description": "ISO 3166-1 country codes",
+  "type": "object",
+
+  "properties": {
+	"3166-1": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "alpha_2": {
+            "description": "Two letter alphabetic code of the item",
+            "type": "string",
+            "pattern": "^[A-Z]{2}$"
+          },
+          "alpha_3": {
+            "description": "Three letter alphabetic code of the item",
+            "type": "string",
+            "pattern": "^[A-Z]{3}$"
+          },
+          "flag": {
+            "description": "Flag of country, using Unicode regional indicator symbol letters",
+            "type": "string",
+            "pattern": "^[🇦-🇿]{2}$"
+          },
+          "name": {
+            "description": "Name of the item",
+            "type": "string",
+            "minLength": 1
+          },
+          "numeric": {
+            "description": "Three digit numeric code of the item, including leading zeros",
+            "type": "string",
+            "pattern": "^[0-9]{3}$"
+          },
+          "official_name": {
+            "description": "Official name of the item (optional)",
+            "type": "string",
+            "minLength": 1
+          },
+          "common_name": {
+            "description": "Common name of the item (optional)",
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required": ["alpha_2", "alpha_3", "name", "numeric"],
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

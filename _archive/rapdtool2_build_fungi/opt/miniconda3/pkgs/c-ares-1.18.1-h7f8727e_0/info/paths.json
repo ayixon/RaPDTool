@@ -1,0 +1,481 @@
+{
+  "paths": [
+    {
+      "_path": "bin/acountry",
+      "path_type": "hardlink",
+      "sha256": "0fb01672cbb9fc16b2a10d77e0f2659a1e8ce389947bb69ab76bfe71bf77eb60",
+      "size_in_bytes": 35120
+    },
+    {
+      "_path": "bin/adig",
+      "path_type": "hardlink",
+      "sha256": "70138bd21dc9009ace8d5c7e9f68f88ff94529a7d268bc9ff8d92c5b9f29ab7f",
+      "size_in_bytes": 35480
+    },
+    {
+      "_path": "bin/ahost",
+      "path_type": "hardlink",
+      "sha256": "9493b3d7c5d0d7bd3831e7b8ae24da77f70c57790b1224e89095cfbf154bb5eb",
+      "size_in_bytes": 22424
+    },
+    {
+      "_path": "include/ares.h",
+      "path_type": "hardlink",
+      "sha256": "fb718acd98d8c07a8591e3cc24f2866617932839a5acce68d8b5ddec573997ec",
+      "size_in_bytes": 26373
+    },
+    {
+      "_path": "include/ares_build.h",
+      "path_type": "hardlink",
+      "sha256": "c4997b9ecb66c77d4ae50002b5d788f737829404d12cd90d8a144c65745e58b6",
+      "size_in_bytes": 1034
+    },
+    {
+      "_path": "include/ares_dns.h",
+      "path_type": "hardlink",
+      "sha256": "5d1a235f0cc98f421afbc82ad7e2587475e3a90701c90d3d5a718b4e5ff97687",
+      "size_in_bytes": 5540
+    },
+    {
+      "_path": "include/ares_nameser.h",
+      "path_type": "hardlink",
+      "sha256": "25289d8db6c2fad6f807a38eed42199d4b3d6990994d7b95e42f7ee01587b0a6",
+      "size_in_bytes": 13447
+    },
+    {
+      "_path": "include/ares_rules.h",
+      "path_type": "hardlink",
+      "sha256": "5f9cbef316a4e783e4bcf2272b5961a65c638b0bc1d5b6afd338b60a6c5355f4",
+      "size_in_bytes": 4274
+    },
+    {
+      "_path": "include/ares_version.h",
+      "path_type": "hardlink",
+      "sha256": "13eba7f457acc0b558c0d38ddcbc85d2becc5a9c185a8c99e25c9989e3f3e257",
+      "size_in_bytes": 648
+    },
+    {
+      "_path": "lib/cmake/c-ares/c-ares-config-version.cmake",
+      "path_type": "hardlink",
+      "sha256": "b64dc7f0f296b2063be568e3d9e814b9cc32d031ea33636f4856d5b8f2932394",
+      "size_in_bytes": 1725
+    },
+    {
+      "_path": "lib/cmake/c-ares/c-ares-config.cmake",
+      "path_type": "hardlink",
+      "sha256": "4ae3dbeb69afabcc38dd087e11165b7bfeb447da95afb2450b7c23abf5989e72",
+      "size_in_bytes": 1305
+    },
+    {
+      "_path": "lib/cmake/c-ares/c-ares-targets-release.cmake",
+      "path_type": "hardlink",
+      "sha256": "74e6e9c94620c412ff19c977ee7226604400eedf87c6a3e4aba027f58d3cecef",
+      "size_in_bytes": 830
+    },
+    {
+      "_path": "lib/cmake/c-ares/c-ares-targets.cmake",
+      "path_type": "hardlink",
+      "sha256": "88c3160d2d8b344f3eca526cc66c94d705eab4247ca81ba4424f5f8c4cd06fc6",
+      "size_in_bytes": 3248
+    },
+    {
+      "_path": "lib/libcares.so",
+      "path_type": "softlink",
+      "sha256": "ec8dd51aadcab0edf37234dc6e3f36dc8432542200ee91ff2fd7c962b71a3d2c",
+      "size_in_bytes": 116736
+    },
+    {
+      "_path": "lib/libcares.so.2",
+      "path_type": "softlink",
+      "sha256": "ec8dd51aadcab0edf37234dc6e3f36dc8432542200ee91ff2fd7c962b71a3d2c",
+      "size_in_bytes": 116736
+    },
+    {
+      "_path": "lib/libcares.so.2.5.1",
+      "path_type": "hardlink",
+      "sha256": "ec8dd51aadcab0edf37234dc6e3f36dc8432542200ee91ff2fd7c962b71a3d2c",
+      "size_in_bytes": 116736
+    },
+    {
+      "_path": "lib/pkgconfig/libcares.pc",
+      "file_mode": "text",
+      "path_type": "hardlink",
+      "prefix_placeholder": "/tmp/build/80754af9/c-ares_1641918228605/_h_env_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placeho",
+      "sha256": "17759bfe64b223b66443de45b866923959423b811030741ab458775438a78334",
+      "size_in_bytes": 802
+    },
+    {
+      "_path": "share/man/man1/acountry.1",
+      "path_type": "hardlink",
+      "sha256": "aafdab3c93c02110526db9e6684e6c5ac1b74d73930b87f3a5a1ad2a9fd3cb2e",
+      "size_in_bytes": 1756
+    },
+    {
+      "_path": "share/man/man1/adig.1",
+      "path_type": "hardlink",
+      "sha256": "642de2d9d81269e76e8eb08ab10eeb898a982223753e259a24ff958cfccb69ab",
+      "size_in_bytes": 2787
+    },
+    {
+      "_path": "share/man/man1/ahost.1",
+      "path_type": "hardlink",
+      "sha256": "071ae6f7aad208aec500afddbf3a193b059b385390e4b477b985cee4b89b3650",
+      "size_in_bytes": 2021
+    },
+    {
+      "_path": "share/man/man3/ares_cancel.3",
+      "path_type": "hardlink",
+      "sha256": "f9ed58fb1ad2eaa1719d72335bdff921c9dbec703ba447248b2b4d48adf613ad",
+      "size_in_bytes": 1638
+    },
+    {
+      "_path": "share/man/man3/ares_create_query.3",
+      "path_type": "hardlink",
+      "sha256": "8f532a8d6388db64c5b11c136f5ed80b170ec6c6129b9451764a48365a3e6116",
+      "size_in_bytes": 2934
+    },
+    {
+      "_path": "share/man/man3/ares_destroy.3",
+      "path_type": "hardlink",
+      "sha256": "d93b21396586df831219c5ea018a068777158efe3eb4c808a6c7dbd8e8189293",
+      "size_in_bytes": 1546
+    },
+    {
+      "_path": "share/man/man3/ares_destroy_options.3",
+      "path_type": "hardlink",
+      "sha256": "bee6b269da6408c1f261d54737ae3d557b816fed7181031a8248929e8263fcb7",
+      "size_in_bytes": 1285
+    },
+    {
+      "_path": "share/man/man3/ares_dup.3",
+      "path_type": "hardlink",
+      "sha256": "08dcbc6cd4113f5dc4ae8874812f8f769d1b5ecbe1d01705c37a74843c7a8dfc",
+      "size_in_bytes": 1431
+    },
+    {
+      "_path": "share/man/man3/ares_expand_name.3",
+      "path_type": "hardlink",
+      "sha256": "34685810777351d48cbcdc0110d1052769b1edb0d1e5a0afbb2545c81c1748e2",
+      "size_in_bytes": 2181
+    },
+    {
+      "_path": "share/man/man3/ares_expand_string.3",
+      "path_type": "hardlink",
+      "sha256": "9d6b8f8f58e68a1b0898b36d9d61ba2fbb67808943247357b6ce1e64b769cffa",
+      "size_in_bytes": 2016
+    },
+    {
+      "_path": "share/man/man3/ares_fds.3",
+      "path_type": "hardlink",
+      "sha256": "6ecb37e0293d951b9f842a6ab6d7c1d6fde264c8a28253b5a5f3226712b28fac",
+      "size_in_bytes": 1916
+    },
+    {
+      "_path": "share/man/man3/ares_free_data.3",
+      "path_type": "hardlink",
+      "sha256": "53ed2f536b836ef381a4a4f5966fc4c1e0164ea493a08927eb54816f59e71fcb",
+      "size_in_bytes": 3066
+    },
+    {
+      "_path": "share/man/man3/ares_free_hostent.3",
+      "path_type": "hardlink",
+      "sha256": "0569e5f3dbd206fa20c05a52a68c0f628e72ab95ed7113edca6a79827fb27826",
+      "size_in_bytes": 1640
+    },
+    {
+      "_path": "share/man/man3/ares_free_string.3",
+      "path_type": "hardlink",
+      "sha256": "e7cf164f98aa0f189964de5eeb62c0d7714647cb5017b263dd1e98140b178cc6",
+      "size_in_bytes": 1195
+    },
+    {
+      "_path": "share/man/man3/ares_freeaddrinfo.3",
+      "path_type": "hardlink",
+      "sha256": "32f22c7f893e887bbe85987425beca95d7a366bb8110e30d8454d2a00bb55fdf",
+      "size_in_bytes": 1192
+    },
+    {
+      "_path": "share/man/man3/ares_get_servers.3",
+      "path_type": "hardlink",
+      "sha256": "b353730e8a3b82f442d0db8a0b613603a02773fd7c1323ec32ba7b319d61c265",
+      "size_in_bytes": 3293
+    },
+    {
+      "_path": "share/man/man3/ares_get_servers_ports.3",
+      "path_type": "hardlink",
+      "sha256": "d5e5972a24c330982be1dd9b0eb87d04d08fed84d2e588b6f5b66ce1d9677f9c",
+      "size_in_bytes": 28
+    },
+    {
+      "_path": "share/man/man3/ares_getaddrinfo.3",
+      "path_type": "hardlink",
+      "sha256": "c807a49b57847fb2af370299dea911d7ff2707b5d158f584a22fed4cc7be20e3",
+      "size_in_bytes": 5212
+    },
+    {
+      "_path": "share/man/man3/ares_gethostbyaddr.3",
+      "path_type": "hardlink",
+      "sha256": "734616934d44c652d11bdddefc3f99fb40c387d018c2753902d17e7090236dc9",
+      "size_in_bytes": 3043
+    },
+    {
+      "_path": "share/man/man3/ares_gethostbyname.3",
+      "path_type": "hardlink",
+      "sha256": "7101074d71d4b6609c6a6088d7956592b485a9c27e16a4f9b4cd62f859e5b3fe",
+      "size_in_bytes": 3262
+    },
+    {
+      "_path": "share/man/man3/ares_gethostbyname_file.3",
+      "path_type": "hardlink",
+      "sha256": "421685dd110ea58992ea0c38772d39e28289804a6235c56ae00ec440d41c6c8a",
+      "size_in_bytes": 2594
+    },
+    {
+      "_path": "share/man/man3/ares_getnameinfo.3",
+      "path_type": "hardlink",
+      "sha256": "b9e28c89bae146d749def826ceee227932d8ce07bc87b3a3c9061a6b7b484ca9",
+      "size_in_bytes": 4330
+    },
+    {
+      "_path": "share/man/man3/ares_getsock.3",
+      "path_type": "hardlink",
+      "sha256": "b6ef8940f19c19a8d2de182daa267f3c68420f2a5dba39b260907228f5f99b0f",
+      "size_in_bytes": 2159
+    },
+    {
+      "_path": "share/man/man3/ares_inet_ntop.3",
+      "path_type": "hardlink",
+      "sha256": "7ae022c0b106c5af38e634e178efe247b101741e3f1ad348826eccd4051bc9cf",
+      "size_in_bytes": 1948
+    },
+    {
+      "_path": "share/man/man3/ares_inet_pton.3",
+      "path_type": "hardlink",
+      "sha256": "c187c75395961d07e9fa21899f9c2d73e14ffaee54392e09732df7a3c8102b3f",
+      "size_in_bytes": 1719
+    },
+    {
+      "_path": "share/man/man3/ares_init.3",
+      "path_type": "hardlink",
+      "sha256": "d4cdffdb04beaaf8deb0808f91042c6907c7733edd8ed2fafc816d4ac0af42ba",
+      "size_in_bytes": 2437
+    },
+    {
+      "_path": "share/man/man3/ares_init_options.3",
+      "path_type": "hardlink",
+      "sha256": "bc5b63223a679ea96fcd3285e554e18a3ff3ca1f319ebae6fb5673721e682ea1",
+      "size_in_bytes": 9548
+    },
+    {
+      "_path": "share/man/man3/ares_library_cleanup.3",
+      "path_type": "hardlink",
+      "sha256": "13b14417a424ece11dc87bac57460f4eca7e544b1e8a9c2e3e6d394d48884bd9",
+      "size_in_bytes": 3724
+    },
+    {
+      "_path": "share/man/man3/ares_library_init.3",
+      "path_type": "hardlink",
+      "sha256": "572193d51eb3e2981fe0e5dccbb19ee6b91fd52f8f8912bd8469471b9c69aa16",
+      "size_in_bytes": 4688
+    },
+    {
+      "_path": "share/man/man3/ares_library_init_android.3",
+      "path_type": "hardlink",
+      "sha256": "a668a2f76f4850b9b5ca597a935dc27b67e1c422a4f95aa19c3d750bd0939109",
+      "size_in_bytes": 5225
+    },
+    {
+      "_path": "share/man/man3/ares_library_initialized.3",
+      "path_type": "hardlink",
+      "sha256": "36ec9580acc52248c01005b3a10da893eb031061f30d168100581f2da8d1ecd1",
+      "size_in_bytes": 1218
+    },
+    {
+      "_path": "share/man/man3/ares_mkquery.3",
+      "path_type": "hardlink",
+      "sha256": "5b5f2f48b76935087bd1bf67b3f237ad618d1d041ee364ef01044a4d72b5a157",
+      "size_in_bytes": 2791
+    },
+    {
+      "_path": "share/man/man3/ares_parse_a_reply.3",
+      "path_type": "hardlink",
+      "sha256": "ce372ce00d8999cec15ff3efd7da12faec8a90e97e62b343766885aec3836ca4",
+      "size_in_bytes": 2391
+    },
+    {
+      "_path": "share/man/man3/ares_parse_aaaa_reply.3",
+      "path_type": "hardlink",
+      "sha256": "c1bb05ae7238d095b7977666e4867a4450af5a16980afe4588a1ba7c1abd38c5",
+      "size_in_bytes": 2349
+    },
+    {
+      "_path": "share/man/man3/ares_parse_caa_reply.3",
+      "path_type": "hardlink",
+      "sha256": "e212bddd1ea48559f4e5432b683fb8a9f795b4afec428b9a7d1b8e712fba3c71",
+      "size_in_bytes": 4586
+    },
+    {
+      "_path": "share/man/man3/ares_parse_mx_reply.3",
+      "path_type": "hardlink",
+      "sha256": "d86643846e687ceb7f8ad6dde32a5e51b15de8942c7c2e33d63c8a1e0c7e8d08",
+      "size_in_bytes": 2190
+    },
+    {
+      "_path": "share/man/man3/ares_parse_naptr_reply.3",
+      "path_type": "hardlink",
+      "sha256": "d07bed9771287c049ed0af0cf346263594335348f369a16f39ae4a652bdcbfdc",
+      "size_in_bytes": 2406
+    },
+    {
+      "_path": "share/man/man3/ares_parse_ns_reply.3",
+      "path_type": "hardlink",
+      "sha256": "f4c52a904b26610a8bdcb09fe64d166881ccf4299e7362b91ee19708855b5ca6",
+      "size_in_bytes": 2020
+    },
+    {
+      "_path": "share/man/man3/ares_parse_ptr_reply.3",
+      "path_type": "hardlink",
+      "sha256": "d6964e70441cc6aa35c8de105b598621512d6495cca5a325be029a99e1f688e0",
+      "size_in_bytes": 2232
+    },
+    {
+      "_path": "share/man/man3/ares_parse_soa_reply.3",
+      "path_type": "hardlink",
+      "sha256": "203a5e929c4d66dd020ee493dbcfd5931dad16cd3871d04d6ac1cfb434ba5e3a",
+      "size_in_bytes": 2182
+    },
+    {
+      "_path": "share/man/man3/ares_parse_srv_reply.3",
+      "path_type": "hardlink",
+      "sha256": "af9038d128e31545df63fdcf21f0263e0900cc66c0e777878b5d7933b6ff2d2f",
+      "size_in_bytes": 2310
+    },
+    {
+      "_path": "share/man/man3/ares_parse_txt_reply.3",
+      "path_type": "hardlink",
+      "sha256": "4330a8e076f7828386370b14a6a695f583299d2a01ff50d68edd68645aa8af2f",
+      "size_in_bytes": 3494
+    },
+    {
+      "_path": "share/man/man3/ares_parse_uri_reply.3",
+      "path_type": "hardlink",
+      "sha256": "026999d67110ac95884dc4260cc54eeffb7dfb5e31d6ae43a707ea39fc4793ee",
+      "size_in_bytes": 2265
+    },
+    {
+      "_path": "share/man/man3/ares_process.3",
+      "path_type": "hardlink",
+      "sha256": "550f66bc42de032098e26bf8512271df5eaeb53e5d9f16fe712ba92cd2291e76",
+      "size_in_bytes": 2991
+    },
+    {
+      "_path": "share/man/man3/ares_query.3",
+      "path_type": "hardlink",
+      "sha256": "c99decb11edd714bca31240916100a1107af143fa37234bee67084c7eb9f8cc9",
+      "size_in_bytes": 4318
+    },
+    {
+      "_path": "share/man/man3/ares_save_options.3",
+      "path_type": "hardlink",
+      "sha256": "6492f379f55e4cb3fce4547402e93f0090214d35cae3b91a069e849b4ed03e3d",
+      "size_in_bytes": 2707
+    },
+    {
+      "_path": "share/man/man3/ares_search.3",
+      "path_type": "hardlink",
+      "sha256": "6ccf1395f59465ec11dfdc45d0607d7916f2956d56ba136d3ee6d08a50bab415",
+      "size_in_bytes": 4675
+    },
+    {
+      "_path": "share/man/man3/ares_send.3",
+      "path_type": "hardlink",
+      "sha256": "b9eef89162aac0d8635daaebdaf1a031da2c609756bada305ed9173c6d29af29",
+      "size_in_bytes": 3346
+    },
+    {
+      "_path": "share/man/man3/ares_set_local_dev.3",
+      "path_type": "hardlink",
+      "sha256": "1beadf78d49c9e6e3b5b7b5c01945d0f99d8a7fc08fbda9846b36dcf36552313",
+      "size_in_bytes": 1580
+    },
+    {
+      "_path": "share/man/man3/ares_set_local_ip4.3",
+      "path_type": "hardlink",
+      "sha256": "7422ec1df7ca257cddd4c69a57b81df760f369965e7436d05e2f15561b5e3eff",
+      "size_in_bytes": 1314
+    },
+    {
+      "_path": "share/man/man3/ares_set_local_ip6.3",
+      "path_type": "hardlink",
+      "sha256": "ef9792b360dd9030d5b1abcbb4be5ae23a77a3618ab4003cfb4098e79dee1dee",
+      "size_in_bytes": 1386
+    },
+    {
+      "_path": "share/man/man3/ares_set_servers.3",
+      "path_type": "hardlink",
+      "sha256": "348527f0c42741cd4f9b245eb3e8ef3e838bb38951a518c96bd3768858537333",
+      "size_in_bytes": 3693
+    },
+    {
+      "_path": "share/man/man3/ares_set_servers_csv.3",
+      "path_type": "hardlink",
+      "sha256": "3fcdce0a9235c4520f827ad4ff8ddf42cd94f43cc551778dbbc21d68d3ae0eb2",
+      "size_in_bytes": 2308
+    },
+    {
+      "_path": "share/man/man3/ares_set_servers_ports.3",
+      "path_type": "hardlink",
+      "sha256": "16e1cd2da15487e07c646a18dbeb8c8b5c842b3630c81fbd273cb4f4104f47ce",
+      "size_in_bytes": 28
+    },
+    {
+      "_path": "share/man/man3/ares_set_servers_ports_csv.3",
+      "path_type": "hardlink",
+      "sha256": "3a603bf40179c0a81295ab69d2d844f928d0e9b6c5e247f032fc99d9eb551e0c",
+      "size_in_bytes": 32
+    },
+    {
+      "_path": "share/man/man3/ares_set_socket_callback.3",
+      "path_type": "hardlink",
+      "sha256": "ef12dafb4872f7c31ded896cf68fc0de1892144fdcf3c28ba4844063214e54c7",
+      "size_in_bytes": 1084
+    },
+    {
+      "_path": "share/man/man3/ares_set_socket_configure_callback.3",
+      "path_type": "hardlink",
+      "sha256": "a83df49c496973bd7508f488f7bd6dd6b4471b4a5d2745113a347a8c68fedd0b",
+      "size_in_bytes": 1198
+    },
+    {
+      "_path": "share/man/man3/ares_set_socket_functions.3",
+      "path_type": "hardlink",
+      "sha256": "952b6660289f4c5f0d324dd472162deddaefe259a18f22b184d3070d74ec86d9",
+      "size_in_bytes": 3449
+    },
+    {
+      "_path": "share/man/man3/ares_set_sortlist.3",
+      "path_type": "hardlink",
+      "sha256": "4e12a784527580eec5b2088fc7f09fcaf2680c01ece8c70e90dc7b928b79d24f",
+      "size_in_bytes": 2015
+    },
+    {
+      "_path": "share/man/man3/ares_strerror.3",
+      "path_type": "hardlink",
+      "sha256": "b0d8f5f88a38f44d222aff4e59464e5b2c1980f064248dbd7dca990f39f7413a",
+      "size_in_bytes": 1288
+    },
+    {
+      "_path": "share/man/man3/ares_timeout.3",
+      "path_type": "hardlink",
+      "sha256": "7bb071a76ac631b8615cd6a5e68fd954b9bc8c1a452b10bd032ed82f01c82a24",
+      "size_in_bytes": 1938
+    },
+    {
+      "_path": "share/man/man3/ares_version.3",
+      "path_type": "hardlink",
+      "sha256": "620cdfba24c1b65f514023c34e54a32f02b90a8277e1022950dbc20350f28953",
+      "size_in_bytes": 1382
+    }
+  ],
+  "paths_version": 1
+}

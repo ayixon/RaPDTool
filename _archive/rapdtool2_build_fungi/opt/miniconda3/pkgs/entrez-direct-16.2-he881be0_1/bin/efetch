@@ -1,0 +1,980 @@
+#!/bin/sh
+
+# ===========================================================================
+#
+#                            PUBLIC DOMAIN NOTICE
+#            National Center for Biotechnology Information (NCBI)
+#
+#  This software/database is a "United States Government Work" under the
+#  terms of the United States Copyright Act.  It was written as part of
+#  the author's official duties as a United States Government employee and
+#  thus cannot be copyrighted.  This software/database is freely available
+#  to the public for use. The National Library of Medicine and the U.S.
+#  Government do not place any restriction on its use or reproduction.
+#  We would, however, appreciate having the NCBI and the author cited in
+#  any work or product based on this material.
+#
+#  Although all reasonable efforts have been taken to ensure the accuracy
+#  and reliability of the software and data, the NLM and the U.S.
+#  Government do not and cannot warrant the performance or results that
+#  may be obtained by using this software or data. The NLM and the U.S.
+#  Government disclaim all warranties, express or implied, including
+#  warranties of performance, merchantability or fitness for any particular
+#  purpose.
+#
+# ===========================================================================
+#
+# File Name:  efetch
+#
+# Author:  Jonathan Kans, Aaron Ucko
+#
+# Version Creation Date:   04/08/2020
+#
+# ==========================================================================
+
+pth=$( dirname "$0" )
+
+case ":$PATH:" in
+  *:"$pth":* )
+    ;;
+  * )
+    PATH="$PATH:$pth"
+    export PATH
+    ;;
+esac
+
+# handle common flags - dot command is equivalent of "source"
+
+if [ ! -f "$pth"/ecommon.sh ]
+then
+  echo "${INVT} ERROR: ${LOUD} Unable to find '$pth/ecommon.sh' file${INIT}" >&2
+  exit 1
+fi
+
+. "$pth"/ecommon.sh
+
+# initialize specific flags
+
+internal=false
+
+isDocsum=false
+
+format=""
+mode=""
+style=""
+
+chunk=1
+min=0
+max=0
+
+seq_start=0
+seq_stop=0
+strand=0
+complexity=0
+extend=-1
+extrafeat=-1
+showgaps=""
+
+json=false
+
+# read command-line arguments
+
+while [ $# -gt 0 ]
+do
+  case "$1" in
+    -internal )
+      internal=true
+      shift
+      ;;
+    -newmode | -oldmode )
+      shift
+      ;;
+    -db )
+      shift
+      if [ $# -gt 0 ]
+      then
+        if [ -n "$db" ]
+        then
+          if [ "$db" = "$1" ]
+          then
+            echo "${INVT} WARNING: ${LOUD} Redundant -db '$1' argument${INIT}" >&2
+          else
+            echo "${INVT} ERROR: ${LOUD} Colliding -db '$db' and '$1' arguments${INIT}" >&2
+            # exit 1
+          fi
+        fi
+        db="$1"
+        shift
+      else
+        echo "${INVT} ERROR: ${LOUD} Missing -db argument${INIT}" >&2
+        exit 1
+      fi
+      ;;
+    -id )
+      shift
+      if [ $# -gt 0 ]
+      then
+        ids="$1"
+        shift
+      else
+        echo "${INVT} ERROR: ${LOUD} Missing -id argument${INIT}" >&2
+        exit 1
+      fi
+      while [ $# -gt 0 ]
+      do
+        case "$1" in
+          -* )
+            break
+            ;;
+          * )
+            # concatenate run of UIDs with commas
+            ids="$ids,$1"
+            shift
+            ;;
+        esac
+      done
+      ;;
+    -format )
+      shift
+      if [ $# -gt 0 ]
+      then
+        if [ -n "$format" ]
+        then
+          if [ "$format" = "$1" ]
+          then
+            echo "${INVT} WARNING: ${LOUD} Redundant -format '$1' argument${INIT}" >&2
+          else
+            echo "${INVT} ERROR: ${LOUD} Colliding -format '$format' and '$1' arguments${INIT}" >&2
+            # exit 1
+          fi
+        fi
+        format="$1"
+        shift
+      else
+        echo "${INVT} ERROR: ${LOUD} Missing -format argument${INIT}" >&2
+        exit 1
+      fi
+      ;;
+    -docsum )
+      # esummary is implemented as efetch -docsum "$@"
+      if [ -n "$format" ]
+      then
+        if [ "$format" = "docsum" ]
+        then
+          echo "${INVT} WARNING: ${LOUD} Superflouous -docsum argument${INIT}" >&2
+        else
+          echo "${INVT} ERROR: ${LOUD} Colliding -docsum and -format '$format' arguments${INIT}" >&2
+          # exit 1
+        fi
+      fi
+      format="docsum"
+      isDocsum=true
+      shift
+      ;;
+    -mode )
+      shift
+      if [ $# -gt 0 ]
+      then
+        mode="$1"
+        shift
+      else
+        echo "${INVT} ERROR: ${LOUD} Missing -mode argument${INIT}" >&2
+        exit 1
+      fi
+      ;;
+    -style )
+      shift
+      if [ $# -gt 0 ]
+      then
+        style="$1"
+        shift
+      else
+        echo "${INVT} ERROR: ${LOUD} Missing -style argument${INIT}" >&2
+        exit 1
+      fi
+      ;;
+    -seq_start )
+      shift
+      if [ $# -gt 0 ]
+      then
+        # 1-based
+        seq_start=$(( $1 ))
+        shift
+      else
+        echo "${INVT} ERROR: ${LOUD} Missing -seq_start argument${INIT}" >&2
+        exit 1
+      fi
+      ;;
+    -chr_start )
+      shift
+      if [ $# -gt 0 ]
+      then
+        # 0-based
+        seq_start=$(( $1 + 1 ))
+        shift
+      else
+        echo "${INVT} ERROR: ${LOUD} Missing -chr_start argument${INIT}" >&2
+        exit 1
+      fi
+      ;;
+    -seq_stop )
+      shift
+      if [ $# -gt 0 ]
+      then
+        # 1-based
+        seq_stop=$(( $1 ))
+        shift
+      else
+        echo "${INVT} ERROR: ${LOUD} Missing -seq_stop argument${INIT}" >&2
+        exit 1
+      fi
+      ;;
+    -chr_stop )
+      shift
+      if [ $# -gt 0 ]
+      then
+        # 0-based
+        seq_stop=$(( $1 + 1 ))
+        shift
+      else
+        echo "${INVT} ERROR: ${LOUD} Missing -chr_stop argument${INIT}" >&2
+        exit 1
+      fi
+      ;;
+    -strand )
+      shift
+      if [ $# -gt 0 ]
+      then
+        case "$1" in
+          forward | plus | 1 | "\+" )
+            strand=1
+            ;;
+          revcomp | reverse | minus | 2 | "\-" )
+            strand=2
+            ;;
+          * )
+            echo "${INVT} ERROR: ${LOUD} Unrecognized -strand argument '$strand'${INIT}" >&2
+            exit 1
+            ;;
+        esac
+        shift
+      else
+        echo "${INVT} ERROR: ${LOUD} Missing -strand argument${INIT}" >&2
+        exit 1
+      fi
+      ;;
+    -forward | -plus )
+      strand=1
+      shift
+      ;;
+    -revcomp | -reverse | -minus )
+      strand=2
+      shift
+      ;;
+    -h | -help | --help | help )
+      if [ "$isDocsum" = true ]
+      then
+        echo "esummary $version"
+        echo ""
+        cat "$pth/help/esummary-help.txt"
+        echo ""
+      else
+        echo "efetch $version"
+        echo ""
+        cat "$pth/help/efetch-help.txt"
+        echo ""
+      fi
+      exit 0
+      ;;
+    -start )
+      shift
+      if [ $# -gt 0 ]
+      then
+        min=$(( $1 ))
+        shift
+      else
+        echo "${INVT} ERROR: ${LOUD} Missing -start argument${INIT}" >&2
+        exit 1
+      fi
+      ;;
+    -stop )
+      shift
+      if [ $# -gt 0 ]
+      then
+        max=$(( $1 ))
+        shift
+      else
+        echo "${INVT} ERROR: ${LOUD} Missing -stop argument${INIT}" >&2
+        exit 1
+      fi
+      ;;
+    -complexity )
+      shift
+      if [ $# -gt 0 ]
+      then
+        complexity=$(( $1 ))
+        shift
+      else
+        echo "${INVT} ERROR: ${LOUD} Missing -complexity argument${INIT}" >&2
+        exit 1
+      fi
+      ;;
+    -extend )
+      shift
+      if [ $# -gt 0 ]
+      then
+        extend=$(( $1 ))
+        shift
+      else
+        echo "${INVT} ERROR: ${LOUD} Missing -extend argument${INIT}" >&2
+        exit 1
+      fi
+      ;;
+    -extrafeat )
+      shift
+      if [ $# -gt 0 ]
+      then
+        extrafeat=$(( $1 ))
+        shift
+      else
+        echo "${INVT} ERROR: ${LOUD} Missing -extrafeat argument${INIT}" >&2
+        exit 1
+      fi
+      ;;
+    -showgaps | -show-gaps )
+      showgaps="on"
+      shift
+      ;;
+    -json )
+      json=true
+      shift
+      ;;
+    -* )
+      ParseCommonArgs "$@"
+      if [ "$argsConsumed" -gt 0 ]
+      then
+        shift "$argsConsumed"
+      else
+        echo "${INVT} ERROR: ${LOUD} Unrecognized option $1${INIT}" >&2
+        exit 1
+      fi
+      ;;
+    * )
+      # allows while loop to check for multiple flags
+      break
+      ;;
+  esac
+done
+
+FinishSetup
+
+# check for ENTREZ_DIRECT message or piped UIDs unless database and UIDs provided in command line
+
+if [ -z "$db" ]
+then
+  ParseStdin
+elif [ -z "$ids" ] && [ -z "$input" ]
+then
+  ParseStdin
+fi
+
+# needHistory allows reuse of GenerateUidList
+
+if [ -z "$ids$rest$input" ]
+then
+  needHistory=true
+fi
+
+# reality check for -db against piped dbase
+
+if [ -n "$dbase" ] && [ -n "$db" ]
+then
+  if [ "$dbase" = "$db" ]
+  then
+    echo "${INVT} WARNING: ${LOUD} Redundant -db '$db' argument${INIT}" >&2
+  else
+    echo "${INVT} ERROR: ${LOUD} Colliding '$dbase' database and -db '$db' argument${INIT}" >&2
+    # exit 1
+  fi
+fi
+
+# take database from dbase value or -db argument
+
+if [ -z "$dbase" ]
+then
+  dbase="$db"
+fi
+
+# check for missing required arguments
+
+if [ -z "$dbase" ]
+then
+  echo "${INVT} ERROR: ${LOUD} Missing -db argument${INIT}" >&2
+  exit 1
+fi
+
+# convert spaces between UIDs to commas
+
+ids=$( echo "$ids" | sed -e "s/ /,/g; s/,,*/,/g" )
+
+# database and format class flags
+
+isSequence=false
+isFasta=false
+
+case "$dbase" in
+  nucleotide | nuccore | protein )
+    isSequence=true
+    ;;
+esac
+
+case "$format" in
+  *fasta* )
+    isFasta=true
+    ;;
+esac
+
+# adjust for -db clinvar
+
+is_variationid=false
+
+if [ "$dbase" = "clinvar" ] && [ "$format" = "variationid" ]
+then
+  format="vcv"
+  is_variationid=true
+fi
+
+# special cases for format, mode, and style
+
+case "$format:$mode:$isSequence" in
+  xml::* )
+    format=full
+    mode=xml
+    ;;
+  accn:*:true )
+    format=acc
+    ;;
+  asn:* )
+    format=asn.1
+    ;;
+esac
+
+case "$style" in
+  normal | none | contig )
+    style=""
+    ;;
+  master )
+    style=master
+    ;;
+  conwithfeat | conwithfeats | contigwithfeat | gbconwithfeat | gbconwithfeats )
+    style=conwithfeat
+    ;;
+  withpart | withparts | gbwithpart | gbwithparts )
+    # accept from old scripts - same result as style master
+    style=withparts
+    ;;
+  "" )
+    ;;
+  * )
+    echo "${INVT} ERROR: ${LOUD} Unrecognized -style argument '$style'${INIT}" >&2
+    exit 1
+    ;;
+esac
+
+case "$format:$mode" in
+  gbc: | gpc: )
+    mode=xml
+    ;;
+  "" )
+    format=native
+    ;;
+  docsum:json )
+    ;;
+  docsum:* )
+    mode=xml
+    ;;
+esac
+
+if [ "$format" = "" ]
+then
+  format="native"
+fi
+
+if [ "$mode" = "" ]
+then
+  mode="text"
+fi
+
+# do not treat TinySeq XML as FASTA
+
+if [ "$format" = "fasta" ] && [ "$mode" = "xml" ]
+then
+  isFasta=false
+fi
+
+# input reality checks
+
+if [ "$needHistory" = true ]
+then
+  if [ -t 0 ]
+  then
+    echo "${INVT} ERROR: ${LOUD} ENTREZ_DIRECT message not piped from stdin${INIT}" >&2
+    exit 1
+  fi
+  if [ "$empty" = true ]
+  then
+    # silently exit if explicit count of "0"
+    exit 0
+  fi
+  if [ -z "$web_env" ]
+  then
+    echo "${INVT} ERROR: ${LOUD} WebEnv value not found in efetch input${INIT}" >&2
+    exit 1
+  fi
+  if [ -z "$qry_key" ]
+  then
+    echo "${INVT} ERROR: ${LOUD} QueryKey value not found in efetch input${INIT}" >&2
+    exit 1
+  fi
+  if [ "$num" -lt 1 ]
+  then
+    # silently exit if no results to fetch
+    exit 0
+  fi
+fi
+
+# -id 0 looks up default record for each database
+
+GetZero() {
+
+  case "$dbase" in
+    annotinfo       ) ids="122134" ;;
+    assembly        ) ids="443538" ;;
+    biocollections  ) ids="7370" ;;
+    bioproject      ) ids="146229" ;;
+    biosample       ) ids="3737421" ;;
+    biosystems      ) ids="1223165" ;;
+    blastdbinfo     ) ids="998664" ;;
+    books           ) ids="1371014" ;;
+    cdd             ) ids="274590" ;;
+    clinvar         ) ids="10510" ;;
+    clone           ) ids="18646800" ;;
+    dbvar           ) ids="6173073" ;;
+    gap             ) ids="872875" ;;
+    gapplus         ) ids="136686" ;;
+    gds             ) ids="200022309" ;;
+    gencoll         ) ids="398148" ;;
+    gene            ) ids="3667" ;;
+    genome          ) ids="52" ;;
+    geoprofiles     ) ids="16029743" ;;
+    grasp           ) ids="2852486" ;;
+    gtr             ) ids="559277" ;;
+    homologene      ) ids="510" ;;
+    ipg             ) ids="422234" ;;
+    medgen          ) ids="162753" ;;
+    mesh            ) ids="68007328" ;;
+    ncbisearch      ) ids="3158" ;;
+    nlmcatalog      ) ids="0404511" ;;
+    nuccore         ) ids="1322283" ;;
+    nucleotide      ) ids="1322283" ;;
+    omim            ) ids="176730" ;;
+    orgtrack        ) ids="319950" ;;
+    pcassay         ) ids="1901" ;;
+    pccompound      ) ids="16132302" ;;
+    pcsubstance     ) ids="126522451" ;;
+    pmc             ) ids="209839" ;;
+    popset          ) ids="27228303" ;;
+    protein         ) ids="4557671" ;;
+    proteinclusters ) ids="2945638" ;;
+    pubmed          ) ids="2539356" ;;
+    seqannot        ) ids="9561" ;;
+    snp             ) ids="137853337" ;;
+    sra             ) ids="190091" ;;
+    structure       ) ids="61024" ;;
+    taxonomy        ) ids="562" ;;
+    unigene         ) ids="1132160" ;;
+  esac
+}
+
+if [ "$ids" = "0" ]
+then
+  GetZero
+fi
+
+# lookup accessions in -id argument or piped from stdin
+
+if [ "$dbase" != "clinvar" ] || [ "$format" != "vcv" ]
+then
+  LookupSpecialAccessions
+fi
+
+# reality checks and adjustments on sequence variables
+
+if [ "$isSequence" = true ]
+then
+  if [ "$extend" -gt 0 ]
+  then
+    seq_start=$(( $seq_start - $extend ))
+    seq_stop=$(( $seq_stop + $extend ))
+  fi
+else
+  if [ "$seq_start" -ne 0 ]
+  then
+    echo "${INVT} ERROR: ${LOUD} Only sequence formats may use -seq_start${INIT}" >&2
+    exit 1
+  fi
+  if [ "$seq_stop" -ne 0 ]
+  then
+    echo "${INVT} ERROR: ${LOUD} Only sequence formats may use -seq_stop${INIT}" >&2
+    exit 1
+  fi
+  if [ "$strand" -ne 0 ]
+  then
+    echo "${INVT} ERROR: ${LOUD} Only sequence formats may use -strand${INIT}" >&2
+    exit 1
+  fi
+  if [ "$complexity" -ne 0 ]
+  then
+    echo "${INVT} ERROR: ${LOUD} Only sequence formats may use -complexity${INIT}" >&2
+    exit 1
+  fi
+  if [ "$extrafeat" -ne -1 ]
+  then
+    echo "${INVT} ERROR: ${LOUD} Only sequence formats may use -extrafeat${INIT}" >&2
+    exit 1
+  fi
+  if [ -n "$showgaps" ]
+  then
+    echo "${INVT} ERROR: ${LOUD} Only sequence formats may use -showgaps${INIT}" >&2
+    exit 1
+  fi
+fi
+
+if [ "$isSequence" = true ]
+then
+  if [ "$seq_start" -gt 0 ] && [ "$seq_stop" -gt 0 ]
+  then
+    if [ "$seq_start" -gt "$seq_stop" ]
+    then
+      tmp="$seq_start"
+      seq_start="$seq_stop"
+      seq_stop="$tmp"
+      if [ "$strand" -eq 0 ]
+      then
+        strand=2
+      fi
+    fi
+  else
+    seq_start=""
+    seq_stop=""
+  fi
+  if [ "$strand" -lt 1 ]
+  then
+    strand=""
+  fi
+  if [ "$complexity" -lt 1 ]
+  then
+    complexity=""
+  fi
+  if [ "$extrafeat" -lt 1 ]
+  then
+    extrafeat=""
+  fi
+else
+  # otherwise clear all sequence-related flags, will be ignored by AddIfNotEmpty
+  seq_start=""
+  seq_stop=""
+  strand=""
+  complexity=""
+  extrafeat=""
+  showgaps=""
+fi
+
+# determine size of individual requests
+
+case "$format:$dbase:$mode:$isSequence" in
+  uid:pubmed:*      ) chunk=10000 ;;
+  uid:*             ) chunk=25000 ;;
+  acc:*:true        ) chunk=10000 ;;
+  url:*             ) chunk=50    ;;
+  docsum:gtr:json:* ) chunk=50    ;;
+  docsum:*:json:*   ) chunk=500   ;;
+  fasta:*           ) chunk=50    ;;
+  bioc:*            ) chunk=100   ;;
+  ipg:*             ) chunk=1     ;;
+  json:snp:*        ) chunk=10    ;;
+  *:*:true          ) chunk=100   ;;
+  *                 ) chunk=1000  ;;
+esac
+
+if [ "$style" = "master" ] || [ "$style" = "withparts" ] || [ "$style" = "conwithfeat" ]
+then
+  chunk=1
+fi
+
+# -format uid
+
+if [ "$format" = "uid" ]
+then
+  GenerateUidList "$dbase"
+
+  exit 0
+fi
+
+# -format url
+
+if [ "$format" = "url" ]
+then
+  GenerateUidList "$dbase" |
+  join-into-groups-of "$chunk" |
+  while read uids
+  do
+    echo "https://www.ncbi.nlm.nih.gov/$dbase/$uids"
+  done
+
+  exit 0
+fi
+
+# -format urls
+
+if [ "$format" = "urls" ]
+then
+  GenerateUidList "$dbase" |
+  while read uid
+  do
+    echo "https://www.ncbi.nlm.nih.gov/$dbase/$uid"
+  done
+
+  exit 0
+fi
+
+# -format xids
+
+if [ "$format" = "xids" ]
+then
+  echo "<ENTREZ_DIRECT>"
+  if [ -n "$dbase" ]
+  then
+    echo "  <Db>${dbase}</Db>"
+  fi
+  if [ -n "$num" ]
+  then
+    echo "  <Count>${num}</Count>"
+  fi
+  # instantiate UIDs within ENTREZ_DIRECT message
+  GenerateUidList "$dbase" |
+  while read uid
+  do
+    echo "  <Id>${uid}</Id>"
+  done
+  if [ -n "$err" ]
+  then
+    echo "  <Error>${err}</Error>"
+  fi
+  echo "</ENTREZ_DIRECT>"
+
+  exit 0
+fi
+
+# -format docsum
+
+if [ "$format" = "docsum" ]
+then
+  if [ "$needHistory" = false ]
+  then
+    GenerateUidList "$dbase" |
+    join-into-groups-of "$chunk" |
+    while read uids
+    do
+      RunWithCommonArgs nquire -url "$base" esummary.fcgi \
+        -db "$dbase" -id "$uids" -version "2.0" -retmode "$mode"
+    done
+  else
+    GenerateHistoryChunks "$chunk" "$min" "$max" |
+    while read fr chnk
+    do
+      RunWithCommonArgs nquire -url "$base" esummary.fcgi \
+        -query_key "$qry_key" -WebEnv "$web_env" -retstart "$fr" -retmax "$chnk" \
+        -db "$dbase" -version "2.0" -retmode "$mode"
+    done
+  fi |
+  if [ "$mode" = "json" ]
+  then
+    grep '.'
+  elif [ "$raw" = true ]
+  then
+    # transmute -mixed -format indent -doctype ""
+    grep '.'
+  elif [ "$json" = true ]
+  then
+    transmute -x2j
+  elif [ "$dbase" = "sra" ]
+  then
+    transmute -mixed -normalize "$dbase" |
+    sed -e 's/<!DOCTYPE eSummaryResult PUBLIC/<!DOCTYPE DocumentSummarySet PUBLIC/g; s/<eSummaryResult>//g; s/<\/eSummaryResult>//g' |
+    transmute -mixed -compress -format indent -doctype "" -self
+  else
+    transmute -mixed -normalize "$dbase" |
+    sed -e 's/<!DOCTYPE eSummaryResult PUBLIC/<!DOCTYPE DocumentSummarySet PUBLIC/g; s/<eSummaryResult>//g; s/<\/eSummaryResult>//g' |
+    transmute -mixed -compress -format indent -doctype ""
+  fi
+
+  exit 0
+fi
+
+# -format bioc
+
+biocbase="https://www.ncbi.nlm.nih.gov/research/pubtator-api/publications/export/biocxml"
+idtype=""
+prefix=""
+
+if [ "$format" = "bioc" ]
+then
+  if [ "$dbase" = "pubmed" ]
+  then
+    idtype="-pmids"
+  elif [ "$dbase" = "pmc" ]
+  then
+    idtype="-pmcids"
+    prefix="PMC"
+  else
+    echo "${INVT} ERROR: ${LOUD} BioC format must use -db pubmed or pmc${INIT}" >&2
+    exit 1
+  fi
+
+  GenerateUidList "$dbase" |
+  while read uid
+  do
+    echo "$prefix${uid#PMC}"
+  done |
+  join-into-groups-of "$chunk" |
+  while read uids
+  do
+    nquire -get $biocbase $idtype $uids |
+    if [ "$raw" = true ]
+    then
+      # transmute -format indent -doctype ""
+      grep '.'
+    elif [ "$json" = true ]
+    then
+      transmute -x2j
+    else
+      transmute -normalize bioc | transmute -format indent -doctype ""
+    fi
+  done
+
+  exit 0
+fi
+
+# helper function adds sequence-specific arguments (if set)
+
+RunWithFetchArgs() {
+
+  AddIfNotEmpty -style "$style" \
+  AddIfNotEmpty -seq_start "$seq_start" \
+  AddIfNotEmpty -seq_stop "$seq_stop" \
+  AddIfNotEmpty -strand "$strand" \
+  AddIfNotEmpty -complexity "$complexity" \
+  AddIfNotEmpty -extrafeat "$extrafeat" \
+  AddIfNotEmpty -show-gaps "$showgaps" \
+  FlagIfNotEmpty -is_variationid "$is_variationid" \
+  RunWithCommonArgs "$@"
+}
+
+# -immediate flag for full sequence records
+
+if [ "$isFasta" = false ] && [ "$isSequence" = false ]
+then
+  immediate=false
+  express=false
+fi
+
+if [ "$immediate" = true ]
+then
+  express=true
+fi
+
+if [ -n "$format" ] && [ "$express" = true ]
+then
+  chunk=5
+  if [ "$immediate" = true ]
+  then
+    chunk=1
+  fi
+  GenerateUidList "$dbase" |
+  join-into-groups-of "$chunk" |
+  while read uid
+  do
+    if [ -n "$style" ]
+    then
+      nquire -url "$base" efetch.fcgi \
+        -db "$dbase" -id "$uid" -rettype "$format" -retmode "$mode" -style "$style"
+    else
+      nquire -url "$base" efetch.fcgi \
+        -db "$dbase" -id "$uid" -rettype "$format" -retmode "$mode"
+    fi
+  done
+
+  exit 0
+fi
+
+# other -format choices
+
+if [ -n "$format" ]
+then
+  if [ "$needHistory" = false ]
+  then
+    GenerateUidList "$dbase" |
+    join-into-groups-of "$chunk" |
+    while read uids
+    do
+      RunWithFetchArgs nquire -url "$base" efetch.fcgi \
+        -db "$dbase" -id "$uids" -rettype "$format" -retmode "$mode"
+    done
+  else
+    GenerateHistoryChunks "$chunk" "$min" "$max" |
+    while read fr chnk
+    do
+      RunWithFetchArgs nquire -url "$base" efetch.fcgi \
+        -query_key "$qry_key" -WebEnv "$web_env" -retstart "$fr" -retmax "$chnk" \
+        -db "$dbase" -rettype "$format" -retmode "$mode"
+    done
+  fi |
+  if [ "$format" = "json" ] || [ "$mode" = "json" ] || [ "$raw" = true ]
+  then
+    grep '.'
+  elif [ "$json" = true ]
+  then
+    transmute -x2j
+  elif [ "$isFasta" = true ]
+  then
+    grep '.'
+  elif [ "$format" = "full" ] && [ "$mode" = "xml" ]
+  then
+    if [ "$dbase" = "pubmed" ]
+    then
+      transmute -normalize "$dbase" | transmute -format indent -combine -doctype ""
+    elif [ "$dbase" = "sra" ]
+    then
+      transmute -normalize "$dbase" | transmute -format indent -combine -doctype "" -self
+    elif [ "$dbase" = "pmc" ]
+    then
+      grep '.'
+    elif [ "$dbase" = "pccompound" ] || [ "$dbase" = "pcsubstance" ]
+    then
+      transmute -mixed -normalize "$dbase"
+    else
+      transmute -format indent -combine -doctype ""
+    fi
+  else
+    grep ''
+  fi
+
+  exit 0
+fi
+
+# warn if no format recognized
+
+echo "${INVT} ERROR: ${LOUD} Unrecognized format${INIT}" >&2
+exit 1
+

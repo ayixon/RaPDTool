@@ -1,0 +1,10 @@
+{
+  "channel_targets": "defaults",
+  "target_platform": "linux-64",
+  "c_compiler_version": "7.5.0",
+  "cxx_compiler_version": "7.5.0",
+  "tk": "8.6",
+  "cxx_compiler": "gxx",
+  "openssl": "1.1.1",
+  "c_compiler": "gcc"
+}

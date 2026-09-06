@@ -1,0 +1,137 @@
+{
+  "paths": [
+    {
+      "_path": "site-packages/packaging-21.3.dist-info/INSTALLER",
+      "path_type": "hardlink",
+      "sha256": "d0edee15f91b406f3f99726e44eb990be6e34fd0345b52b910c568e0eef6a2a8",
+      "size_in_bytes": 5
+    },
+    {
+      "_path": "site-packages/packaging-21.3.dist-info/LICENSE",
+      "path_type": "hardlink",
+      "sha256": "cad1ef5bd340d73e074ba614d26f7deaca5c7940c3d8c34852e65c4909686c48",
+      "size_in_bytes": 197
+    },
+    {
+      "_path": "site-packages/packaging-21.3.dist-info/LICENSE.APACHE",
+      "path_type": "hardlink",
+      "sha256": "0d542e0c8804e39aa7f37eb00da5a762149dc682d7829451287e11b938e94594",
+      "size_in_bytes": 10174
+    },
+    {
+      "_path": "site-packages/packaging-21.3.dist-info/LICENSE.BSD",
+      "path_type": "hardlink",
+      "sha256": "b70e7e9b742f1cc6f948b34c16aa39ffece94196364bc88ff0d2180f0028fac5",
+      "size_in_bytes": 1344
+    },
+    {
+      "_path": "site-packages/packaging-21.3.dist-info/METADATA",
+      "path_type": "hardlink",
+      "sha256": "2ae288cbaa832cfdecbc8b7a7a309bc410e1bead7579b92050de7931ec8a1727",
+      "size_in_bytes": 15147
+    },
+    {
+      "_path": "site-packages/packaging-21.3.dist-info/RECORD",
+      "path_type": "hardlink",
+      "sha256": "7507ff0025e4e6f68aa4f0b1e9073a29b008fde9a8fab2e0c5c7c64629fb7892",
+      "size_in_bytes": 2367
+    },
+    {
+      "_path": "site-packages/packaging-21.3.dist-info/REQUESTED",
+      "path_type": "hardlink",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size_in_bytes": 0
+    },
+    {
+      "_path": "site-packages/packaging-21.3.dist-info/WHEEL",
+      "path_type": "hardlink",
+      "sha256": "7b0c04b9e8a8d42d977874ef4f5ee7f1d6542603afc82582b7459534b0a53fda",
+      "size_in_bytes": 92
+    },
+    {
+      "_path": "site-packages/packaging-21.3.dist-info/direct_url.json",
+      "path_type": "hardlink",
+      "sha256": "26ec6ad975df318e3035a2e5d25151ac48d5ee0f90f5a935125995aad2dc512f",
+      "size_in_bytes": 105
+    },
+    {
+      "_path": "site-packages/packaging-21.3.dist-info/top_level.txt",
+      "path_type": "hardlink",
+      "sha256": "cc5747ae15a73ec973b223f8e791eeb50b2a3c1eafd0a0ad35432d52dade7c3c",
+      "size_in_bytes": 10
+    },
+    {
+      "_path": "site-packages/packaging/__about__.py",
+      "path_type": "hardlink",
+      "sha256": "ba001220edb0d685321fcfc23aa4365ffb34ac38636e1402df2268703d378767",
+      "size_in_bytes": 661
+    },
+    {
+      "_path": "site-packages/packaging/__init__.py",
+      "path_type": "hardlink",
+      "sha256": "6fd2a4e4c17b2b18612e07039a2516ba437e2dab561713dd36e8348e83e11d29",
+      "size_in_bytes": 497
+    },
+    {
+      "_path": "site-packages/packaging/_manylinux.py",
+      "path_type": "hardlink",
+      "sha256": "5dc6e25c1faa723bf76dca21a7a37df1332938fe3f8f79be88e03ca6d2b61966",
+      "size_in_bytes": 11488
+    },
+    {
+      "_path": "site-packages/packaging/_musllinux.py",
+      "path_type": "hardlink",
+      "sha256": "fca1a063fa9ceef84c1a9a2ab2cdb99f68622c234a46dbf3f660ab4bb824ab27",
+      "size_in_bytes": 4378
+    },
+    {
+      "_path": "site-packages/packaging/_structures.py",
+      "path_type": "hardlink",
+      "sha256": "ab77953666d62461bf4b40e2b7f4b7028f2a42acffe4f6135c500a0597b9cabe",
+      "size_in_bytes": 1431
+    },
+    {
+      "_path": "site-packages/packaging/markers.py",
+      "path_type": "hardlink",
+      "sha256": "172822dff7999e343edd5262cd6e40848e70be8d076fa44c9380e276c2a9382d",
+      "size_in_bytes": 8475
+    },
+    {
+      "_path": "site-packages/packaging/py.typed",
+      "path_type": "hardlink",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size_in_bytes": 0
+    },
+    {
+      "_path": "site-packages/packaging/requirements.py",
+      "path_type": "hardlink",
+      "sha256": "ae368644231ea594b59a560c8c9e5087aadfab782db0245051099fb4667f6eef",
+      "size_in_bytes": 4664
+    },
+    {
+      "_path": "site-packages/packaging/specifiers.py",
+      "path_type": "hardlink",
+      "sha256": "2d1434905b07ae5e6a7dc14d10426b20562c9c81d05095d8f5f22c6a44ebaea1",
+      "size_in_bytes": 30110
+    },
+    {
+      "_path": "site-packages/packaging/tags.py",
+      "path_type": "hardlink",
+      "sha256": "966b2718d889f02e03fcf7fd3db334aa06d9bc3f64981f65a590505196b747f6",
+      "size_in_bytes": 15699
+    },
+    {
+      "_path": "site-packages/packaging/utils.py",
+      "path_type": "hardlink",
+      "sha256": "7498de6addc14be4d89f546b505570b9f50c6ac6edccb7d8468cbf1d710d7854",
+      "size_in_bytes": 4200
+    },
+    {
+      "_path": "site-packages/packaging/version.py",
+      "path_type": "hardlink",
+      "sha256": "fdf2d136b16bc5870755fca8f2f93d8fcb3a24cf0dff1b12c5516be91272728f",
+      "size_in_bytes": 14665
+    }
+  ],
+  "paths_version": 1
+}

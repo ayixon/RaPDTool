@@ -1,0 +1,69 @@
+{% set name = "urllib3" %}
+{% set version = "1.26.8" %}
+
+package:
+  name: {{ name|lower }}
+  version: {{ version }}
+
+source:
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/urllib3-{{ version }}.tar.gz
+  sha256: 0e7c33d9a63e7ddfcb86780aac87befc2fbddf46c58dbb487e0855f7ceec283c
+
+build:
+  number: 0
+  noarch: python
+  script: {{ PYTHON }} -m pip install . -vv
+
+requirements:
+  host:
+    - python <4.0
+    - pip
+    - setuptools
+    - wheel
+  run:
+    - python <4.0
+    # optional deps [secure]
+    - pyopenssl >=0.14
+    - cryptography >=1.3.4
+    - idna >=2.0.0
+    - certifi
+    # optional deps [socks]
+    - pysocks >=1.5.6,<2.0,!=1.5.7
+    # optional deps [brotli]
+    - brotlipy >=0.6.0
+
+test:
+  imports:
+    - urllib3
+    - urllib3.contrib
+    - urllib3.packages
+    - urllib3.packages.backports
+    - urllib3.util
+  commands:
+    - pip check
+  requires:
+    - pip
+
+about:
+  home: https://urllib3.readthedocs.io/
+  license: MIT
+  license_family: MIT
+  license_file: LICENSE.txt
+  summary: HTTP library with thread-safe connection pooling, file post, and more.
+  description: |
+    urllib3 is a powerful, sanity-friendly HTTP client for Python. Much of the
+    Python ecosystem already uses urllib3. urllib3 brings many critical features
+    that are missing from the Python standard libraries, such as thread safety,
+    connection pooling, client side ssl/tls verification, support for gzip and
+    deflate encodings, HTTP and SOCKS proxy support, helpers for retrying requests
+    and dealing with HTTP redirects.
+  doc_url: https://urllib3.readthedocs.io/
+  dev_url: https://github.com/urllib3/urllib3
+  doc_source_url: https://github.com/urllib3/urllib3/tree/{{ version }}/docs
+
+extra:
+  recipe-maintainers:
+    - pmlandwehr
+    - sigmavirus24
+    - ocefpaf
+    - sethmlarson

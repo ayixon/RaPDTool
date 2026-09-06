@@ -1,0 +1,9 @@
+#!/bin/sh
+
+set -e
+
+
+
+if [ "$1" = "remove" ]; then
+	update-alternatives --remove x-terminal-emulator /usr/bin/tilix.wrapper
+fi

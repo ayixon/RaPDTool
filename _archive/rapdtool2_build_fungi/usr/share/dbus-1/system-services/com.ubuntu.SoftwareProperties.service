@@ -1,0 +1,4 @@
+[D-BUS Service]
+Name=com.ubuntu.SoftwareProperties
+Exec=/usr/lib/software-properties/software-properties-dbus
+User=root

@@ -1,0 +1,39 @@
+This is the Debian GNU/Linux r-cran-nlme package of nlme, a collection
+of functions to fit and compare linear and non-linear mixed-effects
+models. Nlme was written by Jose Pinheiro, Douglas Bates, Saikat
+DebRoy and Deepayan Sarkar.
+
+This package was created by Dirk Eddelbuettel <edd@debian.org>.
+The sources were downloaded from 
+	http://cran.us.r-project.org/src/contrib/
+and are also included in the (large) source tar archive of R itself at
+	http://cran.us.r-project.org/src/base/
+
+The package was renamed from its upstream name 'nlme' to 'r-cran-nlme'
+to fit the pattern of CRAN (and non-CRAN) packages for R.
+
+Copyright (C) 1998-2008 Jose Pinheiro, Douglas Bates, Saikat DebRoy, Deepayan Sarkar and the R Core team
+
+License: GPL 
+
+On a Debian GNU/Linux system, the GPL license is included in the file
+/usr/share/common-licenses/GPL.
+
+For reference, the upstream DESCRIPTION [with lines broken to 80 cols]
+file is included below:
+
+    Package: nlme
+    Version: 3.1-45
+    Date: 2003/08/29
+    Priority: recommended
+    Title: Linear and nonlinear mixed effects models
+    Author: Jose Pinheiro <Jose.Pinheiro@pharma.novartis.com>,
+            Douglas Bates <bates@stat.wisc.edu>,
+            Saikat DebRoy <saikat@stat.wisc.edu>, and
+            Deepayan Sarkar <deepayan@stat.wisc.edu> 
+    Maintainer: Douglas Bates <bates@stat.wisc.edu>
+    Description: Fit and compare Gaussian linear and nonlinear mixed-effects
+	 models.
+    Depends: nls, lattice, R(>= 1.7.0)
+    License: GPL version 2 or later
+    

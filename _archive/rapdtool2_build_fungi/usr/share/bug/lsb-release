@@ -1,0 +1,24 @@
+#!/bin/sh
+echo 'lsb_release output' >& 3
+echo '-*- -*- -*- -*- -*-'>&3
+lsb_release -a >& 3
+echo '-*- -*- -*- -*- -*-'>&3
+echo '    Apt policy' >&3
+echo '-*- -*- -*- -*- -*-'>&3
+apt-cache policy >&3
+echo '-*- -*- -*- -*- -*-'>&3
+echo '   sources.list' >&3
+echo '-*- -*- -*- -*- -*-'>&3
+if [ -f /etc/apt/sources.list ]; then
+    cat /etc/apt/sources.list | grep -v '^\s*#' | grep -v '^\s*$' >&3
+else
+    echo '- none' >&3
+fi
+echo '-*- -*- -*- -*- -*-'>&3
+echo ' /etc/lsb_release' >&3
+echo '-*- -*- -*- -*- -*-'>&3
+if [ -f /etc/lsb_release ]; then
+    cat /etc/lsb_release >&3
+else
+    echo '- none' >&3
+fi

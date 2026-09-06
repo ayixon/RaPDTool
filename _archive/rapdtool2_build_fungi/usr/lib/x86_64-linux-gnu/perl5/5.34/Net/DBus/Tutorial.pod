@@ -1,0 +1,66 @@
+# -*- perl -*-
+#
+# Copyright (C) 2004-2005 Daniel P. Berrange
+#
+# This program is free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation; either version 2 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program; if not, write to the Free Software
+# Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+#
+# $Id: Tutorial.pod,v 1.2 2006/02/03 13:34:18 dan Exp $
+
+=pod
+
+=head1 NAME
+
+Net::DBus::Tutorial - tutorials on the Perl DBus APIs
+
+=head1 DESCRIPTION
+
+This section includes tutorials on the Perl DBus APIs. Current
+topics include providing a service, by exporting objects to the
+bus, and accessing a service, by calling objects on the bus.
+
+=over 4
+
+=item L<Net::DBus::Tutorial::ExportingObjects>
+
+This tutorial covers how to provide a service to the bus by
+exporting objects. The topics covered include basics of creating
+objects and methods, emitting signals, exporting properties,
+registering services for automatic activation.
+
+=item L<Net::DBus::Tutorial::UsingObjects>
+
+This tutorial cover how to use a service provided on the bus
+by another application. The topics covered include the basics
+of calling methods on remote objects, explicitly calling methods
+in particular interfaces, listening for signals.
+
+NB This tutorial is yet to be written.
+
+=back
+
+=head1 SEE ALSO
+
+L<Net::DBus>, L<Net::DBus::Object>, L<Net::DBus::RemoteObject>,
+L<http://freedesktop.org/>
+
+=head1 AUTHORS
+
+Daniel P. Berrange L<mailto:dan@berrange.com>
+
+=head1 COPYRIGHT
+
+Copyright 2005 Daniel P. Berrange
+
+=cut

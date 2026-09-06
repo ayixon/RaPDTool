@@ -1,0 +1,38 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: TimeDate
+Upstream-Contact: Graham Barr <gbarr@pobox.com>
+Source: https://metacpan.org/release/TimeDate
+
+Files: *
+Copyright: 1995-2009, Graham Barr <gbarr@pobox.com>
+License: Artistic or GPL-1+
+
+Files: lib/Date/Language/Bulgarian.pm
+Copyright: 2010, Krasimir Berov <berov@cpan.org>
+License: Artistic or GPL-1+
+
+Files: debian/*
+Copyright: 1997-1999, Christian Leutloff <leutloff@debian.org>
+ 1999, Raphael Hertzog <rhertzog@hrnet.fr>
+ 1999-2009, Christian Hammers <ch@debian.org>
+ 2007, Joey Hess <joeyh@debian.org>
+ 2010-2021, gregor herrmann <gregoa@debian.org>
+ 2010, Jonathan Yu <jawnsy@cpan.org>
+ 2013, Florian Schlichting <fsfs@debian.org>
+License: Artistic or GPL-1+
+
+License: Artistic
+ This program is free software; you can redistribute it and/or modify
+ it under the terms of the Artistic License, which comes with Perl.
+ .
+ On Debian systems, the complete text of the Artistic License can be
+ found in `/usr/share/common-licenses/Artistic'.
+
+License: GPL-1+
+ This program is free software; you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation; either version 1, or (at your option)
+ any later version.
+ .
+ On Debian systems, the complete text of version 1 of the GNU General
+ Public License can be found in `/usr/share/common-licenses/GPL-1'.

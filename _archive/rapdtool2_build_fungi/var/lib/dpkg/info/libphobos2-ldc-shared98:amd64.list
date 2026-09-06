@@ -1,0 +1,15 @@
+/.
+/usr
+/usr/lib
+/usr/lib/x86_64-linux-gnu
+/usr/lib/x86_64-linux-gnu/libdruntime-ldc-shared.so.2.0.98
+/usr/lib/x86_64-linux-gnu/libldc-jit.so.2.0.98
+/usr/lib/x86_64-linux-gnu/libphobos2-ldc-shared.so.2.0.98
+/usr/share
+/usr/share/doc
+/usr/share/doc/libphobos2-ldc-shared98
+/usr/share/doc/libphobos2-ldc-shared98/changelog.Debian.gz
+/usr/share/doc/libphobos2-ldc-shared98/copyright
+/usr/lib/x86_64-linux-gnu/libdruntime-ldc-shared.so.98
+/usr/lib/x86_64-linux-gnu/libldc-jit.so.98
+/usr/lib/x86_64-linux-gnu/libphobos2-ldc-shared.so.98

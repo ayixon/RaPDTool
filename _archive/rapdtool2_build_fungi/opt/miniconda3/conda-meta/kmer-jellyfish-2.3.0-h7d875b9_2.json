@@ -1,0 +1,493 @@
+{
+  "build": "h7d875b9_2",
+  "build_number": 2,
+  "channel": "https://conda.anaconda.org/bioconda/linux-64",
+  "constrains": [],
+  "depends": [
+    "libgcc-ng >=9.3.0",
+    "libstdcxx-ng >=9.3.0"
+  ],
+  "extracted_package_dir": "/opt/miniconda3/pkgs/kmer-jellyfish-2.3.0-h7d875b9_2",
+  "features": "",
+  "files": [
+    "bin/jellyfish",
+    "include/jellyfish-2.3.0/jellyfish/allocators_mmap.hpp",
+    "include/jellyfish-2.3.0/jellyfish/atomic_bits_array.hpp",
+    "include/jellyfish-2.3.0/jellyfish/atomic_field.hpp",
+    "include/jellyfish-2.3.0/jellyfish/atomic_gcc.hpp",
+    "include/jellyfish-2.3.0/jellyfish/backtrace.hpp",
+    "include/jellyfish-2.3.0/jellyfish/binary_dumper.hpp",
+    "include/jellyfish-2.3.0/jellyfish/bloom_common.hpp",
+    "include/jellyfish-2.3.0/jellyfish/bloom_counter2.hpp",
+    "include/jellyfish-2.3.0/jellyfish/bloom_filter.hpp",
+    "include/jellyfish-2.3.0/jellyfish/circular_buffer.hpp",
+    "include/jellyfish-2.3.0/jellyfish/compare_and_swap.hpp",
+    "include/jellyfish-2.3.0/jellyfish/cooperative_pool.hpp",
+    "include/jellyfish-2.3.0/jellyfish/cooperative_pool2.hpp",
+    "include/jellyfish-2.3.0/jellyfish/cpp_array.hpp",
+    "include/jellyfish-2.3.0/jellyfish/divisor.hpp",
+    "include/jellyfish-2.3.0/jellyfish/dumper.hpp",
+    "include/jellyfish-2.3.0/jellyfish/err.hpp",
+    "include/jellyfish-2.3.0/jellyfish/file_header.hpp",
+    "include/jellyfish-2.3.0/jellyfish/generator_manager.hpp",
+    "include/jellyfish-2.3.0/jellyfish/generic_file_header.hpp",
+    "include/jellyfish-2.3.0/jellyfish/hash_counter.hpp",
+    "include/jellyfish-2.3.0/jellyfish/int128.hpp",
+    "include/jellyfish-2.3.0/jellyfish/jellyfish.hpp",
+    "include/jellyfish-2.3.0/jellyfish/json.h",
+    "include/jellyfish-2.3.0/jellyfish/large_hash_array.hpp",
+    "include/jellyfish-2.3.0/jellyfish/large_hash_iterator.hpp",
+    "include/jellyfish-2.3.0/jellyfish/locks_pthread.hpp",
+    "include/jellyfish-2.3.0/jellyfish/mapped_file.hpp",
+    "include/jellyfish-2.3.0/jellyfish/mer_dna.hpp",
+    "include/jellyfish-2.3.0/jellyfish/mer_dna_bloom_counter.hpp",
+    "include/jellyfish-2.3.0/jellyfish/mer_heap.hpp",
+    "include/jellyfish-2.3.0/jellyfish/mer_iterator.hpp",
+    "include/jellyfish-2.3.0/jellyfish/mer_overlap_sequence_parser.hpp",
+    "include/jellyfish-2.3.0/jellyfish/mer_qual_iterator.hpp",
+    "include/jellyfish-2.3.0/jellyfish/misc.hpp",
+    "include/jellyfish-2.3.0/jellyfish/offsets_key_value.hpp",
+    "include/jellyfish-2.3.0/jellyfish/parser_common.hpp",
+    "include/jellyfish-2.3.0/jellyfish/rectangular_binary_matrix.hpp",
+    "include/jellyfish-2.3.0/jellyfish/sam_format.hpp",
+    "include/jellyfish-2.3.0/jellyfish/simple_circular_buffer.hpp",
+    "include/jellyfish-2.3.0/jellyfish/sorted_dumper.hpp",
+    "include/jellyfish-2.3.0/jellyfish/stdio_filebuf.hpp",
+    "include/jellyfish-2.3.0/jellyfish/storage.hpp",
+    "include/jellyfish-2.3.0/jellyfish/stream_iterator.hpp",
+    "include/jellyfish-2.3.0/jellyfish/stream_manager.hpp",
+    "include/jellyfish-2.3.0/jellyfish/text_dumper.hpp",
+    "include/jellyfish-2.3.0/jellyfish/thread_exec.hpp",
+    "include/jellyfish-2.3.0/jellyfish/time.hpp",
+    "include/jellyfish-2.3.0/jellyfish/token_ring.hpp",
+    "include/jellyfish-2.3.0/jellyfish/whole_sequence_parser.hpp",
+    "lib/libjellyfish-2.0.a",
+    "lib/libjellyfish-2.0.so",
+    "lib/libjellyfish-2.0.so.2",
+    "lib/libjellyfish-2.0.so.2.0.0",
+    "lib/pkgconfig/jellyfish-2.0.pc",
+    "share/man/man1/jellyfish.1"
+  ],
+  "fn": "kmer-jellyfish-2.3.0-h7d875b9_2.tar.bz2",
+  "license": "GPL-3.0",
+  "license_family": "GPL",
+  "link": {
+    "source": "/opt/miniconda3/pkgs/kmer-jellyfish-2.3.0-h7d875b9_2",
+    "type": 1
+  },
+  "md5": "5a12964c7347a9501b03bf3c814ed81a",
+  "name": "kmer-jellyfish",
+  "package_tarball_full_path": "/opt/miniconda3/pkgs/kmer-jellyfish-2.3.0-h7d875b9_2.tar.bz2",
+  "paths_data": {
+    "paths": [
+      {
+        "_path": "bin/jellyfish",
+        "path_type": "hardlink",
+        "sha256": "29db9c206c4c3317234b5d0172b145f9f01f08b678de46d5d057690b636d3ae8",
+        "sha256_in_prefix": "29db9c206c4c3317234b5d0172b145f9f01f08b678de46d5d057690b636d3ae8",
+        "size_in_bytes": 445960
+      },
+      {
+        "_path": "include/jellyfish-2.3.0/jellyfish/allocators_mmap.hpp",
+        "path_type": "hardlink",
+        "sha256": "646a14dbc84dd3bd275c876a71829055f2651da9ab64f44017839121b5e8dbe9",
+        "sha256_in_prefix": "646a14dbc84dd3bd275c876a71829055f2651da9ab64f44017839121b5e8dbe9",
+        "size_in_bytes": 1596
+      },
+      {
+        "_path": "include/jellyfish-2.3.0/jellyfish/atomic_bits_array.hpp",
+        "path_type": "hardlink",
+        "sha256": "7183d95a41b3cf3096b30bf5f3c6246db34922770fde79c619bf1c90133003c3",
+        "sha256_in_prefix": "7183d95a41b3cf3096b30bf5f3c6246db34922770fde79c619bf1c90133003c3",
+        "size_in_bytes": 5898
+      },
+      {
+        "_path": "include/jellyfish-2.3.0/jellyfish/atomic_field.hpp",
+        "path_type": "hardlink",
+        "sha256": "8d3ec89803565b6b9935dcdfe1542d27fa1a9e97457507eb45e1e58386cf1bcb",
+        "sha256_in_prefix": "8d3ec89803565b6b9935dcdfe1542d27fa1a9e97457507eb45e1e58386cf1bcb",
+        "size_in_bytes": 4770
+      },
+      {
+        "_path": "include/jellyfish-2.3.0/jellyfish/atomic_gcc.hpp",
+        "path_type": "hardlink",
+        "sha256": "4a676d19fdccc85507bd0672a56d7cf496297484f207efdfef4fda136c1aacc4",
+        "sha256_in_prefix": "4a676d19fdccc85507bd0672a56d7cf496297484f207efdfef4fda136c1aacc4",
+        "size_in_bytes": 1392
+      },
+      {
+        "_path": "include/jellyfish-2.3.0/jellyfish/backtrace.hpp",
+        "path_type": "hardlink",
+        "sha256": "42eef650a8f5af56278ba499b1a85e2908d6a625a8554f378f747662e4d20524",
+        "sha256_in_prefix": "42eef650a8f5af56278ba499b1a85e2908d6a625a8554f378f747662e4d20524",
+        "size_in_bytes": 272
+      },
+      {
+        "_path": "include/jellyfish-2.3.0/jellyfish/binary_dumper.hpp",
+        "path_type": "hardlink",
+        "sha256": "9c91e1220c7b2fd72c7aa993c5a784ae36d864ad0a59793f2d5f7c90d633ea1e",
+        "sha256_in_prefix": "9c91e1220c7b2fd72c7aa993c5a784ae36d864ad0a59793f2d5f7c90d633ea1e",
+        "size_in_bytes": 6829
+      },
+      {
+        "_path": "include/jellyfish-2.3.0/jellyfish/bloom_common.hpp",
+        "path_type": "hardlink",
+        "sha256": "a0734179de0cb1103e794f42f692d9ce5306e5d385a17ed9378be39a92193da2",
+        "sha256_in_prefix": "a0734179de0cb1103e794f42f692d9ce5306e5d385a17ed9378be39a92193da2",
+        "size_in_bytes": 3480
+      },
+      {
+        "_path": "include/jellyfish-2.3.0/jellyfish/bloom_counter2.hpp",
+        "path_type": "hardlink",
+        "sha256": "370cfdd60a91c5de1c6738c5b967024100c0d57ac9d8db9f6f16473bd1eb8113",
+        "sha256_in_prefix": "370cfdd60a91c5de1c6738c5b967024100c0d57ac9d8db9f6f16473bd1eb8113",
+        "size_in_bytes": 6778
+      },
+      {
+        "_path": "include/jellyfish-2.3.0/jellyfish/bloom_filter.hpp",
+        "path_type": "hardlink",
+        "sha256": "40a1a7fd7b77beb7aca33c9995143730d79739a873483149276539dcd317bd66",
+        "sha256_in_prefix": "40a1a7fd7b77beb7aca33c9995143730d79739a873483149276539dcd317bd66",
+        "size_in_bytes": 5447
+      },
+      {
+        "_path": "include/jellyfish-2.3.0/jellyfish/circular_buffer.hpp",
+        "path_type": "hardlink",
+        "sha256": "0f2a6ea166a3bd4790a31a7f5f81bbb59fa5d3687205a8a70b7192633b2ef5ba",
+        "sha256_in_prefix": "0f2a6ea166a3bd4790a31a7f5f81bbb59fa5d3687205a8a70b7192633b2ef5ba",
+        "size_in_bytes": 5211
+      },
+      {
+        "_path": "include/jellyfish-2.3.0/jellyfish/compare_and_swap.hpp",
+        "path_type": "hardlink",
+        "sha256": "c1e212447d2ad3815ada8e7b6b1c235cd88869cac4876773f46ea0bba5778089",
+        "sha256_in_prefix": "c1e212447d2ad3815ada8e7b6b1c235cd88869cac4876773f46ea0bba5778089",
+        "size_in_bytes": 2408
+      },
+      {
+        "_path": "include/jellyfish-2.3.0/jellyfish/cooperative_pool.hpp",
+        "path_type": "hardlink",
+        "sha256": "f1dc523b0da7b3d6597b27fb5d2f65e8463f4aad785ece1b4e5fb8050a2df215",
+        "sha256_in_prefix": "f1dc523b0da7b3d6597b27fb5d2f65e8463f4aad785ece1b4e5fb8050a2df215",
+        "size_in_bytes": 7472
+      },
+      {
+        "_path": "include/jellyfish-2.3.0/jellyfish/cooperative_pool2.hpp",
+        "path_type": "hardlink",
+        "sha256": "296dc6d1444cd4262c378b885ed85fce1243972839427413eec2e0aa0136cb2c",
+        "sha256_in_prefix": "296dc6d1444cd4262c378b885ed85fce1243972839427413eec2e0aa0136cb2c",
+        "size_in_bytes": 8494
+      },
+      {
+        "_path": "include/jellyfish-2.3.0/jellyfish/cpp_array.hpp",
+        "path_type": "hardlink",
+        "sha256": "b90be8ce0c26eb4bb9240a6c518751f2b44b1468356a65ee76e6d6dc1bcf9065",
+        "sha256_in_prefix": "b90be8ce0c26eb4bb9240a6c518751f2b44b1468356a65ee76e6d6dc1bcf9065",
+        "size_in_bytes": 4125
+      },
+      {
+        "_path": "include/jellyfish-2.3.0/jellyfish/divisor.hpp",
+        "path_type": "hardlink",
+        "sha256": "dcfd686650dc7026340c5dbf4d54ffd19208dc958bb2ad6161c06a40f62699b2",
+        "sha256_in_prefix": "dcfd686650dc7026340c5dbf4d54ffd19208dc958bb2ad6161c06a40f62699b2",
+        "size_in_bytes": 2742
+      },
+      {
+        "_path": "include/jellyfish-2.3.0/jellyfish/dumper.hpp",
+        "path_type": "hardlink",
+        "sha256": "a59f5cc07440e2adb6f95de566c29537bd6a462026a118d1bac44588f0395de9",
+        "sha256_in_prefix": "a59f5cc07440e2adb6f95de566c29537bd6a462026a118d1bac44588f0395de9",
+        "size_in_bytes": 2710
+      },
+      {
+        "_path": "include/jellyfish-2.3.0/jellyfish/err.hpp",
+        "path_type": "hardlink",
+        "sha256": "baa4e18b44ae654245ddc0e8e0ef47c62a7142e65188bcbee09b55dfb6e7986a",
+        "sha256_in_prefix": "baa4e18b44ae654245ddc0e8e0ef47c62a7142e65188bcbee09b55dfb6e7986a",
+        "size_in_bytes": 2257
+      },
+      {
+        "_path": "include/jellyfish-2.3.0/jellyfish/file_header.hpp",
+        "path_type": "hardlink",
+        "sha256": "9b462301838b49cc3234959b84d427d9749d60d90dbbc2a99a0fac4fbd7b9550",
+        "sha256_in_prefix": "9b462301838b49cc3234959b84d427d9749d60d90dbbc2a99a0fac4fbd7b9550",
+        "size_in_bytes": 4033
+      },
+      {
+        "_path": "include/jellyfish-2.3.0/jellyfish/generator_manager.hpp",
+        "path_type": "hardlink",
+        "sha256": "d42bf240c9b8ad010cecfad90df3830aca044bc10dd5795eee652c368e97adcf",
+        "sha256_in_prefix": "d42bf240c9b8ad010cecfad90df3830aca044bc10dd5795eee652c368e97adcf",
+        "size_in_bytes": 4637
+      },
+      {
+        "_path": "include/jellyfish-2.3.0/jellyfish/generic_file_header.hpp",
+        "path_type": "hardlink",
+        "sha256": "ecfe30a779f4c725956400f56421fd1f45b316ad10f57f202ce085a5f7c466bc",
+        "sha256_in_prefix": "ecfe30a779f4c725956400f56421fd1f45b316ad10f57f202ce085a5f7c466bc",
+        "size_in_bytes": 6355
+      },
+      {
+        "_path": "include/jellyfish-2.3.0/jellyfish/hash_counter.hpp",
+        "path_type": "hardlink",
+        "sha256": "7d92c79845fe5f5b669e8018635cd2fda4548aacdd09283bebf12c8c34826837",
+        "sha256_in_prefix": "7d92c79845fe5f5b669e8018635cd2fda4548aacdd09283bebf12c8c34826837",
+        "size_in_bytes": 8326
+      },
+      {
+        "_path": "include/jellyfish-2.3.0/jellyfish/int128.hpp",
+        "path_type": "hardlink",
+        "sha256": "cc792cd4936d9356d1a3097bfeb76a4991f573b9a4b001b038e71eba2b42e8a9",
+        "sha256_in_prefix": "cc792cd4936d9356d1a3097bfeb76a4991f573b9a4b001b038e71eba2b42e8a9",
+        "size_in_bytes": 7025
+      },
+      {
+        "_path": "include/jellyfish-2.3.0/jellyfish/jellyfish.hpp",
+        "path_type": "hardlink",
+        "sha256": "6fb09912bc30a8d90c2b7d730fb01dc28dfc13a81db55cea4044320ba93840ba",
+        "sha256_in_prefix": "6fb09912bc30a8d90c2b7d730fb01dc28dfc13a81db55cea4044320ba93840ba",
+        "size_in_bytes": 1118
+      },
+      {
+        "_path": "include/jellyfish-2.3.0/jellyfish/json.h",
+        "path_type": "hardlink",
+        "sha256": "0a7ade37e62df40cfebd943065615e9ecc6ac3153ab32763388ac740400f4203",
+        "sha256_in_prefix": "0a7ade37e62df40cfebd943065615e9ecc6ac3153ab32763388ac740400f4203",
+        "size_in_bytes": 61697
+      },
+      {
+        "_path": "include/jellyfish-2.3.0/jellyfish/large_hash_array.hpp",
+        "path_type": "hardlink",
+        "sha256": "f9d9486339375ae2c0114b01fcdfb96814aea730b5999713c77812a729e3785d",
+        "sha256_in_prefix": "f9d9486339375ae2c0114b01fcdfb96814aea730b5999713c77812a729e3785d",
+        "size_in_bytes": 40578
+      },
+      {
+        "_path": "include/jellyfish-2.3.0/jellyfish/large_hash_iterator.hpp",
+        "path_type": "hardlink",
+        "sha256": "6ae6a2a18a4d9ffc6dd3da7bcf7da29412e27a1c81be9660cfb63e708dc0b90b",
+        "sha256_in_prefix": "6ae6a2a18a4d9ffc6dd3da7bcf7da29412e27a1c81be9660cfb63e708dc0b90b",
+        "size_in_bytes": 7564
+      },
+      {
+        "_path": "include/jellyfish-2.3.0/jellyfish/locks_pthread.hpp",
+        "path_type": "hardlink",
+        "sha256": "c6ee6e1320895fe2f13089edaff2104b1c60f780518a5d8ef1338c6540d24ed3",
+        "sha256_in_prefix": "c6ee6e1320895fe2f13089edaff2104b1c60f780518a5d8ef1338c6540d24ed3",
+        "size_in_bytes": 4328
+      },
+      {
+        "_path": "include/jellyfish-2.3.0/jellyfish/mapped_file.hpp",
+        "path_type": "hardlink",
+        "sha256": "fd97c8d519fbea8efcde897b7ff7aeb5102632c9de1b32d91b0a04ff8bebafed",
+        "sha256_in_prefix": "fd97c8d519fbea8efcde897b7ff7aeb5102632c9de1b32d91b0a04ff8bebafed",
+        "size_in_bytes": 5181
+      },
+      {
+        "_path": "include/jellyfish-2.3.0/jellyfish/mer_dna.hpp",
+        "path_type": "hardlink",
+        "sha256": "d665861b93c04ec725385c34277daac073f78ca29932ec08cc86adeaa268ebd0",
+        "sha256_in_prefix": "d665861b93c04ec725385c34277daac073f78ca29932ec08cc86adeaa268ebd0",
+        "size_in_bytes": 23839
+      },
+      {
+        "_path": "include/jellyfish-2.3.0/jellyfish/mer_dna_bloom_counter.hpp",
+        "path_type": "hardlink",
+        "sha256": "4414e9e0bde17d49fd3f2a3ea4350fae9677ed47555e569d402369a84529433a",
+        "sha256_in_prefix": "4414e9e0bde17d49fd3f2a3ea4350fae9677ed47555e569d402369a84529433a",
+        "size_in_bytes": 1296
+      },
+      {
+        "_path": "include/jellyfish-2.3.0/jellyfish/mer_heap.hpp",
+        "path_type": "hardlink",
+        "sha256": "696cf34d0c1050dc31129ecf1f767c415b7fd5e6668a41ade3636fe9ee168a3d",
+        "sha256_in_prefix": "696cf34d0c1050dc31129ecf1f767c415b7fd5e6668a41ade3636fe9ee168a3d",
+        "size_in_bytes": 3076
+      },
+      {
+        "_path": "include/jellyfish-2.3.0/jellyfish/mer_iterator.hpp",
+        "path_type": "hardlink",
+        "sha256": "5c68b2fa4e4cfba94e824bc3a6520a14d73dd27fbfaa1b0a1beaddd33340067b",
+        "sha256_in_prefix": "5c68b2fa4e4cfba94e824bc3a6520a14d73dd27fbfaa1b0a1beaddd33340067b",
+        "size_in_bytes": 2588
+      },
+      {
+        "_path": "include/jellyfish-2.3.0/jellyfish/mer_overlap_sequence_parser.hpp",
+        "path_type": "hardlink",
+        "sha256": "1115a2e92b644a5c591e67fccc6d75f3dcc7c15b33788db6f9534ee140d806b4",
+        "sha256_in_prefix": "1115a2e92b644a5c591e67fccc6d75f3dcc7c15b33788db6f9534ee140d806b4",
+        "size_in_bytes": 9371
+      },
+      {
+        "_path": "include/jellyfish-2.3.0/jellyfish/mer_qual_iterator.hpp",
+        "path_type": "hardlink",
+        "sha256": "4db30ed2c2d00c175f8315828abad33d4ddf94672577a0d3272f4b12d54c856b",
+        "sha256_in_prefix": "4db30ed2c2d00c175f8315828abad33d4ddf94672577a0d3272f4b12d54c856b",
+        "size_in_bytes": 3247
+      },
+      {
+        "_path": "include/jellyfish-2.3.0/jellyfish/misc.hpp",
+        "path_type": "hardlink",
+        "sha256": "1fef962de6e9765b9a074f52b4c50b871424d3ada33ab7009e6316d0fb820929",
+        "sha256_in_prefix": "1fef962de6e9765b9a074f52b4c50b871424d3ada33ab7009e6316d0fb820929",
+        "size_in_bytes": 8066
+      },
+      {
+        "_path": "include/jellyfish-2.3.0/jellyfish/offsets_key_value.hpp",
+        "path_type": "hardlink",
+        "sha256": "d6ace21c9972841de3a7ea62613c3a489a632b261e9832971133b0fcaef494ab",
+        "sha256_in_prefix": "d6ace21c9972841de3a7ea62613c3a489a632b261e9832971133b0fcaef494ab",
+        "size_in_bytes": 10025
+      },
+      {
+        "_path": "include/jellyfish-2.3.0/jellyfish/parser_common.hpp",
+        "path_type": "hardlink",
+        "sha256": "32c5ec18ec84d76f8cb7ff023c29d1ce0e259ca90ae04223713d1c97a1b8af0c",
+        "sha256_in_prefix": "32c5ec18ec84d76f8cb7ff023c29d1ce0e259ca90ae04223713d1c97a1b8af0c",
+        "size_in_bytes": 960
+      },
+      {
+        "_path": "include/jellyfish-2.3.0/jellyfish/rectangular_binary_matrix.hpp",
+        "path_type": "hardlink",
+        "sha256": "8439d0cd75f70aa3f73315759003d5f4360f2c0c9819af42d6fa4779b5b2b9f3",
+        "sha256_in_prefix": "8439d0cd75f70aa3f73315759003d5f4360f2c0c9819af42d6fa4779b5b2b9f3",
+        "size_in_bytes": 12469
+      },
+      {
+        "_path": "include/jellyfish-2.3.0/jellyfish/sam_format.hpp",
+        "path_type": "hardlink",
+        "sha256": "ce578204f732b74cd27eb243f7ca33b6a6583eac2f70c1db0e33e91f298a8774",
+        "sha256_in_prefix": "ce578204f732b74cd27eb243f7ca33b6a6583eac2f70c1db0e33e91f298a8774",
+        "size_in_bytes": 2311
+      },
+      {
+        "_path": "include/jellyfish-2.3.0/jellyfish/simple_circular_buffer.hpp",
+        "path_type": "hardlink",
+        "sha256": "37853bd323d4814a7d9f178979aba259a6c1c83305ec8839885f9174ad0d64aa",
+        "sha256_in_prefix": "37853bd323d4814a7d9f178979aba259a6c1c83305ec8839885f9174ad0d64aa",
+        "size_in_bytes": 3504
+      },
+      {
+        "_path": "include/jellyfish-2.3.0/jellyfish/sorted_dumper.hpp",
+        "path_type": "hardlink",
+        "sha256": "effe22bad07bb7d582acba77db181984f4c0cb1121a4275afbdff8337e9900b8",
+        "sha256_in_prefix": "effe22bad07bb7d582acba77db181984f4c0cb1121a4275afbdff8337e9900b8",
+        "size_in_bytes": 3407
+      },
+      {
+        "_path": "include/jellyfish-2.3.0/jellyfish/stdio_filebuf.hpp",
+        "path_type": "hardlink",
+        "sha256": "8826e0cb2b389edcf9873af70409c6ef964071f1aefa00133661262a6373382b",
+        "sha256_in_prefix": "8826e0cb2b389edcf9873af70409c6ef964071f1aefa00133661262a6373382b",
+        "size_in_bytes": 5069
+      },
+      {
+        "_path": "include/jellyfish-2.3.0/jellyfish/storage.hpp",
+        "path_type": "hardlink",
+        "sha256": "82cb2f32e6f4c9c0203179a4e5ab2ec9ca9b5865e7be0f015929f82d120ad782",
+        "sha256_in_prefix": "82cb2f32e6f4c9c0203179a4e5ab2ec9ca9b5865e7be0f015929f82d120ad782",
+        "size_in_bytes": 602
+      },
+      {
+        "_path": "include/jellyfish-2.3.0/jellyfish/stream_iterator.hpp",
+        "path_type": "hardlink",
+        "sha256": "8c110836503becd83f0fb178a5f3077b5d38da7758ae845f3d29f20da3b25cf8",
+        "sha256_in_prefix": "8c110836503becd83f0fb178a5f3077b5d38da7758ae845f3d29f20da3b25cf8",
+        "size_in_bytes": 2036
+      },
+      {
+        "_path": "include/jellyfish-2.3.0/jellyfish/stream_manager.hpp",
+        "path_type": "hardlink",
+        "sha256": "36b2c83aa2b166ddcf16940481616ef79968d5a0f44c7bf8da1b4c11d8ecc98e",
+        "sha256_in_prefix": "36b2c83aa2b166ddcf16940481616ef79968d5a0f44c7bf8da1b4c11d8ecc98e",
+        "size_in_bytes": 6318
+      },
+      {
+        "_path": "include/jellyfish-2.3.0/jellyfish/text_dumper.hpp",
+        "path_type": "hardlink",
+        "sha256": "d2e86034dc82c0b9d87407196b6be730d14dcbc6cb37f4bb7d7abce28ac44494",
+        "sha256_in_prefix": "d2e86034dc82c0b9d87407196b6be730d14dcbc6cb37f4bb7d7abce28ac44494",
+        "size_in_bytes": 2063
+      },
+      {
+        "_path": "include/jellyfish-2.3.0/jellyfish/thread_exec.hpp",
+        "path_type": "hardlink",
+        "sha256": "17d66b8bda325a24b2145f2c883094044401d3728f6d6d37f51f8beb8e2b551f",
+        "sha256_in_prefix": "17d66b8bda325a24b2145f2c883094044401d3728f6d6d37f51f8beb8e2b551f",
+        "size_in_bytes": 994
+      },
+      {
+        "_path": "include/jellyfish-2.3.0/jellyfish/time.hpp",
+        "path_type": "hardlink",
+        "sha256": "cc2484d76cb67012917e84a6f6c10a6c6ed842f9a7f5e396c2697b97f51389b7",
+        "sha256_in_prefix": "cc2484d76cb67012917e84a6f6c10a6c6ed842f9a7f5e396c2697b97f51389b7",
+        "size_in_bytes": 1884
+      },
+      {
+        "_path": "include/jellyfish-2.3.0/jellyfish/token_ring.hpp",
+        "path_type": "hardlink",
+        "sha256": "bd75f426457b2b2923c5bcf1df2c3ccdcbc605057bc4d07d0d4199cf97b1a796",
+        "sha256_in_prefix": "bd75f426457b2b2923c5bcf1df2c3ccdcbc605057bc4d07d0d4199cf97b1a796",
+        "size_in_bytes": 1599
+      },
+      {
+        "_path": "include/jellyfish-2.3.0/jellyfish/whole_sequence_parser.hpp",
+        "path_type": "hardlink",
+        "sha256": "63613f7b7c50f22912ef0ab08e091a27e7f508e53e33688d491fcbe68b314b1c",
+        "sha256_in_prefix": "63613f7b7c50f22912ef0ab08e091a27e7f508e53e33688d491fcbe68b314b1c",
+        "size_in_bytes": 6761
+      },
+      {
+        "_path": "lib/libjellyfish-2.0.a",
+        "path_type": "hardlink",
+        "sha256": "1549c214c8724d3a78406c778de672eca42e441816049d135391d99eada3862e",
+        "sha256_in_prefix": "1549c214c8724d3a78406c778de672eca42e441816049d135391d99eada3862e",
+        "size_in_bytes": 392496
+      },
+      {
+        "_path": "lib/libjellyfish-2.0.so",
+        "path_type": "softlink",
+        "sha256": "5b383e611cfb32d34aaa04d5aceab5dfe2a83ed8131748966c40948e617d96ce",
+        "size_in_bytes": 222368
+      },
+      {
+        "_path": "lib/libjellyfish-2.0.so.2",
+        "path_type": "softlink",
+        "sha256": "5b383e611cfb32d34aaa04d5aceab5dfe2a83ed8131748966c40948e617d96ce",
+        "size_in_bytes": 222368
+      },
+      {
+        "_path": "lib/libjellyfish-2.0.so.2.0.0",
+        "path_type": "hardlink",
+        "sha256": "5b383e611cfb32d34aaa04d5aceab5dfe2a83ed8131748966c40948e617d96ce",
+        "sha256_in_prefix": "5b383e611cfb32d34aaa04d5aceab5dfe2a83ed8131748966c40948e617d96ce",
+        "size_in_bytes": 222368
+      },
+      {
+        "_path": "lib/pkgconfig/jellyfish-2.0.pc",
+        "file_mode": "text",
+        "path_type": "hardlink",
+        "prefix_placeholder": "/opt/conda/conda-bld/kmer-jellyfish_1616803272083/_h_env_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehol",
+        "sha256": "7518190d0afc99ac094472c84a58c23abaed55ed89d90052fc36ae911ea69312",
+        "sha256_in_prefix": "eae3767910b39351a55981a0d6cb403ac37661dfae84a18d76a5c197a2ea79d1",
+        "size_in_bytes": 512
+      },
+      {
+        "_path": "share/man/man1/jellyfish.1",
+        "path_type": "hardlink",
+        "sha256": "206b746ffef067a35687c6dd6638bc1f77fc9286af881c9e4e73b7effed4c7cc",
+        "sha256_in_prefix": "206b746ffef067a35687c6dd6638bc1f77fc9286af881c9e4e73b7effed4c7cc",
+        "size_in_bytes": 14799
+      }
+    ],
+    "paths_version": 1
+  },
+  "requested_spec": "None",
+  "sha256": "179a04f0a5bc0dc0c0759f8e0c92fd66d13bf76ff907e77f2d7dd7ce402ad284",
+  "size": 370398,
+  "subdir": "linux-64",
+  "timestamp": 1616803504577,
+  "track_features": "",
+  "url": "https://conda.anaconda.org/bioconda/linux-64/kmer-jellyfish-2.3.0-h7d875b9_2.tar.bz2",
+  "version": "2.3.0"
+}

@@ -1,0 +1,25 @@
+{
+  "arch": "x86_64",
+  "build": "h7f8727e_0",
+  "build_number": 0,
+  "channel": "https://repo.anaconda.com/pkgs/main/linux-64",
+  "constrains": [],
+  "depends": [
+    "libgcc-ng >=7.5.0",
+    "libunistring >=0,<1.0a0"
+  ],
+  "features": "",
+  "fn": "libidn2-2.3.2-h7f8727e_0.conda",
+  "legacy_bz2_md5": "f856a968543e8d862a89e5aabe44419d",
+  "license": "LGPLv2 AND LGPL-3.0-or-later AND GPL-3.0-or-later",
+  "md5": "3ce9977fc2669601f79a2eb360b95fe6",
+  "name": "libidn2",
+  "platform": "linux",
+  "sha256": "b01a53fbdc5881474ff796f9fc0e70bdff3dccf36dd4bf24b8c16054c61cc978",
+  "size": 83199,
+  "subdir": "linux-64",
+  "timestamp": 1626872281578,
+  "track_features": "",
+  "url": "https://repo.anaconda.com/pkgs/main/linux-64/libidn2-2.3.2-h7f8727e_0.conda",
+  "version": "2.3.2"
+}

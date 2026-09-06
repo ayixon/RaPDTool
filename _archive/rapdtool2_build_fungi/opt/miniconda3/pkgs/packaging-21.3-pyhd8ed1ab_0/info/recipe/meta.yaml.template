@@ -1,0 +1,43 @@
+{% set version = "21.3" %}
+
+package:
+  name: packaging
+  version: {{ version }}
+
+source:
+  url: https://pypi.io/packages/source/p/packaging/packaging-{{ version }}.tar.gz
+  sha256: dd47c42927d89ab911e606518907cc2d3a1f38bbd026385970643f9c5b8ecfeb
+
+build:
+  number: 0
+  noarch: python
+  script: {{ PYTHON }} -m pip install . --no-deps -vv
+
+requirements:
+  host:
+    - python >=3.6
+    - setuptools >=40.8
+    - pip
+
+  run:
+    - python >=3.6
+    - pyparsing >=2.0.2,!=3.0.5
+
+test:
+  requires:
+    - pip
+  imports:
+    - packaging
+  commands:
+    - pip check
+
+about:
+  home: https://github.com/pypa/packaging
+  license: Apache-2.0
+  license_file: LICENSE
+  summary: Core utilities for Python packages
+
+extra:
+  recipe-maintainers:
+    - jakirkham
+    - nicoddemus

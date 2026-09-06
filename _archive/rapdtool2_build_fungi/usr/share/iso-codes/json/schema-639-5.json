@@ -1,0 +1,31 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+
+  "title": "ISO 639-5",
+  "description": "ISO 639-5 language family and groups codes",
+  "type": "object",
+
+  "properties": {
+	"639-5": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "alpha_3": {
+            "description": "Three letter code of the language family or group",
+            "type": "string",
+            "pattern": "^[a-z]{3}$"
+          },
+          "name": {
+            "description": "Name of the language family or group",
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required": ["alpha_3", "name"],
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

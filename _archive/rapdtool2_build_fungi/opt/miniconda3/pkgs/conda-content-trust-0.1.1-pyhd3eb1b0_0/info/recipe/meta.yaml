@@ -1,0 +1,62 @@
+# This file created by conda-build 3.21.4
+# meta.yaml template originally from:
+# /tmp/build/80754af9/rsync-recipes/conda-content-trust-0.1.1-on-linux_64, last modified Mon Mar 29 19:57:10 2021
+# ------------------------------------------------
+
+package:
+  name: conda-content-trust
+  version: 0.1.1
+source:
+  fn: conda-content-trust-0.1.1.tar.gz
+  sha256: 01e47b244b1b8fb259f021b15deb5c42c012c2793708518935c076757f0e72d0
+  url: https://github.com/conda/conda-content-trust/archive/0.1.1.tar.gz
+build:
+  entry_points:
+    - conda-content-trust = conda_content_trust.cli:cli
+  noarch: python
+  script: /tmp/build/80754af9/conda-content-trust_1617045594566/_h_env_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_plac/bin/python
+    -m pip install --no-deps --ignore-installed -vv .
+  string: pyhd3eb1b0_0
+requirements:
+  host:
+    - _libgcc_mutex 0.1 main
+    - ca-certificates 2021.1.19 h06a4308_1
+    - certifi 2020.12.5 py39h06a4308_0
+    - ld_impl_linux-64 2.33.1 h53a641e_7
+    - libffi 3.3 he6710b0_2
+    - libgcc-ng 9.1.0 hdf63c60_0
+    - libstdcxx-ng 9.1.0 hdf63c60_0
+    - ncurses 6.2 he6710b0_1
+    - openssl 1.1.1k h27cfd23_0
+    - pip 21.0.1 py39h06a4308_0
+    - python 3.9.2 hdb3f193_0
+    - readline 8.1 h27cfd23_0
+    - setuptools 52.0.0 py39h06a4308_0
+    - sqlite 3.35.2 hdfb4753_0
+    - tk 8.6.10 hbc83047_0
+    - tzdata 2020f h52ac0ba_0
+    - wheel 0.36.2 pyhd3eb1b0_0
+    - xz 5.2.5 h7b6447c_0
+    - zlib 1.2.11 h7b6447c_3
+  run:
+    - cryptography
+    - python
+    - six
+test:
+  commands:
+    - pytest -v tests
+    - conda-content-trust --help
+  requires:
+    - pytest
+    - pytest-cov
+    - ruamel_yaml
+  source_files:
+    - tests
+about:
+  home: https://github.com/conda/conda-content-trust
+  license: BSD-3-Clause
+  license_file: LICENSE
+  summary: Signing and verification tools for conda
+extra:
+  copy_test_source_files: true
+  final: true

@@ -1,0 +1,100 @@
+{% set version = "1.20.3" %}
+
+package:
+  name: numpy
+  version: {{ version }}
+
+source:
+  url: https://github.com/numpy/numpy/releases/download/v{{ version }}/numpy-{{ version }}.tar.gz
+  sha256: b7340f0628ce1823c151e3d2a2a8cba2a3ff1357fba4475a24b1816e75c21f90
+
+build:
+  number: 1
+  skip: true  # [py<37]
+  entry_points:
+    - f2py = numpy.f2py.f2py2e:main  # [win]
+
+requirements:
+  build:
+    - python                                 # [build_platform != target_platform]
+    - cross-python_{{ target_platform }}     # [build_platform != target_platform]
+    - cython                                 # [build_platform != target_platform]
+    - {{ compiler('c') }}
+  host:
+    - python
+    - pip
+    - cython
+    - libblas
+    - libcblas
+    - liblapack
+  run:
+    - python
+  run_constrained:
+    # enforce eviction of package from anaconda defaults
+    - numpy-base <0a0
+
+{% set tests_to_skip = "_not_a_real_test" %}
+# Seems to fail with current version of glibc for large numbers
+# https://github.com/numpy/numpy/issues/15179
+{% set tests_to_skip = tests_to_skip + " or test_sincos_float32" %}                 # [linux64]
+# https://github.com/numpy/numpy/issues/15243
+{% set tests_to_skip = tests_to_skip + " or test_loss_of_precision[complex256]" %}  # [ppc64le]
+# Probably needs too much memory on ppc64le, it sometimes fails on travis
+{% set tests_to_skip = tests_to_skip + " or test_large_archive" %}                  # [ppc64le]
+{% set tests_to_skip = tests_to_skip + " or test_big_arrays" %}                     # [ppc64le]
+# behaviour change in lapack 3.9.1 / openblas 0.3.15
+# https://github.com/numpy/numpy/issues/18914
+# pytest -k "not xxx" filters all occurences of the string; need to link with class name
+{% set tests_to_skip = tests_to_skip + " or (TestCond and test_nan)" %}
+# the following skips are the longest running tests at time of writing; all over 45sec, up to 750sec
+# skipping is done purely to stop pypy jobs from regularly timing out on drone/travis
+{% if (aarch64 or ppc64le) and (python_impl == "pypy") %}
+    {% set tests_to_skip = tests_to_skip + " or test_may_share_memory_easy_fuzz or test_may_share_memory_harder_fuzz" %}
+    {% set tests_to_skip = tests_to_skip + " or test_binary_ufunc_1d_manual or test_diophantine_fuzz" %}
+    {% set tests_to_skip = tests_to_skip + " or test_unary_ufunc_call_fuzz or test_unary_gufunc_fuzz" %}
+    {% set tests_to_skip = tests_to_skip + " or test_big_arrays or test_large_archive or test_large_zip" %}
+    {% set tests_to_skip = tests_to_skip + " or test_closing_fid or test_iter_buffered_reduce_reuse" %}
+    {% set tests_to_skip = tests_to_skip + " or test_count_nonzero_all or test_divmod_128_64" %}
+    {% set tests_to_skip = tests_to_skip + " or (test_generalized_sq_cases and (TestCond or TestDet))" %}
+{% endif %}
+
+test:
+  requires:
+    - pytest
+    - pytest-xdist  # [aarch64]
+    - hypothesis
+    - setuptools
+  commands:
+    - f2py -h
+    {% set numproc = "-nauto" if aarch64 else "" %}
+    - pytest --pyargs numpy -k "not ({{ tests_to_skip }})" {{ numproc }} --durations=100 -v
+  imports:
+    - numpy
+    - numpy.core.multiarray
+    - numpy.core._multiarray_tests
+    - numpy.core.numeric
+    - numpy.core._operand_flag_tests
+    - numpy.core._struct_ufunc_tests
+    - numpy.core._rational_tests
+    - numpy.core.umath
+    - numpy.core._umath_tests
+    - numpy.linalg.lapack_lite
+    - numpy.random.mtrand
+
+about:
+  home: http://numpy.scipy.org/
+  license: BSD-3-Clause
+  license_file: LICENSE.txt
+  summary: Array processing for numbers, strings, records, and objects.
+  doc_url: https://docs.scipy.org/doc/numpy/reference/
+  dev_url: https://github.com/numpy/numpy
+
+extra:
+  recipe-maintainers:
+    - jakirkham
+    - msarahan
+    - pelson
+    - rgommers
+    - ocefpaf
+    - isuruf
+    - xhochy

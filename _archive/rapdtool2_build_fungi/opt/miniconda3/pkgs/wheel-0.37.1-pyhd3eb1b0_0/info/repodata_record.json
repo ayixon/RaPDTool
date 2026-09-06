@@ -1,0 +1,26 @@
+{
+  "build": "pyhd3eb1b0_0",
+  "build_number": 0,
+  "channel": "https://repo.anaconda.com/pkgs/main/noarch",
+  "constrains": [],
+  "depends": [
+    "python"
+  ],
+  "features": "",
+  "fn": "wheel-0.37.1-pyhd3eb1b0_0.conda",
+  "legacy_bz2_md5": "9800fd2a86354f58731a7ad0eb5dd537",
+  "legacy_bz2_size": 31767,
+  "license": "MIT",
+  "license_family": "MIT",
+  "md5": "ab85e96e26da8d5797c2458232338b86",
+  "name": "wheel",
+  "noarch": "python",
+  "package_type": "noarch_python",
+  "sha256": "d3f762f14aff275613ef8d0df2b1e608e8174960da05a1815f36e70cd62aaae9",
+  "size": 33329,
+  "subdir": "noarch",
+  "timestamp": 1641824520450,
+  "track_features": "",
+  "url": "https://repo.anaconda.com/pkgs/main/noarch/wheel-0.37.1-pyhd3eb1b0_0.conda",
+  "version": "0.37.1"
+}

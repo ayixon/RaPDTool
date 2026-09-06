@@ -1,0 +1,66 @@
+# This file created by conda-build 3.21.5
+# meta.yaml template originally from:
+# /feedstock/recipe, last modified Mon Jan 10 14:21:27 2022
+# ------------------------------------------------
+
+package:
+  name: wheel
+  version: 0.37.1
+source:
+  sha256: e9a504e793efbca1b8e0e9cb979a249cf4a0a7b5b8c9e8b65a5e39d49529c1c4
+  url: https://pypi.io/packages/source/w/wheel/wheel-0.37.1.tar.gz
+build:
+  entry_points:
+    - wheel = wheel.cli:main
+  noarch: python
+  number: '0'
+  script: python setup.py install --single-version-externally-managed --record=record.txt
+  string: pyhd3eb1b0_0
+requirements:
+  host:
+    - _libgcc_mutex 0.1 main
+    - _openmp_mutex 4.5 1_gnu
+    - ca-certificates 2021.10.26 h06a4308_2
+    - certifi 2021.10.8 py39h06a4308_0
+    - ld_impl_linux-64 2.35.1 h7274673_9
+    - libffi 3.3 he6710b0_2
+    - libgcc-ng 9.3.0 h5101ec6_17
+    - libgomp 9.3.0 h5101ec6_17
+    - libstdcxx-ng 9.3.0 hd4cf53a_17
+    - ncurses 6.3 h7f8727e_2
+    - openssl 1.1.1l h7f8727e_0
+    - python 3.9.7 h12debd9_1
+    - readline 8.1 h27cfd23_0
+    - setuptools 58.0.4 py39h06a4308_0
+    - sqlite 3.37.0 hc218d9a_0
+    - tk 8.6.11 h1ccaba5_0
+    - tzdata 2021e hda174b7_0
+    - xz 5.2.5 h7b6447c_0
+    - zlib 1.2.11 h7f8727e_4
+  run:
+    - python
+test:
+  commands:
+    - pip check
+    - wheel --help
+  imports:
+    - wheel
+    - wheel.cli
+  requires:
+    - pip
+about:
+  dev_url: https://github.com/pypa/wheel
+  doc_url: https://github.com/pypa/wheel/blob/master/README.rst
+  home: https://github.com/pypa/wheel
+  license: MIT
+  license_family: MIT
+  license_file: LICENSE.txt
+  summary: A built-package format for Python.
+extra:
+  copy_test_source_files: true
+  final: true
+  recipe-maintainers:
+    - jakirkham
+    - mingwandroid
+    - ocefpaf
+    - pelson

@@ -1,0 +1,13 @@
+/.
+/usr
+/usr/lib
+/usr/lib/x86_64-linux-gnu
+/usr/lib/x86_64-linux-gnu/libcolord.so.2.0.5
+/usr/lib/x86_64-linux-gnu/libcolordprivate.so.2.0.5
+/usr/share
+/usr/share/doc
+/usr/share/doc/libcolord2
+/usr/share/doc/libcolord2/changelog.Debian.gz
+/usr/share/doc/libcolord2/copyright
+/usr/lib/x86_64-linux-gnu/libcolord.so.2
+/usr/lib/x86_64-linux-gnu/libcolordprivate.so.2

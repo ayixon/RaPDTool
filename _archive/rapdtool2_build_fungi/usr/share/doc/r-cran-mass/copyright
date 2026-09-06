@@ -1,0 +1,100 @@
+This is the Debian GNU/Linux r-cran-mass package of MASS, a package
+providing functions and datasets supporting the Venables and Ripley
+book 'Modern Applied Statistic with S' (4th ed.) written by
+W. N. Venables and B. D. Ripley.
+
+It has already been part of Debian since Dec 1997 as part of the
+r-base package, and since Jan 2004 as part of the package bundle VR
+packaged as r-cran-vr.
+
+This package was created by Dirk Eddelbuettel <edd@debian.org>.
+The sources were downloaded from the CRAN network at
+	http://cran.r-project.org
+
+The package was renamed from its upstream name 'MASS' to 'r-cran-mass'
+to fit the pattern of CRAN (and non-CRAN) packages for R.
+
+Copyright (C) 1994 - 2009 W. N. Venables and B. D. Ripley
+Portions Copyright (C) 1999 - 2002 R Core Development Team
+Portions Copyright (C) 2005 - 2007 The R Foundation
+Portions Copyright (C) 1998 - 2007 B. D. Ripley
+Portions Copyright (C) 1996        D. M. Bates and W. N. Venables.
+
+License: GPL-2 | GPL-3
+
+On a Debian GNU/Linux system, the GPL-2 license is included
+in the file /usr/share/common-licenses/GPL-2.
+
+For reference, the upstream DESCRIPTION file is included below:
+
+  Package: MASS
+  Priority: recommended
+  Version: 7.3-2
+  Date: 2009-08-27
+  Depends: R (>= 2.10.0), grDevices, graphics, stats, utils
+  Suggests: lattice, nlme, survival
+  Author: S original by Venables & Ripley.
+    R port by Brian Ripley <ripley@stats.ox.ac.uk>, following earlier
+    work by Kurt Hornik and Albrecht Gebhardt.
+  Maintainer: Brian Ripley <ripley@stats.ox.ac.uk>
+  Description: Functions and datasets to support Venables and
+    Ripley, 'Modern Applied Statistics with S' (4th edition).
+  Title: Main Package of Venables and Ripley's MASS
+  License: GPL-2 | GPL-3
+  URL: http://www.stats.ox.ac.uk/pub/MASS4/
+  LazyLoad: yes
+  LazyData: yes
+  Packaged: 2009-08-27 07:14:05 UTC; ripley
+
+The upstream file inst/LICENSE is also included:
+
+  Software and datasets to support 'Modern Applied Statistics with S', 
+  fourth edition, by W. N. Venables and B. D. Ripley.
+  Springer, 2002.
+  
+  From the text (pp. 464):
+  
+      These datasets and software are provided in good faith, but none of
+      the authors, publishers nor distributors warrant their accuracy
+      nor can be held responsible for the consequences of their use.
+  
+  This file is intended to clarify ownership and copyright: where
+  possible individual files also carry brief copyright notices. 
+  
+  
+  Copyrights
+  ==========
+  
+  File MASS/R/profiles.R copyright (C) 1996 D. M. Bates and W. N. Venables.
+                         port to R by B. D. Ripley copyright (C) 1998
+                         corrections copyright (C) 2000,3,6 B. D. Ripley
+  
+  Our understanding is that the dataset files MASS/data/*.rda are not copyright.
+  
+  All other files are copyright (C) 1994-2009  W. N. Venables and
+  B. D. Ripley. Those parts which were distributed with the first
+  edition are also copyright (C) 1994 Springer-Verlag New York Inc, with
+  all rights assigned to W. N. Venables and B. D. Ripley.
+  
+  
+  Licence
+  =======
+  
+      This is free software; you can redistribute it and/or modify
+      it under the terms of the GNU General Public License as published by
+      the Free Software Foundation; either version 2 or 3 of the License
+      (at your option).
+  
+      This program is distributed in the hope that it will be useful,
+      but WITHOUT ANY WARRANTY; without even the implied warranty of
+      MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+      GNU General Public License for more details.
+  
+  Files share/licenses/GPL-2 and share/licenses/GPL-3 in the R
+  (source or binary) distribution are copies of versions 2 and 3
+  of the 'GNU General Public License'.
+  These can also be viewed at http://www.r-project.org/licenses/
+  
+  Bill.Venables@csiro.au
+  ripley@stats.ox.ac.uk
+

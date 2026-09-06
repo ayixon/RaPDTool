@@ -1,0 +1,42 @@
+This is the Debian GNU/Linux r-cran-foreign package of foreign, a
+collection of functions to read / write data stored by other
+statistical systems.  Foreign was written by T. Lumley, D. Bates,
+and S. DebRoy.
+
+This package was created by Dirk Eddelbuettel <edd@debian.org>.
+The sources were downloaded from 
+	http://cran.us.r-project.org/src/contrib/
+and are also included in the (large) source tar archive of R itself at
+	http://cran.us.r-project.org/src/base/
+
+The package was renamed from its upstream name 'foreign' to 'r-cran-foreign'
+to fit the pattern of CRAN (and non-CRAN) packages for R.
+
+Copyright (C) 1999-2008 R Core (Thomas Lumley, Douglas Bates, Saikat DebRoy, 
+                        Brian Ripley, Kurt Hornik, Duncan Murdoch, 
+                        Martin Maechler, Peter Dalgaard, and others)  
+			and Roger Bivand
+
+License: GPL 
+
+On a Debian GNU/Linux system, the GPL license is included in the file
+/usr/share/common-licenses/GPL.
+
+For reference, the upstream DESCRIPTION [with lines broken to 80 cols]
+file is included below:
+
+    Package: foreign
+    Priority: recommended
+    Version: 0.6-6
+    Date: 2003-12-20
+    Title: Read data stored by Minitab, S, SAS, SPSS, Stata, ...
+    Depends: R (>= 1.7.0)
+    Maintainer: R-core <R-core@r-project.org>
+    Author: Thomas Lumley <thomas@biostat.washington.edu>,
+            Saikat DebRoy <saikat@stat.wisc.edu>,
+            Douglas M. Bates <bates@stat.wisc.edu> and
+    	Duncan Murdoch <murdoch@stats.uwo.ca>
+    Description: Functions for reading and writing data stored by statistical
+             packages such as Minitab, S, SAS, SPSS, Stata, ...
+    License: GPL version 2 or later
+    Packaged: Sat Dec 20 09:10:24 2003; ripley

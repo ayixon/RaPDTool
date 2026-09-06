@@ -1,0 +1,35 @@
+
+Template: unattended-upgrades/enable_auto_updates
+Type: boolean
+Default: true
+Description: Automatically download and install stable updates?
+ Applying updates on a frequent basis is an important part of keeping
+ systems secure. By default, updates need to be applied manually using package 
+ management tools. Alternatively, you can choose to have this system 
+ automatically download and install important updates.
+Description-ca.UTF-8: Desitjau descarregar i instal·lar automàticament les actualitzacions de la versió estable?
+ La instal·lació de les actualitzacions amb freqüència és un aspecte important per a mantenir la seguretat del sistema. Per defecte, les actualitzacions s'han de fer manualment utilitzant les eines de gestió de paquets. Si ho preferiu, podeu optar per fer que el sistema descarregui i instal·li automàticament les actualitzacions de seguretat.
+Description-cs.UTF-8: Automaticky stahovat a instalovat aktualizace ze stabilní verze?
+ Pravidelné nasazování aktualizací je důležitou součástí udržování zabezpečení systému. Normálně je nutné aktualizace nasazovat ručně za použití příslušných nástrojů pro správu balíčků. Můžete ovšem zvolit, aby tento systém automaticky sám stahoval a instaloval důležité aktualizace.
+Description-da.UTF-8: Hent og installer automatisk stabile opdateringer?
+ Løbende installation af opdateringer er en vigtig del af at holde et system sikkert. Som standard skal opdateringer installeres manuelt med pakkehåndteringsværktøjer. Alternativt kan du automatisk vælge at lade dette system hente og installere vigtige opdateringer.
+Description-de.UTF-8: Aktualisierungen für Stable automatisch herunterladen und installieren?
+ Häufige Aktualisierungen sind wichtig, um Systeme sicher zu halten. Standardmäßig müssen Aktualisierungen manuell mittels Paketverwaltungswerkzeugen durchgeführt werden. Alternativ können Sie auswählen, dass dieses System wichtige Aktualisierungen automatisch herunterlädt und installiert.
+Description-eu.UTF-8: Bertsio-berritze egonkorrak automatikoki deskargatu eta instalatu?
+ Maiztasunean oinarritutako bertsio-berritze ezarpenak sistema seguru mantentzearen zati garrantzitsu bat da. Lehenetsi gisa, eguneraketek paketeak kudeatzeko tresnak eskuz erabiltzea eskatzen dute. Bestela, sistema honek automatikoki eguneraketa garrantzitsuak deskargatzea eta instalatzea aukera dezakezu.
+Description-fr.UTF-8: Faut-il automatiquement télécharger et installer les mises à jour de la version stable ?
+ Il est important de mettre régulièrement son système à jour pour maintenir un haut niveau de sécurité. Par défaut, les mises à jour doivent être appliquées manuellement à l'aide d'un outil de gestion de paquets. Autrement, vous pouvez choisir d'automatiser ce processus de téléchargement et d'installation des mises à jour de sécurité.
+Description-it.UTF-8: Scaricare e installare automaticamente gli aggiornamenti?
+ La regolare applicazione degli aggiornamenti è una pratica importante per mantenere in sicurezza il sistema. Normalmente gli aggiornamenti devono essere installati manualmente usando gli strumenti di gestione dei pacchetti; in alternativa è possibile su questo sistema scaricare e installare automaticamente gli aggiornamenti importanti.
+Description-ja.UTF-8: 自動的に安定版の更新をダウンロードしてインストールしますか?
+ 更新の適用を頻繁に実施するのは、システムを安全に保つために重要なことです。標準の状態では、更新の適用はパッケージ管理ツールを使って手動で行う必要があります。別のやり方として、セキュリティ更新を自動的にダウンロードしてインストールするよう、このシステムを設定するようにもできます。
+Description-nl.UTF-8: Updates uit 'stable' automatisch ophalen en installeren?
+ Regelmatig updates installeren is een belangrijk onderdeel van de beveiliging van systemen. Standaard moeten updates handmatig worden toegepast met een van de hulpprogramma's voor pakketbeheer. U kunt er ook voor kiezen om op dit systeem belangrijke updates automatisch te laten ophalen en installeren.
+Description-pt.UTF-8: Transferir e instalar automaticamente actualizações estáveis?
+ Aplicar actualizações regularmente é uma parte importante para manter os sistemas seguros. Por regra, as actualizações precisam de ser aplicadas manualmente usando ferramentas de gestão de pacotes. Em alternativa, você pode escolher ter este sistema a descarregar e instalar automaticamente as actualizações importantes.
+Description-pt_BR.UTF-8: Baixar e instalar atualizações estáveis automaticamente?
+ Aplicar atualizações com frequência é uma parte importante de manter os sistemas seguros. Por padrão, as atualizações precisam ser aplicadas manualmente usando ferramentas de gerenciamento de pacotes. Alternativamente, você pode escolher que esse sistema baixe e instale automaticamente as atualizações importantes.
+Description-ru.UTF-8: Скачивать и устанавливать обновления стабильного выпуска автоматически?
+ Регулярная установка обновлений является важной частью обеспечения безопасности системы. По умолчанию, обновления нужно устанавливать вручную с помощью инструментов управления пакетами. Но сейчас можно указать, чтобы система скачивала и устанавливала важные обновления автоматически.
+Description-sv.UTF-8: Hämta och installera stabila uppdateringar automatiskt?
+ Att tillämpa uppdateringar ofta är en viktig del av att hålla system säkra. Som standard måste uppdateringar tillämpas manuellt med hjälp av pakethanteringsverktyg. Alternativt kan du välja att detta system automatiskt hämtar och installerar viktiga uppdateringar.

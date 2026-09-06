@@ -1,0 +1,83 @@
+From c498076fc9cb8a1ae2db1bc90edfbc1a8a45fc57 Mon Sep 17 00:00:00 2001
+From: "jan.nijtmans" <nijtmans@users.sourceforge.net>
+Date: Fri, 2 Jul 2021 14:43:04 +0000
+Subject: [PATCH] Fix [dba9f5ce3b]: tkInt.h: define MODULE_SCOPE before
+ including tkPort.h Since X11/Xlib.h doesn't compile with -Wc++-compat, don't
+ even try.
+
+---
+ macosx/tkMacOSXPort.h | 16 ++++++++++++++++
+ unix/tkUnixPort.h     |  3 +++
+ win/tkWinPort.h       |  4 ++++
+ 3 files changed, 23 insertions(+)
+
+diff --git a/macosx/tkMacOSXPort.h b/macosx/tkMacOSXPort.h
+index 9393df38e6..088d402a1b 100644
+--- a/macosx/tkMacOSXPort.h
++++ b/macosx/tkMacOSXPort.h
+@@ -49,6 +49,9 @@
+ #    include <inttypes.h>
+ #endif
+ #include <unistd.h>
++#if defined(__GNUC__) && !defined(__cplusplus)
++#   pragma GCC diagnostic ignored "-Wc++-compat"
++#endif
+ #include <X11/Xlib.h>
+ #include <X11/cursorfont.h>
+ #include <X11/keysym.h>
+@@ -74,6 +77,19 @@
+ #   endif
+ #endif
+ 
++/*
++ * Used to tag functions that are only to be visible within the module being
++ * built and not outside it (where this is supported by the linker).
++ */
++
++#ifndef MODULE_SCOPE
++#   ifdef __cplusplus
++#	define MODULE_SCOPE extern "C"
++#   else
++#	define MODULE_SCOPE extern
++#   endif
++#endif
++
+ /*
+  * The following macro defines the number of fd_masks in an fd_set:
+  */
+diff --git a/unix/tkUnixPort.h b/unix/tkUnixPort.h
+index c8d842d784..44926a4c8f 100644
+--- a/unix/tkUnixPort.h
++++ b/unix/tkUnixPort.h
+@@ -58,6 +58,9 @@
+ #else
+ #   include "../compat/unistd.h"
+ #endif
++#if defined(__GNUC__) && !defined(__cplusplus)
++#   pragma GCC diagnostic ignored "-Wc++-compat"
++#endif
+ #include <X11/Xlib.h>
+ #include <X11/cursorfont.h>
+ #include <X11/keysym.h>
+diff --git a/win/tkWinPort.h b/win/tkWinPort.h
+index 337a866c02..0118608a0d 100644
+--- a/win/tkWinPort.h
++++ b/win/tkWinPort.h
+@@ -21,6 +21,7 @@
+  *---------------------------------------------------------------------------
+  */
+ 
++#include <stdio.h>
+ #include <wchar.h>
+ #include <io.h>
+ #include <stdlib.h>
+@@ -64,6 +65,9 @@
+     typedef _TCHAR TCHAR;
+ #endif
+ 
++#if defined(__GNUC__) && !defined(__cplusplus)
++#   pragma GCC diagnostic ignored "-Wc++-compat"
++#endif
+ #include <X11/Xlib.h>
+ #include <X11/cursorfont.h>
+ #include <X11/keysym.h>

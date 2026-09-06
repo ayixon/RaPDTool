@@ -1,0 +1,14 @@
+{
+  "arch": "x86_64",
+  "build": "he881be0_1",
+  "build_number": 1,
+  "depends": [
+    "wget"
+  ],
+  "license": "PUBLIC DOMAIN",
+  "name": "entrez-direct",
+  "platform": "linux",
+  "subdir": "linux-64",
+  "timestamp": 1654550457582,
+  "version": "16.2"
+}

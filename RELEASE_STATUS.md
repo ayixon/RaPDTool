@@ -1,40 +1,63 @@
-# v2.3.2 — held, not released
+# v2.3.2 — the release the manuscript cites
 
-**Status: complete and validated, deliberately unpublished.** Nothing here has been
-pushed to GitHub, added to the benchmark kit, or cited in the manuscript. The git
-remotes were removed from this working copy so a push cannot happen by accident.
+**Status: released.** 2.3.2 supersedes 2.3.1 as the published version. It was held back
+for a while — the reasoning is kept below, because it was reversed for a reason worth
+recording — and then folded in once two things changed: the manuscript had not been
+submitted, and the Mash boundaries were recalibrated against a measurement, which made
+this the version the benchmark should run on.
 
-**Release when:** the v2.3.1 publication process is finished. Until then v2.3.1
-(`BioTools-Dev/RaPDTool`, tag `RaPDTool-v2.3.1`, Zenodo 10.5281/zenodo.21640025) is the
-current release and this tree must not reach it.
+Its predecessor 2.3.1 remains tagged (`RaPDTool-v2.3.1`, Zenodo 10.5281/zenodo.21640025)
+and is not withdrawn; it is simply no longer the version the paper describes.
 
 ## What changed
 
-Screen mode now reports genus, using the cutoffs full mode already applied. Before this,
-`full` and `profile` tiered a bin by Mash distance — below 0.05 into *Species with high
-confidence*, 0.05–0.08 into *Genus with high confidence* — while `screen` had a single
-`--screen-identity` cutoff (0.95) and no genus tier. The same organism therefore got a
-genus call from one mode and silence from the other. See `CHANGELOG.md`.
+**Recalibrated Mash boundaries.** The species and genus cutoffs were inherited
+conventions; they are now the boundaries measured over every pair of the prokaryotic type
+material — 30,209 genomes, 4.56 × 10⁸ pairs — at the sketch size this tool ships. Species
+moves from `d < 0.05` to **`d ≤ 0.043`**, where 95 % ANI actually falls; genus from
+`0.05–0.08` to **`0.043 < d ≤ 0.13`**, the wide edge of a precision plateau that holds
+~96 % under both NCBI and GTDB.
+
+**No more biased identity.** `1 − d`, the conversion Mash itself uses, overstates ANI by
+12 d points. Cutoffs are now declared as distance (`--screen-max-dist`,
+`--screen-genus-max-dist`, with the identity flags kept as deprecated aliases) and the
+report prints `ANI-est = 1 − 1.12 d` beside the untranslated distance.
+
+**Screen mode reports genus**, using the same boundaries full mode applies. Before this,
+`full` and `profile` tiered a bin by Mash distance while `screen` had a single cutoff and
+no genus tier, so the same organism got a genus call from one mode and silence from the
+other. Its genus table keeps one row per genus and drops a genus already named at species
+rank. See `CHANGELOG.md`.
 
 The genus table prints **before** the species table, mirroring full mode. That order is
 load-bearing: a consumer scoping the species block as everything between
 `Reference genomes detected` and the FOCUS heading — as the benchmark kit's
-`mash_detection.py` does — still sees species rows only.
+`mash_detection.py` does — still sees species rows only, which is why species-level
+results are unchanged by this release.
 
-## Why it was held back
+## Why it was held back, and why that was reversed
 
-It is good engineering, but it does not make the manuscript more publishable:
+The original judgement, recorded here because the reasoning still holds for its own
+premises: the change was good engineering but did not make the manuscript more
+publishable. No headline number moved, it added a disclosure (a spurious *Shigella*
+genus call wherever *E. coli* is present), and it broke a version story that had just
+been settled — Methods stated that the benchmark ran v2.3.0 and that v2.3.1 "differs only
+in input-file handling and report formatting", which does not cover a change to what
+screen reports.
 
-- **No headline number moves.** Species detection is identical across all six benchmark
-  datasets (19/20/20/20/5/8, matching the published run). OPAL metrics come from the
-  FOCUS profile, which is untouched.
-- **It adds a disclosure.** A spurious *Shigella* genus call appears in every dataset
-  containing *E. coli*, and in none of the one that does not.
-- **It breaks a version story that was just settled.** Methods states the benchmark ran
-  v2.3.0 and that v2.3.1 "differs only in input-file handling and report formatting".
-  That sentence does not cover 2.3.2, which changes what screen reports.
+Two things then changed the calculus:
 
-## What it gains, for the release notes when it does ship
+1. **The manuscript had not been submitted.** Folding a new version in costs far less
+   before review than during it, and the earlier decision had assumed otherwise.
+2. **The Mash boundaries were recalibrated.** Species moved from `d < 0.05` to
+   `d ≤ 0.043` and genus from `0.05–0.08` to `0.043–0.13`, measured over all 4.56 × 10⁸
+   pairs of the type material. That is a substantive improvement to what the tool
+   reports, and it belongs in the version the paper describes.
+
+Re-running the benchmark on 2.3.2 also removed the awkward Methods clause: the benchmark
+and the released version are now the same, so there is no mismatch left to declare.
+
+## What it gains, for the release notes
 
 - **Out of domain:** screen resolves 3/3 genus-tier genomes of the mirror experiment
   (*Hymenobacter*, *Nostoc*, *Exiguobacterium*) at precision 1.0, where before it
@@ -52,17 +75,14 @@ It is good engineering, but it does not make the manuscript more publishable:
 
 | Path | |
 |---|---|
-| `bin/`, `scripts/`, `Singularity.def`, `conda-recipe/` | the change itself, version bumped to 2.3.2 |
+| `bin/`, `scripts/`, `Singularity.def`, `conda-recipe/` | the change itself, version 2.3.2 |
 | `SIF/rapdtool_apptainer_new/rapdtool3_build/` | sandbox with the new code, label `Version: 2.3.2` |
-| `SIF/rapdtool_apptainer_new/rapdtool_v2.3.2.sif` | image built from that sandbox (492 MB) |
-| `validation/results_screen_2.3.2/` | screen re-run on all six benchmark datasets |
-| `validation/genus_detection.py` | scores the genus tier as its own axis |
-| `validation/run232_screen.sh` | the re-run batch |
-| `validation/nearest_other_genus.sh` | nearest out-of-genus neighbour per mock genome |
+| `SIF/rapdtool_apptainer_new/rapdtool_v2.3.2.sif` | image built from that sandbox |
+| `local/v232_validation/` | the screen re-runs, the genus-axis scorer and the measurement scripts (git-ignored) |
 
-Reference data (mash DB, FOCUS DB) and the benchmark inputs are **not** copied; they are
-read in place. A full copy of the stable tree was not possible anyway — 74 GB against
-41 GB free — and not useful: only 18 MB of it is the repository.
+The recalibrated benchmark lives in the kit, `local/rapdtool_benchmark_git`, which is a
+separate repository with its own DOI. The reference databases are read in place and are
+not copied here.
 
 ## Audit, 2026-07-30
 
@@ -108,11 +128,25 @@ closest *species*, not of the genus. That is what full mode has always done and 
 one without the other would be worse; the `.txt` output names the columns explicitly
 (`Genus  Closest-species  taxID  …`).
 
-## Before releasing
+## Release checklist
 
-- [ ] Build from `Singularity.def` and confirm it matches the sandbox build. Only the
-      sandbox path has been exercised so far.
-- [ ] Restore a git remote, tag `RaPDTool-v2.3.2`, push.
-- [ ] Upload the image to figshare and refresh the conda recipe pin.
-- [ ] Decide whether the benchmark kit gains a genus-detection axis (option "B" —
-      scored separately, never merged into the species axis).
+- [x] Recalibrate the boundaries and re-run the benchmark on all six datasets; species
+      results unchanged, `verify_kit.sh` at 20/20.
+- [x] Update the kit (results, Figure 5, §4b) and the manuscript (§2.4, §3.5, Methods
+      options, Figure 5 and its caption).
+- [ ] Build from `Singularity.def` and confirm it works. Every image so far was repacked
+      from the sandbox; the from-recipe path has not been exercised since 2.3.1, and the
+      README tells readers they can use it.
+- [ ] Push `main` and the `RaPDTool-v2.3.2` tag. The conda recipe pins `git_rev:
+      RaPDTool-v2.3.2`, so a build fails until the tag is on the remote.
+- [ ] Cut the GitHub release; let Zenodo archive it and take the new DOI.
+- [ ] Replace the version and DOI in the manuscript — abstract, Data availability and
+      Methods §2.3. The clause "benchmark runs used v2.3.0, which differs only in
+      input-file handling and report formatting" can go: the benchmark now runs on the
+      released version.
+- [ ] `conda build` and upload, once the tag is pushed.
+- [x] Upload the image and the mash database to figshare. The database must be
+      `type_30209genomes.msh`: the previous one carried four sketches built from
+      `*_cds_from_genomic` and `*_rna_from_genomic` files rather than genomes, and the
+      rRNA sketch matched unrelated samples at moderate distance. Keep one file per
+      article — the launcher takes the first the API returns.

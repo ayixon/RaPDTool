@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mime-type xmlns="http://www.freedesktop.org/standards/shared-mime-info" type="video/vnd.mpegurl">
+  <!--Created automatically by update-mime-database. DO NOT EDIT!-->
+  <comment>Video playlist</comment>
+  <sub-class-of type="text/plain"/>
+  <alias type="video/x-mpegurl"/>
+  <glob pattern="*.m1u"/>
+  <glob pattern="*.m4u"/>
+  <glob pattern="*.mxu"/>
+</mime-type>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+<svg id="svg2" width="32" height="32" version="1.0" xmlns="http://www.w3.org/2000/svg" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:xlink="http://www.w3.org/1999/xlink">
+ <metadata id="metadata44">
+  <rdf:RDF>
+   <cc:Work rdf:about="">
+    <dc:format>image/svg+xml</dc:format>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs id="defs4">
+  <radialGradient id="radialGradient3429" cx="45" cy="45" r="1.5" gradientTransform="matrix(2,0,0,2,-45,-45)" gradientUnits="userSpaceOnUse">
+   <stop id="stop3425" offset="0"/>
+   <stop id="stop3427" style="stop-opacity:0" offset="1"/>
+  </radialGradient>
+  <radialGradient id="radialGradient3421" cx="3" cy="45" r="1.5" gradientTransform="matrix(0,-2,2,0,-87,51)" gradientUnits="userSpaceOnUse">
+   <stop id="stop3417" offset="0"/>
+   <stop id="stop3419" style="stop-opacity:0" offset="1"/>
+  </radialGradient>
+  <linearGradient id="linearGradient3411" x1="19.019" x2="19.019" y1="48" y2="42" gradientUnits="userSpaceOnUse">
+   <stop id="stop3407" style="stop-opacity:0" offset="0"/>
+   <stop id="stop3413" offset=".5"/>
+   <stop id="stop3409" style="stop-opacity:0" offset="1"/>
+  </linearGradient>
+  <linearGradient id="linearGradient2868" x1="21" x2="21" y1="2" y2="26" gradientTransform="matrix(.66667 0 0 .68421 -.16667 1.7895)" gradientUnits="userSpaceOnUse">
+   <stop id="stop2749" style="stop-color:#d78ec1" offset="0"/>
+   <stop id="stop2751" style="stop-color:#c564be" offset=".26238"/>
+   <stop id="stop2753" style="stop-color:#9d3ea4" offset=".66094"/>
+   <stop id="stop2755" style="stop-color:#5e2c73" offset="1"/>
+  </linearGradient>
+  <radialGradient id="radialGradient3777" cx="7" cy="17.3" r="22" gradientTransform="matrix(1.4715 -2.9288e-8 1.2851e-8 .9697 -5.7653 -4.9424)" gradientUnits="userSpaceOnUse">
+   <stop id="stop2183" style="stop-color:#f0f0f0" offset="0"/>
+   <stop id="stop2185" style="stop-color:#d3d3d3" offset="1"/>
+  </radialGradient>
+  <radialGradient id="radialGradient3787" cx="7.375" cy="16.711" r="21" gradientTransform="matrix(1.5484 -.0014055 .00090308 .96524 -6.3824 -4.4842)" gradientUnits="userSpaceOnUse">
+   <stop id="stop3783" style="stop-color:#fff" offset="0"/>
+   <stop id="stop3785" style="stop-color:#fff;stop-opacity:0" offset="1"/>
+  </radialGradient>
+ </defs>
+ <g id="g3431" transform="matrix(.66667 0 0 1 0 -16)" style="opacity:.2">
+  <rect id="rect3399" y="42" width="3" height="6" style="fill:url(#radialGradient3421)"/>
+  <rect id="rect3401" x="45" y="42" width="3" height="6" style="fill:url(#radialGradient3429)"/>
+  <rect id="rect3403" x="3" y="42" width="42" height="6" style="fill:url(#linearGradient3411)"/>
+ </g>
+ <rect id="rect1304" x="1.5" y="3.5" width="29" height="26" rx="1.5" ry="1.5" style="color:black;fill:url(#radialGradient3777);stroke-linecap:round;stroke:#969696"/>
+ <rect id="rect2179" x="2.5" y="4.5" width="27" height="24" rx=".5" ry=".5" style="color:black;fill:none;opacity:.9;stroke-linecap:round;stroke:url(#radialGradient3787)"/>
+ <path id="rect1344" d="m2.5 3.5h13v13h-14v-11.974c0-0.56858 0.446-1.0263 1-1.0263z" style="color:black;fill:url(#linearGradient2868);stroke-linecap:round;stroke:#990489"/>
+ <path id="path2209" d="m15.5 4.5116v24" style="fill:none;opacity:.1;stroke-linecap:round;stroke:#000"/>
+ <path id="path2211" d="m2.4886 16.5h27.023" style="fill:none;opacity:.1;stroke-linecap:round;stroke:#000"/>
+ <path id="path2205" d="m2.4886 17.5h27.023" style="fill-rule:evenodd;fill:#fff;stroke-linecap:round;stroke:#eeeeec"/>
+ <path id="path2207" d="m16.5 4.5116v24" style="fill-rule:evenodd;fill:#fff;stroke-linecap:round;stroke:#eeeeec"/>
+ <path id="rect1355" d="m2.5 16.5v-11.667c0-0.18467 0.14495-0.33333 0.325-0.33333h12.675" style="color:black;fill:none;opacity:.4;stroke-linecap:square;stroke:#fff"/>
+ <rect id="rect1906" x="4.5" y="6.5" width="6" height="4" style="fill:#f69aed;stroke-linecap:round;stroke-linejoin:round;stroke:#1e1e1e"/>
+ <rect id="rect2796" x="6.5" y="9.5" width="7" height="5" style="fill:#fff;stroke-linecap:round;stroke-linejoin:round;stroke:#1e1e1e"/>
+</svg>

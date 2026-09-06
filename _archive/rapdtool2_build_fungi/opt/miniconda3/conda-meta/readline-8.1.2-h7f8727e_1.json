@@ -1,0 +1,73 @@
+{
+  "build": "h7f8727e_1",
+  "build_number": 1,
+  "channel": "https://repo.anaconda.com/pkgs/main/linux-64",
+  "constrains": [],
+  "depends": [
+    "libgcc-ng >=7.5.0",
+    "ncurses >=6.3,<7.0a0"
+  ],
+  "extracted_package_dir": "/opt/miniconda3/pkgs/readline-8.1.2-h7f8727e_1",
+  "features": "",
+  "files": [
+    "include/readline/chardefs.h",
+    "include/readline/history.h",
+    "include/readline/keymaps.h",
+    "include/readline/readline.h",
+    "include/readline/rlconf.h",
+    "include/readline/rlstdc.h",
+    "include/readline/rltypedefs.h",
+    "include/readline/tilde.h",
+    "lib/libhistory.a",
+    "lib/libhistory.so",
+    "lib/libhistory.so.8",
+    "lib/libhistory.so.8.1",
+    "lib/libreadline.a",
+    "lib/libreadline.so",
+    "lib/libreadline.so.8",
+    "lib/libreadline.so.8.1",
+    "lib/pkgconfig/readline.pc",
+    "share/doc/readline/CHANGES",
+    "share/doc/readline/INSTALL",
+    "share/doc/readline/README",
+    "share/info/history.info",
+    "share/info/readline.info",
+    "share/info/rluserman.info",
+    "share/man/man3/history.3",
+    "share/man/man3/readline.3"
+  ],
+  "fn": "readline-8.1.2-h7f8727e_1.conda",
+  "legacy_bz2_md5": "150ac0eb929bab9dec912797bdfc7b95",
+  "legacy_bz2_size": 433182,
+  "license": "GPL-3.0-only",
+  "license_family": "GPL",
+  "link": {
+    "source": "/opt/miniconda3/pkgs/readline-8.1.2-h7f8727e_1",
+    "type": 1
+  },
+  "md5": "ea33f478fea12406f394944e7e4f3d20",
+  "name": "readline",
+  "package_tarball_full_path": "/opt/miniconda3/pkgs/readline-8.1.2-h7f8727e_1.conda",
+  "paths_data": {
+    "paths": [
+      {
+        "_path": "lib/pkgconfig/readline.pc",
+        "file_mode": "text",
+        "path_type": "hardlink",
+        "prefix_placeholder": "/opt/conda/conda-bld/readline_1642022364609/_h_env_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_plac",
+        "sha256": "58e8cdcf639a9433d47b19d85d3f8fcd0fb77e9f81c86d4c3bbe5a0368bac2d6",
+        "sha256_in_prefix": "027d2b326b443ab2558f8c863f8ab3c9605860fa71e16bdeba16e9a5275c09f7",
+        "size_in_bytes": 562
+      }
+    ],
+    "paths_version": 1
+  },
+  "requested_spec": "readline==8.1.2=h7f8727e_1",
+  "sha256": "ab74641903ecb92f45c392cffe5bbb712208854c6ea20ab86b65dd4dfc1b1beb",
+  "size": 362247,
+  "subdir": "linux-64",
+  "timestamp": 1642022402894,
+  "track_features": "",
+  "url": "https://repo.anaconda.com/pkgs/main/linux-64/readline-8.1.2-h7f8727e_1.conda",
+  "version": "8.1.2"
+}

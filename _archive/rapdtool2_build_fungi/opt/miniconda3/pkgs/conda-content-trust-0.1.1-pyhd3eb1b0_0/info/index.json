@@ -1,0 +1,17 @@
+{
+  "arch": null,
+  "build": "pyhd3eb1b0_0",
+  "build_number": 0,
+  "depends": [
+    "cryptography",
+    "python",
+    "six"
+  ],
+  "license": "BSD-3-Clause",
+  "name": "conda-content-trust",
+  "noarch": "python",
+  "platform": null,
+  "subdir": "noarch",
+  "timestamp": 1617045636206,
+  "version": "0.1.1"
+}

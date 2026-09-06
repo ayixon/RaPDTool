@@ -1,0 +1,56 @@
+{% set name = "zipp" %}
+{% set version = "3.8.1" %}
+
+package:
+  name: {{ name|lower }}
+  version: {{ version }}
+
+source:
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  sha256: 05b45f1ee8f807d0cc928485ca40a07cb491cf092ff587c0df9cb1fd154848d2
+
+build:
+  number: 0
+  noarch: python
+  script: '{{ PYTHON }} -m pip install . --no-deps --ignore-installed -vv '
+
+requirements:
+  host:
+    - pip
+    - python >=3.7
+    - setuptools >=56
+    - wheel
+    # Add upper bound to get around circular dependency
+    # zipp->setuptools_scm->importlib_metadata->zipp
+    - setuptools_scm >=3.4.1,<7
+    - toml
+  run:
+    - python >=3.7
+
+test:
+  source_files:
+    - test_zipp.py
+  requires:
+    - pip
+    # this is a downstream that has a version requirement on zipp
+    - importlib_metadata
+    - jaraco.itertools
+    - func_timeout
+  imports:
+    - zipp
+  commands:
+    - python -m unittest test_zipp.py
+    - pip check
+
+about:
+  home: https://github.com/jaraco/zipp
+  license: MIT
+  license_family: MIT
+  license_file: LICENSE
+  summary: A pathlib-compatible Zipfile object wrapper
+  doc_url: https://zipp.readthedocs.io/en/latest
+  dev_url: https://github.com/jaraco/zipp
+
+extra:
+  recipe-maintainers:
+    - nehaljwani

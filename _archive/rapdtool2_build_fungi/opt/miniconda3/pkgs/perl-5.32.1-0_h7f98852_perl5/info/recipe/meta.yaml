@@ -1,0 +1,94 @@
+# This file created by conda-build 3.21.4
+# meta.yaml template originally from:
+# /home/conda/recipe_root, last modified Fri Jun  4 11:06:55 2021
+# ------------------------------------------------
+
+package:
+  name: perl
+  version: 5.32.1
+source:
+  - patches:
+      - 0001-Use-userelocatableinc-together-with-useshrplib.patch
+    sha256: 57cc47c735c8300a8ce2fa0643507b44c4ae59012bfdad0121313db639e02309
+    url: http://www.cpan.org/src/5.0/perl-5.32.1.tar.xz
+build:
+  number: '0'
+  run_exports:
+    noarch:
+      - perl >=5.32.1,<6.0a0 *_perl5
+    weak:
+      - perl >=5.32.1,<5.33.0a0 *_perl5
+  string: 0_h7f98852_perl5
+requirements:
+  build:
+    - _libgcc_mutex 0.1 conda_forge
+    - _openmp_mutex 4.5 1_gnu
+    - binutils_impl_linux-64 2.35.1 h193b22a_2
+    - binutils_linux-64 2.35 h67ddf6f_30
+    - gcc_impl_linux-64 9.3.0 h70c0ae5_19
+    - gcc_linux-64 9.3.0 hf25ea35_30
+    - kernel-headers_linux-64 2.6.32 h77966d4_13
+    - ld_impl_linux-64 2.35.1 hea4e1c9_2
+    - libgcc-devel_linux-64 9.3.0 h7864c58_19
+    - libgcc-ng 9.3.0 h2828fa1_19
+    - libgomp 9.3.0 h2828fa1_19
+    - libstdcxx-ng 9.3.0 h6de172a_19
+    - make 4.3 hd18ef5c_1
+    - sysroot_linux-64 2.12 h77966d4_13
+  host:
+    - _libgcc_mutex 0.1 conda_forge
+    - _openmp_mutex 4.5 1_gnu
+    - libgcc-ng 9.3.0 h2828fa1_19
+    - libgomp 9.3.0 h2828fa1_19
+  run:
+    - libgcc-ng >=9.3.0
+test:
+  commands:
+    - perl --help
+    - 'perl -V:cf_by | grep -qF "''conda''"
+
+      perl -V:cf_email | grep -qF "''conda''"
+
+      perl -V:perladmin | grep -qF "''conda''"
+
+      perl -e ''print "$_\n" for @INC'' | grep -qxF "${PREFIX}/lib/perl5/site_perl"
+
+      perl -e ''print "$_\n" for @INC'' | grep -qxF "${PREFIX}/lib/perl5/vendor_perl"
+
+      perl -e ''print "$_\n" for @INC'' | grep -qxF "${PREFIX}/lib/perl5/core_perl"
+
+      perl -e ''print "$_\n" for @INC'' | grep -qxF "${PREFIX}/lib/perl5/5.32/site_perl"
+
+      perl -e ''print "$_\n" for @INC'' | grep -qxF "${PREFIX}/lib/perl5/5.32/vendor_perl"
+
+      perl -e ''print "$_\n" for @INC'' | grep -qxF "${PREFIX}/lib/perl5/5.32/core_perl"
+
+      '
+about:
+  description: 'Perl 5 is a highly capable, feature-rich programming language with
+    over 29
+
+    years of development. Perl 5 runs on over 100 platforms from portables to
+
+    mainframes and is suitable for both rapid prototyping and large scale
+
+    development projects.
+
+    '
+  dev_url: https://perl5.git.perl.org/perl.git
+  doc_url: https://www.perl.org/docs.html
+  home: http://www.perl.org/
+  license: GPL-1.0-or-later OR Artistic-1.0-Perl
+  license_file:
+    - Artistic
+    - Copying
+  summary: The Perl programming language interpreter.
+extra:
+  copy_test_source_files: true
+  final: true
+  recipe-maintainers:
+    - isuruf
+    - jakirkham
+    - mbargull
+    - mingwandroid
+    - msarahan

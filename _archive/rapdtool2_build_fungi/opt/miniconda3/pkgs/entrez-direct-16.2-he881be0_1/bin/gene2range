@@ -1,0 +1,22 @@
+#!/bin/bash -norc
+
+# Public domain notice for all NCBI EDirect scripts is located at:
+# https://www.ncbi.nlm.nih.gov/books/NBK179288/#chapter6.Public_Domain_Notice
+
+if [ $# -lt 1 ]
+then
+  echo "Insufficient arguments - must have chromosome name" >&2
+  exit 1
+fi
+
+chrloc="$1"
+
+xtract -pattern DocumentSummary -ID Id -NAME Name -DESC Description \
+  -group GenomicInfoType -if ChrLoc -equals "$chrloc" \
+    -block GenomicInfoType -if ChrStart -gt ChrStop \
+      -lbl "minus" -else -lbl "plus" \
+    -block GenomicInfoType \
+      -min ChrStart,ChrStop -max ChrStart,ChrStop \
+      -element "&ID" "&NAME" "&DESC" -deq "\n" |
+sort-table -k 2,2n -k 3,3n |
+tbl2xml -rec GENE Strand Min Max Id Name Desc

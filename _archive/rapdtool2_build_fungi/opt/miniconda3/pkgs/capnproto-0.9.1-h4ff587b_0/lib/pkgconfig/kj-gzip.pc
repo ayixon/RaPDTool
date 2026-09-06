@@ -1,0 +1,11 @@
+prefix=/opt/conda/conda-bld/capnproto_1643906043325/_h_env_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_pla
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include
+
+Name: KJ Gzip Adapters
+Description: Basic utility library called KJ (gzip part)
+Version: 0.9.1
+Libs: -L${libdir} -lkj-gzip -pthread  
+Requires: kj-async = 0.9.1
+Cflags: -I${includedir} -pthread  

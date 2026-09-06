@@ -1,0 +1,5 @@
+# On non-systemd systems, polkitd is started by traditional D-Bus activation
+package-supports-alternative-init-but-no-init.d-script lib/systemd/system/polkit.service
+
+# Intentionally started on-demand rather than during boot
+systemd-service-file-missing-install-key lib/systemd/system/polkit.service

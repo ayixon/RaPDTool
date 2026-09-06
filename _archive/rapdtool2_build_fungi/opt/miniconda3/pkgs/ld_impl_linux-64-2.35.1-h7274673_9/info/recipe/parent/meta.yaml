@@ -1,0 +1,137 @@
+{% set name = "binutils" %}
+{% set version = "2.35.1" %}
+{% set chost = ctng_cpu_arch ~ "-" ~ ctng_vendor ~ "-linux-gnu-" %}
+{% set build_num = 9 %}
+
+package:
+  name: binutils_split
+  version: {{ version }}
+
+source:
+  - url: https://ftp.gnu.org/gnu/{{ name }}/{{ name }}-{{ version }}.tar.bz2
+    sha256: 320e7a1d0f46fcd9f413f1046e216cbe23bb2bce6deb6c6a63304425e48b1942
+    folder: .
+
+  # Get the patches from crosstool-ng
+  - url: https://github.com/crosstool-ng/crosstool-ng/archive/e7da850fa2066c9f1adeba3d8525a7231d0e47bc.tar.gz
+    sha256: ba84dea3109b3fc1d8f7f12ffeade97ba58f62c628b61251db13cf918f55256b
+    folder: crosstool_ng
+
+build:
+  number: {{ build_num }}
+  skip: true  # [win]
+  detect_binary_files_with_prefix: false
+
+requirements:
+  build:
+  host:
+  run:
+
+outputs:
+  - name: ld_impl_{{ ctng_target_platform }}
+    script: install_ld.sh
+    build:
+      merge_build_host: false
+      detect_binary_files_with_prefix: false
+    requirements:
+      build:
+      host:
+      run:
+      run_constrained:
+        - binutils_impl_{{ ctng_target_platform }} {{ version }}
+    test:
+      commands:
+        - {{ chost }}ld --help
+        - echo "{{ ctng_vendor }}"
+        - echo {{ c_compiler_version }}
+
+  - name: binutils_impl_{{ ctng_target_platform }}
+    script: install_binutils.sh
+    build:
+      merge_build_host: false
+      detect_binary_files_with_prefix: false
+      ignore_run_exports:
+        - __glibc
+    requirements:
+      build:
+      host:
+        - ld_impl_{{ ctng_target_platform }} {{ version }}
+      run:
+        - {{ pin_subpackage("ld_impl_" ~ ctng_target_platform, exact=True) }}
+        - sysroot_{{ ctng_target_platform }}
+    test:
+      downstreams:
+        - gfortran_impl_{{ ctng_target_platform }}
+        - gcc_impl_{{ ctng_target_platform }}
+      commands:
+        - {{ chost }}addr2line --help
+        - {{ chost }}ar --help
+        - {{ chost }}as --help
+        - {{ chost }}c++filt --help
+        - {{ chost }}elfedit --help
+        - {{ chost }}gprof --help
+        - {{ chost }}ld --help
+        - {{ chost }}ld.bfd --help
+        - {{ chost }}ld.gold --help     # [not s390x]
+        - {{ chost }}nm --help
+        - {{ chost }}objcopy --help
+        - {{ chost }}objdump --help
+        - {{ chost }}ranlib --help
+        - {{ chost }}readelf --help
+        - {{ chost }}size --help
+        - {{ chost }}strings --help
+        - {{ chost }}strip --help
+        - echo {{ c_compiler_version }}
+
+  - name: binutils
+    script: install_binutils_symlinks.sh
+    build:
+      merge_build_host: false
+      detect_binary_files_with_prefix: false
+      skip: true  # [ctng_target_platform != target_platform]
+    requirements:
+      build:
+      host:
+        - binutils_impl_{{ ctng_target_platform }}
+      run:
+        - {{ pin_subpackage("binutils_impl_" ~ ctng_target_platform, max_pin="x.x.x") }}
+        - libcxx >=4.0.0  # [osx]
+    test:
+      commands:
+        - $PREFIX/bin/addr2line --help
+        - $PREFIX/bin/ar --help
+        - $PREFIX/bin/as --help
+        - $PREFIX/bin/c++filt --help
+        - $PREFIX/bin/elfedit --help
+        - $PREFIX/bin/gold --help       # [not s390x]
+        - $PREFIX/bin/gprof --help
+        - $PREFIX/bin/ld --help
+        - $PREFIX/bin/ld.bfd --help
+        - $PREFIX/bin/ld.gold --help    # [not s390x]
+        - $PREFIX/bin/nm --help
+        - $PREFIX/bin/objcopy --help
+        - $PREFIX/bin/objdump --help
+        - $PREFIX/bin/ranlib --help
+        - $PREFIX/bin/readelf --help
+        - $PREFIX/bin/size --help
+        - $PREFIX/bin/strings --help
+        - $PREFIX/bin/strip --help
+
+about:
+  home: https://www.gnu.org/software/binutils/
+  license: GPL-3.0-only
+  license_file:
+    - COPYING
+    - COPYING.LIB
+    - COPYING3
+    - COPYING3.LIB
+  summary: |
+    A set of programming tools for creating and managing binary programs, object files,
+    libraries, profile data, and assembly source code.
+
+extra:
+  recipe-maintainers:
+    - frol
+    - isuruf
+    - jjhelmus
+    - beckermr

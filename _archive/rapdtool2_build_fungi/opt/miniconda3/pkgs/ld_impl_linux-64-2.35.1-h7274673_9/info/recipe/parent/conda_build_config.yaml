@@ -1,0 +1,12 @@
+ctng_cpu_arch:
+  - x86_64          # [not linux32]
+ctng_vendor:
+  - conda_cos6      # [not linux32]
+ctng_target_platform:
+  - linux-64        # [not linux32]
+
+zip_keys:
+  -
+    - ctng_cpu_arch
+    - ctng_vendor
+    - ctng_target_platform

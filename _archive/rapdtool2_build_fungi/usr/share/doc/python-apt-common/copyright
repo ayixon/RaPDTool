@@ -1,0 +1,61 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+
+Files: *
+Copyright: © 2004-2009 Canonical Ltd.
+           © 2009 Julian Andres Klode <jak@debian.org>
+License: GPL-2+
+
+Files: tests/test_all.py tests/test_hashes.py
+Copyright: © 2009 Julian Andres Klode <jak@debian.org>
+License: Permissive
+ Copying and distribution of this file, with or without modification,
+ are permitted in any medium without royalty provided the copyright
+ notice and this notice are preserved.
+
+Files: aptsources/*.py
+Copyright: © 2004-2009 Canonical Ltd.
+           © 2005 Gustavo Noronha Silva
+           © 2006-2007 Sebastian Heinlein
+License: GPL-2+
+
+Files: doc/source/*
+Copyright: © 2009 Julian Andres Klode <jak@debian.org>
+License: GPL-2+
+
+Files: utils/get_*.py
+Copyright: © 2006 Free Software Foundation Europe
+License: GPL-2+
+
+Files: po/*
+Copyright: © 2006 Canonical Ltd, and Rosetta Contributors 2006
+License: GPL-2+
+
+Files: po/de.po
+Copyright: © 2005 Michiel Sikkes <michiel@eyesopened.nl>
+License: GPL-2+
+
+Files: po/en_CA.po
+Copyright: © 2005 Adam Weinberger and the GNOME Foundation
+License: GPL-2+
+
+Files: po/fi.po
+Copyright: © 2005-2006 Timo Jyrinki
+License: GPL-2+
+
+Files: po/fr.po
+Copyright: © 2007 Hugues NAULET <hnaulet@gmail.com>
+License: GPL-2+
+
+Files: po/hu.po po/lt.po po/pt.po po/ro.po po/sv.po po/uk.po
+       po/zh_HK.po
+Copyright: © 2005-2006 Free Software Foundation
+License: GPL-2+
+
+License: GPL-2+
+ APT is free software; you can redistribute them and/or modify them under
+ the terms of the GNU General Public License as published by the Free Software
+ Foundation; either version 2 of the License, or (at your option) any later
+ version.
+ .
+ On Debian systems, a copy of the GNU General Public License can be
+ found in /usr/share/common-licenses/GPL-2.

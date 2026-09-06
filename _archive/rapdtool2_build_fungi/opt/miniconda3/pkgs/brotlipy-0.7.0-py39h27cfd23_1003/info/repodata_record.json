@@ -1,0 +1,26 @@
+{
+  "build": "py39h27cfd23_1003",
+  "build_number": 1003,
+  "channel": "https://repo.anaconda.com/pkgs/main/linux-64",
+  "constrains": [],
+  "depends": [
+    "cffi >=1.0.0",
+    "libgcc-ng >=7.3.0",
+    "python >=3.9,<3.10.0a0"
+  ],
+  "features": "",
+  "fn": "brotlipy-0.7.0-py39h27cfd23_1003.conda",
+  "legacy_bz2_md5": "c203ffc7bbba991c7089d4b383cfd92c",
+  "legacy_bz2_size": 357797,
+  "license": "MIT",
+  "license_family": "MIT",
+  "md5": "be47bcffb9e3e7495897b02589f5ad1a",
+  "name": "brotlipy",
+  "sha256": "17420d4eea48a3e89aa260c9233ba96815ea40d07702d7554b27f30f3ecdc2fb",
+  "size": 331770,
+  "subdir": "linux-64",
+  "timestamp": 1605539534667,
+  "track_features": "",
+  "url": "https://repo.anaconda.com/pkgs/main/linux-64/brotlipy-0.7.0-py39h27cfd23_1003.conda",
+  "version": "0.7.0"
+}

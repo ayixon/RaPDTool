@@ -1,0 +1,16 @@
+{
+  "arch": "x86_64",
+  "build": "h7f8727e_1",
+  "build_number": 1,
+  "depends": [
+    "libgcc-ng >=7.5.0",
+    "ncurses >=6.3,<7.0a0"
+  ],
+  "license": "GPL-3.0-only",
+  "license_family": "GPL",
+  "name": "readline",
+  "platform": "linux",
+  "subdir": "linux-64",
+  "timestamp": 1642022402894,
+  "version": "8.1.2"
+}

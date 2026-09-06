@@ -1,0 +1,48 @@
+{% set name = "toolz" %}
+{% set version = "0.12.1" %}
+
+package:
+  name: {{ name|lower }}
+  version: {{ version }}
+
+source:
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/toolz-{{ version }}.tar.gz
+  sha256: ecca342664893f177a13dac0e6b41cbd8ac25a358e5f215316d43e2100224f4d
+
+build:
+  noarch: python
+  script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
+  number: 0
+
+requirements:
+  host:
+    - python >=3.7
+    - pip
+  run:
+    - python >=3.7
+
+test:
+  imports:
+    - tlz
+    - toolz
+    - toolz.curried
+    - toolz.functoolz
+    - toolz.sandbox
+  commands:
+    - pip check
+  requires:
+    - pip
+
+about:
+  home: https://toolz.readthedocs.org/
+  summary: A functional standard library for Python
+  license: BSD-3-Clause
+  license_file: LICENSE.txt
+
+extra:
+  recipe-maintainers:
+    - mrocklin
+    - eriknw
+    - jcrist
+    - jakirkham
+    - ocefpaf

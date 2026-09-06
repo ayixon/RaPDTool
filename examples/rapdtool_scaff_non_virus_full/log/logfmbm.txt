@@ -1,0 +1,115 @@
+
+* Starting execution 2026-07-17 19:19:45 (mode: full)
+Using root path /free/programs/RaPDTool/examples/rapdtool_scaff_non_virus_full/
+All paths were verified
+Using database: /home/karel/.cache/rapdtool/mash_db.msh
+Using FOCUS database dir: /home/karel/.cache/rapdtool/focus
+Input file: /free/programs/RaPDTool/examples/rapdtool_scaff_non_virus_full/inputfmbm/scaff_non_virus.fasta, size: 46996046, tstamp: 2026-07-17 19:19:45
+Filenames and paths were initialized
+FOCUS command
+$ focus -q /free/programs/RaPDTool/examples/rapdtool_scaff_non_virus_full/inputfmbm/ -o /free/programs/RaPDTool/examples/rapdtool_scaff_non_virus_full/profilesfmbm/scaff_non_virus/ -l /free/programs/RaPDTool/examples/rapdtool_scaff_non_virus_full/workfmbm/logfocus/scaff_non_virus.fasta.txt -t 32 -b /home/karel/.cache/rapdtool/focus
+focus - profile created (/free/programs/RaPDTool/examples/rapdtool_scaff_non_virus_full/profilesfmbm/scaff_non_virus/output_All_levels.csv)
+METABAT command
+$ metabat2 -t 32 -m 1500 -i /free/programs/RaPDTool/examples/rapdtool_scaff_non_virus_full/inputfmbm/scaff_non_virus.fasta -o /free/programs/RaPDTool/examples/rapdtool_scaff_non_virus_full/workfmbm/binmetabat/scaff_non_virus/metabat > /free/programs/RaPDTool/examples/rapdtool_scaff_non_virus_full/workfmbm/logmetabat/scaff_non_virus.fasta.txt
+metabat - 8 bin(s) created
+Binning_refiner command
+$ Binning_refiner -i /free/programs/RaPDTool/examples/rapdtool_scaff_non_virus_full/workfmbm/inbinningref/scaff_non_virus/ -p scaff_non_virus -plot > /free/programs/RaPDTool/examples/rapdtool_scaff_non_virus_full/workfmbm/logbinningref/scaff_non_virus.fasta.txt
+Binning_refiner - 7 refined bin(s)
+miComplete command
+$ miCompletelist.sh > /free/programs/RaPDTool/examples/rapdtool_scaff_non_virus_full/workfmbm/inmicomplete/scaff_non_virus.tab
+$ miComplete /free/programs/RaPDTool/examples/rapdtool_scaff_non_virus_full/workfmbm/inmicomplete/scaff_non_virus.tab --hmms Bact105 --threads 32 > /free/programs/RaPDTool/examples/rapdtool_scaff_non_virus_full/workfmbm/outmicomplete/miCompleteOut_scaff_non_virus.tab
+miComplete - /free/programs/RaPDTool/examples/rapdtool_scaff_non_virus_full/workfmbm/outmicomplete/miCompleteOut_scaff_non_virus.tab
+MASH - start cycling
+$ mash dist /free/programs/RaPDTool/examples/rapdtool_scaff_non_virus_full/workfmbm/outbinningref/scaff_non_virus_Binning_refiner_outputs/scaff_non_virus_refined_bins/scaff_non_virus_4.fna /home/karel/.cache/rapdtool/mash_db.msh -p 32 > /free/programs/RaPDTool/examples/rapdtool_scaff_non_virus_full/workfmbm/outmash/scaff_non_virus/scaff_non_virus_4.fna.txt
+[mash] stderr: Sketching /free/programs/RaPDTool/examples/rapdtool_scaff_non_virus_full/workfmbm/outbinningref/scaff_non_virus_Binning_refiner_outputs/scaff_non_virus_refined_bins/scaff_non_virus_4.fna (provide sketch file made with "mash sketch" to skip)...done.
+$ mash dist /free/programs/RaPDTool/examples/rapdtool_scaff_non_virus_full/workfmbm/outbinningref/scaff_non_virus_Binning_refiner_outputs/scaff_non_virus_refined_bins/scaff_non_virus_5.fna /home/karel/.cache/rapdtool/mash_db.msh -p 32 > /free/programs/RaPDTool/examples/rapdtool_scaff_non_virus_full/workfmbm/outmash/scaff_non_virus/scaff_non_virus_5.fna.txt
+[mash] stderr: Sketching /free/programs/RaPDTool/examples/rapdtool_scaff_non_virus_full/workfmbm/outbinningref/scaff_non_virus_Binning_refiner_outputs/scaff_non_virus_refined_bins/scaff_non_virus_5.fna (provide sketch file made with "mash sketch" to skip)...done.
+$ mash dist /free/programs/RaPDTool/examples/rapdtool_scaff_non_virus_full/workfmbm/outbinningref/scaff_non_virus_Binning_refiner_outputs/scaff_non_virus_refined_bins/scaff_non_virus_1.fna /home/karel/.cache/rapdtool/mash_db.msh -p 32 > /free/programs/RaPDTool/examples/rapdtool_scaff_non_virus_full/workfmbm/outmash/scaff_non_virus/scaff_non_virus_1.fna.txt
+[mash] stderr: Sketching /free/programs/RaPDTool/examples/rapdtool_scaff_non_virus_full/workfmbm/outbinningref/scaff_non_virus_Binning_refiner_outputs/scaff_non_virus_refined_bins/scaff_non_virus_1.fna (provide sketch file made with "mash sketch" to skip)...done.
+$ mash dist /free/programs/RaPDTool/examples/rapdtool_scaff_non_virus_full/workfmbm/outbinningref/scaff_non_virus_Binning_refiner_outputs/scaff_non_virus_refined_bins/scaff_non_virus_7.fna /home/karel/.cache/rapdtool/mash_db.msh -p 32 > /free/programs/RaPDTool/examples/rapdtool_scaff_non_virus_full/workfmbm/outmash/scaff_non_virus/scaff_non_virus_7.fna.txt
+[mash] stderr: Sketching /free/programs/RaPDTool/examples/rapdtool_scaff_non_virus_full/workfmbm/outbinningref/scaff_non_virus_Binning_refiner_outputs/scaff_non_virus_refined_bins/scaff_non_virus_7.fna (provide sketch file made with "mash sketch" to skip)...done.
+$ mash dist /free/programs/RaPDTool/examples/rapdtool_scaff_non_virus_full/workfmbm/outbinningref/scaff_non_virus_Binning_refiner_outputs/scaff_non_virus_refined_bins/scaff_non_virus_2.fna /home/karel/.cache/rapdtool/mash_db.msh -p 32 > /free/programs/RaPDTool/examples/rapdtool_scaff_non_virus_full/workfmbm/outmash/scaff_non_virus/scaff_non_virus_2.fna.txt
+[mash] stderr: Sketching /free/programs/RaPDTool/examples/rapdtool_scaff_non_virus_full/workfmbm/outbinningref/scaff_non_virus_Binning_refiner_outputs/scaff_non_virus_refined_bins/scaff_non_virus_2.fna (provide sketch file made with "mash sketch" to skip)...done.
+$ mash dist /free/programs/RaPDTool/examples/rapdtool_scaff_non_virus_full/workfmbm/outbinningref/scaff_non_virus_Binning_refiner_outputs/scaff_non_virus_refined_bins/scaff_non_virus_3.fna /home/karel/.cache/rapdtool/mash_db.msh -p 32 > /free/programs/RaPDTool/examples/rapdtool_scaff_non_virus_full/workfmbm/outmash/scaff_non_virus/scaff_non_virus_3.fna.txt
+[mash] stderr: Sketching /free/programs/RaPDTool/examples/rapdtool_scaff_non_virus_full/workfmbm/outbinningref/scaff_non_virus_Binning_refiner_outputs/scaff_non_virus_refined_bins/scaff_non_virus_3.fna (provide sketch file made with "mash sketch" to skip)...done.
+$ mash dist /free/programs/RaPDTool/examples/rapdtool_scaff_non_virus_full/workfmbm/outbinningref/scaff_non_virus_Binning_refiner_outputs/scaff_non_virus_refined_bins/scaff_non_virus_6.fna /home/karel/.cache/rapdtool/mash_db.msh -p 32 > /free/programs/RaPDTool/examples/rapdtool_scaff_non_virus_full/workfmbm/outmash/scaff_non_virus/scaff_non_virus_6.fna.txt
+[mash] stderr: Sketching /free/programs/RaPDTool/examples/rapdtool_scaff_non_virus_full/workfmbm/outbinningref/scaff_non_virus_Binning_refiner_outputs/scaff_non_virus_refined_bins/scaff_non_virus_6.fna (provide sketch file made with "mash sketch" to skip)...done.
+mash - 7 taxonomic match report(s)
+Extracted best 10 distances for 7 file(s)
+Binning_refiner outputs linked to results dir
+Copying and merging results..
+$ rapdtool_results.pl
+[rapdtool_results] stderr: ERROR:  wget command failed ( Fri Jul 17 19:20:22 CST 2026 ) with: 8
+--post-data=retmax=0&usehistory=y&db=assembly&term=GCA_040068595.1&tool=edirect&edirect=21.6&edirect_os=Linux&email=karel%40zebra https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi
+  HTTP/1.1 502 Bad Gateway
+ WARNING:  FAILURE ( Fri Jul 17 19:20:21 CST 2026 )
+nquire -url https://eutils.ncbi.nlm.nih.gov/entrez/eutils/ esearch.fcgi -retmax 0 -usehistory y -db assembly -term GCA_040068595.1 -tool edirect -edirect 21.6 -edirect_os Linux -email karel@zebra
+EMPTY RESULT
+SECOND ATTEMPT
+ ERROR:  wget command failed ( Fri Jul 17 19:20:30 CST 2026 ) with: 8
+--post-data=query_key=1&WebEnv=MCID_6a5ad4dd9e582c5519022138&retstart=0&retmax=1&db=assembly&version=2.0&retmode=xml&tool=edirect&edirect=21.6&edirect_os=Linux&email=karel%40zebra https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi
+  HTTP/1.1 502 Bad Gateway
+ WARNING:  FAILURE ( Fri Jul 17 19:20:29 CST 2026 )
+nquire -url https://eutils.ncbi.nlm.nih.gov/entrez/eutils/ esummary.fcgi -query_key 1 -WebEnv MCID_6a5ad4dd9e582c5519022138 -retstart 0 -retmax 1 -db assembly -version 2.0 -retmode xml -tool edirect -edirect 21.6 -edirect_os Linux -email karel@zebra
+EMPTY RESULT
+SECOND ATTEMPT
+Generating Krona visualization..
+$ ktImportText forkrona.txt -o rapdtool_krona.html
+rapdtool_split_bins command
+$ rapdtool_split_bins.py --root /free/programs/RaPDTool/examples/rapdtool_scaff_non_virus_full/
+Removing tmp directories..
+Done - results are in /free/programs/RaPDTool/examples/rapdtool_scaff_non_virus_full/
+
+* Starting execution 2026-07-28 02:30:48 (mode: full)
+Using root path /free/programs/RaPDTool/examples/rapdtool_scaff_non_virus_full/
+All paths were verified
+Using database: /home/karel/.cache/rapdtool/mash_db.msh
+Using FOCUS database dir: /home/karel/.cache/rapdtool/focus
+ERROR in step "input": results for "scaff_non_virus" already exist (/free/programs/RaPDTool/examples/rapdtool_scaff_non_virus_full/profilesfmbm/scaff_non_virus/). Use --force to overwrite or a different -r output dir.
+
+* Starting execution 2026-07-28 02:31:10 (mode: full)
+Using root path /free/programs/RaPDTool/examples/rapdtool_scaff_non_virus_full/
+All paths were verified
+Using database: /home/karel/.cache/rapdtool/mash_db.msh
+Using FOCUS database dir: /home/karel/.cache/rapdtool/focus
+Input file: /free/programs/RaPDTool/examples/rapdtool_scaff_non_virus_full/inputfmbm/scaff_non_virus.fasta, size: 46996046, tstamp: 2026-07-28 02:31:10
+Filenames and paths were initialized
+FOCUS command
+$ focus -q /free/programs/RaPDTool/examples/rapdtool_scaff_non_virus_full/inputfmbm/ -o /free/programs/RaPDTool/examples/rapdtool_scaff_non_virus_full/profilesfmbm/scaff_non_virus/ -l /free/programs/RaPDTool/examples/rapdtool_scaff_non_virus_full/workfmbm/logfocus/scaff_non_virus.fasta.txt -t 32 -b /home/karel/.cache/rapdtool/focus
+focus - profile created (/free/programs/RaPDTool/examples/rapdtool_scaff_non_virus_full/profilesfmbm/scaff_non_virus/output_All_levels.csv)
+METABAT command
+$ metabat2 -t 32 -m 1500 -i /free/programs/RaPDTool/examples/rapdtool_scaff_non_virus_full/inputfmbm/scaff_non_virus.fasta -o /free/programs/RaPDTool/examples/rapdtool_scaff_non_virus_full/workfmbm/binmetabat/scaff_non_virus/metabat > /free/programs/RaPDTool/examples/rapdtool_scaff_non_virus_full/workfmbm/logmetabat/scaff_non_virus.fasta.txt
+metabat - 8 bin(s) created
+Binning_refiner command
+$ Binning_refiner -i /free/programs/RaPDTool/examples/rapdtool_scaff_non_virus_full/workfmbm/inbinningref/scaff_non_virus/ -p scaff_non_virus -plot > /free/programs/RaPDTool/examples/rapdtool_scaff_non_virus_full/workfmbm/logbinningref/scaff_non_virus.fasta.txt
+Binning_refiner - 7 refined bin(s)
+miComplete command
+$ miCompletelist.sh > /free/programs/RaPDTool/examples/rapdtool_scaff_non_virus_full/workfmbm/inmicomplete/scaff_non_virus.tab
+$ miComplete /free/programs/RaPDTool/examples/rapdtool_scaff_non_virus_full/workfmbm/inmicomplete/scaff_non_virus.tab --hmms Bact105 --threads 32 > /free/programs/RaPDTool/examples/rapdtool_scaff_non_virus_full/workfmbm/outmicomplete/miCompleteOut_scaff_non_virus.tab
+miComplete - /free/programs/RaPDTool/examples/rapdtool_scaff_non_virus_full/workfmbm/outmicomplete/miCompleteOut_scaff_non_virus.tab
+MASH - start cycling
+$ mash dist /free/programs/RaPDTool/examples/rapdtool_scaff_non_virus_full/workfmbm/outbinningref/scaff_non_virus_Binning_refiner_outputs/scaff_non_virus_refined_bins/scaff_non_virus_4.fna /home/karel/.cache/rapdtool/mash_db.msh -p 32 > /free/programs/RaPDTool/examples/rapdtool_scaff_non_virus_full/workfmbm/outmash/scaff_non_virus/scaff_non_virus_4.fna.txt
+[mash] stderr: Sketching /free/programs/RaPDTool/examples/rapdtool_scaff_non_virus_full/workfmbm/outbinningref/scaff_non_virus_Binning_refiner_outputs/scaff_non_virus_refined_bins/scaff_non_virus_4.fna (provide sketch file made with "mash sketch" to skip)...done.
+$ mash dist /free/programs/RaPDTool/examples/rapdtool_scaff_non_virus_full/workfmbm/outbinningref/scaff_non_virus_Binning_refiner_outputs/scaff_non_virus_refined_bins/scaff_non_virus_5.fna /home/karel/.cache/rapdtool/mash_db.msh -p 32 > /free/programs/RaPDTool/examples/rapdtool_scaff_non_virus_full/workfmbm/outmash/scaff_non_virus/scaff_non_virus_5.fna.txt
+[mash] stderr: Sketching /free/programs/RaPDTool/examples/rapdtool_scaff_non_virus_full/workfmbm/outbinningref/scaff_non_virus_Binning_refiner_outputs/scaff_non_virus_refined_bins/scaff_non_virus_5.fna (provide sketch file made with "mash sketch" to skip)...done.
+$ mash dist /free/programs/RaPDTool/examples/rapdtool_scaff_non_virus_full/workfmbm/outbinningref/scaff_non_virus_Binning_refiner_outputs/scaff_non_virus_refined_bins/scaff_non_virus_1.fna /home/karel/.cache/rapdtool/mash_db.msh -p 32 > /free/programs/RaPDTool/examples/rapdtool_scaff_non_virus_full/workfmbm/outmash/scaff_non_virus/scaff_non_virus_1.fna.txt
+[mash] stderr: Sketching /free/programs/RaPDTool/examples/rapdtool_scaff_non_virus_full/workfmbm/outbinningref/scaff_non_virus_Binning_refiner_outputs/scaff_non_virus_refined_bins/scaff_non_virus_1.fna (provide sketch file made with "mash sketch" to skip)...done.
+$ mash dist /free/programs/RaPDTool/examples/rapdtool_scaff_non_virus_full/workfmbm/outbinningref/scaff_non_virus_Binning_refiner_outputs/scaff_non_virus_refined_bins/scaff_non_virus_7.fna /home/karel/.cache/rapdtool/mash_db.msh -p 32 > /free/programs/RaPDTool/examples/rapdtool_scaff_non_virus_full/workfmbm/outmash/scaff_non_virus/scaff_non_virus_7.fna.txt
+[mash] stderr: Sketching /free/programs/RaPDTool/examples/rapdtool_scaff_non_virus_full/workfmbm/outbinningref/scaff_non_virus_Binning_refiner_outputs/scaff_non_virus_refined_bins/scaff_non_virus_7.fna (provide sketch file made with "mash sketch" to skip)...done.
+$ mash dist /free/programs/RaPDTool/examples/rapdtool_scaff_non_virus_full/workfmbm/outbinningref/scaff_non_virus_Binning_refiner_outputs/scaff_non_virus_refined_bins/scaff_non_virus_2.fna /home/karel/.cache/rapdtool/mash_db.msh -p 32 > /free/programs/RaPDTool/examples/rapdtool_scaff_non_virus_full/workfmbm/outmash/scaff_non_virus/scaff_non_virus_2.fna.txt
+[mash] stderr: Sketching /free/programs/RaPDTool/examples/rapdtool_scaff_non_virus_full/workfmbm/outbinningref/scaff_non_virus_Binning_refiner_outputs/scaff_non_virus_refined_bins/scaff_non_virus_2.fna (provide sketch file made with "mash sketch" to skip)...done.
+$ mash dist /free/programs/RaPDTool/examples/rapdtool_scaff_non_virus_full/workfmbm/outbinningref/scaff_non_virus_Binning_refiner_outputs/scaff_non_virus_refined_bins/scaff_non_virus_3.fna /home/karel/.cache/rapdtool/mash_db.msh -p 32 > /free/programs/RaPDTool/examples/rapdtool_scaff_non_virus_full/workfmbm/outmash/scaff_non_virus/scaff_non_virus_3.fna.txt
+[mash] stderr: Sketching /free/programs/RaPDTool/examples/rapdtool_scaff_non_virus_full/workfmbm/outbinningref/scaff_non_virus_Binning_refiner_outputs/scaff_non_virus_refined_bins/scaff_non_virus_3.fna (provide sketch file made with "mash sketch" to skip)...done.
+$ mash dist /free/programs/RaPDTool/examples/rapdtool_scaff_non_virus_full/workfmbm/outbinningref/scaff_non_virus_Binning_refiner_outputs/scaff_non_virus_refined_bins/scaff_non_virus_6.fna /home/karel/.cache/rapdtool/mash_db.msh -p 32 > /free/programs/RaPDTool/examples/rapdtool_scaff_non_virus_full/workfmbm/outmash/scaff_non_virus/scaff_non_virus_6.fna.txt
+[mash] stderr: Sketching /free/programs/RaPDTool/examples/rapdtool_scaff_non_virus_full/workfmbm/outbinningref/scaff_non_virus_Binning_refiner_outputs/scaff_non_virus_refined_bins/scaff_non_virus_6.fna (provide sketch file made with "mash sketch" to skip)...done.
+mash - 7 taxonomic match report(s)
+Extracted best 10 distances for 7 file(s)
+Binning_refiner outputs linked to results dir
+Copying and merging results..
+$ rapdtool_results.pl
+Generating Krona visualization..
+$ ktImportText forkrona.txt -o rapdtool_krona.html
+rapdtool_split_bins command
+$ rapdtool_split_bins.py --root /free/programs/RaPDTool/examples/rapdtool_scaff_non_virus_full/
+Removing tmp directories..
+Done - results are in /free/programs/RaPDTool/examples/rapdtool_scaff_non_virus_full/

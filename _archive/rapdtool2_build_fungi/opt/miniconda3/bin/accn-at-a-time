@@ -1,0 +1,8 @@
+#!/bin/bash -norc
+
+# Public domain notice for all NCBI EDirect scripts is located at:
+# https://www.ncbi.nlm.nih.gov/books/NBK179288/#chapter6.Public_Domain_Notice
+
+sed 's/[^a-zA-Z0-9_.]/ /g; s/^ *//' |
+tr 'A-Z' 'a-z' |
+fmt -w 1

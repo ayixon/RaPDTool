@@ -1,0 +1,158 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: PackageKit
+Source: https://www.freedesktop.org/software/PackageKit/
+
+Files: *
+Copyright: Richard Hughes <richard@hughsie.com>
+ Tom Parker <palfrey@tevp.net>
+ Ken VanDine <ken@vandine.org>
+ Matthias Klumpp <matthias@tenstral.net>
+License: GPL-2+ and LGPL-2.1+
+
+License: GPL-2+
+ This program is free software; you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation; either version 2 of the License, or
+ (at your option) any later version.
+ .
+ This program is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
+ .
+ You should have received a copy of the GNU General Public License
+ along with this program; if not, write to the Free Software
+ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston,
+ MA 02110-1301, USA.
+ .
+ On Debian systems, the complete text of the GNU General
+ Public License version 2 can be found in "/usr/share/common-licenses/GPL-2".
+
+License: LGPL-2.1+
+ This library is free software; you can redistribute it and/or
+ modify it under the terms of the GNU Lesser General Public
+ License as published by the Free Software Foundation; either
+ version 2.1 of the License, or (at your option) any later version.
+ .
+ This library is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ Lesser General Public License for more details.
+ .
+ You should have received a copy of the GNU Lesser General Public
+ License along with this library; if not, write to the Free Software
+ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
+ MA 02110-1301, USA
+ .
+ On Debian systems, the complete text of the GNU Lesser General
+ Public License version 2.1 can be found in "/usr/share/common-licenses/LGPL-2.1".
+
+Files: backends/dummy/*
+ backends/test/*
+ client/*
+ contrib/command-not-found/pk-command-not-found.c
+ data/pk-upgrade-distro.sh
+ data/tests/pk-spawn-proxy.sh
+ data/tests/pk-spawn-test-profiling.sh
+ data/tests/pk-spawn-test-sigquit.sh
+ data/tests/pk-spawn-test.sh
+ src/*
+Copyright: 2007-2014, Richard Hughes <richard@hughsie.com>
+License: GPL-2+
+
+Files: lib/packagekit-glib2/*
+Copyright: 2007-2012, Richard Hughes <richard@hughsie.com>
+License: LGPL-2.1+
+
+Files: backends/alpm/*
+Copyright: 2007, Andreas Obergrusberger <tradiaz@yahoo.de>
+  2008-2010, Valeriy Lyasotskiy <onestep@ukr.net>
+  2010-2011, Jonathan Conder <jonno.conder@gmail.com>
+License: GPL-2+
+
+Files: backends/aptcc/*
+Copyright: 2009-2012, Daniel Nicoletti <dantti12@gmail.com>
+ 2011-2012, Matthias Klumpp <matthias@tenstral.net>
+License: GPL-2+
+
+Files: backends/aptcc/apt-sourceslist.cpp
+ backends/aptcc/apt-sourceslist.h
+Copyright: 1999, Patrick Cole <z@amused.net>
+  2002, Synaptic development team
+License: GPL-2+
+
+Files: backends/aptcc/apt-intf.cpp
+Copyright: 1999-2008, Daniel Burrows
+  2004, Michael Vogt <mvo@debian.org>
+License: GPL-2+
+
+Files: backends/aptcc/apt-utils.h
+Copyright: 2001, 2005 Daniel Burrows (aptitude)
+  2009, Daniel Nicoletti <dantti12@gmail.com>
+License: GPL-2+
+
+Files: backends/aptcc/pk-backend-aptcc.cpp
+Copyright: 2007-2008, Richard Hughes <richard@hughsie.com>
+  2009-2012, Daniel Nicoletti <dantti12@gmail.com>
+License: GPL-2+
+
+Files: backends/aptcc/acqpkitstatus.cpp
+Copyright: 2009, Daniel Nicoletti <dantti@gmail.com>
+License: GPL-2+
+
+Files: backends/zypp/*
+Copyright: 2007, Boyd Timothy <btimothy@gmail.com>
+  2007, Novell, Inc
+  2007-2008, Scott Reeves <sreeves@novell.com>
+  2007-2008, Stefan Haas <shaas@suse.de>
+License: GPL-2+
+
+Files: backends/zypp/pk-backend-zypp.cpp
+Copyright: 2007, Novell, Inc
+License: GPL-2+
+
+Files: backends/entropy/pk-backend-entropy.c
+ backends/portage/pk-backend-portage.c
+ backends/portage/portageBackend.py
+Copyright: 2009, Mounir Lamouri (volkmar) <mounir.lamouri@gmail.com>
+License: GPL-2+
+
+Files: backends/entropy/entropyBackend.py
+Copyright: 2009, Mounir Lamouri (volkmar) <mounir.lamouri@gmail.com>
+  2010, Fabio Erculiani (lxnay) <lxnay@sabayon.org>
+License: GPL-2+
+
+Files: lib/packagekit-glib2/pk-spawn-polkit-agent.c
+ lib/packagekit-glib2/pk-spawn-polkit-agent.h
+Copyright: 2011, Lennart Poettering <lennart@poettering.net>
+  2012, Matthias Klumpp <matthias@tenstral.net>
+License: LGPL-2.1+
+
+Files: contrib/gstreamer-plugin/pk-gstreamer-install.c
+Copyright: 2008, Bastien Nocera <bnocera@redhat.com>
+  2008, Richard Hughes <richard@hughsie.com>
+License: GPL-2+
+
+Files: contrib/gtk-module/pk-gtk-module.c
+Copyright: 2008, Behdad Esfahbod <behdad@behdad.org>
+  2008, Richard Hughes <richard@hughsie.com>
+License: GPL-2+
+
+Files: backends/poldek/pk-backend-poldek.c
+Copyright: 2008-2012, Marcin Banasiak <megabajt@pld-linux.org>
+License: GPL-2+
+
+Files: lib/python/packagekit/backend.py
+Copyright: 2007, Tim Lauridsen <timlau@fedoraproject.org>
+  2007-2010, Richard Hughes <richard@hughsie.com>
+License: GPL-2+
+
+Files: lib/packagekit-glib2/pk-client-helper.c
+Copyright: 2009, Michael Vogt <michael.vogt@ubuntu.com>
+  2009, Sebastian Heinlein <devel@glatzor.de>
+  2010, Richard Hughes <richard@hughsie.com>
+License: LGPL-2.1+
+
+Files: debian/*
+Copyright: 2010-2013, Matthias Klumpp <mak@debian.org>
+License: GPL-2+

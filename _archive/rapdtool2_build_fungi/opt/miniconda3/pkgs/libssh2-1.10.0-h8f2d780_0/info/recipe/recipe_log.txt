@@ -1,0 +1,197 @@
+commit afa21efcfaf71ff5bea5ab12dec517da9a5b5f81
+Author: Charles Bousseau <16641587+cbouss@users.noreply.github.com>
+Date:   Wed Apr 27 15:14:06 2022 -0400
+
+    Update libssh2 from 1.9.0 to 1.10.0 (#1)
+    
+    Update libssh2 from 1.9.0 to 1.10.0
+
+commit febd405d874049c9873bcf632d4b475511feb78d
+Author: Kai Tietz <ktietz@anaconda.com>
+Date:   Wed Feb 2 22:05:16 2022 +0100
+
+    fix ident
+
+commit 428f43bf162722d7ebd8812eaabba7b12f4dfc2a
+Author: Kai Tietz <ktietz@anaconda.com>
+Date:   Mon Jan 31 19:16:50 2022 +0100
+
+    add patch dependency
+
+commit 6a42a02935ecc1a53ae14beb0ba113597e465927
+Author: Kai Tietz <ktietz@anaconda.com>
+Date:   Fri Aug 20 17:40:41 2021 +0200
+
+    add support for osx-arm64
+
+commit d1c146d631d9075bd29de2bfab8371ed7aaa11ca
+Author: Jonathan Helmus <jjhelmus@gmail.com>
+Date:   Mon Mar 9 12:54:26 2020 -0500
+
+    add patch for CVE-2019-17498
+    
+    CVE: https://nvd.nist.gov/vuln/detail/CVE-2019-17498
+    patch source: https://src.fedoraproject.org/rpms/libssh2/c/41525baf
+
+commit 20da9c658cb2b2570ca90e6cffa7eb026e190cd6
+Author: Jonathan Helmus <jjhelmus@gmail.com>
+Date:   Mon Mar 9 12:35:33 2020 -0500
+
+    add file missing from the released tarball
+    
+    see:
+    https://github.com/libssh2/libssh2/issues/379
+
+commit 0d675216ed183df78c06abe6bfca9c246b18a891
+Author: Jonathan Helmus <jjhelmus@gmail.com>
+Date:   Mon Mar 9 12:24:54 2020 -0500
+
+    update to 1.9.0
+
+commit 8b2edd5f3643e7b51c11feb65f2bcc31516d5fe4
+Author: Jonathan Helmus <jjhelmus@gmail.com>
+Date:   Mon Apr 22 13:42:46 2019 -0500
+
+    1.8.2
+
+commit 5c289c6420a9d9d02bf2a2bf8c4816d6bd9b962c
+Author: Nehal J Wani <nehaljw.kkd1@gmail.com>
+Date:   Tue Sep 18 06:40:35 2018 -0500
+
+    Specify -rpath-link explicitly via LDFLAGS
+
+commit c57f052ddb5acc840aa621c4bd6f805c4c06dba9
+Author: Michael Sarahan <msarahan@gmail.com>
+Date:   Tue Jan 23 14:07:32 2018 -0600
+
+    add run_exports
+
+commit fb3b46aeb60ad02b421e3a7a2055eea23ebdcc68
+Author: Michael Sarahan <msarahan@gmail.com>
+Date:   Tue Nov 21 13:18:43 2017 -0600
+
+    remove vc features; use VS cmake generator; output shared libs
+
+commit 9e51369c756996a44b263981dc8ff37f5280c04b
+Author: Ray Donnelly <mingw.android@gmail.com>
+Date:   Wed Sep 20 08:02:52 2017 -0700
+
+    Use cmake-binary on Windows too
+
+commit 99b6bda46db361bae1708025d7e1504b87090086
+Author: Ray Donnelly <mingw.android@gmail.com>
+Date:   Thu Sep 7 21:42:58 2017 +0000
+
+    Build static and shared in separate folders
+
+commit 6b4d811bc4a286ee5bfea6b3404f1382d7d3b298
+Author: Ray Donnelly <mingw.android@gmail.com>
+Date:   Thu Sep 7 20:06:33 2017 +0000
+
+    Use cmake-binary to break dependency cycle
+
+commit b602f110c82dc4b6e87b1d1b50ef18cea4dcf598
+Author: Ray Donnelly <mingw.android@gmail.com>
+Date:   Thu Sep 7 20:06:08 2017 +0000
+
+    Fix shell syntax
+
+commit f3e4d493975a2d7cadad1d36a6e7bea723b90f55
+Author: Ray Donnelly <mingw.android@gmail.com>
+Date:   Tue Aug 29 00:36:31 2017 -0700
+
+    Break build cycle using a binary cmake
+    
+    curl->libssh2->cmake->curl
+
+commit 093f4bee103a6af798f82e72e264c366cedec35e
+Author: Ray Donnelly <mingw.android@gmail.com>
+Date:   Wed Aug 23 13:14:17 2017 +0100
+
+    Add cross-compilation support
+
+commit 7df1754585fcfc06e2c1e16362570fe3c01dc375
+Merge: c3dcd06 45d6313
+Author: shadow_walker <shadowwalkersb@gmail.com>
+Date:   Fri Mar 3 12:02:08 2017 -0600
+
+    Merge pull request #8 from pkgw/pr-fix-pkgconfig
+    
+    Attempt to fix #7: busted pkg-config file
+
+commit 45d631354ebf2ae3f661f7c1030d1b5fa1635ead
+Author: Peter Williams <peter@newton.cx>
+Date:   Wed Mar 1 13:40:00 2017 -0500
+
+    Confirmed that previous commit solves problem
+    
+    Closes #7.
+
+commit ff5a9a32d8cef7dd7909b0b54e803d2ebd5c7d70
+Author: Peter Williams <peter@newton.cx>
+Date:   Wed Mar 1 13:13:41 2017 -0500
+
+    Attempt to fix #7: busted pkg-config file
+    
+    This commit has some diagnostics that will be removed after I check that the
+    fix works.
+
+commit c3dcd0696ab32301274a0f69041ff77bee4d132c
+Merge: 0d406bc 002f67a
+Author: shadow_walker <shadowwalkersb@gmail.com>
+Date:   Fri Jan 6 20:14:35 2017 -0600
+
+    Merge pull request #3 from shadowwalkersb/update-version
+    
+    Update version to 1.8.0
+
+commit 0d406bc9839b8fe62c9a92ddcc3ce04ad7cab403
+Merge: 9529d37 fea0a60
+Author: shadow_walker <shadowwalkersb@gmail.com>
+Date:   Fri Jan 6 12:36:41 2017 -0600
+
+    Merge pull request #4 from shadowwalkersb/fix-lib64-installation
+    
+    Fix lib64 installation
+
+commit fea0a6013365462e7fe8e694b223c70ac72b180f
+Author: shadow_walker <shadowwalkersb@gmail.com>
+Date:   Thu Jan 5 19:31:59 2017 -0600
+
+    MNT: Re-rendered with conda-smithy 1.7.0
+
+commit f18104d601570b9e53b0c8702f9a750c69b4c314
+Author: shadow_walker <shadowwalkersb@gmail.com>
+Date:   Thu Jan 5 19:03:24 2017 -0600
+
+    bump build #: 1
+
+commit d55fb4ec55db744c6d01e6b5908e99e61e84ba66
+Author: shadow_walker <shadowwalkersb@gmail.com>
+Date:   Thu Jan 5 17:46:06 2017 -0600
+
+    install into $PREFIX/lib via cmake, do not move/rename manually
+
+commit 002f67a5bfd60cd53f9a856a221435566a870862
+Author: shadow_walker <shadowwalkersb@gmail.com>
+Date:   Thu Jan 5 13:45:04 2017 -0600
+
+    MNT: Re-rendered with conda-smithy 1.7.0
+
+commit 9031145ee94e759e7a98b1293ea8600347a6c9e6
+Author: shadow_walker <shadowwalkersb@gmail.com>
+Date:   Thu Jan 5 13:30:10 2017 -0600
+
+    update version and download site
+
+commit 9529d37deafb6f640785f87abd6341365cf66096
+Author: Travis-CI on github.com/conda-forge/staged-recipes <conda-forge@googlegroups.com>
+Date:   Wed Oct 19 03:00:20 2016 +0000
+
+    Re-render the feedstock after CI registration.
+
+commit 46a5cb53ccb23c8d7d56843940896c6d26aad851
+Author: Travis-CI on github.com/conda-forge/staged-recipes <conda-forge@googlegroups.com>
+Date:   Wed Oct 19 02:56:39 2016 +0000
+
+    Initial commit of the libssh2 feedstock.

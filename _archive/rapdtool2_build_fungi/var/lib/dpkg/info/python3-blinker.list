@@ -1,0 +1,16 @@
+/.
+/usr
+/usr/lib
+/usr/lib/python3
+/usr/lib/python3/dist-packages
+/usr/lib/python3/dist-packages/blinker
+/usr/lib/python3/dist-packages/blinker/__init__.py
+/usr/lib/python3/dist-packages/blinker/_saferef.py
+/usr/lib/python3/dist-packages/blinker/_utilities.py
+/usr/lib/python3/dist-packages/blinker/base.py
+/usr/lib/python3/dist-packages/blinker-1.4.egg-info
+/usr/share
+/usr/share/doc
+/usr/share/doc/python3-blinker
+/usr/share/doc/python3-blinker/changelog.Debian.gz
+/usr/share/doc/python3-blinker/copyright

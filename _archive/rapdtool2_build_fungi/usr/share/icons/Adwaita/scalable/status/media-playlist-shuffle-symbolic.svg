@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16" height="16" xmlns="http://www.w3.org/2000/svg">
+ <g fill="#474747">
+  <path d="M1 3v2h3c.572 0 1 .429 1 1v4c0 1.645 1.356 3 3 3h6v-2H8c-.571 0-1-.429-1-1V6c0-1.645-1.355-3-3-3z" color="#bebebe" font-family="sans-serif" font-weight="400" overflow="visible" style="font-feature-settings:normal;font-variant-alternates:normal;font-variant-caps:normal;font-variant-ligatures:normal;font-variant-numeric:normal;font-variant-position:normal;isolation:auto;mix-blend-mode:normal;shape-padding:0;text-decoration-color:#000;text-decoration-line:none;text-decoration-style:solid;text-indent:0;text-orientation:mixed;text-transform:none"/>
+  <path d="M11.99 8.99a1 1 0 00-.697 1.717L12.586 12l-1.293 1.293a1 1 0 101.414 1.414L15.414 12l-2.707-2.707a1 1 0 00-.717-.303zm0-8a1 1 0 00-.697 1.717L12.586 4l-1.293 1.293a1 1 0 101.414 1.414L15.414 4l-2.707-2.707A1 1 0 0011.99.99z" color="#bebebe" font-family="sans-serif" font-weight="400" overflow="visible" style="font-feature-settings:normal;font-variant-alternates:normal;font-variant-caps:normal;font-variant-ligatures:normal;font-variant-numeric:normal;font-variant-position:normal;isolation:auto;mix-blend-mode:normal;shape-padding:0;text-decoration-color:#000;text-decoration-line:none;text-decoration-style:solid;text-indent:0;text-orientation:mixed;text-transform:none"/>
+  <path d="M8 3c-.23 0-.44.044-.656.094.481.55.861 1.177 1.031 1.906H14V3H8zm-7 8v2h3c.23 0 .44-.044.656-.094-.481-.55-.861-1.177-1.031-1.906z" color="#bebebe" font-family="Andale Mono" font-weight="400" overflow="visible" style="text-decoration-line:none;text-indent:0;text-transform:none"/>
+  <path d="m11 9h1v1h-1zm0 5h1v1h-1zm0-13h1v1h-1zm0 5h1v1h-1z" overflow="visible"/>
+ </g>
+</svg>

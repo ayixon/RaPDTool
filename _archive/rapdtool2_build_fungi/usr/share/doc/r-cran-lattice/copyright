@@ -1,0 +1,34 @@
+This is the Debian GNU/Linux r-cran-lattice package of lattice, a collection
+of functions for 'trellis' plots. Lattice was written by Deepayan Sarkar.
+
+This package was created by Dirk Eddelbuettel <edd@debian.org>.
+The sources were downloaded from 
+	http://cran.us.r-project.org/src/contrib/
+and are also included in the (large) source tar archive of R itself at
+	http://cran.us.r-project.org/src/base/
+
+The package was renamed from its upstream name 'lattice' to 'r-cran-lattice'
+to fit the pattern of CRAN (and non-CRAN) packages for R.
+
+Copyright (C) 2000 - 2008 Deepayan Sarkar
+
+License: GPL
+
+On a Debian GNU/Linux system, the GPL license is included in the file
+/usr/share/common-licenses/GPL.
+
+For reference, the upstream DESCRIPTION [with lines broken to 80 cols]
+file is included below:
+
+    Package: lattice
+    Version: 0.8-10
+    Date: 2003/10/25
+    Priority: recommended
+    Title: Lattice Graphics
+    Author: Deepayan Sarkar <deepayan@stat.wisc.edu>
+    Maintainer: Deepayan Sarkar <deepayan@stat.wisc.edu>
+    Description: Implementation of Trellis Graphics. See ?Lattice for a 
+       brief introduction
+    Depends: R (>= 1.8.0), grid (>= 1.8.0), modreg
+    License: GPL version 2 or later
+    

@@ -1,0 +1,13 @@
+Package: stats
+Version: 4.2.1
+Priority: base
+Title: The R Stats Package
+Author: R Core Team and contributors worldwide
+Maintainer: R Core Team <do-use-Contact-address@r-project.org>
+Contact: R-help mailing list <r-help@r-project.org>
+Description: R statistical functions.
+License: Part of R 4.2.1
+Imports: utils, grDevices, graphics
+Suggests: MASS, Matrix, SuppDists, methods, stats4
+NeedsCompilation: yes
+Built: R 4.2.1; x86_64-pc-linux-gnu; 2022-06-26 20:26:42 UTC; unix

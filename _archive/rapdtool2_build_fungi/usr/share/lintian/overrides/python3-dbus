@@ -1,0 +1,4 @@
+# the protocol is called D-Bus, but the binding is called dbus, and we are
+# careful to name both correctly
+python3-dbus: capitalization-error-in-description dbus D-Bus
+python3-dbus: capitalization-in-override-comment capitalization-*

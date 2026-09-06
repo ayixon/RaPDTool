@@ -1,0 +1,4 @@
+libunwind-coredump 0 libunwind8
+libunwind-ptrace 0 libunwind8
+libunwind-x86_64 8 libunwind8
+libunwind 8 libunwind8

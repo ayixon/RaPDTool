@@ -1,0 +1,73 @@
+# This file created by conda-build 3.21.6
+# meta.yaml template originally from:
+# /tmp/build/80754af9/combined_recipe, last modified Fri Nov 26 11:24:32 2021
+# ------------------------------------------------
+
+package:
+  name: idna
+  version: '3.3'
+source:
+  sha256: 9d643ff0a55b762d5cdb124b8eaa99c66322e2157b69160bc32796e824360e6d
+  url: https://pypi.io/packages/source/i/idna/idna-3.3.tar.gz
+build:
+  noarch: python
+  number: '0'
+  script: /tmp/build/80754af9/idna_1637925883363/_h_env_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold/bin/python
+    -m pip install . -vvv
+  string: pyhd3eb1b0_0
+requirements:
+  host:
+    - _libgcc_mutex 0.1 main
+    - _openmp_mutex 4.5 1_gnu
+    - ca-certificates 2021.10.26 h06a4308_2
+    - certifi 2021.10.8 py39h06a4308_0
+    - ld_impl_linux-64 2.35.1 h7274673_9
+    - libffi 3.3 he6710b0_2
+    - libgcc-ng 9.3.0 h5101ec6_17
+    - libgomp 9.3.0 h5101ec6_17
+    - libstdcxx-ng 9.3.0 hd4cf53a_17
+    - ncurses 6.3 h7f8727e_2
+    - openssl 1.1.1l h7f8727e_0
+    - pip 21.2.4 py39h06a4308_0
+    - python 3.9.7 h12debd9_1
+    - readline 8.1 h27cfd23_0
+    - setuptools 58.0.4 py39h06a4308_0
+    - sqlite 3.36.0 hc218d9a_0
+    - tk 8.6.11 h1ccaba5_0
+    - tzdata 2021e hda174b7_0
+    - wheel 0.37.0 pyhd3eb1b0_1
+    - xz 5.2.5 h7b6447c_0
+    - zlib 1.2.11 h7b6447c_3
+  run:
+    - python >=3.5
+test:
+  commands:
+    - pip check
+  imports:
+    - idna
+    - idna.codec
+    - idna.compat
+  requires:
+    - pip
+    - python <3.10
+about:
+  description: 'A library to support the Internationalised Domain Names in Applications
+
+    (IDNA) protocol as specified in RFC 5891. This version of the protocol
+
+    is often referred to as "IDNA2008".
+
+    '
+  dev_url: https://github.com/kjd/idna
+  doc_url: https://github.com/kjd/idna/blob/master/README.rst
+  home: https://github.com/kjd/idna
+  license: BSD-3-Clause
+  license_family: BSD
+  license_file: LICENSE.md
+  summary: Internationalized Domain Names in Applications (IDNA).
+extra:
+  copy_test_source_files: true
+  final: true
+  recipe-maintainers:
+    - goanpeca
+    - jschueller

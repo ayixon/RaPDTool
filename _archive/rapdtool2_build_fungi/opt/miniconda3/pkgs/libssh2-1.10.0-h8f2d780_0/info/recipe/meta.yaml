@@ -1,0 +1,69 @@
+# This file created by conda-build 3.21.8
+# meta.yaml template originally from:
+# /tmp/build/80754af9/rsync-recipes/libssh2-1.10.0-on-linux_64, last modified Wed Apr 27 19:17:01 2022
+# ------------------------------------------------
+
+package:
+  name: libssh2
+  version: 1.10.0
+source:
+  sha256: 2d64e90f3ded394b91d3a2e774ca203a4179f69aebee03003e5a6fa621e41d51
+  url: https://www.libssh2.org/download/libssh2-1.10.0.tar.gz
+build:
+  number: '0'
+  run_exports:
+    - libssh2 >=1.10.0,<2.0a0
+  string: h8f2d780_0
+requirements:
+  build:
+    - _libgcc_mutex 0.1 main
+    - _openmp_mutex 4.5 1_gnu
+    - _sysroot_linux-64_curr_repodata_hack 3 haa98f57_10
+    - binutils_impl_linux-64 2.35.1 h27ae35d_9
+    - binutils_linux-64 2.35.1 h454624a_30
+    - cmake-no-system 3.16.5 h295c915_1
+    - gcc_impl_linux-64 7.5.0 h7105cf2_17
+    - gcc_linux-64 7.5.0 h8f34230_30
+    - kernel-headers_linux-64 3.10.0 h57e8cba_10
+    - ld_impl_linux-64 2.35.1 h7274673_9
+    - libgcc-devel_linux-64 7.5.0 hbbeae57_17
+    - libgcc-ng 9.3.0 h5101ec6_17
+    - libgomp 9.3.0 h5101ec6_17
+    - libstdcxx-ng 9.3.0 hd4cf53a_17
+    - make 4.2.1 h1bed415_1
+    - sysroot_linux-64 2.17 h57e8cba_10
+  host:
+    - _libgcc_mutex 0.1 main
+    - _openmp_mutex 4.5 1_gnu
+    - ca-certificates 2022.3.29 h06a4308_1
+    - libgcc-ng 9.3.0 h5101ec6_17
+    - libgomp 9.3.0 h5101ec6_17
+    - openssl 1.1.1n h7f8727e_0
+  run:
+    - libgcc-ng >=7.5.0
+    - openssl >=1.1.1n,<1.1.2a
+test:
+  commands:
+    - test -f $PREFIX/include/libssh2.h
+    - test -f $PREFIX/include/libssh2_publickey.h
+    - test -f $PREFIX/include/libssh2_sftp.h
+    - test -f $PREFIX/lib/libssh2.a
+    - test -f $PREFIX/lib/libssh2${SHLIB_EXT}
+about:
+  description: 'libssh2 is a library implementing the SSH2 protocol, available under
+    the revised BSD license.
+
+    '
+  dev_url: https://github.com/libssh2/libssh2
+  doc_source_url: https://github.com/libssh2/libssh2/tree/libssh2-1.10.0/docs
+  doc_url: https://www.libssh2.org/docs.html
+  home: https://www.libssh2.org/
+  license: BSD-3-Clause
+  license_family: BSD
+  license_file: COPYING
+  summary: the SSH library
+extra:
+  copy_test_source_files: true
+  final: true
+  recipe-maintainers:
+    - shadowwalkersb

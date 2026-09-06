@@ -1,0 +1,11 @@
+/.
+/usr
+/usr/lib
+/usr/lib/x86_64-linux-gnu
+/usr/lib/x86_64-linux-gnu/libxshmfence.so.1.0.0
+/usr/share
+/usr/share/doc
+/usr/share/doc/libxshmfence1
+/usr/share/doc/libxshmfence1/changelog.Debian.gz
+/usr/share/doc/libxshmfence1/copyright
+/usr/lib/x86_64-linux-gnu/libxshmfence.so.1

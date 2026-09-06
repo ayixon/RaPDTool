@@ -1,0 +1,5 @@
+#!/bin/sh
+set -e
+# Automatically added by dh_installmenu/13.6ubuntu1
+if [ -x "`command -v update-menus`" ]; then update-menus ; fi
+# End automatically added section

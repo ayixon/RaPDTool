@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<application xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  xmlns="http://research.sun.com/wadl/2006/10"
+                  xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                  xsi:schemaLocation="http://research.sun.com/wadl/2006/10/wadl.xsd">
+  <resources base="http://www.example.com/">
+    <resource path="" type="#service-root"/>
+  </resources>
+
+  <resource_type id="service-root">
+    <method name="GET" id="service-root-get">
+      <response>
+        <representation href="#service-root-json"/>
+      </response>
+    </method>
+  </resource_type>
+
+  <representation id="service-root-json" mediaType="application/json">
+      <param style="plain" path="$['scalar_value']" name="scalar_value" />
+      <param style="plain" path="$['known_link']" name="known_link">
+        <link resource_type="#service-root"/>
+      </param>
+      <param style="plain" path="$['unknown_link']" name="unknown_link">
+          <link />
+      </param>
+  </representation>
+</application>

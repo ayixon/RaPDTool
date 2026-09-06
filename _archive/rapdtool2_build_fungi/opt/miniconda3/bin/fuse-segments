@@ -1,0 +1,50 @@
+#!/bin/bash -norc
+
+# Public domain notice for all NCBI EDirect scripts is located at:
+# https://www.ncbi.nlm.nih.gov/books/NBK179288/#chapter6.Public_Domain_Notice
+
+NormalizeSegments() {
+
+  while IFS=$'\t' read frst scnd ignore
+  do
+    if [ "$frst" -lt "$scnd" ]
+    then
+      echo -e "${frst}\t${scnd}"
+    else
+      echo -e "${scnd}\t${frst}"
+    fi
+  done |
+  sort-table -k 1,1n -k 2,2n |
+  uniq
+}
+
+CombineSegments() {
+
+  lft=0
+  rgt=0
+  while IFS=$'\t' read frst scnd ignore
+  do
+    if [ "$lft" -eq 0 ] && [ "$rgt" -eq 0 ]
+    then
+      lft="$frst"
+      rgt="$scnd"
+    elif [ "$frst" -le "$((rgt + 1))" ]
+    then
+      if [ "$rgt" -lt "$scnd" ]
+      then
+        rgt="$scnd"
+      fi
+    else
+      len=$(( $rgt + 1 - $lft ))
+      echo -e "${lft}\t${rgt}\t${len}"
+      lft="$frst"
+      rgt="$scnd"
+    fi
+  done
+  len=$(( $rgt + 1 - $lft ))
+  echo -e "${lft}\t${rgt}\t${len}"
+}
+
+grep '^[1-9]' |
+NormalizeSegments |
+CombineSegments

@@ -1,0 +1,103 @@
+# This file created by conda-build 3.20.5
+# meta.yaml template originally from:
+# /home/conda/recipe_root, last modified Mon Nov  2 08:11:57 2020
+# ------------------------------------------------
+
+package:
+    name: scipy
+    version: 1.5.3
+source:
+    sha256: 309f66c326e2a90b1ebb1a4ea75f3dd9c56276f392ec5a1b2fe986ea662bf69f
+    url: https://github.com/scipy/scipy/archive/v1.5.3.tar.gz
+build:
+    number: '0'
+    string: py39hee8e79c_0
+requirements:
+    build:
+        - _libgcc_mutex 0.1 conda_forge
+        - _openmp_mutex 4.5 1_gnu
+        - binutils_impl_linux-64 2.35 h18a2f87_9
+        - binutils_linux-64 2.35 hc3fd857_29
+        - gcc_impl_linux-64 9.3.0 h28f5a38_17
+        - gcc_linux-64 9.3.0 h7247604_29
+        - gfortran_impl_linux-64 9.3.0 h2bb4189_17
+        - gfortran_linux-64 9.3.0 ha1c937c_29
+        - gxx_impl_linux-64 9.3.0 h53cdd4c_17
+        - gxx_linux-64 9.3.0 h0d07fa4_29
+        - kernel-headers_linux-64 2.6.32 h77966d4_13
+        - ld_impl_linux-64 2.35 h769bd43_9
+        - libgcc-devel_linux-64 9.3.0 hfd08b2a_17
+        - libgcc-ng 9.3.0 h5dbcf3e_17
+        - libgfortran5 9.3.0 he4bcb1c_17
+        - libgomp 9.3.0 h5dbcf3e_17
+        - libstdcxx-devel_linux-64 9.3.0 h4084dd6_17
+        - libstdcxx-ng 9.3.0 h2ae2ef3_17
+        - sysroot_linux-64 2.12 h77966d4_13
+    host:
+        - _libgcc_mutex 0.1 conda_forge
+        - _openmp_mutex 4.5 1_gnu
+        - ca-certificates 2020.6.20 hecda079_0
+        - certifi 2020.6.20 py39h079e4ff_2
+        - cython 0.29.21 py39hfbd4741_1
+        - ld_impl_linux-64 2.35 h769bd43_9
+        - libblas 3.8.0 11_h86c2bf4_netlib
+        - libcblas 3.8.0 11_h86c2bf4_netlib
+        - libffi 3.2.1 he1b5a44_1007
+        - libgcc-ng 9.3.0 h5dbcf3e_17
+        - libgfortran-ng 9.3.0 he4bcb1c_17
+        - libgfortran5 9.3.0 he4bcb1c_17
+        - libgomp 9.3.0 h5dbcf3e_17
+        - liblapack 3.8.0 11_h86c2bf4_netlib
+        - libstdcxx-ng 9.3.0 h2ae2ef3_17
+        - ncurses 6.2 he1b5a44_2
+        - numpy 1.19.2 py39h2bb7b6c_1
+        - openssl 1.1.1h h516909a_0
+        - pip 20.2.4 py_0
+        - pybind11 2.6.0 py39h3693e7b_0
+        - python 3.9.0 h2a148a8_4_cpython
+        - python_abi 3.9 1_cp39
+        - readline 8.0 he28a2e2_2
+        - setuptools 49.6.0 py39h079e4ff_2
+        - sqlite 3.33.0 h4cf870e_1
+        - tk 8.6.10 hed695b0_1
+        - tzdata 2020d h516909a_0
+        - wheel 0.35.1 pyh9f0ad1d_0
+        - xz 5.2.5 h516909a_1
+        - zlib 1.2.11 h516909a_1010
+    run:
+        - libblas >=3.8.0,<4.0a0
+        - libcblas >=3.8.0,<4.0a0
+        - libgcc-ng >=9.3.0
+        - libgfortran-ng
+        - libgfortran5 >=9.3.0
+        - liblapack >=3.8.0,<4.0a0
+        - libstdcxx-ng >=9.3.0
+        - numpy >=1.19.2,<2.0a0
+        - python >=3.9,<3.10.0a0
+        - python_abi 3.9.* *_cp39
+test:
+    requires:
+        - mpmath
+        - pytest
+        - pytest-xdist
+about:
+    description: 'SciPy is a Python-based ecosystem of open-source software for mathematics,
+
+        science, and engineering.
+
+        '
+    dev_url: https://github.com/scipy/scipy
+    doc_url: http://www.scipy.org/docs.html
+    home: http://www.scipy.org/
+    license: BSD-3-Clause
+    license_file: LICENSE.txt
+    summary: Scientific Library for Python
+extra:
+    copy_test_source_files: true
+    final: true
+    recipe-maintainers:
+        - beckermr
+        - jakirkham
+        - msarahan
+        - ocefpaf
+        - rgommers

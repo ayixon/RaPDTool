@@ -1,0 +1,195 @@
+# etc/Makeconf.  Generated from Makeconf.in by configure.
+#
+# ${R_HOME}/etc/Makeconf
+#
+# R was configured using the following call
+# (not including env. vars and site configuration)
+# configure  '--prefix=/usr' '--with-cairo' '--with-jpeglib' '--with-readline' '--with-tcltk' '--mandir=/usr/share/man' '--infodir=/usr/share/info' '--datadir=/usr/share/R/share' '--includedir=/usr/share/R/include' '--with-blas' '--with-lapack' '--enable-long-double' '--enable-R-profiling' '--enable-R-shlib' '--enable-memory-profiling' '--without-recommended-packages' '--build' 'x86_64-linux-gnu' 'build_alias=x86_64-linux-gnu' 'R_PRINTCMD=/usr/bin/lpr' 'R_PAPERSIZE=letter' 'TAR=/bin/tar' 'R_BROWSER=xdg-open' 'LIBnn=lib' 'JAVA_HOME=/usr/lib/jvm/default-java' 'R_SHELL=/bin/bash' 'CC=gcc' 'CFLAGS=-g -O2 -ffile-prefix-map=/build/r-base-4xhVZt/r-base-4.2.1=. -flto=auto -ffat-lto-objects -flto=auto -ffat-lto-objects -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2' 'LDFLAGS=-Wl,-Bsymbolic-functions -flto=auto -ffat-lto-objects -flto=auto -Wl,-z,relro' 'CPPFLAGS=' 'FC=gfortran' 'FCFLAGS=-g -O2 -ffile-prefix-map=/build/r-base-4xhVZt/r-base-4.2.1=. -flto=auto -ffat-lto-objects -flto=auto -ffat-lto-objects -fstack-protector-strong' 'CXX=g++' 'CXXFLAGS=-g -O2 -ffile-prefix-map=/build/r-base-4xhVZt/r-base-4.2.1=. -flto=auto -ffat-lto-objects -flto=auto -ffat-lto-objects -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2'
+
+## This fails if it contains spaces, or if it is quoted
+include $(R_SHARE_DIR)/make/vars.mk
+
+AR = ar
+BLAS_LIBS = -lblas
+C_VISIBILITY = -fvisibility=hidden
+CC = gcc
+CFLAGS = -g -O2 -ffile-prefix-map=/build/r-base-4xhVZt/r-base-4.2.1=. -flto=auto -ffat-lto-objects -flto=auto -ffat-lto-objects -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 $(LTO)
+CPICFLAGS = -fpic
+CPPFLAGS = 
+CXX = g++ -std=gnu++14
+CXXFLAGS = -g -O2 -ffile-prefix-map=/build/r-base-4xhVZt/r-base-4.2.1=. -flto=auto -ffat-lto-objects -flto=auto -ffat-lto-objects -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 $(LTO)
+CXXPICFLAGS = -fpic
+CXX11 = g++
+CXX11FLAGS = -g -O2 -ffile-prefix-map=/build/r-base-4xhVZt/r-base-4.2.1=. -flto=auto -ffat-lto-objects -flto=auto -ffat-lto-objects -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 $(LTO)
+CXX11PICFLAGS = -fpic
+CXX11STD = -std=gnu++11
+CXX14 = g++
+CXX14FLAGS = -g -O2 -ffile-prefix-map=/build/r-base-4xhVZt/r-base-4.2.1=. -flto=auto -ffat-lto-objects -flto=auto -ffat-lto-objects -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 $(LTO)
+CXX14PICFLAGS = -fpic
+CXX14STD = -std=gnu++14
+CXX17 = g++
+CXX17FLAGS = -g -O2 -ffile-prefix-map=/build/r-base-4xhVZt/r-base-4.2.1=. -flto=auto -ffat-lto-objects -flto=auto -ffat-lto-objects -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 $(LTO)
+CXX17PICFLAGS = -fpic
+CXX17STD = -std=gnu++17
+CXX20 = g++
+CXX20FLAGS = -g -O2 -ffile-prefix-map=/build/r-base-4xhVZt/r-base-4.2.1=. -flto=auto -ffat-lto-objects -flto=auto -ffat-lto-objects -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 $(LTO)
+CXX20PICFLAGS = -fpic
+CXX20STD = -std=gnu++20
+CXX_VISIBILITY = -fvisibility=hidden
+DYLIB_EXT = .so
+DYLIB_LD = $(CC)
+DYLIB_LDFLAGS = -shared -fopenmp# $(CFLAGS) $(CPICFLAGS) 
+## should be used by packages for dylibs, but at the time of writing was not
+DYLIB_LINK = $(DYLIB_LD) $(DYLIB_LDFLAGS) $(LDFLAGS)
+ECHO = echo
+ECHO_C = 
+ECHO_N = -n
+ECHO_T = 
+F_VISIBILITY = -fvisibility=hidden
+## FC is the compiler used for all Fortran as from R 3.6.0
+FC = gfortran
+FCFLAGS = -g -O2 -ffile-prefix-map=/build/r-base-4xhVZt/r-base-4.2.1=. -flto=auto -ffat-lto-objects -flto=auto -ffat-lto-objects -fstack-protector-strong $(LTO_FC)
+## additional libs needed when linking with $(FC), e.g. on some Oracle compilers
+FCLIBS_XTRA = 
+FFLAGS = -g -O2 -ffile-prefix-map=/build/r-base-4xhVZt/r-base-4.2.1=. -flto=auto -ffat-lto-objects -flto=auto -ffat-lto-objects -fstack-protector-strong $(LTO_FC)
+FLIBS =  -lgfortran -lm -lquadmath
+FPICFLAGS = -fpic
+FOUNDATION_CPPFLAGS = 
+FOUNDATION_LIBS = 
+JAR = /usr/lib/jvm/default-java/bin/jar
+JAVA = /usr/lib/jvm/default-java/bin/java
+JAVAC = /usr/lib/jvm/default-java/bin/javac
+JAVAH = 
+## JAVA_HOME might be used in the next three.  
+## They are for packages 'JavaGD' and 'rJava'
+JAVA_HOME = /usr/lib/jvm/default-java
+JAVA_CPPFLAGS = -I$(JAVA_HOME)/include -I$(JAVA_HOME)/include/linux
+JAVA_LIBS = -L$(JAVA_HOME)/lib/server -ljvm
+JAVA_LD_LIBRARY_PATH = $(JAVA_HOME)/lib/server
+LAPACK_LIBS = -llapack
+LDFLAGS = -Wl,-Bsymbolic-functions -flto=auto -ffat-lto-objects -flto=auto -Wl,-z,relro
+## we only need this is if it is external, as otherwise link to R
+LIBINTL= 
+LIBM = -lm
+LIBR0 = -L"$(R_HOME)/lib$(R_ARCH)"
+LIBR1 = -lR
+LIBR = -L"$(R_HOME)/lib$(R_ARCH)" -lR
+LIBS =  -lpcre2-8 -llzma -lbz2 -lz -ltirpc -lrt -ldl -lm -licuuc -licui18n
+## needed by R CMD config
+LIBnn = lib
+LIBTOOL = $(SHELL) "$(R_HOME)/bin/libtool"
+## set for --enable-lto, --enable-lto=check
+LTO = 
+LTO_FC = 
+LTO_LD = 
+## set for --enable-lto=R, used in INSTALL
+LTO_OPT = 
+LTO_FC_OPT = 
+## needed to build applications linking to static libR
+MAIN_LD = $(CC)
+MAIN_LDFLAGS = -Wl,--export-dynamic -fopenmp
+MAIN_LINK = $(MAIN_LD) $(MAIN_LDFLAGS) $(LDFLAGS)
+MKINSTALLDIRS = "$(R_HOME)/bin/mkinstalldirs"
+NM = /usr/bin/nm -B
+OBJC = 
+OBJCFLAGS =  $(LTO)
+OBJC_LIBS = 
+OBJCXX = 
+R_ARCH = 
+RANLIB = ranlib
+SAFE_FFLAGS = -g -O2 -ffile-prefix-map=/build/r-base-4xhVZt/r-base-4.2.1=. -flto=auto -ffat-lto-objects -flto=auto -ffat-lto-objects -fstack-protector-strong -msse2 -mfpmath=sse
+SED = /bin/sed
+SHELL = /bin/bash
+SHLIB_CFLAGS = 
+SHLIB_CXXFLAGS = 
+SHLIB_CXXLD = $(CXX)
+SHLIB_CXXLDFLAGS = -shared# $(CXXFLAGS) $(CXXPICFLAGS) $(LTO_LD)
+SHLIB_CXX11LD = $(CXX11) $(CXX11STD)
+SHLIB_CXX11LDFLAGS = -shared# $(CXX11FLAGS) $(CXX11PICFLAGS) $(LTO_LD)
+SHLIB_CXX14LD = $(CXX14) $(CXX14STD)
+SHLIB_CXX14LDFLAGS = -shared# $(CXX14FLAGS) $(CXX14PICFLAGS) $(LTO_LD)
+SHLIB_CXX17LD = $(CXX17) $(CXX17STD)
+SHLIB_CXX17LDFLAGS = -shared# $(CXX17FLAGS) $(CXX17PICFLAGS) $(LTO_LD)
+SHLIB_CXX20LD = $(CXX20) $(CXX20STD)
+SHLIB_CXX20LDFLAGS = -shared# $(CXX20FLAGS) $(CXX20PICFLAGS) $(LTO_LD)
+SHLIB_EXT = .so
+SHLIB_FCLD = $(FC)
+SHLIB_FCLDFLAGS = -shared# $(FCFLAGS) $(FPICFLAGS)
+SHLIB_FFLAGS = 
+SHLIB_LD = $(CC)
+## used for add-on packages linked by C
+SHLIB_LDFLAGS = -shared# $(CFLAGS) $(CPICFLAGS) $(LTO_LD)
+## used for standard packages
+SHLIB_LDFLAGS_R = -shared# $(CFLAGS) $(CPICFLAGS) $(LTO_LD)
+SHLIB_LIBADD = 
+## We want to ensure libR is picked up from $(R_HOME)/lib
+## before e.g. /usr/local/lib if a version is already installed.
+SHLIB_LINK = $(SHLIB_LD) $(SHLIB_LDFLAGS) $(LIBR0) $(LDFLAGS)
+SHLIB_OPENMP_CFLAGS = -fopenmp
+SHLIB_OPENMP_CXXFLAGS = -fopenmp
+SHLIB_OPENMP_FFLAGS = -fopenmp
+STRIP_STATIC_LIB = strip --strip-debug
+STRIP_SHARED_LIB = strip --strip-unneeded
+TCLTK_CPPFLAGS = -I/usr/include/tcl8.6 -I/usr/include/tcl8.6 
+TCLTK_LIBS = -L/usr/lib/x86_64-linux-gnu -ltcl8.6 -L/usr/lib/x86_64-linux-gnu -ltk8.6 -lX11 -lXss -lXext
+YACC = bison -y
+
+## for linking to libR.a
+STATIC_LIBR = # -Wl,--whole-archive "$(R_HOME)/lib$(R_ARCH)/libR.a" -Wl,--no-whole-archive $(BLAS_LIBS) $(FLIBS)  $(LIBINTL) -lreadline  $(LIBS)
+
+## These are recorded as macros for legacy use in packages
+## set on AIX, formerly for old glibc (-D__NO_MATH_INLINES)
+R_XTRA_CFLAGS = 
+##  was formerly set on HP-UX
+R_XTRA_CPPFLAGS =  -I"$(R_INCLUDE_DIR)" -DNDEBUG
+## currently unset
+R_XTRA_CXXFLAGS = 
+## used for gfortran >= 7 in R > 3.6.0
+R_XTRA_FFLAGS = -fno-optimize-sibling-calls
+
+## SHLIB_CFLAGS SHLIB_CXXFLAGS SHLIB_FFLAGS are apparently currently unused
+## SHLIB_CXXFLAGS is undocumented, there is no SHLIB_FCFLAGS
+ALL_CFLAGS =  $(PKG_CFLAGS) $(CPICFLAGS) $(SHLIB_CFLAGS) $(CFLAGS)
+ALL_CPPFLAGS =  -I"$(R_INCLUDE_DIR)" -DNDEBUG $(PKG_CPPFLAGS) $(CLINK_CPPFLAGS) $(CPPFLAGS) 
+ALL_CXXFLAGS =  $(PKG_CXXFLAGS) $(CXXPICFLAGS) $(SHLIB_CXXFLAGS) $(CXXFLAGS)
+ALL_OBJCFLAGS = $(PKG_OBJCFLAGS) $(CPICFLAGS) $(SHLIB_CFLAGS) $(OBJCFLAGS)
+ALL_OBJCXXFLAGS = $(PKG_OBJCXXFLAGS) $(CXXPICFLAGS) $(SHLIB_CXXFLAGS) $(OBJCXXFLAGS)
+ALL_FFLAGS = -fno-optimize-sibling-calls $(PKG_FFLAGS) $(FPICFLAGS) $(SHLIB_FFLAGS) $(FFLAGS)
+## can be overridden by R CMD SHLIB
+P_FCFLAGS = $(PKG_FFLAGS)
+ALL_FCFLAGS = -fno-optimize-sibling-calls $(P_FCFLAGS) $(FPICFLAGS) $(SHLIB_FFLAGS) $(FCFLAGS)
+## LIBR here as a couple of packages use this without SHLIB_LINK
+ALL_LIBS = $(PKG_LIBS) $(SHLIB_LIBADD) $(LIBR)# $(LIBINTL)
+
+.SUFFIXES:
+.SUFFIXES: .c .cc .cpp .d .f .f90 .f95 .m .mm .M .o
+
+.c.o:
+	$(CC) $(ALL_CPPFLAGS) $(ALL_CFLAGS) -c $< -o $@
+.c.d:
+	@echo "making $@ from $<"
+	@$(CC) -MM $(ALL_CPPFLAGS) $< > $@
+.m.d:
+	@echo > $@
+.cc.o:
+	$(CXX) $(ALL_CPPFLAGS) $(ALL_CXXFLAGS) -c $< -o $@
+.cpp.o:
+	$(CXX) $(ALL_CPPFLAGS) $(ALL_CXXFLAGS) -c $< -o $@
+.cc.d:
+	@echo "making $@ from $<"
+	@$(CXX) -M $(ALL_CPPFLAGS) $< > $@
+.cpp.d:
+	@echo "making $@ from $<"
+	@$(CXX) -M $(ALL_CPPFLAGS) $< > $@
+.m.o:
+	$(OBJC) $(ALL_CPPFLAGS) $(ALL_OBJCFLAGS) -c $< -o $@
+.mm.o:
+	$(OBJCXX) $(ALL_CPPFLAGS) $(ALL_OBJCXXFLAGS) -c $< -o $@
+.M.o:
+	$(OBJCXX) $(ALL_CPPFLAGS) $(ALL_OBJCXXFLAGS) -c $< -o $@
+.f.o:
+	$(FC) $(ALL_FFLAGS) -c $< -o $@
+.f95.o:
+	$(FC) $(ALL_FCFLAGS) -c  $< -o $@
+.f90.o:
+	$(FC) $(ALL_FCFLAGS) -c  $< -o $@

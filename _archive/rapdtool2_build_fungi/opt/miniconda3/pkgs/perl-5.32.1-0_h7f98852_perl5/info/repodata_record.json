@@ -1,0 +1,23 @@
+{
+  "arch": "x86_64",
+  "build": "0_h7f98852_perl5",
+  "build_number": 0,
+  "channel": "https://conda.anaconda.org/conda-forge/linux-64",
+  "constrains": [],
+  "depends": [
+    "libgcc-ng >=9.3.0"
+  ],
+  "features": "",
+  "fn": "perl-5.32.1-0_h7f98852_perl5.tar.bz2",
+  "license": "GPL-1.0-or-later OR Artistic-1.0-Perl",
+  "md5": "5af47d397a3085a060c080a40ba77b7c",
+  "name": "perl",
+  "platform": "linux",
+  "sha256": "f9a0ba1fd64b5ee38d0aaf5516ff9e373df2b8e36b4c0b54a4f276e03127e840",
+  "size": 15176243,
+  "subdir": "linux-64",
+  "timestamp": 1622805343617,
+  "track_features": "",
+  "url": "https://conda.anaconda.org/conda-forge/linux-64/perl-5.32.1-0_h7f98852_perl5.tar.bz2",
+  "version": "5.32.1"
+}

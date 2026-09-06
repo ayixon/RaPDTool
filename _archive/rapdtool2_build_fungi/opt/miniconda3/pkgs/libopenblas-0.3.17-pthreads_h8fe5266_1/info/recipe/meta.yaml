@@ -1,0 +1,66 @@
+# This file created by conda-build 3.21.4
+# ------------------------------------------------
+
+package:
+  name: libopenblas
+  version: 0.3.17
+source:
+  sha256: df2934fa33d04fd84d839ca698280df55c690c86a5a1133b3f7266fce1de279f
+  url: https://github.com/xianyi/OpenBLAS/archive/v0.3.17.tar.gz
+build:
+  number: 1
+  run_exports:
+    - libopenblas >=0.3.17,<1.0a0
+  string: pthreads_h8fe5266_1
+  track_features: null
+requirements:
+  build:
+    - _libgcc_mutex 0.1 conda_forge
+    - _openmp_mutex 4.5 1_gnu
+    - binutils_impl_linux-64 2.36.1 h193b22a_1
+    - binutils_linux-64 2.36 hf3e587d_33
+    - gcc_impl_linux-64 9.3.0 h70c0ae5_19
+    - gcc_linux-64 9.3.0 hf25ea35_33
+    - gfortran_impl_linux-64 9.3.0 hc4a2995_19
+    - gfortran_linux-64 9.3.0 hdc58fab_33
+    - kernel-headers_linux-64 2.6.32 he073ed8_14
+    - ld_impl_linux-64 2.36.1 hea4e1c9_1
+    - libgcc-devel_linux-64 9.3.0 h7864c58_19
+    - libgcc-ng 11.1.0 hc902ee8_2
+    - libgfortran5 9.4.0 h62347ff_2
+    - libgomp 11.1.0 hc902ee8_2
+    - libstdcxx-ng 11.1.0 h56837e0_2
+    - sysroot_linux-64 2.12 he073ed8_14
+  host:
+    - _libgcc_mutex 0.1 conda_forge
+    - _openmp_mutex 4.5 1_gnu
+    - libgcc-ng 11.1.0 hc902ee8_2
+    - libgfortran-ng 11.1.0 h69a702a_0
+    - libgfortran5 11.1.0 h6c583b3_0
+    - libgomp 11.1.0 hc902ee8_2
+  run:
+    - libgcc-ng >=9.3.0
+    - libgfortran-ng
+    - libgfortran5 >=9.3.0
+  run_constrained:
+    - openblas >=0.3.17,<0.3.18.0a0
+test:
+  commands:
+    - test -f ${PREFIX}/lib/libopenblasp-r0.3.17.so
+    - python -c "import ctypes; ctypes.cdll['${PREFIX}/lib/libopenblasp-r0.3.17.so']"
+about:
+  home: http://www.openblas.net/
+  license: BSD-3-Clause
+  license_file:
+    - LICENSE
+    - lapack-netlib/LICENSE
+  summary: An optimized BLAS library based on GotoBLAS2 1.13 BSD version
+extra:
+  copy_test_source_files: true
+  final: true
+  recipe-maintainers:
+    - gillins
+    - groutr
+    - h-vetinari
+    - isuruf
+    - jakirkham

@@ -1,0 +1,68 @@
+# This file created by conda-build 3.20.5
+# meta.yaml template originally from:
+# /tmp/build/80754af9/rsync-recipes/brotlipy-0.7.0-python_3.9-on-linux_64, last modified Mon Nov 16 14:22:49 2020
+# ------------------------------------------------
+
+package:
+    name: brotlipy
+    version: 0.7.0
+source:
+    fn: brotlipy-0.7.0.tar.gz
+    sha256: 36def0b859beaf21910157b4c33eb3b06d8ce459c942102f16988cca6ea164df
+    url: https://pypi.io/packages/source/b/brotlipy/brotlipy-0.7.0.tar.gz
+build:
+    number: '1003'
+    script: python setup.py install --single-version-externally-managed --record=record.txt
+    string: py39h27cfd23_1003
+requirements:
+    build:
+        - _libgcc_mutex 0.1 main
+        - binutils_impl_linux-64 2.33.1 he6710b0_7
+        - binutils_linux-64 2.33.1 h9595d00_15
+        - gcc_impl_linux-64 7.3.0 habb00fd_1
+        - gcc_linux-64 7.3.0 h553295d_15
+        - ld_impl_linux-64 2.33.1 h53a641e_7
+        - libgcc-ng 9.1.0 hdf63c60_0
+        - libstdcxx-ng 9.1.0 hdf63c60_0
+    host:
+        - _libgcc_mutex 0.1 main
+        - ca-certificates 2020.10.14 0
+        - certifi 2020.6.20 pyhd3eb1b0_3
+        - cffi 1.14.3 py39h261ae71_2
+        - ld_impl_linux-64 2.33.1 h53a641e_7
+        - libedit 3.1.20191231 h14c3975_1
+        - libffi 3.3 he6710b0_2
+        - libgcc-ng 9.1.0 hdf63c60_0
+        - libstdcxx-ng 9.1.0 hdf63c60_0
+        - ncurses 6.2 he6710b0_1
+        - openssl 1.1.1h h7b6447c_0
+        - pycparser 2.20 py_2
+        - python 3.9.0 hdb3f193_2
+        - readline 8.0 h7b6447c_0
+        - setuptools 50.3.1 py39h06a4308_1
+        - sqlite 3.33.0 h62c20be_0
+        - tk 8.6.10 hbc83047_0
+        - tzdata 2020d h14c3975_0
+        - xz 5.2.5 h7b6447c_0
+        - zlib 1.2.11 h7b6447c_3
+    run:
+        - cffi >=1.0.0
+        - libgcc-ng >=7.3.0
+        - python >=3.9,<3.10.0a0
+test:
+    imports:
+        - brotli
+about:
+    dev_url: https://github.com/python-hyper/brotlipy
+    home: https://github.com/python-hyper/brotlipy
+    license: MIT
+    license_family: MIT
+    license_file: LICENSE
+    summary: Python bindings to the Brotli compression library
+extra:
+    copy_test_source_files: true
+    final: true
+    recipe-maintainers:
+        - astaric
+        - isuruf
+        - primozgodec

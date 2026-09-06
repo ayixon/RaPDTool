@@ -1,0 +1,237 @@
+Process by Contents
+
+ sort      Sorts lines of text
+
+  -f       Ignore case
+  -n       Numeric comparison
+  -r       Reverse result order
+
+  -k       Field key (start,stop or first)
+  -u       Unique lines with identical keys
+
+  -b       Ignore leading blanks
+  -s       Stable sort
+  -t       Specify field separator
+
+ uniq      Removes repeated lines
+
+  -c       Count occurrences
+  -i       Ignore case
+
+  -f       Ignore first n fields
+  -s       Ignore first n characters
+
+  -d       Only output repeated lines
+  -u       Only output non-repeated lines
+
+ grep      Matches patterns using regular expressions
+
+  -i       Ignore case
+  -v       Invert search
+  -w       Search expression as a word
+  -x       Search expression as whole line
+
+  -e       Specify individual pattern
+
+  -c       Only count number of matches
+  -n       Print line numbers
+  -A       Number of lines after match
+  -B       Number of lines before match
+
+Regular Expressions
+
+ Characters
+
+  .        Any single character (except newline)
+  \w       Alphabetic [A-Za-z], numeric [0-9], or underscore (_)
+  \s       Whitespace (space or tab)
+  \        Escapes special characters
+  []       Matches any enclosed characters
+
+ Positions
+
+  ^        Beginning of line
+  $        End of line
+  \b       Word boundary
+
+ Repeat Matches
+
+  ?        0 or 1
+  *        0 or more
+  +        1 or more
+  {n}      Exactly n
+
+ Escape Sequences
+
+  \n       Line break
+  \t       Tab character
+
+Modify Contents
+
+ sed       Replaces text strings
+
+  -e       Specify individual expression
+  s///     Substitute
+     /g    Global
+     /I    Case-insensitive
+     /p    Print
+
+ tr        Translates characters
+
+  -d       Delete character
+  -s       Squeeze runs of characters
+
+ rev       Reverses characters on line
+
+Format Contents
+
+ column    Aligns columns by content width
+
+  -s       Specify field separator
+  -t       Create table
+
+ expand    Aligns columns to specified positions
+
+  -t       Tab positions
+
+ fold      Wraps lines at a specific width
+
+  -w       Line width
+  -s       Fold at spaces
+
+Filter by Position
+
+ cut       Removes parts of lines
+
+  -c       Characters to keep
+  -f       Fields to keep
+  -d       Specify field separator
+  -s       Suppress lines with no delimiters
+
+ head      Prints first lines
+
+  -n       Number of lines
+
+ tail      Prints last lines
+
+  -n       Number of lines
+
+Miscellaneous
+
+ wc        Counts words, lines, or characters
+
+  -c       Characters
+  -l       Lines
+  -w       Words
+
+ xargs     Constructs arguments
+
+  -n       Number of words per batch
+
+ mktemp    Make temporary file
+
+File Compression
+
+ tar       Archive files
+
+  -c       Create archive
+  -f       Name of output file
+  -z       Compress archive with gzip
+
+ gzip      Compress file
+
+  -k       Keep original file
+  -9       Best compression
+
+ unzip     Decompress .zip archive
+
+  -p       Pipe to stdout
+
+ gzcat     Decompress .gz archive and pipe to stdout
+
+Directory and File Navigation
+
+ cd        Changes directory
+
+  /        Root
+  ~        Home
+  .        Current
+  ..       Parent
+  -        Previous
+
+ ls        Lists file names
+
+  -1       One entry per line
+  -a       Show files beginning with dot (.)
+  -l       List in long format
+  -R       Recursively explore subdirectories
+  -S       Sort files by size
+  -t       Sort by most recently modified
+  .*       Current and parent directory
+
+ pwd       Prints working directory path
+
+File Redirection
+
+  <        Read stdin from file
+  >        Redirect stdout to file
+  >>       Append to file
+  2>       Redirect stderr
+  2>&1     Merge stderr into stdout
+  |        Pipe between programs
+  <(cmd)   Execute command, read results as file
+
+Shell Script Variables
+
+  $0       Name of script
+  $n       Nth argument
+  $#       Number of arguments
+  "$*"     Argument list as one argument
+  "$@"     Argument list as separate arguments
+  $?       Exit status of previous command
+
+Shell Script Tests
+
+  -d       Directory exists
+  -f       File exists
+  -s       File is not empty
+  -n       Length of string is non-zero
+  -x       File is executable
+  -z       Variable is empty or not set
+
+Shell Script Options
+
+ set       Set optional behaviors
+
+  -e       Exit immediately upon error
+  -u       Treat unset variables as error
+  -x       Trace commands and arguments
+
+File and Directory Extraction
+
+           BAS=$(printf pubmed%03d $n)
+           DIR=$(dirname "$0")
+           FIL=$(basename "$0")
+
+Remove Prefix
+
+           FILE="example.tar.gz"
+  #        ${FILE#.*}  -> tar.gz
+  ##       ${FILE##.*} -> gz
+
+Remove Suffix
+
+           FILE="example.tar.gz"
+           TYPE="http://identifiers.org/uniprot_enzymes/"
+  %        ${FILE%.*}  -> example.tar
+           ${TYPE%/}   -> http://identifiers.org/uniprot_enzymes
+  %%       ${FILE%%.*} -> example
+
+Loop Constructs
+
+           while IFS=$'\t' read ...
+           for sym in HBB BRCA2 CFTR RAG1
+           for col in "$@"
+           for yr in {1960..2020}
+           for i in $(seq $first $incr $last)
+           for fl in *.xml.gz

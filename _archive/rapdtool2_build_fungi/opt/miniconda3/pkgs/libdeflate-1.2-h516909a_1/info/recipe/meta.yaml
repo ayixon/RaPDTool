@@ -1,0 +1,43 @@
+# This file created by conda-build 3.18.9
+# meta.yaml template originally from:
+# /opt/recipe, last modified Wed Jul 31 14:32:33 2019
+# ------------------------------------------------
+
+package:
+    name: libdeflate
+    version: '1.2'
+source:
+    patches:
+        - 0001-Build-dylib-on-MacOS.patch
+    sha256: d30203c3a2fae6cee70d52a59cc668740f806a4bb9eb6668930fb7de99464d90
+    url: https://github.com/ebiggers/libdeflate/archive/v1.2.tar.gz
+build:
+    number: '1'
+    run_exports:
+        - libdeflate >=1.2,<1.3.0a0
+    string: h516909a_1
+requirements:
+    build:
+        - _libgcc_mutex 0.1 main
+        - binutils_impl_linux-64 2.31.1 h6176602_1
+        - binutils_linux-64 2.31.1 h6176602_7
+        - gcc_impl_linux-64 7.3.0 habb00fd_1
+        - gcc_linux-64 7.3.0 h553295d_7
+        - libgcc-ng 9.1.0 hdf63c60_0
+        - libstdcxx-ng 9.1.0 hdf63c60_0
+    host:
+        - _libgcc_mutex 0.1 main
+        - libgcc-ng 9.1.0 hdf63c60_0
+    run:
+        - libgcc-ng >=7.3.0
+test:
+    commands:
+        - echo "hey"
+about:
+    home: https://github.com/ebiggers/libdeflate
+    license: MIT
+    summary: libdeflate is a library for fast, whole-buffer DEFLATE-based compression
+        and decompression.
+extra:
+    copy_test_source_files: true
+    final: true

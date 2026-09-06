@@ -1,0 +1,11 @@
+/.
+/usr
+/usr/lib
+/usr/lib/x86_64-linux-gnu
+/usr/lib/x86_64-linux-gnu/libwayland-cursor.so.0.20.0
+/usr/share
+/usr/share/doc
+/usr/share/doc/libwayland-cursor0
+/usr/share/doc/libwayland-cursor0/copyright
+/usr/lib/x86_64-linux-gnu/libwayland-cursor.so.0
+/usr/share/doc/libwayland-cursor0/changelog.Debian.gz

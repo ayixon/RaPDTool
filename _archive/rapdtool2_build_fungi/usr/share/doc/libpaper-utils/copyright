@@ -1,0 +1,13 @@
+Copyright (C) 1995, 1996, Yves Arrouye <yves@debian.org>
+              2000, 2001, Adrian Bunk  <bunk@fs.tum.de>
+
+Contributions during 2001-2006 are from Debian maintainers:
+Stephen Zander
+Fabio M. Di Nitto
+Frank Lichtenheld
+Giuseppe Sacco
+
+This package and its included files may be redistributed under the
+terms of the GNU General Public License Version 2, a copy of which
+should be found in the file GPL-2 of the source package, or in
+/usr/share/common-licenses/GPL-2 in a Debian GNU/Linux system.

@@ -1,0 +1,15 @@
+{
+  "arch": null,
+  "build": "pyhd3eb1b0_0",
+  "build_number": 0,
+  "depends": [
+    "python"
+  ],
+  "license": "BSD-3-Clause",
+  "name": "colorama",
+  "noarch": "python",
+  "platform": null,
+  "subdir": "noarch",
+  "timestamp": 1607707149014,
+  "version": "0.4.4"
+}

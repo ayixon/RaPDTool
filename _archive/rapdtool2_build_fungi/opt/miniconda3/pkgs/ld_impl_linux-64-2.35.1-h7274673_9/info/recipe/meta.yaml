@@ -1,0 +1,50 @@
+# This file created by conda-build 3.21.4
+# ------------------------------------------------
+
+package:
+  name: ld_impl_linux-64
+  version: 2.35.1
+source:
+  - folder: .
+    sha256: 320e7a1d0f46fcd9f413f1046e216cbe23bb2bce6deb6c6a63304425e48b1942
+    url: https://ftp.gnu.org/gnu/binutils/binutils-2.35.1.tar.bz2
+  - folder: crosstool_ng
+    sha256: ba84dea3109b3fc1d8f7f12ffeade97ba58f62c628b61251db13cf918f55256b
+    url: https://github.com/crosstool-ng/crosstool-ng/archive/e7da850fa2066c9f1adeba3d8525a7231d0e47bc.tar.gz
+build:
+  detect_binary_files_with_prefix: false
+  merge_build_host: false
+  number: 9
+  string: h7274673_9
+requirements:
+  build: []
+  run: []
+  run_constrained:
+    - binutils_impl_linux-64 2.35.1
+test:
+  commands:
+    - x86_64-conda_cos6-linux-gnu-ld --help
+    - echo "conda_cos6"
+    - echo 7.3.0
+about:
+  home: https://www.gnu.org/software/binutils/
+  license: GPL-3.0-only
+  license_file:
+    - COPYING
+    - COPYING.LIB
+    - COPYING3
+    - COPYING3.LIB
+  summary: 'A set of programming tools for creating and managing binary programs,
+    object files,
+
+    libraries, profile data, and assembly source code.
+
+    '
+extra:
+  copy_test_source_files: true
+  final: true
+  recipe-maintainers:
+    - beckermr
+    - frol
+    - isuruf
+    - jjhelmus

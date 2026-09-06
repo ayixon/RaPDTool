@@ -1,0 +1,9 @@
+0c25e50837e1feddec967beb06700e57  usr/bin/add-apt-repository
+7df8ee95fb09c3ebde94f2571705dce0  usr/lib/python3/dist-packages/softwareproperties/dbus/SoftwarePropertiesDBus.py
+d41d8cd98f00b204e9800998ecf8427e  usr/lib/python3/dist-packages/softwareproperties/dbus/__init__.py
+4ae95f0634aeac5e63d78f90a1821c49  usr/lib/software-properties/software-properties-dbus
+a8c7d1a5926b180cb302145ed0580703  usr/share/bash-completion/completions/add-apt-repository
+3916ea6e7fae79e07651897c10ab354a  usr/share/dbus-1/system-services/com.ubuntu.SoftwareProperties.service
+1de030797e7b8d1ca0a0deaca557ae76  usr/share/doc/software-properties-common/copyright
+53bf0743da8552b1637cd678466e1b29  usr/share/man/man1/add-apt-repository.1.gz
+2f4ac43b2c0b427b022afac301694ce1  usr/share/polkit-1/actions/com.ubuntu.softwareproperties.policy

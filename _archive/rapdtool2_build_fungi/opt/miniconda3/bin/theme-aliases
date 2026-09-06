@@ -1,0 +1,41 @@
+#!/bin/bash
+
+# Public domain notice for all NCBI EDirect scripts is located at:
+# https://www.ncbi.nlm.nih.gov/books/NBK179288/#chapter6.Public_Domain_Notice
+
+alias ChemCodeToName='phrase-search -convert chem Code Name'
+alias ChemCodeToTerm='phrase-search -convert chem Code Term'
+alias ChemCodeToTree='phrase-search -convert chem Code Tree'
+alias ChemNameToCode='phrase-search -convert chem Name Code'
+alias ChemTreeToCode='phrase-search -convert chem Tree Code'
+alias DiszCodeToName='phrase-search -convert disz Code Name'
+alias DiszCodeToTerm='phrase-search -convert disz Code Term'
+alias DiszCodeToTree='phrase-search -convert disz Code Tree'
+alias DiszNameToCode='phrase-search -convert disz Name Code'
+alias DiszTreeToCode='phrase-search -convert disz Tree Code'
+alias GeneCodeToDesc='phrase-search -convert gene Code Desc'
+alias GeneCodeToName='phrase-search -convert gene Code Name'
+alias GeneNameToCode='phrase-search -convert gene Name Code'
+alias MeshCodeToName='phrase-search -convert mesh Code Name'
+alias MeshCodeToTerm='phrase-search -convert mesh Code Term'
+alias MeshCodeToTree='phrase-search -convert mesh Code Tree'
+alias MeshNameToCode='phrase-search -convert mesh Name Code'
+alias MeshTreeToCode='phrase-search -convert mesh Tree Code'
+
+# old version uses sort by record count without scores
+alias ChemToDisz='phrase-search -lookup chdi t c'
+alias ChemToGene='phrase-search -lookup chge am'
+alias DiszToChem='phrase-search -lookup dich t c'
+alias DiszToGene='phrase-search -lookup dige md te x l j'
+alias GeneToChem='phrase-search -lookup gech am'
+alias GeneToDisz='phrase-search -lookup gedi md te x l j'
+alias GeneToGene='phrase-search -lookup gege ep'
+
+# test version uses sort by score and then record count
+alias Chem2Disz='phrase-search -lookdown chdi t c'
+alias Chem2Gene='phrase-search -lookdown chge am'
+alias Disz2Chem='phrase-search -lookdown dich t c'
+alias Disz2Gene='phrase-search -lookdown dige md te x l j'
+alias Gene2Chem='phrase-search -lookdown gech am'
+alias Gene2Disz='phrase-search -lookdown gedi md te x l j'
+alias Gene2Gene='phrase-search -lookdown gege ep'

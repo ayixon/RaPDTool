@@ -1,0 +1,5 @@
+/etc/init.d/unattended-upgrades
+/etc/kernel/postinst.d/unattended-upgrades
+/etc/logrotate.d/unattended-upgrades
+/etc/pm/sleep.d/10_unattended-upgrades-hibernate
+/etc/update-motd.d/92-unattended-upgrades

@@ -1,0 +1,81 @@
+Query Commands
+
+  -url        Sends query with HTTP POST
+  -get        Uses HTTP GET instead of POST
+
+  -lst        Lists contents of FTP site
+  -dir        FTP listing with file sizes
+
+  -ftp        Retrieves data from FTP site
+
+File Downloads
+
+  -dwn        Downloads FTP data to file
+  -asp        Uses Aspera download, if configured
+
+-url Shortcuts
+
+  -ncbi       https://www.ncbi.nlm.nih.gov
+  -eutils     https://eutils.ncbi.nlm.nih.gov/entrez/eutils
+  -pubchem    https://pubchem.ncbi.nlm.nih.gov/rest/pug
+
+Examples
+
+  nquire -url https://eutils.ncbi.nlm.nih.gov/entrez/eutils/einfo.fcgi |
+  xtract -pattern DbList -sep "\n" -element DbName | sort -f
+
+  nquire -url https://eutils.ncbi.nlm.nih.gov entrez/eutils elink.fcgi \
+    -dbfrom pubmed -db pubmed -cmd neighbor -linkname pubmed_pubmed -id 2539356 |
+  transmute -format
+
+  nquire -eutils esearch.fcgi -db pubmed -term "tn3 transposition immunity" |
+  xtract -pattern eSearchResult -element QueryTranslation
+
+  nquire -pubchem compound/fastsubstructure/smarts/cids/XML \
+    -smarts "[#7]-[#6]-1=[#6]-[#6](C#C)=[#6](-[#6]-[#8])-[#6]=[#6]-1"
+
+  nquire -get https://icite.od.nih.gov/api/pubs -pmids 1937004 10838572 |
+  transmute -j2x |
+  xtract -pattern opt -element cited_by references |
+  accn-at-a-time
+
+  nquire -get "http://collections.mnh.si.edu/services/resolver/resolver.php" \
+    -voucher "Birds:625456" |
+  xtract -pattern Result -element ScientificName Country
+
+  nquire -get http://w1.weather.gov/xml/current_obs/KSFO.xml |
+  xtract -pattern current_observation -tab "\n" \
+    -element weather temp_f wind_dir wind_mph
+
+  nquire -get https://api.bigdatacloud.net/data/reverse-geocode-client \
+    -latitude 41.7909 -longitude "\-87.5994" |
+  transmute -j2x |
+  xtract -pattern opt -element countryCode \
+    -block administrative -if description -starts-with "state " -element name \
+    -block administrative -if description -starts-with "city " -element name |
+  tr '\t' '\n'
+
+  nquire -ftp ftp.ncbi.nlm.nih.gov pub/gdp ideogram_9606_GCF_000001305.14_850_V1 |
+  grep acen | cut -f 1,2,6,7 | awk '/^X\t/'
+
+  nquire -lst ftp://ftp.ncbi.nih.gov/toolbox/ncbi_tools/converters/by_program/
+
+  nquire -lst ftp://nlmpubs.nlm.nih.gov online/mesh/MESH_FILES/xmlmesh
+
+  nquire -dwn ftp.nlm.nih.gov online/mesh/MESH_FILES/xmlmesh desc2021.zip
+
+  for sect in baseline updatefiles
+  do
+    nquire -lst ftp.ncbi.nlm.nih.gov pubmed "$sect" |
+    grep -v ".md5" | grep "xml.gz" |
+    skip-if-file-exists | tee /dev/tty |
+    nquire -asp ftp.ncbi.nlm.nih.gov pubmed "$sect"
+  done
+
+  nquire -raw -get http://golr-aux.geneontology.io/solr/select \
+    -fq document_category:\"ontology_class\" -q *:* -fq id:\"GO:0030182\" \
+    -wt json |
+  transmute -j2x |
+  xtract -pattern opt -element neighborhood_limited_graph_json topology_graph_json |
+  transmute -j2x |
+  xtract -pattern opt -num nodes edges

@@ -1,0 +1,96 @@
+Performance Default Overrides
+
+  -proc     Number of CPU processors used
+  -cons     Ratio of parsers to processors
+  -serv     Concurrent parser instances
+  -chan     Communication channel depth
+  -heap     Order restoration heap size
+  -farm     Node allocation buffer length
+  -gogc     Garbage collection tuning knob
+
+Internal Component Performance
+
+  -chunk    StreamBlocks
+  -split    StreamBlocks -> SplitPattern
+  -token    StreamBlocks -> StreamTokens
+
+Debugging
+
+  -debug    Display run-time parameter summary
+  -empty    Flag records with no output
+  -ident    Print record index numbers
+  -stats    Show processing time for each record
+  -timer    Report processing duration and rate
+  -trial    Optimize -proc value, requires -input
+
+Record Set Indexing
+
+  -index    Place next record size tag before object
+  -turbo    Use <NEXT_RECORD_SIZE> values for speed
+
+Documentation
+
+  -keys     Keyboard navigation shortcuts
+  -unix     Common Unix commands
+
+Performance Tuning Script
+
+  XtractTrials() {
+    echo -e "<Trials>"
+    for tries in {1..5}
+    do
+      xtract -debug -input "$1" -proc "$2" -pattern PubmedArticle -element LastName
+    done
+    echo -e "</Trials>"
+  }
+
+  for proc in {1..8}
+  do
+    XtractTrials "carotene.xml" "$proc" |
+    xtract -pattern Trials -lbl "$proc" -avg Rate -dev Rate
+  done
+
+Processor Titration Results
+
+  1    27622    31
+  2    51799    312
+  3    74853    593
+  4    95867    1337
+  5    97171    4019
+  6    93460    2458
+  7    87467    1030
+  8    82448    2651
+
+Entrez Index Performance Measurement
+
+  IndexTrials() {
+    echo -e "<Trials>"
+    for tries in {1..5}
+    do
+      cat "$1" | xtract -debug -proc "$2" -e2index
+    done
+    echo -e "</Trials>"
+  }
+
+  for proc in {1..8}
+  do
+    IndexTrials "carotene.xml" "$proc" |
+    xtract -pattern Trials -lbl "$proc" -avg Rate -dev Rate
+  done
+
+MeSH Tree Index Preparation
+
+  nquire -dwn ftp://nlmpubs.nlm.nih.gov online/mesh/MESH_FILES/xmlmesh desc2021.zip
+  unzip desc2021.zip
+  rm desc2021.zip
+
+  cat desc2021.xml |
+  xtract -pattern DescriptorRecord -element "DescriptorRecord/DescriptorUI" \
+    -sep "," -element TreeNumber > meshtree.txt
+
+Execution Profiling
+
+  cat carotene.xml > /dev/null
+  ./xtract -profile -timer -input carotene.xml -pattern PubmedArticle -element LastName > /dev/null
+  go tool pprof --pdf ./cpu.pprof > ~/Desktop/callgraph.pdf
+  rm cpu.pprof

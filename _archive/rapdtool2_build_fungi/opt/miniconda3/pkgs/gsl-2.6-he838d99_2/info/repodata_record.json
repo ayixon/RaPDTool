@@ -1,0 +1,26 @@
+{
+  "arch": "x86_64",
+  "build": "he838d99_2",
+  "build_number": 2,
+  "channel": "https://conda.anaconda.org/conda-forge/linux-64",
+  "constrains": [],
+  "depends": [
+    "libblas >=3.8.0,<4.0a0",
+    "libcblas >=3.8.0,<4.0a0",
+    "libgcc-ng >=9.3.0"
+  ],
+  "features": "",
+  "fn": "gsl-2.6-he838d99_2.tar.bz2",
+  "license": "GPL-3.0-or-later",
+  "license_family": "GPL",
+  "md5": "d54a10784d331d7b13f8af19acf297b7",
+  "name": "gsl",
+  "platform": "linux",
+  "sha256": "7c0b3547dba6d27ffd765a290b0fdce4f5cb40907bd5b7e0b7140876764fa013",
+  "size": 3323107,
+  "subdir": "linux-64",
+  "timestamp": 1610742647978,
+  "track_features": "",
+  "url": "https://conda.anaconda.org/conda-forge/linux-64/gsl-2.6-he838d99_2.tar.bz2",
+  "version": "2.6"
+}

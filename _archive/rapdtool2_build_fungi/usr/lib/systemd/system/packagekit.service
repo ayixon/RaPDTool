@@ -1,0 +1,13 @@
+[Unit]
+Description=PackageKit Daemon
+# PK doesn't know how to do anything on ostree-managed systems;
+# currently the design is to have dedicated daemons like
+# eos-updater and rpm-ostree, and gnome-software talks to those.
+ConditionPathExists=!/run/ostree-booted
+Wants=network-online.target
+
+[Service]
+Type=dbus
+BusName=org.freedesktop.PackageKit
+User=root
+ExecStart=/usr/libexec/packagekitd

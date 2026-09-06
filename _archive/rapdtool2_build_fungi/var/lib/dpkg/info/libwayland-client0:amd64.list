@@ -1,0 +1,11 @@
+/.
+/usr
+/usr/lib
+/usr/lib/x86_64-linux-gnu
+/usr/lib/x86_64-linux-gnu/libwayland-client.so.0.20.0
+/usr/share
+/usr/share/doc
+/usr/share/doc/libwayland-client0
+/usr/share/doc/libwayland-client0/changelog.Debian.gz
+/usr/share/doc/libwayland-client0/copyright
+/usr/lib/x86_64-linux-gnu/libwayland-client.so.0

@@ -1,0 +1,8 @@
+#!/bin/sh
+
+# Public domain notice for all NCBI EDirect scripts is located at:
+# https://www.ncbi.nlm.nih.gov/books/NBK179288/#chapter6.Public_Domain_Notice
+
+xtract -pattern INSDSeq \
+  -pfx ">" -first INSDSeq_accession-version,INSDSeqid \
+  -pfx "\n" -sep "\n" -fasta INSDSeq_sequence

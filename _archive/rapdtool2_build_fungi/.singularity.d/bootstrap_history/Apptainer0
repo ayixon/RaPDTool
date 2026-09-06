@@ -1,0 +1,3 @@
+bootstrap: localimage
+from: rapdtool_apptainer/
+

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+<svg id="svg2820" width="24" height="24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+ <defs id="defs2822">
+  <radialGradient id="radialGradient3609" cx="8.0893" cy="9.575" r="3.5304" gradientTransform="matrix(-2.5848 -.25831 1.1909 -12.131 25.916 125.34)" gradientUnits="userSpaceOnUse">
+   <stop id="stop3610" style="stop-color:#878787" offset="0"/>
+   <stop id="stop3612" style="stop-color:#878787;stop-opacity:0" offset="1"/>
+  </radialGradient>
+ </defs>
+ <g id="layer1" transform="translate(0,-8)">
+  <path id="path2832-1" d="m22 20.5a9.5 9.5 0 0 1-19 0 9.5 9.5 0 1 1 19 0z" style="fill:#878787;opacity:.24"/>
+  <path id="path2821" transform="matrix(1.0556 0 0 1.0463 .88789 4.2831)" d="m7.5927 7.0757a9.0873 9.0873 0 0 1 8.2999 0.76657l-4.8926 7.6577z" style="fill:url(#radialGradient3609)"/>
+  <path id="path3605" d="m12.528 20.52 4.9201-7.6338" style="fill:none;stroke-linecap:round;stroke-width:1px;stroke:#878787"/>
+ </g>
+</svg>

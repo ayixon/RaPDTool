@@ -1,0 +1,3 @@
+# libicu70 installs multiple shared libraries, none of which is
+# actually called libicu.so.70, but all of which are libicu*.so.70 .
+libicu70: package-name-doesnt-match-sonames libicudata70 libicui18n70 libicuio70 libicutest70 libicutu70 libicuuc70

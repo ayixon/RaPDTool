@@ -1,0 +1,1 @@
+["ripgrep", "cmake", "ninja", "make", "gcc_linux-64 7.5.0.*", "gxx_linux-64 7.5.0.*"]

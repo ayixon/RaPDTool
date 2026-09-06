@@ -1,0 +1,124 @@
+# This file created by conda-build 3.21.7
+# meta.yaml template originally from:
+# /tmp/build/80754af9/rsync-recipes/cryptography-36.0.0-python_3.9-on-linux_64, last modified Mon Dec 13 16:53:02 2021
+# ------------------------------------------------
+
+package:
+  name: cryptography
+  version: 36.0.0
+source:
+  sha256: 52f769ecb4ef39865719aedc67b4b7eae167bafa48dbc2a26dd36fa56460507f
+  url: https://pypi.io/packages/source/c/cryptography/cryptography-36.0.0.tar.gz
+build:
+  missing_dso_whitelist:
+    - $RPATH/ld64.so.1
+  number: '0'
+  script: /tmp/build/80754af9/cryptography_1639414572950/_h_env_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_p/bin/python
+    -m pip install . -vv
+  string: py39h9ce1e76_0
+requirements:
+  build:
+    - _libgcc_mutex 0.1 main
+    - _openmp_mutex 4.5 1_gnu
+    - binutils_impl_linux-64 2.33.1 he6710b0_7
+    - binutils_linux-64 2.33.1 h9595d00_15
+    - gcc_impl_linux-64 7.3.0 habb00fd_1
+    - gcc_linux-64 7.3.0 h553295d_15
+    - gxx_impl_linux-64 7.3.0 hdf63c60_1
+    - gxx_linux-64 7.3.0 h553295d_15
+    - ld_impl_linux-64 2.33.1 h53a641e_7
+    - libgcc-ng 9.3.0 h5101ec6_17
+    - libgomp 9.3.0 h5101ec6_17
+    - libstdcxx-ng 9.3.0 hd4cf53a_17
+    - rust 1.54.0 h06a4308_0
+    - rust_linux-64 1.46.0 hf484d3e_0
+  host:
+    - _libgcc_mutex 0.1 main
+    - _openmp_mutex 4.5 1_gnu
+    - ca-certificates 2021.10.26 h06a4308_2
+    - certifi 2021.10.8 py39h06a4308_0
+    - cffi 1.14.6 py39h400218f_0
+    - ld_impl_linux-64 2.35.1 h7274673_9
+    - libffi 3.3 he6710b0_2
+    - libgcc-ng 9.3.0 h5101ec6_17
+    - libgomp 9.3.0 h5101ec6_17
+    - libstdcxx-ng 9.3.0 hd4cf53a_17
+    - ncurses 6.3 h7f8727e_2
+    - openssl 1.1.1l h7f8727e_0
+    - pip 21.2.4 py39h06a4308_0
+    - pycparser 2.21 pyhd3eb1b0_0
+    - python 3.9.7 h12debd9_1
+    - readline 8.1 h27cfd23_0
+    - semantic_version 2.8.5 pyhd3eb1b0_0
+    - setuptools 58.0.4 py39h06a4308_0
+    - setuptools-rust 0.12.1 pyhd3eb1b0_0
+    - sqlite 3.36.0 hc218d9a_0
+    - tk 8.6.11 h1ccaba5_0
+    - toml 0.10.2 pyhd3eb1b0_0
+    - tzdata 2021e hda174b7_0
+    - wheel 0.37.0 pyhd3eb1b0_1
+    - xz 5.2.5 h7b6447c_0
+    - zlib 1.2.11 h7b6447c_3
+  run:
+    - cffi >=1.12
+    - libgcc-ng
+    - openssl
+    - python >=3.9,<3.10.0a0
+test:
+  commands:
+    - pip check
+    - pytest
+  imports:
+    - cryptography
+    - cryptography.fernet
+    - cryptography.hazmat
+    - cryptography.hazmat.backends
+    - cryptography.hazmat.backends.openssl
+    - cryptography.hazmat.bindings
+    - cryptography.hazmat.bindings.openssl
+    - cryptography.hazmat.primitives
+    - cryptography.hazmat.primitives.asymmetric
+    - cryptography.hazmat.primitives.ciphers
+    - cryptography.hazmat.primitives.kdf
+    - cryptography.hazmat.primitives.twofactor
+    - cryptography.x509
+  requires:
+    - cryptography-vectors 36.0.0.*
+    - hypothesis >=1.11.4,!=3.79.2
+    - iso8601
+    - pip
+    - pretend
+    - pytest >=6.2.0
+    - pytest-subtests
+    - pytz
+  source_files:
+    - tests
+about:
+  description: 'Cryptography is a package which provides cryptographic recipes and
+
+    primitives to Python developers. Our goal is for it to be your
+
+    "cryptographic standard library". It supports Python 2.6-2.7, Python 3.3+,
+
+    and PyPy 2.6+. Cryptography includes both high level recipes, and low level
+
+    interfaces to common cryptographic algorithms such as symmetric ciphers,
+
+    message digests and key derivation functions.
+
+    '
+  dev_url: https://github.com/pyca/cryptography
+  doc_source_url: https://github.com/pyca/cryptography/blob/master/docs/index.rst
+  doc_url: https://cryptography.io/
+  home: https://github.com/pyca/cryptography
+  license: Apache-2.0 AND BSD-3-Clause AND PSF-2.0 AND MIT
+  license_family: BSD
+  license_file: LICENSE
+  summary: Provides cryptographic recipes and primitives to Python developers
+extra:
+  copy_test_source_files: true
+  final: true
+  recipe-maintainers:
+    - chenghlee
+    - jakirkham
+    - ocefpaf

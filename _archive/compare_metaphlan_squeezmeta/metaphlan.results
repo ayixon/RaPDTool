@@ -1,0 +1,20 @@
+#mpa_v30_CHOCOPhlAn_201901
+#/share/apps/External/Miniconda3-4.7.10/envs/metaphlan3/bin/metaphlan --input_type fasta scaff_non_virus.fasta --bowtie2db /scratch/DB/Metaphlan3 --bowtie2out scaff_non_virus_metaphlan3.bowtie2.bz2
+#SampleID	Metaphlan_Analysis
+#clade_name	NCBI_tax_id	relative_abundance	additional_species
+k__Bacteria	2	100.0	
+k__Bacteria|p__Proteobacteria	2|1224	100.0	
+k__Bacteria|p__Proteobacteria|c__Gammaproteobacteria	2|1224|1236	86.83148	
+k__Bacteria|p__Proteobacteria|c__Alphaproteobacteria	2|1224|28211	13.16852	
+k__Bacteria|p__Proteobacteria|c__Gammaproteobacteria|o__Pseudomonadales	2|1224|1236|72274	86.83148	
+k__Bacteria|p__Proteobacteria|c__Alphaproteobacteria|o__Sphingomonadales	2|1224|28211|204457	13.16852	
+k__Bacteria|p__Proteobacteria|c__Gammaproteobacteria|o__Pseudomonadales|f__Moraxellaceae	2|1224|1236|72274|468	86.83148	
+k__Bacteria|p__Proteobacteria|c__Alphaproteobacteria|o__Sphingomonadales|f__Sphingomonadaceae	2|1224|28211|204457|41297	13.16852	
+k__Bacteria|p__Proteobacteria|c__Gammaproteobacteria|o__Pseudomonadales|f__Moraxellaceae|g__Acinetobacter	2|1224|1236|72274|468|469	86.83148	
+k__Bacteria|p__Proteobacteria|c__Alphaproteobacteria|o__Sphingomonadales|f__Sphingomonadaceae|g__Sphingobium	2|1224|28211|204457|41297|165695	13.16852	
+k__Bacteria|p__Proteobacteria|c__Gammaproteobacteria|o__Pseudomonadales|f__Moraxellaceae|g__Acinetobacter|s__Acinetobacter_junii	2|1224|1236|72274|468|469|40215	86.83148	
+k__Bacteria|p__Proteobacteria|c__Gammaproteobacteria|o__Pseudomonadales|f__Moraxellaceae|g__Acinetobacter|s__Acinetobacter_sp_GWC1_38_13
+k__Bacteria|p__Proteobacteria|c__Alphaproteobacteria|o__Sphingomonadales|f__Sphingomonadaceae|g__Sphingobium|s__Sphingobium_yanoikuyae	2|1224|28211|204457|41297|165695|13690	13.16852	
+k__Bacteria|p__Proteobacteria|c__Alphaproteobacteria|o__Sphingomonadales|f__Sphingomonadaceae|g__Sphingobium|s__Sphingobium_sp,
+k__Bacteria|p__Proteobacteria|c__Alphaproteobacteria|o__Sphingomonadales|f__Sphingomonadaceae|g__Sphingobium|s__Sphingobium_sp_IP1,
+k__Bacteria|p__Proteobacteria|c__Alphaproteobacteria|o__Sphingomonadales|f__Sphingomonadaceae|g__Sphingobium|s__Sphingobium_sp_YR657

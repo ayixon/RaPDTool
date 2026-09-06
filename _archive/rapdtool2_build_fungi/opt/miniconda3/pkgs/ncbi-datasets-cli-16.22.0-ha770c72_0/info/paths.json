@@ -1,0 +1,17 @@
+{
+  "paths": [
+    {
+      "_path": "bin/dataformat",
+      "path_type": "hardlink",
+      "sha256": "5bc6998c56c1e4f8550f75358b90838d91459f6cb8010830976940c54d7a7ceb",
+      "size_in_bytes": 16731633
+    },
+    {
+      "_path": "bin/datasets",
+      "path_type": "hardlink",
+      "sha256": "7f24c245d6e3d8413e56334b2e3cf8a0b0531049478e62771be74f24270dab0e",
+      "size_in_bytes": 22704730
+    }
+  ],
+  "paths_version": 1
+}

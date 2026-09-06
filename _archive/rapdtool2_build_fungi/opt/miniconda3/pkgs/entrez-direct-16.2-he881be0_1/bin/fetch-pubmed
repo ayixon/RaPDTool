@@ -1,0 +1,162 @@
+#!/bin/sh
+
+# Public domain notice for all NCBI EDirect scripts is located at:
+# https://www.ncbi.nlm.nih.gov/books/NBK179288/#chapter6.Public_Domain_Notice
+
+doall=false
+dofresh=false
+flag="none"
+
+while [ $# -gt 0 ]
+do
+  case "$1" in
+    -strict )
+      flag="strict"
+      shift
+      ;;
+    -mixed )
+      flag="mixed"
+      shift
+      ;;
+    -path )
+      shift
+      ;;
+    -all )
+      doall=true
+      shift
+      ;;
+    -fresh )
+      dofresh=true
+      shift
+      ;;
+    -* )
+      exec >&2
+      echo "$0: Unrecognized option $1"
+      exit 1
+      ;;
+    * )
+      break
+      ;;
+  esac
+done
+
+if [ "$#" -gt 0 ]
+then
+  argument="$1"
+  target=$(cd "$argument" && pwd)
+  target=${target%/}
+  case "$target" in
+    */Archive ) ;;
+    * ) target=$target/Archive ;;
+  esac
+else
+  if [ -z "${EDIRECT_PUBMED_MASTER}" ]
+  then
+    echo "Must supply path to archive files or set EDIRECT_PUBMED_MASTER environment variable"
+    exit 1
+  else
+    MASTER="${EDIRECT_PUBMED_MASTER}"
+    MASTER=${MASTER%/}
+    target="$MASTER/Archive"
+  fi
+fi
+
+osname=`uname -s | sed -e 's/_NT-.*$/_NT/; s/^MINGW[0-9]*/CYGWIN/'`
+if [ "$osname" = "CYGWIN_NT" -a -x /bin/cygpath ]
+then
+  target=`cygpath -w "$target"`
+fi
+
+target=${target%/}
+
+HEAD=$(cat <<EOF
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE PubmedArticleSet PUBLIC "-//NLM//DTD PubMedArticle, 1st January 2019//EN" "https://dtd.nlm.nih.gov/ncbi/pubmed/out/pubmed_190101.dtd">
+<PubmedArticleSet>
+EOF
+)
+
+TAIL=$(cat <<EOF
+</PubmedArticleSet>
+EOF
+)
+
+if [ "$doall" = true ]
+then
+  mx=$(
+    for dr in "$target"/*
+    do
+      if [ -d "$dr" ]
+      then
+        bs=$(basename "$dr")
+        echo "$bs"
+      fi
+    done |
+    sort -n | tail -n 1
+  )
+  maximum=$(((mx + 1) * 1000000))
+  fr=0
+  chunk_size=250000
+  to=$((chunk_size - 1))
+  loop_max=$((maximum / chunk_size))
+  echo "$HEAD"
+  seq 1 $loop_max | while read n
+  do
+   seq -f "%0.f" $fr $to | rchive -gzip -fetch "$target"
+   fr=$((fr + chunk_size))
+   to=$((to + chunk_size))
+   perl -e "select(undef, undef, undef, 0.1)"
+  done
+  echo "$TAIL"
+elif [ "$dofresh" = true ]
+then
+  mx=$(
+    for dr in "$target"/*
+    do
+      if [ -d "$dr" ]
+      then
+        bs=$(basename "$dr")
+        echo "$bs"
+      fi
+    done |
+    sort -n | tail -n 1
+  )
+  maximum=$(((mx + 1) * 1000000))
+  fr=0
+  chunk_size=250000
+  to=$((chunk_size - 1))
+  loop_max=$((maximum / chunk_size))
+  seq 1 $loop_max | while read n
+  do
+    base=$(printf pubmed%03d $n)
+    if [ -f "$base.xml.gz" ]
+    then
+      fr=$((fr + chunk_size))
+      to=$((to + chunk_size))
+      continue
+    fi
+    if [ -f "$base.xml" ]
+    then
+      continue
+    fi
+    echo "$base XML"
+    seconds_start=$(date "+%s")
+    seq -f "%0.f" $fr $to | rchive -gzip -fetch "$target" -head "<PubmedArticleSet>" -tail "</PubmedArticleSet>" > "$base.xml"
+    fr=$((fr + chunk_size))
+    to=$((to + chunk_size))
+    seconds_end=$(date "+%s")
+    seconds=$((seconds_end - seconds_start))
+    echo "$seconds seconds"
+    fsize=$(wc -c < "$base.xml")
+    if [ "$fsize" -le 300 ]
+    then
+      rm "$base.xml.gz"
+      exit 0
+    fi
+    perl -e "select(undef, undef, undef, 0.1)"
+  done
+else
+  echo "$HEAD"
+  rchive -gzip -flag "$flag" -fetch "$target"
+  echo "$TAIL"
+fi

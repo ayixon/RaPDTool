@@ -1,0 +1,6 @@
+5fd71804bb12490f8deac5dcd4d8a10d  usr/share/doc/systemd-sysv/copyright
+fd20971494f62e8612c9308588121010  usr/share/man/man1/init.1.gz
+ea6a02d3d858883d51227a8bcb3cf154  usr/share/man/man8/halt.8.gz
+ec2e0f0ada1ccf1eb5941e936c61f104  usr/share/man/man8/runlevel.8.gz
+80f3d7dc0be43c4de77f301fe8515802  usr/share/man/man8/shutdown.8.gz
+d54e86be59e4f928d415a6a411f24ad0  usr/share/man/man8/telinit.8.gz

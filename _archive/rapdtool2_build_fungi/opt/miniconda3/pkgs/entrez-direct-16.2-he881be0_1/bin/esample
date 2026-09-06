@@ -1,0 +1,1822 @@
+#!/bin/sh
+
+# Public domain notice for all NCBI EDirect scripts is located at:
+# https://www.ncbi.nlm.nih.gov/books/NBK179288/#chapter6.Public_Domain_Notice
+
+do_help() {
+  cat <<EOF
+  
+Usage: esample [ -docsum | -article | -book | -protein | -gene | -taxon | -blast | -snp | -hgvs | -bioc | -flatfile | -gencode ]
+
+EOF
+}
+
+do_docsum() {
+  cat <<EOF
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE DocumentSummarySet>
+<DocumentSummarySet status="OK">
+  <DocumentSummary>
+    <Id>6301692</Id>
+    <PubDate>1983 Apr</PubDate>
+    <Source>Cell</Source>
+    <Authors>
+      <Author>
+        <Name>Krasnow MA</Name>
+        <AuthType>Author</AuthType>
+      </Author>
+      <Author>
+        <Name>Cozzarelli NR</Name>
+        <AuthType>Author</AuthType>
+      </Author>
+    </Authors>
+    <LastAuthor>Cozzarelli NR</LastAuthor>
+    <Title>Site-specific relaxation and recombination by the Tn3 resolvase: recognition of the DNA path between oriented res sites.</Title>
+    <SortTitle>site specific relaxation and recombination by the tn3 resolvase recognition of the dna path between oriented res sites</SortTitle>
+    <Volume>32</Volume>
+    <Issue>4</Issue>
+    <Pages>1313-24</Pages>
+    <Lang>
+      <string>eng</string>
+    </Lang>
+    <NlmUniqueID>0413066</NlmUniqueID>
+    <ISSN>0092-8674</ISSN>
+    <ESSN>1097-4172</ESSN>
+    <PubType>
+      <flag>Journal Article</flag>
+    </PubType>
+    <RecordStatus>PubMed - indexed for MEDLINE</RecordStatus>
+    <PubStatus>4</PubStatus>
+    <ArticleIds>
+      <ArticleId>
+        <IdType>pubmed</IdType>
+        <IdTypeN>1</IdTypeN>
+        <Value>6301692</Value>
+      </ArticleId>
+      <ArticleId>
+        <IdType>pii</IdType>
+        <IdTypeN>4</IdTypeN>
+        <Value>0092-8674(83)90312-4</Value>
+      </ArticleId>
+      <ArticleId>
+        <IdType>doi</IdType>
+        <IdTypeN>3</IdTypeN>
+        <Value>10.1016/0092-8674(83)90312-4</Value>
+      </ArticleId>
+      <ArticleId>
+        <IdType>rid</IdType>
+        <IdTypeN>8</IdTypeN>
+        <Value>6301692</Value>
+      </ArticleId>
+      <ArticleId>
+        <IdType>eid</IdType>
+        <IdTypeN>8</IdTypeN>
+        <Value>6301692</Value>
+      </ArticleId>
+    </ArticleIds>
+    <History>
+      <PubMedPubDate>
+        <PubStatus>pubmed</PubStatus>
+        <Date>1983/04/01 00:00</Date>
+      </PubMedPubDate>
+      <PubMedPubDate>
+        <PubStatus>medline</PubStatus>
+        <Date>1983/04/01 00:01</Date>
+      </PubMedPubDate>
+      <PubMedPubDate>
+        <PubStatus>entrez</PubStatus>
+        <Date>1983/04/01 00:00</Date>
+      </PubMedPubDate>
+    </History>
+    <Attributes>
+      <flag>Has Abstract</flag>
+    </Attributes>
+    <PmcRefCount>57</PmcRefCount>
+    <FullJournalName>Cell</FullJournalName>
+    <DocType>citation</DocType>
+    <SortPubDate>1983/04/01 00:00</SortPubDate>
+    <SortFirstAuthor>Krasnow MA</SortFirstAuthor>
+  </DocumentSummary>
+</DocumentSummarySet>
+EOF
+}
+
+do_article() {
+  cat <<EOF
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE PubmedArticle>
+<PubmedArticle>
+  <MedlineCitation Status="MEDLINE" Owner="NLM">
+    <PMID Version="1">6301692</PMID>
+    <DateCompleted>
+      <Year>1983</Year>
+      <Month>06</Month>
+      <Day>17</Day>
+    </DateCompleted>
+    <DateRevised>
+      <Year>2019</Year>
+      <Month>07</Month>
+      <Day>05</Day>
+    </DateRevised>
+    <Article PubModel="Print">
+      <Journal>
+        <ISSN IssnType="Print">0092-8674</ISSN>
+        <JournalIssue CitedMedium="Print">
+          <Volume>32</Volume>
+          <Issue>4</Issue>
+          <PubDate>
+            <Year>1983</Year>
+            <Month>Apr</Month>
+          </PubDate>
+        </JournalIssue>
+        <Title>Cell</Title>
+      </Journal>
+      <ArticleTitle>Site-specific relaxation and recombination by the Tn3 resolvase: recognition of the DNA path between oriented res sites.</ArticleTitle>
+      <Pagination>
+        <MedlinePgn>1313-24</MedlinePgn>
+      </Pagination>
+      <Abstract>
+        <AbstractText Label="RESULTS">We studied the dynamics of site-specific recombination by the resolvase encoded by the Escherichia coli transposon Tn3.
+The pure enzyme recombined supercoiled plasmids containing two directly repeated recombination sites, called res sites.
+Resolvase is the first strictly site-specific topoisomerase.
+It relaxed only plasmids containing directly repeated res sites; substrates with zero, one or two inverted sites were inert.
+Even when the proximity of res sites was ensured by catenation of plasmids with a single site, neither relaxation nor recombination occurred.
+The two circular products of recombination were catenanes interlinked only once.
+These properties of resolvase require that the path of the DNA between res sites be clearly defined and that strand exchange occur with a unique geometry.</AbstractText>
+        <AbstractText Label="SUMMARY">A model in which one subunit of a dimeric resolvase is bound at one res site,
+while the other searches along adjacent DNA until it encounters the second site,
+would account for the ability of resolvase to distinguish intramolecular from intermolecular sites,
+to sense the relative orientation of sites and to produce singly interlinked catenanes.
+Because resolvase is a type 1 topoisomerase, we infer that it makes the required duplex bDNA breaks of recombination one strand at a time.</AbstractText>
+      </Abstract>
+      <AuthorList CompleteYN="Y">
+        <Author ValidYN="Y">
+          <LastName>Krasnow</LastName>
+          <ForeName>Mark A</ForeName>
+          <Initials>MA</Initials>
+        </Author>
+        <Author ValidYN="Y">
+          <LastName>Cozzarelli</LastName>
+          <ForeName>Nicholas R</ForeName>
+          <Initials>NR</Initials>
+        </Author>
+      </AuthorList>
+      <Language>eng</Language>
+      <GrantList CompleteYN="Y">
+        <Grant>
+          <GrantID>GM-07281</GrantID>
+          <Acronym>GM</Acronym>
+          <Agency>NIGMS NIH HHS</Agency>
+          <Country>United States</Country>
+        </Grant>
+      </GrantList>
+      <PublicationTypeList>
+        <PublicationType UI="D016428">Journal Article</PublicationType>
+        <PublicationType UI="D013487">Research Support, U.S. Gov't, P.H.S.</PublicationType>
+      </PublicationTypeList>
+    </Article>
+    <MedlineJournalInfo>
+      <Country>United States</Country>
+      <MedlineTA>Cell</MedlineTA>
+      <NlmUniqueID>0413066</NlmUniqueID>
+      <ISSNLinking>0092-8674</ISSNLinking>
+    </MedlineJournalInfo>
+    <ChemicalList>
+      <Chemical>
+        <RegistryNumber>0</RegistryNumber>
+        <NameOfSubstance UI="D004269">DNA, Bacterial</NameOfSubstance>
+      </Chemical>
+      <Chemical>
+        <RegistryNumber>0</RegistryNumber>
+        <NameOfSubstance UI="D004278">DNA, Superhelical</NameOfSubstance>
+      </Chemical>
+      <Chemical>
+        <RegistryNumber>0</RegistryNumber>
+        <NameOfSubstance UI="D004279">DNA, Viral</NameOfSubstance>
+      </Chemical>
+      <Chemical>
+        <RegistryNumber>EC 2.7.7.-</RegistryNumber>
+        <NameOfSubstance UI="D009713">Nucleotidyltransferases</NameOfSubstance>
+      </Chemical>
+      <Chemical>
+        <RegistryNumber>EC 2.7.7.-</RegistryNumber>
+        <NameOfSubstance UI="D019895">Transposases</NameOfSubstance>
+      </Chemical>
+      <Chemical>
+        <RegistryNumber>EC 5.99.1.2</RegistryNumber>
+        <NameOfSubstance UI="D004264">DNA Topoisomerases, Type I</NameOfSubstance>
+      </Chemical>
+    </ChemicalList>
+    <CitationSubset>IM</CitationSubset>
+    <MeshHeadingList>
+      <MeshHeading>
+        <DescriptorName UI="D004264" MajorTopicYN="N">DNA Topoisomerases, Type I</DescriptorName>
+        <QualifierName UI="Q000378" MajorTopicYN="N">metabolism</QualifierName>
+      </MeshHeading>
+      <MeshHeading>
+        <DescriptorName UI="D004269" MajorTopicYN="N">DNA, Bacterial</DescriptorName>
+        <QualifierName UI="Q000378" MajorTopicYN="Y">metabolism</QualifierName>
+      </MeshHeading>
+      <MeshHeading>
+        <DescriptorName UI="D004278" MajorTopicYN="N">DNA, Superhelical</DescriptorName>
+        <QualifierName UI="Q000378" MajorTopicYN="N">metabolism</QualifierName>
+      </MeshHeading>
+      <MeshHeading>
+        <DescriptorName UI="D004279" MajorTopicYN="N">DNA, Viral</DescriptorName>
+        <QualifierName UI="Q000378" MajorTopicYN="Y">metabolism</QualifierName>
+      </MeshHeading>
+      <MeshHeading>
+        <DescriptorName UI="D008957" MajorTopicYN="N">Models, Genetic</DescriptorName>
+      </MeshHeading>
+      <MeshHeading>
+        <DescriptorName UI="D009690" MajorTopicYN="Y">Nucleic Acid Conformation</DescriptorName>
+      </MeshHeading>
+      <MeshHeading>
+        <DescriptorName UI="D009713" MajorTopicYN="N">Nucleotidyltransferases</DescriptorName>
+        <QualifierName UI="Q000302" MajorTopicYN="N">isolation &amp; purification</QualifierName>
+        <QualifierName UI="Q000378" MajorTopicYN="Y">metabolism</QualifierName>
+      </MeshHeading>
+      <MeshHeading>
+        <DescriptorName UI="D010957" MajorTopicYN="N">Plasmids</DescriptorName>
+      </MeshHeading>
+      <MeshHeading>
+        <DescriptorName UI="D011995" MajorTopicYN="Y">Recombination, Genetic</DescriptorName>
+      </MeshHeading>
+      <MeshHeading>
+        <DescriptorName UI="D012091" MajorTopicYN="N">Repetitive Sequences, Nucleic Acid</DescriptorName>
+      </MeshHeading>
+      <MeshHeading>
+        <DescriptorName UI="D013539" MajorTopicYN="N">Simian virus 40</DescriptorName>
+      </MeshHeading>
+      <MeshHeading>
+        <DescriptorName UI="D019895" MajorTopicYN="N">Transposases</DescriptorName>
+      </MeshHeading>
+    </MeshHeadingList>
+  </MedlineCitation>
+  <PubmedData>
+    <History>
+      <PubMedPubDate PubStatus="pubmed">
+        <Year>1983</Year>
+        <Month>4</Month>
+        <Day>1</Day>
+      </PubMedPubDate>
+      <PubMedPubDate PubStatus="medline">
+        <Year>1983</Year>
+        <Month>4</Month>
+        <Day>1</Day>
+        <Hour>0</Hour>
+        <Minute>1</Minute>
+      </PubMedPubDate>
+      <PubMedPubDate PubStatus="entrez">
+        <Year>1983</Year>
+        <Month>4</Month>
+        <Day>1</Day>
+        <Hour>0</Hour>
+        <Minute>0</Minute>
+      </PubMedPubDate>
+    </History>
+    <PublicationStatus>ppublish</PublicationStatus>
+    <ArticleIdList>
+      <ArticleId IdType="pubmed">6301692</ArticleId>
+      <ArticleId IdType="pii">0092-8674(83)90312-4</ArticleId>
+      <ArticleId IdType="doi">10.1016/0092-8674(83)90312-4</ArticleId>
+    </ArticleIdList>
+  </PubmedData>
+</PubmedArticle>
+EOF
+}
+
+do_book() {
+  cat <<EOF
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE PubmedArticleSet>
+<PubmedArticleSet>
+  <PubmedBookArticle>
+    <BookDocument>
+      <PMID Version="1">21433338</PMID>
+      <ArticleIdList>
+        <ArticleId IdType="bookaccession">NBK19359</ArticleId>
+      </ArticleIdList>
+      <Book>
+        <Publisher>
+          <PublisherName>Cold Spring Harbor Laboratory Press</PublisherName>
+          <PublisherLocation>Cold Spring Harbor (NY)</PublisherLocation>
+        </Publisher>
+        <BookTitle book="rv">Retroviruses</BookTitle>
+        <PubDate>
+          <Year>1997</Year>
+        </PubDate>
+        <AuthorList Type="editors">
+          <Author>
+            <LastName>Coffin</LastName>
+            <ForeName>John M</ForeName>
+            <Initials>JM</Initials>
+          </Author>
+          <Author>
+            <LastName>Hughes</LastName>
+            <ForeName>Stephen H</ForeName>
+            <Initials>SH</Initials>
+          </Author>
+          <Author>
+            <LastName>Varmus</LastName>
+            <ForeName>Harold E</ForeName>
+            <Initials>HE</Initials>
+          </Author>
+        </AuthorList>
+        <Isbn>0879695714</Isbn>
+      </Book>
+      <ArticleTitle book="rv" part="A6253">Pathogenesis of HIV and SIV</ArticleTitle>
+      <Language>eng</Language>
+      <AuthorList Type="authors">
+        <Author>
+          <LastName>Fauci</LastName>
+          <ForeName>AS</ForeName>
+          <Initials>AS</Initials>
+        </Author>
+        <Author>
+          <LastName>Desrosiers</LastName>
+          <ForeName>RC</ForeName>
+          <Initials>RC</Initials>
+        </Author>
+      </AuthorList>
+      <PublicationType UI="D016454">Review</PublicationType>
+      <Abstract>
+        <AbstractText>Infections by viruses of the lentivirus genus, most notably human immunodeficiency virus type 1 (HIV-1), are characterized by remarkably complex interactions with the host and a chronic course of disease. Common features of diseases caused by lentiviruses include long and variable incubation periods, persistent viral replication, neurologic manifestations, and destruction of specific hematologic or immunologic cells (Desrosiers and Letvin 1987); some of these characteristics, particularly as they relate to nonprimate lentiviruses, are described in Chapter 10 All lentiviruses exhibit a common morphogenesis and morphology, a tropism for macrophages, extensive genetic and antigenic variability, and the presence of additional regulatory genes not found in other groups of retroviruses. Lentiviruses are not directly oncogenic, although the immune disorders they induce often permit the growth of certain neoplasms, such as lymphomas and Kaposi's sarcoma. Lentiviruses have been isolated from several animal species including sheep, goats, horses, cattle, cats, monkeys, and humans. HIV-1 and HIV-2 are the only known human lentiviruses. Infection of humans with HIV-1 causes a dramatic decline in the number of CD4+ T lymphocytes. When the number of these cells becomes low enough, opportunistic infections and neoplasms occur. Neurologic abnormalities, which occur in a majority of HIV-infected individuals, can be observed in the absence of other clinical manifestations (Fauci 1988). The HIV-related lentiviruses of nonhuman primates are collectively called simian immunodeficiency viruses (SIVs). Related but distinct SIVs have been isolated from several species of African monkeys. SIV and HIV will be referred to as primate lentiviruses; more distant relatives from other animal species will be referred to as nonprimate lentiviruses. As with HIV, infection of an appropriate host with SIV results in the decline of the absolute number of CD4+ T cells, an inversion of the CD4/CD8 T-cell ratio, neurologic abnormalities, and opportunistic infections (Simon et al. 1994).</AbstractText>
+        <CopyrightInformation>Copyright © 1997, Cold Spring Harbor Laboratory Press.</CopyrightInformation>
+      </Abstract>
+      <Sections>
+        <Section>
+          <SectionTitle book="rv" part="A6254">Etiologic Agents</SectionTitle>
+        </Section>
+        <Section>
+          <SectionTitle book="rv" part="A6265">Cellular Targets of Infection</SectionTitle>
+        </Section>
+        <Section>
+          <SectionTitle book="rv" part="A6269">Course of Infection with HIV and SIV</SectionTitle>
+        </Section>
+        <Section>
+          <SectionTitle book="rv" part="A6284">Immunopathogenic Mechanisms of HIV Infection</SectionTitle>
+        </Section>
+        <Section>
+          <SectionTitle book="rv" part="A6304">Role of Lymphoid Organs in Immunopathogenesis</SectionTitle>
+        </Section>
+        <Section>
+          <SectionTitle book="rv" part="A6308">Pathogenesis of Kaposi's Sarcoma and Other Opportunistic Neoplasms</SectionTitle>
+        </Section>
+        <Section>
+          <SectionTitle book="rv" part="A6311">Tissue-Specific Disease and Organ System Failure</SectionTitle>
+        </Section>
+        <Section>
+          <SectionTitle book="rv" part="A6317">Immune Responses to HIV and SIV</SectionTitle>
+        </Section>
+        <Section>
+          <SectionTitle book="rv" part="A6324">Conclusions</SectionTitle>
+        </Section>
+        <Section>
+          <SectionTitle book="rv" part="A6325">References</SectionTitle>
+        </Section>
+      </Sections>
+    </BookDocument>
+    <PubmedBookData>
+      <History>
+        <PubMedPubDate PubStatus="pubmed">
+          <Year>2011</Year>
+          <Month>3</Month>
+          <Day>25</Day>
+          <Hour>6</Hour>
+          <Minute>0</Minute>
+        </PubMedPubDate>
+        <PubMedPubDate PubStatus="medline">
+          <Year>2011</Year>
+          <Month>3</Month>
+          <Day>25</Day>
+          <Hour>6</Hour>
+          <Minute>0</Minute>
+        </PubMedPubDate>
+        <PubMedPubDate PubStatus="entrez">
+          <Year>2011</Year>
+          <Month>3</Month>
+          <Day>25</Day>
+          <Hour>6</Hour>
+          <Minute>0</Minute>
+        </PubMedPubDate>
+      </History>
+      <PublicationStatus>ppublish</PublicationStatus>
+      <ArticleIdList>
+        <ArticleId IdType="pubmed">21433338</ArticleId>
+      </ArticleIdList>
+    </PubmedBookData>
+  </PubmedBookArticle>
+</PubmedArticleSet>
+EOF
+}
+
+do_protein() {
+  cat <<EOF
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE INSDSeq>
+<INSDSeq>
+  <INSDSeq_locus>AF480315_1</INSDSeq_locus>
+  <INSDSeq_length>67</INSDSeq_length>
+  <INSDSeq_moltype>AA</INSDSeq_moltype>
+  <INSDSeq_topology>linear</INSDSeq_topology>
+  <INSDSeq_division>INV</INSDSeq_division>
+  <INSDSeq_update-date>25-JUL-2016</INSDSeq_update-date>
+  <INSDSeq_create-date>31-DEC-2003</INSDSeq_create-date>
+  <INSDSeq_definition>four-loop conotoxin preproprotein, partial [Conus purpurascens]</INSDSeq_definition>
+  <INSDSeq_primary-accession>AAQ05867</INSDSeq_primary-accession>
+  <INSDSeq_accession-version>AAQ05867.1</INSDSeq_accession-version>
+  <INSDSeq_other-seqids>
+    <INSDSeqid>gb|AAQ05867.1|AF480315_1</INSDSeqid>
+    <INSDSeqid>gi|33320307</INSDSeqid>
+  </INSDSeq_other-seqids>
+  <INSDSeq_source>Conus purpurascens</INSDSeq_source>
+  <INSDSeq_organism>Conus purpurascens</INSDSeq_organism>
+  <INSDSeq_taxonomy>Eukaryota; Metazoa; Lophotrochozoa; Mollusca; Gastropoda; Caenogastropoda; Hypsogastropoda; Neogastropoda; Conoidea; Conidae; Conus</INSDSeq_taxonomy>
+  <INSDSeq_references>
+    <INSDReference>
+      <INSDReference_reference>1</INSDReference_reference>
+      <INSDReference_position>1..67</INSDReference_position>
+      <INSDReference_authors>
+        <INSDAuthor>Duda,T.F. Jr.</INSDAuthor>
+        <INSDAuthor>Palumbi,S.R.</INSDAuthor>
+      </INSDReference_authors>
+      <INSDReference_title>Convergent evolution of venoms and feeding ecologies among polyphyletic piscivorous Conus species</INSDReference_title>
+      <INSDReference_journal>Unpublished</INSDReference_journal>
+    </INSDReference>
+    <INSDReference>
+      <INSDReference_reference>2</INSDReference_reference>
+      <INSDReference_position>1..67</INSDReference_position>
+      <INSDReference_authors>
+        <INSDAuthor>Duda,T.F. Jr.</INSDAuthor>
+        <INSDAuthor>Palumbi,S.R.</INSDAuthor>
+      </INSDReference_authors>
+      <INSDReference_title>Direct Submission</INSDReference_title>
+      <INSDReference_journal>Submitted (04-FEB-2002) Naos Marine Lab, Smithsonian Tropical Research Institute, Apartado 2072, Balboa, Ancon, Panama, Republic of Panama</INSDReference_journal>
+    </INSDReference>
+  </INSDSeq_references>
+  <INSDSeq_comment>Method: conceptual translation supplied by author.</INSDSeq_comment>
+  <INSDSeq_source-db>accession AF480315.1</INSDSeq_source-db>
+  <INSDSeq_feature-table>
+    <INSDFeature>
+      <INSDFeature_key>source</INSDFeature_key>
+      <INSDFeature_location>1..67</INSDFeature_location>
+      <INSDFeature_intervals>
+        <INSDInterval>
+          <INSDInterval_from>1</INSDInterval_from>
+          <INSDInterval_to>67</INSDInterval_to>
+          <INSDInterval_accession>AAQ05867.1</INSDInterval_accession>
+        </INSDInterval>
+      </INSDFeature_intervals>
+      <INSDFeature_quals>
+        <INSDQualifier>
+          <INSDQualifier_name>organism</INSDQualifier_name>
+          <INSDQualifier_value>Conus purpurascens</INSDQualifier_value>
+        </INSDQualifier>
+        <INSDQualifier>
+          <INSDQualifier_name>isolate</INSDQualifier_name>
+          <INSDQualifier_value>purpurascens-2c</INSDQualifier_value>
+        </INSDQualifier>
+        <INSDQualifier>
+          <INSDQualifier_name>db_xref</INSDQualifier_name>
+          <INSDQualifier_value>taxon:41690</INSDQualifier_value>
+        </INSDQualifier>
+        <INSDQualifier>
+          <INSDQualifier_name>clone_lib</INSDQualifier_name>
+          <INSDQualifier_value>venom duct cDNA library</INSDQualifier_value>
+        </INSDQualifier>
+        <INSDQualifier>
+          <INSDQualifier_name>country</INSDQualifier_name>
+          <INSDQualifier_value>Panama</INSDQualifier_value>
+        </INSDQualifier>
+        <INSDQualifier>
+          <INSDQualifier_name>note</INSDQualifier_name>
+          <INSDQualifier_value>isolated from the Bay of Panama</INSDQualifier_value>
+        </INSDQualifier>
+      </INSDFeature_quals>
+    </INSDFeature>
+    <INSDFeature>
+      <INSDFeature_key>Protein</INSDFeature_key>
+      <INSDFeature_location>&lt;1..67</INSDFeature_location>
+      <INSDFeature_intervals>
+        <INSDInterval>
+          <INSDInterval_from>1</INSDInterval_from>
+          <INSDInterval_to>67</INSDInterval_to>
+          <INSDInterval_accession>AAQ05867.1</INSDInterval_accession>
+        </INSDInterval>
+      </INSDFeature_intervals>
+      <INSDFeature_partial5 value="true"/>
+      <INSDFeature_quals>
+        <INSDQualifier>
+          <INSDQualifier_name>product</INSDQualifier_name>
+          <INSDQualifier_value>four-loop conotoxin preproprotein</INSDQualifier_value>
+        </INSDQualifier>
+      </INSDFeature_quals>
+    </INSDFeature>
+    <INSDFeature>
+      <INSDFeature_key>mat_peptide</INSDFeature_key>
+      <INSDFeature_location>41..67</INSDFeature_location>
+      <INSDFeature_intervals>
+        <INSDInterval>
+          <INSDInterval_from>41</INSDInterval_from>
+          <INSDInterval_to>67</INSDInterval_to>
+          <INSDInterval_accession>AAQ05867.1</INSDInterval_accession>
+        </INSDInterval>
+      </INSDFeature_intervals>
+      <INSDFeature_quals>
+        <INSDQualifier>
+          <INSDQualifier_name>product</INSDQualifier_name>
+          <INSDQualifier_value>four-loop conotoxin</INSDQualifier_value>
+        </INSDQualifier>
+        <INSDQualifier>
+          <INSDQualifier_name>calculated_mol_wt</INSDQualifier_name>
+          <INSDQualifier_value>3008</INSDQualifier_value>
+        </INSDQualifier>
+        <INSDQualifier>
+          <INSDQualifier_name>peptide</INSDQualifier_name>
+          <INSDQualifier_value>PCKKTGRKCFPHQKDCCGRACIITICP</INSDQualifier_value>
+        </INSDQualifier>
+      </INSDFeature_quals>
+    </INSDFeature>
+    <INSDFeature>
+      <INSDFeature_key>CDS</INSDFeature_key>
+      <INSDFeature_location>1..67</INSDFeature_location>
+      <INSDFeature_intervals>
+        <INSDInterval>
+          <INSDInterval_from>1</INSDInterval_from>
+          <INSDInterval_to>67</INSDInterval_to>
+          <INSDInterval_accession>AAQ05867.1</INSDInterval_accession>
+        </INSDInterval>
+      </INSDFeature_intervals>
+      <INSDFeature_partial5 value="true"/>
+      <INSDFeature_quals>
+        <INSDQualifier>
+          <INSDQualifier_name>coded_by</INSDQualifier_name>
+          <INSDQualifier_value>AF480315.1:&lt;1..205</INSDQualifier_value>
+        </INSDQualifier>
+        <INSDQualifier>
+          <INSDQualifier_name>codon_start</INSDQualifier_name>
+          <INSDQualifier_value>2</INSDQualifier_value>
+        </INSDQualifier>
+      </INSDFeature_quals>
+    </INSDFeature>
+  </INSDSeq_feature-table>
+  <INSDSeq_sequence>vvivavlfltacqlitaddsrrtqkhralrsttkratsnrpckktgrkcfphqkdccgraciiticp</INSDSeq_sequence>
+</INSDSeq>
+EOF
+}
+
+do_gene() {
+  cat <<EOF
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE DocumentSummary>
+<DocumentSummary>
+  <Id>3581</Id>
+  <Name>IL9R</Name>
+  <Description>interleukin 9 receptor</Description>
+  <Status>0</Status>
+  <CurrentID>0</CurrentID>
+  <Chromosome>X, Y</Chromosome>
+  <GeneticSource>genomic</GeneticSource>
+  <MapLocation>Xq28 and Yq12</MapLocation>
+  <OtherAliases>CD129, IL-9R</OtherAliases>
+  <OtherDesignations>interleukin-9 receptor|IL-9 receptor</OtherDesignations>
+  <NomenclatureSymbol>IL9R</NomenclatureSymbol>
+  <NomenclatureName>interleukin 9 receptor</NomenclatureName>
+  <NomenclatureStatus>Official</NomenclatureStatus>
+  <Mim>
+    <int>300007</int>
+  </Mim>
+  <GenomicInfo>
+    <GenomicInfoType>
+      <ChrLoc>X</ChrLoc>
+      <ChrAccVer>NC_000023.11</ChrAccVer>
+      <ChrStart>155997580</ChrStart>
+      <ChrStop>156013016</ChrStop>
+      <ExonCount>14</ExonCount>
+    </GenomicInfoType>
+    <GenomicInfoType>
+      <ChrLoc>Y</ChrLoc>
+      <ChrAccVer>NC_000024.10</ChrAccVer>
+      <ChrStart>57184100</ChrStart>
+      <ChrStop>57199536</ChrStop>
+      <ExonCount>14</ExonCount>
+    </GenomicInfoType>
+  </GenomicInfo>
+  <GeneWeight>5425</GeneWeight>
+  <Summary>The protein encoded by this gene is a cytokine receptor that specifically mediates the biological effects of interleukin 9 (IL9).
+The functional IL9 receptor complex requires this protein as well as the interleukin 2 receptor, gamma (IL2RG), a common gamma subunit shared by the receptors of many different cytokines.
+The ligand binding of this receptor leads to the activation of various JAK kinases and STAT proteins, which connect to different biologic responses.
+This gene is located at the pseudoautosomal regions of X and Y chromosomes.
+Genetic studies suggested an association of this gene with the development of asthma.
+Multiple pseudogenes on chromosome 9, 10, 16, and 18 have been described.
+Alternatively spliced transcript variants have been found for this gene.</Summary>
+  <ChrSort>X</ChrSort>
+  <ChrStart>155997580</ChrStart>
+  <Organism>
+    <ScientificName>Homo sapiens</ScientificName>
+    <CommonName>human</CommonName>
+    <TaxID>9606</TaxID>
+  </Organism>
+</DocumentSummary>
+EOF
+}
+
+do_taxon() {
+  cat <<EOF
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE TaxaSet>
+<TaxaSet>
+  <Taxon>
+    <TaxId>9606</TaxId>
+    <ScientificName>Homo sapiens</ScientificName>
+    <OtherNames>
+      <GenbankCommonName>human</GenbankCommonName>
+      <CommonName>man</CommonName>
+      <Name>
+        <ClassCDE>authority</ClassCDE>
+        <DispName>Homo sapiens Linnaeus, 1758</DispName>
+      </Name>
+      <Name>
+        <ClassCDE>misspelling</ClassCDE>
+        <DispName>Home sapiens</DispName>
+      </Name>
+      <Name>
+        <ClassCDE>misspelling</ClassCDE>
+        <DispName>Homo sampiens</DispName>
+      </Name>
+      <Name>
+        <ClassCDE>misspelling</ClassCDE>
+        <DispName>Homo sapeins</DispName>
+      </Name>
+      <Name>
+        <ClassCDE>misspelling</ClassCDE>
+        <DispName>Homo sapian</DispName>
+      </Name>
+      <Name>
+        <ClassCDE>misspelling</ClassCDE>
+        <DispName>Homo sapians</DispName>
+      </Name>
+      <Name>
+        <ClassCDE>misspelling</ClassCDE>
+        <DispName>Homo sapien</DispName>
+      </Name>
+      <Name>
+        <ClassCDE>misspelling</ClassCDE>
+        <DispName>Homo sapience</DispName>
+      </Name>
+      <Name>
+        <ClassCDE>misspelling</ClassCDE>
+        <DispName>Homo sapiense</DispName>
+      </Name>
+      <Name>
+        <ClassCDE>misspelling</ClassCDE>
+        <DispName>Homo sapients</DispName>
+      </Name>
+      <Name>
+        <ClassCDE>misspelling</ClassCDE>
+        <DispName>Homo sapines</DispName>
+      </Name>
+      <Name>
+        <ClassCDE>misspelling</ClassCDE>
+        <DispName>Homo spaiens</DispName>
+      </Name>
+      <Name>
+        <ClassCDE>misspelling</ClassCDE>
+        <DispName>Homo spiens</DispName>
+      </Name>
+      <Name>
+        <ClassCDE>misspelling</ClassCDE>
+        <DispName>Humo sapiens</DispName>
+      </Name>
+    </OtherNames>
+    <ParentTaxId>9605</ParentTaxId>
+    <Rank>species</Rank>
+    <Division>Primates</Division>
+    <GeneticCode>
+      <GCId>1</GCId>
+      <GCName>Standard</GCName>
+    </GeneticCode>
+    <MitoGeneticCode>
+      <MGCId>2</MGCId>
+      <MGCName>Vertebrate Mitochondrial</MGCName>
+    </MitoGeneticCode>
+    <Lineage>cellular organisms; Eukaryota; Opisthokonta; Metazoa; Eumetazoa; Bilateria; Deuterostomia; Chordata; Craniata; Vertebrata; Gnathostomata; Teleostomi; Euteleostomi; Sarcopterygii; Dipnotetrapodomorpha; Tetrapoda; Amniota; Mammalia; Theria; Eutheria; Boreoeutheria; Euarchontoglires; Primates; Haplorrhini; Simiiformes; Catarrhini; Hominoidea; Hominidae; Homininae; Homo</Lineage>
+    <LineageEx>
+      <Taxon>
+        <TaxId>131567</TaxId>
+        <ScientificName>cellular organisms</ScientificName>
+        <Rank>no rank</Rank>
+      </Taxon>
+      <Taxon>
+        <TaxId>2759</TaxId>
+        <ScientificName>Eukaryota</ScientificName>
+        <Rank>superkingdom</Rank>
+      </Taxon>
+      <Taxon>
+        <TaxId>33154</TaxId>
+        <ScientificName>Opisthokonta</ScientificName>
+        <Rank>no rank</Rank>
+      </Taxon>
+      <Taxon>
+        <TaxId>33208</TaxId>
+        <ScientificName>Metazoa</ScientificName>
+        <Rank>kingdom</Rank>
+      </Taxon>
+      <Taxon>
+        <TaxId>6072</TaxId>
+        <ScientificName>Eumetazoa</ScientificName>
+        <Rank>no rank</Rank>
+      </Taxon>
+      <Taxon>
+        <TaxId>33213</TaxId>
+        <ScientificName>Bilateria</ScientificName>
+        <Rank>no rank</Rank>
+      </Taxon>
+      <Taxon>
+        <TaxId>33511</TaxId>
+        <ScientificName>Deuterostomia</ScientificName>
+        <Rank>no rank</Rank>
+      </Taxon>
+      <Taxon>
+        <TaxId>7711</TaxId>
+        <ScientificName>Chordata</ScientificName>
+        <Rank>phylum</Rank>
+      </Taxon>
+      <Taxon>
+        <TaxId>89593</TaxId>
+        <ScientificName>Craniata</ScientificName>
+        <Rank>subphylum</Rank>
+      </Taxon>
+      <Taxon>
+        <TaxId>7742</TaxId>
+        <ScientificName>Vertebrata</ScientificName>
+        <Rank>no rank</Rank>
+      </Taxon>
+      <Taxon>
+        <TaxId>7776</TaxId>
+        <ScientificName>Gnathostomata</ScientificName>
+        <Rank>no rank</Rank>
+      </Taxon>
+      <Taxon>
+        <TaxId>117570</TaxId>
+        <ScientificName>Teleostomi</ScientificName>
+        <Rank>no rank</Rank>
+      </Taxon>
+      <Taxon>
+        <TaxId>117571</TaxId>
+        <ScientificName>Euteleostomi</ScientificName>
+        <Rank>no rank</Rank>
+      </Taxon>
+      <Taxon>
+        <TaxId>8287</TaxId>
+        <ScientificName>Sarcopterygii</ScientificName>
+        <Rank>superclass</Rank>
+      </Taxon>
+      <Taxon>
+        <TaxId>1338369</TaxId>
+        <ScientificName>Dipnotetrapodomorpha</ScientificName>
+        <Rank>no rank</Rank>
+      </Taxon>
+      <Taxon>
+        <TaxId>32523</TaxId>
+        <ScientificName>Tetrapoda</ScientificName>
+        <Rank>no rank</Rank>
+      </Taxon>
+      <Taxon>
+        <TaxId>32524</TaxId>
+        <ScientificName>Amniota</ScientificName>
+        <Rank>no rank</Rank>
+      </Taxon>
+      <Taxon>
+        <TaxId>40674</TaxId>
+        <ScientificName>Mammalia</ScientificName>
+        <Rank>class</Rank>
+      </Taxon>
+      <Taxon>
+        <TaxId>32525</TaxId>
+        <ScientificName>Theria</ScientificName>
+        <Rank>no rank</Rank>
+      </Taxon>
+      <Taxon>
+        <TaxId>9347</TaxId>
+        <ScientificName>Eutheria</ScientificName>
+        <Rank>no rank</Rank>
+      </Taxon>
+      <Taxon>
+        <TaxId>1437010</TaxId>
+        <ScientificName>Boreoeutheria</ScientificName>
+        <Rank>no rank</Rank>
+      </Taxon>
+      <Taxon>
+        <TaxId>314146</TaxId>
+        <ScientificName>Euarchontoglires</ScientificName>
+        <Rank>superorder</Rank>
+      </Taxon>
+      <Taxon>
+        <TaxId>9443</TaxId>
+        <ScientificName>Primates</ScientificName>
+        <Rank>order</Rank>
+      </Taxon>
+      <Taxon>
+        <TaxId>376913</TaxId>
+        <ScientificName>Haplorrhini</ScientificName>
+        <Rank>suborder</Rank>
+      </Taxon>
+      <Taxon>
+        <TaxId>314293</TaxId>
+        <ScientificName>Simiiformes</ScientificName>
+        <Rank>infraorder</Rank>
+      </Taxon>
+      <Taxon>
+        <TaxId>9526</TaxId>
+        <ScientificName>Catarrhini</ScientificName>
+        <Rank>parvorder</Rank>
+      </Taxon>
+      <Taxon>
+        <TaxId>314295</TaxId>
+        <ScientificName>Hominoidea</ScientificName>
+        <Rank>superfamily</Rank>
+      </Taxon>
+      <Taxon>
+        <TaxId>9604</TaxId>
+        <ScientificName>Hominidae</ScientificName>
+        <Rank>family</Rank>
+      </Taxon>
+      <Taxon>
+        <TaxId>207598</TaxId>
+        <ScientificName>Homininae</ScientificName>
+        <Rank>subfamily</Rank>
+      </Taxon>
+      <Taxon>
+        <TaxId>9605</TaxId>
+        <ScientificName>Homo</ScientificName>
+        <Rank>genus</Rank>
+      </Taxon>
+    </LineageEx>
+    <CreateDate>1995/02/27 09:24:00</CreateDate>
+    <UpdateDate>2018/11/23 13:57:51</UpdateDate>
+    <PubDate>1992/05/26 01:00:00</PubDate>
+  </Taxon>
+</TaxaSet>
+EOF
+}
+
+do_blast() {
+  cat <<EOF
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE BlastOutput>
+<BlastOutput>
+  <BlastOutput_program>blastx</BlastOutput_program>
+  <BlastOutput_version>BLASTX 2.2.29+</BlastOutput_version>
+  <BlastOutput_reference>Stephen F. Altschul, Thomas L. Madden, Alejandro A. Sch&amp;auml;ffer, Jinghui Zhang, Zheng Zhang, Webb Miller, and David J. Lipman (1997), &quot;Gapped BLAST and PSI-BLAST: a new generation of protein database search programs&quot;, Nucleic Acids Res. 25:3389-3402.</BlastOutput_reference>
+  <BlastOutput_db>nr</BlastOutput_db>
+  <BlastOutput_query-ID>11471</BlastOutput_query-ID>
+  <BlastOutput_query-def>Contig2</BlastOutput_query-def>
+  <BlastOutput_query-len>620</BlastOutput_query-len>
+  <BlastOutput_param>
+    <Parameters>
+      <Parameters_matrix>BLOSUM62</Parameters_matrix>
+      <Parameters_expect>3</Parameters_expect>
+      <Parameters_gap-open>11</Parameters_gap-open>
+      <Parameters_gap-extend>1</Parameters_gap-extend>
+      <Parameters_filter>L;</Parameters_filter>
+    </Parameters>
+  </BlastOutput_param>
+  <BlastOutput_iterations>
+    <Iteration>
+      <Iteration_iter-num>1</Iteration_iter-num>
+      <Iteration_query-ID>11471</Iteration_query-ID>
+      <Iteration_query-def>Contig2</Iteration_query-def>
+      <Iteration_query-len>620</Iteration_query-len>
+      <Iteration_hits>
+        <Hit>
+          <Hit_num>1</Hit_num>
+          <Hit_id>gi|115476212|ref|NP_001061702.1|</Hit_id>
+          <Hit_def>Os08g0384500 [Oryza sativa Japonica Group] &gt;gi|113623671|dbj|BAF23616.1| Os08g0384500, partial [Oryza sativa Japonica Group]</Hit_def>
+          <Hit_accession>NP_001061702</Hit_accession>
+          <Hit_len>763</Hit_len>
+          <Hit_hsps>
+            <Hsp>
+              <Hsp_num>1</Hsp_num>
+              <Hsp_bit-score>357.066</Hsp_bit-score>
+              <Hsp_score>915</Hsp_score>
+              <Hsp_evalue>1.61032e-117</Hsp_evalue>
+              <Hsp_query-from>8</Hsp_query-from>
+              <Hsp_query-to>619</Hsp_query-to>
+              <Hsp_hit-from>187</Hsp_hit-from>
+              <Hsp_hit-to>390</Hsp_hit-to>
+              <Hsp_query-frame>2</Hsp_query-frame>
+              <Hsp_hit-frame>0</Hsp_hit-frame>
+              <Hsp_identity>183</Hsp_identity>
+              <Hsp_positive>195</Hsp_positive>
+              <Hsp_gaps>0</Hsp_gaps>
+              <Hsp_align-len>204</Hsp_align-len>
+              <Hsp_qseq>DDRLLLLKGVSGAFRPGVLTALMGVSGAGKTTLMDVLAGRKTGGYIDGEIKISGYPKKQETFSRISGYCEQNDIHSPYVTLYESLLYSAWLRLPSDVNETQRKLFVEEVMNLVELSPLRDALVGLPGVNGLSTEQRKRLTIAVELVANPSIIFMDEPTSGLDXXXXXXXXXXXXNTVDTGRTVVCTIHQPSIDIFEAFDELFLI</Hsp_qseq>
+              <Hsp_hseq>QDRLLLLKGVSGSFRPGVLTALMGVSGAGKTTLMDVLAGRKTGGYIEGDISISGYPKKQETFARVSGYCEQNDIHSPNVTVYESLAYSAWLRLPSDVDSETRKMFIEQVMELVELNPLRDALVGLPGVNGLSTEQRKRLTIAVELVANPSIIFMDEPTSGLDARAAAIVMRTVRNTVDTGRTVVCTIHQPSIDIFEAFDELFLM</Hsp_hseq>
+              <Hsp_midline>DRLLLLKGVSG+FRPGVLTALMGVSGAGKTTLMDVLAGRKTGGYI+G+I ISGYPKKQETF+R+SGYCEQNDIHSP VT+YESL YSAWLRLPSDV+ RK+F+E+VM LVEL+PLRDALVGLPGVNGLSTEQRKRLTIAVELVANPSIIFMDEPTSGLDARAAAIVMR VRNTVDTGRTVVCTIHQPSIDIFEAFDELFL+</Hsp_midline>
+            </Hsp>
+          </Hit_hsps>
+        </Hit>
+        <Hit>
+          <Hit_num>2</Hit_num>
+          <Hit_id>gi|218188640|gb|EEC71067.1|</Hit_id>
+          <Hit_def>hypothetical protein OsI_02819 [Oryza sativa Indica Group]</Hit_def>
+          <Hit_accession>EEC71067</Hit_accession>
+          <Hit_len>517</Hit_len>
+          <Hit_hsps>
+            <Hsp>
+              <Hsp_num>1</Hsp_num>
+              <Hsp_bit-score>344.354</Hsp_bit-score>
+              <Hsp_score>882</Hsp_score>
+              <Hsp_evalue>2.11484e-115</Hsp_evalue>
+              <Hsp_query-from>8</Hsp_query-from>
+              <Hsp_query-to>619</Hsp_query-to>
+              <Hsp_hit-from>8</Hsp_hit-from>
+              <Hsp_hit-to>211</Hsp_hit-to>
+              <Hsp_query-frame>2</Hsp_query-frame>
+              <Hsp_hit-frame>0</Hsp_hit-frame>
+              <Hsp_identity>175</Hsp_identity>
+              <Hsp_positive>197</Hsp_positive>
+              <Hsp_gaps>0</Hsp_gaps>
+              <Hsp_align-len>204</Hsp_align-len>
+              <Hsp_qseq>DDRLLLLKGVSGAFRPGVLTALMGVSGAGKTTLMDVLAGRKTGGYIDGEIKISGYPKKQETFSRISGYCEQNDIHSPYVTLYESLLYSAWLRLPSDVNETQRKLFVEEVMNLVELSPLRDALVGLPGVNGLSTEQRKRLTIAVELVANPSIIFMDEPTSGLDXXXXXXXXXXXXNTVDTGRTVVCTIHQPSIDIFEAFDELFLI</Hsp_qseq>
+              <Hsp_hseq>EERVLLLKGVSGSFRPGVLTALMGVSGAGKTTLMDVLAGRKTGGYIEGDMRISGYPKKQETLARISGYCEQNDIHSPHVTVYESLVFSAWLRLPSEVDSEARKMFIEEVMDLVELTSLRGALVGLPGVSGLSTEQRKRLTIAVELVANPSIIFMDEPTSGLDARAAAIVMRTVRNTVNTGRTVVCTIHQPSIDIFEAFDELFLM</Hsp_hseq>
+              <Hsp_midline>++R+LLLKGVSG+FRPGVLTALMGVSGAGKTTLMDVLAGRKTGGYI+G+++ISGYPKKQET +RISGYCEQNDIHSP+VT+YESL++SAWLRLPS+V+ RK+F+EEVM+LVEL+ LR ALVGLPGV+GLSTEQRKRLTIAVELVANPSIIFMDEPTSGLDARAAAIVMR VRNTV+TGRTVVCTIHQPSIDIFEAFDELFL+</Hsp_midline>
+            </Hsp>
+          </Hit_hsps>
+        </Hit>
+        <Hit>
+          <Hit_num>3</Hit_num>
+          <Hit_id>gi|222640481|gb|EEE68613.1|</Hit_id>
+          <Hit_def>hypothetical protein OsJ_27150 [Oryza sativa Japonica Group]</Hit_def>
+          <Hit_accession>EEE68613</Hit_accession>
+          <Hit_len>1199</Hit_len>
+          <Hit_hsps>
+            <Hsp>
+              <Hsp_num>1</Hsp_num>
+              <Hsp_bit-score>357.066</Hsp_bit-score>
+              <Hsp_score>915</Hsp_score>
+              <Hsp_evalue>4.01633e-114</Hsp_evalue>
+              <Hsp_query-from>8</Hsp_query-from>
+              <Hsp_query-to>619</Hsp_query-to>
+              <Hsp_hit-from>623</Hsp_hit-from>
+              <Hsp_hit-to>826</Hsp_hit-to>
+              <Hsp_query-frame>2</Hsp_query-frame>
+              <Hsp_hit-frame>0</Hsp_hit-frame>
+              <Hsp_identity>183</Hsp_identity>
+              <Hsp_positive>195</Hsp_positive>
+              <Hsp_gaps>0</Hsp_gaps>
+              <Hsp_align-len>204</Hsp_align-len>
+              <Hsp_qseq>DDRLLLLKGVSGAFRPGVLTALMGVSGAGKTTLMDVLAGRKTGGYIDGEIKISGYPKKQETFSRISGYCEQNDIHSPYVTLYESLLYSAWLRLPSDVNETQRKLFVEEVMNLVELSPLRDALVGLPGVNGLSTEQRKRLTIAVELVANPSIIFMDEPTSGLDXXXXXXXXXXXXNTVDTGRTVVCTIHQPSIDIFEAFDELFLI</Hsp_qseq>
+              <Hsp_hseq>QDRLLLLKGVSGSFRPGVLTALMGVSGAGKTTLMDVLAGRKTGGYIEGDISISGYPKKQETFARVSGYCEQNDIHSPNVTVYESLAYSAWLRLPSDVDSETRKMFIEQVMELVELNPLRDALVGLPGVNGLSTEQRKRLTIAVELVANPSIIFMDEPTSGLDARAAAIVMRTVRNTVDTGRTVVCTIHQPSIDIFEAFDELFLM</Hsp_hseq>
+              <Hsp_midline>DRLLLLKGVSG+FRPGVLTALMGVSGAGKTTLMDVLAGRKTGGYI+G+I ISGYPKKQETF+R+SGYCEQNDIHSP VT+YESL YSAWLRLPSDV+ RK+F+E+VM LVEL+PLRDALVGLPGVNGLSTEQRKRLTIAVELVANPSIIFMDEPTSGLDARAAAIVMR VRNTVDTGRTVVCTIHQPSIDIFEAFDELFL+</Hsp_midline>
+            </Hsp>
+            <Hsp>
+              <Hsp_num>2</Hsp_num>
+              <Hsp_bit-score>44.669</Hsp_bit-score>
+              <Hsp_score>104</Hsp_score>
+              <Hsp_evalue>0.00011956</Hsp_evalue>
+              <Hsp_query-from>293</Hsp_query-from>
+              <Hsp_query-to>619</Hsp_query-to>
+              <Hsp_hit-from>49</Hsp_hit-from>
+              <Hsp_hit-to>158</Hsp_hit-to>
+              <Hsp_query-frame>2</Hsp_query-frame>
+              <Hsp_hit-frame>0</Hsp_hit-frame>
+              <Hsp_identity>30</Hsp_identity>
+              <Hsp_positive>58</Hsp_positive>
+              <Hsp_gaps>1</Hsp_gaps>
+              <Hsp_align-len>110</Hsp_align-len>
+              <Hsp_qseq>DVNETQRKLFVEEVMNLVELSPLRDALVGLPGVNGLSTEQRKRLTIAVELVANPSIIFMDEPTSGLDXXXXXXXXXXXXN-TVDTGRTVVCTIHQPSIDIFEAFDELFLI</Hsp_qseq>
+              <Hsp_hseq>SVGGQETNIITDYVLKILGLDICADTIVGNEMLRGISGGQRKRVTTGEMIVGPARAMFMDEISTGLDSSTTFQIVKSLGQITSILGGTTVISLLQPAPETYNLFDDIILL</Hsp_hseq>
+              <Hsp_midline>V + + + V+ ++ L D +VG + G+S QRKR+T +V +FMDE ++GLD+ +++++ T G T V ++ QP+ + + FD++ L+</Hsp_midline>
+            </Hsp>
+          </Hit_hsps>
+        </Hit>
+      </Iteration_hits>
+      <Iteration_stat>
+        <Statistics>
+          <Statistics_db-num>160101</Statistics_db-num>
+          <Statistics_db-len>61990885</Statistics_db-len>
+          <Statistics_hsp-len>0</Statistics_hsp-len>
+          <Statistics_eff-space>0</Statistics_eff-space>
+          <Statistics_kappa>0.041</Statistics_kappa>
+          <Statistics_lambda>0.267</Statistics_lambda>
+          <Statistics_entropy>0.14</Statistics_entropy>
+        </Statistics>
+      </Iteration_stat>
+    </Iteration>
+  </BlastOutput_iterations>
+</BlastOutput>
+EOF
+}
+
+do_snp() {
+  cat <<EOF
+{
+  "refsnp_id": "1238141906",
+  "create_date": "2017-11-9T09:55Z",
+  "last_update_date": "2018-10-13T04:05Z",
+  "last_update_build_id": "152",
+  "dbsnp1_merges": [],
+  "citations": [],
+  "lost_obs_movements": [],
+  "present_obs_movements": [
+    {
+      "component_ids": [
+        {
+          "type": "subsnp",
+          "value": "3625249109"
+        }
+      ],
+      "observation": {
+        "seq_id": "NC_000023.11",
+        "position": 154187777,
+        "deleted_sequence": "G",
+        "inserted_sequence": "G"
+      },
+      "allele_in_cur_release": {
+        "seq_id": "NC_000023.11",
+        "position": 154187777,
+        "deleted_sequence": "G",
+        "inserted_sequence": "G"
+      },
+      "other_rsids_in_cur_release": [],
+      "previous_release": {
+        "allele": {
+          "seq_id": "NC_000023.11",
+          "position": 154187777,
+          "deleted_sequence": "G",
+          "inserted_sequence": "G"
+        },
+        "rsids": [
+          "1238141906"
+        ]
+      },
+      "last_added_to_this_rs": "151"
+    },
+    {
+      "component_ids": [
+        {
+          "type": "subsnp",
+          "value": "3625249109"
+        }
+      ],
+      "observation": {
+        "seq_id": "NC_000023.11",
+        "position": 154187777,
+        "deleted_sequence": "G",
+        "inserted_sequence": "A"
+      },
+      "allele_in_cur_release": {
+        "seq_id": "NC_000023.11",
+        "position": 154187777,
+        "deleted_sequence": "G",
+        "inserted_sequence": "A"
+      },
+      "other_rsids_in_cur_release": [],
+      "previous_release": {
+        "allele": {
+          "seq_id": "NC_000023.11",
+          "position": 154187777,
+          "deleted_sequence": "G",
+          "inserted_sequence": "A"
+        },
+        "rsids": [
+          "1238141906"
+        ]
+      },
+      "last_added_to_this_rs": "151"
+    }
+  ],
+  "primary_snapshot_data": {
+    "placements_with_allele": [
+      {
+        "seq_id": "NC_000023.11",
+        "is_ptlp": true,
+        "placement_annot": {
+          "seq_type": "refseq_chromosome",
+          "mol_type": "genomic",
+          "seq_id_traits_by_assembly": [
+            {
+              "assembly_name": "GRCh38.p12",
+              "assembly_accession": "GCF_000001405.38",
+              "is_top_level": true,
+              "is_alt": false,
+              "is_patch": false,
+              "is_chromosome": true
+            }
+          ],
+          "is_aln_opposite_orientation": false,
+          "is_mismatch": false
+        },
+        "alleles": [
+          {
+            "allele": {
+              "spdi": {
+                "seq_id": "NC_000023.11",
+                "position": 154187777,
+                "deleted_sequence": "G",
+                "inserted_sequence": "G"
+              }
+            },
+            "hgvs": "NC_000023.11:g.154187778G="
+          },
+          {
+            "allele": {
+              "spdi": {
+                "seq_id": "NC_000023.11",
+                "position": 154187777,
+                "deleted_sequence": "G",
+                "inserted_sequence": "A"
+              }
+            },
+            "hgvs": "NC_000023.11:g.154187778G>A"
+          }
+        ]
+      },
+      {
+        "seq_id": "NW_003871103.3",
+        "is_ptlp": false,
+        "placement_annot": {
+          "seq_type": "refseq_chromosome",
+          "mol_type": "genomic",
+          "seq_id_traits_by_assembly": [
+            {
+              "assembly_name": "GRCh37.p13",
+              "assembly_accession": "GCF_000001405.25",
+              "is_top_level": true,
+              "is_alt": false,
+              "is_patch": true,
+              "is_chromosome": false
+            }
+          ],
+          "is_aln_opposite_orientation": false,
+          "is_mismatch": false
+        },
+        "alleles": [
+          {
+            "allele": {
+              "spdi": {
+                "seq_id": "NW_003871103.3",
+                "position": 1621756,
+                "deleted_sequence": "G",
+                "inserted_sequence": "G"
+              }
+            },
+            "hgvs": "NW_003871103.3:g.1621757G="
+          },
+          {
+            "allele": {
+              "spdi": {
+                "seq_id": "NW_003871103.3",
+                "position": 1621756,
+                "deleted_sequence": "G",
+                "inserted_sequence": "A"
+              }
+            },
+            "hgvs": "NW_003871103.3:g.1621757G>A"
+          }
+        ]
+      },
+      {
+        "seq_id": "NG_011606.1",
+        "is_ptlp": false,
+        "placement_annot": {
+          "seq_type": "refseq_genomic",
+          "mol_type": "genomic",
+          "seq_id_traits_by_assembly": [],
+          "is_aln_opposite_orientation": false,
+          "is_mismatch": false
+        },
+        "alleles": [
+          {
+            "allele": {
+              "spdi": {
+                "seq_id": "NG_011606.1",
+                "position": 10182,
+                "deleted_sequence": "G",
+                "inserted_sequence": "G"
+              }
+            },
+            "hgvs": "NG_011606.1:g.10183G="
+          },
+          {
+            "allele": {
+              "spdi": {
+                "seq_id": "NG_011606.1",
+                "position": 10182,
+                "deleted_sequence": "G",
+                "inserted_sequence": "A"
+              }
+            },
+            "hgvs": "NG_011606.1:g.10183G>A"
+          }
+        ]
+      },
+      {
+        "seq_id": "NM_000513.2",
+        "is_ptlp": false,
+        "placement_annot": {
+          "seq_type": "refseq_mrna",
+          "mol_type": "rna",
+          "seq_id_traits_by_assembly": [],
+          "is_aln_opposite_orientation": false,
+          "is_mismatch": false
+        },
+        "alleles": [
+          {
+            "allele": {
+              "spdi": {
+                "seq_id": "NM_000513.2",
+                "position": 202,
+                "deleted_sequence": "G",
+                "inserted_sequence": "G"
+              }
+            },
+            "hgvs": "NM_000513.2:c.121G="
+          },
+          {
+            "allele": {
+              "spdi": {
+                "seq_id": "NM_000513.2",
+                "position": 202,
+                "deleted_sequence": "G",
+                "inserted_sequence": "A"
+              }
+            },
+            "hgvs": "NM_000513.2:c.121G>A"
+          }
+        ]
+      },
+      {
+        "seq_id": "NC_000023.10",
+        "is_ptlp": false,
+        "placement_annot": {
+          "seq_type": "refseq_chromosome",
+          "mol_type": "genomic",
+          "seq_id_traits_by_assembly": [
+            {
+              "assembly_name": "GRCh37.p13",
+              "assembly_accession": "GCF_000001405.25",
+              "is_top_level": true,
+              "is_alt": false,
+              "is_patch": false,
+              "is_chromosome": true
+            }
+          ],
+          "is_aln_opposite_orientation": false,
+          "is_mismatch": false
+        },
+        "alleles": [
+          {
+            "allele": {
+              "spdi": {
+                "seq_id": "NC_000023.10",
+                "position": 153453266,
+                "deleted_sequence": "G",
+                "inserted_sequence": "G"
+              }
+            },
+            "hgvs": "NC_000023.10:g.153453267G="
+          },
+          {
+            "allele": {
+              "spdi": {
+                "seq_id": "NC_000023.10",
+                "position": 153453266,
+                "deleted_sequence": "G",
+                "inserted_sequence": "A"
+              }
+            },
+            "hgvs": "NC_000023.10:g.153453267G>A"
+          }
+        ]
+      },
+      {
+        "seq_id": "NP_000504.1",
+        "is_ptlp": false,
+        "placement_annot": {
+          "seq_type": "refseq_prot",
+          "mol_type": "protein",
+          "seq_id_traits_by_assembly": [],
+          "is_aln_opposite_orientation": false,
+          "is_mismatch": false
+        },
+        "alleles": [
+          {
+            "allele": {
+              "spdi": {
+                "seq_id": "NP_000504.1",
+                "position": 40,
+                "deleted_sequence": "E",
+                "inserted_sequence": "E"
+              }
+            },
+            "hgvs": "NP_000504.1:p.Glu41="
+          },
+          {
+            "allele": {
+              "spdi": {
+                "seq_id": "NP_000504.1",
+                "position": 40,
+                "deleted_sequence": "E",
+                "inserted_sequence": "K"
+              }
+            },
+            "hgvs": "NP_000504.1:p.Glu41Lys"
+          }
+        ]
+      }
+    ],
+    "allele_annotations": [
+      {
+        "frequency": [],
+        "clinical": [],
+        "submissions": [
+          "3625249109"
+        ],
+        "assembly_annotation": [
+          {
+            "seq_id": "NC_000023.11",
+            "annotation_release": "Homo sapiens Annotation Release 109",
+            "genes": [
+              {
+                "name": "opsin 1, medium wave sensitive",
+                "id": 2652,
+                "locus": "OPN1MW",
+                "is_pseudo": false,
+                "orientation": "plus",
+                "sequence_ontology": [],
+                "rnas": [
+                  {
+                    "id": "NM_000513.2",
+                    "codon_aligned_transcript_change": {
+                      "seq_id": "NM_000513.2",
+                      "position": 202,
+                      "deleted_sequence": "GAA",
+                      "inserted_sequence": "GAA"
+                    },
+                    "sequence_ontology": [
+                      {
+                        "name": "coding_sequence_variant",
+                        "accession": "SO:0001580"
+                      }
+                    ],
+                    "product_id": "NP_000504.1",
+                    "protein": {
+                      "variant": {
+                        "spdi": {
+                          "seq_id": "NP_000504.1",
+                          "position": 40,
+                          "deleted_sequence": "E",
+                          "inserted_sequence": "E"
+                        }
+                      },
+                      "sequence_ontology": []
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "frequency": [],
+        "clinical": [],
+        "submissions": [
+          "3625249109"
+        ],
+        "assembly_annotation": [
+          {
+            "seq_id": "NC_000023.11",
+            "annotation_release": "Homo sapiens Annotation Release 109",
+            "genes": [
+              {
+                "name": "opsin 1, medium wave sensitive",
+                "id": 2652,
+                "locus": "OPN1MW",
+                "is_pseudo": false,
+                "orientation": "plus",
+                "sequence_ontology": [],
+                "rnas": [
+                  {
+                    "id": "NM_000513.2",
+                    "codon_aligned_transcript_change": {
+                      "seq_id": "NM_000513.2",
+                      "position": 202,
+                      "deleted_sequence": "GAA",
+                      "inserted_sequence": "AAA"
+                    },
+                    "sequence_ontology": [
+                      {
+                        "name": "coding_sequence_variant",
+                        "accession": "SO:0001580"
+                      }
+                    ],
+                    "product_id": "NP_000504.1",
+                    "protein": {
+                      "variant": {
+                        "spdi": {
+                          "seq_id": "NP_000504.1",
+                          "position": 40,
+                          "deleted_sequence": "E",
+                          "inserted_sequence": "K"
+                        }
+                      },
+                      "sequence_ontology": [
+                        {
+                          "name": "missense_variant",
+                          "accession": "SO:0001583"
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "support": [
+      {
+        "id": {
+          "type": "subsnp",
+          "value": "ss3625249109"
+        },
+        "revision_added": "151",
+        "create_date": "2017-11-8T14:58Z",
+        "submitter_handle": "TOPMED"
+      }
+    ],
+    "anchor": "NC_000023.11:0154187777:1:snv",
+    "variant_type": "snv"
+  }
+}
+EOF
+}
+
+do_hgvs() {
+  cat <<EOF
+NC_000011.10:g.5226774G>A,NC_000011.10:g.5226774G>C,NC_000011.10:g.5226774G>T,NG_000007.3:g.70842C>T,NG_000007.3:g.70842C>G,NG_000007.3:g.70842C>A,NM_000518.5:c.118C>T,NM_000518.5:c.118C>G,NM_000518.5:c.118C>A,NP_000509.1:p.Gln40Ter,NP_000509.1:p.Gln40Glu,NP_000509.1:p.Gln40Lys
+EOF
+}
+
+do_bioc() {
+  cat <<EOF
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE collection>
+<collection>
+  <source>PubMed</source>
+  <date>20171216</date>
+  <key>collection.key</key>
+  <document>
+    <id>6301692</id>
+    <passage>
+      <infon key="type">title</infon>
+      <offset>0</offset>
+      <text>Site-specific relaxation and recombination by the Tn3 resolvase: recognition of the DNA path between oriented res sites.</text>
+    </passage>
+    <passage>
+      <infon key="type">abstract</infon>
+      <offset>121</offset>
+      <text>We studied the dynamics of site-specific recombination by the resolvase encoded by the Escherichia coli transposon Tn3. The pure enzyme recombined supercoiled plasmids containing two directly repeated recombination sites, called res sites. Resolvase is the first strictly site-specific topoisomerase. It relaxed only plasmids containing directly repeated res sites; substrates with zero, one or two inverted sites were inert. Even when the proximity of res sites was ensured by catenation of plasmids with a single site, neither relaxation nor recombination occurred. The two circular products of recombination were catenanes interlinked only once. These properties of resolvase require that the path of the DNA between res sites be clearly defined and that strand exchange occur with a unique geometry. A model in which one subunit of a dimeric resolvase is bound at one res site, while the other searches along adjacent DNA until it encounters the second site, would account for the ability of resolvase to distinguish intramolecular from intermolecular sites, to sense the relative orientation of sites and to produce singly interlinked catenanes. Because resolvase is a type 1 topoisomerase, we infer that it makes the required duplex bDNA breaks of recombination one strand at a time.</text>
+    </passage>
+  </document>
+</collection>
+EOF
+}
+
+do_flatfile() {
+  cat <<EOF
+LOCUS       DMU54469                2881 bp    DNA     linear   INV 20-JUN-2017
+DEFINITION  Drosophila melanogaster eukaryotic initiation factor 4E (eIF4E)
+            gene, complete cds, alternatively spliced.
+ACCESSION   U54469
+VERSION     U54469.1  GI:1322283
+KEYWORDS    .
+SOURCE      Drosophila melanogaster (fruit fly)
+  ORGANISM  Drosophila melanogaster
+            Eukaryota; Metazoa; Ecdysozoa; Arthropoda; Hexapoda; Insecta;
+            Pterygota; Neoptera; Holometabola; Diptera; Brachycera;
+            Muscomorpha; Ephydroidea; Drosophilidae; Drosophila; Sophophora.
+REFERENCE   1  (bases 1 to 2881)
+  AUTHORS   Lavoie,C.A., Lachance,P.E., Sonenberg,N. and Lasko,P.
+  TITLE     Alternatively spliced transcripts from the Drosophila eIF4E gene
+            produce two different Cap-binding proteins
+  JOURNAL   J. Biol. Chem. 271 (27), 16393-16398 (1996)
+   PUBMED   8663200
+REFERENCE   2  (bases 1 to 2881)
+  AUTHORS   Lasko,P.F.
+  TITLE     Direct Submission
+  JOURNAL   Submitted (09-APR-1996) Paul F. Lasko, Biology, McGill University,
+            1205 Avenue Docteur Penfield, Montreal, QC H3A 1B1, Canada
+FEATURES             Location/Qualifiers
+     source          1..2881
+                     /organism="Drosophila melanogaster"
+                     /mol_type="genomic DNA"
+                     /db_xref="taxon:7227"
+                     /chromosome="3"
+                     /map="67A8-B2"
+     gene            80..2881
+                     /gene="eIF4E"
+     mRNA            join(80..224,892..1458,1550..1920,1986..2085,2317..2404,
+                     2466..2881)
+                     /gene="eIF4E"
+                     /product="eukaryotic initiation factor 4E-I"
+     mRNA            join(80..224,1550..1920,1986..2085,2317..2404,2466..2881)
+                     /gene="eIF4E"
+                     /product="eukaryotic initiation factor 4E-II"
+     CDS             join(201..224,1550..1920,1986..2085,2317..2404,2466..2629)
+                     /gene="eIF4E"
+                     /note="Method: conceptual translation with partial peptide
+                     sequencing"
+                     /codon_start=1
+                     /product="eukaryotic initiation factor 4E-II"
+                     /protein_id="AAC03524.1"
+                     /db_xref="GI:1322284"
+                     /translation="MVVLETEKTSAPSTEQGRPEPPTSAAAPAEAKDVKPKEDPQETG
+                     EPAGNTATTTAPAGDDAVRTEHLYKHPLMNVWTLWYLENDRSKSWEDMQNEITSFDTV
+                     EDFWSLYNHIKPPSEIKLGSDYSLFKKNIRPMWEDAANKQGGRWVITLNKSSKTDLDN
+                     LWLDVLLCLIGEAFDHSDQICGAVINIRGKSNKISIWTADGNNEEAALEIGHKLRDAL
+                     RLGRNNSLQYQLHKDTMVKQGSNVKSIYTL"
+     CDS             join(1402..1458,1550..1920,1986..2085,2317..2404,
+                     2466..2629)
+                     /gene="eIF4E"
+                     /note="Method: conceptual translation with partial peptide
+                     sequencing; two alternatively spliced transcripts both
+                     encode 4E-I"
+                     /codon_start=1
+                     /product="eukaryotic initiation factor 4E-I"
+                     /protein_id="AAC03525.1"
+                     /db_xref="GI:1322285"
+                     /translation="MQSDFHRMKNFANPKSMFKTSAPSTEQGRPEPPTSAAAPAEAKD
+                     VKPKEDPQETGEPAGNTATTTAPAGDDAVRTEHLYKHPLMNVWTLWYLENDRSKSWED
+                     MQNEITSFDTVEDFWSLYNHIKPPSEIKLGSDYSLFKKNIRPMWEDAANKQGGRWVIT
+                     LNKSSKTDLDNLWLDVLLCLIGEAFDHSDQICGAVINIRGKSNKISIWTADGNNEEAA
+                     LEIGHKLRDALRLGRNNSLQYQLHKDTMVKQGSNVKSIYTL"
+BASE COUNT      849 a    699 c    585 g    748 t
+ORIGIN
+        1 cggttgcttg ggttttataa catcagtcag tgacaggcat ttccagagtt gccctgttca
+       61 acaatcgata gctgcctttg gccaccaaaa tcccaaactt aattaaagaa ttaaataatt
+      121 cgaataataa ttaagcccag taacctacgc agcttgagtg cgtaaccgat atctagtata
+      181 catttcgata catcgaaatc atggtagtgt tggagacgga gaaggtaaga cgatgataga
+      241 cggcgagccg catgggttcg atttgcgctg agccgtggca gggaacaaca aaaacagggt
+      301 tgttgcacaa gaggggaggc gatagtcgag cggaaaagag tgcagttggc gtggctacat
+      361 catcattgtg ttcaccgatt attttttgca caattgctta atattaattg tacttgcacg
+      421 ctattgtcta cgtcatagct atcgctcatc tctgtctgtc tctatcaagc tatctctctt
+      481 tcgcggtcac tcgttctctt ttttctctcc tttcgcattt gcatacgcat accacacgtt
+      541 ttcagtgttc tcgctctctc tctcttgtca agacatcgcg cgcgtgtgtg tgggtgtgtc
+      601 tctagcacat atacataaat aggagagcgg agagacaaat atggaaagaa tgaaaaagag
+      661 tgaattactg caattaacca gtcgcgaaca gttaaatcat atttttgtcg gccattgcag
+      721 taaataaacc gttggctttc cctccttcac tttccacctc ctttcttgac gttaattttt
+      781 tcagttaatc gcgccgctgc tttgaactcg aacacgaatt ttagccgcaa cataaaataa
+      841 aatcaagtaa ctctttaact caatataaaa caacaatcca atcttcaaca ggcaatctgt
+      901 gtttttatgt cagatacgag cgcgtgtgtg tgtgtgctgt aattccatcg cccctttcga
+      961 ttccgagttc gttaggaaca gcattagttc gcctatttta gtagtagcct agtccgattt
+     1021 taagtgaaac aggacactcc aacaccatat acgcaataat tagttaccac ccactcaacc
+     1081 atacagcaac aacaagttta acgagttttt tgtattatca ttacttagtt ttttggttaa
+     1141 taatacaaca agtgaagagc gaactgcagg ggagcgagga tatcacgaaa caatccaaaa
+     1201 tccacacaca ctcaaacaga aatcaaaagc ttcgctctct cgcacacaca cgcaccaacc
+     1261 aactatcaac tatcacaaac accgcgacag agagagagcg gcaagtgaat cacggcgaat
+     1321 cgaaaccgat ccgaacccac tccggagccg aaaaagaact gatcctacca tcaaacgcat
+     1381 ccaataaaca cggccgccaa catgcagagc gactttcaca gaatgaagaa ctttgccaat
+     1441 cccaagtcca tgttcaaagt aatactctca gtgcgcctgt cgctaagcca agccaagcta
+     1501 atctaatctt ctgattcccc ttcccatcca ttgccatctt ctcccgcaga ccagcgcccc
+     1561 cagcaccgag cagggtcgtc cggaaccacc aacttcggct gcagcgcccg ccgaggctaa
+     1621 ggatgtcaag cccaaggagg acccacagga gactggtgaa ccagcaggca acactgcaac
+     1681 cactactgct cctgccggcg acgatgctgt gcgcaccgag catttataca aacacccgct
+     1741 catgaatgtc tggacgctgt ggtaccttga aaacgatcgg tccaagtcct gggaggacat
+     1801 gcaaaacgag atcaccagct tcgataccgt cgaggacttc tggagcctat acaaccacat
+     1861 caagccccca tcagagatca agctgggtag tgactactcg ctattcaaga agaacattcg
+     1921 gtgggtttgc tgttttattg caatttctac caagataacc tttactaact gatatctcat
+     1981 tgcagtccca tgtgggagga tgcagccaac aaacagggcg gtcgttgggt cattaccctt
+     2041 aacaaaagct ccaagaccga tctggataac ctatggctcg atgtggtaag tgcacaaaga
+     2101 acgagtggtt agaggatgtc tattatagtg aatgtacatt cttgaaatgc aaaaatatag
+     2161 aaataggtgt atgattttgc agtataaatt ataacttata gaaaatatca gctaaaaata
+     2221 cgctagtgtt agcttttgtc ttaggaacat tcaatagtga gcttatatca taaatatctt
+     2281 tcgcatatga gtaactacaa ctgttttgcc ttccagctgc tctgcctgat tggcgaggcc
+     2341 ttcgatcact ccgatcagat ctgcggcgct gttataaaca ttcgcggcaa gagcaacaag
+     2401 atatgtaagt tttcacgcac acccaacttc agcggaattc ctttgtttaa cattaatctt
+     2461 tccagccatc tggactgccg acggaaacaa cgaggaagct gcccttgaga ttggtcacaa
+     2521 gctgcgcgat gccttgcgtc tgggacgcaa caactcgctg cagtatcagt tgcacaagga
+     2581 cacgatggtc aagcagggct ccaacgtgaa atcgatctac actttgtagg cggctaataa
+     2641 ctggccgctc cttactcggt ccgatcccac acagattagt ttgtctttca tttatttatc
+     2701 gttataagca acagtagcga ttaatcgtga ctattgtcta agacccgcgt aacgaaaccg
+     2761 aaacggaacc ccctttgtta tcaaaaatcg gcataatata aaatctatcc gctttttgta
+     2821 gtcactgtca ataatggatt agacggaaaa gtatattaat aaaaacctac attaaaaccg
+     2881 g
+//
+LOCUS       AAC03524                 248 aa            linear   INV 20-JUN-2017
+DEFINITION  eukaryotic initiation factor 4E-II [Drosophila melanogaster].
+ACCESSION   AAC03524
+VERSION     AAC03524.1  GI:1322284
+DBSOURCE    locus DMU54469 accession U54469.1
+KEYWORDS    .
+SOURCE      Drosophila melanogaster (fruit fly)
+  ORGANISM  Drosophila melanogaster
+            Eukaryota; Metazoa; Ecdysozoa; Arthropoda; Hexapoda; Insecta;
+            Pterygota; Neoptera; Holometabola; Diptera; Brachycera;
+            Muscomorpha; Ephydroidea; Drosophilidae; Drosophila; Sophophora.
+REFERENCE   1  (residues 1 to 248)
+  AUTHORS   Lavoie,C.A., Lachance,P.E., Sonenberg,N. and Lasko,P.
+  TITLE     Alternatively spliced transcripts from the Drosophila eIF4E gene
+            produce two different Cap-binding proteins
+  JOURNAL   J. Biol. Chem. 271 (27), 16393-16398 (1996)
+   PUBMED   8663200
+REFERENCE   2  (residues 1 to 248)
+  AUTHORS   Lasko,P.F.
+  TITLE     Direct Submission
+  JOURNAL   Submitted (09-APR-1996) Paul F. Lasko, Biology, McGill University,
+            1205 Avenue Docteur Penfield, Montreal, QC H3A 1B1, Canada
+COMMENT     Method: conceptual translation with partial peptide sequencing.
+FEATURES             Location/Qualifiers
+     source          1..248
+                     /organism="Drosophila melanogaster"
+                     /db_xref="taxon:7227"
+                     /chromosome="3"
+                     /map="67A8-B2"
+     Protein         1..248
+                     /product="eukaryotic initiation factor 4E-II"
+     CDS             1..248
+                     /gene="eIF4E"
+                     /coded_by="join(U54469.1:201..224,U54469.1:1550..1920,
+                     U54469.1:1986..2085,U54469.1:2317..2404,
+                     U54469.1:2466..2629)"
+ORIGIN
+        1 mvvletekts apsteqgrpe pptsaaapae akdvkpkedp qetgepagnt atttapagdd
+       61 avrtehlykh plmnvwtlwy lendrskswe dmqneitsfd tvedfwslyn hikppseikl
+      121 gsdyslfkkn irpmwedaan kqggrwvitl nkssktdldn lwldvllcli geafdhsdqi
+      181 cgavinirgk snkisiwtad gnneeaalei ghklrdalrl grnnslqyql hkdtmvkqgs
+      241 nvksiytl
+//
+EOF
+}
+
+do_gencode() {
+  cat <<EOF
+
+Standard Genetic Code Table
+
+                           Second Position
+  First      T             C             A             G      Third
+  -----------------------------------------------------------------
+    T   TTT Phe [F]   TCT Ser [S]   TAT Tyr [Y]   TGT Cys [C]   T
+        TTC Phe [F]   TCC Ser [S]   TAC Tyr [Y]   TGC Cys [C]   C
+        TTA Leu [L]   TCA Ser [S]   TAA Och [*]   TGA Opa [*]   A
+        TTG Leu [L]   TCG Ser [S]   TAG Amb [*]   TGG Trp [W]   G
+  -----------------------------------------------------------------
+    C   CTT Leu [L]   CCT Pro [P]   CAT His [H]   CGT Arg [R]   T
+        CTC Leu [L]   CCC Pro [P]   CAC His [H]   CGC Arg [R]   C
+        CTA Leu [L]   CCA Pro [P]   CAA Gln [Q]   CGA Arg [R]   A
+        CTG Leu [L]   CCG Pro [P]   CAG Gln [Q]   CGG Arg [R]   G
+  -----------------------------------------------------------------
+    A   ATT Ile [I]   ACT Thr [T]   AAT Asn [N]   AGT Ser [S]   T
+        ATC Ile [I]   ACC Thr [T]   AAC Asn [N]   AGC Ser [S]   C
+        ATA Ile [I]   ACA Thr [T]   AAA Lys [K]   AGA Arg [R]   A
+        ATG Met [M]   ACG Thr [T]   AAG Lys [K]   AGG Arg [R]   G
+  -----------------------------------------------------------------
+    G   GTT Val [V]   GCT Ala [A]   GAT Asp [D]   GGT Gly [G]   T
+        GTC Val [V]   GCC Ala [A]   GAC Asp [D]   GGC Gly [G]   C
+        GTA Val [V]   GCA Ala [A]   GAA Glu [E]   GGA Gly [G]   A
+        GTG Val [V]   GCG Ala [A]   GAG Glu [E]   GGG Gly [G]   G
+  -----------------------------------------------------------------
+
+Amino Acid Abbreviations
+
+  Alanine          Ala   A                  |   A   Ala   Alanine
+  Arginine         Arg   R   R-ginine       |   B   Asx   Asp or Asn
+  Asparagine       Asn   N   asparagiNe     |   C   Cys   Cysteine
+  Aspartic Acid    Asp   D   asparDic       |   D   Asp   Aspartic Acid
+  Cysteine         Cys   C                  |   E   Glu   Glutamic Acid
+  Glutamic Acid    Glu   E   gluE           |   F   Phe   Phenylalanine
+  Glutamine        Gln   Q   Q-tamine       |   G   Gly   Glycine
+  Glycine          Gly   G                  |   H   His   Histidine
+  Histidine        His   H                  |   I   Ile   Isoleucine
+  Isoleucine       Ile   I                  |   J   Xle   Leu or Ile
+  Leucine          Leu   L                  |   K   Lys   Lysine
+  Lysine           Lys   K   next to L      |   L   Leu   Leucine
+  Methionine       Met   M                  |   M   Met   Methionine
+  Phenylalanine    Phe   F   Fenylalanine   |   N   Asn   Asparagine
+  Proline          Pro   P                  |   O   Pyl   Pyrrolysine
+  Pyrrolysine      Pyl   O   pyrrOlysine    |   P   Pro   Proline
+  Selenocysteine   Sec   U                  |   Q   Gln   Glutamine
+  Serine           Ser   S                  |   R   Arg   Arginine
+  Threonine        Thr   T                  |   S   Ser   Serine
+  Tryptophan       Trp   W   tWyptophan     |   T   Thr   Threonine
+  Tyrosine         Tyr   Y   tYrosine       |   U   Sec   Selenocysteine
+  Valine           Val   V                  |   V   Val   Valine
+  Asp or Asn       Asx   B                  |   W   Trp   Tryptophan
+  Glu or Gln       Glx   Z                  |   X   Xxx   Undetermined
+  Leu or Ile       Xle   J                  |   Y   Tyr   Tyrosine
+  Undetermined     Xxx   X                  |   Z   Glx   Glu or Gln
+  Termination      Ter   *                  |   *   Ter   Termination
+
+  -----------------------------------------------------------------
+
+Nucleotide Abbreviations
+
+            R   AG   puRine       |   H   ACT    not G
+            Y   CT   pYrimidine   |   B   CGT    not A
+            M   AC   aMino        |   V   ACG    not T
+            K   GT   Keto         |   D   AGT    not C
+            S   CG   Strong       |   N   ACGT   unkNown
+            W   AT   Weak         |   X   ACGT   unknown
+
+Genetic Code Names
+
+  1:     Standard
+  2:     Vertebrate Mitochondrial
+  3:     Yeast Mitochondrial
+  4:     Mold Mitochondrial; Protozoan Mitochondrial;
+         Coelenterate Mitochondrial; Mycoplasma; Spiroplasma
+  5:     Invertebrate Mitochondrial
+  6:     Ciliate Nuclear; Dasycladacean Nuclear; Hexamita Nuclear
+  9:     Echinoderm Mitochondrial; Flatworm Mitochondrial
+  10:    Euplotid Nuclear
+  11:    Bacterial, Archaeal and Plant Plastid
+  12:    Alternative Yeast Nuclear
+  13:    Ascidian Mitochondrial
+  14:    Alternative Flatworm Mitochondrial
+  15:    Blepharisma Macronuclear
+  16:    Chlorophycean Mitochondrial
+  21:    Trematode Mitochondrial
+  22:    Scenedesmus obliquus Mitochondrial
+  23:    Thraustochytrium Mitochondrial
+  24:    Rhabdopleuridae Mitochondrial
+  25:    Candidate Division SR1 and Gracilibacteria
+  26:    Pachysolen tannophilus Nuclear
+  27:    Karyorelict Nuclear
+  28:    Condylostoma Nuclear
+  29:    Mesodinium Nuclear
+  30:    Peritrich Nuclear
+  31:    Blastocrithidia Nuclear
+  32:    Balanophoraceae Plastid
+  33:    Cephalodiscidae Mitochondrial
+
+EOF
+}
+
+do_error() {
+  cat <<EOF
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE eInfoResult>
+<eInfoResult>
+  <ERROR>Can not retrieve DbInfo for db=all</ERROR>
+</eInfoResult>
+EOF
+}
+
+choice="help"
+
+if [ $# -gt 0 ]
+then
+  choice="$1"
+fi
+
+case "$choice" in
+    help | -help )
+     do_help 
+     ;;
+    docsum | -docsum )
+     do_docsum 
+     ;;
+    article | -article | pubmed | -pubmed )
+     do_article 
+     ;;
+    book | -book )
+     do_book 
+     ;;
+    protein | -protein )
+     do_protein 
+     ;;
+    gene | -gene )
+     do_gene 
+     ;;
+    taxon | -taxon )
+     do_taxon 
+     ;;
+    blast | -blast )
+     do_blast 
+     ;;
+    snp | -snp )
+     do_snp 
+     ;;
+    hgvs | -hgvs )
+     do_hgvs 
+     ;;
+    bioc | -bioc )
+     do_bioc 
+     ;;
+    flatfile | -flatfile )
+     do_flatfile 
+     ;;
+    gencode | -gencode )
+     do_gencode 
+     ;;
+    error | -error )
+     do_error 
+     ;;
+esac

@@ -1,0 +1,25 @@
+{
+  "build": "pyhd3eb1b0_0",
+  "build_number": 0,
+  "channel": "https://repo.anaconda.com/pkgs/main/noarch",
+  "constrains": [],
+  "depends": [
+    "python"
+  ],
+  "features": "",
+  "fn": "colorama-0.4.4-pyhd3eb1b0_0.conda",
+  "legacy_bz2_md5": "e1f1311b37041e7a099a7a3c09106a13",
+  "legacy_bz2_size": 21360,
+  "license": "BSD-3-Clause",
+  "md5": "f550604d18b83878f647a491b2b343d6",
+  "name": "colorama",
+  "noarch": "python",
+  "package_type": "noarch_python",
+  "sha256": "2224b228e6d511f11b6d76ed95107b4ea79f3d58939b8638b78485d205d38140",
+  "size": 21236,
+  "subdir": "noarch",
+  "timestamp": 1607707149014,
+  "track_features": "",
+  "url": "https://repo.anaconda.com/pkgs/main/noarch/colorama-0.4.4-pyhd3eb1b0_0.conda",
+  "version": "0.4.4"
+}

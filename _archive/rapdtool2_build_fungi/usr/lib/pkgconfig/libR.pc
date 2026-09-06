@@ -1,0 +1,10 @@
+rhome=/usr/lib/R
+rlibdir=${rhome}/lib
+rincludedir=/usr/share/R/include
+
+Name: libR
+Description: R as a library
+Version: 4.2.1
+Libs: -Wl,--export-dynamic -fopenmp  -Wl,-Bsymbolic-functions -flto=auto -ffat-lto-objects -flto=auto -Wl,-z,relro -L${rlibdir} -lR
+Cflags: -I${rincludedir} -I${rincludedir}
+Libs.private:

@@ -1,0 +1,50 @@
+#!/bin/bash -norc
+
+# Public domain notice for all NCBI EDirect scripts is located at:
+# https://www.ncbi.nlm.nih.gov/books/NBK179288/#chapter6.Public_Domain_Notice
+
+# Usage: echo RCCGGY | disambiguate-nucleotides
+
+ExpandNext() {
+
+  local prev
+  local curr
+  local next
+  local arry
+
+  prev="$1"
+  next="$2"
+
+  if [ -n "$next" ]
+  then
+    curr="${next:0:1}"
+    next="${next:1}"
+
+    case "$curr" in
+      R ) arry="A G" ;;
+      Y ) arry="C T" ;;
+      S ) arry="G C" ;;
+      W ) arry="A T" ;;
+      K ) arry="G T" ;;
+      M ) arry="A C" ;;
+      B ) arry="C G T" ;;
+      D ) arry="A G T" ;;
+      H ) arry="A C T" ;;
+      V ) arry="A C G" ;;
+      N ) arry="A C G T" ;;
+      * ) arry="$curr" ;;
+    esac
+    for lttr in $(echo $arry)
+    do
+      ExpandNext "${prev}${lttr}" "${next}"
+    done
+  else
+    echo "$prev"
+  fi
+}
+
+tr a-z A-Z |
+while read pat
+do
+  ExpandNext "" "$pat"
+done

@@ -1,0 +1,13 @@
+Index: Python-3.9.7/Modules/_ctypes/callproc.c
+===================================================================
+--- Python-3.9.7.orig/Modules/_ctypes/callproc.c
++++ Python-3.9.7/Modules/_ctypes/callproc.c
+@@ -1452,7 +1452,7 @@ copy_com_pointer(PyObject *self, PyObjec
+ #ifdef __APPLE__
+ #ifdef HAVE_DYLD_SHARED_CACHE_CONTAINS_PATH
+ #define HAVE_DYLD_SHARED_CACHE_CONTAINS_PATH_RUNTIME \
+-    __builtin_available(macOS 11.0, iOS 14.0, tvOS 14.0, watchOS 7.0, *)
++    __builtin_available(macOS 10.16, iOS 14.0, tvOS 14.0, watchOS 7.0, *)
+ #else
+ // Support the deprecated case of compiling on an older macOS version
+ static void *libsystem_b_handle;

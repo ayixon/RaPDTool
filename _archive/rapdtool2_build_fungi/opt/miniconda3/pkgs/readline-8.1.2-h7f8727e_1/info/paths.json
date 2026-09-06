@@ -1,0 +1,157 @@
+{
+  "paths": [
+    {
+      "_path": "include/readline/chardefs.h",
+      "path_type": "hardlink",
+      "sha256": "a6f5a6ca703691dd0037e68fe2f55fdfe6e1b26fac32e725993a3295bdf47620",
+      "size_in_bytes": 4697
+    },
+    {
+      "_path": "include/readline/history.h",
+      "path_type": "hardlink",
+      "sha256": "594e98f3dbac9ce0924dadccc77949a31efbfdc5e915fe83352d0219b5f5deee",
+      "size_in_bytes": 10779
+    },
+    {
+      "_path": "include/readline/keymaps.h",
+      "path_type": "hardlink",
+      "sha256": "ad83b3d5797bd92a478a28c5bc537c01ec53187da15c1f819415b3fd168cbed1",
+      "size_in_bytes": 3260
+    },
+    {
+      "_path": "include/readline/readline.h",
+      "path_type": "hardlink",
+      "sha256": "82d4fe3ee1bd2999bdf35fa15cfa5fccd9dd35f3e5d751ca81afb971768b1e54",
+      "size_in_bytes": 39739
+    },
+    {
+      "_path": "include/readline/rlconf.h",
+      "path_type": "hardlink",
+      "sha256": "b599f6bc28df4c0cb0143c5747233aeadc191b3c4f8bb9128509c4c68e946da6",
+      "size_in_bytes": 2829
+    },
+    {
+      "_path": "include/readline/rlstdc.h",
+      "path_type": "hardlink",
+      "sha256": "77c9d0203d571a576ec2aabbfbdfbdd18802d6fcfe6e890d33fbab3536f3317a",
+      "size_in_bytes": 1835
+    },
+    {
+      "_path": "include/readline/rltypedefs.h",
+      "path_type": "hardlink",
+      "sha256": "2092f087b032a579d0a918685228730976fd6126a1a6a35ba93b1630bec8f294",
+      "size_in_bytes": 3193
+    },
+    {
+      "_path": "include/readline/tilde.h",
+      "path_type": "hardlink",
+      "sha256": "ddf5b0d350768b3b6bd7a14175920eea3e74ea522a6659cb51914c3b61780c5d",
+      "size_in_bytes": 3046
+    },
+    {
+      "_path": "lib/libhistory.a",
+      "path_type": "hardlink",
+      "sha256": "84fde9eeb238122e2ab2ab4c0998833c18d76444f7676e301d131754478ae4f5",
+      "size_in_bytes": 80106
+    },
+    {
+      "_path": "lib/libhistory.so",
+      "path_type": "softlink",
+      "sha256": "5a868e03d9682458b4b3d783b7a79a3118342e8d8233cebd4715bcca032d7c3a",
+      "size_in_bytes": 59072
+    },
+    {
+      "_path": "lib/libhistory.so.8",
+      "path_type": "softlink",
+      "sha256": "5a868e03d9682458b4b3d783b7a79a3118342e8d8233cebd4715bcca032d7c3a",
+      "size_in_bytes": 59072
+    },
+    {
+      "_path": "lib/libhistory.so.8.1",
+      "path_type": "hardlink",
+      "sha256": "5a868e03d9682458b4b3d783b7a79a3118342e8d8233cebd4715bcca032d7c3a",
+      "size_in_bytes": 59072
+    },
+    {
+      "_path": "lib/libreadline.a",
+      "path_type": "hardlink",
+      "sha256": "0090f1e93d9e6b97db235daec11884abe4291c7688399b66c548c21726400fb6",
+      "size_in_bytes": 734386
+    },
+    {
+      "_path": "lib/libreadline.so",
+      "path_type": "softlink",
+      "sha256": "4006c8a5f0c99b211de6815732551bac6e054bf288c4325708a3aaaa52806d6d",
+      "size_in_bytes": 395192
+    },
+    {
+      "_path": "lib/libreadline.so.8",
+      "path_type": "softlink",
+      "sha256": "4006c8a5f0c99b211de6815732551bac6e054bf288c4325708a3aaaa52806d6d",
+      "size_in_bytes": 395192
+    },
+    {
+      "_path": "lib/libreadline.so.8.1",
+      "path_type": "hardlink",
+      "sha256": "4006c8a5f0c99b211de6815732551bac6e054bf288c4325708a3aaaa52806d6d",
+      "size_in_bytes": 395192
+    },
+    {
+      "_path": "lib/pkgconfig/readline.pc",
+      "file_mode": "text",
+      "path_type": "hardlink",
+      "prefix_placeholder": "/opt/conda/conda-bld/readline_1642022364609/_h_env_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_plac",
+      "sha256": "58e8cdcf639a9433d47b19d85d3f8fcd0fb77e9f81c86d4c3bbe5a0368bac2d6",
+      "size_in_bytes": 562
+    },
+    {
+      "_path": "share/doc/readline/CHANGES",
+      "path_type": "hardlink",
+      "sha256": "a55298c47c8944858c3a408af6492f8b9166751746e4887cc0910a839d46bbeb",
+      "size_in_bytes": 76365
+    },
+    {
+      "_path": "share/doc/readline/INSTALL",
+      "path_type": "hardlink",
+      "sha256": "c02f69d8e261d8d6b7330786d2b10452f8a40c42dc3df044988fd8fd772d54cd",
+      "size_in_bytes": 12489
+    },
+    {
+      "_path": "share/doc/readline/README",
+      "path_type": "hardlink",
+      "sha256": "72bc800913afdc3fce78fccc46b87bebbd170460cad78e13abf300b84ef44f00",
+      "size_in_bytes": 8028
+    },
+    {
+      "_path": "share/info/history.info",
+      "path_type": "hardlink",
+      "sha256": "c0f8a59bc9571bdf8ebfbe2af079ebc48d180f93b545e45e5a0ccfb13d93fb98",
+      "size_in_bytes": 63498
+    },
+    {
+      "_path": "share/info/readline.info",
+      "path_type": "hardlink",
+      "sha256": "0c3229cce52c6ec788dcb9f2cbc708c0efb570955d43359cbed8c2fb8a5655f1",
+      "size_in_bytes": 236167
+    },
+    {
+      "_path": "share/info/rluserman.info",
+      "path_type": "hardlink",
+      "sha256": "47c8beb733894f6d52d82761c05139d8827d5b4fdfab4a93a94dc63a92e32fd6",
+      "size_in_bytes": 90139
+    },
+    {
+      "_path": "share/man/man3/history.3",
+      "path_type": "hardlink",
+      "sha256": "3201b72efd360370c7d5238e62cee84b6e670c9c92f482d9ff38f6c7b2805ccd",
+      "size_in_bytes": 23204
+    },
+    {
+      "_path": "share/man/man3/readline.3",
+      "path_type": "hardlink",
+      "sha256": "2871c0d4aea0a9728c44c954c59da2f278afc6c9530d44889aa2e95d4e45e806",
+      "size_in_bytes": 49637
+    }
+  ],
+  "paths_version": 1
+}

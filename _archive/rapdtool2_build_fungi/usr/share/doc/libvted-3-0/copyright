@@ -1,0 +1,82 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: GtkD
+Upstream-Contact: Mike Wey <mike@mikewey.eu>
+Source: https://gtkd.org/
+
+Files: *
+Copyright: Frank Benoit
+ Jake Day
+ Jonas Kivi
+ Alan Knowles
+ Antonio Monteiro
+ Sebastián E. Peyrott
+ John Reimer
+ Mike Wey
+ hauptmech
+License: LGPL-3+
+
+License: LGPL-3+
+ This library is free software: you can redistribute it and/or modify
+ it under the terms of the GNU Lesser General Public License as published by
+ the Free Software Foundation, either version 3 of the License, or
+ (at your option) any later version.
+ .
+ This library is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU Lesser General Public License for more details.
+ .
+ On Debian systems, the complete text of the GNU Lesser General
+ Public License version 3 can be found in "/usr/share/common-licenses/LGPL-3".
+
+License: LGPL-2.1+
+ This library is free software: you can redistribute it and/or modify
+ it under the terms of the GNU Lesser General Public License as published by
+ the Free Software Foundation, either version 2.1 of the License, or
+ (at your option) any later version.
+ .
+ This library is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU Lesser General Public License for more details.
+ .
+ On Debian systems, the complete text of the GNU Lesser General
+ Public License version 2.1 can be found in "/usr/share/common-licenses/LGPL-2.1".
+
+License: Expat
+ Permission is hereby granted, free of charge, to any person obtaining a copy
+ of this software and/or associated documentation files (the "Materials"), to
+ deal in the Materials without restriction, including without limitation the
+ rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+ sell copies of the Materials, and to permit persons to whom the Materials are
+ furnished to do so, subject to the following conditions:
+ .
+ The above copyright notice(s) and this permission notice shall be included in
+ all copies or substantial portions of the Materials.
+ .
+ THE MATERIALS ARE PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+ .
+ IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+ DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
+ OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE MATERIALS OR THE
+ USE OR OTHER DEALINGS IN THE MATERIALS.
+
+Files: src/APILookupGLd.txt
+ src/APILookupGThread.txt
+ src/APILookupGdk.txt
+ src/APILookupGdkPixbuf.txt
+Copyright: GtkD Developers
+License: LGPL-2.1+
+
+Files: demos/cairo/cairo_clock/clock.d
+ demos/cairo/cairo_clock/main.d
+Copyright: Jonas Kivi (D version)
+ Jonathon Jongsma (C++ version)
+ Davyd Madeley (C version)
+License: LGPL-3+
+
+Files: demos/gl/core/glcore.d
+Copyright: 2007-2012, The Khronos Group Inc
+License: Expat

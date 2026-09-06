@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mime-type xmlns="http://www.freedesktop.org/standards/shared-mime-info" type="audio/x-mpegurl">
+  <!--Created automatically by update-mime-database. DO NOT EDIT!-->
+  <comment>Media playlist</comment>
+  <sub-class-of type="text/plain"/>
+  <alias type="audio/mpegurl"/>
+  <alias type="application/m3u"/>
+  <alias type="audio/x-mp3-playlist"/>
+  <alias type="audio/m3u"/>
+  <alias type="audio/x-m3u"/>
+  <glob pattern="*.m3u"/>
+  <glob pattern="*.m3u8"/>
+  <glob pattern="*.vlc"/>
+</mime-type>

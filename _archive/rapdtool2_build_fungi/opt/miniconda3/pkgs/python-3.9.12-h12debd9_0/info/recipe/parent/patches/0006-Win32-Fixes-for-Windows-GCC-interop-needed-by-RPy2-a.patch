@@ -1,0 +1,35 @@
+From 4c935f04b47027b4cc15b7bb899e03eab41d34bf Mon Sep 17 00:00:00 2001
+From: Ray Donnelly <mingw.android@gmail.com>
+Date: Wed, 16 Aug 2017 12:23:02 +0100
+Subject: [PATCH 06/30] Win32: Fixes for Windows GCC interop needed by RPy2 and
+ CVXOPT
+
+We must pass -DMS_WIN32 or -DMS_WIN64
+---
+ Lib/distutils/cygwinccompiler.py | 10 +++++++---
+ 1 file changed, 7 insertions(+), 3 deletions(-)
+
+diff --git a/Lib/distutils/cygwinccompiler.py b/Lib/distutils/cygwinccompiler.py
+index e6c790118b..d4337669e3 100644
+--- a/Lib/distutils/cygwinccompiler.py
++++ b/Lib/distutils/cygwinccompiler.py
+@@ -300,9 +300,13 @@ class Mingw32CCompiler(CygwinCCompiler):
+             raise CCompilerError(
+                 'Cygwin gcc cannot be used with --compiler=mingw32')
+ 
+-        self.set_executables(compiler='gcc -O -Wall',
+-                             compiler_so='gcc -mdll -O -Wall',
+-                             compiler_cxx='g++ -O -Wall',
++        if sys.maxsize == 2**31 - 1:
++            ms_win=' -DMS_WIN32'
++        else:
++            ms_win=' -DMS_WIN64'
++        self.set_executables(compiler='gcc -O -Wall'+ms_win,
++                             compiler_so='gcc -mdll -O -Wall'+ms_win,
++                             compiler_cxx='g++ -O -Wall'+ms_win,
+                              linker_exe='gcc',
+                              linker_so='%s %s %s'
+                                         % (self.linker_dll, shared_option,
+-- 
+2.23.0
+

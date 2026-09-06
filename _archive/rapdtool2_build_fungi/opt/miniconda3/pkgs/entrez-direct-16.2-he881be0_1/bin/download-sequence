@@ -1,0 +1,36 @@
+#!/bin/sh
+
+# Public domain notice for all NCBI EDirect scripts is located at:
+# https://www.ncbi.nlm.nih.gov/books/NBK179288/#chapter6.Public_Domain_Notice
+
+filt=""
+while [ "$#" -gt 0 ]
+do
+  filt=$( echo "$filt -e $1" )
+  shift
+done
+
+download() {
+  nquire -lst ftp.ncbi.nlm.nih.gov ncbi-asn1 |
+  grep "aso.gz" | eval "$filt" |
+  skip-if-file-exists |
+  while read fl
+  do
+    echo "$fl"
+    echo "$fl" |
+    nquire -asp  ftp.ncbi.nlm.nih.gov ncbi-asn1
+  done
+}
+
+if [ -z "$filt" ]
+then
+  echo "Must have at least one sequence division abbreviation"
+  exit 1
+fi
+
+filt=$( echo "grep$filt" )
+download
+if [ $? -ne 0 ]
+then
+  download
+fi

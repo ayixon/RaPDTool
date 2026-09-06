@@ -1,0 +1,10 @@
+bin/funzip
+bin/unzip
+bin/unzipsfx
+bin/zipgrep
+bin/zipinfo
+man/man1/funzip.1
+man/man1/unzip.1
+man/man1/unzipsfx.1
+man/man1/zipgrep.1
+man/man1/zipinfo.1

@@ -1,0 +1,83 @@
+# This file created by conda-build 3.21.8
+# meta.yaml template originally from:
+# /feedstock/recipe, last modified Thu Mar 31 09:13:35 2022
+# ------------------------------------------------
+
+package:
+  name: sqlite
+  version: 3.38.2
+source:
+  patches: null
+  sha256: e7974aa1430bad690a5e9f79a6ee5c8492ada8269dc675875ad0fb747d7cada4
+  url: https://www.sqlite.org/2022/sqlite-autoconf-3380200.tar.gz
+build:
+  ignore_run_exports:
+    - ncurses
+  number: '0'
+  run_exports:
+    - sqlite >=3.38.2,<4.0a0
+  string: hc218d9a_0
+requirements:
+  build:
+    - _libgcc_mutex 0.1 main
+    - _openmp_mutex 4.5 1_gnu
+    - _sysroot_linux-64_curr_repodata_hack 3 haa98f57_10
+    - binutils_impl_linux-64 2.35.1 h27ae35d_9
+    - binutils_linux-64 2.35.1 h454624a_30
+    - gcc_impl_linux-64 7.5.0 h7105cf2_17
+    - gcc_linux-64 7.5.0 h8f34230_30
+    - kernel-headers_linux-64 3.10.0 h57e8cba_10
+    - ld_impl_linux-64 2.35.1 h7274673_9
+    - libgcc-devel_linux-64 7.5.0 hbbeae57_17
+    - libgcc-ng 9.3.0 h5101ec6_17
+    - libgomp 9.3.0 h5101ec6_17
+    - libstdcxx-ng 9.3.0 hd4cf53a_17
+    - libtool 2.4.6 h295c915_1008
+    - make 4.2.1 h1bed415_1
+    - patch 2.7.6 h7b6447c_1001
+    - sysroot_linux-64 2.17 h57e8cba_10
+  host:
+    - _libgcc_mutex 0.1 main
+    - _openmp_mutex 4.5 1_gnu
+    - libgcc-ng 9.3.0 h5101ec6_17
+    - libgomp 9.3.0 h5101ec6_17
+    - ncurses 6.3 h7f8727e_2
+    - readline 8.0 h7b6447c_0
+    - zlib 1.2.11 h7f8727e_4
+  run:
+    - libgcc-ng >=7.5.0
+    - readline >=8.0,<9.0a0
+    - zlib >=1.2.11,<1.3.0a0
+test:
+  commands:
+    - sqlite3 --version
+    - test -f $PREFIX/lib/libsqlite3${SHLIB_EXT}
+    - test ! -f $PREFIX/lib/libsqlite3.a
+    - test -f $PREFIX/include/sqlite3.h
+    - test -f $PREFIX/include/sqlite3ext.h
+about:
+  description: 'SQLite is a self-contained, high-reliability, embedded, full-featured,
+
+    public-domain, SQL database engine. It is the most used database engine
+
+    in the world.
+
+    '
+  dev_url: https://sqlite.org/src/dir?ci=trunk
+  doc_source_url: https://github.com/mackyle/sqlite/tree/master/doc
+  doc_url: https://www.sqlite.org/docs.html
+  home: https://www.sqlite.org/
+  license: Unlicense
+  license_url: https://www.sqlite.org/copyright.html
+  summary: Implements a self-contained, zero-configuration, SQL database engine
+extra:
+  copy_test_source_files: true
+  final: true
+  recipe-maintainers:
+    - jakirkham
+    - jjhelmus
+    - mingwandroid
+    - msarahan
+    - ocefpaf
+    - snorfalorpagus
+    - xylar

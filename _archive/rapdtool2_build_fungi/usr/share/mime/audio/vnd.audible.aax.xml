@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mime-type xmlns="http://www.freedesktop.org/standards/shared-mime-info" type="audio/vnd.audible.aax">
+  <!--Created automatically by update-mime-database. DO NOT EDIT!-->
+  <comment>Audible Enhanced audio</comment>
+  <comment xml:lang="zh_CN">Audible 增强音频</comment>
+  <comment xml:lang="uk">звук Audible Enhanced</comment>
+  <comment xml:lang="sv">Audible förbättrat ljud</comment>
+  <comment xml:lang="pt_BR">Áudio Audible Enhanced</comment>
+  <comment xml:lang="pl">Plik dźwiękowy Audible Enhanced</comment>
+  <comment xml:lang="it">Audio Audible Enhanced</comment>
+  <comment xml:lang="hr">Audible poboljšani zvučni zapis</comment>
+  <comment xml:lang="fi">Selvä parannettu ääni</comment>
+  <comment xml:lang="es">audio mejorado de Audible</comment>
+  <comment xml:lang="en_GB">Audible Enhanced audio</comment>
+  <comment xml:lang="de">Audible Erweitertes Audio</comment>
+  <comment xml:lang="da">Audible Enhanced-lyd</comment>
+  <comment xml:lang="ca">àudio d'Audible Enhanced</comment>
+  <glob pattern="*.aax"/>
+</mime-type>

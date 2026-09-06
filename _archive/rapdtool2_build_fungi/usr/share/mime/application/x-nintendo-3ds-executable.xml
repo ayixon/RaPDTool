@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mime-type xmlns="http://www.freedesktop.org/standards/shared-mime-info" type="application/x-nintendo-3ds-executable">
+  <!--Created automatically by update-mime-database. DO NOT EDIT!-->
+  <comment>Nintendo 3DS Executable</comment>
+  <comment xml:lang="uk">виконуваний файл Nintendo 3DS</comment>
+  <comment xml:lang="pl">Plik wykonywalny konsoli Nintendo 3DS</comment>
+  <comment xml:lang="it">Eseguibile Nintendo 3DS</comment>
+  <comment xml:lang="fi">Nintendo 3DS suoritettava</comment>
+  <comment xml:lang="ca">executable de Nintendo 3DS</comment>
+  <generic-icon name="application-x-executable"/>
+  <glob pattern="*.3dsx"/>
+</mime-type>

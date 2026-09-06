@@ -1,0 +1,10 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Source: http://code.launchpad.net/~ubuntu-core-dev/unattended-upgrades/ubuntu
+
+Files: *
+Copyright: © 2005-2018 Michael Vogt <michael.vogt@ubuntu.com>,
+           © 2017-2018 Balint Reczey <rbalint@ubuntu.com>,
+           © 2005-2018 Canonical Ltd
+License: GPL-2+
+  On Debian systems, the complete text of the GNU General Public License
+  can be found in </usr/share/common-licenses/GPL-2>.

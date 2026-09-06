@@ -1,0 +1,17 @@
+/.
+/usr
+/usr/share
+/usr/share/doc
+/usr/share/doc/libfile-basedir-perl
+/usr/share/doc/libfile-basedir-perl/changelog.Debian.gz
+/usr/share/doc/libfile-basedir-perl/copyright
+/usr/share/man
+/usr/share/man/man3
+/usr/share/man/man3/File::BaseDir.3pm.gz
+/usr/share/man/man3/File::IconTheme.3pm.gz
+/usr/share/man/man3/File::UserDirs.3pm.gz
+/usr/share/perl5
+/usr/share/perl5/File
+/usr/share/perl5/File/BaseDir.pm
+/usr/share/perl5/File/IconTheme.pm
+/usr/share/perl5/File/UserDirs.pm

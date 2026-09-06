@@ -1,0 +1,13 @@
+#!/bin/bash
+
+# Public domain notice for all NCBI EDirect scripts is located at:
+# https://www.ncbi.nlm.nih.gov/books/NBK179288/#chapter6.Public_Domain_Notice
+
+# efetch -db snp -id 104894914,104894915,104894916,11549407,1365817067 -format docsum |
+# snp2hgvs | hgvs2spdi | spdi2prod
+
+xtract -set DocumentSummarySet -pattern DocumentSummary -select Id -eq SNP_ID |
+xtract -rec HGVS -pattern DocumentSummary -wrp Id -element SNP_ID \
+  -group DocumentSummary -block GENE_E -enc Gene -sep "|" -element NAME \
+  -group DocumentSummary -rst -hgvs DOCSUM |
+transmute -format

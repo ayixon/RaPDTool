@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mime-type xmlns="http://www.freedesktop.org/standards/shared-mime-info" type="application/x-compressed-iso">
+  <!--Created automatically by update-mime-database. DO NOT EDIT!-->
+  <comment>Compressed CD image</comment>
+  <comment xml:lang="uk">стиснений образ CD</comment>
+  <comment xml:lang="pl">Skompresowany obraz płyty CD</comment>
+  <comment xml:lang="it">Immagine CD compressa</comment>
+  <comment xml:lang="fi">Pakattu CD-levykuva</comment>
+  <comment xml:lang="ca">imatge de CD amb compressió</comment>
+  <glob pattern="*.cso"/>
+</mime-type>

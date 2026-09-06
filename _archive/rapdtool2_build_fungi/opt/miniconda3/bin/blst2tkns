@@ -1,0 +1,15 @@
+#!/bin/bash -norc
+
+# Public domain notice for all NCBI EDirect scripts is located at:
+# https://www.ncbi.nlm.nih.gov/books/NBK179288/#chapter6.Public_Domain_Notice
+
+xtract -pattern Seq-align-set_E -SCORE "(-)" -IDX "+" \
+  -group score_E -if id/str -equals score -SCORE value/int \
+  -group exons_E \
+    -tab "\t" -lbl "index" -tab "\n" -element "&IDX" \
+    -tab "\t" -lbl "score" -tab "\n" -element "&SCORE" \
+    -tab "\t" -lbl "start" -tab "\n" -inc genomic-start \
+    -tab "\t" -lbl "stop" -tab "\n" -inc genomic-end \
+    -tab "\t" -lbl "strand" -tab "\n" -element product-strand \
+      -block "parts/*" -tab "\n" -element "?","~" \
+      -block parts -tab "\t" -lbl "end" -tab "\n" -lbl "0"

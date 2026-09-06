@@ -1,0 +1,43 @@
+Error Positive Controls
+
+  nquire -url http://api.geonames.org/countryCode -lat 41.796 -lng "\-87.577"
+
+  einfo -db NONE
+
+  esearch -db pubmed -query "1233456789 [NONE]"
+
+  elink -db pubmed -id 123456789 -related
+
+  elink -db assembly -id GCF_000178675.1 -target nuccore
+
+  efetch -db pubmed -id 123456789 -format docsum
+
+  efetch -db nuccore -id U1234567890 -format acc
+
+  efetch -db nuccore -id 304652336 -format docsum |
+  xtract -pattern DocumentSummary -element Status
+
+  epost -db nuccore -id ADUJ01000875.1
+
+  esummary -db pubmed -id 6271474 -format docsum
+
+  esummary -db pubmed -id 6271474 -format
+
+  esummary -db pubmed -id 6271474 -docsum
+
+  esummary -db pubmed -id 6271474 -format xml
+
+  efetch -db pubmed -id 6271474 -docsum -format xml
+
+  efetch -db pubmed -id 6271474 -format xml -docsum
+
+  efetch -db pubmed -id 6271474 -format docsum -db pubmed
+
+  efetch -db pubmed -id 6271474 -format docsum -db protein
+
+  echo 6271474 | epost -db pubmed | efetch -db pubmed -format docsum 
+
+  echo 6271474 | epost -db pubmed | efetch -db protein -format docsum 
+
+  echo ATGAAACCCGGGTTTTAG |
+  transmute -replace -offset 5 -delete C -insert G -lower

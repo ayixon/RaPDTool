@@ -1,0 +1,123 @@
+######## rapdtools (tiempo de corrida 1 min en 8 threads)
+
+Species with high confidence:
+        Species identity        shared-hashes
+        *Brevibacterium luteolum 0.045   244/1000
+Genus with high confidence:
+        Genus   identity        shared-hashes
+        *Sphingobium yanoikuyae  0.061   161/1000
+        *Acinetobacter sp. WCHA45        0.063   153/1000
+        *Moraxella osloensis     0.057   178/1000
+Be cautious at species taxonomic level..:
+        Species relative_abundance
+        *Sphingobium_yanoikuyae  8.74
+        *Ideonella_azotifigens   7.53
+        *Acinetobacter_pullicarnis       6.31
+        Simkania_negevensis     4.47
+        Prochlorothrix_hollandica       4.33
+        Taylorella_asinigenitalis       3.35
+        Pseudorivibacter_rhizosphaerae  3.12
+        *Acinetobacter_shaoyimingii      3.01
+        Poriferisphaera_corsica 2.67
+        *Brevibacterium_sediminis        2.60
+        *Acinetobacter_rudis     2.49
+        *Sphingomonas_melonis    2.49
+        Leptothrix_mobilis  
+
+######## metaphlan (tiempo de corrida 5 min en 8 threads)
+
+*Acinetobacter_junii
+Acinetobacter_sp_GWC1_38_13
+*Sphingobium_yanoikuyae
+Sphingobium_sp
+Sphingobium_sp_IP1
+Sphingobium_sp_YR657
+
+######## squeezemeta(tiempo de corrida 5 hr en 8 threads)
+
+   2488 *Acinetobacter junii
+   1673 *Brevibacterium luteolum
+    835 Chlamydia abortus
+    645 *Acinetobacter sp.
+    601 Sphingomonas sp.
+    499 Aquincola sp.
+    346 *Sphingobium yanoikuyae
+    287 *Moraxella osloensis
+    255 [Acidovorax] sp.
+    238 Brevibacterium sp.
+    221 Bdellovibrio sp.
+    191 Aquincola tertiaricarbonis
+    190 Chlamydia psittaci
+    149 Sphingomonas zeae
+    147 Acinetobacter baumannii
+    134 Burkholderiaceae bacterium
+1% abun relat
+     96 Sphingobium sp.
+     78 Burkholderiales bacterium
+     75 Gallus gallus
+     73 *Ideonella sp.
+     69 Sphingobium scionense
+     52 Shinella sp.
+0.5% abund relat
+     46 Acinetobacter haemolyticus
+     46 Sphingomonas insulae
+     42 Chlamydia ibidis
+     32 Xanthomonadaceae bacterium
+     28 Sphingobium limneticum
+     27 Shinella curvata
+     25 Enhydrobacter sp.
+     24 Xinfangfangia sp.
+     23 Acinetobacter parvus
+     22 Pseudomonas aeruginosa
+     21 Ideonella sakaiensis
+     19 Sphingomonas melonis
+     16 Acinetobacter venetianus
+     16 Bdellovibrio bacteriovorus
+     15 Sphingobium xenophagum
+     13 Acinetobacter bereziniae
+     12 Moraxellaceae bacterium
+     11 Chlamydia avium
+     11 Diaphorobacter polyhydroxybutyrativorans
+     11 Diploscapter pachys
+     11 Nevskia ramosa
+     11 Sphingopyxis sp.
+     10 Citromicrobium sp.
+     10 Coxiella burnetii
+     10 Escherichia coli
+     10 Klebsiella pneumoniae
+     10 Kocuria rhizophila
+      9 Acinetobacter tjernbergiae
+      9 Devosia sp.
+      9 Methylibium petroleiphilum
+      9 Sphingomonas abaci
+      9 Sphingomonas sanguinis
+      8 Acinetobacter wuhouensis
+      8 [Bacillus] sp.
+      7 Alphaproteobacteria bacterium
+      7 Barnesiella sp.
+      7 Bdellovibrionales bacterium
+      7 Crocinitomicaceae bacterium
+      7 Moraxella sp.
+      7 Sphingomonas adhaesiva
+      6 Acinetobacter colistiniresistens
+      6 Bdellovibrionaceae bacterium
+      6 Mesorhizobium sp.
+      6 Nostoc sp.
+      6 Novosphingobium sp.
+      6 Polycyclovorans algicola
+      6 Rubrivivax sp.
+      6 Sphingobium naphthae
+      5 Acinetobacter johnsonii
+      5 Salmonella enterica
+      4 Acinetobacter nosocomialis
+      4 Acinetobacter pittii
+      4 Acinetobacter soli
+      4 Aquabacterium sp.
+      4 Cereibacter sphaeroides
+      4 Novosphingobium panipatense
+      4 Proteobacteria bacterium
+      4 Pseudomonas putida
+      4 Rhizobium sp.
+      4 Sphingobium baderi
+      4 Sphingomonas endophytica
+      4 Sphingomonas parapaucimobilis

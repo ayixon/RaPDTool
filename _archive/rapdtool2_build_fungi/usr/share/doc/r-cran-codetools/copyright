@@ -1,0 +1,35 @@
+This is the Debian GNU/Linux r-cran-codetools package of codetools, a
+collection of functions for code analysis for R. Codetools was written
+by Luke Tierney.
+
+This package was created by Dirk Eddelbuettel <edd@debian.org>. The
+sources were downloaded with the R 2.5.0 upstream sources. Sources for
+codetools are available at CRAN at its mirrors at 
+	http://cran.us.r-project.org/src/contrib/
+as well as with R releases at
+	http://cran.us.r-project.org/src/base/
+
+The package was renamed from its upstream name 'codetools' to
+'r-cran-codetools' to fit the pattern of CRAN (and non-CRAN) packages
+for R.
+
+Copyright (C) 2007-2008 Luke Tierney
+
+License: GPL-2
+
+On a Debian GNU/Linux system, the GPL-2 license is included in the file
+/usr/share/common-licenses/GPL-2.
+
+For reference, the upstream DESCRIPTION [with lines broken to 80 cols]
+file is included below:
+
+    Package: codetools
+    Version: 0.1-1
+    Priority: recommended
+    Author: Luke Tierney <luke@stat.uiowa.edu>
+    Description: Code analysis tools for R
+    Title: Code Analysis Tools for R
+    Depends: R (>= 2.1)
+    Maintainer: Luke Tierney <luke@stat.uiowa.edu>
+    License: GPL
+    Packaged: Wed Apr  4 10:21:05 2007; luke

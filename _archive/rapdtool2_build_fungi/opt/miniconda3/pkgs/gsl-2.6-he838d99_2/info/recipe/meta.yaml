@@ -1,0 +1,76 @@
+# This file created by conda-build 3.21.4
+# meta.yaml template originally from:
+# /home/conda/recipe_root, last modified Fri Jan 15 20:21:20 2021
+# ------------------------------------------------
+
+package:
+  name: gsl
+  version: '2.6'
+source:
+  patches: null
+  sha256: b782339fc7a38fe17689cb39966c4d821236c28018b6593ddb6fd59ee40786a8
+  url: http://ftp.gnu.org/gnu/gsl/gsl-2.6.tar.gz
+build:
+  number: '2'
+  run_exports:
+    - gsl >=2.6,<2.7.0a0
+  string: he838d99_2
+requirements:
+  build:
+    - _libgcc_mutex 0.1 conda_forge
+    - _openmp_mutex 4.5 1_gnu
+    - autoconf 2.69 pl5320h36c2ea0_10
+    - automake 1.16.2 pl5320ha770c72_3
+    - binutils_impl_linux-64 2.35.1 h193b22a_1
+    - binutils_linux-64 2.35 hc3fd857_29
+    - gcc_impl_linux-64 9.3.0 h70c0ae5_18
+    - gcc_linux-64 9.3.0 h7247604_29
+    - kernel-headers_linux-64 2.6.32 h77966d4_13
+    - ld_impl_linux-64 2.35.1 hea4e1c9_1
+    - libgcc-devel_linux-64 9.3.0 h7864c58_18
+    - libgcc-ng 9.3.0 h2828fa1_18
+    - libgomp 9.3.0 h2828fa1_18
+    - libstdcxx-ng 9.3.0 h6de172a_18
+    - libtool 2.4.6 h58526e2_1007
+    - m4 1.4.18 h516909a_1001
+    - make 4.3 hd18ef5c_1
+    - perl 5.32.0 h36c2ea0_0
+    - sysroot_linux-64 2.12 h77966d4_13
+  host:
+    - _libgcc_mutex 0.1 conda_forge
+    - _openmp_mutex 4.5 1_gnu
+    - libblas 3.8.0 11_h86c2bf4_netlib
+    - libcblas 3.8.0 11_h86c2bf4_netlib
+    - libgcc-ng 9.3.0 h2828fa1_18
+    - libgfortran-ng 9.3.0 hff62375_18
+    - libgfortran5 9.3.0 hff62375_18
+    - libgomp 9.3.0 h2828fa1_18
+  run:
+    - libblas >=3.8.0,<4.0a0
+    - libcblas >=3.8.0,<4.0a0
+    - libgcc-ng >=9.3.0
+test:
+  commands:
+    - gsl-config --prefix
+    - ls -al $PREFIX/lib/libgsl${SHLIB_EXT}
+    - ls -al $PREFIX/lib/libgslcblas${SHLIB_EXT}
+    - ls -al $PREFIX/lib/libgslcblas.so.0
+    - ls -al $PREFIX/lib/libgsl.so.*
+  files:
+    - test
+  requires:
+    - gcc_linux-64 9.*
+about:
+  home: http://www.gnu.org/software/gsl/
+  license: GPL-3.0-or-later
+  license_file:
+    - COPYING
+  summary: GNU Scientific Library
+extra:
+  copy_test_source_files: true
+  final: true
+  recipe-maintainers:
+    - kwilcox
+    - mingwandroid
+    - ocefpaf
+    - traversaro

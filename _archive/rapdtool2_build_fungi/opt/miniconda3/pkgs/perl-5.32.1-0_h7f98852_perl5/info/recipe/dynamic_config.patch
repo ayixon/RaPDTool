@@ -1,0 +1,45 @@
+--- ./Config.pm	2019-04-12 12:06:41.126189114 +0200
++++ ./Config.pm	2019-04-12 12:08:19.216265962 +0200
+@@ -107,6 +107,18 @@
+     die "&Config::AUTOLOAD failed on $Config::AUTOLOAD";
+ }
+ 
++use File::Basename;
++my $compilerroot = "";
++if (length $ENV{'CC'}) {
++  $compilerroot = dirname($ENV{'CC'})."/../";
++}
++elsif (length $ENV{'PREFIX'}) {
++  $compilerroot = $ENV{'PREFIX'}."/";
++}
++elsif (length $ENV{'_'}) {
++  $compilerroot = dirname($ENV{'_'})."/../";
++}
++
+ # tie returns the object, so the value returned to require will be true.
+ tie %Config, 'Config', {
+     archlibexp => relocate_inc('.../../lib/5.26.3/x86_64-linux-thread-multi'),
+--- ./Config_heavy.pl	2019-04-12 12:09:22.904665516 +0200
++++ ./Config_heavy.pl	2019-04-12 12:10:10.280218802 +0200
+@@ -171,8 +171,20 @@
+     $summary_expanded;
+ }
+ 
++use File::Basename;
++my $compilerroot = "";
++if (length $ENV{'CC'}) {
++  $compilerroot = dirname($ENV{'CC'})."/../";
++}
++elsif (length $ENV{'PREFIX'}) {
++  $compilerroot = $ENV{'PREFIX'}."/";
++}
++elsif (length $ENV{'_'}) {
++  $compilerroot = dirname($ENV{'_'})."/../";
++}
++
+ local *_ = \my $a;
+-$_ = <<'!END!';
++$_ = <<"!END!";
+ Author=''
+ CONFIG='true'
+ Date=''

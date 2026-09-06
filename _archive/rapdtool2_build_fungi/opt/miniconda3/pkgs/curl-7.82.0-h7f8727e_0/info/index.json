@@ -1,0 +1,16 @@
+{
+  "arch": "x86_64",
+  "build": "h7f8727e_0",
+  "build_number": 0,
+  "depends": [
+    "libcurl 7.82.0 h0b77cf5_0",
+    "libgcc-ng >=7.5.0"
+  ],
+  "license": "curl",
+  "license_family": "MIT",
+  "name": "curl",
+  "platform": "linux",
+  "subdir": "linux-64",
+  "timestamp": 1649731358187,
+  "version": "7.82.0"
+}

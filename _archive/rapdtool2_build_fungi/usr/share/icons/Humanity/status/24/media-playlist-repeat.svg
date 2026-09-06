@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+<svg id="svg7854" width="24" height="24" version="1.0" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+ <defs id="defs7856">
+  <linearGradient id="linearGradient4117" x1="22.147" x2="22.402" y1="15.722" y2="34.612" gradientUnits="userSpaceOnUse">
+   <stop id="stop4113" style="stop-color:#fff" offset="0"/>
+   <stop id="stop4115" style="stop-color:#fff;stop-opacity:0" offset="1"/>
+  </linearGradient>
+  <linearGradient id="linearGradient3696" x1="15" x2="15" y1="2" y2="21" gradientUnits="userSpaceOnUse">
+   <stop id="stop3700" style="stop-color:#eeeeec" offset="0"/>
+   <stop id="stop3702" style="stop-color:#babdb6" offset=".7922"/>
+   <stop id="stop3704" style="stop-color:#a1a59b" offset="1"/>
+  </linearGradient>
+ </defs>
+ <g id="layer1">
+  <path id="rect7213" d="m4.2095 4.4999c-2.0299 0-3.7097 1.6466-3.7097 3.6364v6.5909c0 1.9898 1.6798 3.7728 3.7097 3.7728h3.7905v-3h-3.7905c-0.43707 0-0.70953-0.34432-0.70953-0.77275v-6.5909c0-0.42843 0.27246-0.63631 0.70953-0.63631h15.581c0.43708 0 0.74195 0.20788 0.74195 0.63631v6.5909c0 0.42843-0.30488 0.77275-0.74195 0.77275h-3.2905v-2.2728l-5.6129 3.6364 5.6129 3.6364v-2h3.2905c2.0299 0 3.7097-1.783 3.7097-3.7728v-6.5909c0-1.9898-1.6798-3.6364-3.7097-3.6364h-15.581z" style="fill:url(#linearGradient3696);stroke-dashoffset:.7;stroke-linecap:round;stroke-linejoin:round;stroke:#888a86"/>
+  <path id="path7239" transform="matrix(.74195 0 0 .72728 -5.8068 -6.0456)" d="m13.5 15.75c-2.0449 0-3.75 1.7051-3.75 3.75v9.0625c0 2.0449 1.7051 3.75 3.75 3.75h3.75v-1.5h-3.75c-1.1716 0-2.25-1.0784-2.25-2.25v-9.0625c0-1.1716 1.0784-2.25 2.25-2.25h21c1.1716 0 2.25 1.0784 2.25 2.25v9.0625c0 1.1716-1.0784 2.25-2.25 2.25h-5c-0.68974-0.0015-0.78121-0.56026-0.7827-1.25v-0.625l-4.0611 2.5625 4.0611 2.5625v-0.5c0.0015-0.68974 0.09296-1.2485 0.7827-1.25h5c2.0449 0 3.75-1.7051 3.75-3.75v-9.0625c0-2.0449-1.7051-3.75-3.75-3.75h-21z" style="fill:none;opacity:.4;stroke-dashoffset:.7;stroke-linecap:round;stroke-width:1.0891;stroke:url(#linearGradient4117)"/>
+ </g>
+</svg>

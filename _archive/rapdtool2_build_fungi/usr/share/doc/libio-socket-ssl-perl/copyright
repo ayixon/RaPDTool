@@ -1,0 +1,42 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: IO-Socket-SSL
+Upstream-Contact: Steffen Ullrich <Steffen_Ullrich@genua.de>
+ Peter Behroozi <behrooz@fas.harvard.edu>
+ Marko Asplund <marko.asplund@kronodoc.fi>
+Source: https://metacpan.org/release/IO-Socket-SSL
+
+Files: *
+Copyright:
+ The original versions of this module are Copyright (C) 1999-2002 Marko Asplund.
+ The rewrite of this module is Copyright (C) 2002-2005 Peter Behroozi.
+ Versions 0.98 and newer are Copyright (C) 2006-2014 Steffen Ullrich.
+License: Artistic or GPL-1+
+
+Files: debian/*
+Copyright: 2000-2004, Davide Puricelli (evo) <evo@debian.org>
+ 2000, Christian Surchi <csurchi@debian.org>
+ 2005-2007, Florian Ragwitz <rafl@debian.org>
+ 2008-2009, Ansgar Burchardt <ansgar@debian.org>
+ 2008-2022, gregor herrmann <gregoa@debian.org>
+ 2008, Mark Hymers <mhy@debian.org>
+ 2008, Rene Mayorga <rmayorga@debian.org.sv>
+ 2009, Antonio Radici <antonio@dyne.org>
+ 2009-2021, Salvatore Bonaccorso <carnil@debian.org>
+ 2010-2011, 2014, Angel Abad <angel@debian.org>
+License: Artistic or GPL-1+
+
+License: Artistic
+ This program is free software; you can redistribute it and/or modify
+ it under the terms of the Artistic License, which comes with Perl.
+ .
+ On Debian systems, the complete text of the Artistic License can be
+ found in `/usr/share/common-licenses/Artistic'.
+
+License: GPL-1+
+ This program is free software; you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation; either version 1, or (at your option)
+ any later version.
+ .
+ On Debian systems, the complete text of version 1 of the GNU General
+ Public License can be found in `/usr/share/common-licenses/GPL-1'.

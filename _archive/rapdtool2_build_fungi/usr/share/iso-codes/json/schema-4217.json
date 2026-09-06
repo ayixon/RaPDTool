@@ -1,0 +1,36 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+
+  "title": "ISO 4217",
+  "description": "ISO 4217 language family and groups codes",
+  "type": "object",
+
+  "properties": {
+	"4217": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "alpha_3": {
+            "description": "Three letter code of the currency",
+            "type": "string",
+            "pattern": "^[A-Z]{3}$"
+          },
+          "name": {
+            "description": "Name of currency",
+            "type": "string",
+            "minLength": 1
+          },
+          "numeric": {
+            "description": "Three digit numeric code of the item, including leading zeros",
+            "type": "string",
+            "pattern": "^[0-9]{3}$"
+          }
+        },
+        "required": ["alpha_3", "name", "numeric"],
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,15 @@
+1.4.3
+- bug fix
+
+1.4.0
+- Binning_refiner can now supports MORE THAN THREE binning programs
+
+1.3.0
+- Binning_refiner can be installed with "pip install Binning_refiner" now.
+
+1.2.0
+- Binning_refiner has been simplified to keep only the core functions, which made it much easier to install and use, hope you enjoy it :)
+
+1.0.0
+- initial release
+

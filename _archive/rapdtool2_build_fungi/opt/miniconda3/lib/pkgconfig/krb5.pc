@@ -1,0 +1,14 @@
+prefix=/opt/miniconda3
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include
+vendor=MIT
+
+defccname=FILE:/tmp/krb5cc_%{uid}
+defktname=FILE:/etc/krb5.keytab
+defcktname=FILE:/opt/miniconda3/var/krb5/user/%{euid}/client.keytab
+
+Name: krb5
+Description: An implementation of Kerberos network authentication
+Version: 1.19.2
+Requires: mit-krb5

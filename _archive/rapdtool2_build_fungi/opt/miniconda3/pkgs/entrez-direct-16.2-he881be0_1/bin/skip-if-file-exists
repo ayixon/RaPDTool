@@ -1,0 +1,12 @@
+#!/bin/sh
+
+# Public domain notice for all NCBI EDirect scripts is located at:
+# https://www.ncbi.nlm.nih.gov/books/NBK179288/#chapter6.Public_Domain_Notice
+
+while read fl
+do
+  if [ ! -f "$fl" ]
+  then
+    echo "$fl"
+  fi
+done

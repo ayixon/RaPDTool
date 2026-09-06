@@ -1,0 +1,28 @@
+{
+  "arch": "x86_64",
+  "build": "pthreads_h8fe5266_1",
+  "build_number": 1,
+  "channel": "https://conda.anaconda.org/conda-forge/linux-64",
+  "constrains": [
+    "openblas >=0.3.17,<0.3.18.0a0"
+  ],
+  "depends": [
+    "libgcc-ng >=9.3.0",
+    "libgfortran-ng",
+    "libgfortran5 >=9.3.0"
+  ],
+  "features": "",
+  "fn": "libopenblas-0.3.17-pthreads_h8fe5266_1.tar.bz2",
+  "license": "BSD-3-Clause",
+  "license_family": "BSD",
+  "md5": "7f96c04618e952e0f9d94d5e07545a71",
+  "name": "libopenblas",
+  "platform": "linux",
+  "sha256": "86fcb9de14a90a03539df04cbe83a085457e81aa14a45c9302223780940aa09f",
+  "size": 9620567,
+  "subdir": "linux-64",
+  "timestamp": 1627367370640,
+  "track_features": "",
+  "url": "https://conda.anaconda.org/conda-forge/linux-64/libopenblas-0.3.17-pthreads_h8fe5266_1.tar.bz2",
+  "version": "0.3.17"
+}

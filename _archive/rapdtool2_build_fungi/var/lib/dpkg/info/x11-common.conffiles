@@ -1,0 +1,15 @@
+/etc/X11/Xreset
+/etc/X11/Xreset.d/README
+/etc/X11/Xresources/x11-common
+/etc/X11/Xsession
+/etc/X11/Xsession.d/20x11-common_process-args
+/etc/X11/Xsession.d/30x11-common_xresources
+/etc/X11/Xsession.d/35x11-common_xhost-local
+/etc/X11/Xsession.d/40x11-common_xsessionrc
+/etc/X11/Xsession.d/50x11-common_determine-startup
+/etc/X11/Xsession.d/60x11-common_xdg_path
+/etc/X11/Xsession.d/90x11-common_ssh-agent
+/etc/X11/Xsession.d/99x11-common_start
+/etc/X11/Xsession.options
+/etc/X11/rgb.txt
+/etc/init.d/x11-common

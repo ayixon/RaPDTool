@@ -1,0 +1,11 @@
+/.
+/usr
+/usr/share
+/usr/share/distro-info
+/usr/share/distro-info/debian.csv
+/usr/share/distro-info/ubuntu.csv
+/usr/share/doc
+/usr/share/doc/distro-info-data
+/usr/share/doc/distro-info-data/README.Debian
+/usr/share/doc/distro-info-data/changelog.gz
+/usr/share/doc/distro-info-data/copyright

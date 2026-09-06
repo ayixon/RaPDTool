@@ -1,0 +1,9 @@
+{
+  "noarch": {
+    "entry_points": [
+      "conda-content-trust = conda_content_trust.cli:cli"
+    ],
+    "type": "python"
+  },
+  "package_metadata_version": 1
+}

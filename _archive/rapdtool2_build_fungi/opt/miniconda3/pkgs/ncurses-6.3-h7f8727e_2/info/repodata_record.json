@@ -1,0 +1,23 @@
+{
+  "build": "h7f8727e_2",
+  "build_number": 2,
+  "channel": "https://repo.anaconda.com/pkgs/main/linux-64",
+  "constrains": [],
+  "depends": [
+    "libgcc-ng >=7.5.0"
+  ],
+  "features": "",
+  "fn": "ncurses-6.3-h7f8727e_2.conda",
+  "legacy_bz2_md5": "fca4bd4e3891aebf4fd7daf9b6d0ccfa",
+  "legacy_bz2_size": 1083412,
+  "license": "Free software (MIT-like)",
+  "md5": "4edf660a09cc7adcb21120464b2a1783",
+  "name": "ncurses",
+  "sha256": "c1a4de3a57e4ed4f2a02b71dc722a0dde18fda80838a7d4aaeaefd834f8fbea2",
+  "size": 800937,
+  "subdir": "linux-64",
+  "timestamp": 1636570020698,
+  "track_features": "",
+  "url": "https://repo.anaconda.com/pkgs/main/linux-64/ncurses-6.3-h7f8727e_2.conda",
+  "version": "6.3"
+}
