@@ -1010,7 +1010,6 @@
 0.719686	1/1000	1	0.00887033	GCA_023016525.1_ASM2301652v1_genomic.fna	[19 seqs] JALKCG010000010.1 Ancylobacter koreensis strain Jip08 NODE_10_length_91018_cov_71.377970, whole genome shotgun sequence [...]
 0.719686	1/1000	1	0.00887033	GCA_023035875.1_ASM2303587v1_genomic.fna	[23 seqs] CP075379.1 Borrelia puertoricensis strain SUM chromosome, complete genome [...]
 0.743837	2/1000	1	3.94189e-05	GCA_023038235.1_ASM2303823v1_genomic.fna	[2 seqs] CP081987.1 Shinella oryzae strain Z-25 chromosome, complete genome [...]
-0.719686	1/1000	1	0.00887033	GCA_023051225.1_ASM2305122v1_genomic.fna	[28 seqs] JALKHS010000001.1 Sphingobium agri strain MAH-33 platanus_K_25_97_1, whole genome shotgun sequence [...]
 0.719686	1/1000	1	0.00887033	GCA_023149135.1_ASM2314913v1_genomic.fna	[4 seqs] JAIWJX010000001.1 Fictibacillus marinisediminis strain KIGAM418 KIGAM418_1, whole genome shotgun sequence [...]
 0.719686	1/1000	1	0.00887033	GCA_023204835.1_ASM2320483v1_genomic.fna	CP096270.1 Salinarchaeum laminariae strain R26 chromosome
 0.719686	1/1000	2	0.00887033	GCA_023218175.1_ASM2321817v1_genomic.fna	[68 seqs] JALPTH010000001.1 Streptomyces lichenis strain LCR6-01 1, whole genome shotgun sequence [...]
@@ -1305,8 +1304,6 @@
 0.719686	1/1000	1	0.00887033	GCA_041379765.1_ASM4137976v1_genomic.fna	CP166919.1 Thalassotalea sp. Sam97 chromosome, complete genome
 0.719686	1/1000	1	0.00887033	GCA_041380015.1_ASM4138001v1_genomic.fna	CP159978.1 Buchananella sp. 22MD1512 chromosome, complete genome
 0.719686	1/1000	1	0.00887033	GCA_041477585.1_ASM4147758v1_genomic.fna	[2 seqs] JBGNYA010000001.1 Halobellus sp. MBLA0158 contig.1.cir, whole genome shotgun sequence [...]
-0.719686	1/1000	1	0.00887033	GCA_041504555.1_UiB_H21_rna_from_genomic.fna	[57 seqs] lcl|CP126499.1_trna_QO059_00120_1 [locus_tag=QO059_00120] [product=tRNA-Ala] [location=28350..28426] [gbkey=tRNA] [...]
-0.806739	11/1000	1	6.60619e-31	GCA_041505935.1_Fervidobacterium_thailandense_FC2004_rna_from_genomic.fna	[57 seqs] lcl|CP140110.1_trna_U0O82_00510_1 [locus_tag=U0O82_00510] [product=tRNA-Glu] [location=109188..109263] [gbkey=tRNA] [...]
 0.743837	2/1000	2	3.94189e-05	GCA_041877245.1_ASM4187724v1_genomic.fna	[38 seqs] JBHDJI010000001.1 Sphingobium sp. sgz301304 L176_scaffold1, whole genome shotgun sequence [...]
 0.719686	1/1000	1	0.00887033	GCA_041927815.1_ASM4192781v1_genomic.fna	[27 seqs] JBHFHM010000001.1 Paracoccus sp. p3-h83 NODE_1_length_557013_cov_174.131485, whole genome shotgun sequence [...]
 0.719686	1/1000	1	0.00887033	GCA_041928815.1_ASM4192881v1_genomic.fna	[67 seqs] JBHFEI010000001.1 Ciceribacter sp. sgz301302 L159_scaffold1, whole genome shotgun sequence [...]
@@ -1333,6 +1330,7 @@
 0.719686	1/1000	1	0.00887033	GCA_042648625.1_ASM4264862v1_genomic.fna	[14 seqs] JBHRXP010000001.1 Sphingomonas hylomeconis strain KCTC 42739 platanus_K_default_1, whole genome shotgun sequence [...]
 0.719686	1/1000	1	0.00887033	GCA_042648745.1_ASM4264874v1_genomic.fna	[134 seqs] JBHRXY010000001.1 Paracoccus angustae strain KCTC 42473 spades_K_21_77_1, whole genome shotgun sequence [...]
 0.719686	1/1000	1	0.00887033	GCA_042649105.1_ASM4264910v1_genomic.fna	[16 seqs] JBHRYP010000001.1 Sphingopyxis italica strain CECT 8016 velvet_auto_83_1, whole genome shotgun sequence [...]
+0.719686	1/1000	1	0.00887033	GCA_042649325.1_ASM4264932v1_genomic.fna	[28 seqs] JBHRZB010000001.1 Sphingobium sp. GCM10012300 strain CGMCC 1.16609 GCM70012300_26, whole genome shotgun sequence [...]
 0.719686	1/1000	1	0.00887033	GCA_042650125.1_ASM4265012v1_genomic.fna	[19 seqs] JBHSAP010000001.1 Salinithrix halophila strain IBRC-M 10813 velvet_auto_105_1, whole genome shotgun sequence [...]
 0.719686	1/1000	1	0.00887033	GCA_042650625.1_ASM4265062v1_genomic.fna	[89 seqs] JBHSBM010000001.1 Planomonospora corallina strain TBRC 4489 GCM70011548_50, whole genome shotgun sequence [...]
 0.743837	2/1000	1	3.94189e-05	GCA_042651005.1_ASM4265100v1_genomic.fna	[3 seqs] JBHSCE010000001.1 Acinetobacter pseudolwoffii strain CCM 8638 contig_1, whole genome shotgun sequence [...]

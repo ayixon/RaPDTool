@@ -1,16 +1,16 @@
-[2026-07-28 02:34:20,535 - INFO] FOCUS: An Agile Profiler for Metagenomic Data - version 1.8
-[2026-07-28 02:34:20,535 - INFO] 1) Loading reference database
-[2026-07-28 02:34:24,614 - INFO] 2) Reference database was loaded with 27682 reference genomes
-[2026-07-28 02:34:24,617 - INFO] 3.1) Working on: /free/programs/RaPDTool/examples/rapdtool_scaff_non_virus_screen/inputfmbm/scaff_non_virus.fasta
-[2026-07-28 02:34:24,617 - INFO]    Counting k-mers
-[2026-07-28 02:34:24,876 - INFO]    Running FOCUS
-[2026-07-28 02:34:38,763 - INFO] 5) Writing results to /free/programs/RaPDTool/examples/rapdtool_scaff_non_virus_screen/profilesfmbm/scaff_non_virus
-[2026-07-28 02:34:38,769 - INFO]   5.1) Working on Kingdom
-[2026-07-28 02:34:38,787 - INFO]   5.2) Working on Phylum
-[2026-07-28 02:34:38,804 - INFO]   5.3) Working on Class
-[2026-07-28 02:34:38,823 - INFO]   5.4) Working on Order
-[2026-07-28 02:34:38,844 - INFO]   5.5) Working on Family
-[2026-07-28 02:34:38,870 - INFO]   5.6) Working on Genus
-[2026-07-28 02:34:38,903 - INFO]   5.7) Working on Species
-[2026-07-28 02:34:38,964 - INFO]   5.8) Working on Strain
-[2026-07-28 02:34:39,030 - INFO] Done
+[2026-09-07 15:30:06,902 - INFO] FOCUS: An Agile Profiler for Metagenomic Data - version 1.8
+[2026-09-07 15:30:06,902 - INFO] 1) Loading reference database
+[2026-09-07 15:30:11,159 - INFO] 2) Reference database was loaded with 27682 reference genomes
+[2026-09-07 15:30:11,162 - INFO] 3.1) Working on: /free/programs/RaPDTool/examples/rapdtool232_scaff_non_virus_screen/inputfmbm/scaff_non_virus.fasta
+[2026-09-07 15:30:11,162 - INFO]    Counting k-mers
+[2026-09-07 15:30:11,468 - INFO]    Running FOCUS
+[2026-09-07 15:30:25,993 - INFO] 5) Writing results to /free/programs/RaPDTool/examples/rapdtool232_scaff_non_virus_screen/profilesfmbm/scaff_non_virus
+[2026-09-07 15:30:26,000 - INFO]   5.1) Working on Kingdom
+[2026-09-07 15:30:26,018 - INFO]   5.2) Working on Phylum
+[2026-09-07 15:30:26,037 - INFO]   5.3) Working on Class
+[2026-09-07 15:30:26,056 - INFO]   5.4) Working on Order
+[2026-09-07 15:30:26,077 - INFO]   5.5) Working on Family
+[2026-09-07 15:30:26,101 - INFO]   5.6) Working on Genus
+[2026-09-07 15:30:26,133 - INFO]   5.7) Working on Species
+[2026-09-07 15:30:26,194 - INFO]   5.8) Working on Strain
+[2026-09-07 15:30:26,261 - INFO] Done

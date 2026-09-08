@@ -1,32 +1,16 @@
-[2026-07-17 19:19:46,846 - INFO] FOCUS: An Agile Profiler for Metagenomic Data - version 1.8
-[2026-07-17 19:19:46,846 - INFO] 1) Loading reference database
-[2026-07-17 19:19:51,017 - INFO] 2) Reference database was loaded with 27682 reference genomes
-[2026-07-17 19:19:51,020 - INFO] 3.1) Working on: /free/programs/RaPDTool/examples/rapdtool_scaff_non_virus_full/inputfmbm/scaff_non_virus.fasta
-[2026-07-17 19:19:51,020 - INFO]    Counting k-mers
-[2026-07-17 19:19:51,292 - INFO]    Running FOCUS
-[2026-07-17 19:20:05,269 - INFO] 5) Writing results to /free/programs/RaPDTool/examples/rapdtool_scaff_non_virus_full/profilesfmbm/scaff_non_virus
-[2026-07-17 19:20:05,275 - INFO]   5.1) Working on Kingdom
-[2026-07-17 19:20:05,293 - INFO]   5.2) Working on Phylum
-[2026-07-17 19:20:05,310 - INFO]   5.3) Working on Class
-[2026-07-17 19:20:05,329 - INFO]   5.4) Working on Order
-[2026-07-17 19:20:05,349 - INFO]   5.5) Working on Family
-[2026-07-17 19:20:05,375 - INFO]   5.6) Working on Genus
-[2026-07-17 19:20:05,410 - INFO]   5.7) Working on Species
-[2026-07-17 19:20:05,470 - INFO]   5.8) Working on Strain
-[2026-07-17 19:20:05,536 - INFO] Done
-[2026-07-28 02:31:10,997 - INFO] FOCUS: An Agile Profiler for Metagenomic Data - version 1.8
-[2026-07-28 02:31:10,997 - INFO] 1) Loading reference database
-[2026-07-28 02:31:15,073 - INFO] 2) Reference database was loaded with 27682 reference genomes
-[2026-07-28 02:31:15,075 - INFO] 3.1) Working on: /free/programs/RaPDTool/examples/rapdtool_scaff_non_virus_full/inputfmbm/scaff_non_virus.fasta
-[2026-07-28 02:31:15,075 - INFO]    Counting k-mers
-[2026-07-28 02:31:15,342 - INFO]    Running FOCUS
-[2026-07-28 02:31:29,042 - INFO] 5) Writing results to /free/programs/RaPDTool/examples/rapdtool_scaff_non_virus_full/profilesfmbm/scaff_non_virus
-[2026-07-28 02:31:29,049 - INFO]   5.1) Working on Kingdom
-[2026-07-28 02:31:29,067 - INFO]   5.2) Working on Phylum
-[2026-07-28 02:31:29,086 - INFO]   5.3) Working on Class
-[2026-07-28 02:31:29,105 - INFO]   5.4) Working on Order
-[2026-07-28 02:31:29,126 - INFO]   5.5) Working on Family
-[2026-07-28 02:31:29,150 - INFO]   5.6) Working on Genus
-[2026-07-28 02:31:29,183 - INFO]   5.7) Working on Species
-[2026-07-28 02:31:29,243 - INFO]   5.8) Working on Strain
-[2026-07-28 02:31:29,308 - INFO] Done
+[2026-09-07 15:32:17,553 - INFO] FOCUS: An Agile Profiler for Metagenomic Data - version 1.8
+[2026-09-07 15:32:17,553 - INFO] 1) Loading reference database
+[2026-09-07 15:32:21,820 - INFO] 2) Reference database was loaded with 27682 reference genomes
+[2026-09-07 15:32:21,823 - INFO] 3.1) Working on: /free/programs/RaPDTool/examples/rapdtool232_scaff_non_virus_full/inputfmbm/scaff_non_virus.fasta
+[2026-09-07 15:32:21,823 - INFO]    Counting k-mers
+[2026-09-07 15:32:22,072 - INFO]    Running FOCUS
+[2026-09-07 15:32:36,724 - INFO] 5) Writing results to /free/programs/RaPDTool/examples/rapdtool232_scaff_non_virus_full/profilesfmbm/scaff_non_virus
+[2026-09-07 15:32:36,730 - INFO]   5.1) Working on Kingdom
+[2026-09-07 15:32:36,748 - INFO]   5.2) Working on Phylum
+[2026-09-07 15:32:36,766 - INFO]   5.3) Working on Class
+[2026-09-07 15:32:36,785 - INFO]   5.4) Working on Order
+[2026-09-07 15:32:36,806 - INFO]   5.5) Working on Family
+[2026-09-07 15:32:36,833 - INFO]   5.6) Working on Genus
+[2026-09-07 15:32:36,865 - INFO]   5.7) Working on Species
+[2026-09-07 15:32:36,926 - INFO]   5.8) Working on Strain
+[2026-09-07 15:32:36,994 - INFO] Done

@@ -1,13 +1,19 @@
 
+# Genus detected (mash screen, beyond the species distance cutoff):
+
+Genus	Closest-species	taxID	Mash-distance	ANI-est	Shared-hashes
+Faucicola	Faucicola osloensis	34062	0.0466	0.9478	367/1000
+Sphingomonas	Sphingomonas lacusdianchii	2917992	0.0919	0.8971	132/1000
+Moraxella	Moraxella tetraodonis	2767221	0.0926	0.8963	130/1000
+Novosphingobium	Novosphingobium silvae	2692619	0.1298	0.8546	54/1000
+
 # Reference genomes detected (mash screen):
 
-Species	taxID	Identity	Shared-hashes
-Acinetobacter junii	40215	0.9866	754/1000
-Brevibacterium gallinarum	2762220	0.9694	521/1000
-Acinetobacter yuyunsongii	3157368	0.9684	510/1000
-Sphingobium salicis	3591446	0.9658	482/1000
-Faucicola osloensis	34062	0.9534	367/1000
-Acinetobacter parvus	134533	0.9530	364/1000
+Species	taxID	Mash-distance	ANI-est	Shared-hashes
+Acinetobacter junii	40215	0.0134	0.9850	754/1000
+Brevibacterium gallinarum	2762220	0.0306	0.9657	521/1000
+Acinetobacter yuyunsongii	3157368	0.0316	0.9646	510/1000
+Sphingobium salicis	3591446	0.0342	0.9617	482/1000
 
 # FOCUS profile (be cautious at species taxonomic level):
 
@@ -36,8 +42,8 @@ Loktanella_gaetbuli	1.32
 Sphingomonas_hankookensis	1.28
 Helicobacter_gastrofelis	1.27
 Proteiniclasticum_aestuarii	1.27
-Dactylococcopsis_salina	1.25
 Moraxella_nonliquefaciens	1.25
+Dactylococcopsis_salina	1.25
 Halocynthiibacter_namhaensis	1.25
 Acinetobacter_apis	1.19
 Pseudaquabacterium_terrae	1.18
@@ -52,8 +58,8 @@ Helicobacter_macacae	0.97
 Marivivens_niveibacter	0.93
 Methylibium_rhizosphaerae	0.84
 Candidatus_Hepatobacter_penaei	0.80
-Sphingopyxis_terrae	0.76
 Amylibacter_marinus	0.76
+Sphingopyxis_terrae	0.76
 Bovifimicola_ammoniilytica	0.75
 Paracoccus_contaminans	0.70
 Nasibacterium_caprae	0.69
